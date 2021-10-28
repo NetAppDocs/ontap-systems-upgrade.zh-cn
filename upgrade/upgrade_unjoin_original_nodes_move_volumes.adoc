@@ -1,0 +1,81 @@
+---
+permalink: upgrade/upgrade-unjoin-original-nodes-move-volumes.html 
+sidebar: sidebar 
+keywords: volume, move, node, unjoin, original, cluster, configuration, disk, initialize, unjoin the original nodes from the cluster 
+summary: 将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都将初始化。 
+---
+= 从集群中取消原始节点的加入
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都会初始化。
+
+.步骤
+. 在原始节点上禁用高可用性配置： `storage failover modify -node original_node_name -enabled false`
+. 访问高级权限级别：
++
+`set -privilege advanced`
+
+. 确定具有 epsilon 的节点：
++
+`cluster show`
+
++
+在以下示例中， "node0" 当前持有 epsilon ：
+
++
+[listing]
+----
+cluster::*>
+Node                 Health  Eligibility  Epsilon
+-------------------- ------- ------------ ------------
+node0                true    true         true
+node1                true    true         false
+node2                true    true         false
+node3                true    true         false
+----
+. 如果原始节点之一持有 epsilon ，请将 epsilon 移动到其他节点：
++
+.. 从原始节点中删除 epsilon ： + `cluster modify -node original_node_name -epsilon false`
+.. 将 epsilon 分配给其他节点： + `cluster modify -node new_node_name -epsilon true`
+
+
+. 从将保留在集群中的节点中，取消每个原始节点与集群的连接（高级权限级别）：
++
+`cluster unjoin -node original_node_name`
+
++
+系统将显示类似于以下内容的消息：
+
++
+[listing]
+----
+Warning: This command will unjoin node node_name from the cluster. You
+         must unjoin the failover partner as well. After the node is
+         successfully unjoined, erase its configuration and initialize all
+         disks by using the "Clean configuration and initialize all disks (4)"
+         option from the boot menu.
+         Do you want to continue? {y|n}: y
+----
+. 输入 `y` 以继续。
++
+未加入的节点将自动重新启动并停留在启动菜单处。
+
+. 从未加入的节点的启动菜单中，选择选项 * （ 4 ） Clean configuration and initialize all disks* 以擦除节点的配置并初始化所有磁盘。
++
+系统将显示类似于以下内容的消息：
+
++
+[listing]
+----
+Zero disks, reset config and install a new file system?:
+This will erase all the data on the disks, are you sure?:
+----
+. 在两个提示符处输入 `y` 。
+. 如果集群只剩下两个节点，请为双节点集群配置高可用性：
++
+`cluster ha modify -configured true`
+
+

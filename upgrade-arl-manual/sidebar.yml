@@ -1,0 +1,131 @@
+---
+section: upgrade-arl-manual
+title: 使用聚合重新定位手动升级运行 ONTAP 9.7 或更早版本的控制器硬件
+url: "/upgrade-arl-manual/index.html"
+entries:
+- title: 确定是否使用聚合重新定位指南
+  url: "/upgrade-arl-manual/decide_to_use_arl_guide.html"
+- title: ARL 升级工作流
+  url: "/upgrade-arl-manual/arl_upgrade_workflow.html"
+- title: 使用 ARL 升级控制器的准则
+  url: "/upgrade-arl-manual/guidelines_upgrade_with_arl.html"
+- title: 所需的工具和文档
+  url: "/upgrade-arl-manual/required_tools_documentation.html"
+- title: 工作表：在控制器升级之前和期间收集的信息
+  url: "/upgrade-arl-manual/worksheet_information_before_during_upgrade.html"
+- title: 重新配置 ONTAP 9.1 或更高版本的 FC 交换机布局
+  url: "/upgrade-arl-manual/reconfig_fc_switch_layout.html"
+  entries:
+  - title: 在重新配置交换机之前发送自定义 AutoSupport 消息
+    url: "/upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html"
+  - title: 验证 MetroCluster 配置的运行状况。
+    url: "/upgrade-arl-manual/verify_health_mcc_config.html"
+  - title: 检查 MetroCluster 配置错误
+    url: "/upgrade-arl-manual/check_mcc_config_errors.html"
+  - title: 持久禁用交换机
+    url: "/upgrade-arl-manual/persist_disable_switches.html"
+  - title: 确定新的布线布局
+    url: "/upgrade-arl-manual/determine_new_cabling_layout.html"
+  - title: 应用 RCF 文件并重新对交换机进行布线
+    url: "/upgrade-arl-manual/apply_RCF_files_recable_switches.html"
+  - title: 持久启用交换机
+    url: "/upgrade-arl-manual/persist_enable_switches.html"
+  - title: 验证切换，修复和切回
+    url: "/upgrade-arl-manual/verify_swtichover_healing_switchback.html"
+- title: 升级节点对
+  url: "/upgrade-arl-manual/upgrade_node_pair.html"
+- title: 第 1 阶段：准备升级
+  url: "/upgrade-arl-manual/stage1_prepare_for_upgrade.html"
+  entries:
+  - title: 确定控制器是否在内部磁盘驱动器上具有聚合
+    url: "/upgrade-arl-manual/determine_aggregates_on_internal_drives.html"
+  - title: 准备要升级的节点
+    url: "/upgrade-arl-manual/prepare_nodes_for_upgrade.html"
+  - title: 获取用于存储加密的外部密钥管理服务器的 IP 地址
+    url: "/upgrade-arl-manual/get_address_key_management_server_encryption.html"
+  - title: 使用 KMIP 服务器管理身份验证
+    url: "/upgrade-arl-manual/manage_authentication_kmip.html"
+  - title: 使用板载密钥管理器管理身份验证
+    url: "/upgrade-arl-manual/manage_authentication_okm.html"
+  - title: 暂停 SnapMirror 关系
+    url: "/upgrade-arl-manual/quiesce_snapmirror_relationships.html"
+  - title: 准备网络启动
+    url: "/upgrade-arl-manual/prepare_for_netboot.html"
+- title: 第 2 阶段：重新定位和停用节点 1
+  url: "/upgrade-arl-manual/stage2_relocate_retire_node1.html"
+  entries:
+  - title: 将非根聚合从 node1 重新定位到 node2
+    url: "/upgrade-arl-manual/relocate_non_root_aggr_node1_node2.html"
+  - title: 将 node1 拥有的 NAS 数据 LIF 移动到 node2
+    url: "/upgrade-arl-manual/move_nas_lifs_node1_node2.html"
+  - title: 记录 node1 信息
+    url: "/upgrade-arl-manual/record_node1_information.html"
+  - title: 停用 node1
+    url: "/upgrade-arl-manual/retire_node1.html"
+- title: 第 3 阶段：安装并启动节点 3.
+  url: "/upgrade-arl-manual/stage_3_install_boot_node3.html"
+  entries:
+  - title: 安装并启动 node3
+    url: "/upgrade-arl-manual/install_boot_node3.html"
+  - title: 在 node3 上设置 FC 或 UTA/UTA2 配置
+    url: "/upgrade-arl-manual/set_fc_uta_uta2_config_node3.html"
+  - title: 将端口从 node1 映射到 node3
+    url: "/upgrade-arl-manual/map_ports_node1_node3.html"
+  - title: 验证 node3 安装
+    url: "/upgrade-arl-manual/verify_node3_installation.html"
+  - title: 将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
+    url: "/upgrade-arl-manual/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html"
+  - title: 将非根聚合从 node2 重新定位到 node3
+    url: "/upgrade-arl-manual/relocate_non_root_aggr_node2_node3.html"
+  - title: 将 Node2 拥有的 NAS 数据 LIF 移动到 Node3
+    url: "/upgrade-arl-manual/move_nas_lifs_node2_node3.html"
+- title: 第 4 阶段：记录信息并停用节点 2
+  url: "/upgrade-arl-manual/stage4_record_info_retire_node2.html"
+  entries:
+  - title: 记录 node2 信息
+    url: "/upgrade-arl-manual/record_node2_information.html"
+  - title: 停用 node2
+    url: "/upgrade-arl-manual/retire_node2.html"
+- title: 第 5 阶段：安装并启动节点 4
+  url: "/upgrade-arl-manual/stage5_install_boot_node4.html"
+  entries:
+  - title: 安装并启动节点 4.
+    url: "/upgrade-arl-manual/install_boot_node4.html"
+  - title: 在 node4 上设置 FC 或 UTA/UTA2 配置
+    url: "/upgrade-arl-manual/set_fc_uta_uta2_config_node4.html"
+  - title: 将端口从 node2 映射到 node4
+    url: "/upgrade-arl-manual/map_ports_node2_node4.html"
+  - title: 验证 node4 安装
+    url: "/upgrade-arl-manual/verify_node4_installation.html"
+  - title: 将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF
+    url: "/upgrade-arl-manual/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html"
+  - title: 将 node2 的非根聚合从 node3 重新定位到 node4
+    url: "/upgrade-arl-manual/relocate_node2_non_root_aggr_node3_node4.html"
+- title: 第 6 阶段：完成升级
+  url: "/upgrade-arl-manual/stage6_complete_upgrade.html"
+  entries:
+  - title: 确保新控制器设置正确
+    url: "/upgrade-arl-manual/ensure_controllers_set_up_correctly.html"
+  - title: 在新控制器模块上设置存储加密
+    url: "/upgrade-arl-manual/set_up_storage_encryption_new_controller.html"
+  - title: 在新控制器模块上设置 NetApp 卷加密
+    url: "/upgrade-arl-manual/set_up_netapp_encryption_on_new_controller.html"
+  - title: 停用旧系统
+    url: "/upgrade-arl-manual/decommission_old_system.html"
+  - title: 恢复 SnapMirror 操作
+    url: "/upgrade-arl-manual/resume_snapmirror_ops.html"
+- title: 故障排除
+  url: "/upgrade-arl-manual/troubleshoot.html"
+  entries:
+  - title: 聚合重新定位失败
+    url: "/upgrade-arl-manual/aggregate_relocation_failures.html"
+  - title: 重新启动，崩溃或重新启动
+    url: "/upgrade-arl-manual/reboots_panics_power_cycles.html"
+  - title: 操作步骤的多个阶段可能会出现的问题
+    url: "/upgrade-arl-manual/issues_multiple_stages_of_procedure.html"
+  - title: LIF 迁移失败
+    url: "/upgrade-arl-manual/lif_migration_failure.html"
+  - title: 升级后， LIF 位于无效端口上
+    url: "/upgrade-arl-manual/lifs_invalid_ports_after_upgrade.html"
+- title: 参考资料
+  url: "/upgrade-arl-manual/other_references.html"

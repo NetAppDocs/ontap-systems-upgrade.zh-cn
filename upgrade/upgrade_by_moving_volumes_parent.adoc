@@ -1,0 +1,25 @@
+---
+permalink: upgrade/upgrade-by-moving-volumes-parent.html 
+sidebar: sidebar 
+keywords: upgrade by moving volumes 
+summary: 如果要通过移动卷进行升级，请准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。 
+---
+= 通过移动卷升级控制器硬件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要通过移动卷进行升级，请准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。
+
+image::../media/workflow_for_upgrading_by_moving_volumes.gif[通过移动卷升级控制器硬件的工作流]
+
+.步骤
+. xref:upgrade-prepare-when-moving-volumes.adoc[移动卷时准备升级]
+. xref:upgrade-install-and-join-new-nodes-move-vols.adoc[安装新节点并将其加入集群]
+. xref:upgrade-create-aggregate-move-volumes.adoc[创建聚合并将卷移动到新节点]
+. xref:upgrade-move-lifs-to-new-nodes.adoc[将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点]
+. xref:upgrade-delete-san-lifs.adoc[从原始节点中删除 SAN LIF]
+. xref:upgrade-unjoin-original-nodes-move-volumes.adoc[从集群中取消原始节点的加入]
+. xref:upgrade-complete-move-volumes.adoc[完成升级]
+

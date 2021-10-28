@@ -1,0 +1,126 @@
+---
+permalink: upgrade/upgrade-shutdown-remove-original-nodes.html 
+sidebar: sidebar 
+keywords:  
+summary: 关闭并删除原始节点时，您必须发送有关升级的 AutoSupport 消息，销毁邮箱，关闭节点电源并卸下机箱。 
+---
+= 关闭原始节点
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+关闭并删除原始节点时，您必须发送有关升级的 AutoSupport 消息，销毁邮箱，关闭节点电源并卸下机箱。
+
+.步骤
+. 从 node1 和 node2 发送 AutoSupport 消息，以通知技术支持升级：
++
+`ssystem node AutoSupport invoke -node node_name -type all -message "MAINT=2h upgrading node_name from platform_original to platform_new"`
+
+. 在 node1 和 node2 上禁用高可用性或存储故障转移：
++
+[cols="1,2"]
+|===
+| 如果您有 ... | 输入 ... 
+
+
+ a| 
+双节点集群
+ a| 
+.. `cluster ha modify -configured false`
+.. `storage failover modify -node node_name -enabled false`
+
+
+
+
+ a| 
+包含两个以上节点的集群
+ a| 
+`storage failover modify -node node_name -enabled false`
+
+|===
+. 暂停节点：
++
+`ssystem node halt -node node_name`
+
++
+您可以使用 ` -ignore-quorum-warnings` 选项在重新启动过程中禁止仲裁检查。
+
+. 如果尚未连接，请连接到串行控制台。节点应位于 LOADER 提示符处。使用 `boot_ontap maint` 命令启动至维护模式。
++
+此时可能会显示一条消息，要求您确保配对节点已关闭或手动禁用配对节点上的接管。您可以输入 `yes` 继续。
+
+. [[shutdown_node_step5]] 记录每个原始节点的系统 ID ，该 ID 可通过维护模式下的磁盘所有权信息获取：
++
+`disk show -v`
+
++
+在将磁盘从原始节点分配给新节点时，您需要系统 ID 。
+
++
+[listing]
+----
+*> disk show -v
+Local System ID: 118049495
+DISK    OWNER               POOL    SERIAL NUMBER          HOME
+----    -----               ----    -------------          ----
+0a.33   node1 (118049495)   Pool0   3KS6BN970000973655KL   node1 (118049495)
+0a.32   node1 (118049495)   Pool0   3KS6BCKD000097363ZHK   node1 (118049495)
+0a.36   node1 (118049495)   Pool0   3KS6BL9H000097364W74   node1 (118049495)
+...
+----
+. 如果您使用的是 FC 或 CNA 端口配置，请在维护模式下显示此配置：
++
+`ucadmin show`
+
++
+您应记录命令输出以供日后参考。
+
++
+[listing]
+----
+*> ucadmin show
+Current Current Pending   Pending
+Adapter Mode    Type      Mode    Type    Status
+------- ------- --------- ------- ------- ------
+0e      fc      initiator -       -       online
+0f      fc      initiator -       -       online
+0g      cna     target    -       -       online
+0h      cna     target    -       -       online
+...
+----
+. 在维护模式下，销毁此节点 1 和节点 2 邮箱： +
++
+`m邮箱销毁本地`
+
++
+控制台将显示一条类似于以下内容的消息：
+
++
+[listing]
+----
+Destroying mailboxes forces a node to create new empty mailboxes, which
+clears any takeover state, removes all knowledge of out-of-date plexes and
+mirrored volumes, and will prevent management services from going online in
+2-node cluster HA configurations.
+Are you sure you want to destroy the local mailboxes?
+----
+. 当您看到类似以下内容的提示时，输入 `y` 以销毁邮箱：
++
+[listing]
+----
+.............Mailboxes destroyed
+Takeover On Reboot option will be set to ON after the node boots.
+This option is ON by default except on setups that have iSCSI or FCP license.
+Use "storage failover modify -node <nodename> -onreboot false" to turn it OFF.
+
+*>
+----
+. 退出维护模式：
++
+`halt`
+
+. 关闭 node1 和 node2 的电源，然后拔下它们的电源插头。
+. 标记并拔下节点 1 和节点 2 上的所有缆线。
+. 卸下包含 node1 和 node2 的机箱。
+

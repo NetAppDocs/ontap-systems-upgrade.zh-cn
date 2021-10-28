@@ -1,0 +1,100 @@
+---
+permalink: upgrade/upgrade-attach-shelves-reassign-disks.html 
+sidebar: sidebar 
+keywords: reassign, disk, belong, node1, node2, node3, node4, node, attach, storage, shelves, shelf, reassign, ownership, attach storage shelves reassign disk ownership 
+summary: 您必须将属于 node1 和 node2 的磁盘分别重新分配给 node3 和 node4 。 
+---
+= 连接存储架并重新分配磁盘所有权
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须将属于 node1 和 node2 的磁盘分别重新分配给 node3 和 node4 。
+
+您可以对 node3 和 node4 执行本节中的步骤，依次完成 node3 和 node4 上的每个步骤，然后再继续下一步。
+
+.步骤
+. 将存储架缆线从 node1/node2 连接到 node3/node4 。验证电源和磁盘架的物理连接。
+. 从 node3 LOADER 提示符处，启动到维护模式：
++
+`boot_ontap maint`
+
+. 显示 node3 的系统 ID ：
++
+`disk show -v`
+
++
+[listing]
+----
+*> disk show -v
+Local System ID: 101268854
+...
+----
++
+记下 node3 的系统 ID ，以便在下面的步骤 4 中使用。
+
+. 重新分配节点 1 的备用磁盘，属于根聚合的磁盘以及任何数据聚合：
++
+`dreassign -s _node1_sysid_ -d _node3_sysid_ -p _node2_sysID_`
+
++
+--
+** 参数 ` node1_sysid_` 是您在中记录的值 link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["关闭原始节点，步骤 5"]。
+** 仅当存在共享磁盘时，才指定参数 ` _-p partner_sysID_` 。
+
+
+[NOTE]
+====
+重新分配 node2 的备用磁盘，属于根聚合的磁盘以及任何数据聚合时，命令为：
+
+`dreassign -s node2_sysid -d node4_sysid -p node3_sysID`
+
+====
+--
++
+系统将显示类似于以下内容的消息：
+
++
+[listing]
+----
+Partner node must not be in Takeover mode during disk reassignment from maintenance mode.
+Serious problems could result!!
+Do not proceed with reassignment if the partner is in takeover mode. Abort reassignment (y/n)?n
+
+After the node becomes operational, you must perform a takeover and giveback of the HA partner node to ensure disk reassignment is successful.
+Do you want to continue (y/n)?y
+----
+. 输入 `y` 以继续。
++
+系统将显示类似于以下内容的消息：
+
++
+[listing]
+----
+The system displays the following message:
+Disk ownership will be updated on all disks previously belonging to Filer with sysid
+<sysid>.
+Do you want to continue (y/n)? y
+----
+. 输入 `y` 以继续。
+. 确保在选项字段中将 node1 的根聚合设置为 `root` ，并且其他聚合处于联机状态：
++
+`聚合状态`
+
++
+您应看到类似于以下内容的输出：
+
++
+[listing]
+----
+*> aggr status
+           Aggr State           Status                Options
+          aggr0 online          raid_dp, aggr         root
+                                64-bit
+----
+. 退出维护模式：
++
+`halt`
+
+

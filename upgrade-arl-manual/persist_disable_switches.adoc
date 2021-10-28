@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/persist_disable_switches.html 
+keywords: disable, switches, fabric, persistent, modify, configuration, configure 
+summary: 持久禁用网络结构中的交换机，以便修改其配置。 
+---
+= 永久禁用交换机
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您必须持久禁用网络结构中的交换机，以便修改其配置。
+
+您可以通过在交换机命令行上运行命令来禁用交换机；用于此操作的命令不是 ONTAP 命令。
+
+持久禁用交换机：
+
+* 对于 Brocade 交换机，请使用 `sswitch/CfgPersistentDisable` 命令。
+* 对于 Cisco 交换机，请使用 `susPEND` 命令。
+
+
+以下命令将持久禁用 Brocade 交换机：
+
+[listing]
+----
+FC_switch_A_1:admin> switchCfgPersistentDisable
+----
+以下命令将禁用 Cisco 交换机：
+
+[listing]
+----
+vsan [vsna #] suspend
+----

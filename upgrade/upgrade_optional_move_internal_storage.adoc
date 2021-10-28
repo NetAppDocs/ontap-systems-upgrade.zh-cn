@@ -1,0 +1,26 @@
+---
+permalink: upgrade/upgrade-optional-move-internal-storage.html 
+sidebar: sidebar 
+keywords: node, support, model, internal, sata, drive, ssd, moving, move, upgrading, upgrade, convert, move internal storage or convert the system to a drive shelf 
+summary: 如果原始节点是支持的型号之一，则可以在通过移动存储进行升级期间将其内部 SATA 驱动器或 SSD 移动到连接到新节点的驱动器架。您还可以将系统转换为驱动器架并将其连接到新节点。 
+---
+= 可选：移动内部存储或将系统转换为驱动器架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果原始节点是支持的型号之一，则可以在通过移动存储进行升级期间将其内部 SATA 驱动器或 SSD 移动到连接到新节点的驱动器架。您还可以将系统转换为驱动器架并将其连接到新节点。
+
+您只能在同一集群中移动驱动器或驱动器架。
+
+.选项
+* link:upgrade-move-internal-drives.html["从原始节点移动内部驱动器"]
++
+如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。
+
+* link:upgrade-convert-node-to-shelf.html["将原始节点转换为驱动器架"]
++
+如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点转换为驱动器架，然后将其连接到同一集群中的新节点。
+
+

@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/required_tools_and_documentation.html 
+keywords: required, tools, documentation, install, worksheet, ontap 
+summary: 您需要使用特定工具来安装新硬件。此外，您还可以参考其他指南和其他信息。 
+---
+= 所需的工具和文档
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要安装新硬件，您必须使用特定工具，并且在升级过程中需要参考其他文档。
+
+要执行升级，您需要使用以下工具：
+
+* 接地线
+* 2 号十字螺丝刀
+
+
+转至 link:other_references.html["参考资料"] 部分，以访问此升级所需的参考文档列表。

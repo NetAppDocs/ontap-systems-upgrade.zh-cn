@@ -1,0 +1,60 @@
+---
+permalink: upgrade/upgrade-decide-to-use-this-guide.html 
+sidebar: sidebar 
+keywords:  
+summary: 本指南介绍如何通过移动存储或卷来升级集群中 AFF 系统或 FAS 系统的控制器硬件。 
+---
+= 确定是否使用本指南
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+本指南介绍如何通过移动存储或卷来升级集群中 AFF 系统或 FAS 系统的控制器硬件。
+
+如果要在以下情况下升级控制器硬件，应使用本指南：
+
+
+NOTE: ONTAP 9.8 简化了硬件升级过程，引入了自动端口放置功能。
+
+* 原始节点与新节点兼容并受支持。
+* 您要将一对运行 ONTAP 9.0 或更高版本的节点升级到一对运行同一版本的新节点。
+* 您正在重新使用新节点上原始节点的 IP 地址，网络掩码和网关。
+* 您计划通过移动存储或移动卷来升级控制器硬件。
+* 如果您要通过移动存储进行升级，则可以执行中断操作步骤。
++
+通过移动卷进行升级不会造成中断。
+
+* 您计划将受支持型号的节点转换为磁盘架，然后将其连接到新节点。
+
+
+如果要升级双节点 MetroCluster 配置，则必须使用中的操作步骤 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["《 MetroCluster ® 升级和扩展指南》"]。
+
+本指南不介绍如何使用聚合重新定位来升级控制器硬件，以下指南对此进行了介绍：
+
+* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^]
+* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"^]
+* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["使用聚合重新定位手动升级运行 ONTAP 9.8 及更高版本的控制器硬件"^]
+* https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["使用聚合重新定位手动升级运行 ONTAP 9.7 及更早版本的控制器硬件"^]
+
+
+如果要更换单个组件，请参见该组件的现场可更换单元（ Field Replaceable Unit ， FRU ）宣传单。
+
+[NOTE]
+====
+在通过移动存储升级控制器硬件的步骤中，原始节点称为 node1 和 node2 ，新节点称为 node3 和 node4 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。
+
+image::../media/original_to_new_nodes.png[原始节点到新节点]
+
+====
+术语 node1 ， node2 ， node3 和 node4 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。
+
+* 相关信息 *
+
+xref:upgrade-considerations.adoc[升级控制器硬件的注意事项]
+
+xref:upgrade-methods.adoc[选择升级控制器硬件的方法]
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1650547["《 MetroCluster 服务指南》"]
+
+https://hwu.netapp.com["NetApp Hardware Universe"]

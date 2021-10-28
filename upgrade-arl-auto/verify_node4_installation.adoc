@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/verify_node4_installation.html 
+keywords: verify, node4, installation, MetroCluster 
+summary: 验证 node4 是否安装正确。 
+---
+= 验证 node4 安装
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+安装并启动 node4 后，您需要验证它是否已正确安装，是否属于集群，以及是否可以与 node3 通信。
+
+此时，在操作步骤中，操作将暂停，因为 node4 加入仲裁。
+
+.步骤
+. 验证 node4 是否已加入仲裁：
++
+`cluster show -node node4 -fields health`
+
+. 输入以下命令，验证 node4 是否与 node3 属于同一集群且运行状况良好：
++
+`cluster show`
+
+. 检查操作状态，并验证 node4 的配置信息是否与 node2 相同：
++
+`s系统控制器更换 show-details`
+
++
+如果 node4 的配置不同，则稍后可能会在操作步骤中发生系统中断。
+
+. 检查更换的控制器是否已正确配置 MetroCluster 配置，而不是处于切换模式。
++
+
+CAUTION: * 注意： * 在此阶段， MetroCluster 配置将不会处于正常状态，您可能会遇到需要解决的错误。请参见 link:verify_health_of_metrocluster_config.html["验证 MetroCluster 配置的运行状况。"]。
+
+

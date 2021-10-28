@@ -1,0 +1,77 @@
+---
+section: upgrade
+title: 通过移动卷或存储进行升级
+entries:
+- title: 概述
+  url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+- title: 注意事项
+  url: "/upgrade/upgrade-considerations.html"
+- title: 选择方法
+  url: "/upgrade/upgrade-methods.html"
+- title: 通过移动存储进行升级
+  entries:
+  - title: 工作流
+    url: "/upgrade/upgrade-by-moving-storage-parent.html"
+  - title: 准备
+    url: "/upgrade/upgrade-prepare-when-moving-storage.html"
+  - title: 关闭原始节点
+    url: "/upgrade/upgrade-shutdown-remove-original-nodes.html"
+  - title: 删除磁盘所有权
+    url: "/upgrade/upgrade-remove-disk-ownership-new-nodes.html"
+  - title: 重置默认配置
+    url: "/upgrade/upgrade-reset-default-configuration-node3-and-node4.html"
+  - title: 安装新节点
+    url: "/upgrade/upgrade-install-new-nodes.html"
+  - title: 设置新节点
+    url: "/upgrade/upgrade-set-up-new-nodes.html"
+  - title: 可选—移动内部存储或转换为驱动器架
+    entries:
+    - title: 选项
+      url: "/upgrade/upgrade-optional-move-internal-storage.html"
+    - title: 移动内部驱动器
+      url: "/upgrade/upgrade-move-internal-drives.html"
+    - title: 将节点转换为驱动器架
+      url: "/upgrade/upgrade-convert-node-to-shelf.html"
+  - title: 连接存储架并重新分配磁盘所有权
+    url: "/upgrade/upgrade-attach-shelves-reassign-disks.html"
+  - title: 还原根卷配置
+    url: "/upgrade/upgrade-restore-root-volume-config.html"
+  - title: 完成升级
+    entries:
+    - title: 概述
+      url: "/upgrade/upgrade-complete.html"
+      entries:
+      - title: 完成 ONTAP 9.8
+        entries:
+        - title: 概述
+          url: "/upgrade/upgrade-complete-ontap-9-8.html"
+        - title: 使用 ONTAP 9.8 映射网络端口
+          url: "/upgrade/upgrade-map-network-ports-ontap-9-8.html"
+        - title: 在 ONTAP 9.8 中执行最终步骤
+          url: "/upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html"
+      - title: 在 ONTAP 9.7 或更早版本中完成
+        entries:
+        - title: 概述
+          url: "/upgrade/upgrade-complete-ontap-9-7-or-earlier.html"
+        - title: 使用 ONTAP 9.7 或更早版本映射网络端口
+          url: "/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html"
+        - title: 在 ONTAP 9.7 或更早版本中执行最终步骤
+          url: "/upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html"
+- title: 通过移动卷进行升级
+  entries:
+  - title: 工作流
+    url: "/upgrade/upgrade-by-moving-volumes-parent.html"
+  - title: 准备
+    url: "/upgrade/upgrade-prepare-when-moving-volumes.html"
+  - title: 安装并加入新节点
+    url: "/upgrade/upgrade-install-and-join-new-nodes-move-vols.html"
+  - title: 创建聚合并移动卷
+    url: "/upgrade/upgrade-create-aggregate-move-volumes.html"
+  - title: 移动非 SAN 数据 LIF 和集群管理 LIF
+    url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
+  - title: 删除 SAN LIF
+    url: "/upgrade/upgrade-delete-san-lifs.html"
+  - title: 取消加入原始节点
+    url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
+  - title: 完成升级
+    url: "/upgrade/upgrade-complete-move-volumes.html"

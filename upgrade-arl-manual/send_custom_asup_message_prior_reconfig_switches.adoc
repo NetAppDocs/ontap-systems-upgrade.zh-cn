@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html 
+keywords: autosupport, reconfigure, send message, maintenance, netapp support 
+summary: 在重新配置交换机之前发送自定义 AutoSupport 消息 
+---
+= 在重新配置交换机之前发送自定义 AutoSupport 消息
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在重新配置交换机问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+.步骤
+. 登录到集群。
+. 调用指示维护开始的 AutoSupport 消息：
++
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=maintenance-window-in-hours`
+
++
+`m值` 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：
+
++
+`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`
+
+. 在配对站点上重复上述步骤。
+

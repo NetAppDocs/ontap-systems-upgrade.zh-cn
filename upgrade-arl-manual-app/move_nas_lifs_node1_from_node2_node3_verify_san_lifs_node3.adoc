@@ -1,0 +1,164 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html 
+keywords: move, nas, san, lif, ports, broadcast domain, node1, node2, node3 
+summary: 您需要将当前位于 node2 上的 node1 的 NAS 数据 LIF 从 node2 移动到 node3 。您还需要验证 node3 上的 SAN LIF 。 
+---
+= 将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在将聚合从 node2 重新定位到 node3 之前，您需要将当前位于 node2 上的 node1 的 NAS 数据 LIF 从 node2 移动到 node3 。您还需要验证 node3 上的 SAN LIF 。
+
+在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node3 联机后，您将验证 LIF 是否运行正常并位于相应的端口上。
+
+.步骤
+. 【第 1 步】通过在任一节点上输入以下命令并捕获输出，列出 node2 不拥有的所有 NAS 数据 LIF ：
++
+`network interface show -role data -curr-node node2 -is-home false -home-node node3`
+
+. 【第 2 步】执行以下操作之一：
++
+[cols="35,65"]
+|===
+| 如果 node1... | 那么 ... 
+
+
+| 已配置接口组或 VLAN | 转至 <<man_lif_verify_3_step3,第 3 步>>。 
+
+
+| 未配置接口组或 VLAN | 跳过步骤 3 ，然后转到 <<man_lif_verify_3_step4,第 4 步>>。 
+|===
+. [[man_lif_verif_3_step3]] 执行以下子步骤，将最初位于 node1 上的接口组和 VLAN 上托管的任何 NAS 数据 LIF 从 node2 迁移到 node3 ：
++
+.. 【 man_lif_verif_3_substepa 】通过为每个 LIF 输入以下命令，将先前属于接口组中 node1 的 node2 上托管的任何数据 LIF 迁移到 node3 上能够在同一网络上托管 LIF 的端口：
++
+`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 – destination-port netport_ifgrp`
+
+.. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_3_substepa,子步骤 A>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
++
+`network interface modify -vserver vserver_name -lif LIF_name -home-node node3 -home-port netport_ifgrp`
+
+.. 【 man_lif_verif_3_substepc]] 通过为每个 LIF 输入以下命令，将先前属于 VLAN 端口上 node1 的 node2 上托管的任何数据 LIF 迁移到 node3 上能够在同一网络上托管 LIF 的端口：
++
+`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 – destination-port netport_ifgrp`
+
+.. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_3_substepc,子步骤 c>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
++
+`network interface modify -vserver vserver_name -lif LIF_name -home-node node3 -home-port netport_ifgrp`
+
+
+
+. [[man_lif_verif_3_step4]] 执行以下操作之一：
++
+[cols="25,75"]
+|===
+| 如果集群配置为 ... | 那么 ... 
+
+
+| NAS | 完成 <<man_lif_verify_3_step5,第 5 步>> 和 <<man_lif_verify_3_step6,第 6 步>>，跳过步骤 7 并完成 <<man_lif_verify_3_step8,第 8 步>> 到 <<man_lif_verify_3_step11,第 11 步>>。 
+
+
+| SAN | 禁用节点上的所有 SAN LIF 以将其关闭以进行升级： `network interface modify -vserver vserver_name -lif LIF_name -home-node node_to_upgrade -home-port netport_ifgrp -status-admin down` 
+|===
+. 【 man_lif_verif_3_step5]] 如果平台上的数据端口不同，请将这些端口添加到广播域：
++
+`network port broadcast-domain add-ports -ipspace ipspace_name -broadcast-domain mgmt -ports node ： port`
+
++
+以下示例将节点 "8200-1 " 上的端口 "e0a" 和节点 "8060-1 " 上的端口 "e0i" 添加到 IP 空间 "Default" 中的广播域 "mgmt" ：
+
++
+[listing]
+----
+cluster::> network port broadcast-domain add-ports -ipspace Default -broadcast-domain mgmt -ports 8200-1:e0a, 8060-1:e0i
+----
+. 【 man_lif_verif_3_step6]] 通过输入以下命令将每个 NAS 数据 LIF 迁移到 node3 ，每个 LIF 一次：
++
+`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 -destination-port netport_ifgrp`
+
+. 【 man_lif_verif_3_step7]] 确保数据迁移持久：
++
+`network interface modify -vserver vserver_name -lif LIF_name-home-port netport_ifgrp -home-node node3`
+
+. 【 man_lif_verif_3_step8]] 确保 SAN LIF 位于 node3 上的正确端口上：
++
+.. 输入以下命令并检查其输出：
++
+`network interface show -data-protocol iscsi_FCP -home-node node3`
+
++
+系统将返回类似于以下示例的输出：
+
++
+[listing]
+----
+cluster::> net int show -data-protocol iscsi|fcp -home-node node3
+              Logical     Status      Network             Current        Current  Is
+ Vserver      Interface   Admin/Oper  Address/Mask        Node           Port     Home
+ -----------  ----------  ----------  ------------------  -------------  -------  ----
+ vs0
+              a0a         up/down     10.63.0.53/24       node3          a0a      true
+              data1       up/up       10.63.0.50/18       node3          e0c      true
+              rads1       up/up       10.63.0.51/18       node3          e1a      true
+              rads2       up/down     10.63.0.52/24       node3          e1b      true
+ vs1
+              lif1        up/up       172.17.176.120/24   node3          e0c      true
+              lif2        up/up       172.17.176.121/24   node3          e1a      true
+----
+.. 如果 node3 中的任何 SAN LIF 或 SAN LIF 组位于 node1 上不存在的端口上，或者需要映射到其他端口，请通过完成以下子步骤将其移动到 node3 上的相应端口：
++
+... 将 LIF 状态设置为 "down" ：
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -status-admin down`
+
+... 从端口集中删除 LIF ：
++
+`portset remove -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
+
+... 输入以下命令之一：
++
+**** 移动单个 LIF ：
++
+`network interface modify -vserver vserver_name -lif LIF_name -home-port new_home_port`
+
+**** 将一个不存在或不正确的端口上的所有 LIF 移动到新端口：
++
+`network interface modify ｛ -home-port <port_on_node1> -home-node <node1> -role data ｝ -home-port <new_home_port_on_node3 >`
+
+**** 将 LIF 重新添加到端口集：
++
+`portset add -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
+
++
+
+NOTE: 您需要确保将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
+
+
+
+
+
+
+
+. 将所有 LIF 的状态修改为 "up" ，以便 LIF 可以在节点上接受和发送流量：
++
+`network interface modify -home-port <port_name> -home-node <node3>-lif data -status-admin up`
+
+. 在任一节点上输入以下命令并检查其输出，以验证 LIF 是否已移至正确的端口，以及 LIF 的状态是否为 "up" ，具体方法是在任一节点上输入以下命令并检查输出：
++
+`network interface show -home-node <node3> -role data`
+
+. [[man_lif_verif_3_step11]] 如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 "up" ：
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -status-admin up`
+
+. 向 NetApp 发送 node1 的升级后 AutoSupport 消息：
++
+`ssystem node AutoSupport invoke -node node3 -type all -message "node1 successfully up级 从 platform_old 升级到 platform_new"`
+
+

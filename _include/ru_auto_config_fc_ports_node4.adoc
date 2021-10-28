@@ -1,0 +1,69 @@
+= 在节点 4 上配置 FC 端口
+
+
+
+
+== 在节点 4 上配置 FC 端口
+
+如果 node4 具有板载或 FC 适配器上的 FC 端口，则必须先在节点上设置端口配置，然后再将其投入使用，因为这些端口未经过预配置。如果未配置端口，则可能会发生服务中断。
+
+您必须具有在部分中保存的 node2 中的 FC 端口设置值 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。
+
+如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置 <<Check and configure UTA/UTA2 ports on node4>>。
+
+* 重要说明 * ：如果系统具有存储磁盘，则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。
+
+.步骤
+. 执行以下操作之一：
++
+[cols="30,70"]
+|===
+| 如果要升级的系统 ... | 然后选择… 
+
+
+| 具有存储磁盘 | `ssystem node hardware unified-connect show` 
+
+
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `ucadmin show` 
+|===
++
+系统将显示有关系统上所有 FC 和融合网络适配器的信息。
+
+. 将 node4 上的 FC 设置与先前从 node1 中捕获的设置进行比较。
+. 执行以下操作之一：
++
+[cols="30,70"]
+|===
+| 如果要升级的系统 ... | 然后选择… 
+
+
+| 具有存储磁盘  a| 
+根据需要修改 node4 上的 FC 端口：
+
+** 要对目标端口进行编程：
++
+`ucadmin modify -m fc -t target <adapter>`
+
+** 要对启动程序端口进行编程：
++
+`ucadmin modify -m fc -t initiator <adapter>`
+
+
+
+` -t` 是 FC4 类型： target 或 initiator 。
+
+
+
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改 node4 上的 FC 端口： `ucadmin modify -m fc -t initiator -f <adapter_port_name>` ` -t` 是 FC4 类型，目标或启动程序。* 注 * ：必须将 FC 端口编程为启动程序。 
+|===
+. 退出维护模式：
++
+`halt`
+
+. 从 LOADER 提示符启动系统：
++
+`boot_ontap 菜单`
+
+. 输入命令后，请等待，直到系统停留在启动环境提示符处。
+. 从维护模式的启动菜单中选择选项 `5` 。
+

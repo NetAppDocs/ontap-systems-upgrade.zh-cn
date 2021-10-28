@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/worksheet_information_before_during_upgrade.html 
+keywords: worksheet, stage, information, node ID, LIF, licensing key, IP address 
+summary: 要成功升级原始节点，您必须收集某些信息。 
+---
+= 工作表：在控制器升级之前和期间收集的信息
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要成功升级原始节点，您必须收集某些信息。此信息包括节点 ID ，端口和 LIF 详细信息，许可密钥和 IP 地址。
+
+您可以使用以下工作表记录信息，以供日后在操作步骤中使用：
+
+|===
+| 所需信息 | 收集时 | 使用时 | 收集的信息 
+
+
+| 原始节点的型号，系统 ID 和序列号 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 3 阶段： _Install and boot node3_ Stage 5 ： _Install and boot node4_ Stage 6 ： _Decommission the old system_ |  
+
+
+| 原始节点上的磁盘架和磁盘信息，闪存存储详细信息，内存， NVRAM 和适配器卡 | 第 1 阶段： _Preparing the nodes for the upgrad_ | 在整个操作步骤中 |  
+
+
+| 使原始节点上的聚合和卷联机 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 在整个操作步骤中验证聚合和卷是否保持联机，但在短暂重新定位期间除外 |  
+
+
+| 命令输出 `network port vlan show` 和 `network port ifgrp show` | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 3 阶段： _Map ports from node1 to node3_ 第 5 阶段： _Map ports from node2 to node4_ |  
+
+
+| （仅限 SAN 环境） FC 端口的默认配置 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 在新节点上配置 FC 端口时 |  
+
+
+| （仅限使用 FlexArray 虚拟化软件的 V 系列系统或系统）适用于使用 FlexArray 虚拟化软件的 V 系列系统或系统的拓扑 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 3 阶段： _Install and boot node3_ 第 5 阶段： _Install and boot node4_ |  
+
+
+| SP 的 IP 地址 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 6 阶段： _ensure that the new controllers are set up correctly _ |  
+
+
+| 许可证密钥 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 6 阶段： _ensure that the new controllers are set up correctly _ |  
+
+
+| 外部密钥管理服务器的 IP 地址 | 第 1 阶段： _Rekey disks for Storage Encryption" | 第 6 阶段： _set up Storage Encryption on the new nodes_ |  
+
+
+| 可通过 Web 访问的目录的名称和路径，您可以在此目录中下载文件以通过网络启动节点 | 第 1 阶段： _prepare to netboot_ | 第 3 阶段： _Install and boot node3_ 第 5 阶段： _Install and boot node4_ |  
+
+
+| 节点 1 拥有的非 SAN 数据 LIF | 第 2 阶段： _move node1 拥有的 nonsan 数据 LIF 到 node2_ | 将在本节后面介绍 |  
+
+
+| 集群，集群间，节点管理，集群管理和物理端口 | 第 2 阶段： _Record node1 information_ | 第 3 阶段： _Install and boot node3_ 第 3 阶段： _Map ports from node1 to node3_ |  
+
+
+| 新节点上的端口 | 第 3 阶段： _Map 端口从 node1 映射到 node3_ | 后面的部分和 _Map ports from node2 to node4_ 一节 |  
+
+
+| node3 上的可用端口和广播域 | 第 3 阶段： _Map 端口从 node1 映射到 node3_ | 将在本节后面介绍 |  
+
+
+| 非 SAN 数据 LIF 不属于 node2 | 将属于 node1 的非 SAN 数据 LIF 从 node2 移动到 node3 并验证 node3_ 上的 SAN LIF | 将在本节后面介绍 |  
+
+
+| 节点 2 拥有的非 SAN 数据 LIF | 第 3 阶段： _move node2 拥有的 nonsan 数据 LIF 到 node3_ | 将在本节后面介绍 |  
+
+
+| 集群，集群间，节点管理，集群管理和物理端口 | 第 4 阶段： _Record node2 information_ | 第 5 阶段： _Install and booting node4_ Stage 5 ： _ 将端口从 node2 映射到 node4_ |  
+
+
+| 节点上的集群网络端口 4. | 第 5 阶段： _Map 端口从 node2 映射到 node4_ | 将在本节后面介绍 |  
+
+
+| 节点上的可用端口和广播域 4. | 第 5 阶段： _Map 端口从 node2 映射到 node4_ | 将在本节后面介绍 |  
+
+
+| 存储系统的私有和公有 SSL 证书以及每个密钥管理服务器的私有 SSL 证书 | 第 6 阶段： _set up Storage Encryption on the new nodes_ | 将在本节后面介绍 |  
+|===

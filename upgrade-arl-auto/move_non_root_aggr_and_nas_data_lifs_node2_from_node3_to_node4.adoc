@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html 
+keywords: move, non-root, aggregates, nas, lif, node2, node3, node4 
+summary: 验证 node4 安装后，在将聚合从 node3 重新定位到 node4 之前，请移动属于 node2 的 NAS 数据 LIF 。 
+---
+= 将 node2 拥有的非根聚合和 NAS 数据 LIF 从 node3 移动到 node4
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在验证 node4 安装并将聚合从 node3 重新定位到 node4 之前，您需要将当前位于 node3 上的 node2 的 NAS 数据 LIF 从 node3 移动到 node4 。您还需要验证 node4 上是否存在 SAN LIF 。
+
+在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node4 联机后，您将验证 LIF 是否运行正常并位于相应的端口上。
+
+.步骤
+. 恢复重新定位操作：
++
+`s系统控制器更换恢复`
+
++
+系统将执行以下任务：
+
++
+** 集群仲裁检查
+** 系统 ID 检查
+** 映像版本检查
+** 目标平台检查
+** 网络可访问性检查
+
+
++
+此操作将在网络可访问性检查的此阶段暂停。
+
+. 手动验证是否已正确配置网络以及所有 VLAN ，接口组和广播域。
+. 恢复重新定位操作：
++
+`s系统控制器更换恢复`
+
++
+[listing]
+----
+To complete the "Network Reachability" phase, ONTAP network configuration must be manually adjusted to match the new physical network configuration of the hardware. This includes assigning network ports to the correct broadcast domains,creating any required ifgrps and VLANs, and modifying the home-port parameter of network interfaces to the appropriate ports.Refer to the "Using aggregate relocation to upgrade controller hardware on a pair of nodes running ONTAP 9.x" documentation, Stages 3 and 5. Have all of these steps been manually completed? [y/n]
+----
+. 输入 `y` 以继续。
+. 系统将执行以下检查：
++
+** 集群运行状况检查
+** 集群 LIF 状态检查
+
+
++
+执行这些检查后，系统会将 node2 拥有的非根聚合和 NAS 数据 LIF 重新定位到新控制器 node4 。资源重新定位完成后，系统将暂停。
+
+. 检查聚合重新定位和 NAS 数据 LIF 移动操作的状态：
++
+`s系统控制器更换 show-details`
+
+. 手动验证非根聚合和 NAS 数据 LIF 是否已成功重新定位到 node4 。
++
+如果任何聚合无法重新定位或被否决，您必须手动重新定位聚合，或者在必要时覆盖否决或目标检查。请参见一节 link:relocate_failed_or_vetoed_aggr.html["重新定位失败或被否决的聚合"] 有关详细信息 ...
+
+. 通过完成以下子步骤，确保 SAN LIF 位于 node4 上的正确端口上：
++
+.. 输入以下命令并检查其输出：
++
+`network interface show -data-protocol iscsi_FCP -home-node <node4>`
+
++
+系统将返回类似于以下示例的输出：
+
++
+[listing]
+----
+cluster::> net int show -data-protocol iscsi|fcp -home-node node3
+        Logical    Status     Network           Current Current Is
+Vserver Interface  Admin/Oper Address/Mask      Node    Port    Home
+------- ---------- ---------- ----------------- ------- ------- ---
+vs0
+        a0a        up/down    10.63.0.53/24     node3   a0a     true
+        data1      up/up      10.63.0.50/18     node3   e0c     true
+        rads1      up/up      10.63.0.51/18     node3   e1a     true
+        rads2      up/down    10.63.0.52/24     node3   e1b     true
+vs1
+        lif1       up/up      172.17.176.120/24 node3   e0c     true
+        lif2       up/up      172.17.176.121/24 node3   e1a     true
+----
+.. 如果 node4 中的任何 SAN LIF 或 SAN LIF 组位于 node2 上不存在的端口上，或者需要映射到其他端口，请通过完成以下子步骤将其移动到 node4 上的相应端口：
++
+... 输入以下命令，将 LIF 状态设置为 down ：
++
+`network interface modify -vserver <vserver_name> -lif <lif_name> -status-admin down`
+
+... 从端口集中删除 LIF ：
++
+`portset remove -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
+
+... 输入以下命令之一：
++
+**** 输入以下命令以移动单个 LIF ：
++
+`network interface modify -vserver <vserver_name> -lif <LIF_name> -home-port <new_home_port>`
+
+**** 输入以下命令，将一个不存在或不正确的端口上的所有 LIF 移动到新端口：
++
+`network interface modify ｛ -home-port <port_on_node1> -home-node <node1> -role data ｝ -home-port <new_home_port_on_node3 >`
+
+**** 将 LIF 重新添加到端口集：
++
+`portset add -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
+
++
+
+NOTE: 您需要确保将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
+
+
+
+
+
+.. 输入以下命令，将所有 LIF 的状态修改为 `up` ，以便 LIF 可以在节点上接受和发送流量：
++
+`network interface modify -home-port <port_name> -home-node <node4>-lif data -statusadmin up`
+
+.. 输入以下命令并检查其输出，以验证 LIF 是否已移至正确的端口，以及 LIF 的状态是否为 `up` ，具体方法是在任一节点上输入以下命令并检查输出：
++
+`network interface show -home-node <node4> -role data`
+
+.. 如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 up ：
++
+`network interface modify -vserver <vserver_name> -lif <lif_name> -status-admin up`
+
+
+
+. 恢复此操作以提示系统执行所需的后检查：
++
+`s系统控制器更换恢复`
+
++
+系统将执行以下后检查：
+
++
+** 集群仲裁检查
+** 集群运行状况检查
+** 聚合重建检查
+** 聚合状态检查
+** 磁盘状态检查
+** 集群 LIF 状态检查
+
+
+

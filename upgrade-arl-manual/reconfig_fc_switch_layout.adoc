@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/reconfig_fc_switch_layout.html 
+keywords: reconfigure, fc, switch, layout, RCF, metrocluster 
+summary: 停用旧系统 
+---
+= 重新配置 ONTAP 9.1 或更高版本的 FC 交换机布局
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果现有 FC 交换机布局是在 ONTAP 9.1 之前配置的，则必须重新配置端口布局并应用最新的参考配置文件（ Reference Configuration Files ， RCF ）。此操作步骤仅适用于 MetroCluster FC 配置。
+
+您必须确定网络结构域中存在的 FC 交换机。
+
+您需要管理员密码以及对 FTP 或 SCP 服务器的访问权限。
+
+如果您的现有 FC 交换机布局是在 ONTAP 9.1 之前配置的，并且您要升级到 ONTAP 9.1 或更高版本支持的平台型号，则必须执行此任务。如果要从为 ONTAP 9.1 或更高版本配置的现有交换机布局进行升级，则需要 _not_ 。
+
+此操作步骤不会造成系统中断，在磁盘置零后，大约需要 4 小时才能完成（不包括机架和堆栈）。
+
+.步骤
+. link:send_custom_asup_message_prior_reconfig_switches.html["在重新配置交换机之前发送自定义 AutoSupport 消息"]
+. link:verify_health_mcc_config.html["验证 MetroCluster 配置的运行状况。"]
+. link:check_mcc_config_errors.html["检查 MetroCluster 配置错误"]
+. link:persist_disable_switches.html["持久禁用交换机"]
+. link:determine_new_cabling_layout.html["确定新的布线布局"]
+. link:apply_RCF_files_recable_switches.html["应用 RCF 文件并重新对交换机进行布线"]
+. link:persist_enable_switches.html["持久启用交换机"]
+. link:verify_swtichover_healing_switchback.html["验证切换，修复和切回"]
+

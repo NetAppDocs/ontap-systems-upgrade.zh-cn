@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/verify_node4_installation.html 
+keywords: install, node4, node3, verify, communicate 
+summary: 安装并启动 node4 后，您需要验证是否已正确安装它 
+---
+= 验证 node4 安装
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+安装并启动 node4 后，您需要验证它是否已正确安装，是否属于集群，以及是否可以与 node3 通信。
+
+.步骤
+. 在系统提示符处，登录到 node4 。
+. 验证 node4 是否与 node3 位于同一集群中且运行状况良好：
++
+`cluster show`
+
+. 验证 node4 是否可以与 node3 通信以及所有 LIF 是否均已启动：
++
+`network interface show -curr-node node4`
+
+. 执行以下操作之一：
++
+[cols="35,65"]
+|===
+| 如果 node4 为 ... | 那么 ... 
+
+
+| 位于与 node3 不同的机箱中  a| 
+通过完成以下步骤在节点之间连接 HA 互连：
+
+.. 将 node3 的顶部互连端口连接到 node4 的顶部互连端口。
+.. 将 node3 的底部互连端口连接到 node4 的底部互连端口。
+.. 转至 <<Step5,第 5 步>>。
+
+
+
+
+| 与 node3 位于同一机箱中 | 转至 <<Step5,第 5 步>>。您无需在节点之间手动连接 HA 互连；在同机箱配置中， HA 互连会通过背板自动连接。 
+|===
+. 【第 5 步】执行以下操作之一：
++
+[cols="35,65"]
+|===
+| 如果集群 ... | 那么 ... 
+
+
+| 在 SAN 环境中 | 完成 <<Step6,第 6 步>> 然后转到部分 link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF"]。 
+
+
+| 不在 SAN 环境中 | 跳过步骤 6 转至部分 link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF"]。 
+|===
+. 【第 6 步】在其中一个节点上输入以下命令，验证 node3 和 node4 是否都处于仲裁状态：
++
+`event log show -messagename scsiblade.*`
+
++
+以下示例显示了集群中节点处于仲裁状态时的输出：
+
++
+[listing]
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----
+

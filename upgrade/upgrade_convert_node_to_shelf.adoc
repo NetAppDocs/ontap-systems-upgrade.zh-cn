@@ -1,0 +1,31 @@
+---
+permalink: upgrade/upgrade-convert-node-to-shelf.html 
+sidebar: sidebar 
+keywords: node, support, model, process, upgrading, upgrade, moving, move, convert, drive, shelf, attach, convert an original node to a drive shelf 
+summary: 如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点转换为驱动器架，然后将其连接到同一集群中的新节点。 
+---
+= 将原始节点转换为驱动器架
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点转换为驱动器架，然后将其连接到同一集群中的新节点。
+
+您必须已查看 link:upgrade_considerations.html#["升级控制器硬件的注意事项"] 关于将节点转换为驱动器架。如果您需要特定于您的配置的指导，应联系技术支持。
+
+.步骤
+. 将要转换的节点中的控制器模块更换为相应的 IOM 模块。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+. 设置驱动器架 ID 。
++
+每个驱动器架（包括机箱）都需要一个唯一 ID 。
+
+. 根据需要重置其他驱动器架 ID 。
+. 关闭连接到新节点的所有驱动器架的电源，然后关闭新节点的电源。
+. 将转换后的驱动器架连接到新系统上的 SAS 端口，如果使用带外 ACP 布线，则连接到新节点上的 ACP 端口。
+. 打开转换后的驱动器架以及连接到新节点的任何其他驱动器架的电源。
+. 打开新节点的电源，然后按 Ctrl-C 访问启动环境提示符，以中断每个节点上的启动过程。
+

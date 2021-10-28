@@ -1,0 +1,100 @@
+---
+permalink: upgrade/upgrade-remove-disk-ownership-new-nodes.html 
+sidebar: sidebar 
+keywords: node, internal, disk, add-on, shelves, attach, system, interfere, controller, upgrade, remove, ownership, node3, node4, node, remove ownership of disks attached to the new nodes 
+summary: 如果新节点已将内部磁盘或附加磁盘架连接到系统，这些磁盘或附加磁盘架可能会干扰控制器升级。按照以下步骤删除 node3/node4 附带的任何新磁盘的所有权。 
+---
+= 删除连接到新节点的磁盘的所有权
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果新节点已将内部磁盘或附加磁盘架连接到系统，这些磁盘或附加磁盘架可能会干扰控制器升级。按照以下步骤删除 node3/node4 附带的任何新磁盘的所有权。
+
+这些步骤会依次对 node3 和 node4 执行。节点顺序无关紧要。
+
+[NOTE]
+====
+* 在此阶段， node1 和 node2 中的磁盘架不会物理连接到 node3 和 node4 。
+* 对于新控制器附带的磁盘和磁盘架，您只需要删除其磁盘所有权。
+* 如果要升级硬件，您无需删除磁盘所有权，只需在内部驱动器平台上将旧控制器更换为新控制器，同时保留旧控制器的机箱和磁盘即可。
++
+例如，如果要将系统从 A200 升级到 A220 ，只需将旧的 A200 控制器模块更换为新的 A220 控制器模块，同时保持旧 A200 的机箱和磁盘就位， 您不会按照本节 " 删除连接到新节点的磁盘的所有权 " 中所述删除新 A220 控制器模块的磁盘所有权。
+
++
+如果您对在控制器升级期间删除磁盘所有权有任何疑问，请联系 NetApp 技术支持。
+
++
+下面列出了具有内部存储的系统： FAS2220 ， FAS2240-2 ， FAS2240-4 ， FAS2520 ， FAS2552 ， FAS2554 ， FAS2620 ， FAS2650 ， FAS2720 ， FAS2750 ， AFF A200 ， AFF A220 ， AFF A700s ， AFF A800 ， AFF A250 。
+
++
+如果您的系统未在上面列出，请参见 https://hwu.netapp.com["NetApp Hardware Universe"] 以检查它是否具有内部驱动器。
+
+
+
+====
+.步骤
+. 在节点的 LOADER 提示符处，输入命令：
++
+`boot_ontap 菜单`
+
+. 在启动菜单提示符处，输入 `9a` ，然后按 Enter 键。
++
+以下屏幕将显示启动菜单提示符：
+
++
+[listing]
+----
+Please choose one of the following:
+
+    (1) Normal Boot.
+    (2) Boot without /etc/rc.
+    (3) Change password.
+    (4) Clean configuration and initialize all disks.
+    (5) Maintenance mode boot.
+    (6) Update flash from backup config.
+    (7) Install new software first.
+    (8) Reboot node.
+    (9) Configure Advanced Drive Partitioning.
+    Selection (1-9)?  9a
+----
+. 出现类似以下内容的提示时，输入 `y` 以删除磁盘所有权：
++
+[listing]
+----
+
+########## WARNING ##########
+
+This is a disruptive operation and will result in the
+    loss of all filesystem data. Before proceeding further,
+    make sure that:
+    1) This option (9a) has been executed or will be executed
+    on the HA partner node, prior to reinitializing either
+    system in the HA-pair.
+    2) The HA partner node is currently in a halted state or
+    at the LOADER prompt.
+
+
+    Do you still want to continue (yes/no)? yes
+----
++
+系统将删除磁盘所有权并返回到启动菜单。
+
+. 在启动菜单中，输入 `5` 以转到维护模式。
+. 在维护模式下，运行 `disk show` 命令。
++
+不应列出任何磁盘。
+
+. 运行命令： `
++
+`d` 展示 -A
+
++
+应取消分配列出的所有磁盘。
+
+. 退出维护模式：
++
+`halt`
+
+

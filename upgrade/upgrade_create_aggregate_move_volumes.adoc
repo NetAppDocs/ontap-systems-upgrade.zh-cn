@@ -1,0 +1,102 @@
+---
+permalink: upgrade/upgrade-create-aggregate-move-volumes.html 
+sidebar: sidebar 
+keywords: create, aggregate, node, store, volume, original, node, identify, aggregate, individually, create an aggregate and moving volumes to the new nodes 
+summary: 您至少要在每个新节点上创建一个聚合，以存储要从原始节点移动的卷。您必须为每个卷标识一个聚合，并单独移动每个卷。 
+---
+= 创建聚合并将卷移动到新节点
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您至少要在每个新节点上创建一个聚合，以存储要从原始节点移动的卷。您必须为每个卷标识一个聚合，并单独移动每个卷。
+
+必须先初始化数据保护镜像关系，然后才能移动卷。
+
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["查找适用于您的 Data ONTAP 8 版本的数据保护指南"]
+
+.步骤
+. 在每个新节点上至少创建一个聚合：
++
+`storage aggregate create -aggregate aggr_name -node new_node_name -diskcount integer`
+
+. 将新聚合添加到要从中移动卷的原始节点上与聚合相同的 SVM 中：
++
+`Vserver add-aggregates`
+
++
+要从中移动卷的新聚合和旧聚合必须位于同一个 SVM 中。
+
+. 验证新聚合现在是否已分配给与原始节点上的聚合相同的 SVM ：
++
+`vserver show -vserversvm_name`
+
+. 显示要从原始节点移至新节点的卷的信息：
++
+`volume show -vserver svm_name -node original_node_name`
+
++
+您应保留命令输出以供日后参考。
+
++
+以下示例显示了 "VS1" SVM 和 "node0" 节点上的卷：
+
++
+[listing]
+----
+cluster::> volume show -vserver vs1 -node node0
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+vs1       clone        aggr1        online     RW         40MB    37.87MB    5%
+vs1       vol1         aggr1        online     RW         40MB    37.87MB    5%
+vs1       vs1root      aggr1        online     RW         20MB    18.88MB    5%
+3 entries were displayed.
+----
+. 确定可将给定卷移动到的聚合：
++
+`volume move target-aggr show -vserver svm_name -volume vol_name`
+
++
+以下示例显示，可以将 "VS2" SVM 上的 "user_max_" 卷移动到列出的任何聚合：
+
++
+[listing]
+----
+cluster::> volume move target-aggr show -vserver vs2 -volume user_max
+Aggregate Name   Available Size  Storage Type
+--------------   --------------  ------------
+aggr2            467.9GB         FCAL
+node12a_aggr3    10.34GB         FCAL
+node12a_aggr2    10.36GB         FCAL
+node12a_aggr1    10.36GB         FCAL
+node12a_aggr4    10.36GB         FCAL
+5 entries were displayed
+----
+. 对要移动的每个卷运行验证检查，以验证是否可以将其移动到指定聚合：
++
+`volume move start -vserver svm_name -volume volume_name -destination-aggregate destination_aggregate_name -perform-validation-only true`
+
+. 一次移动一个卷（高级权限级别）：
++
+`volume move start -vserver svm_name -volume vol_name -destination-aggregate destination_aggr_name -cutover-window integer`
+
++
+您不能移动节点根卷（ vol0 ）。可以移动其他卷，包括 SVM 根卷。
+
+. 显示 `volume move` 操作的结果，以验证卷是否已成功移动：
++
+`volume move show -vserver svm_name -volume vol_name`
+
+. 如果多次尝试后， `volume move` 操作未完成最后阶段，请强制完成移动：
++
+`volume move trigger-cutover -vserver svm_name -volume vol_name -force true`
+
++
+强制卷移动操作完成可能会中断客户端对要移动的卷的访问。
+
+. 验证卷是否已成功移至指定的 SVM 并位于正确的聚合中：
++
+`volume show -vserver svm_name`
+
+

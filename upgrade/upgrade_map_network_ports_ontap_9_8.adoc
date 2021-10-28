@@ -1,0 +1,180 @@
+---
+permalink: upgrade/upgrade-map-network-ports-ontap-9-8.html 
+sidebar: sidebar 
+keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, physical, port, correct, configure, setting, data, map network ports using ontap 9.8 
+summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确保已为物理端口正确配置了用于预期用途的设置，例如集群，数据等。 
+---
+= 使用 ONTAP 9.8 映射网络端口
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确保已为物理端口正确配置了用于预期用途的设置，例如集群，数据等。
+
+这些步骤适用于运行 ONTAP 9.8 的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[使用 ONTAP 9.7 或更早版本映射网络端口]。
+
+您必须对 node3 和 node4 执行这些步骤。
+
+
+NOTE: 以下命令示例引用 "node1" ，因为在操作步骤的此阶段，替代节点 "node3" 和 "node4" 实际上分别命名为 "node1" 和 "node2" 。
+
+.步骤
+. 如果系统运行的是 ONTAP 9.7 或更早版本，请执行 * 停止 * 。您必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[使用 ONTAP 9.7 或更早版本映射网络端口]。
+. 找到您在中记录的 node1 和 node2 的端口和 LIF 配置信息 link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["移动存储时准备升级，步骤 3"]。
+. 找到您在中记录的端口，广播域和 IP 空间的信息 link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3.html["移动存储时准备升级，步骤 3"]。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+. 进行以下更改：
++
+.. 启动并登录到 node3 和 node4 （如果尚未登录）。
+.. 修改将属于集群广播域的端口：
++
+`network port modify -node node_name -port port_name -mtu 9000 -ipspace cluster`
+
++
+此示例将在 "node1" 上添加 `Cluster` 端口 e1b ：
+
++
+`network port modify -node node1 -port e1b -ipspace cluster -mtu 9000`
+
+.. 将每个 LIF 的集群 LIF 迁移到新端口一次：
++
+`network interface migrate -vserver vserver_name -lif lif_name -source-node node1 -destination-node node1 -destination-port port_name`
+
++
+迁移所有集群 LIF 并建立集群通信后，集群应达到仲裁状态。
+
+.. 修改集群 LIF 的主端口：
++
+`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+
+.. 从 `集群` 广播域中删除旧端口：
++
+`network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster -ports node1 ： port`
+
+.. 显示 node3 和 node4 的运行状况：
++
+`cluster show -node node1 -fields health`
+
+
+
+. [[map_9.8_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如中所示 link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_9.7_7["使用 ONTAP 9.7 或更早版本映射网络端口，第 7 步"]。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。
++
+.. 列出所有端口的可访问性状态：
++
+`网络端口可访问性显示`
+
+.. 通过在每个端口上运行以下命令，修复物理端口以及 VLAN 端口的可访问性，一次运行一个端口：
++
+`re可访问性修复 -node node_name -port port_name`
+
++
+此时将显示类似以下内容的警告。查看并根据需要输入 `y` 或 `n` ：
+
++
+[listing]
+----
+Warning: Repairing port "node_name:port" may cause it to move into a
+different broadcast domain, which can cause LIFs to be re-homed away
+from the port. Are you sure you want to continue? {y|n}:
+----
+.. 要使 ONTAP 完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
+.. 列出集群上的所有广播域：
++
+`broadcast-domain show`
+
+.. 在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口与任何现有广播域不对应，则 ONTAP 将为这些端口创建新的广播域。如果新创建的广播域的所有成员端口都将成为接口组的成员端口，则可以根据需要删除这些成员端口。删除广播域
++
+`broadcast-domain delete -broadcast-domain broadcast_domain`
+
+.. 查看接口组配置，并根据需要添加或删除成员端口。将成员端口添加到接口组端口：
++
+`ifgrp add-port -node node_name -ifgrp ifgrp_port -port port_name`
+
++
+从接口组端口删除成员端口：
+
++
+`ifgrp remove-port -node node_name -ifgrp ifgrp_port -port port_name`
+
+.. 根据需要删除并重新创建 VLAN 端口。删除 VLAN 端口：
++
+`vlan delete -node node_name -vlan-name vlan_port`
+
++
+创建 VLAN 端口：
+
++
+`vlan create -node node_name -vlan-name vlan_port`
+
++
+
+NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复步骤 5 子步骤（ a ）到（ g ），直到所有端口都在需要时正确放置。
+
+
+
+. 如果系统上未配置任何 VLAN ，请转至步骤 <<map_9.8_7,第 7 步>>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。
++
+.. 显示已替换的 VLAN ：
++
+`displaced VLAN show`
+
+.. 将已替换的 VLAN 还原到所需的目标端口：
++
+`displaced -vVLAN restore -node node_name -port port_name -destination-port destination_port`
+
+.. 验证所有已替换的 VLAN 是否已还原：
++
+`displaced VLAN show`
+
+.. VLAN 会在创建后大约一分钟自动放置到相应的广播域中。验证已还原的 VLAN 是否已放置在相应的广播域中：
++
+`网络端口可访问性显示`
+
+
+
+. 自 ONTAP 9.8 起，如果在网络端口可访问性修复操作步骤期间在广播域之间移动了 LIF 的主端口，则 ONTAP 将自动修改 LIF 的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。
++
+.. 显示主端口可能已移至另一个节点或不再存在的 LIF ：
++
+`displaced interface show`
+
+.. 还原每个 LIF 的主端口：
++
+`displaced interface restore -vserver vserver_name -lif-name lif_name`
+
+.. 验证是否已还原所有 LIF 主端口：
++
+`displaced interface show`
+
+
+
++
+如果所有端口均已正确配置并添加到正确的广播域中，则 network port reachability show 命令应将所有已连接端口的可访问性状态报告为 ok ，而对于没有物理连接的端口，此状态报告为 no-reachability 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <<map_9.8_5,第 5 步>>。
+
+. 验证属于正确广播域的端口上的所有 LIF 是否均以管理员方式启动。
++
+.. 检查是否存在任何已被管理员关闭的 LIF ：
++
+`network interface show -vserver vserver_name -status-admin down`
+
+.. 检查是否存在任何已关闭运行的 LIF ：``network interface show -vserver vserver_name -status-oper down``
+.. 修改任何需要修改的 LIF ，使其具有不同的主端口：
++
+`network interface modify -vserver vserver_name -lif lif -home-port home_port`
+
++
+
+NOTE: 对于 iSCSI LIF ，修改主端口需要以管理员方式关闭 LIF 。
+
+.. 还原不在其各自主端口主端口的 LIF ：
++
+`网络接口还原 *`
+
+
+
+
+
+您已完成物理端口映射。要完成升级，请转至 xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[在 ONTAP 9.8 中执行最终升级步骤]。

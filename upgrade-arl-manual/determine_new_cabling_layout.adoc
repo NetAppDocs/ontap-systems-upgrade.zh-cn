@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/determine_new_cabling_layout.html 
+keywords: cable, cabling, layout, disk shelf, fc switches 
+summary: 确定新控制器模块和任何新磁盘架与现有 FC 交换机之间的布线。 
+---
+= 确定新的布线布局
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您必须确定新控制器模块和任何新磁盘架到现有 FC 交换机的布线。
+
+必须在每个 MetroCluster 站点上执行此任务。
+
+使用 _Fabric-Attached MetroCluster 安装和配置指南 _ 根据八节点 MetroCluster 配置的端口使用情况确定您的交换机类型的布线布局。FC 交换机端口使用情况必须与指南中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
+
+转至 link:other_references.html["参考资料"] 链接到 _Fabric-Attached MetroCluster 安装和配置指南 _ 。
+
+
+NOTE: 如果您的环境无法使用 RCF 进行布线，请联系技术支持。如果布线无法使用操作步骤，请勿使用此 RCF 。

@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage1_prepare_for_upgrade.html 
+keywords: stage 1, prepare, upgrade, steps 
+summary: 第 1 阶段，准备升级。 
+---
+= 第 1 阶段：准备升级
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。您可能需要为磁盘重新设置密钥以进行存储加密。您还必须准备通过网络启动新控制器。
+
+.步骤
+. link:determine_aggregates_on_internal_drives.html["确定控制器是否在内部磁盘驱动器上具有聚合"]
+. link:prepare_nodes_for_upgrade.html["准备要升级的节点"]
+. link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]
+. link:manage_authentication_kmip.html["使用 KMIP 服务器管理身份验证"]
+. link:manage_authentication_okm.html["使用板载密钥管理器管理身份验证"]
+. link:quiesce_snapmirror_relationships.html["暂停 SnapMirror 关系"]
+. link:prepare_for_netboot.html["准备网络启动"]
+

@@ -1,0 +1,25 @@
+= 检查聚合重新定位失败
+
+
+
+
+== 检查聚合重新定位失败
+
+在操作步骤期间， ARL 可能会在第 2 阶段，第 3 阶段或第 5 阶段失败。
+
+.步骤
+. 输入以下命令并检查输出：
++
+`s存储聚合重新定位显示`
+
++
+`storage aggregate relocation show` 命令可显示哪些聚合已成功重新定位，哪些聚合未成功重新定位以及故障原因。
+
+. 检查控制台是否存在任何 EMS 消息。
+. 执行以下操作之一：
++
+** 根据 `storage aggregate relocation show` 命令的输出以及 EMS 消息的输出，采取适当的更正操作。
+** 使用 `storage aggregate relocation start` 命令的 `override-vetoes` 选项或 `override-destination-checks` 选项强制重新定位聚合。
+
+
+

@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage4_record_info_retire_node2.html 
+keywords: stage4, record, node2, information, retire 
+summary: 在阶段 4 中，您会记录 node2 信息，然后停用 node2 。 
+---
+= 第 4 阶段：记录 node2 信息并停用 node2
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在阶段 4 中，您会记录 node2 信息，然后停用 node2 。
+
+.步骤
+. link:record_node2_information.html["记录 node2 信息"]
+. link:retire_node2.html["停用 node2"]
+

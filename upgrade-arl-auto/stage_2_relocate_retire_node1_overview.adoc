@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/stage_2_relocate_retire_node1_overview.html 
+keywords: Prepare nodes for upgrade, storage encryption, KMS, key management server, 
+summary: 在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。 
+---
+= 第 2 阶段。重新定位和停用节点 1
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在阶段 2 中，您将 node1 聚合和 LIF 重新定位到 node2 ，记录 node1 信息，然后停用 node1 。此过程大部分是自动化的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。
+
+.步骤
+. link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"]
+. link:relocate_failed_or_vetoed_aggr.html["重新定位失败或被否决的聚合"]
+. link:retire_node1.html["停用 node1"]
+. link:prepare_for_netboot.html["准备网络启动"]
+

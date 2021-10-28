@@ -1,0 +1,4 @@
+= 
+
+
+在第 5 阶段，您将安装并启动 node4 ，将集群和节点管理端口从 node2 映射到 node4 ，并验证 node4 安装。您还可以将节点 2 拥有的数据 LIF 和 SAN LIF 从 node3 移动到 node4 ，并将节点 2 的聚合从 node3 重新定位到 node4 。

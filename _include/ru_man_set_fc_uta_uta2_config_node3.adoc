@@ -1,0 +1,18 @@
+= 
+
+
+如果 node3 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。
+
+您可能需要完成 <<Configure FC ports on node3>>或 <<Check and configure UTA/UTA2 ports on node3>>或这两个部分。
+
+
+NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和端口。但是，命令行界面使用术语 "CNA" 。
+
+* 如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"]。
+* 但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回 _Install and boot node3_ 并在中继续 link:install_boot_node3.html#step22["第 22 步"]。
+
+
+.选项
+* <<Configure FC ports on node3>>
+* <<Check and configure UTA/UTA2 ports on node3>>
+

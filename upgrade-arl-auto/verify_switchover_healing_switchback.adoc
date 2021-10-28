@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/verify_switchover_healing_switchback.html 
+keywords: switchover, healing,  switchback, metrocluster 
+summary: 验证 MetroCluster 配置的切换，修复和切回操作。 
+---
+= 验证切换，修复和切回
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您应验证 MetroCluster 配置的切换，修复和切回操作。
+
+请参见 link:other_references.html["参考资料"] 要链接到 _RAID MetroCluster 管理和灾难恢复指南 _ 并使用所述的协商切换，修复和切回过程。

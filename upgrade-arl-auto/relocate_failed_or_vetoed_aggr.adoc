@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/relocate_failed_or_vetoed_aggr.html 
+keywords: relocate, aggregates, fail, veto 
+summary: 如果任何聚合无法重新定位或被否决，您必须手动重新定位这些聚合。 
+---
+= 重新定位失败或被否决的聚合
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果任何聚合无法重新定位或被否决，您必须手动重新定位聚合，或者在必要时覆盖否决或目标检查。
+
+由于此错误，重新定位操作将暂停。
+
+.步骤
+. 检查 EMS 日志以确定聚合无法重新定位或被否决的原因。
+. 重新定位任何出现故障或被否决的聚合：
++
+`storage aggregate relocation start -node <node1> -destination <node2> aggregate-list * -ndocontroller-upgrade true`
+
+. 出现提示时，输入 `y` 。
+. 您可以使用以下方法之一强制重新定位：
++
+[cols="35,65"]
+|===
+| 选项 | Description 
+
+
+| 覆盖否决检查 | 输入以下内容： `storage aggregate relocation start -override-vetoes * -ndocontroller-upgrade true` 
+
+
+| 覆盖目标检查 | 输入以下内容： `storage aggregate relocation start -overridedestination-checks * -no-controllerupgrade true` 
+|===
+

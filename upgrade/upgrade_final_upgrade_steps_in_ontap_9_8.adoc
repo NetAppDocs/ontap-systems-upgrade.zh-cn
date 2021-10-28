@@ -1,0 +1,117 @@
+---
+permalink: upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html 
+sidebar: sidebar 
+keywords: complete, procedure, upgrading, upgrade, moving, move, storage, delete, unused, port, lif, re-enable, failover, availability, service, processor, sp, autosupport, volume, encryption, fc, cna, perform final upgrade steps in ontap 9.8 
+summary: 要通过移动存储来完成操作步骤升级，您必须从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器 \ （ SP\ ），安装新许可证并设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。 
+---
+= 在 ONTAP 9.8 中执行最终升级步骤
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要通过移动存储来完成操作步骤升级，您必须从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器（ SP ），安装新许可证以及设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。
+
+这些步骤适用于运行 ONTAP 9.8 的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[在 ONTAP 9.7 或更早版本中执行最终升级步骤]。
+
+.步骤
+. 如果系统运行的是 ONTAP 9.7 或更早版本，请执行 * 停止 * 。您必须在中使用操作步骤 xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[在 ONTAP 9.7 或更早版本中执行最终升级步骤]。
+. 在存储系统提示符处，显示有关 LIF 的信息：
++
+`network interface show`
+
+. 如果您使用的是 SAN 环境，请从端口集中删除未使用的 LIF ，以便可以将其删除：
++
+.. 显示端口集列表：
++
+`lun portset show`
+
+.. 从端口集中删除所有未使用的 LIF ：
++
+`lun portset remove`
+
+
+
+. 从新节点中删除每个未使用的 LIF ：
++
+`网络接口删除`
+
+. 根据需要在新节点对上重新启用存储故障转移或高可用性：
++
+[cols="1,2"]
+|===
+| 如果您有 ... | 那么 ... 
+
+
+ a| 
+双节点集群
+ a| 
+重新启用高可用性： `cluster ha modify -configured true`
+
+
+
+ a| 
+包含两个以上节点的集群
+ a| 
+重新启用存储故障转移： `storage failover modify -node node_name -enabled true`
+
+|===
+. 根据需要在新节点上配置 SP ：
++
+`ssystem service-processor network modify`
+
+. 根据需要在新节点上安装新许可证：
++
+`s系统许可证添加`
+
+. 在新节点上设置 AutoSupport ：
++
+`s系统节点 AutoSupport modify`
+
+. 从每个新节点上，向技术支持发送升级后 AutoSupport 消息：
++
+`ssystem node AutoSupport invoke -node node_name -type all -message "MAINT=end node_name successfully uped" from platform_old to platform_new"`
+
+. 使用 _NetApp 加密高级指南 _ 中的相应操作步骤还原存储或卷加密功能。
++
+https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["《 ONTAP 9 NetApp 加密高级指南》"]
+
++
+根据您使用的是板载密钥管理还是外部密钥管理，请执行以下过程之一：
+
++
+** "`还原板载密钥管理加密密钥` "
+** "`还原外部密钥管理加密密钥` "
+
+
+. 如果新节点具有 FC 端口（板载或 FC 适配器上的），板载 CNA 端口或 CNA 卡，请在存储系统提示符处输入以下命令来配置 FC 或 CNA 端口：
++
+`ssystem node hardware unified-connect modify -node node-name -adapter adapter-name -mode ｛ fc_CNA ｝ -type ｛ target_initiator ｝`
+
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["《 ONTAP 9 SAN 管理指南》"]
+
++
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["查找适用于您的 Data ONTAP 8 版本的 SAN 管理指南"]
+
++
+只有当 CNA 适配器脱机时，才能修改 CNA 配置。
+
+. 如有必要，在新节点上设置无交换机集群。
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["迁移到使用 Cisco 集群交换机的双节点交换集群"]
+
++
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 NetApp CN1610 集群交换机的双节点交换集群"]
+
+. 根据需要，通过 NetApp 支持站点停用原始系统，以通知 NetApp 这些系统不再运行，可以从支持数据库中删除：
++
+.. 登录到 https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"] 站点
+.. 单击链接 * 我已安装的系统 * 。
+.. 在 Installed Systems 页面上，以格式输入旧系统的序列号，然后单击 * 执行！ *
+.. 在 " 弃用表单 " 页面上，填写表单并单击 * 提交 * 。
+
+
+
+
+您已完成升级操作步骤。

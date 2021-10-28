@@ -1,0 +1,205 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/map_ports_node2_node4.html 
+keywords: map, node2, node4, physical ports, cluster, network, connectivity 
+summary: 验证 node2 上的物理端口是否正确映射到 node4 上的物理端口。 
+---
+= 将端口从 node2 映射到 node4
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您需要确保 node2 上的物理端口正确映射到 node4 上的物理端口，从而使 node4 能够在升级后与集群中的其他节点以及网络进行通信。
+
+您必须已了解有关新节点上端口的信息，要访问此信息，请参见 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。您可以使用本节后面的信息。
+
+node4 的软件配置必须与 node4 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。
+
+端口设置可能因节点型号而异。
+
+.步骤
+. 执行以下步骤以验证此设置是否为双节点无交换机集群：
++
+.. 将权限级别设置为高级：
++
+`set -privilege advanced`
+
+.. 验证设置是否为双节点无交换机集群：
++
+`network options switchless-cluster show`
+
++
+例如：
+
++
+[listing]
+----
+cluster::*> network options switchless-cluster show
+Enable Switchless Cluster:  false/true
+----
++
+此命令的值必须与系统的物理状态匹配。
+
+.. 使用以下命令返回到管理权限级别：
++
+`set -privilege admin`
+
+
+
+. 进行以下更改：
++
+.. 修改将属于 `集群` 广播域的端口：
++
+`network port modify -node node_name -port port_name -mtu 9000 -ipspace cluster`
+
++
+此示例将在 "node2" 上添加集群端口 "e1b" ：
+
++
+`network port modify -node node2 -port e1b -ipspace cluster -mtu 9000`
+
+.. 将每个 LIF 的集群 LIF 迁移到新端口一次：
++
+`network interface migrate -vserver vserver_name -lif lif_name source-node node2 -destination-node node2 -destination-port port_name`
+
++
+迁移所有集群 LIF 并建立集群通信后，集群应达到仲裁状态。
+
+.. 修改集群 LIF 的主端口：
++
+`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+
+.. 从 `集群` 广播域中删除旧端口：
++
+`network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster -ports node2 ： port`
+
+.. 显示 node2/node4 的 `health` 状态：
++
+`cluster show -node node2 -fields health`
+
+
+
+. [[man_map_2_Step3]] 修改托管数据 LIF 的物理端口的广播域成员资格。
++
+.. 列出所有端口的可访问性状态：
++
+`网络端口可访问性显示`
+
+.. 通过在每个端口上运行以下命令，修复物理端口以及 VLAN 端口的可访问性，一次运行一个端口：
++
+`re可访问性修复 -node node_name -port port_name`
+
++
+此时将显示类似以下内容的警告。查看并根据需要输入 y 或 n ：
+
++
+[listing]
+----
+Warning: Repairing port "node_name:port" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
+----
+.. 要使 ONTAP 完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
+.. 列出集群上的所有广播域：
++
+`broadcast-domain show`
+
+.. 在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口与任何现有广播域不对应，则 ONTAP 将为这些端口创建新的广播域。如果新创建的广播域的所有成员端口都将成为接口组的成员端口，则可以根据需要删除这些成员端口。删除广播域
++
+`broadcast-domain delete -broadcast-domain broadcast_domain`
+
+.. 查看接口组配置，并根据需要添加或删除成员端口。
++
+将成员端口添加到接口组端口：
+
++
+`ifgrp add-port -node node_name -ifgrp ifgrp_port -port port_name`
+
++
+从接口组端口删除成员端口：
+
++
+`ifgrp remove-port -node node_name -ifgrp ifgrp_port -port port_name`
+
+.. 根据需要删除并重新创建 VLAN 端口。删除 VLAN 端口：
++
+`vlan delete -node node_name -vlan-name vlan_port`
+
++
+创建 VLAN 端口：
+
++
+`vlan create -node node_name -vlan-name vlan_port`
+
+
+
++
+
+NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复子步骤（ a ）到（ g ），直到所有端口都在需要时正确放置为止。
+
+. 如果系统上未配置任何 VLAN ，请转至 <<man_map_2_Step5,第 5 步>>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。
++
+.. 显示已替换的 VLAN ：
++
+`displaced VLAN show`
+
+.. 将已替换的 VLAN 还原到所需的目标端口：
++
+`displaced -vVLAN restore -node node_name -port port_name -destination-port destination_port`
+
+.. 验证所有已替换的 VLAN 是否已还原：
++
+`displaced VLAN show`
+
+.. VLAN 会在创建后大约一分钟自动放置到相应的广播域中。验证已还原的 VLAN 是否已放置在相应的广播域中：
++
+`网络端口可访问性显示`
+
+
+
+. 自 ONTAP 9.8 起，如果在网络端口可访问性修复操作步骤期间在广播域之间移动了 LIF 的主端口，则 ONTAP 将自动修改 LIF 的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。
++
+.. 显示主端口可能已移至另一个节点或不再存在的 LIF ：
++
+`displaced interface show`
+
+.. 还原每个 LIF 的主端口：
++
+`displaced interface restore -vserver vserver_name -lif-name lif_name`
+
+.. 验证是否已还原所有 LIF 主端口：
++
+`displaced interface show`
+
+
+
++
+如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <<man_map_2_Step3,第 3 步>>。
+
+. 验证属于正确广播域的端口上的所有 LIF 是否均以管理员方式启动。
++
+.. 检查是否存在任何已被管理员关闭的 LIF ：
++
+`network interface show -vserver vserver_name -status-admin down`
+
+.. 检查是否有任何 LIF 运行中断：
++
+`network interface show -vserver vserver_name -status-oper down`
+
+.. 修改任何需要修改的 LIF ，使其具有不同的主端口：
++
+`network interface modify -vserver vserver_name -lif lif_name -home-port home_port`
+
++
+
+NOTE: 对于 iSCSI LIF ，修改主端口需要以管理员方式关闭 LIF 。
+
+.. 还原不在其各自主端口主端口的 LIF ：
++
+`网络接口还原 *`
+
+
+
+

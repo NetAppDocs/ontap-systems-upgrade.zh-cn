@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/apply_RCF_files_recable_switches.html 
+keywords: rcf files, reference configuration, switches, nodes, recable, fc 
+summary: 应用适当的 RCF 文件以重新配置交换机以容纳新节点。 
+---
+= 应用 RCF 文件并重新对交换机进行布线
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您必须应用适当的参考配置（ RCF ）文件来重新配置交换机以容纳新节点。应用 RCF 文件后，您可以对交换机进行重新布线。
+
+FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置指南 _ 中所述的使用情况匹配，才能使用 RCF 。转至 link:other_references.html["参考资料"] 链接到 _Fabric-Attached MetroCluster 安装和配置指南 _ 。
+
+.步骤
+. 找到适用于您的配置的 RCF 文件。
++
+您必须使用与您的交换机型号匹配的 RCF 文件。
+
++
+link:http://mysupport.netapp.com/NOW/download/software/metrocluster_brocade/sanswitch/index.shtml["NetApp 下载：适用于 Brocade 交换机的 MetroCluster 配置文件"]
+
++
+link:http://mysupport.netapp.com/NOW/download/software/metrocluster_cisco/sanswitch/index.shtml["NetApp 下载：适用于 Cisco 交换机的 MetroCluster 配置文件"]
+
+. 按照 * 下载 * 页面上的说明应用 RCF 文件，并根据需要调整 ISL 设置。
+. 验证是否已保存交换机配置。
+. 按照您在中创建的布线布局，使用缆线将两个 FC-SAS 网桥连接到 FC 交换机 link:determine_new_cabling_layout.html["确定新的布线布局"]。
+. 验证端口是否联机：
++
+** 对于 Brocade 交换机，请使用 `sswitchshow` 命令。
+** 对于 Cisco 交换机，请使用 show `interface brief` 命令。
+
+
+. 使用缆线将控制器中的 FC-VI 端口连接到交换机。
+. 从现有节点中，验证 FC-VI 端口是否联机：
++
+`MetroCluster 互连适配器 show`
+
++
+`MetroCluster 互连镜像显示`
+
+

@@ -1,0 +1,11 @@
+= 
+
+
+升级完成后，如果您使用的是 MetroCluster 配置，则 FC 逻辑接口（ LIF ）可能会留在不正确的端口上。您可以执行重新同步操作，将 LIF 重新分配给正确的端口。
+
+.步骤
+. 输入 `MetroCluster vserver resync` 命令将 LIF 重新分配到正确的端口。
++
+`MetroCluster vserver resync -vserver vserver_name fcp-mc.headupgrade.test.vs`
+
+

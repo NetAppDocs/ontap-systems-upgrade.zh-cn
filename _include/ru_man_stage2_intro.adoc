@@ -1,0 +1,9 @@
+= 
+
+
+.步骤
+. link:relocate_non_root_aggr_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"]
+. link:move_nas_lifs_node1_node2.html["将 node1 拥有的 NAS 数据 LIF 移动到 node2"]
+. link:record_node1_information.html["记录节点 1 信息"]
+. link:retire_node1.html["停用 node1"]
+

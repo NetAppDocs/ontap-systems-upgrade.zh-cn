@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/quiesce_snapmirror_relationships.html 
+keywords: quiesce, snapmirror, relationship, netboot, destination cluster 
+summary: 在通过网络启动系统之前，暂停所有 SnapMirror 关系。 
+---
+= 暂停 SnapMirror 关系
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在以网络方式启动系统之前，您必须确保所有 SnapMirror 关系均已暂停。暂停 SnapMirror 关系后，它会在重新启动和故障转移后保持静默状态。
+
+.步骤
+. 验证目标集群上的 SnapMirror 关系状态：
++
+`snapmirror show`
+
++
+
+NOTE: 如果状态为 `transferring` ，则必须中止这些传输： `snapmirror abort -destination-vserver vserver name`
+
++
+如果 SnapMirror 关系未处于 `Transferring` 状态，则中止将失败。
+
+. 暂停集群之间的所有关系：
++
+`snapmirror quiesce -destination-vserver vserver-name`
+
+

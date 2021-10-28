@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/join_quorum_node_has_different_ports_stage3.html 
+keywords: aggregate relocation, YYYYY 
+summary: 如果新节点具有一组不同的网络端口，则必须确保该节点成功加入仲裁。 
+---
+= 当节点具有一组不同的网络端口时加入仲裁
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用新控制器的节点首先会启动并自动尝试加入集群；但是，如果新节点具有一组不同的网络端口，则必须执行以下步骤以确保该节点成功加入仲裁。
+
+您可以对任何相关节点使用这些说明。node3 在以下样本中使用。
+
+.步骤
+. 输入以下命令并检查其输出，以验证新集群端口是否位于集群广播域中：
++
+`network port show -node -port port -fields broadcast-domain`
+
++
+以下示例显示端口 "e1a" 位于 node3 上的集群域中：
+
++
+[listing]
+----
+cluster::> network port show -node node3 -port e1a -fields broadcast-domain
+node   port broadcast-domain
+------ ---- ----------------
+node3  e1a  Cluster
+----
+. 输入以下命令并检查其输出，将正确的端口添加到集群广播域：
++
+`network port modify -node -port -ipspace cluster -mtu 9000`
+
++
+此示例将在 node3 上添加集群端口 "e1b" ：
+
++
+[listing]
+----
+network port modify -node node3 -port e1b -ipspace Cluster -mtu 9000
+----
+. 使用以下命令将每个 LIF 的集群 LIF 迁移到新端口一次：
++
+`network interface migrate -vserver cluster -lif <lif_name> -source-node node3 - destination-node node3 -destination-port <port_name>`
+
+. 修改集群 LIF 的主端口：
++
+`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+
+. 如果集群端口不在集群广播域中，请使用以下命令添加它们：
++
+`network port broadcast-domain add-ports -ipspace cluster -broadcastdomain cluster - ports node ： port`
+
+. 从集群广播域中删除旧端口。您可以对任何相关节点使用。以下命令将删除 node3 上的端口 "e0d" ：
++
+`network port broadcast-domain remove-ports network port broadcast-domain remove-ports ipspace cluster -broadcast-domain cluster ‑ports node3 ： e0d`
+
+. 验证节点是否已重新加入仲裁：
++
+`cluster show -node node3 -fields health`
+
+. 调整托管集群 LIF 和节点管理 / 集群管理 LIF 的广播域。确保每个广播域包含正确的端口。如果某个端口托管 LIF 或位于 LIF 的主目录中，则无法在广播域之间移动该端口，因此您可能需要按如下所示迁移和修改 LIF ：
++
+.. 显示 LIF 的主端口：
++
+`network interface show -fields home-node ， home-port`
+
+.. 显示包含此端口的广播域：
++
+`network port broadcast-domain show -ports <node_name ： port_name>`
+
+.. 在广播域中添加或删除端口： `network port broadcast-domain add-ports network port broadcast-domain remove-port`
+.. 修改 LIF 的主端口： `network interface modify -vserver vserver -lif <lif_name> – home-port <port_name>` 根据需要调整集群间广播域并迁移集群间 LIF 。数据 LIF 保持不变。
+
+
+

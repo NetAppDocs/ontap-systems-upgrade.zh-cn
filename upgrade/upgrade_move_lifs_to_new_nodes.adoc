@@ -1,0 +1,71 @@
+---
+permalink: upgrade/upgrade-move-lifs-to-new-nodes.html 
+sidebar: sidebar 
+keywords: move, volume, original, node, migrate, non-san, lif, cluster-management, move non-san data lifs and cluster management lifs to the new nodeas 
+summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群管理 LIF 从原始节点迁移到新节点。 
+---
+= 将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群管理 LIF 从原始节点迁移到新节点。
+
+您不能使用 VMware vStorage APIs for Array Integration （ VAAI ）迁移用于副本卸载操作的 LIF 。
+
+.步骤
+. 从托管集群 LIF 的节点中，将非 SAN 数据 LIF 的主端口从原始节点更改为新节点：
++
+`network interface modify -vserver vserver_name -lif lif_name -home-node new_node_name -home-port ｛ netport_ifgrp ｝`
+
+. 执行以下操作之一：
++
+[cols="1,2"]
+|===
+| 要迁移的对象 | 然后输入 ... 
+
+
+ a| 
+特定 LIF
+ a| 
+`network interface migrate -vserver vserver_name -lif lif_name -source-node source_node_name -destination-node dest_node_name -destination-port dest_port_name`
+
+
+
+ a| 
+所有非 SAN 数据 LIF 和集群管理 LIF
+ a| 
+`network interface migrate-all -node node_name`
+
+|===
++
+以下命令会将 SVM"vs0" 上名为 datalif1 的 LIF 迁移到 "node0b" 上的端口 "e0d" ：
+
++
+[listing]
+----
+cluster::> network interface migrate -vserver vs0 -lif datalif1 -destination-node node0b -destination-port e0d
+----
++
+以下命令将从当前（本地）节点迁移所有数据和集群管理 LIF ：
+
++
+[listing]
+----
+cluster::> network interface migrate-all -node local
+----
+. 检查集群管理 LIF 的主节点是否位于原始节点之一： `network interface show -lif cluster_mgmt -fields home-node`
+. 如果集群管理 LIF 的主节点位于某个原始节点上，请完成以下步骤：
++
+.. 将集群管理 LIF 的主节点切换到一个新节点：
++
+`network interface modify -vserver cluster_name -lif cluster_mgmt -home-node new_node_name -home-port ｛ netport_ifgrp ｝`
+
+.. 将集群管理 LIF 迁移到一个新节点：
++
+`network interface migrate -vserver vserver_name -lif cluster-mgmt -destination-node new_node_name -destination-port ｛ netport_ifgrp ｝`
+
+
+
+

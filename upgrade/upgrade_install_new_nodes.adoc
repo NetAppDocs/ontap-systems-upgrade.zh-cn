@@ -1,0 +1,27 @@
+---
+permalink: upgrade/upgrade-install-new-nodes.html 
+sidebar: sidebar 
+keywords: upgrade, moving, move, storage, install, node3, node4, attach, power, console, network, connection, install the new nodes 
+summary: 通过移动存储进行升级时，首先要安装 node3 和 node4 ，并将电源，控制台和网络连接连接连接到新节点。 
+---
+= 安装新节点
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通过移动存储进行升级时，首先要安装 node3 和 node4 ，并将电源，控制台和网络连接连接连接到新节点。
+
+.步骤
+. 如果需要，请按照相应适配器安装指南中的说明在 node3 和 node4 中安装任何适配器。
+. 按照平台的 _Installation and Setup Instructions_安装 新节点。
++
+此时，请勿将磁盘架从原始节点连接到新节点。
+
+. 按照平台的 _Installation and Setup Instructions_将 电源和控制台连接连接到 node3/node4 HA 对。
+. 连接网络缆线。
+. 将除存储架缆线外的所有剩余缆线分别从 node1/node2 HA 对传输到 node3/node4 上的相应端口。
++
+这包括不用于连接存储架的光纤通道和以太网缆线。
+
+

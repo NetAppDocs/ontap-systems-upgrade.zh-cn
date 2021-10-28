@@ -1,0 +1,31 @@
+= 
+
+
+对于 ONTAP 9.5 及更高版本，您可以使用密钥管理互操作性协议（ KMIP ）服务器管理身份验证密钥。
+
+.步骤
+. 添加新控制器：
++
+`security key-manager setup -node <new_controller_name>`
+
+. 添加密钥管理器：
++
+`security key-manager -add <key_management_server_ip_address>`
+
+. 验证密钥管理服务器是否已配置且可供集群中的所有节点使用：
++
+`security key-manager show -status`
+
+. 将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：
++
+`security key-manager restore -node <new_controller_name>`
+
+. 使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
++
+`storage encryption disk modify -disk * （ -data-key-id nonMSID AK ）`
+
+. 如果使用联邦信息处理标准（ FIPS ），请使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
++
+`storage encryption disk* modify -disk * "-fips-key-id nonMSID AK]`
+
+

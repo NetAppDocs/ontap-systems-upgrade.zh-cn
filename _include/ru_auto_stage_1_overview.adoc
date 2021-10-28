@@ -1,0 +1,9 @@
+= 
+
+
+在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。您可能需要为磁盘重新设置密钥以进行存储加密。您还必须准备通过网络启动新控制器。
+
+.步骤
+. link:prepare_nodes_for_upgrade.html["准备要升级的节点"]
+. link:get_ip_address_of_external_kms_for_storage_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]
+

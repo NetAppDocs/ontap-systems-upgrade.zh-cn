@@ -1,0 +1,38 @@
+---
+permalink: upgrade/upgrade-install-and-join-new-nodes-move-vols.html 
+sidebar: sidebar 
+keywords: install, node, join, cluster, volume, original, node, install the new nodes and joining them to the cluster 
+summary: 您必须安装新节点并将其加入集群，以便可以从原始节点移动卷。 
+---
+= 安装新节点并将其加入集群
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您必须安装新节点并将其加入集群，以便可以从原始节点移动卷。
+
+通过移动卷升级控制器硬件时，原始节点和新节点必须位于同一集群中。
+
+.步骤
+. 安装新节点并将其加入集群：
++
+[cols="1,2"]
+|===
+| 如果集群正在运行 ... | 按照中的说明进行操作 ... 
+
+
+ a| 
+ONTAP 9.0 或更高版本
+ a| 
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-expand/home.html["《 ONTAP 9 集群扩展快速指南》"]
+
+
+
+ a| 
+ONTAP 9.0 之前的版本
+ a| 
+http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["查找适用于您的 Data ONTAP 8 版本的《集群扩展快速指南》"]
+
+|===
+

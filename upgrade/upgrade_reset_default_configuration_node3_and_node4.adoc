@@ -1,0 +1,54 @@
+---
+permalink: upgrade/upgrade-reset-default-configuration-node3-and-node4.html 
+sidebar: sidebar 
+keywords: ensure, configuration, information, boot, media, interfere, controller, upgrade, reset, node3, node4, node, default, setting, reset default configuration on the new nodes 
+summary: 要确保启动介质上的配置信息不会影响控制器升级，您需要将 node3 和 node4 的配置重置为默认配置设置。 
+---
+= 重置新节点上的默认配置
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要确保启动介质上的配置信息不会影响控制器升级，您需要将 node3 和 node4 的配置重置为默认配置设置。
+
+您需要对 node3 和 node4 执行以下步骤。您可以在每个节点上并行执行这些步骤。
+
+. 将节点启动至启动菜单：
++
+`boot_ontap 菜单`
+
+. 在启动菜单提示符处，键入 `wipeconfig` ，然后按 Enter 键。
++
+以下屏幕将显示启动菜单提示符：
+
++
+[listing]
+----
+Please choose one of the following:
+
+    (1) Normal Boot.
+    (2) Boot without /etc/rc.
+    (3) Change password.
+    (4) Clean configuration and initialize all disks.
+    (5) Maintenance mode boot.
+    (6) Update flash from backup config.
+    (7) Install new software first.
+    (8) Reboot node.
+    (9) Configure Advanced Drive Partitioning.
+    Selection (1-9)?  wipeconfig
+----
+. 当您看到类似以下内容的提示时，输入 `yes` ：
++
+[listing]
+----
+This option deletes critical system configuration, including cluster membership.
+Warning: do not run this option on a HA node that has been taken over.
+Are you sure you want to continue?: yes
+Rebooting to finish wipeconfig request.
+----
++
+系统将启动 `wipeconfig` 操作步骤并重新启动。操作步骤完成后，系统将返回到启动菜单。
+
+. 在启动菜单中，输入 8 以重新启动节点，并在自动启动期间按 * Ctrl-C * 以在 LOADER 提示符处停止节点。
+

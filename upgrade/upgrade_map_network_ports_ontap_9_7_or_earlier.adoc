@@ -1,0 +1,109 @@
+---
+permalink: upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html 
+sidebar: sidebar 
+keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, physical, port, configure, setting, intend, data, map, map network ports using ontap 9.7 or earlier 
+summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您需要确保物理端口已正确配置了用于预期用途的设置，例如集群，数据等。 
+---
+= 使用 ONTAP 9.7 或更早版本映射网络端口
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您需要确保物理端口已正确配置了用于预期用途的设置，例如集群，数据等。
+
+这些步骤适用于运行 ONTAP 9.7 或更早版本的系统。如果您运行的是 ONTAP 9.8 ，则必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-8.adoc[使用 ONTAP 9.8 映射网络端口]。
+
+您需要对 node3 和 node4 执行这些步骤。
+
+
+NOTE: 以下命令示例引用 "node1" ，因为在操作步骤的此阶段，替代节点 "node3" 和 "node4" 实际上分别命名为 "node1" 和 "node2" 。
+
+.步骤
+. 如果系统运行的是 ONTAP 9.8 ，请执行 * 停止 * 。您必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-8.adoc[使用 ONTAP 9.8 映射网络端口]。
+. 找到您在中记录的 node1 和 node2 的端口和 LIF 配置信息 link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["移动存储时准备升级，步骤 3"]。
+. 找到您在中记录的端口，广播域和 IP 空间的信息 link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["移动存储时准备升级，步骤 3"]。
++
+https://hwu.netapp.com["NetApp Hardware Universe"]
+
+. 进行以下更改：
++
+.. 如果尚未将 node3 和 node4 启动到集群提示符，请执行此操作。
+.. 将正确的端口添加到 `集群` 广播域：
++
+`network port modify -node node_name -port port_name -mtu 9000 -ipspace cluster`
+
++
+此示例在 "`node1` " 上添加了 `Cluster` 端口 e1b ：
+
++
+`network port modify -node node1 -port e1b -ipspace cluster -mtu 9000`
+
+.. 将每个 LIF 的 LIF 迁移到新端口一次：
++
+`network interface migrate -vserver vserver_name -lif lif_name -source-node node1 -destination-node node1 -destination-port port_name`
+
++
+SAN 数据 LIF 只能在脱机时进行迁移。
+
+.. 修改集群 LIF 的主端口：
++
+`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+
+.. 从集群广播域中删除旧端口：
++
+`network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster -ports node1 ： port`
+
+.. 显示 node3 和 node4 的运行状况：
++
+`cluster show -node node1 -fields health`
+
+
+
+. 修改 VLAN 和 `ifgrp config` 以匹配新的控制器物理端口布局。
+. 删除 node3 和 node4 上不再存在的 node1 和 node2 端口（高级权限级别）：
++
+`network port delete -node node1 -port port_name`
+
+. [[map_9.7_7]] 调整节点管理广播域，并根据需要迁移节点管理和集群管理 LIF ：
++
+.. 显示 LIF 的主端口：
++
+`network interface show -fields home-node ， home-port`
+
+.. 显示包含端口的广播域：
++
+`network port broadcast-domain show -ports <node_name ： port_name>`
+
+.. 根据需要在广播域中添加或删除端口：
++
+`网络端口 broadcast-domain add-ports`
+
++
+`network port broadcast-domain remove-ports`
+
+.. 根据需要修改 LIF 的主端口：
++
+`network interface modify -vserver vserver_name -lif lif_name – home-port port_name`
+
+
+
+. 如有必要，请使用中的命令调整集群间广播域并迁移集群间 LIF <<map_9.7_7,第 7 步>>。
+. 如果需要，请使用中的命令调整任何其他广播域并迁移数据 LIF <<map_9.7_7,第 7 步>>。
+. 调整所有 LIF 故障转移组：
++
+`network interface modify -failover-group <failover_group> -failover-policy <failover_policy>`
+
++
+以下命令会将故障转移策略设置为广播域范围，并使用故障转移组 "fg1" 中的端口作为 "node1" 上 LIF"data1" 的故障转移目标：
+
++
+`network interface modify -vserver node1 -lif data1 -failover-policy broadcast-domain-wide -failover-group fg1`
+
+. 显示 node3 和 node4 的网络端口属性：
++
+`network port show -node node1`
+
+
+
+您已完成物理端口映射。要完成升级，请转至 xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[在 ONTAP 9.7 或更早版本中执行最终升级步骤]。

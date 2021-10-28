@@ -1,0 +1,43 @@
+= 如果 ARL 预检失败，请更正聚合所有权
+
+
+
+
+== 如果 ARL 预检失败，请更正聚合所有权
+
+如果聚合状态检查失败，您必须将配对节点拥有的聚合返回到主所有者节点，然后重新启动预检过程。
+
+.步骤
+. 将配对节点当前拥有的聚合返回到主所有者节点：
++
+`storage aggregate relocation start -node <source_node> -destination <destination-node> - aggregate-list *`
+
+. 验证 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
++
+`storage aggregate show -nodes <node_name> -is-home false -fields owner-name ， home-name ， state`
+
++
+以下示例显示了当节点同时是聚合的当前所有者和主所有者时命令的输出：
+
++
+[listing]
+----
+cluster::> storage aggregate show -nodes node1 -is-home true -fields owner-name,home-name,state
+aggregate   home-name  owner-name  state
+---------   ---------  ----------  ------
+aggr1       node1      node1       online
+aggr2       node1      node1       online
+aggr3       node1      node1       online
+aggr4       node1      node1       online
+
+4 entries were displayed.
+----
+
+
+
+
+==== 完成后
+
+您必须重新启动控制器更换过程：
+
+`ssystem controller replace start -nodes <node_name>`

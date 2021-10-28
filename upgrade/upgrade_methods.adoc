@@ -1,0 +1,26 @@
+---
+permalink: upgrade/upgrade-methods.html 
+sidebar: sidebar 
+keywords:  
+summary: 通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过移动存储 \ （中断操作步骤 \ ）或移动卷 \ （无中断操作步骤 \ ）进行升级。 
+---
+= 选择升级控制器硬件的方法
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过移动存储（中断操作步骤）或移动卷（无中断操作步骤）来升级。
+
+image::../media/methods_for_upgrading_controller_hardware.png[升级控制器硬件的方法]
+
+
+NOTE: 使用内部驱动器的型号包括： FAS2220 ， FAS2240-2 ， FAS2240-4 ， FAS2520 ， FAS2552 ， FAS2554 ， FAS2620 ， FAS2650 ， FAS2720 ， FAS2750 ， AFF A200 ， AFF A220 ， AFF A700s ， AFF A800 ， AFF A250 。
+
+如果您的系统未在上面列出，请参见 https://hwu.netapp.com["NetApp Hardware Universe"] 以检查它是否具有内部驱动器。
+
+* 相关信息 *
+
+link:upgrade-by-moving-storage-parent.html["通过移动存储进行升级的工作流"]
+
+link:upgrade-by-moving-volumes-parent.html["通过移动卷进行升级的工作流"]

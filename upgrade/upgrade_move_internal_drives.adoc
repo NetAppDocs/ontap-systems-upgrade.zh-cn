@@ -1,0 +1,46 @@
+---
+permalink: upgrade/upgrade-move-internal-drives.html 
+sidebar: sidebar 
+keywords: node, support, model, upgrading, upgrade, moving, move, storage, internal, sata, drive, ssd, drive, shelf, attach, cluster, transfer, sas, drive, move internal drives from an original node 
+summary: 如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。 
+---
+= 从原始节点移动内部驱动器
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。
+
+.开始之前
+* 您必须已查看 link:upgrade_considerations.html#["升级控制器硬件的注意事项"] 关于移动内部驱动器。
++
+如果您需要特定于您的配置的指导，应联系技术支持。
+
+* 原始节点中的 SATA 或 SSD 驱动器托架必须与新驱动器架兼容。
+* 新节点必须已连接兼容的驱动器架。
+* 驱动器架必须具有足够的可用托架，以容纳原始节点上的 SATA 或 SSD 驱动器托架。
+
+
+.步骤
+. 从系统正面轻轻卸下挡板。
+. [[move_int_drive_2]] 按驱动器托架左侧的释放按钮。
++
+托架上的凸轮把手部分弹开，托架从中板上松开。
+
+. 将凸轮把手拉至完全打开位置，以使托架从中板中取出，然后将托架轻轻滑出驱动器架。
++
+
+NOTE: 在拆卸，安装或搬运驱动器时，请始终用双手。但是，请勿将手放在托架下侧暴露的驱动器板上。
+
+. 在凸轮把手处于打开位置的情况下，将托架插入新驱动器架的插槽中，用力推动，直到托架停止。
++
+
+NOTE: 插入托架时，请用双手。
+
+. [[move_int_drive_5]] 关闭凸轮把手，使托架完全固定在中板中，并且把手卡入到位。
++
+您应慢慢关闭手柄，使其与托架的正面正确对齐。
+
+. 重复 <<move_int_drive_2,第 2 步>> 到 <<move_int_drive_5,第 5 步>> 要移至新系统的所有驱动器。
+

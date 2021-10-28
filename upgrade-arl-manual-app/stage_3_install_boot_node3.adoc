@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual-app/stage_3_install_boot_node3.html 
+keywords: relocate, retire, node1, steps 
+summary: 在阶段 2 中，您将 node1 聚合和 LIF 重新定位到 node2 ，记录 node1 信息，然后停用 node1 。 
+---
+= 第 3 阶段：安装并启动节点 3.
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在第 3 阶段，您将安装并启动 node3 ，将集群和节点管理端口从 node1 映射到 node3 ，验证 node3 安装，并将属于 node1 的数据 LIF 和 SAN LIF 从 node2 移动到 node3 。您还可以将所有聚合从 node2 重新定位到 node3 ，并将 node2 拥有的数据 LIF 和 SAN LIF 移动到 node3 。
+
+.步骤
+. link:install_boot_node3.html["安装并启动 node3"]
+. link:set_fc_uta_uta2_config_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"]
+. link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"]
+. link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF"]
+. link:relocate_non_root_aggr_node2_node3.html["将非根聚合从 node2 重新定位到 node3"]
+. link:move_nas_lifs_node2_node3.html["将 Node2 拥有的 NAS 数据 LIF 移动到 Node3"]
+

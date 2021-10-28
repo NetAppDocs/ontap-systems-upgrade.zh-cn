@@ -1,0 +1,215 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/reboots_panics_power_cycles.html 
+keywords: crash, reboot, node1, node2, node3, node4, upgrade 
+summary: 在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。这些问题的解决方案取决于它们发生的时间。 
+---
+= 重新启动，崩溃或重新启动
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。这些问题的解决方案取决于它们发生的时间。
+
+
+
+== 在阶段 2 期间重新启动，崩溃或重新启动
+
+崩溃可能发生在阶段 2 之前，期间或之后，在此阶段中，您可以将聚合从 node1 重新定位到 node2 ，将 node1 拥有的数据 LIF 和 SAN LIF 移动到 node2 ，记录 node1 信息并停用 node1 。
+
+
+
+=== 在启用 HA 的情况下，节点 1 或节点 2 在第 2 阶段之前崩溃
+
+如果 node1 或 node2 在第 2 阶段之前崩溃，则尚未重新定位任何聚合，并且 HA 配置仍处于启用状态。
+
+接管和交还可以正常进行。
+
+.步骤
+. 检查控制台是否存在系统可能已发出的 EMS 消息，并采取建议的更正操作。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== 在 HA 仍处于启用状态的情况下，节点 1 在第 2 阶段期间或之后崩溃
+
+部分或所有聚合已从 node1 重新定位到 node2 ，并且 HA 仍处于启用状态。node2 将接管 node1 的根卷以及未重新定位的任何非根聚合。
+
+重新定位的聚合的所有权与因主所有者未发生更改而被接管的非根聚合的所有权相同。当 node1 进入 `Waiting for giveback state` 时， node2 将交还所有 node1 非根聚合。
+
+.步骤
+. 完成 link:relocate_non_root_aggr_node1_node2.html#step1["第 1 步"] 在 _relocate non-root aggregates from node1 to node2_ 一节中，再次将非根聚合从 node1 重新定位到 node2_ 。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== 禁用 HA 后， Node1 会在第 2 阶段后崩溃
+
+Node2 不会接管，但它仍在从所有非根聚合提供数据。
+
+.步骤
+. 启动 node1 。
+. 继续执行节点对升级操作步骤。
++
+您可能会看到 `storage failover show` 命令的输出发生一些更改，但这是典型的，不会影响操作步骤。请参见故障排除部分 link:issues_multiple_stages_of_procedure.html#Unexpected-storage-failover-show-command-output["意外的 "storage failover show" 命令输出"]。
+
+
+
+
+
+=== Node2 在阶段 2 期间或之后出现故障，同时 HA 仍处于启用状态
+
+node1 已将其部分或全部聚合重新定位到 node2 。已启用 HA 。
+
+node1 将接管 node2 的所有聚合以及它已重新定位到 node2 的任何自身聚合。当 node2 进入 `Waiting for Giveback` 状态时， node1 将交还 node2 的所有聚合。
+
+.步骤
+. 完成 link:relocate_non_root_aggr_node1_node2.html#step1["第 1 步"] 在 _relocate non-root aggregates from node1 to node2_ 一节中，再次将非根聚合从 node1 重新定位到 node2_ 。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== 在第 2 阶段之后以及禁用 HA 后， Node2 会崩溃
+
+Node1 不会接管。
+
+.步骤
+. 启动 node2 。
++
+在 node2 启动期间，所有聚合都会发生客户端中断。
+
+. 继续执行节点对升级操作步骤的其余部分。
+
+
+
+
+== 在第 3 阶段重新启动，崩溃或重新启动
+
+在第 3 阶段期间或之后立即发生故障，在此阶段中，您可以安装并启动 node3 ，将端口从 node1 映射到 node3 ，将属于 node1 和 node2 的数据 LIF 和 SAN LIF 移动到 node3 ，并将所有聚合从 node2 重新定位到 node3 。
+
+
+
+=== 在禁用 HA 的情况下的第 3 阶段以及重新定位任何聚合之前， Node2 发生崩溃
+
+Node2 崩溃后 Node3 不会接管，因为 HA 已禁用。
+
+.步骤
+. 启动 node2 。
++
+在 node2 启动期间，所有聚合都会发生客户端中断。
+
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== 在重新定位部分或全部聚合后，节点 2 在第 3 阶段崩溃
+
+node2 已将其部分或全部聚合重新定位到 node3 ，而 node3 将从重新定位的聚合提供数据。HA 已禁用。
+
+未重新定位的聚合会发生客户端中断。
+
+.步骤
+. 启动 node2 。
+. 完成后重新定位其余聚合 link:relocate_non_root_aggr_node2_node3.html#step1["第 1 步"] 到  在 _relocate non-root aggregates from node2 to node3_ 一节中。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== 在阶段 3 以及 node2 重新定位任何聚合之前， node3 崩溃
+
+Node2 不会接管，但它仍在从所有非根聚合提供数据。
+
+.步骤
+. 启动 node3 。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== 节点 3 在聚合重新定位期间的阶段 3 崩溃
+
+如果 node2 将聚合重新定位到 node3 时 node3 崩溃，则 node2 将中止任何剩余聚合的重新定位。
+
+Node2 将继续为其余聚合提供服务，但已重新定位到 Node3 的聚合会在 Node3 启动期间发生客户端中断。
+
+.步骤
+. 启动 node3 。
+. 完成 link:relocate_non_root_aggr_node2_node3.html#step3["第 3 步"] 再次在 _relocate non-root aggregates from node2 to node3_ 一节中。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== Node3 在第 3 阶段崩溃后无法启动
+
+由于发生灾难性故障，在第 3 阶段发生崩溃后无法启动 node3 。
+
+请联系技术支持。
+
+
+
+=== Node2 在第 3 阶段之后但在第 5 阶段之前崩溃
+
+Node3 将继续为所有聚合提供数据。已禁用 HA 对。
+
+.步骤
+. 启动 node2 。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== Node3 在第 3 阶段之后但在第 5 阶段之前崩溃
+
+Node3 在第 3 阶段之后但在第 5 阶段之前崩溃。已禁用 HA 对。
+
+.步骤
+. 启动 node3 。
++
+所有聚合都会发生客户端中断。
+
+. 继续执行节点对升级操作步骤。
+
+
+
+
+== 在第 5 阶段重新启动，崩溃或重新启动
+
+在第 5 阶段，即安装和启动 node4 ，将端口从 node2 映射到 node4 ，将属于 node2 的数据 LIF 和 SAN LIF 从 node3 移动到 node4 以及将 node2 的所有聚合从 node3 重新定位到 node4 的阶段，可能会发生崩溃。
+
+
+
+=== Node3 在第 5 阶段崩溃
+
+node3 已将 node2 的部分或全部聚合重新定位到 node4 。Node4 不会接管，但会继续为 Node3 已重新定位的非根聚合提供服务。已禁用 HA 对。
+
+其余聚合会发生中断，直到 node3 重新启动为止。
+
+.步骤
+. 启动 node3 。
+. 重复重新定位属于 node2 的其余聚合 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到  在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 一节中。
+. 继续执行节点对升级操作步骤。
+
+
+
+
+=== Node4 在第 5 阶段崩溃
+
+node3 已将 node2 的部分或全部聚合重新定位到 node4 。node3 不会接管，但会继续为 node3 拥有的以及未重新定位的非根聚合提供服务。HA 已禁用。
+
+非根聚合会发生中断，直到 node4 重新启动为止，这些聚合已重新定位。
+
+.步骤
+. 启动 node4 。
+. 重新完成属于 node2 的其余聚合的重新定位 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到  在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 中。
+. 继续执行节点对升级操作步骤。
+

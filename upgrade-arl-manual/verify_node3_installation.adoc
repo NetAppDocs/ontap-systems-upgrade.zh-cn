@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/verify_node3_installation.html 
+keywords: verify, node3, install, installation 
+summary: 安装并启动 node3 后，您需要验证它是否已正确安装，是否属于集群，以及是否可以与 node2 通信。 
+---
+= 验证 node3 安装
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+安装并启动 node3 后，您需要验证它是否已正确安装，是否属于集群，以及是否可以与 node2 通信。
+
+.步骤
+. 在系统提示符处，登录到 node3 。然后，验证 node3 与 node2 位于同一集群中且运行状况良好：
++
+`cluster show`
+
+. 【第 2 步】确认 node3 可以与 node2 通信且所有 LIF 均已启动：
++
+`network interface show -curr-node node3`
+
+. 【第 3 步】执行以下操作之一：
++
+[cols="35,65"]
+|===
+| 如果集群 ... | 那么 ... 
+
+
+| 在 SAN 环境中 | 完成 <<step4,第 4 步>> 然后转到部分 link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs.html["将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF"]。 
+
+
+| 不在 SAN 环境中 | 跳过步骤 4 ，然后转到 link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs.html["将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF"]。 
+|===
+. 【第 4 步】在其中一个节点上输入以下命令并检查其输出，以验证 node2 和 node3 是否处于仲裁状态：
++
+`event log show -messagename scsiblade.*`
+
++
+以下示例显示了集群中节点处于仲裁状态时的输出：
+
++
+[listing]
+----
+cluster::> event log show -messagename scsiblade.*
+Time                Node   Severity      Event
+------------------- ------ ------------- --------------------------
+8/13/2012 14:03:51  node1  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:51  node2  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:48  node3  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+8/13/2012 14:03:43  node4  INFORMATIONAL scsiblade.in.quorum: The scsi-blade ...
+----
+

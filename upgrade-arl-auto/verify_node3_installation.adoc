@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto/verify_node3_installation.html 
+keywords: install, boot, node3, join quorum 
+summary: 安装并启动 node3 后，您需要验证是否已正确安装它。 
+---
+= 验证 node3 安装
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+安装并启动 node3 后，您需要验证是否已正确安装它。您必须等待 node3 加入仲裁，然后恢复重新定位操作。
+
+此时，在操作步骤中，操作将暂停，因为 node3 加入仲裁。
+
+.步骤
+. 验证 node3 是否已加入仲裁：
++
+`cluster show -node node3 -fields health`
+
+. 确认 node3 与 node2 属于同一集群，并且运行状况良好：
++
+`cluster show`
+
+. 检查操作状态，并验证 node3 的配置信息是否与 node1 相同：
++
+`s系统控制器更换 show-details`
+
++
+如果 node3 的配置不同，则稍后可能会在操作步骤中发生系统中断。
+
+. 检查更换的控制器是否已针对 MetroCluster 配置正确配置， MetroCluster 配置应处于运行状况良好，而不是切换模式。请参见 link:verify_health_of_metrocluster_config.html["验证 MetroCluster 配置的运行状况。"]。
+

@@ -1,0 +1,18 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/verify_swtichover_healing_switchback.html 
+keywords: verify,switchover, healing, switchback, negotiated, mcc, metrocluster 
+summary: 验证切换，修复和切回操作。 
+---
+= 验证切换，修复和切回
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您应验证 MetroCluster 配置的切换，修复和切回操作。
+
+请参见 link:other_references.html["参考资料"] 链接到 _RAID MetroCluster 管理和灾难恢复指南 _ ，并按照协商切换，修复和切回的过程进行操作。

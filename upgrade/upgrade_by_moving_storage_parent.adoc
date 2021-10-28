@@ -1,0 +1,28 @@
+---
+permalink: upgrade/upgrade-by-moving-storage-parent.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: 如果要通过移动存储进行升级，请准备原始节点并设置新节点。某些平台型号支持将内部存储传输到新节点。您可以重新分配磁盘并将根卷配置还原到新节点，并配置网络端口。通过移动存储进行升级会造成操作步骤中断。 
+---
+= 通过移动存储升级控制器硬件
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要通过移动存储进行升级，请准备原始节点并设置新节点。某些平台型号支持将内部存储传输到新节点。您可以重新分配磁盘并将根卷配置还原到新节点，并配置网络端口。通过移动存储进行升级会造成操作步骤中断。
+
+image::../media/workflow_for_upgrading_by_moving_storage.png[通过移动存储升级控制器硬件的工作流]
+
+.步骤
+. xref:upgrade-prepare-when-moving-storage.adoc[移动存储时准备升级]
+. xref:upgrade-shutdown-remove-original-nodes.adoc[关闭原始节点]
+. xref:upgrade-remove-disk-ownership-new-nodes.adoc[删除连接到新节点的磁盘的所有权]
+. xref:upgrade-reset-default-configuration-node3-and-node4.adoc[重置新节点上的默认配置]
+. xref:upgrade-install-new-nodes.adoc[安装新节点]
+. xref:upgrade-set-up-new-nodes.adoc[设置新节点]
+. xref:upgrade-optional-move-internal-storage.adoc[可选：移动内部存储或将系统转换为驱动器架]
+. xref:upgrade-attach-shelves-reassign-disks.adoc[连接存储架并重新分配磁盘所有权]
+. xref:upgrade-restore-root-volume-config.adoc[还原根卷配置]
+. xref:upgrade-complete.adoc[完成升级]
+

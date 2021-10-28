@@ -1,0 +1,222 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/map_ports_node2_node4.html 
+keywords: map, node2, node4, physical ports, cluster, network, connectivity 
+summary: 验证 node2 上的物理端口是否正确映射到 node4 上的物理端口。 
+---
+= 将端口从 node2 映射到 node4
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您需要确保 node2 上的物理端口正确映射到 node4 上的物理端口，从而使 node4 能够在升级后与集群中的其他节点以及网络进行通信。
+
+您必须已了解有关新节点上端口的信息，要访问此信息，请参见 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。您可以使用本节后面的信息。
+
+node4 的软件配置必须与 node4 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。
+
+端口设置可能因节点型号而异。您必须使原始节点的端口和 LIF 配置与新节点的配置计划兼容。这是因为新节点在启动时会重播相同的配置，也就是说，当您启动 node4 时， Data ONTAP 将尝试在 node2 上使用的相同端口上托管 LIF 。
+
+因此，如果 node2 上的物理端口不直接映射到 node4 上的物理端口，则需要更改软件配置，才能在启动后还原集群，管理和网络连接。此外，如果 node2 上的集群端口未直接映射到 node4 上的集群端口，则在重新启动时， node4 可能无法自动重新加入仲裁，直到对软件配置进行更改，以便将集群 LIF 托管在正确的物理端口上为止。
+
+.步骤
+. 将 node2 ，端口，广播域和 IP 空间的所有 node2 布线信息记录在此表中：
++
+[cols="7*"]
+|===
+| LIF | Node2 端口 | 节点 2 IP 空间 | 节点 2 广播域 | Node4 端口 | 节点 4 IP 空间 | Node4 广播域 
+
+
+| 集群 1 |  |  |  |  |  |  
+
+
+| 集群 2. |  |  |  |  |  |  
+
+
+| 集群 3. |  |  |  |  |  |  
+
+
+| 集群 4. |  |  |  |  |  |  
+
+
+| 集群 5 |  |  |  |  |  |  
+
+
+| 集群 6 |  |  |  |  |  |  
+
+
+| 节点管理 |  |  |  |  |  |  
+
+
+| 集群管理 |  |  |  |  |  |  
+
+
+| 数据 1. |  |  |  |  |  |  
+
+
+| 数据 2. |  |  |  |  |  |  
+
+
+| 数据 3. |  |  |  |  |  |  
+
+
+| 数据 4. |  |  |  |  |  |  
+
+
+| SAN |  |  |  |  |  |  
+
+
+| 集群间端口 |  |  |  |  |  |  
+|===
++
+有关获取此信息的步骤，请参见 " 录制节点 2 信息 " 一节。
+
+. 使用上表中相同的操作步骤记录节点 4 ，端口，广播域和 IP 空间的所有布线信息 link:record_node2_information.html["记录 node2 信息"] 第节介绍了获取此信息的步骤。
+. 按照以下步骤验证设置是否为双节点无交换机集群：
++
+.. 将权限级别设置为高级：
+.. 验证设置是否为双节点无交换机集群：
++
+[listing]
+----
+cluster::*> network options switchless-cluster show
+Enable Switchless Cluster: false/true
+----
++
+此命令的值必须与系统的物理状态匹配。
+
+.. 返回到管理权限级别：
++
+[listing]
+----
+cluster::*> set -privilege admin
+cluster::>
+----
+
+
+. 通过执行以下步骤将 node4 置于仲裁状态：
++
+.. 启动节点 4.请参见 link:install_boot_node4.html["安装并启动节点 4."] 以启动节点（如果尚未启动）。
+.. 验证新集群端口是否位于集群广播域中：
++
+`network port show -node -port port -fields broadcast-domain` 以下示例显示端口 "e0a" 位于 node4 上的集群域中：
+
++
+[listing]
+----
+cluster::> network port show -node node4 -port e0a -fields broadcast-domain
+
+node       port broadcast-domain
+---------- ---- ----------------
+node4      e1a  Cluster
+----
+.. 如果集群端口不在集群广播域中，请使用以下命令添加它们：
++
+`broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports <node ： port>`
+
+.. 将正确的端口添加到集群广播域：
++
+`network port modify -node -port -ipspace cluster -mtu 9000`
+
++
+此示例将在 node4 上添加集群端口 "e1b" ：
+
++
+`network port modify -node node4 -port e1b -ipspace cluster -mtu 9000`
+
++
+
+NOTE: 对于 MetroCluster 配置，您可能无法更改某个端口的广播域，因为该端口与托管 sync-destination SVM 的 LIF 的端口相关联，并且会看到类似于但不限于以下内容的错误：
+
++
+[listing]
+----
+command failed: This operation is not permitted on a Vserver that is configured as the destination of a MetroCluster Vserver relationship.
+----
++
+在远程站点上对应的 sync-source SVM 中输入以下命令，将 sync-destination LIF 重新分配到相应的端口：
+
++
+`MetroCluster SVM resync -vserver vserver_name`
+
+.. 将每个 LIF 的集群 LIF 迁移到新端口一次：
++
+`network interface migrate -vserver cluster -lif lif_name -source-node node4 - destination-node node4 -destination-port port_name`
+
+.. 修改集群 LIF 的主端口：
++
+`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+
+.. 从集群广播域中删除旧端口：
++
+`network port broadcast-domain remove-ports`
+
++
+此命令删除 node4 上的端口 "e0d" ： `network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster ‑ports node4 ： e0d`
+
+.. 验证 node4 是否已重新加入仲裁：
++
+`cluster show -node node4 -fields health`
+
+
+
+. 【 man_map_2_step5]] 调整托管集群 LIF 和节点管理 / 集群管理 LIF 的广播域。确保每个广播域包含正确的端口。如果某个端口托管 LIF 或位于 LIF 的主目录中，则无法在广播域之间移动该端口，因此您可能需要迁移和修改 LIF ，如以下步骤所示：
++
+.. 显示 LIF 的主端口：
++
+`network interface show -fields home-node ， home-port`
+
+.. 显示包含此端口的广播域：
++
+`network port broadcast-domain show -ports <node_name ： port_name>`
+
+.. 在广播域中添加或删除端口：
++
+`网络端口 broadcast-domain add-ports`
+
++
+`network port broadcast-domain remove-ports`
+
+.. 修改 LIF 的主端口：
++
+`network interface modify -vserver vserver_name -lif lif_name – home-port port_name`
+
+
+
+. 如有必要，请使用中所示的相同命令调整集群间广播域并迁移集群间 LIF <<man_map_2_step5,第 5 步>>。
+. 如有必要，请使用中所示的相同命令调整任何其他广播域并迁移数据 LIF <<man_map_2_step5,第 5 步>>。
+. 如果 node2 上有任何端口在 node4 上不再存在，请按照以下步骤将其删除：
++
+.. 访问任一节点上的高级权限级别：
++
+`set -privilege advanced`
+
+.. 要删除端口，请执行以下操作：
++
+`network port delete -node <node_name> -port <port_name>`
+
+.. 返回到管理员级别：
++
+`set -privilege admin`
+
+
+
+. 调整所有 LIF 故障转移组： `network interface modify -failover-group failover_group -failover-policy failover_policy`
++
+以下命令会将故障转移策略设置为 `broadcast-domain-wide` ，并使用故障转移组 `fg1` 中的端口作为 LIF `data1` on `node4` 的故障转移目标：
+
++
+`network interface modify -vserver node4 -lif data1 failover-policy broadcast-domain-wide -failover-group fg1`
+
++
+有关详细信息，请参见 link:other_references.html["参考资料"] 要链接到 _LIF ONTAP 9 网络管理指南 _ 或 _LIF ONTAP 9 命令：手册页参考 _ ，请转至 _Configuring failover settings on a LIF_ 。
+
+. 验证 node4 上的更改：
++
+`network port show -node node4`
+
+

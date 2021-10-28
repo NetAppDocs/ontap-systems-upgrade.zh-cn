@@ -1,0 +1,24 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/required_tools_documentation.html 
+keywords: Tool, documentation, center, guides, reference, worksheet 
+summary: 升级期间需要的工具和文档。 
+---
+= 所需的工具和文档
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要安装新硬件，您必须使用特定工具，并且在升级过程中需要参考其他文档。您还需要记录完成控制器升级所需的信息；系统会提供一个工作表来记录信息。
+
+要执行升级，您需要使用以下工具：
+
+* 接地线
+* 2 号十字螺丝刀
+
+
+转至 link:other_references.html["参考资料"] 部分，以访问此升级所需的参考文档列表。

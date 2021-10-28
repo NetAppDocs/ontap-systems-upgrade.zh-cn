@@ -1,0 +1,59 @@
+= 
+
+
+
+NOTE: 不会修改聚合和 LIF 的主所有者；只会修改当前 -owner 。
+
+.步骤
+. 恢复聚合重新定位和 NAS 数据 LIF 移动操作：
++
+`s系统控制器更换恢复`
+
++
+所有非根聚合和 NAS 数据 LIF 都会从 node1 迁移到 node2 。
+
++
+此操作将暂停，以便验证是否已将所有 node1 非根聚合和非 SAN 数据 LIF 迁移到 node2 。
+
+. 检查聚合重新定位和 NAS 数据 LIF 移动操作的状态：
++
+`s系统控制器更换 show-details`
+
+. 在操作仍处于暂停状态的情况下，验证所有非根聚合在 node2 上的状态是否均处于联机状态：
++
+`storage aggregate show -node <node2> -state online -root false`
+
++
+以下示例显示 node2 上的非根聚合处于联机状态：
+
++
+[listing]
+----
+cluster::> storage aggregate show -node node2 state online -root false
+
+Aggregate  Size     Available  Used%  State  #Vols  Nodes  RAID Status
+---------  -------  ---------  -----  ------ -----  ------ --------------
+aggr_1     744.9GB  744.8GB    0%     online     5  node2  raid_dp,normal
+aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
+2 entries were displayed.
+----
++
+如果 node2 上的聚合脱机或变为外部聚合，请在 node2 上使用以下命令将其联机，每个聚合一次：
+
++
+`storage aggregate online -aggregate <aggr_name>`
+
+. 在 node2 上使用以下命令并检查其输出，以验证 node2 上的所有卷是否联机：
++
+`volume show -node <node2> -state offline`
+
++
+如果 node2 上的任何卷脱机，请在 node2 上使用以下命令将其联机，每个卷一次：
+
++
+`volume online -vserver <vserver-name> -volume <volume-name>`
+
++
+要与此命令结合使用的 ` <vserver-name>` 可在上一个 `volume show` 命令的输出中找到。
+
+
