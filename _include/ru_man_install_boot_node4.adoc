@@ -37,8 +37,8 @@
 
 +
 ** node4 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。
-** 相应的磁盘架指南。
-** ONTAP 9 高可用性配置指南 _
+** 相应的磁盘架操作步骤
+** 高可用性管理 _ 文档
 +
 使用缆线连接以下连接：
 

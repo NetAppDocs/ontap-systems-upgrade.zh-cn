@@ -29,5 +29,6 @@ summary: 您可以使用替代控制器硬件升级原始控制器硬件，从�
 * 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个高可用性（ HA ）对单独执行操作步骤。
 * 此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9.5 之后发布的 FAS 系统可以连接到存储阵列。有关存储阵列和 V 系列型号的详细信息，请参见 link:other_references.html["参考资料"] 要链接到 _V Hardware Universe 系列支持表，请访问 V 系列支持表。
 * 此操作步骤适用场景系统运行 4 节点 NetApp MetroCluster 配置或更高版本。由于 MetroCluster 配置站点可以位于两个物理上不同的位置，因此对于 HA 对，必须在每个 MetroCluster 站点上单独执行控制器自动升级。
-* 如果要从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。请参见 link:other_references.html["参考资料"] 链接到控制器硬件升级快速指南。
+* 对于非 MetroCluster 系统，例如 HA 集群， ARL 升级是唯一受支持的操作步骤。
+* 如果要从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 

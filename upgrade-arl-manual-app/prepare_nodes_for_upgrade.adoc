@@ -18,7 +18,7 @@ summary: 必须先准备好节点，然后才能进行升级。
 .步骤
 . 确保每个原始节点都有足够的资源，以便在接管模式期间为这两个节点的工作负载提供充分的支持。
 +
-请参见 link:other_references.html["参考资料"] 要链接到 _HA ONTAP 9 高可用性配置指南 _ 并按照 _HA 对最佳实践 _ 一节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。
+请参见 link:other_references.html["参考资料"] 链接到 _High Availability management_ 并按照 _Best Practices for HA pairs_一 节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。
 
 . 完成以下子步骤，为原始节点创建性能基线：
 +
@@ -50,7 +50,7 @@ WARNING: * 注意 * 请勿尝试清除 NVRAM 内容。如果需要清除 NVRAM �
 
 . 检查 node3 和 node4 上的 ONTAP 版本。
 +
-新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则在安装新控制器后，需要通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 升级和还原 / 降级指南 _ 。
+新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则在安装新控制器后，需要通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 link:other_references.html["参考资料"] 链接到 _Upgrade ONTAP 。
 
 +
 有关 node3 和 node4 上的 ONTAP 版本的信息应包含在装运箱中。节点启动时会显示 ONTAP 版本，您也可以将节点启动至维护模式并运行命令：
@@ -159,7 +159,7 @@ node1          node2          true     Connected to node2, Partial giveback
 node2          node1          true     Connected to node1
 ....
 +
-如果任一节点处于部分交还状态，请使用 `storage failover giveback` 命令执行交还，然后使用 `storage failover show-giveback` 命令确保仍不需要交还聚合。有关命令的详细信息，请参见 link:other_references.html["参考资料"] 链接到《 _ONTAP 9 高可用性配置指南》。
+如果任一节点处于部分交还状态，请使用 `storage failover giveback` 命令执行交还，然后使用 `storage failover show-giveback` 命令确保仍不需要交还聚合。有关命令的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _High Availability management_ 。
 
 . 【 man_prepare_nodes_step9]] 确保 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
@@ -248,7 +248,7 @@ node1    None                None
 node2    None                None
 ....
 +
-如果缺少任何磁盘，请参见 link:other_references.html["参考资料"] 链接到 _HA ONTAP 9 磁盘和聚合高级指南 _ ， _ONTAP 9 逻辑存储管理指南 _ 和 _ONTAP 9 高可用性配置指南 _ ，以便为 HA 对配置存储。
+如果缺少任何磁盘，请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理，使用 cli_ 链接到 _Logical storage management 以及 _High Availability management_ ，为 HA 对配置存储。
 
 . 确保 node1 和 node2 运行状况良好且有资格加入集群：
 +
@@ -331,7 +331,7 @@ vs0
 `storage disk show -nodelist <node1 ， node2 > -broken`
 
 +
-如果任何磁盘出现故障，请按照 _ONTAP 9 磁盘和聚合高级指南 _ 中的说明将其删除。请参见 link:other_references.html["参考资料"] 链接到 _ONTAP 9 磁盘和聚合高级指南 _ 。）
+如果任何磁盘出现故障，请按照 _Disk 和使用 cli_ 进行聚合管理中的说明将其删除。请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理。）
 
 . 通过完成以下子步骤并记录每个命令的输出，收集有关 node1 和 node2 的信息：
 +

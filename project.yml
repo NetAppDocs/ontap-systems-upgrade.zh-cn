@@ -1,14 +1,18 @@
 ---
-settings: {}
+settings:
+  name: AFF and FAS Controller Upgrade
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: true
+    langs: zh-cn,us-en,ja-jp
 sidebar:
   entries:
   - title: AFF 和 FAS 系统升级文档
     url: "/index.html"
   - section: upgrade
-  - section: upgrade-arl-auto-app
-  - section: upgrade-arl-manual-app
-  - section: upgrade-arl-auto
-  - section: upgrade-arl-manual
+  - section: upgrade-arl
 homepage:
   tiles:
   - title: 入门
@@ -18,7 +22,7 @@ homepage:
   - title: 通过移动存储或卷（大多数系统）进行升级
     links:
     - title: 升级控制器硬件
-      url: "/upgrade/index.html"
+      url: "/upgrade/upgrade-decide-to-use-this-guide.html"
   - title: 在运行 ONTAP 9.8 及更高版本的系统上移动聚合以进行升级
     links:
     - title: 使用 system controller replace 命令（大多数系统）

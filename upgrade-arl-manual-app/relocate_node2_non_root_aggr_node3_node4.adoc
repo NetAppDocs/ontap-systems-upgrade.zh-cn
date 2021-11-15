@@ -97,7 +97,7 @@ NOTE: 等待所有 node2 聚合重新定位到 node4 ，然后再继续下一步
 
 
 
-有关存储聚合重新定位命令的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 磁盘和聚合高级指南 _ 和 _ONTAP 9 命令：手册页参考 _ 。
+有关存储聚合重新定位命令的详细信息，请参见 link:other_references.html["参考资料"] 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。
 
 |===
 . [[man_relocate_3_4_Step5]] 验证所有 node2 非根聚合是否已联机及其在 node4 上的状态：

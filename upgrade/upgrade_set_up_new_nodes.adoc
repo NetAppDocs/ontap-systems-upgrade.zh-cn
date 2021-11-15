@@ -1,7 +1,7 @@
 ---
 permalink: upgrade/upgrade-set-up-new-nodes.html 
 sidebar: sidebar 
-keywords: Controller Hardware Upgrade Express Guide 
+keywords: upgrade, nodes, moving, storage, port, original, new 
 summary: 在通过移动存储进行升级的过程中，打开 node3 和 node4 的电源，启动软件映像并配置节点。 
 ---
 = 设置新节点
@@ -10,9 +10,9 @@ summary: 在通过移动存储进行升级的过程中，打开 node3 和 node4 
 
 
 [role="lead"]
-在通过移动存储进行升级的过程中，打开 node3 和 node4 的电源，启动软件映像并配置节点。原始节点和新节点之间的物理端口布局可能有所不同。应在原始节点和替代节点之间映射端口，以确定端口和连接的正确布局。
+During the process of upgrading by moving storage, you power on node3 and node4, boot the software image, and configure the nodes.Physical port layout between original and new nodes can be different.Mapping of ports between original and replacement nodes should be done to identify proper layout of ports and connections.
 
-如果新节点上运行的 ONTAP 版本与原始节点上的版本不同，则必须已将正确的 ` <ontap_version>_image.tgz` 文件从 NetApp 支持站点下载到可通过 Web 访问的目录中（请参见 link:upgrade-prepare-when-moving-storage.html["移动存储时准备升级，第 5 步"]）。要对系统执行网络启动，您需要使用 ` <ontap_version>_image.tgz` 文件。
+如果在新节点上运行的 ONTAP 版本与原始节点上的版本不同，则必须已从 NetApp 支持站点将正确的 ` <ontap_version>_image.tgz` 文件下载到可通过 Web 访问的目录中（请参见 _prepare for the upgrade when moving storage_ ， link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["第 5 步"]）。要对系统执行网络启动，您需要使用 ` <ontap_version>_image.tgz` 文件。
 
 .步骤
 . 打开 node3 的电源，然后立即在控制台终端上按 Ctrl-C 以访问 LOADER 提示符。
@@ -93,10 +93,7 @@ NOTE: 如果无法通过网络启动新控制器，请联系技术支持。
 . 从启动菜单中，选择 * （ 5 ） Maintenance mode boot* 以访问维护模式。
 . 如有必要，更改节点上的 FC 或 CNA 端口，然后将节点重新启动至维护模式。
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["《 ONTAP 9 SAN 管理指南》"]
-
-+
-https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["查找适用于您的 Data ONTAP 8 版本的 SAN 管理指南"]
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行 SAN 管理"^]
 
 . 您应验证命令输出是否显示 `ha` ：
 +
@@ -111,12 +108,6 @@ https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=3
 
 +
 `ha-config modify controller ha` 命令可为控制器设置配置 `ha` 。`ha-config modify chassis ha` 命令可为机箱设置配置 `ha` 。
-
-+
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/home.html["《 ONTAP 9 高可用性配置指南》"]
-
-+
-https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["查找适用于您的 Data ONTAP 8 版本的《高可用性配置指南》"]
 
 . 退出维护模式：
 +

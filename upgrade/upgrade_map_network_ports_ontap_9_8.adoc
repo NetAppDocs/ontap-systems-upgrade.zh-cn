@@ -21,10 +21,10 @@ NOTE: 以下命令示例引用 "node1" ，因为在操作步骤的此阶段，�
 
 .步骤
 . 如果系统运行的是 ONTAP 9.7 或更早版本，请执行 * 停止 * 。您必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[使用 ONTAP 9.7 或更早版本映射网络端口]。
-. 找到您在中记录的 node1 和 node2 的端口和 LIF 配置信息 link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["移动存储时准备升级，步骤 3"]。
-. 找到您在中记录的端口，广播域和 IP 空间的信息 link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3.html["移动存储时准备升级，步骤 3"]。
+. 找到您在 _prepare for upgrade when moving storage_ 中记录的 node1 和 node2 的端口和 LIF 配置信息， link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["第 3 步"]。
+. 找到您在移动存储时准备升级中记录的端口，广播域和 IP 空间的信息， link:upgrade-prepare-when-moving-storage.html#prepare_move_store_3["第 3 步"]。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 . 进行以下更改：
 +
@@ -60,7 +60,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"]
 
 
 
-. [[map_9.8_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如中所示 link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_9.7_7["使用 ONTAP 9.7 或更早版本映射网络端口，第 7 步"]。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。
+. [[MAP_98_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如 _Map network ports using ONTAP 9.7 or earlier 中所示， link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_97_7["第 7 步"]。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。
 +
 .. 列出所有端口的可访问性状态：
 +
@@ -115,7 +115,7 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 
 
 
-. 如果系统上未配置任何 VLAN ，请转至步骤 <<map_9.8_7,第 7 步>>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。
+. 如果系统上未配置任何 VLAN ，请转至 <<map_98_7,第 7 步>>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。
 +
 .. 显示已替换的 VLAN ：
 +
@@ -152,7 +152,7 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 
 
 +
-如果所有端口均已正确配置并添加到正确的广播域中，则 network port reachability show 命令应将所有已连接端口的可访问性状态报告为 ok ，而对于没有物理连接的端口，此状态报告为 no-reachability 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <<map_9.8_5,第 5 步>>。
+如果所有端口均已正确配置并添加到正确的广播域中，则 network port reachability show 命令应将所有已连接端口的可访问性状态报告为 ok ，而对于没有物理连接的端口，此状态报告为 no-reachability 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <<map_98_5,第 5 步>>。
 
 . 验证属于正确广播域的端口上的所有 LIF 是否均以管理员方式启动。
 +

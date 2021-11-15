@@ -32,10 +32,10 @@ summary: 您必须在机架中安装 node4 ，将 node2 的连接传输到 node4
 . 按照节点型号的 _Installation and Setup Instructions_中 的说明，在机架中安装 node4 。
 . 为节点 4 布线，将连接从节点 2 移至节点 4 。
 +
-按照 node4 平台的 _Installation and Setup Instructions_or the _FlexArray 虚拟化安装要求和参考 _ 中的说明，相应的磁盘架指南和 _RAID ONTAP 9 高可用性配置指南 _ 为以下连接布线。
+按照 node4 平台的 _Installation and Setup Instructions_or the _FlexArray 虚拟化安装要求和参考 _ 中的说明，使用缆线连接以下连接，并参考相应的磁盘架文档和 _High Availability Management_ 。
 
 +
-请参见 link:other_references.html["参考资料"] 链接到 _Microsoft FlexArray 虚拟化安装要求和参考 _ 和 _ONTAP 9 高可用性配置指南 _ 。
+请参见 link:other_references.html["参考资料"] 链接到 _High Availability Management_ 和 _FlexArray 虚拟化安装要求和参考。
 
 +
 ** 控制台（远程管理端口）

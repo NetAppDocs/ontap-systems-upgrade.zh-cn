@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual/required_tools_documentation.html 
-keywords: Tool, documentation, center, guides, reference, worksheet 
+keywords: Tool, documentation, center, content, reference, worksheet 
 summary: 升级期间需要的工具和文档。 
 ---
 = 所需的工具和文档

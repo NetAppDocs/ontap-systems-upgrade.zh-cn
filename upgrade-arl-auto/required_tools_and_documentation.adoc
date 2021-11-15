@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/required_tools_and_documentation.html 
 keywords: required, tools, documentation, install, worksheet, ontap 
-summary: 您需要使用特定工具来安装新硬件。此外，您还可以参考其他指南和其他信息。 
+summary: 您需要使用特定工具来安装新硬件。此外，您还可以参考其他文档和其他信息。 
 ---
 = 所需的工具和文档
 :hardbreaks:

@@ -29,7 +29,7 @@ summary: 将一对运行 ONTAP 9.5 的控制器升级到 ONTAP 9.7 取决于原�
 NOTE: 在执行 AFF 系统升级之前，您必须将 ONTAP 升级到版本 9.5P1 或更高版本。要成功升级，需要这些版本级别。
 
 
-NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A250 ），但没有内部驱动器，请参见 link:other_references.html["参考资料"] 并使用 _aggregate relocation to manually Upgrade Controller Hardware_ 指南中的操作步骤，该指南适用于您的 ONTAP 版本。
+NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A250 ），但没有内部驱动器，请参见 link:other_references.html["参考资料"] 并使用 _aggregate relocation 中的操作步骤手动升级适用于您的 ONTAP 版本的控制器 Hardware_ 内容。
 
 配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
 
@@ -51,7 +51,7 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 
 * 具有内部驱动器的入门级控制器，例如： FAS 2500 。
 +
-如果要使用内部驱动器升级入门级控制器，请参见 link:other_references.html["参考资料"] 要链接到 _Controller 硬件升级快速指南 _ 并转到操作步骤 _ 通过移动卷升级运行集群模式 Data ONTAP 的一对节点 _ 。
+如果要使用内部驱动器升级入门级控制器，请参见 link:other_references.html["参考资料"] 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。
 
 
 

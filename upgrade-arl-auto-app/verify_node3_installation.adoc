@@ -84,7 +84,7 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 ....
 +
 
-NOTE: 在本指南中， _re-creating VLAN ， ifgrp 和 broadcast domains_一 节已重命名为 _Restore node3_ 上的网络配置。
+NOTE: 在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains_一 节已重命名为 _Restore node3_ 上的网络配置。
 
 . 在控制器更换处于暂停状态的情况下，继续执行本文档的下一节以还原节点上的网络配置。
 
@@ -95,7 +95,7 @@ NOTE: 在本指南中， _re-creating VLAN ， ifgrp 和 broadcast domains_一 �
 
 确认 node3 处于仲裁状态并可与 node2 通信后，请确认 node3 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证是否已在其正确的广播域中配置所有 node3 网络端口。
 
-有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 网络管理指南 _ 。
+有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 。
 
 .步骤
 . 【第 1 步】列出已升级的 node1 （称为 node3 ）上的所有物理端口：

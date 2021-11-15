@@ -21,9 +21,19 @@ summary: 在 ONTAP 命令行中输入以下命令，开始控制器更换过程�
 `ssystem controller replace start -nodes <node_name>`
 
 +
+[NOTE]
+====
+** 从 ONTAP 9.10.1 开始，基于自动协商切换（ Automated Negotiated switchover ， NSO ）的升级操作步骤是四节点 MetroCluster FC 配置的默认配置。如果要升级四节点 MetroCluster FC 配置，则在执行问题描述 `ssystem controller replace start` 命令时，必须通过将 ` -NSO` 参数设置为 `false` 来防止基于 NSO 的操作步骤启动：
++
+`ssystem controller replace start -nodes <node_name> -NSO false`
 
-NOTE: 此命令只能在高级权限级别执行： `set -privilege advanced`
+** `ssystem controller replace start` 命令只能在高级权限级别执行：
++
+`set -privilege advanced`
 
+
+
+====
 +
 您将看到以下输出：
 
@@ -71,7 +81,7 @@ Controller replacement operation has been paused for user intervention.
 | 集群仲裁检查 | 检查要更换的节点是否处于仲裁状态。如果节点未处于仲裁状态，则此任务将失败。 
 
 
-| 映像版本检查 | 检查要更换的节点是否运行相同版本的 ONTAP 。如果 ONTAP 映像版本不同，则此任务将失败。新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则在安装新控制器后，需要通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 升级和还原 / 降级指南 _ 。 
+| 映像版本检查 | 检查要更换的节点是否运行相同版本的 ONTAP 。如果 ONTAP 映像版本不同，则此任务将失败。新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则在安装新控制器后，需要通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 link:other_references.html["参考资料"] 链接到 _Upgrade ONTAP 。 
 
 
 | HA 状态检查 | 检查要更换的两个节点是否采用高可用性（ HA ）对配置。如果未为控制器启用存储故障转移，则任务将失败。 
@@ -80,7 +90,7 @@ Controller replacement operation has been paused for user intervention.
 | 聚合状态检查 | 如果要更换的节点自身的聚合不是主所有者，则此任务将失败。节点不应拥有任何非本地聚合。 
 
 
-| 磁盘状态检查 | 如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘，请参见 link:other_references.html["参考资料"] 链接到 _HA ONTAP 9 磁盘和聚合高级指南 _ ， _ONTAP 9 逻辑存储管理指南 _ 和 _ONTAP 9 高可用性配置指南 _ ，以便为 HA 对配置存储。 
+| 磁盘状态检查 | 如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘，请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理，使用 cli_ 链接到 _Logical storage management 以及 _High Availability management_ ，为 HA 对配置存储。 
 
 
 | 数据 LIF 状态检查 | 检查要更换的任何节点是否具有非本地数据 LIF 。节点不应包含其不是主所有者的任何数据 LIF 。如果其中一个节点包含非本地数据 LIF ，则任务将失败。 
@@ -101,9 +111,7 @@ Controller replacement operation has been paused for user intervention.
 | 节点关联性作业检查 | 检查是否正在运行任何节点关联作业。如果节点关联性作业正在运行，则检查将失败。 
 |===
 . 在启动控制器更换操作并完成预检后，此操作将暂停，以便您稍后在配置 node3 时收集可能需要的输出信息。
-
-
-. 【第 4 步】按照系统控制台上控制器更换操作步骤的指示运行以下一组命令。
+. 按照系统控制台上控制器更换操作步骤的指示运行以下一组命令。
 +
 您必须分别运行和保存以下命令的输出：
 

@@ -40,7 +40,7 @@ Local System ID: 101268854
 
 +
 --
-** 参数 ` node1_sysid_` 是您在中记录的值 link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["关闭原始节点，步骤 5"]。
+** 参数 ` node1_sysid_` 是您在关闭原始节点 _ 中记录的值， link:upgrade-shutdown-remove-original-nodes.html#shutdown_node_step5["第 5 步"]。
 ** 仅当存在共享磁盘时，才指定参数 ` _-p partner_sysID_` 。
 
 

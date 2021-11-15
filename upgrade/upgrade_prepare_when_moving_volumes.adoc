@@ -38,10 +38,10 @@ summary: 在通过移动卷升级控制器硬件之前，您需要执行一些�
 
 . 如果集群当前采用双节点无交换机配置，请使用您首选的交换机类型将集群迁移到双节点有交换机集群。
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["迁移到使用 Cisco 集群交换机的双节点交换集群"]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["迁移到使用 Cisco 集群交换机的双节点交换集群"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 NetApp CN1610 集群交换机的双节点交换集群"]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 NetApp CN1610 集群交换机的双节点交换集群"^]
 
 . 从每个原始节点发送一条 AutoSupport 消息，以通知技术支持升级：
 +

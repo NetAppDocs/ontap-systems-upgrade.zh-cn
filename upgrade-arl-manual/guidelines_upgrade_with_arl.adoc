@@ -67,11 +67,11 @@ NOTE: 如果新系统的插槽数少于原始系统，或者端口数较少或�
 
 * 来自具有根聚合或内部驱动器上的数据聚合的控制器。
 +
-如果要升级内部磁盘驱动器上具有根聚合或数据聚合的控制器，请参见 link:other_references.html["参考资料"] 要链接到 _Controller 硬件升级快速指南 _ 并转到操作步骤 _ 通过移动卷升级运行集群模式 Data ONTAP 的一对节点 _ 。
+如果要升级内部磁盘驱动器上具有根聚合或数据聚合的控制器，请参见 link:other_references.html["参考资料"] 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。
 
 +
 
-NOTE: 如果要升级集群中节点上的 ONTAP ，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 升级和还原 / 降级指南 _ 。
+NOTE: 如果要升级集群中节点上的 ONTAP ，请参见 link:other_references.html["参考资料"] 链接到 _Upgrade ONTAP 。
 
 
 

@@ -58,7 +58,7 @@ NOTE: 等待 node1 拥有的所有非根聚合重新定位到 node2 ，然后再
 
 
 
-请参见 link:other_references.html["参考资料"] 要链接到 _Disks 和聚合高级指南 _ 和 _Storage ONTAP 9 命令：手册页参考 _ ，请了解有关存储聚合重新定位命令的详细信息。
+请参见 link:other_references.html["参考资料"] 要链接到包含 cli_ 内容 ONTAP 的 _Disk 和聚合管理以及 _storage 9 命令：手册页参考 _ ，请了解有关存储聚合重新定位命令的详细信息。
 
 |===
 . [[man_relocate_1_2_step4]] 验证所有非根聚合是否均已联机及其在节点 2 上的状态：

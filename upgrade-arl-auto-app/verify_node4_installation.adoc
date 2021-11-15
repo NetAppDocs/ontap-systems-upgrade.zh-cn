@@ -90,7 +90,7 @@ network displaced-vlans restore" to restore the VLAN on the desired port.
 ....
 +
 
-NOTE: 在本指南中， _re-creating VLAN ， ifgrp 和 broadcast domain_ 一节已重命名为 _restoring network configuration on node4_ 。
+NOTE: 在此操作步骤中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _restoring network configuration on node4_ 。
 
 . 在控制器更换处于暂停状态的情况下，继续执行本文档的下一节以还原节点上的网络配置。
 
@@ -101,7 +101,7 @@ NOTE: 在本指南中， _re-creating VLAN ， ifgrp 和 broadcast domain_ 一�
 
 确认 node4 处于仲裁状态并可与 node3 通信后，请确认 node4 上显示了 node2 的 VLAN ，接口组和广播域。此外，验证所有 node4 网络端口是否均已配置在其正确的广播域中。
 
-有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 网络管理指南 _ 。
+有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 。
 
 .步骤
 . 列出已升级的 node2 （称为 node4 ）上的所有物理端口：

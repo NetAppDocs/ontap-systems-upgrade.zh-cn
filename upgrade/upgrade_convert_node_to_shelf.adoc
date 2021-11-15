@@ -12,12 +12,12 @@ summary: 如果原始节点是支持的型号之一，则在通过移动存储�
 [role="lead"]
 如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点转换为驱动器架，然后将其连接到同一集群中的新节点。
 
-您必须已查看 link:upgrade_considerations.html#["升级控制器硬件的注意事项"] 关于将节点转换为驱动器架。如果您需要特定于您的配置的指导，应联系技术支持。
+您必须已查看 link:upgrade-considerations.html["升级控制器硬件的注意事项"] 关于将节点转换为驱动器架。如果您需要特定于您的配置的指导，应联系技术支持。
 
 .步骤
 . 将要转换的节点中的控制器模块更换为相应的 IOM 模块。
 +
-https://hwu.netapp.com["NetApp Hardware Universe"]
+https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 . 设置驱动器架 ID 。
 +

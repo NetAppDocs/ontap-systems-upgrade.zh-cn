@@ -1,11 +1,12 @@
 ---
 section: upgrade-arl-auto-app
 title: 使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件
-url: "/upgrade-arl-auto-app/index.html"
 entries:
+- title: 概述
+  url: "/upgrade-arl-auto-app/index.html"
 - title: 自动执行控制器升级过程
   url: "/upgrade-arl-auto-app/automate_the_controller_upgrade_process.html"
-- title: 确定是否使用聚合重新定位指南
+- title: 确定是否使用聚合重新定位内容
   url: "/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html"
 - title: 所需的工具和文档
   url: "/upgrade-arl-auto-app/required_tools_and_documentation.html"

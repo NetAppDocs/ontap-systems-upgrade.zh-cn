@@ -15,7 +15,7 @@ summary: 确认 node3 处于仲裁状态并可与 node2 通信后，您必须在
 [role="lead"]
 确认 node3 处于仲裁状态并可与 node2 通信后，您必须在 node3 上重新创建 node1 的 VLAN ，接口组和广播域。您还必须将 node3 端口添加到新重新创建的广播域中。
 
-有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请访问 link:other_references.html["参考资料"] 和指向 _ONTAP 9 网络管理指南的链接。
+有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请访问 link:other_references.html["参考资料"] 并链接到 _Network Management_ 。
 
 .步骤
 . 使用中记录的 node1 信息在 node3 上重新创建 VLAN link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"] 部分。

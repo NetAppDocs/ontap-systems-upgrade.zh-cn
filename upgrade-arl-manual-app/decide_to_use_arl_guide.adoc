@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/decide_to_use_arl_guide.html 
 keywords: decision, decision, what to use, upgrade, HA pair, metrocluster, storage encryption, volume encryption, NSE, NVE 
-summary: 是否使用本指南。 
+summary: 是否使用此内容。 
 ---
-= 确定是否使用聚合重新定位指南
+= 确定是否使用聚合重新定位内容
 :hardbreaks:
 :nofooter: 
 :icons: font
@@ -13,9 +13,9 @@ summary: 是否使用本指南。
 
 
 [role="lead"]
-本指南介绍如何使用新控制器升级 HA 对中的存储控制器，同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
+此内容介绍如何使用新控制器升级 HA 对中的存储控制器，同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
 
-在以下情况下，应使用本指南：
+在以下情况下，应使用此内容：
 
 * 您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。
 * 您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。
@@ -25,6 +25,6 @@ summary: 是否使用本指南。
 
 NOTE: 您可以对此操作步骤使用 NetApp 存储加密（ NSE ）和 NetApp 卷加密（ NVE ）。
 
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 链接到控制器硬件升级快速指南。
+如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
 请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。

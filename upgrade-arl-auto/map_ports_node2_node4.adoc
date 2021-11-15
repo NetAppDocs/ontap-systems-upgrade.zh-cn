@@ -200,7 +200,7 @@ node4      e0a  Cluster
 `network interface modify -vserver node4 -lif data1 failover-policy broadcast-domainwide -failover-group fg1`
 
 +
-请参见 link:other_references.html["参考资料"] 要链接到 _LIF_ ONTAP 或 _LIF ONTAP 9 命令：手册页参考 _ ，请参见 _Configuring failover settings on a LIF_ 了解详细信息。
+请参见 link:other_references.html["参考资料"] 要链接到 _Network Management_ 或 _LIF_ ONTAP 9 命令：手册页参考 _ 并参见 _Configuring failover settings on a LIF_ 了解详细信息。
 
 . 验证 node4 上的更改：
 +

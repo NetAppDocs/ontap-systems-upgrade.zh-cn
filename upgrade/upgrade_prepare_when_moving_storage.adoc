@@ -97,13 +97,13 @@ IPspace 信息
 `network IPspace show`
 
 |===
-. 获取有关要升级到的每个新节点的默认集群端口，数据端口和节点管理端口的信息： https://hwu.netapp.com["NetApp Hardware Universe"]
-. 下载并准备用于执行网络启动的文件。
+. 获取有关要升级到的每个新节点的默认集群端口，数据端口和节点管理端口的信息： https://hwu.netapp.com["NetApp Hardware Universe"^]
+. 【预备 _move_store_5]] 下载并准备用于执行网络启动的文件。
 +
 安装新节点后，您可能需要通过网络启动来确保新节点运行的 ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
 
 +
-.. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"] 下载用于执行系统网络启动的文件。
+.. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。
 .. 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ` <ontap_version>_image.tgz` 文件存储在可通过 Web 访问的目录中。
 .. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
 
@@ -138,4 +138,4 @@ NOTE: 您不需要提取 `ontap_version_image.tgz` 文件的内容。
 |===
 
 
-您将使用目录中的信息 link:setting_up_the_new_nodes.html#["设置新节点"]。
+您将使用目录中的信息 xref:upgrade-set-up-new-nodes.adoc[设置新节点]。

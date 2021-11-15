@@ -115,7 +115,7 @@ NOTE: 您必须等待 node2 所拥有的所有聚合都重新定位到 node3 ，
 
 
 
-有关 storage aggregate relocation 命令的详细信息，请转至 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 磁盘和聚合高级指南 _ 和 _ONTAP 9 命令：手册页参考 _ 。
+有关 storage aggregate relocation 命令的详细信息，请转至 link:other_references.html["参考资料"] 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。
 
 |===
 . 【 man_relocate_2_3_step6]] 验证 node3 上的所有非根聚合是否联机：

@@ -68,7 +68,7 @@ summary: 要通过移动存储来完成操作步骤升级，您需要从新节�
 +
 `ssystem node AutoSupport invoke -node node_name -type all -message "MAINT=end node_name successfully uped" from platform_old to platform_new"`
 
-. 使用中的相应操作步骤还原存储或卷加密功能https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-nve/home.html["《 ONTAP 9 NetApp 加密高级指南》"]
+. 使用中的相应操作步骤还原存储或卷加密功能https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["使用 CLI 管理加密"^] 内容
 +
 根据您使用的是板载密钥管理还是外部密钥管理，请执行以下过程之一：
 
@@ -82,24 +82,21 @@ summary: 要通过移动存储来完成操作步骤升级，您需要从新节�
 `ssystem node hardware unified-connect modify -node node-name -adapter adapter-name -mode ｛ fc_CNA ｝ -type ｛ target_initiator ｝`
 
 +
-http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html["《 ONTAP 9 SAN 管理指南》"]
-
-+
-http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30092["查找适用于您的 Data ONTAP 8 版本的 SAN 管理指南"]
+link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行 SAN 管理"^]
 
 +
 只有当 CNA 适配器脱机时，才能修改 CNA 配置。
 
 . 如有必要，在新节点上设置无交换机集群。
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["迁移到使用 Cisco 集群交换机的双节点交换集群"]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["迁移到使用 Cisco 集群交换机的双节点交换集群"^]
 
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 NetApp CN1610 集群交换机的双节点交换集群"]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 NetApp CN1610 集群交换机的双节点交换集群"^]
 
 . 根据需要，通过 NetApp 支持站点停用原始系统，以通知 NetApp 这些系统不再运行，可以从支持数据库中删除：
 +
-.. 登录到 https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"] 站点
+.. 登录到 https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^] 站点
 .. 单击链接 * 我已安装的系统 * 。
 .. 在 Installed Systems 页面上，以格式输入旧系统的序列号，然后单击 * 执行！ *
 .. 在 " 弃用表单 " 页面上，填写表单并单击 * 提交 * 。

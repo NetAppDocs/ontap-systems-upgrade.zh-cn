@@ -1,6 +1,6 @@
 = 
 
 
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 链接到控制器硬件升级快速指南。
+如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
 请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。
