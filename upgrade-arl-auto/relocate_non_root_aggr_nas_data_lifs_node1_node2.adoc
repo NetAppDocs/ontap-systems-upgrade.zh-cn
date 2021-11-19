@@ -86,7 +86,7 @@ aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
 
 . 如果配置了接口组或 VLAN ，请完成以下子步骤：
 +
-.. 如果尚未保存这些 VLAN 和 ifgrp 信息，请记录这些信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和 ifgrp 。
+.. 如果尚未保存这些 VLAN 和 ifgrp 信息，请记录 VLAN 和 ifgrp 信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和 ifgrp 。
 .. 输入以下命令，从接口组中删除 VLAN ：
 +
 `network port vlan delete -node _nodename_ -port _ifgrp_ -vlan-id _vlan_ID_`

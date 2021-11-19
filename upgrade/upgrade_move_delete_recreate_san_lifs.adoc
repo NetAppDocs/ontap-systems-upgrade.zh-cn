@@ -1,0 +1,18 @@
+---
+permalink: upgrade/upgrade_move_delete_recreate_san_lifs.html 
+sidebar: sidebar 
+keywords: cluster, san, environment, delete, lif, re-create, move san lifs, create 
+summary: 根据集群内容和集群环境的不同，您需要移动，删除或创建 SAN LIF ，或者重新创建已删除的 SAN LIF 。 
+---
+= 移动，删除或创建 SAN LIF
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+根据集群内容和集群环境的不同，您需要移动，删除或创建 SAN LIF ，或者重新创建已删除的 SAN LIF 。
+
+* link:upgrade_considerations_move_san_lifs.html["移动 SAN LIF 的注意事项"]
+* link:upgrade-delete-san-lifs.html["从原始节点中删除不再需要的 SAN LIF"]
+* link:upgrade_create_recreate_san_lifs.html["创建新的 SAN LIF 或重新创建已删除的 SAN LIF"]
+

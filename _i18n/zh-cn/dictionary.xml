@@ -1436,7 +1436,6 @@
   <block id="b003ff957beed57b873253f1e4cd0441" category="list-text">【第 5 步】如果新硬件上不存在当前托管数据 LIF 的端口，请将其从广播域中删除：</block>
   <block id="87766a1a73ec698f3b4753312d4d3b4f" category="paragraph">`network interface modify -vserver &lt;vserver_name&gt; -lif &lt;LIF_name&gt;-home-node &lt;nodename&gt; -status-admin up`</block>
   <block id="45560e4a070877091866d34d12016154" category="list-text">如果配置了接口组或 VLAN ，请完成以下子步骤：</block>
-  <block id="e29d89694af185e80bbad8a8251e74a7" category="list-text">如果尚未保存这些 VLAN 和接口组，请记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
   <block id="8e2087071d353c6f56da3d27b7a84dfc" category="list-text">从接口组中删除 VLAN ：</block>
   <block id="973a9f75fd7ee6700a6f9b372ce8f863" category="paragraph">`network port vlan delete -node &lt;nodename &gt; -port &lt;ifgrp&gt; -vlan-id &lt;vlan_ID&gt;`</block>
   <block id="3f3edadf07afca334ee7f44554a2b78f" category="admonition">按照更正操作解决 vlan delete 命令建议的任何错误。</block>
@@ -1448,7 +1447,6 @@
   <block id="c1e5c7576460bdde0a488bc293007a13" category="summary">将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2</block>
   <block id="358f52f6680f0f2b534acb9ac77674d2" category="list-text">如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 "up" ：</block>
   <block id="44d2fdf7ea40f3d7321cb94a4051b609" category="paragraph">`network interface modify -vserver _vserver_name -lif _LIF_name_` ` -home-node _nodename_ -status-admin up`</block>
-  <block id="f478a95b9d2a45383e616b6de8791011" category="list-text">如果尚未保存这些 VLAN 和 ifgrp 信息，请记录这些信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和 ifgrp 。</block>
   <block id="65dafd80488559eb25b9b16c7ae60e27" category="list-text">输入以下命令，从接口组中删除 VLAN ：</block>
   <block id="38c250e3cea10de8e69a05edc403fb4f" category="paragraph">`network port vlan delete -node _nodename_ -port _ifgrp_ -vlan-id _vlan_ID_`</block>
   <block id="11c404f7c79ae3005a460cd2d80c457a" category="paragraph">`network port ifgrp show -node _nodename_ -ifgrp _ifgrp_name_ -instance`</block>
@@ -1536,7 +1534,6 @@
   <block id="197cf83159625e94e69b0fc1efa0e824" category="list-text">验证 node4 上的更改：</block>
   <block id="37df1e4edda8a9bce8aa91096f265331" category="list-text">【第 5 步】输入以下命令并检查输出，验证 node2 上是否没有剩余数据 LIF ：</block>
   <block id="738cc83e33e6f068712b1528860c1691" category="paragraph">`network interface show - curr-node &lt;node2&gt;-role data`</block>
-  <block id="b8f8ddd66115feba2699f5f568baf106" category="list-text">记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
   <block id="c76c038ef9582123a69154e143b5e63f" category="list-text">输入以下命令并检查其输出，以检查节点上是否配置了任何接口组：</block>
   <block id="e0d9b9a8ceb38f16ee39f9732b0b1c59" category="paragraph">`network port ifgrp show -node &lt;node2&gt;-ifgrp &lt;ifgrp_name&gt; -instance`</block>
   <block id="42610df90a5616a22b3f0c895971522b" category="summary">您必须确保节点成功加入仲裁。</block>
@@ -2011,8 +2008,6 @@
   <block id="c90fa15ea4f7f1e277e469d1d20e9188" category="list-text"><block ref="c90fa15ea4f7f1e277e469d1d20e9188" category="inline-xref-macro-rx"></block></block>
   <block id="5000633fe0b5f0aa09b151f9fed8c9f2" category="list-text"><block ref="5000633fe0b5f0aa09b151f9fed8c9f2" category="inline-xref-macro-rx"></block></block>
   <block id="8829820fd8a035233c013956f191d0e7" category="list-text"><block ref="8829820fd8a035233c013956f191d0e7" category="inline-xref-macro-rx"></block></block>
-  <block id="dcfddc91bf590dac8927fb640abf642a" category="inline-xref-macro">从原始节点中删除 SAN LIF</block>
-  <block id="8e1e92b5404def89a2b22b05b862222a" category="list-text"><block ref="8e1e92b5404def89a2b22b05b862222a" category="inline-xref-macro-rx"></block></block>
   <block id="cf9dafa4aad7081e3241e5bc4acb350f" category="inline-xref-macro">从集群中取消原始节点的加入</block>
   <block id="ce218642d156a102e02a50d62a3bf028" category="list-text"><block ref="ce218642d156a102e02a50d62a3bf028" category="inline-xref-macro-rx"></block></block>
   <block id="58c6b3bbc2bbb34b0e96a9731bc9133c" category="list-text"><block ref="58c6b3bbc2bbb34b0e96a9731bc9133c" category="inline-xref-macro-rx"></block></block>
@@ -3908,4 +3903,31 @@
   <block id="f205bf1a1b77ff86829c2c9003e57d32" category="paragraph">如果要执行手动升级，请参见下表：</block>
   <block id="6bc189e4bdf09236271772165ff4ca93" category="cell"><block ref="6bc189e4bdf09236271772165ff4ca93" category="inline-link-macro-rx"></block></block>
   <block id="ac9646c163734765195d079eb6d15091" category="cell"><block ref="ac9646c163734765195d079eb6d15091" category="inline-link-macro-rx"></block></block>
+  <block id="55b615d5a5d5462e3f46ce9376778ab0" category="list-text">记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
+  <block id="a2e30cff23423051f81bd802a4867e92" category="list-text">如果尚未保存这些 VLAN 和接口组，请记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
+  <block id="d5736566f3b38c38d89537f2b1d352ca" category="list-text">如果尚未保存这些 VLAN 和 ifgrp 信息，请记录 VLAN 和 ifgrp 信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和 ifgrp 。</block>
+  <block id="1b4080c52526ea8390adef3facc6646f" category="doc">从原始节点中删除不再需要的 SAN LIF</block>
+  <block id="94e9d0bee98aefbd97c04b1401f6c790" category="paragraph">如果集群位于 SAN 环境中，则必须先从原始节点中删除不再需要的任何 SAN LIF ，然后才能从集群中取消原始节点的连接。</block>
+  <block id="e756ac7d9a5fd3abb4a55029a22c0817" category="summary">根据集群内容和集群环境，您需要移动，删除或重新创建 SAN LIF 。</block>
+  <block id="2b3144340f2db340218f76914a6af256" category="doc">创建新的 SAN LIF 或重新创建已删除的 SAN LIF</block>
+  <block id="051662f99e538a90d87104fddd664c40" category="inline-link">创建网络接口</block>
+  <block id="0b3461f9ff1cc0e9748c51914f12d1ac" category="paragraph">根据集群环境要求，您可以决定创建新的 SAN LIF 或重新创建先前在此操作步骤中删除的 SAN LIF 。您可以使用创建或重新创建 SAN LIF<block ref="307c1988750a87c4014551385f0a3aa7" category="inline-link-rx"></block> 使用 OnCommand ® System Manager_ 文档进行集群管理中的操作步骤。</block>
+  <block id="9755bcbb5a429349c5615c0f3ada05c7" category="summary">只有在更改集群内容时才需要移动 SAN LIF 。</block>
+  <block id="25f08d7b61860ee1109108f6e40dfa08" category="doc">移动 SAN LIF 的注意事项</block>
+  <block id="78e610b85ab6101167c6fa157b66555f" category="paragraph">只有在更改集群内容时才需要移动 SAN LIF ，例如，向集群添加节点或从集群中删除节点。移动 LIF 时，您无需重新对 FC 网络结构进行分区，也无需在集群连接的主机与新目标接口之间创建新的 iSCSI 会话。</block>
+  <block id="cea2f29230da8c2fef3774a56b365b07" category="paragraph">您可以使用 `network interface modify` 命令移动 SAN LIF 。要移动 SAN LIF ，您必须使 LIF 脱机，将 LIF 移动到其他主节点或端口，然后将其重新联机到新位置。非对称逻辑单元访问（ Asymmetric Logical Unit Access ， ALUA ）可在任何 ONTAP SAN 解决方案中提供冗余路径和自动路径选择。因此，当 LIF 脱机进行移动时，不会发生 I/O 中断。主机只需重试，然后将 I/O 移动到另一个 LIF 即可。</block>
+  <block id="5a7069a59566aed43a1807b999c67b98" category="paragraph">在 LIF 移动期间，您可以无中断地执行以下任务：</block>
+  <block id="e30c2c276ce1db1c06a2b1d0b484ce01" category="list-text">将集群中的一个 HA 对替换为升级后的 HA 对，其方式对访问 LUN 数据的主机是透明的</block>
+  <block id="6122825da89f3a77f8980f730d12d268" category="list-text">升级目标接口卡</block>
+  <block id="995489fe191f249d97b2746413c8ce51" category="list-text">将 Storage Virtual Machine （ SVM ）的资源从集群中的一组节点移至同一集群中的另一组节点</block>
+  <block id="56156496b19659e54135677ece56f2f7" category="list-text">当主机服务器联机时，您可以将 SAN LUN 移动到新的 HA 对，而不会中断主机服务器对 LUN 数据的访问</block>
+  <block id="2dd82882bae57f157f720bee2e0f1c24" category="inline-link">SAN LIF 移动</block>
+  <block id="f6e1595cdf693f15c733ea3348445b77" category="paragraph">有关详细信息，请参见<block ref="52d99da56caea8d9bc5c4380abc20d71" category="inline-link-rx"></block> SAN 存储管理 _ 文档中的操作步骤。</block>
+  <block id="b5d4cb67b7812ac1a600c8741c4e6c3e" category="summary">根据集群内容和集群环境的不同，您需要移动，删除或创建 SAN LIF ，或者重新创建已删除的 SAN LIF 。</block>
+  <block id="8093d580d9cc0468991044c64c97b174" category="doc">移动，删除或创建 SAN LIF</block>
+  <block id="a0b6fb238d938d8b3632372a4084f575" category="inline-link-macro">移动 SAN LIF 的注意事项</block>
+  <block id="6c4c7e577e407c3d612b2254ba5aeaad" category="list-text"><block ref="6c4c7e577e407c3d612b2254ba5aeaad" category="inline-link-macro-rx"></block></block>
+  <block id="4a0fbf919570309e7272750b2374a969" category="list-text"><block ref="4a0fbf919570309e7272750b2374a969" category="inline-link-macro-rx"></block></block>
+  <block id="7411801636d93c5890addb910d57f9f3" category="list-text"><block ref="7411801636d93c5890addb910d57f9f3" category="inline-link-macro-rx"></block></block>
+  <block id="a0b4daa7e353d3d7dd1a62bec6a63421" category="list-text"><block ref="a0b4daa7e353d3d7dd1a62bec6a63421" category="inline-xref-macro-rx"></block></block>
 </blocks>

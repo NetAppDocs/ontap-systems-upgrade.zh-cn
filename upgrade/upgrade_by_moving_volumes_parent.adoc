@@ -19,7 +19,7 @@ image::../upgrade/media/workflow_for_upgrading_by_moving_volumes.gif[通过移�
 . xref:upgrade-install-and-join-new-nodes-move-vols.adoc[安装新节点并将其加入集群]
 . xref:upgrade-create-aggregate-move-volumes.adoc[创建聚合并将卷移动到新节点]
 . xref:upgrade-move-lifs-to-new-nodes.adoc[将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点]
-. xref:upgrade-delete-san-lifs.adoc[从原始节点中删除 SAN LIF]
+. xref:upgrade_move_delete_recreate_san_lifs.adoc[移动，删除或创建 SAN LIF]
 . xref:upgrade-unjoin-original-nodes-move-volumes.adoc[从集群中取消原始节点的加入]
 . xref:upgrade-complete-move-volumes.adoc[完成升级]
 

@@ -1,0 +1,25 @@
+---
+permalink: upgrade/upgrade_considerations_move_san_lifs.html 
+sidebar: sidebar 
+keywords: cluster, san, environment, lif, original, node, unjoin, original, move san lifs 
+summary: 只有在更改集群内容时才需要移动 SAN LIF 。 
+---
+= 移动 SAN LIF 的注意事项
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+只有在更改集群内容时才需要移动 SAN LIF ，例如，向集群添加节点或从集群中删除节点。移动 LIF 时，您无需重新对 FC 网络结构进行分区，也无需在集群连接的主机与新目标接口之间创建新的 iSCSI 会话。
+
+您可以使用 `network interface modify` 命令移动 SAN LIF 。要移动 SAN LIF ，您必须使 LIF 脱机，将 LIF 移动到其他主节点或端口，然后将其重新联机到新位置。非对称逻辑单元访问（ Asymmetric Logical Unit Access ， ALUA ）可在任何 ONTAP SAN 解决方案中提供冗余路径和自动路径选择。因此，当 LIF 脱机进行移动时，不会发生 I/O 中断。主机只需重试，然后将 I/O 移动到另一个 LIF 即可。
+
+在 LIF 移动期间，您可以无中断地执行以下任务：
+
+* 将集群中的一个 HA 对替换为升级后的 HA 对，其方式对访问 LUN 数据的主机是透明的
+* 升级目标接口卡
+* 将 Storage Virtual Machine （ SVM ）的资源从集群中的一组节点移至同一集群中的另一组节点
+* 当主机服务器联机时，您可以将 SAN LUN 移动到新的 HA 对，而不会中断主机服务器对 LUN 数据的访问
+
+
+有关详细信息，请参见 https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html["SAN LIF 移动"^] SAN 存储管理 _ 文档中的操作步骤。

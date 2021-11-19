@@ -69,8 +69,16 @@ entries:
     url: "/upgrade/upgrade-create-aggregate-move-volumes.html"
   - title: 移动非 SAN 数据 LIF 和集群管理 LIF
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
-  - title: 删除 SAN LIF
-    url: "/upgrade/upgrade-delete-san-lifs.html"
+  - title: 移动，删除或创建 SAN LIF
+    entries:
+    - title: 概述
+      url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
+    - title: 移动 SAN LIF 的注意事项
+      url: "/upgrade/upgrade_considerations_move_san_lifs.html"
+    - title: 删除 SAN LIF
+      url: "/upgrade/upgrade-delete-san-lifs.html"
+    - title: 创建新的 SAN LIF 或重新创建已删除的 SAN LIF
+      url: "/upgrade/upgrade_create_recreate_san_lifs.html"
   - title: 取消加入原始节点
     url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
   - title: 完成升级
