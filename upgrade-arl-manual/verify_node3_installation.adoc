@@ -31,10 +31,10 @@ summary: 安装并启动 node3 后，您需要验证它是否已正确安装，�
 | 如果集群 ... | 那么 ... 
 
 
-| 在 SAN 环境中 | 完成 <<step4,第 4 步>> 然后转到部分 link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs.html["将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF"]。 
+| 在 SAN 环境中 | 完成 <<step4,第 4 步>> 然后转到部分 link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF"]。 
 
 
-| 不在 SAN 环境中 | 跳过步骤 4 ，然后转到 link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs.html["将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF"]。 
+| 不在 SAN 环境中 | 跳过步骤 4 ，然后转到 link:move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html["将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF"]。 
 |===
 . 【第 4 步】在其中一个节点上输入以下命令并检查其输出，以验证 node2 和 node3 是否处于仲裁状态：
 +

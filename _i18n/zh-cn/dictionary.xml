@@ -461,7 +461,6 @@
   <block id="259c8a53b900b4102babb5d05e113f67" category="list-text">将密码短语保存到安全位置。</block>
   <block id="19077cc2690337623f542cbef7fae627" category="list-text">创建备份以进行恢复。运行以下命令并保存输出：</block>
   <block id="d1599347e2c1e8206cd8017da7de3ee0" category="paragraph">`key-manager 板载 show-backup`</block>
-  <block id="63ce5117a618b44a9a730ed25c154d96" category="section-title">暂停 SnapMrror 关系（可选）</block>
   <block id="af22da96a57928d4a3255e13f3b56341" category="paragraph">在继续使用操作步骤之前，您必须确认所有 SnapMirror 关系均已暂停。暂停 SnapMirror 关系后，它会在重新启动和故障转移后保持静默状态。</block>
   <block id="bad82f8550ff52390ef854218320ca8e" category="list-text">验证目标集群上的 SnapMirror 关系状态：</block>
   <block id="5bab70a374b8d81dfb1cf1f910800c2a" category="paragraph">`snapmirror show`</block>
@@ -2013,7 +2012,6 @@
   <block id="58c6b3bbc2bbb34b0e96a9731bc9133c" category="list-text"><block ref="58c6b3bbc2bbb34b0e96a9731bc9133c" category="inline-xref-macro-rx"></block></block>
   <block id="bb0c96213a94c4304b5c450772cc0659" category="summary">在 ONTAP 9.8 ， ONTAP 9.7 或更早版本中完成升级。</block>
   <block id="f5b49dd631a7fa0c45fc2aea8bcfa384" category="paragraph">您必须对您的 ONTAP 版本使用操作步骤。</block>
-  <block id="c662b1f622b3cea011146cb95161016c" category="image-alt">工作流正在完成升级 98 或 97x</block>
   <block id="e2be5a85f52a3a5f613d4aadf4e57e2f" category="list-text">要在 ONTAP 9.8 中完成升级，请转至 <block ref="92fec23dfa4ff2645c1b7d56969a9e86" category="inline-xref-macro-rx"></block>。</block>
   <block id="188912cb793d3e0c2cd2b15edb10057a" category="list-text">要在 ONTAP 9.7 或更早版本中完成升级，请转至 <block ref="a6085d08f51c0f7b45dd12344b481637" category="inline-xref-macro-rx"></block>。</block>
   <block id="51bea01f527b8a0a7714408789058c6b" category="summary">关闭并删除原始节点时，您必须发送有关升级的 AutoSupport 消息，销毁邮箱，关闭节点电源并卸下机箱。</block>
@@ -3499,8 +3497,6 @@
   <block id="c526c49b8044ea431a2ad56bde07cd17" category="list-text">【第 2 步】确认 node3 可以与 node2 通信且所有 LIF 均已启动：</block>
   <block id="aeebaeba203eabdcc6fdd7dea27f4674" category="paragraph">`network interface show -curr-node node3`</block>
   <block id="0ccfa81b1f21bfb5655a443ca59f1146" category="inline-link-macro">将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF</block>
-  <block id="989cf8095677a48a8de27491cf383506" category="cell">完成 <block ref="a4882b71f5935aea43154f35b1a6d350" category="inline-xref-macro-rx"></block> 然后转到部分 <block ref="0b6213e55bde04c709e3d2e61f334c64" category="inline-link-macro-rx"></block>。</block>
-  <block id="2f6dd58443228d50c834db1546177da7" category="cell">跳过步骤 4 ，然后转到 <block ref="0b6213e55bde04c709e3d2e61f334c64" category="inline-link-macro-rx"></block>。</block>
   <block id="d1e338a03ea3eb1b2592ad7856e6b249" category="list-text">【第 4 步】在其中一个节点上输入以下命令并检查其输出，以验证 node2 和 node3 是否处于仲裁状态：</block>
   <block id="6af6b76d592516d40ca101051c678be3" category="doc">AFF 和 FAS 系统升级文档</block>
   <block id="c659f2c431be96152886f89fc8d66545" category="list-text">【第 2 步】修改 node1 和 node2 上所有 LIF 的自动还原设置：</block>
@@ -3930,4 +3926,7 @@
   <block id="4a0fbf919570309e7272750b2374a969" category="list-text"><block ref="4a0fbf919570309e7272750b2374a969" category="inline-link-macro-rx"></block></block>
   <block id="7411801636d93c5890addb910d57f9f3" category="list-text"><block ref="7411801636d93c5890addb910d57f9f3" category="inline-link-macro-rx"></block></block>
   <block id="a0b4daa7e353d3d7dd1a62bec6a63421" category="list-text"><block ref="a0b4daa7e353d3d7dd1a62bec6a63421" category="inline-xref-macro-rx"></block></block>
+  <block id="fa332b15cdfbb22760413e4a60513a40" category="cell">完成 <block ref="a4882b71f5935aea43154f35b1a6d350" category="inline-xref-macro-rx"></block> 然后转到部分 <block ref="7401650b9cd3ea8be2a2d31b363b2b3c" category="inline-link-macro-rx"></block>。</block>
+  <block id="b6481dacfe88e9c856041be2326875ff" category="cell">跳过步骤 4 ，然后转到 <block ref="7401650b9cd3ea8be2a2d31b363b2b3c" category="inline-link-macro-rx"></block>。</block>
+  <block id="5055165524bf9c633a40b424396e9008" category="section-title">暂停 SnapMirror 关系（可选）。</block>
 </blocks>
