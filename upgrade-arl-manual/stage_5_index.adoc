@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage_5_index.html 
+keywords: stage 5, install, boot, node3, node4, relocate, aggregates 
+summary: 在第 5 阶段，您将安装并启动 node4 ，将集群和节点管理端口从 node2 映射到 node4 ，并验证 node4 安装。 
+---
+= 第 5 阶段。安装并启动节点 4.
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在第 5 阶段，您将安装并启动 node4 ，将集群和节点管理端口从 node2 映射到 node4 ，并验证 node4 安装。您还可以将节点 2 拥有的数据 LIF 和 SAN LIF 从 node3 移动到 node4 ，并将节点 2 的聚合从 node3 重新定位到 node4 。
+
+.步骤
+. link:install_boot_node4.html["安装并启动节点 4."]
+. link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"]
+. link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]
+. link:verify_node4_installation.html["验证 node4 安装"]
+. link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF"]
+. link:relocate_node2_non_root_aggr_node3_node4.html["将 node2 的非根聚合从 node3 重新定位到 node4"]
+

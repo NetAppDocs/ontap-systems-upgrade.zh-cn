@@ -39,3 +39,51 @@ summary: 验证 node4 是否安装正确。
 CAUTION: * 注意： * 在此阶段， MetroCluster 配置将不会处于正常状态，您可能会遇到需要解决的错误。请参见 link:verify_health_of_metrocluster_config.html["验证 MetroCluster 配置的运行状况。"]。
 
 
+
+
+
+== 在 node4 上重新创建 VLAN ，接口组和广播域
+
+确认 node4 处于仲裁状态并可与 node3 通信后，您必须在 node4 上重新创建 node2 的 VLAN ，接口组和广播域。您还必须将 node3 端口添加到新重新创建的广播域中。
+
+有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请访问 link:other_references.html["参考资料"] 并链接到 _Network Management_ 。
+
+.步骤
+. 使用中记录的 node2 信息在 node4 上重新创建 VLAN link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"] 部分。
++
+`network port vlan create -node <node4> -vlan <vlan-name>`
+
+. 使用中记录的 node2 信息在 node4 上重新创建接口组 link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"] 部分。
++
+`network port ifgrp create -node <node4>-ifgrp <port_ifgrp_names>-cluster-func`
+
+. 使用中记录的 node2 信息在 node4 上重新创建广播域 link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"] 部分。
++
+`network port broadcast-domain create -ipspace default -broadcast-domain <broadcast_domain_name> -mtu <mt_size> -ports <node_name ： port_name ， node_name ： port_name>`
+
+. 将 node4 端口添加到新重新创建的广播域：
++
+`network port broadcast-domain add-ports -broadcast-domain <broadcast_domain_name> -ports <node_name ： port_name ， node_name ： port_name>`
+
+
+
+
+
+== 还原 node4 上的 key-manager 配置
+
+如果使用 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，则加密配置必须与新节点同步。从 node2 到 node4 的 node1 聚合的 ARL 完成后，加密卷将脱机。
+
+.步骤
+. 要同步板载密钥管理器的加密配置，请在集群提示符处运行以下命令：
++
+|===
+| 对于此 ONTAP 版本… | 使用此命令 ... 
+
+
+| ONTAP 9.6 或 9.7 | 安全密钥管理器板载同步 
+
+
+| ONTAP 9.5 | security key-manager setup -node <node_name> 
+|===
+. 输入板载密钥管理器的集群范围密码短语。
+

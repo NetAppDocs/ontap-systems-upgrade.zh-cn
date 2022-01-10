@@ -16,9 +16,10 @@ entries:
   url: "/upgrade-arl-manual-app/worksheet_information_before_during_upgrade.html"
 - title: 升级节点对
   url: "/upgrade-arl-manual-app/upgrade_node_pair.html"
-- title: 第 1 阶段：准备升级
-  url: "/upgrade-arl-manual-app/stage1_prepare_for_upgrade.html"
+- title: 第 1 阶段。准备升级
   entries:
+  - title: 概述
+    url: "/upgrade-arl-manual-app/stage_1_index.html"
   - title: 确定控制器是否在内部磁盘驱动器上具有聚合
     url: "/upgrade-arl-manual-app/determine_aggregates_on_internal_drives.html"
   - title: 准备要升级的节点
@@ -33,9 +34,10 @@ entries:
     url: "/upgrade-arl-manual-app/quiesce_snapmirror_relationships.html"
   - title: 准备网络启动
     url: "/upgrade-arl-manual-app/prepare_for_netboot.html"
-- title: 第 2 阶段：重新定位和停用节点 1
-  url: "/upgrade-arl-manual-app/stage2_relocate_retire_node1.html"
+- title: 第 2 阶段。重新定位和停用节点 1
   entries:
+  - title: 概述
+    url: "/upgrade-arl-manual-app/stage_2_index.html"
   - title: 将非根聚合从 node1 重新定位到 node2
     url: "/upgrade-arl-manual-app/relocate_non_root_aggr_node1_node2.html"
   - title: 将 node1 拥有的 NAS 数据 LIF 移动到 node2
@@ -44,9 +46,10 @@ entries:
     url: "/upgrade-arl-manual-app/record_node1_information.html"
   - title: 停用 node1
     url: "/upgrade-arl-manual-app/retire_node1.html"
-- title: 第 3 阶段：安装并启动节点 3.
-  url: "/upgrade-arl-manual-app/stage_3_install_boot_node3.html"
+- title: 第 3 阶段。安装并启动 node3
   entries:
+  - title: 概述
+    url: "/upgrade-arl-manual-app/stage_3_index.html"
   - title: 安装并启动 node3
     url: "/upgrade-arl-manual-app/install_boot_node3.html"
   - title: 在 node3 上设置 FC 或 UTA/UTA2 配置
@@ -59,16 +62,18 @@ entries:
     url: "/upgrade-arl-manual-app/relocate_non_root_aggr_node2_node3.html"
   - title: 将 Node2 拥有的 NAS 数据 LIF 移动到 Node3
     url: "/upgrade-arl-manual-app/move_nas_lifs_node2_node3.html"
-- title: 第 4 阶段：记录信息并停用节点 2
-  url: "/upgrade-arl-manual-app/stage4_record_info_retire_node2.html"
+- title: 第 4 阶段。记录信息并停用 node2
   entries:
+  - title: 概述
+    url: "/upgrade-arl-manual-app/stage_4_index.html"
   - title: 记录 node2 信息
     url: "/upgrade-arl-manual-app/record_node2_information.html"
   - title: 停用 node2
     url: "/upgrade-arl-manual-app/retire_node2.html"
-- title: 第 5 阶段：安装并启动节点 4
-  url: "/upgrade-arl-manual-app/stage5_install_boot_node4.html"
+- title: 第 5 阶段。安装并启动节点 4.
   entries:
+  - title: 概述
+    url: "/upgrade-arl-manual-app/stage_5_index.html"
   - title: 安装并启动节点 4.
     url: "/upgrade-arl-manual-app/install_boot_node4.html"
   - title: 在 node4 上设置 FC 或 UTA/UTA2 配置
@@ -79,9 +84,10 @@ entries:
     url: "/upgrade-arl-manual-app/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html"
   - title: 将 node2 的非根聚合从 node3 重新定位到 node4
     url: "/upgrade-arl-manual-app/relocate_node2_non_root_aggr_node3_node4.html"
-- title: 第 6 阶段：完成升级
-  url: "/upgrade-arl-manual-app/stage6_complete_upgrade.html"
+- title: 第 6 阶段。完成升级
   entries:
+  - title: 概述
+    url: "/upgrade-arl-manual-app/stage_6_index.html"
   - title: 确保新控制器设置正确
     url: "/upgrade-arl-manual-app/ensure_controllers_set_up_correctly.html"
   - title: 在新控制器模块上设置存储加密
@@ -93,8 +99,9 @@ entries:
   - title: 恢复 SnapMirror 操作
     url: "/upgrade-arl-manual-app/resume_snapmirror_ops.html"
 - title: 故障排除
-  url: "/upgrade-arl-manual-app/troubleshoot.html"
   entries:
+  - title: 概述
+    url: "/upgrade-arl-manual-app/troubleshoot_index.html"
   - title: 聚合重新定位失败
     url: "/upgrade-arl-manual-app/aggregate_relocation_failures.html"
   - title: 重新启动，崩溃或重新启动

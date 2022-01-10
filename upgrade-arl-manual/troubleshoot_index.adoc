@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-manual-app/troubleshoot_index.html 
-keywrods: troubleshoot, failure, aggregate, relocate, lifs 
-summary: 故障排除，故障排除，问题，错误，故障 
+permalink: upgrade-arl-manual/troubleshoot_index.html 
+keywords: troubleshoot, troubleshooting, problem, error, failure 
+summary: 升级节点对时可能会遇到故障。 
 ---
 = 故障排除
 :hardbreaks:

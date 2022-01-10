@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-manual/stage_6_index.html 
+keywords: stage 6, complete, upgrade, set up, setup, controller, storage encryption, netapp encryption, decommission, resume snapmirror 
+summary: 在第 6 阶段，确保正确设置了新节点。 
+---
+= 第 6 阶段。完成升级
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在第 6 阶段，您可以确保正确设置新节点。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改适配器的个性化设置。如果新节点启用了加密，则还应设置存储加密。您还应停用旧节点。
+
+. link:ensure_controllers_set_up_correctly.html["确保新控制器设置正确"]
+. link:set_up_storage_encryption_new_controller.html["在新控制器模块上设置存储加密"]
+. link:set_up_netapp_encryption_on_new_controller.html["在新控制器模块上设置 NetApp 加密"]
+. link:decommission_old_system.html["停用旧系统"]
+. link:resume_snapmirror_ops.html["恢复 SnapMirror 操作"]
+

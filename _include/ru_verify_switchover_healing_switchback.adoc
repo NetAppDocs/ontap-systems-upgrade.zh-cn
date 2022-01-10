@@ -1,6 +1,0 @@
-= 
-
-
-您应验证 MetroCluster 配置的切换，修复和切回操作。
-
-使用中所述的协商切换，修复和切回过程 link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-mgmt-dr/home.html["《 MetroCluster 管理和灾难恢复指南》"]。

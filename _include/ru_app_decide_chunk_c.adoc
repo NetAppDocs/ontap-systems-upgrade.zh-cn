@@ -1,4 +1,0 @@
-= 
-
-
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请使用 link:https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-upgrade-controller/home.html["《控制器硬件升级快速指南》"] 而是。请参见  以访问 ONTAP 9 产品文档。
