@@ -1,0 +1,3107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head class="at-element-marker">
+  <title>在新控制器模块上设置 NetApp 卷加密</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="在新控制器模块上设置 NetApp 卷加密" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.html" />
+	<meta property="og:description" content="如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密。" />
+  <meta property="og:image" content="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密。">
+  <meta name="keywords" content=" set up, netapp volume encryption, controller, module, nve, node">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/zh-cn/ontap-systems-upgrade/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/ontap-systems-upgrade/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/ontap-systems-upgrade/css/netapp.css">
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/ontap-systems-upgrade/css/www-luci-dotcom.min.css">
+  <link rel="stylesheet" type="text/css" href="/zh-cn/ontap-systems-upgrade/css/www-netapp-dotcom.css">
+  <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/www-netapp-library-critical.min.css" media="all" >
+  <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/www-netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/tabbed-blocks.css" type="text/css">
+  <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/product-family.css' type="text/css">
+  
+
+  
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-feature.css' type='text/css'>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/zh-cn/ontap-systems-upgrade/js/na-search.js'></script>
+  
+
+  
+  <script src='/zh-cn/ontap-systems-upgrade/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism-netapp.css' type='text/css'>
+
+
+  <script src='/zh-cn/ontap-systems-upgrade/js/na-utility.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/clouddocs.js'></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    var head = document.getElementsByTagName('head')[0];
+    var adobe = document.createElement("script");
+    adobe.type = "text/javascript";
+    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+    head.appendChild(adobe);
+  }
+  </script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/toc.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/version-dropdown.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/product-family.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/FileSaver.min.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/jszip-utils.min.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/jszip.min.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">产品和解决方案</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">支持和培训</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">云中心</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">社区</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">日志</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">客户案例</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">联系人</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">联系人</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/zh-cn/ontap-systems-upgrade/search.html"
+          data-type="widget" 
+          data-placeholder="搜索文档" 
+          data-no-results-found="未找到与 {query} 匹配的结果。" 
+          data-did-you-mean="搜索 {suggestion}。" 
+          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
+          data-results-found="找到 {hitCount} 个结果"  
+          data-sk-es-pf-indexes=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">简体中文</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
+        <div class="n-language-selector-menu">
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ja-jp/ontap-systems-upgrade/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" >
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>可用的 PDF<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        <a target="_blank" href="/zh-cn/ontap-systems-upgrade/pdfs/fullsite-sidebar/AFF_和_FAS_系统升级文档.pdf" >
+          <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/通过移动卷或存储进行升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            通过移动卷或存储进行升级
+          </a>
+          
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/通过移动存储进行升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            通过移动存储进行升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/可选_移动内部存储或转换为驱动器架.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            可选—移动内部存储或转换为驱动器架
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/完成升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            完成升级
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/概述.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            概述
+          </a>
+          
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/完成_ONTAP_9_8.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            完成 ONTAP 9.8
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/在_ONTAP_9_7_或更早版本中完成.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            在 ONTAP 9.7 或更早版本中完成
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/通过移动卷进行升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            通过移动卷进行升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/移动_删除或创建_SAN_LIF.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            移动，删除或创建 SAN LIF
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用聚合重新定位升级控制器硬件.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            使用聚合重新定位升级控制器硬件
+          </a>
+          
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_RC2_或更高版本的_AFF_A900.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 1 阶段。准备升级
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位资源并停用_AFF_A700_节点_1.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 2 阶段。重新定位资源并停用 AFF A700 节点 1
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVS_启动_node1.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位节点_2_中的资源并停用节点_2.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 4 阶段。重新定位节点 2 中的资源并停用节点 2
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVS_和控制器模块.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVS_启动_node2.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2
+          </a>
+          
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_7_阶段_完成升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 7 阶段。完成升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            故障排除
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令升级运行_ONTAP_9_8_或更高版本的控制器硬件.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 1 阶段。准备升级
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 2 阶段。重新定位和停用节点 1
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 3 阶段。安装并启动 node3
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用节点_2.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 4 阶段。重新定位和停用节点 2
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 5 阶段。安装并启动节点 4.
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 6 阶段。完成升级
+          </a>
+          
+
+
+
+
+
+
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/zh-cn/ontap-systems-upgrade/pdfs/pages/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.pdf" >
+    <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            故障排除
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/手动升级运行_ONTAP_9_8_或更高版本的控制器硬件.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            手动升级运行 ONTAP 9.8 或更高版本的控制器硬件
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 1 阶段。准备升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 2 阶段。重新定位和停用节点 1
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 3 阶段。安装并启动 node3
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_记录信息并停用_node2.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 4 阶段。记录信息并停用 node2
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 5 阶段。安装并启动节点 4.
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 6 阶段。完成升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            故障排除
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将运行_ONTAP_9_5_的控制器硬件升级到_9_7.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 9.7
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 1 阶段。准备升级
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 2 阶段。重新定位和停用节点 1
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 3 阶段。安装并启动 node3
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用节点.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 4 阶段。重新定位和停用节点
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 5 阶段。安装并启动节点 4.
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 6 阶段。完成升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            故障排除
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/手动升级运行_ONTAP_9_7_或更早版本的控制器硬件.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            手动升级运行 ONTAP 9.7 或更早版本的控制器硬件
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/重新配置_ONTAP_9_1_或更高版本的_FC_交换机布局.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            重新配置 ONTAP 9.1 或更高版本的 FC 交换机布局
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 1 阶段。准备升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 2 阶段。重新定位和停用节点 1
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 3 阶段。安装并启动 node3
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_记录信息并停用_node2.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 4 阶段。记录信息并停用 node2
+          </a>
+          
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 5 阶段。安装并启动节点 4.
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            第 6 阶段。完成升级
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          <a target="_blank" 
+            
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
+            
+          >
+            <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
+            故障排除
+          </a>
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/zh-cn/ontap-systems-upgrade/images/pdf-zip.png" width="16" height="16"/>
+      <pre>收集单独的 PDF 文档<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="sidebar-nav-container">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/index.html">
+        AFF 和 FAS 系统升级文档
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 通过移动卷或存储进行升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-considerations.html">
+        注意事项
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-methods.html">
+        选择方法
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 通过移动存储进行升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-by-moving-storage-parent.html">
+        工作流
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-prepare-when-moving-storage.html">
+        准备
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-shutdown-remove-original-nodes.html">
+        关闭原始节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-remove-disk-ownership-new-nodes.html">
+        删除磁盘所有权
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-reset-default-configuration-node3-and-node4.html">
+        重置默认配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-install-new-nodes.html">
+        安装新节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-set-up-new-nodes.html">
+        设置新节点
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 可选—移动内部存储或转换为驱动器架</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-optional-move-internal-storage.html">
+        选项
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-move-internal-drives.html">
+        移动内部驱动器
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-convert-node-to-shelf.html">
+        将节点转换为驱动器架
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-attach-shelves-reassign-disks.html">
+        连接存储架并重新分配磁盘所有权
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-restore-root-volume-config.html">
+        还原根卷配置
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 完成升级</div>
+      </a>
+      <ul><li class="subfolders "><a href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-complete.html">
+        <div class="na-navbar-padding"> 概述</div>
+      </a>
+      <ul><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 完成 ONTAP 9.8</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-complete-ontap-9-8.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-map-network-ports-ontap-9-8.html">
+        使用 ONTAP 9.8 映射网络端口
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html">
+        在 ONTAP 9.8 中执行最终步骤
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 在 ONTAP 9.7 或更早版本中完成</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-complete-ontap-9-7-or-earlier.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html">
+        使用 ONTAP 9.7 或更早版本映射网络端口
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html">
+        在 ONTAP 9.7 或更早版本中执行最终步骤
+      </a></li></ul></li></ul></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 通过移动卷进行升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-by-moving-volumes-parent.html">
+        工作流
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-prepare-when-moving-volumes.html">
+        准备
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-install-and-join-new-nodes-move-vols.html">
+        安装并加入新节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-create-aggregate-move-volumes.html">
+        创建聚合并移动卷
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-move-lifs-to-new-nodes.html">
+        移动非 SAN 数据 LIF 和集群管理 LIF
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 移动，删除或创建 SAN LIF</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade_move_delete_recreate_san_lifs.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade_considerations_move_san_lifs.html">
+        移动 SAN LIF 的注意事项
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-delete-san-lifs.html">
+        删除 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade_create_recreate_san_lifs.html">
+        创建新的 SAN LIF 或重新创建已删除的 SAN LIF
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-unjoin-original-nodes-move-volumes.html">
+        取消加入原始节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade/upgrade-complete-move-volumes.html">
+        完成升级
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用聚合重新定位升级控制器硬件</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl/index.html">
+        概述
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/automate_the_controller_upgrade_process.html">
+        自动执行控制器升级过程
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/decide_to_use_the_aggregate_relocation_guide.html">
+        确定是否使用聚合重新定位内容
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/required_tools_and_documentation.html">
+        所需的工具和文档
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/guidelines_for_upgrading_controllers_with_arl.html">
+        从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/overview_of_the_arl_upgrade.html">
+        ARL 升级概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/upgrade_node_pair.html">
+        升级节点对
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/verify_upgrade_hardware.html">
+        验证升级硬件
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html">
+        准备要升级的节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/get_ip_address_of_external_kms_for_storage_encryption.html">
+        获取用于存储加密的外部密钥管理服务器的 IP 地址
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 2 阶段。重新定位资源并停用 AFF A700 节点 1</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html">
+        将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/relocate_failed_or_vetoed_aggr.html">
+        重新定位失败或被否决的聚合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/retire_node1.html">
+        停用 node1
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/netboot_node1.html">
+        网络启动节点 1
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/boot_node1_with_a900_controller_and_nvs.html">
+        使用 AFF A900 控制器模块和 NVS 启动 node1
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/verify_node1_installation.html">
+        验证 node1 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/restore_key_manager_config_upgraded_node1.html">
+        在升级后的节点 1 上还原密钥管理器配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html">
+        将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 4 阶段。重新定位节点 2 中的资源并停用节点 2</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html">
+        将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node1
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/retire_node2.html">
+        停用 node2
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/install_a900_nvs_and_controller_on_node2.html">
+        在节点 2 上安装 AFF A900 NVS 和控制器模块
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/netboot_node2.html">
+        网络启动节点 2.
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/boot_node2_with_a900_controller_and_nvs.html">
+        使用 AFF A900 控制器模块和 NVS 启动 node2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/verify_node2_installation.html">
+        验证 node2 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/restore_key_manager_config_node2.html">
+        还原 node2 上的 key-manager 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html">
+        将非根聚合和 NAS 数据 LIF 移回 node2
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 7 阶段。完成升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/ensure_new_controllers_are_set_up_correctly.html">
+        确保新控制器设置正确
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/set_up_storage_encryption_new_module.html">
+        在新控制器模块上设置存储加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/set_up_netapp_volume_encryption_new_module.html">
+        在新控制器模块上设置 NetApp 卷加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/decommission_old_system.html">
+        停用旧系统
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/resume_snapmirror_operations.html">
+        恢复 SnapMirror 操作
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 故障排除</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/troubleshoot_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/aggregate_relocation_failures.html">
+        聚合重新定位失败
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/reboots_panics_or_power_cycles.html">
+        重新启动，崩溃或重新启动
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/issues_in_multiple_stages_of_procedure.html">
+        操作步骤的多个阶段可能会出现的问题
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/lif_migration_failure.html">
+        LIF 迁移失败
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-mendocino/other_references.html">
+        参考资料
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/automate_the_controller_upgrade_process.html">
+        自动执行控制器升级过程
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html">
+        确定是否使用聚合重新定位内容
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/required_tools_and_documentation.html">
+        所需的工具和文档
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/guidelines_for_upgrading_controllers_with_arl.html">
+        使用 ARL 升级控制器的准则
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/verify_health_of_metrocluster_config.html">
+        验证 MetroCluster 配置的运行状况。
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/check_for_metrocluster_config_errors.html">
+        检查 MetroCluster 配置错误
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/verify_switchover_healing_switchback.html">
+        验证切换，修复和切回
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/overview_of_the_arl_upgrade.html">
+        ARL 升级概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/upgrade_node_pair.html">
+        升级节点对
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/stage_1_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/prepare_nodes_for_upgrade.html">
+        准备要升级的节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/get_ip_address_of_external_kms_for_storage_encryption.html">
+        获取用于存储加密的外部密钥管理服务器的 IP 地址
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 2 阶段。重新定位和停用节点 1</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/stage_2_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/relocate_non_root_aggr_nas_data_lifs_node1_node2.html">
+        将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/relocate_failed_vetoed_aggr.html">
+        重新定位失败或被否决的聚合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/retire_node1.html">
+        停用 node1
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/prepare_for_netboot.html">
+        准备网络启动
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 3 阶段。安装并启动 node3</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/stage_3_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/install_boot_node3.html">
+        安装并启动 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/set_fc_or_uta_uta2_config_on_node3.html">
+        在 node3 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/verify_node3_installation.html">
+        验证 node3 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/restore_key-manager_configuration_node3.html">
+        还原 node3 上的 key-manager 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/move_non-root_aggr_and_nas_data_lifs_node1_from_node2_to_node3.html">
+        将 node1 拥有的非根聚合和 NAS 数据 LIF 从 node2 移动到 node3
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 4 阶段。重新定位和停用节点 2</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/stage_4_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html">
+        将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/retire_node2.html">
+        停用 node2
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 5 阶段。安装并启动节点 4.</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/stage_5_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/install_boot_node4.html">
+        安装并启动节点 4.
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/set_fc_or_uta_uta2_config_node4.html">
+        在 node4 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/verify_node4_installation.html">
+        验证 node4 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/restore_key-manager_config_node4.html">
+        还原 node4 上的 key-manager 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html">
+        将 node2 拥有的非根聚合和 NAS 数据 LIF 从 node3 移动到 node4
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 6 阶段。完成升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/stage_6_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/ensure_new_controllers_are_set_up_correctly.html">
+        确保新控制器设置正确
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/set_up_storage_encryption_new_module.html">
+        在新控制器模块上设置存储加密
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.html">
+        在新控制器模块上设置 NetApp 卷加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/decommission_old_system.html">
+        停用旧系统
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/resume_snapmirror_operations.html">
+        恢复 SnapMirror 操作
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 故障排除</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/troubleshoot_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/aggregate_relocation_failures.html">
+        聚合重新定位失败
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/reboots_panics_or_power_cycles.html">
+        重新启动，崩溃或重新启动
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/issues_in_multiple_stages_of_procedure.html">
+        操作步骤的多个阶段可能会出现的问题
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/lif_migration_failure.html">
+        LIF 迁移失败
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/other_references.html">
+        参考资料
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 手动升级运行 ONTAP 9.8 或更高版本的控制器硬件</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/decide_to_use_arl_guide.html">
+        确定是否使用聚合重新定位内容
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/arl_upgrade_workflow.html">
+        ARL 升级工作流
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/guidelines_upgrade_with_arl.html">
+        使用 ARL 升级控制器的准则
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/required_tools_documentation.html">
+        所需的工具和文档
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/worksheet_information_before_during_upgrade.html">
+        工作表：在控制器升级之前和期间收集的信息
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/upgrade_node_pair.html">
+        升级节点对
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/stage_1_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/determine_aggregates_on_internal_drives.html">
+        确定控制器是否在内部磁盘驱动器上具有聚合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/prepare_nodes_for_upgrade.html">
+        准备要升级的节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/get_address_key_management_server_encryption.html">
+        获取用于存储加密的外部密钥管理服务器的 IP 地址
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/manage_authentication_kmip.html">
+        使用 KMIP 服务器管理身份验证
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/manage_authentication_okm.html">
+        使用板载密钥管理器管理身份验证
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/quiesce_snapmirror_relationships.html">
+        暂停 SnapMirror 关系
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/prepare_for_netboot.html">
+        准备网络启动
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 2 阶段。重新定位和停用节点 1</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/stage_2_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/relocate_non_root_aggr_node1_node2.html">
+        将非根聚合从 node1 重新定位到 node2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/move_nas_lifs_node1_node2.html">
+        将 node1 拥有的 NAS 数据 LIF 移动到 node2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/record_node1_information.html">
+        记录 node1 信息
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/retire_node1.html">
+        停用 node1
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 3 阶段。安装并启动 node3</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/stage_3_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/install_boot_node3.html">
+        安装并启动 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/set_fc_uta_uta2_config_node3.html">
+        在 node3 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/map_ports_node1_node3.html">
+        将端口从 node1 映射到 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html">
+        将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/relocate_non_root_aggr_node2_node3.html">
+        将非根聚合从 node2 重新定位到 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/move_nas_lifs_node2_node3.html">
+        将 Node2 拥有的 NAS 数据 LIF 移动到 Node3
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 4 阶段。记录信息并停用 node2</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/stage_4_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/record_node2_information.html">
+        记录 node2 信息
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/retire_node2.html">
+        停用 node2
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 5 阶段。安装并启动节点 4.</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/stage_5_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/install_boot_node4.html">
+        安装并启动节点 4.
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/set_fc_uta_uta2_config_node4.html">
+        在 node4 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/map_ports_node2_node4.html">
+        将端口从 node2 映射到 node4
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html">
+        将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/relocate_node2_non_root_aggr_node3_node4.html">
+        将 node2 的非根聚合从 node3 重新定位到 node4
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 6 阶段。完成升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/stage_6_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/ensure_controllers_set_up_correctly.html">
+        确保新控制器设置正确
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/set_up_storage_encryption_new_controller.html">
+        在新控制器模块上设置存储加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/set_up_netapp_encryption_on_new_controller.html">
+        在新控制器模块上设置 NetApp 卷加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/decommission_old_system.html">
+        停用旧系统
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/resume_snapmirror_ops.html">
+        恢复 SnapMirror 操作
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 故障排除</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/troubleshoot_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/aggregate_relocation_failures.html">
+        聚合重新定位失败
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/reboots_panics_power_cycles.html">
+        重新启动，崩溃或重新启动
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/issues_multiple_stages_of_procedure.html">
+        操作步骤的多个阶段可能会出现的问题
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/lif_migration_failure.html">
+        LIF 迁移失败
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/lifs_invalid_ports_after_upgrade.html">
+        升级后， LIF 位于无效端口上
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/other_references.html">
+        参考资料
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 9.7</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/automate_the_controller_upgrade_process.html">
+        自动执行控制器升级过程
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/decide_to_use_the_aggregate_relocation_guide.html">
+        确定是否使用聚合重新定位内容
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/required_tools_and_documentation.html">
+        所需的工具和文档
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/guidelines_for_upgrading_controllers_with_arl.html">
+        使用 ARL 升级控制器的准则
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/verify_health_of_metrocluster_config.html">
+        验证 MetroCluster 配置的运行状况。
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/check_metrocluster_config_errors.html">
+        检查 MetroCluster 配置错误
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/verify_switchover_healing_switchback.html">
+        验证切换，修复和切回
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/overview_of_the_arl_upgrade.html">
+        ARL 升级概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/upgrade_node_pair.html">
+        升级节点对
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/stage_1_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/prepare_nodes_for_upgrade.html">
+        准备要升级的节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html">
+        获取用于存储加密的外部密钥管理服务器的 IP 地址
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 2 阶段。重新定位和停用节点 1</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/stage_2_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html">
+        将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/relocate_failed_or_vetoed_aggr.html">
+        重新定位失败或被否决的聚合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/retire_node1.html">
+        停用 node1
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/prepare_for_netboot.html">
+        准备网络启动
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 3 阶段。安装并启动 node3</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/stage_3_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/install_boot_node3.html">
+        安装并启动 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/set_fc_or_uta_uta2_config_on_node3.html">
+        在 node3 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/map_ports_node1_node3.html">
+        将端口从 node1 映射到 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/join_quorum_node_has_different_ports_stage3.html">
+        当节点具有一组不同的网络端口时加入仲裁
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/verify_node3_installation.html">
+        验证 node3 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html">
+        将 node1 拥有的非根聚合和 NAS 数据 LIF 从 node2 移动到 node3
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 4 阶段。重新定位和停用节点</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/stage_4_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html">
+        将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/retire_node2.html">
+        停用 node2
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 5 阶段。安装并启动节点 4.</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/stage_5_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/install_boot_node4.html">
+        安装并启动节点 4.
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/set_fc_or_uta_uta2_config_node4.html">
+        在 node4 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/map_ports_node2_node4.html">
+        将端口从 node2 映射到 node4
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/join_quorum_node_has_different_ports_stage5.html">
+        当节点具有一组不同的网络端口时加入仲裁
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/verify_node4_installation.html">
+        验证 node4 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html">
+        将 node2 拥有的非根聚合和 NAS 数据 LIF 从 node3 移动到 node4
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 6 阶段。完成升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/stage_6_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/ensure_new_controllers_are_set_up_correctly.html">
+        确保新控制器设置正确
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/set_up_storage_encryption_new_module.html">
+        在新控制器模块上设置存储加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/set_up_netapp_volume_encryption_new_module.html">
+        在新控制器模块上设置 NetApp 卷加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/decommission_old_system.html">
+        停用旧系统
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/resume_snapmirror_operations.html">
+        恢复 SnapMirror 操作
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 故障排除</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/troubleshoot_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/aggregate_relocation_failures.html">
+        聚合重新定位失败
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/reboots_panics_or_power_cycles.html">
+        重新启动，崩溃或重新启动
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/issues_in_multiple_stages_of_procedure.html">
+        操作步骤的多个阶段可能会出现的问题
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/lif_migration_failure.html">
+        LIF 迁移失败
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/other_references.html">
+        参考资料
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 手动升级运行 ONTAP 9.7 或更早版本的控制器硬件</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/decide_to_use_arl_guide.html">
+        确定是否使用聚合重新定位内容
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/arl_upgrade_workflow.html">
+        ARL 升级工作流
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/guidelines_upgrade_with_arl.html">
+        使用 ARL 升级控制器的准则
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/required_tools_documentation.html">
+        所需的工具和文档
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/worksheet_information_before_during_upgrade.html">
+        工作表：在控制器升级之前和期间收集的信息
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 重新配置 ONTAP 9.1 或更高版本的 FC 交换机布局</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/reconfig_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html">
+        在重新配置交换机之前发送自定义 AutoSupport 消息
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/verify_health_mcc_config.html">
+        验证 MetroCluster 配置的运行状况。
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/check_mcc_config_errors.html">
+        检查 MetroCluster 配置错误
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/persist_disable_switches.html">
+        持久禁用交换机
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/determine_new_cabling_layout.html">
+        确定新的布线布局
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/apply_RCF_files_recable_switches.html">
+        应用 RCF 文件并重新对交换机进行布线
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/persist_enable_switches.html">
+        持久启用交换机
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/verify_swtichover_healing_switchback.html">
+        验证切换，修复和切回
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/upgrade_node_pair.html">
+        升级节点对
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_1_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/determine_aggregates_on_internal_drives.html">
+        确定控制器是否在内部磁盘驱动器上具有聚合
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/prepare_nodes_for_upgrade.html">
+        准备要升级的节点
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/get_address_key_management_server_encryption.html">
+        获取用于存储加密的外部密钥管理服务器的 IP 地址
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/manage_authentication_kmip.html">
+        使用 KMIP 服务器管理身份验证
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/manage_authentication_okm.html">
+        使用板载密钥管理器管理身份验证
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/quiesce_snapmirror_relationships.html">
+        暂停 SnapMirror 关系
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/prepare_for_netboot.html">
+        准备网络启动
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 2 阶段。重新定位和停用节点 1</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_2_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/relocate_non_root_aggr_node1_node2.html">
+        将非根聚合从 node1 重新定位到 node2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/move_nas_lifs_node1_node2.html">
+        将 node1 拥有的 NAS 数据 LIF 移动到 node2
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/record_node1_information.html">
+        记录 node1 信息
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/retire_node1.html">
+        停用 node1
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 3 阶段。安装并启动 node3</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_3_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/install_boot_node3.html">
+        安装并启动 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/set_fc_uta_uta2_config_node3.html">
+        在 node3 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/map_ports_node1_node3.html">
+        将端口从 node1 映射到 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/verify_node3_installation.html">
+        验证 node3 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html">
+        将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/relocate_non_root_aggr_node2_node3.html">
+        将非根聚合从 node2 重新定位到 node3
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/move_nas_lifs_node2_node3.html">
+        将 Node2 拥有的 NAS 数据 LIF 移动到 Node3
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 4 阶段。记录信息并停用 node2</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_4_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/record_node2_information.html">
+        记录 node2 信息
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/retire_node2.html">
+        停用 node2
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 5 阶段。安装并启动节点 4.</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_5_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/install_boot_node4.html">
+        安装并启动节点 4.
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/set_fc_uta_uta2_config_node4.html">
+        在 node4 上设置 FC 或 UTA/UTA2 配置
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/map_ports_node2_node4.html">
+        将端口从 node2 映射到 node4
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/verify_node4_installation.html">
+        验证 node4 安装
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html">
+        将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/relocate_node2_non_root_aggr_node3_node4.html">
+        将 node2 的非根聚合从 node3 重新定位到 node4
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 第 6 阶段。完成升级</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_6_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/ensure_controllers_set_up_correctly.html">
+        确保新控制器设置正确
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/set_up_storage_encryption_new_controller.html">
+        在新控制器模块上设置存储加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/set_up_netapp_encryption_on_new_controller.html">
+        在新控制器模块上设置 NetApp 卷加密
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/decommission_old_system.html">
+        停用旧系统
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/resume_snapmirror_ops.html">
+        恢复 SnapMirror 操作
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 故障排除</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/troubleshoot_index.html">
+        概述
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/aggregate_relocation_failures.html">
+        聚合重新定位失败
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/reboots_panics_power_cycles.html">
+        重新启动，崩溃或重新启动
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/issues_multiple_stages_of_procedure.html">
+        操作步骤的多个阶段可能会出现的问题
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/lif_migration_failure.html">
+        LIF 迁移失败
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/lifs_invalid_ports_after_upgrade.html">
+        升级后， LIF 位于无效端口上
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/other_references.html">
+        参考资料
+      </a></li></ul></li></ul></li></ul>
+</div>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container -->
+    <article class="page-content">
+      <div class="ie-utility">
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://www.netapp.com">主页</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">文档</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/zh-cn/ontap-systems-upgrade/">AFF&nbsp;and&nbsp;FAS&nbsp;Controller&nbsp;Upgrade</a>
+        </li>
+        <li class="n-breadcrumb__list-item">
+          在新控制器模块上设置 NetApp 卷加密
+        </li>
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> 简体中文版经机器翻译而成，仅供参考。如与英语版出现任何冲突，应以英语版为准。 </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">在新控制器模块上设置 NetApp 卷加密</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2021-10-28 08:14:59 +0000">10/28/2021</time>
+    
+  
+
+<span>提供者
+  <a target="_blank" href="https://github.com/netapp-pcarriga">
+    <img  class="avatar avatar-small"
+          alt="netapp-pcarriga"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/77334475?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+</p>
+
+
+<div class="paragraph lead">
+<p>如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密（ NVE ），则必须为 NVE 配置新控制器模块。</p>
+</div>
+<div class="paragraph">
+<p>此操作步骤包含对新控制器模块执行的步骤。您必须在正确的节点上输入命令。</p>
+</div>
+<div class="olist arabic">
+<div class="title">步骤</div>
+<ol class="arabic">
+<li>
+<p>验证密钥管理服务器是否仍可用，其状态及其身份验证密钥信息：</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">对于此 ONTAP 版本 &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">使用此命令 &#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.6 及更高版本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sSecurity key-manager key query -node node</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.5 及更早版本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sSecurity key-manager key show</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>将上一步中列出的密钥管理服务器添加到新控制器的密钥管理服务器列表中：</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>添加密钥管理服务器：</p>
+<div class="paragraph">
+<p><code>security key-manager -add &lt;key_management_server_ip_address&gt;</code></p>
+</div>
+</li>
+<li>
+<p>对列出的每个密钥管理服务器重复上述步骤。您最多可以链接四个密钥管理服务器。</p>
+</li>
+<li>
+<p>验证是否已成功添加密钥管理服务器：</p>
+<div class="paragraph">
+<p><code>sSecurity key-manager show</code></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>在新控制器模块上，运行密钥管理设置向导以设置和安装密钥管理服务器。</p>
+<div class="paragraph">
+<p>您必须安装与现有控制器模块上安装的密钥管理服务器相同的密钥管理服务器。</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>在新节点上启动密钥管理服务器设置向导：</p>
+<div class="paragraph">
+<p><code>security key-manager setup -node &lt;new_controller_name&gt;</code></p>
+</div>
+</li>
+<li>
+<p>完成向导中的步骤以配置密钥管理服务器。</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">针对 &#8230;&#8203;</th>
+<th class="tableblock halign-left valign-top">使用此命令 &#8230;&#8203;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">外部密钥管理器</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>security key-manager external restore</code> 此命令需要 OKM 密码短语</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">板载密钥管理器（ OKM ）</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sSecurity key-manager 板载同步</code></p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用 <code>volume online</code> 命令将这些卷恢复联机。</p>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/issues/new?body=Page%3A%20[在新控制器模块上设置 NetApp 卷加密](https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade-arl-auto-app/set_up_netapp_volume_encryption_new_module.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-systems-upgrade/images/article-sm.svg" class="github-icon" />提供者指南</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此页面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">想就我们的网站提供反馈?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">请告诉我们</a>
+  <a href="https://docs.netapp.com/zh-cn/announcements/" class="n-footer__copyright">通知</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div>
+
+      <!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/zh-cn/ontap-systems-upgrade/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/zh-cn/ontap-systems-upgrade/js/prism.js'></script>
+      <script type="text/javascript" src='/zh-cn/ontap-systems-upgrade/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/zh-cn/ontap-systems-upgrade/js/www-ntap.js'></script>
+    <script src='/zh-cn/ontap-systems-upgrade/js/tabbed-blocks.js'></script>
+  </body>
+
+  
+</html>
