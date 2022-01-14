@@ -21,4 +21,4 @@ summary: 要安装新硬件，您必须使用特定工具，并且在升级过�
 * 2 号十字螺丝刀
 
 
-转至 link:other_references.html["参考资料"] 部分，以访问此升级所需的参考文档列表。
+转至 link:other_references.html["参考资料"] 第节以访问此升级所需的参考文档和参考站点列表

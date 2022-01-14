@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual/decide_to_use_arl_guide.html
 keywords: decision, decision, what to use, upgrade, HA pair, metrocluster, storage encryption, volume encryption, NSE, NVE 
 summary: 是否使用此内容。 
 ---
-= 确定是否使用聚合重新定位内容
+= 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
 :nofooter: 
 :icons: font

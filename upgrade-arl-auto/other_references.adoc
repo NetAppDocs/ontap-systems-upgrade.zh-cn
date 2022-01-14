@@ -72,6 +72,12 @@ summary: 您可以链接到此主题中的其他参考内容和网站。
 | link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/home.html["《 ONTAP 9.8 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.8 命令的语法和用法。 
 
 
+| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-991/home.html["《 ONTAP 9.9.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.9.1 命令的语法和用法。 
+
+
+| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-9101/home.html["《 ONTAP 9.10.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.10.1 命令的语法和用法。 
+
+
 | link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管理磁盘和聚合"^] | 介绍如何使用命令行界面管理 ONTAP 物理存储。其中介绍了如何创建，扩展和管理聚合，如何使用 Flash Pool 聚合，如何管理磁盘以及如何管理 RAID 策略。 
 
 
@@ -99,16 +105,19 @@ summary: 您可以链接到此主题中的其他参考内容和网站。
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^] | 包含有关下载和升级 ONTAP 的说明。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"^] | 介绍使用 system controller replace 命令将运行 ONTAP 9.5 的控制器无中断升级到 ONTAP 9.7 所需的聚合重新定位过程。 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900"^] | 介绍使用 system controller replace 命令将 AFF A700 无中断升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900 所需的聚合重新定位过程。 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] | 介绍使用 system controller replace 命令无中断升级运行 ONTAP 9.8 的控制器所需的聚合重新定位过程。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["使用聚合重新定位手动升级运行 ONTAP 9.7 或更早版本的控制器硬件"^] | 介绍运行 ONTAP 9.7 或更早版本执行手动无中断控制器升级所需的聚合重新定位过程。 
-
-
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] | 介绍运行 ONTAP 9.8 或更高版本时执行手动无中断控制器升级所需的聚合重新定位过程。 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"^] | 介绍使用 system controller replace 命令将运行 ONTAP 9.5 的控制器无中断升级到 ONTAP 9.7 所需的聚合重新定位过程。 
+
+
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["使用聚合重新定位手动升级运行 ONTAP 9.7 或更早版本的控制器硬件"^] | 介绍运行 ONTAP 9.7 或更早版本执行手动无中断控制器升级所需的聚合重新定位过程。 
 |===
 
 

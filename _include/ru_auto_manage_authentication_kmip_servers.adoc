@@ -24,6 +24,6 @@
 
 . 如果使用联邦信息处理标准（ FIPS ），请使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
 +
-`storage encryption disk* modify -disk * "-fips-key-id nonMSID AK]`
+`storage encryption disk modify -disk * （ -fips-key-id nonMSID AK ）`
 
 

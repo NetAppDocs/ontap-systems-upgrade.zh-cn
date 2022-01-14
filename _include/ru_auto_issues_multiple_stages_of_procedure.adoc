@@ -31,7 +31,7 @@ cluster::> storage failover show
 Node     Partner   Possible  State Description
 -------  --------  --------- -----------------
 node1    node2     -         Unknown
-node2    node1    false      Waiting for node1, Partial giveback, Takeover is not possible: Storage failover is disabled
+node2    node1     false     Waiting for node1, Partial giveback, Takeover is not possible: Storage failover is disabled
 ....
 尽管输出显示某个节点正在进行部分交还，并且已禁用存储故障转移，但您可以忽略此消息。
 

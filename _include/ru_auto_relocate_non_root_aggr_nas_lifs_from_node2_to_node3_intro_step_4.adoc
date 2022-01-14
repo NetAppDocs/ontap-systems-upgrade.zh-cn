@@ -3,7 +3,7 @@
 
 在将 node2 替换为 node4 之前，必须将 node2 所拥有的非根聚合重新定位到 node3 。
 
-从上一阶段完成后检检查后， node2 的资源版本将自动启动。非根聚合和非 SAN 数据 LIF 将从 node2 迁移到 node3 。
+上一阶段的后处理检查完成后， node2 的资源释放将自动启动。非根聚合和非 SAN 数据 LIF 将从 node2 迁移到 node3 。
 
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。
 
@@ -44,14 +44,14 @@ aggr_2         825.0GB      825.0GB      0%     online  1      node2  raid_dp  n
 如果 node3 上的任何卷脱机，请在 node3 上使用以下命令将其联机，每个卷一次：
 
 +
-`volume online -vserver <vserver-name> -volume <volume-name>`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 +
-要与此命令结合使用的 ` <vserver-name>` 可在上一个 `volume show` 命令的输出中找到。
+要与此命令结合使用的 ` <vserver_name>` 可在上一个 `volume show` 命令的输出中找到。
 
 . 验证 LIF 是否已移至正确的端口且状态为 `up` 。如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
 +
-`network interface modify -vserver <vserver_name> - lif <LIF_name> -home-node <nodename> - status-admin up`
+`network interface modify -vserver <vserver_name> - lif <LIF_name> -home-node <node_name> - status-admin up`
 
 . 如果新硬件上不存在当前托管数据 LIF 的端口，请将其从广播域中删除：
 +

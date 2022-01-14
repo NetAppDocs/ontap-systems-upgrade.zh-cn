@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/index.html
 keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
 summary: 您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。 
 ---
-= 使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7
+= 概述
 :hardbreaks:
 :nofooter: 
 :icons: font
@@ -13,6 +13,8 @@ summary: 您可以使用替代控制器硬件升级原始控制器硬件，从�
 
 
 [role="lead"]
+* 您可以使用此聚合重新定位操作步骤通过使用 `ssystem controller replace` 命令来升级控制器硬件。此操作步骤适用场景控制器硬件运行 ONTAP 9.5 至 ONTAP 9.7*
+
 在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确保在整个升级操作步骤中至少有一个节点从聚合提供数据。您还可以迁移数据逻辑接口（ LIF ），并在继续操作时将新控制器上的网络端口分配给接口组。
 
 在此信息中，原始节点称为 "node1" 和 "node2" ，新节点称为 "node3" 和 "node4" 。在所述的操作步骤期间， "node1" 将替换为 "node3" ， "node2" 将替换为 "node4" 。

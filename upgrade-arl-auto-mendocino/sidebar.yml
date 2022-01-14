@@ -1,0 +1,95 @@
+---
+section: upgrade-arl-auto-mendocino
+title: 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF
+  A900
+entries:
+- title: 概述
+  url: "/upgrade-arl-auto-mendocino/index.html"
+- title: 自动执行控制器升级过程
+  url: "/upgrade-arl-auto-mendocino/automate_the_controller_upgrade_process.html"
+- title: 确定是否使用聚合重新定位内容
+  url: "/upgrade-arl-auto-mendocino/decide_to_use_the_aggregate_relocation_guide.html"
+- title: 所需的工具和文档
+  url: "/upgrade-arl-auto-mendocino/required_tools_and_documentation.html"
+- title: 从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
+  url: "/upgrade-arl-auto-mendocino/guidelines_for_upgrading_controllers_with_arl.html"
+- title: ARL 升级概述
+  url: "/upgrade-arl-auto-mendocino/overview_of_the_arl_upgrade.html"
+- title: 升级节点对
+  url: "/upgrade-arl-auto-mendocino/upgrade_node_pair.html"
+- title: 第 1 阶段。准备升级
+  entries:
+  - title: 验证升级硬件
+    url: "/upgrade-arl-auto-mendocino/verify_upgrade_hardware.html"
+  - title: 准备要升级的节点
+    url: "/upgrade-arl-auto-mendocino/prepare_nodes_for_upgrade.html"
+  - title: 获取用于存储加密的外部密钥管理服务器的 IP 地址
+    url: "/upgrade-arl-auto-mendocino/get_ip_address_of_external_kms_for_storage_encryption.html"
+- title: 第 2 阶段。重新定位资源并停用 AFF A700 节点 1
+  entries:
+  - title: 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
+    url: "/upgrade-arl-auto-mendocino/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html"
+  - title: 重新定位失败或被否决的聚合
+    url: "/upgrade-arl-auto-mendocino/relocate_failed_or_vetoed_aggr.html"
+  - title: 停用 node1
+    url: "/upgrade-arl-auto-mendocino/retire_node1.html"
+  - title: 网络启动节点 1
+    url: "/upgrade-arl-auto-mendocino/netboot_node1.html"
+- title: 第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1
+  entries:
+  - title: 使用 AFF A900 控制器模块和 NVS 启动 node1
+    url: "/upgrade-arl-auto-mendocino/boot_node1_with_a900_controller_and_nvs.html"
+  - title: 验证 node1 安装
+    url: "/upgrade-arl-auto-mendocino/verify_node1_installation.html"
+  - title: 在升级后的节点 1 上还原密钥管理器配置
+    url: "/upgrade-arl-auto-mendocino/restore_key_manager_config_upgraded_node1.html"
+  - title: 将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1
+    url: "/upgrade-arl-auto-mendocino/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html"
+- title: 第 4 阶段。重新定位节点 2 中的资源并停用节点 2
+  entries:
+  - title: 将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node1
+    url: "/upgrade-arl-auto-mendocino/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html"
+  - title: 停用 node2
+    url: "/upgrade-arl-auto-mendocino/retire_node2.html"
+- title: 第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块
+  entries:
+  - title: 在节点 2 上安装 AFF A900 NVS 和控制器模块
+    url: "/upgrade-arl-auto-mendocino/install_a900_nvs_and_controller_on_node2.html"
+  - title: 网络启动节点 2.
+    url: "/upgrade-arl-auto-mendocino/netboot_node2.html"
+- title: 第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2
+  entries:
+  - title: 使用 AFF A900 控制器模块和 NVS 启动 node2
+    url: "/upgrade-arl-auto-mendocino/boot_node2_with_a900_controller_and_nvs.html"
+  - title: 验证 node2 安装
+    url: "/upgrade-arl-auto-mendocino/verify_node2_installation.html"
+  - title: 还原 node2 上的 key-manager 配置
+    url: "/upgrade-arl-auto-mendocino/restore_key_manager_config_node2.html"
+  - title: 将非根聚合和 NAS 数据 LIF 移回 node2
+    url: "/upgrade-arl-auto-mendocino/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html"
+- title: 第 7 阶段。完成升级
+  entries:
+  - title: 确保新控制器设置正确
+    url: "/upgrade-arl-auto-mendocino/ensure_new_controllers_are_set_up_correctly.html"
+  - title: 在新控制器模块上设置存储加密
+    url: "/upgrade-arl-auto-mendocino/set_up_storage_encryption_new_module.html"
+  - title: 在新控制器模块上设置 NetApp 卷加密
+    url: "/upgrade-arl-auto-mendocino/set_up_netapp_volume_encryption_new_module.html"
+  - title: 停用旧系统
+    url: "/upgrade-arl-auto-mendocino/decommission_old_system.html"
+  - title: 恢复 SnapMirror 操作
+    url: "/upgrade-arl-auto-mendocino/resume_snapmirror_operations.html"
+- title: 故障排除
+  entries:
+  - title: 概述
+    url: "/upgrade-arl-auto-mendocino/troubleshoot_index.html"
+  - title: 聚合重新定位失败
+    url: "/upgrade-arl-auto-mendocino/aggregate_relocation_failures.html"
+  - title: 重新启动，崩溃或重新启动
+    url: "/upgrade-arl-auto-mendocino/reboots_panics_or_power_cycles.html"
+  - title: 操作步骤的多个阶段可能会出现的问题
+    url: "/upgrade-arl-auto-mendocino/issues_in_multiple_stages_of_procedure.html"
+  - title: LIF 迁移失败
+    url: "/upgrade-arl-auto-mendocino/lif_migration_failure.html"
+- title: 参考资料
+  url: "/upgrade-arl-auto-mendocino/other_references.html"

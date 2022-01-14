@@ -26,6 +26,8 @@ homepage:
       url: "/upgrade/upgrade-decide-to-use-this-guide.html"
   - title: 在运行 ONTAP 9.8 及更高版本的系统上移动聚合以进行升级
     links:
+    - title: 使用 system controller replace 命令（ AFF A700 至 AFF A900 ）
+      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-mendocino/
     - title: 使用 system controller replace 命令（大多数系统）
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
     - title: 使用手动命令

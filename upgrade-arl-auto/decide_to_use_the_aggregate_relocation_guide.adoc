@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/decide_to_use_the_aggregate_relocation_guide.html
 keywords: aggregate relocation, decide to use, upgrade, model, matrix, replacement, controller 
 summary: 此内容介绍如何使用新控制器升级 HA 对中的存储控制器，同时保留所有现有数据和磁盘。 
 ---
-= 确定是否使用聚合重新定位内容
+= 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
 :nofooter: 
 :icons: font

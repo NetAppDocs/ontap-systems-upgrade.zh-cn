@@ -72,7 +72,7 @@ summary: 升级后，您必须立即配置存储加密。
 
 . 如果使用联邦信息处理标准（ FIPS ），请使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
 +
-`storage encryption disk* modify -disk * "-fips-key-id nonMSID AK]`
+`storage encryption disk modify -disk * （ -fips-key-id nonMSID AK ）`
 
 
 
@@ -104,7 +104,7 @@ summary: 升级后，您必须立即配置存储加密。
 +
 [NOTE]
 ====
-如果状态为 "Transferring" ，则必须中止这些传输： `snapmirror abort -destination-vserver <vserver name>`
+如果状态为 "Transferring" ，则必须中止这些传输： `snapmirror abort -destination-vserver <vserver_name>`
 
 ====
 +
@@ -112,6 +112,6 @@ summary: 升级后，您必须立即配置存储加密。
 
 . 暂停集群之间的所有关系：
 +
-`snapmirror quiesce -destination-vserver <vserver name>`
+`snapmirror quiesce -destination-vserver <vserver_name>`
 
 

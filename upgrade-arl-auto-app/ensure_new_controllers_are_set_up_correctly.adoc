@@ -67,7 +67,7 @@ node4    node3    true       Connected to node3
 
 . 如果任何卷处于脱机状态，请将其与您在部分中捕获的脱机卷列表进行比较 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]，并根据需要使用以下命令使每个卷的任何脱机卷联机一次：
 +
-`volume online -vserver <vserver-name> -volume <volume_name>`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . 对每个节点使用以下命令，为新节点安装新许可证：
 +
@@ -84,6 +84,7 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 `ssystem license delete -serial number <node_serial number> -package <licensable_package>`
 
 +
+--
 ** 删除所有已过期的许可证：
 +
 `ssystem license clean-up -expired`
@@ -94,11 +95,14 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 
 ** 在节点上使用以下命令从集群中删除特定许可证：
 +
-`ssystem license delete -serial number <node1 serial number> -package *`
+`ssystem license delete -serial -number <node1_serial number> -package *`
 
 +
-`ssystem license delete -serial number <node2 serial number> -package *`
+`ssystem license delete -serial -number <node2_serial _number> -package *`
 
+
+
+--
 +
 此时将显示以下输出：
 
@@ -111,8 +115,6 @@ Do you want to continue? {y|n}: y
 +
 输入 `y` 删除所有软件包。
 
-
-
 . 使用以下命令并检查输出，以验证是否已正确安装许可证：
 +
 `s系统许可证显示`
@@ -122,7 +124,7 @@ Do you want to continue? {y|n}: y
 
 . 如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 `true` ，并使用 ` <kmip.init.maxwait>` 变量 `off` （在 link:install_boot_node4.html#step27["安装并启动 node4 步骤 27"]），您需要重置变量：
 +
-`set diag ； systemshell -node <nodename> -command sudo kenv -u -p kmip.init.maxwait`
+`set diag ； systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
 
 
 

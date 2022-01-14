@@ -61,7 +61,7 @@ node4          node3          true     Connected to node3
 
 . 如果任何卷处于脱机状态，请将其与您在中捕获的脱机卷列表进行比较 link:prepare_nodes_for_upgrade.html#step19d["第 19 步（ d ）"] 在 _Prepare the nodes for upgrade" 中，根据需要输入以下命令使任何脱机卷联机，每个卷一次：
 +
-`volume online -vserver <vserver-name> -volume <volume_name>`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . 通过为每个节点输入以下命令，为新节点安装新许可证：
 +
@@ -70,7 +70,7 @@ node4          node3          true     Connected to node3
 +
 license-code 参数接受一个包含 28 个大写字母字符密钥的列表。您可以一次添加一个许可证，也可以一次添加多个许可证，每个许可证密钥用逗号分隔。
 
-. 如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 "true" ，并将 `kmip.init.maxwait` 变量 "off" （在中 link:install_boot_node3.html#step16["第 16 步"] 对于 _Install and boot node3_ ），您需要重置变量： `set diag ； systemshell -node <node-name> -command sudo kenv -u -p kmip.init.maxwait`
+. 如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 "true" ，并将 `kmip.init.maxwait` 变量 "off" （在中 link:install_boot_node3.html#step16["第 16 步"] 对于 _Install and boot node3_ ），您需要重置变量： `set diag ； systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
 . 要从原始节点中删除所有旧许可证，请输入以下命令之一：
 +
 `ssystem license clean-up -unused -expired` `ssystem license delete -serial number node_serial _number -package licensable_package`
@@ -86,7 +86,7 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 
 ** 要从集群中删除特定许可证，请在节点上输入以下命令：
 +
-`ssystem license delete -serial number node1-serial number -package *` `ssystem license delete -serial number node2-serial number -package *`
+`ssystem license delete -serial -number <node1_serial number> -package *` `ssystem license delete -serial -number <node2_serial number> -package *`
 
 +
 此时将显示以下输出：
@@ -112,7 +112,7 @@ Do you want to continue? {y|n}: y
 
 . 通过在两个节点上执行以下命令来配置 SP ：
 +
-`ssystem service-processor network modify -node node-name`
+`ssystem service-processor network modify -node <node_name>`
 
 +
 转至 link:other_references.html["参考资料"] 链接到系统管理参考 _ 以了解 SP 的相关信息，以及 _System 9 ONTAP 命令：手册页参考 _ 以了解有关 `ssystem service-processor network modify` 命令的详细信息。

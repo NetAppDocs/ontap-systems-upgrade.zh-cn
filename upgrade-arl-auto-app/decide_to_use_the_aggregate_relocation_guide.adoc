@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.htm
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
 summary: 此内容介绍如何使用新控制器升级 HA 对中的存储控制器。 
 ---
-= 确定是否使用聚合重新定位内容
+= 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
 :nofooter: 
 :icons: font
@@ -52,7 +52,7 @@ NOTE: 您可以对此操作步骤使用 NetApp 存储加密（ NSE ）和 NetApp
 
 NOTE: 如果上表不包含您的控制器升级型号组合，请联系技术支持。
 
-^1^有关 A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 link:set_fc_or_uta_uta2_config_on_node3.html#step23["检查并配置 node3 上的 UTA/UTA2 端口，步骤 23"]或 。
+^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 link:set_fc_or_uta_uta2_config_on_node3.html#step23["检查并配置 node3 上的 UTA/UTA2 端口，步骤 23"]或 。
 
 ^2^从 ONTAP 9.1.1 开始，支持 ARL 自动从 AFF A320 升级到 AFF A400 系统。
 

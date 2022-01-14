@@ -1,6 +1,6 @@
 ---
 section: upgrade-arl-manual-app
-title: 使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件
+title: 手动升级运行 ONTAP 9.8 或更高版本的控制器硬件
 entries:
 - title: 概述
   url: "/upgrade-arl-manual-app/index.html"

@@ -1,0 +1,16 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-mendocino/verify_upgrade_hardware.html 
+keywords: preparing, nodes, upgrade 
+summary: 在开始升级之前，请确认您具有正确的硬件将 AFF A700 系统升级到 AFF A900 系统。 
+---
+= 验证升级硬件
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在开始升级之前，您必须验证是否具有正确的硬件将 AFF A700 系统升级到 AFF A900 系统。对于要升级的每个 HA 对，您应具有两个系统控制器模块和两个 NVS 模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。
