@@ -1,0 +1,206 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/netboot_node2.html 
+keywords: preparing, netboot, ontap, aff, a900, node2 
+summary: 在交换相应的 AFF A900 node2 控制器模块和 NVS 之后，您可能需要通过网络启动它们。 
+---
+= 网络启动节点 2.
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在交换相应的 AFF A900 node2 控制器模块和 NVS 之后，您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
+
+无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本应与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
+
+
+NOTE: 您也可以使用 USB 启动选项执行网络启动。请参见 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["NetApp 知识库文章： How to use the boot_recovery loader command for installing ONTAP for initial setup of a system"^]。
+
+.开始之前
+* 确认您可以使用系统访问 HTTP 服务器。
+* 从 _NetApp 支持站点 _ 下载适用于您的系统和正确版本的 ONTAP 所需的系统文件。请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 。
+
+
+如果新控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本不同，则必须通过网络启动这些控制器。安装每个新控制器后，您可以从 Web 服务器上存储的 ONTAP 9 映像启动系统。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。
+
+.步骤
+. 请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 以下载用于执行系统网络启动的文件。
+. 【 netboot_node2_step2]] 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 `ontap_version_image.tgz` 文件存储在可通过 Web 访问的目录中。
+. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
+. 您的目录列表应包含 `ontap_version_image.tgz` 。
+. 通过选择以下操作之一来配置网络启动连接。
++
+
+NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
+
++
+[cols="35,65"]
+|===
+| 动态主机配置协议（ DHCP ） | 那么 ... 
+
+
+| 正在运行 | 在启动环境提示符处使用以下命令自动配置连接： `ifconfig e0M -auto` 
+
+
+| 未运行  a| 
+在启动环境提示符处使用以下命令手动配置连接： `ifconfig e0M -addr=filer_addr -mask=netmask -gw=gateway - dns=dns_addr domain=dns_domain` `filer_addr` 是存储系统的 IP 地址。`netmask` 是存储系统的网络掩码。`gateway` 是存储系统的网关。`dns_addr` 是网络上名称服务器的 IP 地址。此参数是可选的。`dns_domain` 是域名服务（ DNS ）域名。此参数是可选的。
+
+
+NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
+
+|===
+. 对 node2 执行网络启动：
++
+`netboot \http://web_server_ip/path_to_web_accessible_directory/netboot/kernel`
+
++
+
+NOTE: 请勿中断启动。
+
+. 等待 AFF A900 控制器模块上当前运行的 node2 启动，并显示启动菜单选项，如下所示：
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)?
+----
+. 从启动菜单中，选择选项 ` （ 7 ） Install new software first` 。
++
+此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。
+
++
+[NOTE]
+====
+请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤` 。本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。
+
+请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景所有 ONTAP 版本。
+
+====
+. 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`
++
+`path_to_the_web-accessible_directory` 应指向下载 `ontap_version_image.tgz` 的位置 <<netboot_node2_step2,第 2 步>>。
+
+. 完成以下子步骤以重新启动控制器模块：
++
+.. 出现以下提示时，输入 `n` 以跳过备份恢复：
++
+[listing]
+----
+Do you want to restore the backup configuration now? {y|n}
+----
+.. 出现以下提示时，输入 `y` 以重新启动：
++
+[listing]
+----
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+----
++
+控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。
+
+
+
+. 在提示符处，运行 `wipeconfig` 命令以清除启动介质上先前的任何配置。
++
+.. 当您看到以下消息时，问题解答 `yes` ：
++
+[listing]
+----
+This will delete critical system configuration, including cluster membership.
+Warning: do not run this option on a HA node that has been taken over.
+Are you sure you want to continue?:
+----
+.. 节点将重新启动以完成 `wipeconfig` ，然后停留在启动菜单处。
+
+
+. 从启动菜单中选择维护模式 `5` ，并在系统提示您继续启动时输入 `y` 。
+. 验证控制器和机箱是否配置为 `ha` ：
++
+`ha-config show`
+
++
+以下示例显示了 `ha-config show` 命令的输出：
+
++
+[listing]
+----
+Chassis HA configuration: ha
+Controller HA configuration: ha
+----
+. 如果控制器和机箱未配置为 `ha` ，请使用以下命令更正配置：
++
+`ha-config modify controller ha`
+
++
+`ha-config modify chassis ha`
+
+. 暂停节点 2 ：
++
+`halt`
+
++
+node2 应在 LOADER 提示符处停止。
+
+. 在 node2 上，检查系统日期，时间和时区：
++
+`dATE`
+
+. 在 node2 上，在启动环境提示符处使用以下命令检查日期：
++
+`s如何选择日期`
+
+. 如有必要，请在 node2 上设置日期：
++
+`set date <MM/dd/yyy>`
+
++
+
+NOTE: 在 node2 上设置相应的 UTC 日期。
+
+. 在 node2 上，在启动环境提示符处使用以下命令检查时间：
++
+`s时间`
+
+. 如有必要，请在 node2 上设置时间：
++
+`set time <hh ： mm ： ss>`
+
++
+
+NOTE: 在 node2 上设置相应的 UTC 时间。
+
+. 如有必要，请在 node2 上设置配对系统 ID ：
++
+
+NOTE: 这是要升级到 AFF A900 的 node1 的系统 ID 。
+
++
+`setenv partner-sysid node1_sysid`
+
++
+.. 保存设置：
++
+`saveenv`
+
+
+
+. 在 node2 上的 LOADER 提示符处，您应验证 `partner-sysid` 。对于 node2 ， `partner-sysid` 必须为 node1 。验证 node1 的 `partner-sysid` ：
++
+`printenv partner-sysid`
+
+

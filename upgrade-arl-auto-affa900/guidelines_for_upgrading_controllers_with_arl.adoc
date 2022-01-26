@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: guidelines, upgrade, aff, a900, a700, ontap, controllers 
+summary: 使用 ARL 将一对运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A700 控制器升级到 AFF A900 系统取决于系统和控制器配置。 
+---
+= 从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用 ARL 将一对运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A700 控制器升级到 AFF A900 系统取决于系统以及原始控制器和更换控制器的配置。
+
+
+
+== 支持 ARL 升级
+
+支持使用 ARL 将 AFF A700 升级到 AFF A900 ，并仅交换控制器模块和 NVS 。如果您收到的新 AFF A900 系统是一个完整系统，包括一个新机箱，请参见 link:other_references.html["参考资料"] 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。
+
+
+WARNING: 本指南严格地将 AFF A700 适用场景升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900 。请勿使用本指南在任何其他系统组合之间执行升级。
+
+配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
+
+
+
+== 双节点无交换机集群
+
+如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为交换集群。
+
+
+
+== 故障排除
+
+如果在升级控制器时出现任何问题，请参见 link:troubleshoot_index.html["故障排除"] 部分，请参见操作步骤末尾的详细信息和可能的解决方案。
+
+如果您未找到与遇到的问题相关的解决方案，则应联系技术支持。

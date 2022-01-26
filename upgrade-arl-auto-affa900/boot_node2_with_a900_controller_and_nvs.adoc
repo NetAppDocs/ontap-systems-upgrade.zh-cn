@@ -1,0 +1,165 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html 
+keywords: boot, nvs, controller, module, node2, aff, a700, a900 
+summary: 使用 AFF A900 控制器模块和 NVS 启动 node2 。 
+---
+= 使用 AFF A900 控制器模块和 NVS 启动 node2
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+带有 AFF A900 控制器模块和 NVS 的 Node2 现在可以升级了。通过交换控制器模块和 NVS 从 AFF A700 升级到 AFF A900 只涉及移动控制台和管理连接。本节介绍使用 AFF A900 控制器模块和 NVS 启动 node2 所需的步骤。
+
+.步骤
+. `s此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为` true `，并将 kmip.init.maxwait` `变量设置为` off ，以避免在加载 node2 配置后出现启动环路：
++
+`setenv bootarg.storageencryption.support true`
+
++
+`setenv kmip.init.maxwait off`
+
+. 将节点启动至 `boot_menu` ：
++
+`boot_ontap 菜单`
+
+. 节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将 AFF A700 节点 1 磁盘重新分配给 AFF A900 节点 1 ，请在提示符处输入节点 2 的实际名称。请使用以下示例作为参考：
++
+[listing]
+----
+LOADER-A> boot_ontap menu
+.
+.
+<output truncated>
+.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+.
+<output truncated>
+.
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 22/7
+
+(22/7)                          Print this secret List
+(25/6)                          Force boot with multiple filesystem disks missing.
+(25/7)                          Boot w/ disk labels forced to clean.
+(29/7)                          Bypass media errors.
+(44/4a)                         Zero disks if needed and create new flexible root volume.
+(44/7)                          Assign all disks, Initialize all disks as SPARE, write DDR labels
+.
+.
+<output truncated>
+.
+.
+(wipeconfig)                        Clean all configuration on boot device
+(boot_after_controller_replacement) Boot after controller upgrade
+(boot_after_mcc_transition)         Boot after MCC transition
+(9a)                                Unpartition all disks and remove their ownership information.
+(9b)                                Clean configuration and initialize node with partitioned disks.
+(9c)                                Clean configuration and initialize node with whole disks.
+(9d)                                Reboot the node.
+(9e)                                Return to main boot menu.
+
+
+
+The boot device has changed. System configuration information could be lost. Use option (6) to restore the system configuration, or option (4) to initialize all disks and setup a new system.
+Normal Boot is prohibited.
+
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? boot_after_controller_replacement
+
+This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: yes
+
+.
+.
+<output truncated>
+.
+.
+Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
+Changing sysid of node node1 disks.
+Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
+Partner sysid = 4294967295, owner sysid = 536940063
+.
+.
+<output truncated>
+.
+.
+varfs_backup_restore: restore using /mroot/etc/varfs.tgz
+varfs_backup_restore: attempting to restore /var/kmip to the boot device
+varfs_backup_restore: failed to restore /var/kmip to the boot device
+varfs_backup_restore: attempting to restore env file to the boot device
+varfs_backup_restore: successfully restored env file to the boot device wrote key file "/tmp/rndc.key"
+varfs_backup_restore: timeout waiting for login
+varfs_backup_restore: Rebooting to load the new varfs
+Terminated
+<node reboots>
+
+System rebooting...
+
+.
+.
+Restoring env file from boot media...
+copy_env_file:scenario = head upgrade
+Successfully restored env file from boot media...
+Rebooting to load the restored env file...
+.
+System rebooting...
+.
+.
+.
+<output truncated>
+.
+.
+.
+.
+WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
+Override system ID? {y|n} y
+.
+.
+.
+.
+Login:
+----
++
+[NOTE]
+====
+在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。
+
+上述示例中显示的系统 ID 是示例 ID 。要升级的节点的实际系统 ID 将不同。
+
+在提示符和登录提示符处输入节点名称之间，节点会重新启动几次以还原环境变量，更新系统中卡上的固件以及进行其他 ONTAP 更新。
+
+====
+

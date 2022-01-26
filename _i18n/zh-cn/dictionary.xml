@@ -3796,7 +3796,6 @@
   <block id="c08479ef32255dff91c1115570f6aff4" category="cell"><block ref="c08479ef32255dff91c1115570f6aff4" category="inline-link-macro-rx"></block></block>
   <block id="d361c32c7588b81ad0ce225fabf9cc83" category="cell">介绍支持的 ONTAP 9.10.1 命令的语法和用法。</block>
   <block id="1bcbe4bd68c550a7ed28f4bdd586bc74" category="inline-link-macro">使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900</block>
-  <block id="7a46c8c94800f8cd7a7aef6b5b3adebd" category="cell"><block ref="7a46c8c94800f8cd7a7aef6b5b3adebd" category="inline-link-macro-rx"></block></block>
   <block id="2b1fefdeeb661a741761da67d9a06d72" category="cell">介绍使用 system controller replace 命令将 AFF A700 无中断升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900 所需的聚合重新定位过程。</block>
   <block id="b4c7c005a4b2204b56da4bbb5a2e62b0" category="doc">确定是否使用聚合重新定位操作步骤</block>
   <block id="7550b1d2ff94ade0badf7313d5af406e" category="paragraph">* 您可以使用此聚合重新定位操作步骤手动升级运行 ONTAP 9.7 或更早版本的控制器硬件。 *</block>
@@ -3819,7 +3818,6 @@
   <block id="ae1fd14d266df956140018dd0a7d3aee" category="paragraph">`ssystem license delete -serial -number &lt;node2_serial _number&gt; -package *`</block>
   <block id="7ae7b85041346021fa869537081fa931" category="paragraph">`set diag ； systemshell -node &lt;node_name&gt; -command sudo kenv -u -p kmip.init.maxwait`</block>
   <block id="2275b38e5279b78660b012808a4cb08e" category="cell">9.10.1 或更高版本</block>
-  <block id="0fe4cc25fed4531e07b517bef39f560e" category="cell"><block ref="0fe4cc25fed4531e07b517bef39f560e" category="inline-link-macro-rx"></block></block>
   <block id="9485cc727d9d60c0c782449790411372" category="cell"><block ref="9485cc727d9d60c0c782449790411372" category="inline-link-macro-rx"></block></block>
   <block id="a80362d8850ea6131db54e8994d7ece8" category="cell"><block ref="a80362d8850ea6131db54e8994d7ece8" category="inline-link-macro-rx"></block></block>
   <block id="987d908c963b953e34ffd0bc33ebfd50" category="inline-link-macro">手动升级运行 ONTAP 9.8 或更高版本的控制器硬件</block>
@@ -4196,4 +4194,6 @@
   <block id="bb0d2681400a8bd80cea4ec618ce8873" category="sidebar">第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块</block>
   <block id="69181db8c0a5d3ee51bd9816fcf73f89" category="sidebar">第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2</block>
   <block id="e58fe7640209496d4d7a887457b3a8c5" category="sidebar">第 7 阶段。完成升级</block>
+  <block id="9bc5ca62c85c48a5608cc66a5119aff4" category="cell"><block ref="9bc5ca62c85c48a5608cc66a5119aff4" category="inline-link-macro-rx"></block></block>
+  <block id="941f4b0595c8574b9f353fa86ce98d4e" category="cell"><block ref="941f4b0595c8574b9f353fa86ce98d4e" category="inline-link-macro-rx"></block></block>
 </blocks>

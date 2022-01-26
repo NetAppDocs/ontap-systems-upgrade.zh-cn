@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl/other_references.html 
-keywords: other references, documentation, hardware universe, content, documentation center, information 
-summary: 您可以链接到此主题中的其他参考内容和网站。 
+permalink: upgrade-arl-auto-affa900/other_references.html 
+keywords: references, documentation, hardware universe, content, documentation center, information 
+summary: 链接到支持升级所需的参考内容和网站。 
 ---
 = 参考资料
 :hardbreaks:

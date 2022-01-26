@@ -1,0 +1,196 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/verify_node2_installation.html 
+keywords: verifying, verify, node, install, installation, aff, a900, nvs, controller 
+summary: 使用 AFF A900 控制器模块和 NVS 验证 node2 安装。 
+---
+= 验证 node2 安装
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您必须使用 AFF A900 控制器模块和 NVS 验证 node2 安装。由于物理端口不变，您无需将物理端口从 AFF A700 节点 2 映射到 AFF A900 节点 2 。
+
+使用 AFF A900 控制器模块启动 node1 后，必须验证是否已正确安装它。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。
+
+此时，在操作步骤中，操作将暂停，而 node2 加入仲裁。
+
+.步骤
+. 验证 node2 是否已加入仲裁：
++
+`cluster show -node node2 -fields health`
+
++
+`health` 字段的输出应为 `true` 。
+
+. 确认 node2 与 node1 属于同一集群，并且运行状况良好：
++
+`cluster show`
+
+. 切换到高级权限模式：
++
+`set advanced`
+
+. 检查控制器更换操作的状态，并验证其是否处于暂停状态以及在 node2 暂停之前的状态，以便执行安装新控制器和移动缆线的物理任务：
++
+`ssystem controller replace show`
+
++
+`s系统控制器更换 show-details`
+
+. 恢复控制器更换操作：
++
+`s系统控制器更换恢复`
+
+. 控制器更换操作将暂停以进行干预，并显示以下消息：
++
+[listing]
+----
+Cluster::*> system controller replace show
+Node          Status                       Error-Action
+------------  ------------------------     ------------------------------------
+Node2         Paused-for-intervention      Follow the instructions given in
+                                           Step Details
+Node1         None
+
+Step Details:
+--------------------------------------------
+To complete the Network Reachability task, the ONTAP network configuration must be manually adjusted to match the new physical network configuration of the hardware. This includes:
+
+
+1. Re-create the interface group, if needed, before restoring VLANs. For detailed commands and instructions, refer to the "Re-creating VLANs, ifgrps, and broadcast domains" section of the upgrade controller hardware guide for the ONTAP version running on the new controllers.
+2. Run the command "cluster controller-replacement network displaced-vlans show" to check if any VLAN is displaced.
+3. If any VLAN is displaced, run the command "cluster controller-replacement network displaced-vlans restore" to restore the VLAN on the desired port.
+2 entries were displayed.
+----
++
+
+NOTE: 在本指南中， _re-creating VLAN ， ifgrp 和 broadcast domains_has been re命名 为 _Restore network configuration on node2_ 。
+
+. 在控制器更换处于暂停状态的情况下，继续执行 <<Restore network configuration on node2>>。
+
+
+
+
+== 还原 node2 上的网络配置
+
+确认 node2 处于仲裁状态并可与 node1 通信后，请确认 node2 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证是否已在其正确的广播域中配置所有 node2 网络端口。
+
+有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 内容。
+
+.步骤
+. 列出已升级的节点 2 上的所有物理端口：
++
+`network port show -node node2`
+
++
+此时将显示节点上的所有物理网络端口， VLAN 端口和接口组端口。在此输出中，您可以看到 ONTAP 已将任何物理端口移至 `集群` 广播域。您可以使用此输出来帮助确定应将哪些端口用作接口组成员端口， VLAN 基本端口或用于托管 LIF 的独立物理端口。
+
+. 列出集群上的广播域：
++
+`broadcast-domain show`
+
+. 列出节点 2 上所有端口的网络端口可访问性：
++
+`network port reachability show -node node2`
+
++
+您应看到类似于以下示例的输出。端口和广播名称会有所不同。
+
++
+[listing]
+----
+Cluster::*> network port reachability show -node local
+Node      Port     Expected Reachability                Reachability Status
+--------- -------- ------------------------------------ ---------------------
+Node2
+          e0M      Default:Mgmt                         no-reachability
+          e10a     Default:Default-3                    ok
+          e10b     Default:Default-4                    ok
+          e11a     Cluster:Cluster                      no-reachability
+          e11b     Cluster:Cluster                      no-reachability
+          e11c     -                                    no-reachability
+          e11d     -                                    no-reachability
+          e2a      Default:Default-1                    ok
+          e2b      Default:Default-2                    ok
+          e9a      Default:Default                      no-reachability
+          e9b      Default:Default                      no-reachability
+          e9c      Default:Default                      no-reachability
+          e9d      Default:Default                      no-reachability
+13 entries were displayed.
+----
++
+在上述示例中， node2 已在更换控制器后启动并加入仲裁。它具有多个不可访问的端口，并且正在等待可访问性扫描。
+
+. [[restore_node2_step4]] 使用以下命令按以下顺序修复 node2 上每个端口的可访问性状态不是 `ok` 的可访问性：
++
+`network port reachability repair -node <node_name> -port <port_name>`
+
++
+--
+.. 物理端口
+.. VLAN 端口
+
+
+--
++
+您应看到类似于以下示例的输出：
+
++
+[listing]
+----
+Cluster ::> reachability repair -node node2 -port e9d
+----
++
+[listing]
+----
+Warning: Repairing port "node2:e9d" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
+----
++
+对于可访问性状态可能与当前所在广播域的可访问性状态不同的端口，应显示一条警告消息，如上所示。根据需要查看端口和问题解答 `y` 或 `n` 的连接。
+
++
+验证所有物理端口是否具有预期可访问性：
+
++
+`网络端口可访问性显示`
+
++
+在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口不属于任何现有广播域，则 ONTAP 将为这些端口创建新的广播域。
+
+. 验证端口可访问性：
++
+`网络端口可访问性显示`
+
++
+如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 <<restore_node2_step4,第 4 步>>。
+
+. 验证所有端口是否均已置于广播域中：
++
+`network port show`
+
+. 验证广播域中的所有端口是否配置了正确的最大传输单元（ MTU ）：
++
+`network port broadcast-domain show`
+
+. 使用以下步骤还原 LIF 主端口，指定需要还原的 Vserver 和 LIF 主端口（如果有）：
++
+.. 列出所有已替换的 LIF ：
++
+`displaced interface show`
+
+.. 还原 LIF 主节点和主端口：
++
+`displaced interface restore-home-node -node node_name -vserver vserver_name -lif-name LIF_name`
+
+
+
+. 验证所有 LIF 是否都具有主端口且已由管理员启动：
++
+`network interface show -fields home-port ， status-admin`
+
+

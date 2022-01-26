@@ -1,0 +1,211 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/retire_node1.html 
+keywords: retiring, node, retire 
+summary: 通过恢复自动操作来禁用带有 node2 的 HA 对并正确关闭 node1 ，从而停用 node1 。 
+---
+= 停用 node1
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要停用 node1 ，请恢复自动操作，以使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从 node1 机箱中卸下 AFF A700 控制器模块和 NVS ，然后在 node1 上安装 AFF A900 NVS 和控制器模块。
+
+.步骤
+. 恢复操作：
++
+`s系统控制器更换恢复`
+
+. 验证 node1 是否已暂停：
++
+`s系统控制器更换 show-details`
+
++
+node1 完全暂停后， node1 应出现在 LOADER 提示符处。要查看加载程序提示符，请连接到 node1 的串行控制台。
+
+
+
+
+
+== 卸下 AFF A700 控制器模块和 NVS
+
+在此阶段， node1 已关闭，所有数据均由 node2 提供。由于 node1 和 node2 位于同一机箱中，并由同一组电源供电，因此请勿关闭机箱电源。您必须注意仅删除 node1 控制器模块和 node1 NVS 。通常， node1 是从系统背面查看控制器时位于机箱左侧的控制器 A 。控制器标签位于机箱上，控制器模块正上方。
+
+如果您尚未接地，请正确接地。
+
+
+
+=== 卸下 AFF A700 控制器模块
+
+使用以下操作步骤删除 AFF A700 控制器模块。
+
+.步骤
+. 从 node1 控制器模块中卸下控制器模块之前，请断开控制台缆线（如果有）和管理缆线与 node1 控制器模块的连接。
++
+
+WARNING: 在处理 node1 时，只需从 node1 中拔下控制台和 e0M 缆线。在此过程中，您不能移除或更改 node1 或 node2 上的任何其他缆线或连接。
+
+. 解锁控制器模块 A 并将其从机箱中卸下。
++
+.. Slide the orange button on the cam handle downward until it unlocks.
++
+image::../media/drw_9500_remove_PCM.png[Remove controller module]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image::../media/black_circle_one.png[第一]
+| Cam handle release button 
+
+
+ a| 
+image::../media/black_circle_two.png[第二]
+| Cam handle 
+|===
+.. Rotate the cam handle so that it completely disengages the controller module from the chassis, and then slide the controller module out of the chassis.
++
+Make sure that you support the bottom of the controller module as you slide it out of the chassis.
+
+
+
+
+
+
+
+=== 卸下 AFF A700 NVS 模块
+
+使用以下操作步骤删除 AFF A700 NVS 模块。
+
+
+NOTE: AFF A700 NVS 模块位于插槽 6 中，与系统中的其他模块相比，其高度是原来的两倍。
+
+.步骤
+. 从 node1 的插槽 6 中解锁 NVS 并将其卸下。
++
+.. Depress the lettered and numbered cam button.
++
+The cam button moves away from the chassis.
+
+.. Rotate the cam latch down until it is in a horizontal position.
++
+NVS 从机箱中分离并移动几英寸。
+
+.. 拉动模块侧面的拉片，将 NVS 从机箱中卸下。
++
+image::../media/drw_a900_move-remove_NVRAM_module.png[删除 NVS]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image::../media/black_circle_one.png[第一]
+| Lettered and numbered I/O cam latch 
+
+
+ a| 
+image::../media/black_circle_two.png[第二]
+| I/O latch completely unlocked 
+|===
+
+
+. 如果您在 AFF A700 NVS 上使用任何附加模块作为核心转储设备，请勿将其传输到 AFF A900 NVS 。
+
+
+
+
+== 在节点 1 上安装 AFF A900 NVS 和控制器模块
+
+您必须在 node1 上安装为升级而收到的 AFF A900 NVS 和控制器模块。请勿将核心转储设备从 AFF A700 NVS 模块移至 AFF A900 NVS 模块。
+
+如果您尚未接地，请正确接地。
+
+
+
+=== 安装 AFF A900 NVS
+
+使用以下操作步骤将 AFF A900 NVS 安装在 node1 的插槽 6 中。
+
+.步骤
+. 将 NVS 与插槽 6 中机箱开口的边缘对齐。
+. 将 NVS 轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVS 锁定到位。
++
+image::../media/drw_a900_move-remove_NVRAM_module.png[安装 NVS]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image::../media/black_circle_one.png[第一]
+| Lettered and numbered I/O cam latch 
+
+
+ a| 
+image::../media/black_circle_two.png[第二]
+| I/O latch completely unlocked 
+|===
+
+
+
+
+=== 在节点 1 上安装 AFF A900 控制器模块。
+
+使用以下操作步骤在 node1 中安装 AFF A900 控制器模块。
+
+.步骤
+. 将控制器模块的末端与机箱中的开口 A 对齐，然后将控制器模块轻轻推入系统的一半。
++
+
+NOTE: Do not completely insert the controller module in the chassis until instructed to do so.
+
+. 使用缆线将管理和控制台端口连接到 node1 控制器模块。
++
+
+NOTE: 由于机箱已启动， node1 将启动 BIOS 初始化，然后在完全就位后立即启动自动启动。要中断 node1 启动，在将控制器模块完全插入插槽之前，建议将串行控制台和管理缆线连接到 node1 控制器模块。
+
+. Firmly push the controller module into the chassis until it meets the midplane and is fully seated.
++
+控制器模块完全就位后，锁定闩锁会上升。
+
++
+
+WARNING: Do not use excessive force when sliding the controller module into the chassis to avoid damaging the connectors.
+
++
+image::../media/drw_9500_remove_PCM.png[安装控制器模块]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image::../media/black_circle_one.png[第一]
+| 凸轮把手锁定闩锁 
+
+
+ a| 
+image::../media/black_circle_two.png[第二]
+| 凸轮把手处于解锁位置 
+|===
+. 一旦模块就位，请立即连接串行控制台，并准备好中断 node1 的自动启动。
+. 中断自动启动后， node1 将停留在 LOADER 提示符处。如果不中断自动启动，而 node1 开始启动，请等待提示符按 * Ctrl-C* 进入启动菜单。在节点停留在启动菜单后，使用选项 `8` 重新启动节点，并在重新启动期间中断自动启动。
+. 在 LOADER 提示符 node1 处，设置默认环境变量：
++
+`set-defaults`
+
+. 保存默认环境变量设置：
++
+`saveenv`
+
+

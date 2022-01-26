@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/index.html 
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology, aff, a700, a900 
+summary: 您可以使用 AFF A900 控制器硬件升级 AFF A700 控制器硬件，从而重新定位非根聚合的所有权。 
+---
+= 概述
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+* 您可以使用此聚合重新定位操作步骤通过使用 `ssystem controller replace` 命令将 AAF A700 升级到 AAF A900 系统。此操作步骤适用场景 AFF A700 和 AFF A900 系统运行 ONTAP 9.10.1 RC2 或更高版本。 *
+
+您可以通过交换控制器模块和非易失性存储模块（ NVS ），无中断地将 AFF A700 节点 HA 对上的控制器硬件升级到 AFF A900 系统。您可以在 AFF A700 节点之间迁移非根聚合，然后迁移到 HA 对中的 AFF A900 节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。
+
+在此控制器升级操作步骤期间，您可以将 AFF A700 升级到 AFF A900 系统。
+
+
+NOTE: 您只能将 AFF A700 系统上每个节点上的两个现场可更换单元（ Field Replaceable Unit ， FRU ）更换为新的 FRU 。您无需移动，断开或重新连接 I/O 卡，数据缆线，磁盘架和磁盘。
+
+此操作步骤使用一种称为聚合重新定位（ Aggregate Relocation ， ARL ）的方法，该方法利用 HA 配置，可以将非根聚合的所有权从一个节点移动到另一个节点，前提是它们在同一集群中共享存储。
+
+在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确保在整个升级操作步骤中至少有一个节点从聚合提供数据。此外，您还可以在集群中的节点之间迁移数据逻辑接口（ LIF ）。
+
+
+NOTE: 术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。在操作步骤之后，您必须替换节点的实际名称。
+
+.需要注意的重要信息
+* 此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应阅读并了解 link:guidelines_for_upgrading_controllers_with_arl.html["从 AFF A700 升级到采用 ARL 的 AFF A900 的准则"] 和  开始升级前的章节。
+* 此操作步骤假定更换用的控制器硬件是新的，尚未在其他系统中使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果更换用的控制器硬件先前已用作另一个 ONTAP 集群的一部分或用作独立的单节点系统，则必须联系技术支持。
+* 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个高可用性（ HA ）对单独执行操作步骤。
+* 此操作步骤仅适用于 AFF A700 系统。有关需要升级到 AFF A900 系统的所有其他控制器型号，请参见 link:other_references.html["参考资料"] 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件，以及使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件内容。
+* 如果要在停机的情况下从 AFF A700 系统升级，您可以通过移动存储来升级控制器硬件，也可以联系技术支持。请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+
