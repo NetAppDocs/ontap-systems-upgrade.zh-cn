@@ -13,4 +13,4 @@
 
 
 
-升级完成后，您可以停用 node2 。请参见 link:decommission_old_system.html["停用旧系统"]
+升级完成后，您可以停用 node2 。请参见 link:decommission_old_system.html["停用旧系统"]。

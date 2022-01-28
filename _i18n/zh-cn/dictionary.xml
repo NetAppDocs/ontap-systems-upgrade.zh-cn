@@ -150,7 +150,6 @@
   <block id="3b70100fce1839004dba40191f90a2c9" category="list-text">恢复操作：</block>
   <block id="21d67404cbc8811a82f375c6eb59ce82" category="paragraph">节点会自动暂停。</block>
   <block id="ac616410952c35e808a3c7ce4ea5b4a7" category="inline-link-macro">停用旧系统</block>
-  <block id="975ea661f5a70916862dd59a8818ebf7" category="paragraph">升级完成后，您可以停用 node2 。请参见 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block></block>
   <block id="b39850fa882a12596e03ef7779fcfebc" category="list-text"><block ref="5e1bb6d16e6bc7a1d750ae669f510747" category="inline-xref-macro-rx"></block></block>
   <block id="2061ab494eae73f1e7251b76a58b27d3" category="cell">介绍如何通过移动存储或卷快速升级集群中的控制器硬件。还介绍如何将受支持的型号转换为磁盘架。</block>
   <block id="5d1afe326f483a14ce8cd69456db1384" category="cell">介绍如何在网络结构配置中安装和配置 MetroCluster 硬件和软件组件。</block>
@@ -3958,7 +3957,6 @@
   <block id="1e3871757d9d19ba71a4bda385282d88" category="paragraph">执行这些检查后，系统会将非根聚合和 NAS 数据 LIF 重新定位回 node2 ，而 node2 目前正在 AFF A900 控制器上运行。</block>
   <block id="b990f6960d7072e815b8e4d805f92035" category="paragraph">如果已替换任何 LIF ，请将主节点还原回 node2 ：</block>
   <block id="57b35a4807158b0c84b33308cd272adc" category="summary">您可以使用 AFF A900 控制器硬件升级 AFF A700 控制器硬件，从而重新定位非根聚合的所有权。</block>
-  <block id="293f3a0be892f917820c1418be436fe0" category="paragraph">* 您可以使用此聚合重新定位操作步骤通过使用 `ssystem controller replace` 命令将 AAF A700 升级到 AAF A900 系统。此操作步骤适用场景 AFF A700 和 AFF A900 系统运行 ONTAP 9.10.1 RC2 或更高版本。 *</block>
   <block id="4fe14399c7ba2d61fd08cb661eaee960" category="paragraph">您可以通过交换控制器模块和非易失性存储模块（ NVS ），无中断地将 AFF A700 节点 HA 对上的控制器硬件升级到 AFF A900 系统。您可以在 AFF A700 节点之间迁移非根聚合，然后迁移到 HA 对中的 AFF A900 节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</block>
   <block id="b4487973401042be49d7ce291f0a7816" category="paragraph">在此控制器升级操作步骤期间，您可以将 AFF A700 升级到 AFF A900 系统。</block>
   <block id="b506bf2d759395dc5e9a526b8a8a5085" category="admonition">您只能将 AFF A700 系统上每个节点上的两个现场可更换单元（ Field Replaceable Unit ， FRU ）更换为新的 FRU 。您无需移动，断开或重新连接 I/O 卡，数据缆线，磁盘架和磁盘。</block>
@@ -4196,4 +4194,7 @@
   <block id="e58fe7640209496d4d7a887457b3a8c5" category="sidebar">第 7 阶段。完成升级</block>
   <block id="9bc5ca62c85c48a5608cc66a5119aff4" category="cell"><block ref="9bc5ca62c85c48a5608cc66a5119aff4" category="inline-link-macro-rx"></block></block>
   <block id="941f4b0595c8574b9f353fa86ce98d4e" category="cell"><block ref="941f4b0595c8574b9f353fa86ce98d4e" category="inline-link-macro-rx"></block></block>
+  <block id="815c0aa063df3c53b17744c860357708" category="paragraph">升级完成后，您可以停用 node2 。请参见 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
+  <block id="328d06d80ac652817a19edc359847e7a" category="paragraph">* 您可以使用此聚合重新定位操作步骤通过使用 `ssystem controller replace` 命令将 AFF A700 升级到 AFF A900 系统。此操作步骤适用场景 AFF A700 和 AFF A900 系统运行 ONTAP 9.10.1 RC2 或更高版本。 *</block>
+  <block id="f886cde8cf41513338837f7a3aacf806" category="list-text">AFF A900 系统仅支持高端电源（ 200V 到 240V ）。如果 AFF A700 系统使用低端电源（ 100V 到 140V ）运行，则必须先转换 AFF A700 输入电源，然后再使用此操作步骤。</block>
 </blocks>
