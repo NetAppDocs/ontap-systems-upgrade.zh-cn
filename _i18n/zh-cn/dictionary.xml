@@ -2317,7 +2317,6 @@
   <block id="511de0365473e7cc1fc52adf09368d53" category="list-text"><block ref="511de0365473e7cc1fc52adf09368d53" category="inline-link-macro-rx"></block></block>
   <block id="c25935ce11d9d76fca75e6795d090984" category="list-text">您的系统使用运行 ONTAP 9.5 或更早版本的 Fabric MetroCluster 4 节点和 8 节点配置。</block>
   <block id="d3706af871b05283f2f32296d2d599f7" category="summary">要成功升级原始节点，您必须收集某些信息。</block>
-  <block id="0b3c02891d31cade1d32eec570356892" category="doc">工作表：在控制器升级之前和期间收集的信息</block>
   <block id="c71d4a6ce9505934716badc679c9844b" category="paragraph">要成功升级原始节点，您必须收集某些信息。此信息包括节点 ID ，端口和 LIF 详细信息，许可密钥和 IP 地址。</block>
   <block id="af9089739f1912cd99f3158a51191bfa" category="paragraph">您可以使用以下工作表记录信息，以供日后在操作步骤中使用：</block>
   <block id="9d5a474aaa552210ff0298949aeb6c0a" category="cell">所需信息</block>
@@ -2928,7 +2927,6 @@
   <block id="fb74f9c51a3457e88ae16fbed6c6b978" category="paragraph">节点可能会经过一轮重新启动，然后才能正常启动。</block>
   <block id="f52332ab232b64dcde0ca0ea781c1755" category="list-text">【 man_install3_step48]] 登录到 node3 。</block>
   <block id="0d5eded42a5e8cbfa58553f5dd4cd263" category="summary">将 node2 的非根聚合重新定位到 node3 后，您现在必须将其从 node3 重新定位到 node4 。</block>
-  <block id="e0aebc9247605127583b639cffd5f31e" category="doc">将 node2#8217 的非根聚合从 node3 重新定位到 node4</block>
   <block id="a6bef5c01b3429b867cf90c4a3de3fac" category="list-text">【 man_relocate_3_4_Step1]] 在任一控制器上输入以下命令，并检查输出以确定要重新定位的非根聚合：</block>
   <block id="086b43d0e04175cf8790abef24a23665" category="paragraph">`storage aggregate show -owner-name node3 -home-id node2_system_id`</block>
   <block id="d7a08960a9315fad49e6564d33d4cb9c" category="list-text">通过完成以下子步骤重新定位聚合：</block>
@@ -4197,4 +4195,6 @@
   <block id="815c0aa063df3c53b17744c860357708" category="paragraph">升级完成后，您可以停用 node2 。请参见 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
   <block id="328d06d80ac652817a19edc359847e7a" category="paragraph">* 您可以使用此聚合重新定位操作步骤通过使用 `ssystem controller replace` 命令将 AFF A700 升级到 AFF A900 系统。此操作步骤适用场景 AFF A700 和 AFF A900 系统运行 ONTAP 9.10.1 RC2 或更高版本。 *</block>
   <block id="f886cde8cf41513338837f7a3aacf806" category="list-text">AFF A900 系统仅支持高端电源（ 200V 到 240V ）。如果 AFF A700 系统使用低端电源（ 100V 到 140V ）运行，则必须先转换 AFF A700 输入电源，然后再使用此操作步骤。</block>
+  <block id="5980c068f7f0508562e337b63f7ad8d1" category="doc">工作表：在控制器升级之前和期间收集的信息</block>
+  <block id="3691534aa0f6a7f528765fec893e0a93" category="doc">将 node2 的非根聚合从 node3 重新定位到 node4</block>
 </blocks>

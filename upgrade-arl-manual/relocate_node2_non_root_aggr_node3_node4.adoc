@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual/relocate_node2_non_root_aggr_node3_node4.html
 keywords: relocate, non-root, aggregates, node3, node4 
 summary: 将 node2 的非根聚合重新定位到 node3 后，您现在必须将其从 node3 重新定位到 node4 。 
 ---
-= 将 node2#8217 的非根聚合从 node3 重新定位到 node4
+= 将 node2 的非根聚合从 node3 重新定位到 node4
 :hardbreaks:
 :nofooter: 
 :icons: font
