@@ -2842,7 +2842,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 16:33:33 +0000">01/31/2022</time>
+    <time datetime="2022-02-03 21:53:40 +0000">02/03/2022</time>
     
   
 
@@ -2924,6 +2924,18 @@ Warning: Cluster HA has not been configured. Cluster HA must be configured on a 
 
 2 entries were displayed.</pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="注">
+</td>
+<td class="content">
+如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>

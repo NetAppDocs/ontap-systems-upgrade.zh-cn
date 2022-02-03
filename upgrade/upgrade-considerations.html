@@ -2842,7 +2842,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 16:33:33 +0000">01/31/2022</time>
+    <time datetime="2022-02-03 21:53:40 +0000">02/03/2022</time>
     
   
 
@@ -2918,6 +2918,12 @@
 </li>
 <li>
 <p>如果节点位于同一集群中，则可以通过将卷或物理存储从一个 FAS2xxx 移动到更高的 FAS2xxx 来进行升级。例如，您可以将卷或物理存储从 FAS2552 移动到 FAS2750 。</p>
+</li>
+<li>
+<p>如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。</p>
+</li>
+<li>
+<p>如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。<code>kernel-service</code> 命令需要高级权限级别访问。有关详细信息，请参见 <a href="https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436" target="_blank" rel="noopener">"NetApp 知识库文章 SU436 ： CLAMK takeover default configuration changed"</a>。从 ONTAP 开始，默认情况下会启用 <code>KCS -enable-takeover</code> 参数。</p>
 </li>
 <li>
 <p>如果要升级双节点 MetroCluster 配置，请参见： <a href="https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html" target="_blank" rel="noopener">"选择升级或刷新方法"</a></p>

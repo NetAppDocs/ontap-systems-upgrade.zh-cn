@@ -2842,11 +2842,19 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 16:33:33 +0000">01/31/2022</time>
+    <time datetime="2022-02-03 21:53:40 +0000">02/03/2022</time>
     
   
 
 <span>提供者
+  <a target="_blank" href="https://github.com/netapp-pcarriga">
+    <img  class="avatar avatar-small"
+          alt="netapp-pcarriga"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/77334475?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
 </span>
 
 
@@ -3283,7 +3291,16 @@ vs0
 <img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="注">
 </td>
 <td class="content">
-您稍后将在操作步骤中使用此信息。
+<div class="ulist">
+<ul>
+<li>
+<p>您稍后将在操作步骤中使用此信息。</p>
+</li>
+<li>
+<p>如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 ，则必须先将集群 LIF 整合为每个节点两个集群端口，然后再开始控制器升级。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>

@@ -2842,7 +2842,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 16:33:33 +0000">01/31/2022</time>
+    <time datetime="2022-02-03 21:53:40 +0000">02/03/2022</time>
     
   
 
@@ -3008,6 +3008,18 @@ Controller replacement operation has been paused for user intervention.</pre>
 </li>
 <li>
 <p>在启动控制器更换操作并完成预检后，此操作将暂停，以便您稍后在配置 node3 时收集可能需要的输出信息。</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="注">
+</td>
+<td class="content">
+如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 ，则必须先将集群 LIF 整合为每个节点两个集群端口，然后再开始控制器升级。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>按照系统控制台上控制器更换操作步骤的指示运行以下一组命令。</p>

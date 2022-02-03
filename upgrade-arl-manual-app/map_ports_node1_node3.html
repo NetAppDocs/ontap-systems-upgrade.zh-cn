@@ -2842,11 +2842,19 @@
 <p class="page-details">
   
     
-    <time datetime="2022-01-31 16:33:33 +0000">01/31/2022</time>
+    <time datetime="2022-02-03 21:53:40 +0000">02/03/2022</time>
     
   
 
 <span>提供者
+  <a target="_blank" href="https://github.com/netapp-pcarriga">
+    <img  class="avatar avatar-small"
+          alt="netapp-pcarriga"
+          width="20" height="20"
+          src="https://avatars.githubusercontent.com/u/77334475?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
 </span>
 
 
@@ -2933,14 +2941,10 @@
 <div class="paragraph">
 <p><code>network interface migrate -vserver vserver_name -lif lif_name -source-node node1 -destination-node node1 -destination-port port_name</code></p>
 </div>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>迁移所有集群 LIF 并建立集群通信后，集群应达到仲裁状态。</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>修改集群 LIF 的主端口：</p>
 <div class="paragraph">
@@ -2959,7 +2963,42 @@
 <p><code>cluster show -node node1 -fields health</code></p>
 </div>
 </li>
+<li>
+<p>验证集群 LIF 是否正在侦听端口 7700 ：</p>
+<div class="paragraph">
+<p>` ：：： &gt; 网络连接侦听 show -vserver Cluster`</p>
+</div>
+<div class="paragraph">
+<p>每个集群 LIF 都必须侦听端口 7700 。</p>
+</div>
+<div class="paragraph">
+<p>对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Cluster::&gt; network connections listening show -vserver Cluster
+Vserver Name     Interface Name:Local Port     Protocol/Service
+---------------- ----------------------------  -------------------
+Node: NodeA
+Cluster          NodeA_clus1:7700               TCP/ctlopcp
+Cluster          NodeA_clus2:7700               TCP/ctlopcp
+Node: NodeB
+Cluster          NodeB_clus1:7700               TCP/ctlopcp
+Cluster          NodeB_clus2:7700               TCP/ctlopcp
+4 entries were displayed.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 <code>down</code> ，然后设置 <code>up</code> ：</p>
+<div class="paragraph">
+<p>` ：： &gt; net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin down ； net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin up`</p>
+</div>
+</li>
 </ol>
+</div>
+<div class="paragraph">
+<p>重复子步骤（ f ）以验证集群 LIF 是否正在侦听端口 7700 。</p>
 </div>
 </li>
 <li>
