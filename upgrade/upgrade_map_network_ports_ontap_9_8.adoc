@@ -58,9 +58,40 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 +
 `cluster show -node node1 -fields health`
 
+.. 验证集群 LIF 是否正在侦听端口 7700 ：
++
+` ：：： > 网络连接侦听 show -vserver Cluster`
+
++
+每个集群 LIF 都必须侦听端口 7700 。
+
++
+对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：
+
++
+[listing]
+----
+Cluster::> network connections listening show -vserver Cluster
+Vserver Name     Interface Name:Local Port     Protocol/Service
+---------------- ----------------------------  -------------------
+Node: NodeA
+Cluster          NodeA_clus1:7700               TCP/ctlopcp
+Cluster          NodeA_clus2:7700               TCP/ctlopcp
+Node: NodeB
+Cluster          NodeB_clus1:7700               TCP/ctlopcp
+Cluster          NodeB_clus2:7700               TCP/ctlopcp
+4 entries were displayed.
+----
+.. 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
++
+` ：： > net int modify -vserver cluster -lif <cluster-lif> -status-admin down ； net int modify -vserver cluster -lif <cluster-lif> -status-admin up`
+
++
+重复子步骤（ g ）以验证集群 LIF 是否正在侦听端口 7700 。
 
 
-. [[MAP_98_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如 _Map network ports using ONTAP 9.7 or earlier 中所示， link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_97_7["第 7 步"]。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。
+
+. [[map_9.8_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如中所示 link:upgrade-map-network-ports-ontap-9-7-or-earlier.html#map_9.7_7["使用 ONTAP 9.7 或更早版本映射网络端口，第 7 步"]。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。
 +
 .. 列出所有端口的可访问性状态：
 +

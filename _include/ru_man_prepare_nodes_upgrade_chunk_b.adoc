@@ -1,0 +1,382 @@
+= 
+
+
+. 记录两个节点的型号，系统 ID 和序列号：
++
+`ssystem node show -node <node1 ， node2 > -instance`
+
++
+
+NOTE: 您将使用此信息重新分配磁盘并停用原始节点。
+
+. 在 node1 和 node2 上输入以下命令，并记录输出中有关磁盘架，每个磁盘架中的磁盘数，闪存存储详细信息，内存， NVRAM 和网卡的信息：
++
+`运行 -node <node_name> sysconfig`
+
++
+
+NOTE: 您可以使用此信息确定可能要传输到 node3 或 node4 的部件或配件。如果您不知道节点是 V 系列系统还是具有 FlexArray 虚拟化软件，也可以从输出中了解到这一点。
+
+. 在 node1 和 node2 上输入以下命令，并记录两个节点上处于联机状态的聚合：
++
+`storage aggregate show -node <node_name> -state online`
+
++
+
+NOTE: 您可以使用此信息以及以下子步骤中的信息来验证聚合和卷在整个操作步骤中是否保持联机，但在重新定位期间处于脱机状态的短暂时间除外。
+
+. 【 man_prepare_nodes_step19]] 在 node1 和 node2 上输入以下命令，并记录两个节点上脱机的卷：
++
+`volume show -node <node_name> -state offline`
+
++
+
+NOTE: 升级后，您将再次运行命令并将此输出与此步骤中的输出进行比较，以查看是否有任何其他卷脱机。
+
++
+.. 输入以下命令，查看 node1 或 node2 上是否配置了任何接口组或 VLAN ：
++
+`network port ifgrp show`
+
++
+`network port vlan show`
+
++
+请注意接口组或 VLAN 是在 node1 还是 node2 上配置的；您需要在下一步以及后续步骤的操作步骤中提供这些信息。
+
+.. 在 node1 和 node2 上完成以下子步骤，以确保稍后可以在操作步骤中正确映射物理端口：
+
+
+. 输入以下命令以查看除 `clusterwide` 以外的节点上是否存在故障转移组：
++
+`network interface failover-groups show`
+
++
+故障转移组是系统上存在的一组网络端口。由于升级控制器硬件可能会更改物理端口的位置，因此在升级期间可能会无意中更改故障转移组。
+
++
+系统将在节点上显示故障转移组，如以下示例所示：
+
++
+....
+cluster::> network interface failover-groups show
+
+Vserver             Group             Targets
+------------------- ----------------- ----------
+Cluster             Cluster           node1:e0a, node1:e0b
+                                      node2:e0a, node2:e0b
+
+fg_6210_e0c         Default           node1:e0c, node1:e0d
+                                      node1:e0e, node2:e0c
+                                      node2:e0d, node2:e0e
+
+2 entries were displayed.
+....
+. 如果存在非 `clusterwide` 的故障转移组，请记录故障转移组名称以及属于故障转移组的端口。
+. 输入以下命令以查看节点上是否配置了任何 VLAN ：
++
+`network port vlan show -node node_name`
+
++
+VLAN 通过物理端口进行配置。如果物理端口发生更改，则稍后需要在操作步骤中重新创建 VLAN 。
+
++
+系统将显示节点上配置的 VLAN ，如以下示例所示：
+
++
+....
+cluster::> network port vlan show
+
+Network Network
+Node    VLAN Name Port    VLAN ID MAC Address
+------  --------- ------- ------- ------------------
+node1   e1b-70    e1b     70      00:15:17:76:7b:69
+....
+. 如果节点上配置了 VLAN ，请记下每个网络端口和 VLAN ID 配对。
++
+.. 执行以下操作之一：
++
+[cols="35,65"]
+|===
+| 接口组或 VLAN | 那么 ... 
+
+
+| 在 node1 或 node2 上 | 完成 <<man_prepare_nodes_step23,第 23 步>> 和 <<man_prepare_nodes_step24,第 24 步>>。 
+
+
+| 不在 node1 或 node2 上 | 转至 <<man_prepare_nodes_step24,第 24 步>>。 
+|===
+.. [[man_prepare_nodes_step23]] 如果您不知道 node1 和 node2 是在 SAN 环境还是非 SAN 环境中，请输入以下命令并检查其输出：
++
+`network interface show -vserver <vserver_name> -data-protocol iscsi_FCP`
+
++
+如果没有为 SVM 配置 iSCSI 或 FC ，则此命令将显示类似于以下示例的消息：
+
++
+....
+cluster::> network interface show -vserver Vserver8970 -data-protocol iscsi|fcp
+There are no entries matching your query.
+....
++
+您可以使用 `network interface show` 命令和 ` -data-protocol nfs|cifs` 参数确认节点位于 NAS 环境中。
+
++
+如果为 SVM 配置了 iSCSI 或 FC ，则该命令将显示类似于以下示例的消息：
+
++
+....
+cluster::> network interface show -vserver vs1 -data-protocol iscsi|fcp
+
+         Logical    Status     Network            Current  Current Is
+Vserver  Interface  Admin/Oper Address/Mask       Node     Port    Home
+-------- ---------- ---------- ------------------ -------- ------- ----
+vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true
+....
+.. [[man_prepare_nodes_step24]] 通过完成以下子步骤验证集群中的所有节点是否都处于仲裁状态：
+
+
+. 输入高级权限级别：
++
+`set -privilege advanced`
+
++
+系统将显示以下消息：
+
++
+....
+Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
+Do you wish to continue? (y or n):
+....
+. 输入 `y` 。
+. 验证内核中每个节点的集群服务状态一次：
++
+`cluster kernel-service show`
+
++
+系统将显示类似于以下示例的消息：
+
++
+....
+cluster::*> cluster kernel-service show
+
+Master        Cluster       Quorum        Availability  Operational
+Node          Node          Status        Status        Status
+------------- ------------- ------------- ------------- -------------
+node1         node1         in-quorum     true          operational
+              node2         in-quorum     true          operational
+
+2 entries were displayed.
+....
++
+如果大多数节点运行状况良好，并且可以彼此通信，则集群中的节点将处于仲裁状态。有关详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
+
+. 返回到管理权限级别：
++
+`set -privilege admin`
+
++
+.. 执行以下操作之一：
++
+[cols="35,65"]
+|===
+| 如果集群 ... | 那么 ... 
+
+
+| 已配置 SAN | 转至 <<man_prepare_nodes_step26,第 26 步>>。 
+
+
+| 未配置 SAN | 转至 <<man_prepare_nodes_step29,第 29 步>>。 
+|===
+.. 【 man_prepare_nodes_step26]] 输入以下命令并检查其输出，验证 node1 和 node2 上是否存在已启用 SAN iSCSI 或 FC 服务的每个 SVM 的 SAN LIF ：
++
+`network interface show -data-protocol iscsi_FCP -home-node node_name`
+
++
+命令可显示 node1 和 node2 的 SAN LIF 信息。以下示例将状态 Admin/Oper 列中的状态显示为 up/up ，表示 SAN iSCSI 和 FC 服务已启用：
+
++
+....
+cluster::> network interface show -data-protocol iscsi|fcp
+            Logical    Status     Network                  Current   Current Is
+Vserver     Interface  Admin/Oper Address/Mask             Node      Port    Home
+----------- ---------- ---------- ------------------       --------- ------- ----
+a_vs_iscsi  data1      up/up      10.228.32.190/21         node1     e0a     true
+            data2      up/up      10.228.32.192/21         node2     e0a     true
+
+b_vs_fcp    data1      up/up      20:09:00:a0:98:19:9f:b0  node1     0c      true
+            data2      up/up      20:0a:00:a0:98:19:9f:b0  node2     0c      true
+
+c_vs_iscsi_fcp data1   up/up      20:0d:00:a0:98:19:9f:b0  node2     0c      true
+            data2      up/up      20:0e:00:a0:98:19:9f:b0  node2     0c      true
+            data3      up/up      10.228.34.190/21         node2     e0b     true
+            data4      up/up      10.228.34.192/21         node2     e0b     true
+....
++
+或者，您也可以输入以下命令来查看更详细的 LIF 信息：
+
++
+`network interface show -instance -data-protocol iscsi_FCP`
+
+.. 输入以下命令并记录系统的输出，以捕获原始节点上任何 FC 端口的默认配置：
++
+`ucadmin show`
+
++
+命令显示集群中所有 FC 端口的相关信息，如以下示例所示：
+
++
+....
+cluster::> ucadmin show
+
+                Current Current   Pending Pending   Admin
+Node    Adapter Mode    Type      Mode    Type      Status
+------- ------- ------- --------- ------- --------- -----------
+node1   0a      fc      initiator -       -         online
+node1   0b      fc      initiator -       -         online
+node1   0c      fc      initiator -       -         online
+node1   0d      fc      initiator -       -         online
+node2   0a      fc      initiator -       -         online
+node2   0b      fc      initiator -       -         online
+node2   0c      fc      initiator -       -         online
+node2   0d      fc      initiator -       -         online
+8 entries were displayed.
+....
++
+您可以在升级后使用此信息设置新节点上的 FC 端口配置。
+
+.. 如果要升级 V 系列系统或安装了 FlexArray 虚拟化软件的系统，请输入以下命令并记录输出，以捕获有关原始节点拓扑的信息：
++
+`storage array config show -switch`
+
++
+系统将显示拓扑信息，如以下示例所示：
+
++
+....
+cluster::> storage array config show -switch
+
+      LUN LUN                                  Target Side Initiator Side Initi-
+Node  Grp Cnt Array Name    Array Target Port  Switch Port Switch Port    ator
+----- --- --- ------------- ------------------ ----------- -------------- ------
+node1 0   50  I_1818FAStT_1
+                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:3  0d
+                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:4  2b
+                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:1  0c
+node2 0   50  I_1818FAStT_1
+                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:1  0d
+                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:2  2b
+                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:3  0c
+                            208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
+7 entries were displayed.
+....
+.. [man_prepare_nodes_step29]] 完成以下子步骤：
+
+
+. 在一个原始节点上输入以下命令并记录输出：
++
+`sservice-processor show -node * -instance`
+
++
+系统会显示两个节点上的 SP 的详细信息。
+
+. 确保 SP 状态为 `online` 。
+. 确保已配置 SP 网络。
+. 记录 IP 地址和有关 SP 的其他信息。
++
+您可能希望在新节点上重复使用原始系统中远程管理设备（此处为 SP ）的网络参数。有关 SP 的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。
+
++
+.. 【 man_prepare_nodes_step30]] 如果希望新节点与原始节点具有相同的许可功能，请输入以下命令以查看原始系统上的集群许可证：
++
+`ssystem license show -owner *`
+
++
+以下示例显示了 cluster1 的站点许可证：
+
++
+....
+system license show -owner *
+Serial Number: 1-80-000013
+Owner: cluster1
+
+Package           Type    Description           Expiration
+----------------- ------- --------------------- -----------
+Base              site    Cluster Base License  -
+NFS               site    NFS License           -
+CIFS              site    CIFS License          -
+SnapMirror        site    SnapMirror License    -
+FlexClone         site    FlexClone License     -
+SnapVault         site    SnapVault License     -
+6 entries were displayed.
+....
+.. 在 _NetApp 支持站点 _ 为新节点获取新许可证密钥。请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 。
++
+如果此站点没有所需的许可证密钥，请联系您的 NetApp 销售代表。
+
+.. 在每个节点上输入以下命令并检查其输出，以检查原始系统是否已启用 AutoSupport ：
++
+`ssystem node AutoSupport show -node node1 ， node2`
+
++
+命令输出显示是否已启用 AutoSupport ，如以下示例所示：
+
++
+....
+cluster::> system node autosupport show -node node1,node2
+
+Node             State     From          To                Mail Hosts
+---------------- --------- ------------- ----------------  ----------
+node1            enable    Postmaster    admin@netapp.com  mailhost
+
+node2            enable    Postmaster    -                 mailhost
+2 entries were displayed.
+....
+.. 执行以下操作之一：
++
+[cols="35,65"]
+|===
+| 如果原始系统 ... | 那么 ... 
+
+
+| 已启用 AutoSupport ...  a| 
+... 转至 <<man_prepare_nodes_step34,第 34 步>>。
+... 转到部分 link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]。
+
+
+
+
+| 未启用 AutoSupport ...  a| 
+... 按照 _System 管理参考 _ 中的说明启用 AutoSupport 。请参见 link:other_references.html["参考资料"] 链接到系统管理参考。）
++
+* 注意： * 首次配置存储系统时，默认情况下会启用 AutoSupport 。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。
+
+... 转至 link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"] 部分。
+
+
+|===
+.. 【 man_prepare_nodes_step34]] 在两个原始节点上输入以下命令并检查输出，以验证 AutoSupport 是否配置了正确的邮件主机详细信息和收件人电子邮件 ID ：
++
+`ssystem node AutoSupport show -node node_name -instance`
+
++
+有关 AutoSupport 的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。
+
+.. [[man_prepare_nodes_step35 ，步骤 35]] 输入以下命令向 NetApp 发送 node1 的 AutoSupport 消息：
++
+`ssystem node AutoSupport invoke -node node1 -type all -message "upgrading node1 from platform_old to platform_new"`
+
++
+
+NOTE: 此时，请勿向 NetApp 发送 node2 的 AutoSupport 消息；稍后可在操作步骤中执行此操作。
+
+.. 【 man_prepare_nodes_step36 ，步骤 36]] 输入以下命令并检查其输出，以验证是否已发送 AutoSupport 消息：
++
+`ssystem node AutoSupport show -node <node1> -instance`
+
++
+字段 `Last Subject Sent ：` 和 `Last Time Sent ：` 包含上次发送消息的消息标题以及消息发送时间。
+
+
+
+

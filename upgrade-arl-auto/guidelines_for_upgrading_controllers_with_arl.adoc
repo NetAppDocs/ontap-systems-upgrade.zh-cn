@@ -31,6 +31,8 @@ NOTE: 在执行 AFF 系统升级之前，您必须将 ONTAP 升级到版本 9.5P
 
 NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A250 ），但没有内部驱动器，请参见 link:other_references.html["参考资料"] 并使用 _aggregate relocation 中的操作步骤手动升级适用于您的 ONTAP 版本的控制器 Hardware_ 内容。
 
+如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["NetApp 知识库文章 SU436 ： CLAMK takeover default configuration changed"^]。
+
 配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
 
 

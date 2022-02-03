@@ -64,6 +64,10 @@ Warning: Cluster HA has not been configured. Cluster HA must be configured on a 
 
 2 entries were displayed.
 ----
++
+
+NOTE: 如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。
+
 . 如果 node2 持有 epsilon ，请在节点上将 epsilon 标记为 `false` ，以便可以将其传输到 node3 ：
 +
 `cluster modify -node <node2> -epsilon false`

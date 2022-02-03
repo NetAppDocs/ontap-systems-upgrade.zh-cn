@@ -3704,7 +3704,6 @@
   <block id="ca8b0b541358f7e84a5255015051bf42" category="paragraph">您将使用目录中的信息 <block ref="8bfb8dcff60c45f1bd8ce7151db542d5" category="inline-xref-macro-rx"></block>。</block>
   <block id="3098dc1e81196ed0a5c7526536b21dc6" category="list-text">找到您在 _prepare for upgrade when moving storage_ 中记录的 node1 和 node2 的端口和 LIF 配置信息， <block ref="54c74de3517b342dfae1a3129a67e9ec" category="inline-link-macro-rx"></block>。</block>
   <block id="785fd52ca2c4957e9caba4406db084c0" category="list-text">找到您在移动存储时准备升级中记录的端口，广播域和 IP 空间的信息， <block ref="54c74de3517b342dfae1a3129a67e9ec" category="inline-link-macro-rx"></block>。</block>
-  <block id="d6c1fabab1e38229f8993970016f410e" category="list-text">[[MAP_98_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如 _Map network ports using ONTAP 9.7 or earlier 中所示， <block ref="db0e021b647d866bb2f507379ea311cb" category="inline-link-macro-rx"></block>。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。</block>
   <block id="b27e1f5014645cf6a835fb2e11524da4" category="list-text">如果系统上未配置任何 VLAN ，请转至 <block ref="44c817ee9110592f40577b67e8940aff" category="inline-xref-macro-rx"></block>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。</block>
   <block id="ebabbc1ebee66becea669b0e9c3afadc" category="list-text">自 ONTAP 9.8 起，如果在网络端口可访问性修复操作步骤期间在广播域之间移动了 LIF 的主端口，则 ONTAP 将自动修改 LIF 的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
   <block id="72a19323d192a6a70bcf03b98d5355ae" category="paragraph">如果所有端口均已正确配置并添加到正确的广播域中，则 network port reachability show 命令应将所有已连接端口的可访问性状态报告为 ok ，而对于没有物理连接的端口，此状态报告为 no-reachability 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <block ref="84a764803e273063ea87749716b7c654" category="inline-xref-macro-rx"></block>。</block>
@@ -4197,4 +4196,22 @@
   <block id="f886cde8cf41513338837f7a3aacf806" category="list-text">AFF A900 系统仅支持高端电源（ 200V 到 240V ）。如果 AFF A700 系统使用低端电源（ 100V 到 140V ）运行，则必须先转换 AFF A700 输入电源，然后再使用此操作步骤。</block>
   <block id="5980c068f7f0508562e337b63f7ad8d1" category="doc">工作表：在控制器升级之前和期间收集的信息</block>
   <block id="3691534aa0f6a7f528765fec893e0a93" category="doc">将 node2 的非根聚合从 node3 重新定位到 node4</block>
+  <block id="a097e8e84a8d86baba412e5958e51b5a" category="inline-link">NetApp 知识库文章 SU436 ： CLAMK takeover default configuration changed</block>
+  <block id="2b628f1eeda50351f42204c06da24fe7" category="list-text">如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>。</block>
+  <block id="52d71aeaf29080fb98be2fbaca4c31f6" category="admonition">如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。</block>
+  <block id="615cf80c94684d95339ce0b93e351fed" category="list-text">验证集群 LIF 是否正在侦听端口 7700 ：</block>
+  <block id="b8dabd137df5202c83400e4fde74838d" category="paragraph">` ：：： &gt; 网络连接侦听 show -vserver Cluster`</block>
+  <block id="8375c8f66107d8ca7224d1360a8cbc68" category="paragraph">每个集群 LIF 都必须侦听端口 7700 。</block>
+  <block id="9c26c389cd17f0bf0da92eb4d2187822" category="paragraph">对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：</block>
+  <block id="17a934761f44517e9bcc906e1eb8bfe9" category="list-text">如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：</block>
+  <block id="4839ad4e20e071cacb55dad56989809b" category="paragraph">` ：： &gt; net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin down ； net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin up`</block>
+  <block id="8f6f15e3cd3793ad38c3214c75a0a348" category="paragraph">重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。</block>
+  <block id="d1a7512eb8f4b6dc2ebea16def830204" category="paragraph">重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。</block>
+  <block id="ceb1502357ca7edd7dc13458f9f78895" category="paragraph">重复子步骤（ g ）以验证集群 LIF 是否正在侦听端口 7700 。</block>
+  <block id="9694fd9e35e64d8c445c0824b45a5dff" category="inline-link-macro">使用 ONTAP 9.7 或更早版本映射网络端口，第 7 步</block>
+  <block id="49df8ec8bead5c5a65249d6fe95ee476" category="list-text">[[map_9.8_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如中所示 <block ref="5b39191cf693f735bfc52c1b3429857e" category="inline-link-macro-rx"></block>。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。</block>
+  <block id="d97de1db61a90711907bd6612b8fedef" category="list-text">如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>。从 ONTAP 开始，默认情况下会启用 `KCS -enable-takeover` 参数。</block>
+  <block id="0b0e9c9f561a00ec9391d55160c4baf0" category="paragraph">如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 ，则必须先将集群 LIF 整合为每个节点两个集群端口，然后再开始控制器升级。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</block>
+  <block id="b97fc198d08784bb72759208e4a261de" category="paragraph">重复子步骤（ f ）以验证集群 LIF 是否正在侦听端口 7700 。</block>
+  <block id="c4bb7f0d17cacb6fbdc03f40dfe338e7" category="paragraph">重复步骤 3 以验证集群 LIF 是否正在侦听端口 7700 。</block>
 </blocks>

@@ -113,9 +113,13 @@ High Availability Configured: false
 由于集群中的节点数可能为偶数，因此一个节点的表决权重会增加一个百分比，称为 epsilon 。请参见 link:other_references.html["参考资料"] 可链接到系统管理参考 _ 以了解详细信息。
 
 +
+[NOTE]
+====
+如果您使用的是四节点集群，则 Epsilon 可能位于集群中不同 HA 对中的节点上。
 
-NOTE: 如果您使用的是四节点集群，则 Epsilon 可能位于集群中不同 HA 对中的节点上。
+如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。
 
+====
 +
 以下示例显示 node1 持有 epsilon ：
 
