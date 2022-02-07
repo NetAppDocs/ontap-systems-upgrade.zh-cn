@@ -4198,10 +4198,7 @@
   <block id="3691534aa0f6a7f528765fec893e0a93" category="doc">将 node2 的非根聚合从 node3 重新定位到 node4</block>
   <block id="a097e8e84a8d86baba412e5958e51b5a" category="inline-link">NetApp 知识库文章 SU436 ： CLAMK takeover default configuration changed</block>
   <block id="2b628f1eeda50351f42204c06da24fe7" category="list-text">如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>。</block>
-  <block id="52d71aeaf29080fb98be2fbaca4c31f6" category="admonition">如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。</block>
-  <block id="615cf80c94684d95339ce0b93e351fed" category="list-text">验证集群 LIF 是否正在侦听端口 7700 ：</block>
   <block id="b8dabd137df5202c83400e4fde74838d" category="paragraph">` ：：： &gt; 网络连接侦听 show -vserver Cluster`</block>
-  <block id="8375c8f66107d8ca7224d1360a8cbc68" category="paragraph">每个集群 LIF 都必须侦听端口 7700 。</block>
   <block id="9c26c389cd17f0bf0da92eb4d2187822" category="paragraph">对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：</block>
   <block id="17a934761f44517e9bcc906e1eb8bfe9" category="list-text">如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：</block>
   <block id="4839ad4e20e071cacb55dad56989809b" category="paragraph">` ：： &gt; net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin down ； net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin up`</block>
@@ -4210,8 +4207,10 @@
   <block id="ceb1502357ca7edd7dc13458f9f78895" category="paragraph">重复子步骤（ g ）以验证集群 LIF 是否正在侦听端口 7700 。</block>
   <block id="9694fd9e35e64d8c445c0824b45a5dff" category="inline-link-macro">使用 ONTAP 9.7 或更早版本映射网络端口，第 7 步</block>
   <block id="49df8ec8bead5c5a65249d6fe95ee476" category="list-text">[[map_9.8_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如中所示 <block ref="5b39191cf693f735bfc52c1b3429857e" category="inline-link-macro-rx"></block>。建议的方法是使用 ONTAP 9.8 中引入的增强型网络可访问性扫描和修复操作步骤，如以下步骤 5 的子步骤（ a ）到（ g ）所示。</block>
-  <block id="d97de1db61a90711907bd6612b8fedef" category="list-text">如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>。从 ONTAP 开始，默认情况下会启用 `KCS -enable-takeover` 参数。</block>
   <block id="0b0e9c9f561a00ec9391d55160c4baf0" category="paragraph">如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 ，则必须先将集群 LIF 整合为每个节点两个集群端口，然后再开始控制器升级。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</block>
   <block id="b97fc198d08784bb72759208e4a261de" category="paragraph">重复子步骤（ f ）以验证集群 LIF 是否正在侦听端口 7700 。</block>
   <block id="c4bb7f0d17cacb6fbdc03f40dfe338e7" category="paragraph">重复步骤 3 以验证集群 LIF 是否正在侦听端口 7700 。</block>
+  <block id="a969e82eb7fd10796b9caae7a1d3632d" category="admonition">如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。</block>
+  <block id="d86684c09dde7ea5d5d7306c6f674ea3" category="list-text">每个集群 LIF 都必须侦听端口 7700 。验证集群 LIF 是否正在侦听端口 7700 ：</block>
+  <block id="821f1cb96d20770eca957d1d83c78ef0" category="list-text">如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>。从 ONTAP 9.8 开始，默认情况下会启用 `KCS -enable-takeover` 参数。</block>
 </blocks>

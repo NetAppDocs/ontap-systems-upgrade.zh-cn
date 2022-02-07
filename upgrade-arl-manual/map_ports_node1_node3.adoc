@@ -240,12 +240,9 @@ network interface modify -vserver node3 -lif data1 failover-policy broadcast-dom
 +
 `network port show -node node3`
 
-. 验证集群 LIF 是否正在侦听端口 7700 ：
+. 每个集群 LIF 都必须侦听端口 7700 。验证集群 LIF 是否正在侦听端口 7700 ：
 +
 ` ：：： > 网络连接侦听 show -vserver Cluster`
-
-+
-每个集群 LIF 都必须侦听端口 7700 。
 
 +
 对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：
