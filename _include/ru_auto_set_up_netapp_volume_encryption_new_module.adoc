@@ -1,18 +1,6 @@
----
-sidebar: sidebar 
-permalink: upgrade-arl-auto-affa900/set_up_netapp_volume_encryption_new_module.html 
-keywords: set up, netapp volume encryption, controller, module, nve, node 
-summary: 如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密，则必须为 NVE 配置新控制器模块。 
----
-= 在新控制器模块上设置 NetApp 卷加密
-:hardbreaks:
-:nofooter: 
-:icons: font
-:linkattrs: 
-:imagesdir: ./media/
+= 
 
 
-[role="lead"]
 如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密（ NVE ），则必须为 NVE 配置新控制器模块。
 
 此操作步骤包含对新控制器模块执行的步骤。您必须在正确的节点上输入命令。
@@ -60,7 +48,5 @@ summary: 如果更换的控制器或新控制器的 HA 配对项使用 NetApp �
 | 板载密钥管理器（ OKM ） | `sSecurity key-manager 板载同步` 
 |===
 
-
-检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用 `volume online` 命令将这些卷恢复联机。
 
 检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用 `volume online` 命令将这些卷恢复联机。

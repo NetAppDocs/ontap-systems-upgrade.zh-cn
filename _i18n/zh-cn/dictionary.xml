@@ -261,7 +261,6 @@
   <block id="9a58231354c6d959f08b17d7fdb9350f" category="list-text">storage array config show -switch &lt;switch_name&gt;</block>
   <block id="760bdf3d6f89d3bd7422272872fc8ec1" category="list-text">system license show -owner &lt;node_name&gt;</block>
   <block id="46353f4e0bb2c136591c37c9eeedcf40" category="list-text">storage encryption disk show</block>
-  <block id="6b6f6c1a8bc1fede794cda92ed140953" category="list-text">security key-manager backup show</block>
   <block id="001642cb897a8bebce3210207b7e81af" category="list-text">security key-manager external show</block>
   <block id="6afea099b023b1bd5f51935ccb31ce0a" category="list-text">security key-manager external show-status</block>
   <block id="27c32000aa45c9243e8b444a27636832" category="list-text">可访问性 show -detail</block>
@@ -865,11 +864,8 @@
   <block id="685f08a5b99430f3e9a6b908131fd4c3" category="summary">如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密。</block>
   <block id="da7d6f53a5e074768e000aca830b3bfa" category="doc">在新控制器模块上设置 NetApp 卷加密</block>
   <block id="0f36176e72d67a1afa95c79c3e1a12de" category="paragraph">如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密（ NVE ），则必须为 NVE 配置新控制器模块。</block>
-  <block id="1a59e73da663791d8cc1a4162cc79daa" category="cell">对于此 ONTAP 版本 ...</block>
   <block id="394247ac369fff4729d586172906244e" category="cell">使用此命令 ...</block>
-  <block id="127cae73d2b4d7758b4c0a0e3f49ba5f" category="cell">ONTAP 9.6 及更高版本</block>
   <block id="97d64be0988671e53d352ae4aa93eaf6" category="cell">`sSecurity key-manager key query -node node`</block>
-  <block id="85b2cc925922ee961d8156414096bb8d" category="cell">ONTAP 9.5 及更早版本</block>
   <block id="afa9cce4f8e9d7e0dc9a3f8278517e40" category="cell">`sSecurity key-manager key show`</block>
   <block id="01a72c63e79e1fcc9b3e0cac4fb2bf75" category="list-text">将上一步中列出的密钥管理服务器添加到新控制器的密钥管理服务器列表中：</block>
   <block id="e147253c0010bdd5968cb9b4b9ddf7dc" category="cell">外部密钥管理器</block>
@@ -3832,8 +3828,6 @@
   <block id="a0597ee31ba19b58e7dea556d59b7025" category="paragraph">上述示例中显示的系统 ID 是示例 ID 。要升级的节点的实际系统 ID 将不同。</block>
   <block id="e3a878334fd2b918ae58df67169ebb51" category="paragraph">在提示符和登录提示符处输入节点名称之间，节点会重新启动几次以还原环境变量，更新系统中卡上的固件以及进行其他 ONTAP 更新。</block>
   <block id="d8a5506f1c8c1c86158c9c0d1d4742fc" category="summary">如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密，则必须为 NVE 配置新控制器模块。</block>
-  <block id="3a1b2c38a4df46a98276dff5f167cf5a" category="cell">适用于…</block>
-  <block id="ca1ca50323446209228f3f72af231354" category="cell">`security key-manager external restore` 此命令需要 OKM 密码短语</block>
   <block id="7d658c9a89b8497c162f9111ae5111dc" category="list-text">运行预检以验证是否可以执行此操作</block>
   <block id="8e490bd535c0b48fe8a594afea8a5f73" category="list-text">如果预检失败，请更正聚合所有权</block>
   <block id="eab10223a55d1eb3906a74203c54c3b1" category="list-text">输入集群基础许可证密钥</block>
@@ -4213,4 +4207,13 @@
   <block id="a969e82eb7fd10796b9caae7a1d3632d" category="admonition">如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。</block>
   <block id="d86684c09dde7ea5d5d7306c6f674ea3" category="list-text">每个集群 LIF 都必须侦听端口 7700 。验证集群 LIF 是否正在侦听端口 7700 ：</block>
   <block id="821f1cb96d20770eca957d1d83c78ef0" category="list-text">如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>。从 ONTAP 9.8 开始，默认情况下会启用 `KCS -enable-takeover` 参数。</block>
+  <block id="3a96acfd6567b2f5ad01ec7a0444dccd" category="paragraph">`s安全密钥管理器外部启用`</block>
+  <block id="5c19461e593ee940fbb033dbf031381b" category="paragraph">`security key-manager external add-servers -key-servers key_management_server_ip_address`</block>
+  <block id="f448f5b6d3d32deaf11413ff5379c871" category="paragraph">`s安全密钥管理器外部 show-status`</block>
+  <block id="3daea017ac1d8d1efd008f41d160df66" category="paragraph">`s安全密钥管理器密钥创建`</block>
+  <block id="f96600cb1895b85fbd0be51cf5acc0fa" category="paragraph">`s安全密钥管理器板载 shoecw-backup`</block>
+  <block id="49bfbad696a2529ef03d859ad9b3f40a" category="paragraph">`security key-manager external show`</block>
+  <block id="1854c750c17094fc62d6ebafaa52bd86" category="paragraph">`security key-manager external restore -node new_controller_name`</block>
+  <block id="c497a6b930105164567b744840c21e94" category="paragraph">`s安全密钥管理器板载 show-backup`</block>
+  <block id="32ba7af89b7557f6e3e6d80a922080ce" category="list-text">security key-manager 板载 show-backup</block>
 </blocks>

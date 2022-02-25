@@ -114,7 +114,7 @@ Controller replacement operation has been paused for user intervention.
 ** storage array config show -switch <switch_name>
 ** system license show -owner <node_name>
 ** storage encryption disk show
-** security key-manager backup show
+** security key-manager 板载 show-backup
 ** security key-manager external show
 ** security key-manager external show-status
 ** 可访问性 show -detail

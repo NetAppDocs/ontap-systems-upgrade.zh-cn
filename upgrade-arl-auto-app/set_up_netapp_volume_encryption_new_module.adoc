@@ -20,26 +20,18 @@ summary: 如果更换的控制器或新控制器的 HA 配对项使用 NetApp �
 .步骤
 . 验证密钥管理服务器是否仍可用，其状态及其身份验证密钥信息：
 +
-[cols="30,70"]
-|===
-| 对于此 ONTAP 版本 ... | 使用此命令 ... 
+`sSecurity key-manager key query -node node`
 
-
-| ONTAP 9.6 及更高版本 | `sSecurity key-manager key query -node node` 
-
-
-| ONTAP 9.5 及更早版本 | `sSecurity key-manager key show` 
-|===
 . 将上一步中列出的密钥管理服务器添加到新控制器的密钥管理服务器列表中：
 +
 .. 添加密钥管理服务器：
 +
-`security key-manager -add <key_management_server_ip_address>`
+`security key-manager external add-servers -key-servers key_management_server_ip_address`
 
 .. 对列出的每个密钥管理服务器重复上述步骤。您最多可以链接四个密钥管理服务器。
 .. 验证是否已成功添加密钥管理服务器：
 +
-`sSecurity key-manager show`
+`security key-manager external show`
 
 
 
@@ -50,7 +42,7 @@ summary: 如果更换的控制器或新控制器的 HA 配对项使用 NetApp �
 +
 .. 在新节点上启动密钥管理服务器设置向导：
 +
-`security key-manager setup -node <new_controller_name>`
+`s安全密钥管理器外部启用`
 
 .. 完成向导中的步骤以配置密钥管理服务器。
 

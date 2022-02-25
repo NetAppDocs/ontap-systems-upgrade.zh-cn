@@ -20,21 +20,21 @@ summary: 如果更换的控制器或新控制器的 HA 配对项使用存储加�
 .步骤
 . 验证密钥管理服务器是否仍可用，其状态及其身份验证密钥信息：
 +
-`security key-manager show -status`
+`s安全密钥管理器外部 show-status`
 
 +
-`s安全密钥管理器查询`
+`s安全密钥管理器板载 shoecw-backup`
 
 . 将上一步中列出的密钥管理服务器添加到新控制器的密钥管理服务器列表中。
 +
 .. 添加密钥管理服务器：
 +
-`security key-manager -add <key_management_server_ip_address>`
+`security key-manager external add-servers -key-servers key_management_server_ip_address`
 
 .. 对列出的每个密钥管理服务器重复上述步骤。您最多可以链接四个密钥管理服务器。
 .. 验证是否已成功添加密钥管理服务器：
 +
-`sSecurity key-manager show`
+`security key-manager external show`
 
 
 
@@ -45,13 +45,13 @@ summary: 如果更换的控制器或新控制器的 HA 配对项使用存储加�
 +
 .. 在新节点上启动密钥管理服务器设置向导：
 +
-`security key-manager setup -node <new_controller_name>`
+`s安全密钥管理器外部启用`
 
 .. 完成向导中的步骤以配置密钥管理服务器。
 
 
 . 将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：
 +
-`security key-manager restore -node <new_controller_name>`
+`security key-manager external restore -node new_controller_name`
 
 

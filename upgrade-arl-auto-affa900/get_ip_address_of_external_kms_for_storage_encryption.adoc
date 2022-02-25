@@ -12,6 +12,7 @@ summary: 配置存储加密并建立客户端身份验证密钥。
 :imagesdir: ./media/
 
 
+[role="lead"]
 升级后，您必须立即配置存储加密并建立集群范围的身份验证密钥，以替换先前的节点级别身份验证密钥。
 
 .步骤
@@ -21,19 +22,19 @@ summary: 配置存储加密并建立客户端身份验证密钥。
 
 . 在每个节点上使用以下命令，在所有节点上配置存储加密：
 +
-`s安全密钥管理器设置`
+`s安全密钥管理器外部启用`
 
 . 添加每个密钥管理服务器的 IP 地址：
 +
-`s安全密钥管理器 add`
+`security key-manager external add-servers -key-servers key_management_server_ip_address`
 
 . 验证是否已在集群中的所有节点上配置相同的密钥管理服务器并使其可用：
 +
-`security key-manager show -status`
+`s安全密钥管理器外部 show-status`
 
 . 创建新的集群范围身份验证密钥：
 +
-`s安全密钥管理器 create-key`
+`s安全密钥管理器密钥创建`
 
 . 记下新的身份验证密钥 ID 。
 . 使用新的身份验证密钥重新设置所有自加密驱动器的密钥：
@@ -51,19 +52,19 @@ summary: 配置存储加密并建立客户端身份验证密钥。
 .步骤
 . 添加新控制器：
 +
-`security key-manager setup -node <new_controller_name>`
+`s安全密钥管理器外部启用`
 
 . 添加密钥管理器：
 +
-`security key-manager -add <key_management_server_ip_address>`
+`security key-manager external add-servers -key-servers key_management_server_ip_address`
 
 . 验证密钥管理服务器是否已配置且可供集群中的所有节点使用：
 +
-`security key-manager show -status`
+`s安全密钥管理器外部 show-status`
 
 . 将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：
 +
-`security key-manager restore -node <new_controller_name>`
+`security key-manager external restore -node new_controller_name`
 
 . 使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
 +
@@ -85,7 +86,7 @@ summary: 配置存储加密并建立客户端身份验证密钥。
 . 将密码短语保存到安全位置。
 . 创建备份以进行恢复。运行以下命令并保存输出：
 +
-`key-manager 板载 show-backup`
+`s安全密钥管理器板载 show-backup`
 
 
 
