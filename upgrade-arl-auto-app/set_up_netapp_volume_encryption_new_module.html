@@ -2842,7 +2842,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-07 19:34:24 +0000">02/07/2022</time>
+    <time datetime="2022-02-25 18:54:31 +0000">02/25/2022</time>
     
   
 
@@ -2872,28 +2872,9 @@
 <ol class="arabic">
 <li>
 <p>验证密钥管理服务器是否仍可用，其状态及其身份验证密钥信息：</p>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 30%;">
-<col style="width: 70%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">对于此 ONTAP 版本 &#8230;&#8203;</th>
-<th class="tableblock halign-left valign-top">使用此命令 &#8230;&#8203;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.6 及更高版本</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sSecurity key-manager key query -node node</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 9.5 及更早版本</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sSecurity key-manager key show</code></p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p><code>sSecurity key-manager key query -node node</code></p>
+</div>
 </li>
 <li>
 <p>将上一步中列出的密钥管理服务器添加到新控制器的密钥管理服务器列表中：</p>
@@ -2902,7 +2883,7 @@
 <li>
 <p>添加密钥管理服务器：</p>
 <div class="paragraph">
-<p><code>security key-manager -add &lt;key_management_server_ip_address&gt;</code></p>
+<p><code>security key-manager external add-servers -key-servers key_management_server_ip_address</code></p>
 </div>
 </li>
 <li>
@@ -2911,7 +2892,7 @@
 <li>
 <p>验证是否已成功添加密钥管理服务器：</p>
 <div class="paragraph">
-<p><code>sSecurity key-manager show</code></p>
+<p><code>security key-manager external show</code></p>
 </div>
 </li>
 </ol>
@@ -2927,7 +2908,7 @@
 <li>
 <p>在新节点上启动密钥管理服务器设置向导：</p>
 <div class="paragraph">
-<p><code>security key-manager setup -node &lt;new_controller_name&gt;</code></p>
+<p><code>s安全密钥管理器外部启用</code></p>
 </div>
 </li>
 <li>
