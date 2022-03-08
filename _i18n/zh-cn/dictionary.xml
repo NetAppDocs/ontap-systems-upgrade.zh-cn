@@ -3043,14 +3043,6 @@
   <block id="d5560010a4b579866a98e0b680b5c248" category="paragraph">如果 SnapMirror 关系未处于 `Transferring` 状态，则中止将失败。</block>
   <block id="314f1c01ca9edeb8d02ea1fa05ef2d12" category="paragraph">`snapmirror quiesce -destination-vserver vserver-name`</block>
   <block id="f412483899b7e1853a07057a10434cd1" category="summary">应用适当的 RCF 文件以重新配置交换机以容纳新节点。</block>
-  <block id="240180de393c4a94b035628cb25892f2" category="paragraph">您必须应用适当的参考配置（ RCF ）文件来重新配置交换机以容纳新节点。应用 RCF 文件后，您可以对交换机进行重新布线。</block>
-  <block id="6a82c384f85f037d7996beaa2d1d7d15" category="list-text">找到适用于您的配置的 RCF 文件。</block>
-  <block id="220db66641d211d0d3595a586d08eda4" category="paragraph">您必须使用与您的交换机型号匹配的 RCF 文件。</block>
-  <block id="5e99b4c17b283780f31b2094bd3e09d9" category="inline-link-macro">NetApp 下载：适用于 Brocade 交换机的 MetroCluster 配置文件</block>
-  <block id="6b253b0e381bce06acae4fc0aba43a28" category="paragraph"><block ref="6b253b0e381bce06acae4fc0aba43a28" category="inline-link-macro-rx"></block></block>
-  <block id="dfee04d58b6ccde432611ade9976f650" category="inline-link-macro">NetApp 下载：适用于 Cisco 交换机的 MetroCluster 配置文件</block>
-  <block id="b48e3bcf35f27a7eb3b971e14c962a74" category="paragraph"><block ref="b48e3bcf35f27a7eb3b971e14c962a74" category="inline-link-macro-rx"></block></block>
-  <block id="664250ffe3e2d310ccf75bacda9a568c" category="list-text">按照 * 下载 * 页面上的说明应用 RCF 文件，并根据需要调整 ISL 设置。</block>
   <block id="4799633d9eb6a31235d0102c0d2b1812" category="list-text">验证是否已保存交换机配置。</block>
   <block id="1dd8fdc75f0d1d8e00ce9ec094e07e48" category="list-text">按照您在中创建的布线布局，使用缆线将两个 FC-SAS 网桥连接到 FC 交换机 <block ref="1e3a603a58f58380bbf882725903f11b" category="inline-link-macro-rx"></block>。</block>
   <block id="31ff80cac58b75352ccd7cb184fd3f2f" category="list-text">验证端口是否联机：</block>
@@ -4216,4 +4208,13 @@
   <block id="1854c750c17094fc62d6ebafaa52bd86" category="paragraph">`security key-manager external restore -node new_controller_name`</block>
   <block id="c497a6b930105164567b744840c21e94" category="paragraph">`s安全密钥管理器板载 show-backup`</block>
   <block id="32ba7af89b7557f6e3e6d80a922080ce" category="list-text">security key-manager 板载 show-backup</block>
+  <block id="d666aabcb0474ed724f0c2bbfd2378fc" category="paragraph">您必须应用适当的参考配置文件（ Reference Configuration Files ， RCF ）来重新配置交换机以容纳新节点。应用 RCF 后，您可以对交换机进行重新布线。</block>
+  <block id="61cecfa3ef719d9c2d42720a7467139d" category="inline-link">MetroCluster RCF 下载</block>
+  <block id="529fa8fad2e5f9e9ec2a18c99f9fc39e" category="list-text">转至<block ref="0813f64c6803a33deb9dfac6dfb10541" category="inline-link-rx"></block> 页面上，然后选择适用于您的交换机配置的 RCF 。</block>
+  <block id="2a7e4a94676516e8b47d9d81e8df4e81" category="paragraph">您必须使用与您的交换机型号匹配的 RCF 。</block>
+  <block id="52ce6e876ac27324725c74f98c46d204" category="list-text">选择与您的交换机型号匹配的操作步骤 并按照安装说明安装 FC 交换机 RCF ：</block>
+  <block id="aebc5d784c007f0e8cc41b6a373e879a" category="inline-link">安装 Brocade FC 交换机 RCF</block>
+  <block id="0283024582f18d79aeec623eb7ec67f9" category="list-text"><block ref="0283024582f18d79aeec623eb7ec67f9" category="inline-link-rx"></block></block>
+  <block id="a46316d3c1d9191fc02a8477780cbda6" category="inline-link">安装 Cisco FC 交换机 RCF</block>
+  <block id="e2dd418f8bec46f2839cbe69bcf70fb5" category="list-text"><block ref="e2dd418f8bec46f2839cbe69bcf70fb5" category="inline-link-rx"></block></block>
 </blocks>

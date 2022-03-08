@@ -13,22 +13,21 @@ summary: 应用适当的 RCF 文件以重新配置交换机以容纳新节点。
 
 
 [role="lead"]
-您必须应用适当的参考配置（ RCF ）文件来重新配置交换机以容纳新节点。应用 RCF 文件后，您可以对交换机进行重新布线。
+您必须应用适当的参考配置文件（ Reference Configuration Files ， RCF ）来重新配置交换机以容纳新节点。应用 RCF 后，您可以对交换机进行重新布线。
 
 FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置 _ 内容中所述的使用情况匹配，才能使用这些 RCF 。转至 link:other_references.html["参考资料"] 链接到 _Fabric-Attached MetroCluster 安装和配置 _ 内容。
 
 .步骤
-. 找到适用于您的配置的 RCF 文件。
+. 转至 https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab["MetroCluster RCF 下载"^] 页面上，然后选择适用于您的交换机配置的 RCF 。
 +
-您必须使用与您的交换机型号匹配的 RCF 文件。
+您必须使用与您的交换机型号匹配的 RCF 。
 
+. 选择与您的交换机型号匹配的操作步骤 并按照安装说明安装 FC 交换机 RCF ：
 +
-link:http://mysupport.netapp.com/NOW/download/software/metrocluster_brocade/sanswitch/index.shtml["NetApp 下载：适用于 Brocade 交换机的 MetroCluster 配置文件"]
+** https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_install_the_brocade_fc_switch_rcf_file.html["安装 Brocade FC 交换机 RCF"^]
+** https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_download_and_install_the_cisco_fc_switch_rcf_files.html["安装 Cisco FC 交换机 RCF"^]
 
-+
-link:http://mysupport.netapp.com/NOW/download/software/metrocluster_cisco/sanswitch/index.shtml["NetApp 下载：适用于 Cisco 交换机的 MetroCluster 配置文件"]
 
-. 按照 * 下载 * 页面上的说明应用 RCF 文件，并根据需要调整 ISL 设置。
 . 验证是否已保存交换机配置。
 . 按照您在中创建的布线布局，使用缆线将两个 FC-SAS 网桥连接到 FC 交换机 link:determine_new_cabling_layout.html["确定新的布线布局"]。
 . 验证端口是否联机：
