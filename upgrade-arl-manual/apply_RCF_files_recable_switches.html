@@ -16,20 +16,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/>
-  
-  <meta name="description" content="应用适当的 RCF 文件以重新配置交换机以容纳新节点。">
-  <meta name="keywords" content=" rcf files, reference configuration, switches, nodes, recable, fc">
-  
-  
-
-  <!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="应用适当的 RCF 文件以重新配置交换机以容纳新节点。">
+  <meta name="keywords" content=" rcf files, reference configuration, switches, nodes, recable, fc"><!-- Icons -->
   <link rel="icon" href="/zh-cn/ontap-systems-upgrade/images/favicon.ico" type="image/x-icon">
 
-  <!-- RSS Feed -->
-  
-
-  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+  <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
 
   <!-- Elastic Search -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
@@ -60,26 +51,10 @@
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/tabbed-blocks.css" type="text/css">
   <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/product-family.css' type="text/css">
-  
-
-  
-  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-feature.css' type='text/css'>
-  
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   <!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
-  
-    <script src='/zh-cn/ontap-systems-upgrade/js/na-search.js'></script>
-  
-
-  
-  <script src='/zh-cn/ontap-systems-upgrade/js/na-pagenav.js'></script>
-  
-
-  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism.css' type='text/css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-cn/ontap-systems-upgrade/js/na-search.js'></script><script src='/zh-cn/ontap-systems-upgrade/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism-netapp.css' type='text/css'>
 
 
@@ -97,9 +72,7 @@
   <script src='/zh-cn/ontap-systems-upgrade/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/toc.js'></script>
-  <script src='/zh-cn/ontap-systems-upgrade/js/customscripts.js'></script>
-
-  <script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/customscripts.js'></script><script>
       $(document).ready(function() {
           
           var collapseOnInit = true;
@@ -2794,8 +2767,7 @@
   
 
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
-    <!-- Begin of page container -->
-    <article class="page-content">
+    <!-- Begin of page container --><article class="page-content">
       <div class="ie-utility">
   <div class="ie-menu">
     <div class="n-breadcrumb">
@@ -2842,7 +2814,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-25 18:54:31 +0000">02/25/2022</time>
+    <time datetime="2022-03-08 14:31:17 +0000">03/08/2022</time>
     
   
 
@@ -2862,7 +2834,7 @@
 
 
 <div class="paragraph lead">
-<p>您必须应用适当的参考配置（ RCF ）文件来重新配置交换机以容纳新节点。应用 RCF 文件后，您可以对交换机进行重新布线。</p>
+<p>您必须应用适当的参考配置文件（ Reference Configuration Files ， RCF ）来重新配置交换机以容纳新节点。应用 RCF 后，您可以对交换机进行重新布线。</p>
 </div>
 <div class="paragraph">
 <p>FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置 _ 内容中所述的使用情况匹配，才能使用这些 RCF 。转至 <a href="other_references.html">"参考资料"</a> 链接到 _Fabric-Attached MetroCluster 安装和配置 _ 内容。</p>
@@ -2871,19 +2843,23 @@
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>找到适用于您的配置的 RCF 文件。</p>
+<p>转至 <a href="https://mysupport.netapp.com/site/products/all/details/metrocluster-rcf/downloads-tab" target="_blank" rel="noopener">"MetroCluster RCF 下载"</a> 页面上，然后选择适用于您的交换机配置的 RCF 。</p>
 <div class="paragraph">
-<p>您必须使用与您的交换机型号匹配的 RCF 文件。</p>
-</div>
-<div class="paragraph">
-<p><a href="http://mysupport.netapp.com/NOW/download/software/metrocluster_brocade/sanswitch/index.shtml">"NetApp 下载：适用于 Brocade 交换机的 MetroCluster 配置文件"</a></p>
-</div>
-<div class="paragraph">
-<p><a href="http://mysupport.netapp.com/NOW/download/software/metrocluster_cisco/sanswitch/index.shtml">"NetApp 下载：适用于 Cisco 交换机的 MetroCluster 配置文件"</a></p>
+<p>您必须使用与您的交换机型号匹配的 RCF 。</p>
 </div>
 </li>
 <li>
-<p>按照 * 下载 * 页面上的说明应用 RCF 文件，并根据需要调整 ISL 设置。</p>
+<p>选择与您的交换机型号匹配的操作步骤 并按照安装说明安装 FC 交换机 RCF ：</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_install_the_brocade_fc_switch_rcf_file.html" target="_blank" rel="noopener">"安装 Brocade FC 交换机 RCF"</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/task_download_and_install_the_cisco_fc_switch_rcf_files.html" target="_blank" rel="noopener">"安装 Cisco FC 交换机 RCF"</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>验证是否已保存交换机配置。</p>
@@ -2942,8 +2918,7 @@
     </div>
   </div>
   
-  <div style="clear: both"></div><!-- Main needs to have height -->
-</div>
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>
 
@@ -3045,9 +3020,7 @@
 </div>
 </footer>
 
-      </div>
-
-      <!-- Elasticsearch JS -->
+      </div><!-- Elasticsearch JS -->
       <script type="text/javascript" src='/zh-cn/ontap-systems-upgrade/js/bundle.js'></script>
 
       <!-- Syntax Highlighting -->
@@ -3062,7 +3035,4 @@
     </script>
     <script src='/zh-cn/ontap-systems-upgrade/js/www-ntap.js'></script>
     <script src='/zh-cn/ontap-systems-upgrade/js/tabbed-blocks.js'></script>
-  </body>
-
-  
-</html>
+  </body></html>
