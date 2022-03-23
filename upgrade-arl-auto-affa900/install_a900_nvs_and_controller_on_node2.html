@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head class="at-element-marker">
-  <title>在节点 2 上安装 AFF A900 NVS 和控制器模块</title>
+  <title>在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="在节点 2 上安装 AFF A900 NVS 和控制器模块" />
+  <meta property="og:title" content="在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html" />
-	<meta property="og:description" content="在节点 2 上安装 AFF A900 NVS 和控制器模块。" />
+	<meta property="og:description" content="AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步骤 期间的安装说明。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="在节点 2 上安装 AFF A900 NVS 和控制器模块。">
-  <meta name="keywords" content=" install, nvs, aff, a900, node2, controller, module"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步骤 期间的安装说明。">
+  <meta name="keywords" content=" install, NVRAM, aff, a900, node2, controller, module"><!-- Icons -->
   <link rel="icon" href="/zh-cn/ontap-systems-upgrade/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -50,10 +50,10 @@
   
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/tabbed-blocks.css" type="text/css">
-  <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/product-family.css' type="text/css">
   <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <!-- Used to import Promise for IE. Required for SearchKit -->
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-cn/ontap-systems-upgrade/js/na-search.js'></script><script src='/zh-cn/ontap-systems-upgrade/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism-netapp.css' type='text/css'>
 
@@ -131,7 +131,6 @@
   }
   </script>
   <script src='/zh-cn/ontap-systems-upgrade/js/version-dropdown.js'></script>
-  <script src='/zh-cn/ontap-systems-upgrade/js/product-family.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/FileSaver.min.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/jszip-utils.min.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/jszip.min.js'></script>
@@ -144,6 +143,25 @@
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/issues/new?body=Page%3A%20[在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块](https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-systems-upgrade/images/article-sm.svg" class="github-icon" />提供者指南</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此页面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -602,15 +620,13 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_RC2_或更高版本的_AFF_A900.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_或更高版本的_AFF_A900.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900
+            使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900
           </a>
           
-
-
 
 
 
@@ -687,11 +703,11 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVS_启动_node1.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node1.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1
+            第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
           </a>
           
 
@@ -743,11 +759,11 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVS_和控制器模块.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVRAM_模块和控制器模块.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块
+            第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
           </a>
           
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -778,11 +794,11 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVS_启动_node2.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node2.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2
+            第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
           </a>
           
 
@@ -890,8 +906,6 @@
             使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件
           </a>
           
-
-
 
 
 
@@ -1169,8 +1183,6 @@
 
 
 
-
-
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -1430,8 +1442,6 @@
             使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 9.7
           </a>
           
-
-
 
 
 
@@ -1750,8 +1760,6 @@
     
 
   
-
-
 
 
 
@@ -2150,7 +2158,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl/index.html">
         概述
       </a></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900</div>
+        <div class="na-navbar-padding"> 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html">
         概述
@@ -2164,8 +2172,6 @@
         从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html">
         ARL 升级概述
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2187,10 +2193,10 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node1.html">
         网络启动节点 1
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1</div>
+        <div class="na-navbar-padding"> 第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVS 启动 node1
+        使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node1_installation.html">
         验证 node1 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html">
@@ -2205,17 +2211,17 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/retire_node2.html">
         停用 node2
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块</div>
+        <div class="na-navbar-padding"> 第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</div>
       </a>
       <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html">
-        在节点 2 上安装 AFF A900 NVS 和控制器模块
+        在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node2.html">
         网络启动节点 2.
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2</div>
+        <div class="na-navbar-padding"> 第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVS 启动 node2
+        使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node2_installation.html">
         验证 node2 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_node2.html">
@@ -2271,8 +2277,6 @@
         验证切换，修复和切回
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/overview_of_the_arl_upgrade.html">
         ARL 升级概述
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2379,8 +2383,6 @@
         所需的工具和文档
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/worksheet_information_before_during_upgrade.html">
         工作表：在控制器升级之前和期间收集的信息
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2507,8 +2509,6 @@
         验证切换，修复和切回
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/overview_of_the_arl_upgrade.html">
         ARL 升级概述
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2640,9 +2640,7 @@
         持久启用交换机
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/verify_swtichover_healing_switchback.html">
         验证切换，修复和切回
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/upgrade_node_pair.html">
-        升级节点对
-      </a></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_1_index.html">
@@ -2773,19 +2771,16 @@
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
         <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">主页</a>
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">文档</a>
-        </li>
+        
+
         
 
         <li class="n-breadcrumb__list-item">
           <a href="/zh-cn/ontap-systems-upgrade/">AFF&nbsp;and&nbsp;FAS&nbsp;Controller&nbsp;Upgrade</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          在节点 2 上安装 AFF A900 NVS 和控制器模块
-        </li>
+
       </ul>
     </div>
     <div style="clear: both"></div><!-- Main needs to have height -->
@@ -2807,36 +2802,24 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">在节点 2 上安装 AFF A900 NVS 和控制器模块</h1>
+  <h1 class="n-doc__component-detail-heading">在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-03-08 14:31:17 +0000">03/08/2022</time>
+    <time datetime="2022-03-23 17:40:29 +0000">03/23/2022</time>
     
   
-
-<span>提供者
-  <a target="_blank" href="https://github.com/netapp-pcarriga">
-    <img  class="avatar avatar-small"
-          alt="netapp-pcarriga"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/77334475?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
-</span>
 
 
 </p>
 
-
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>您必须在 node2 上安装为升级而收到的 AFF A900 NVS 和控制器模块。node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</p>
+<p>您必须在 node2 上安装为升级而收到的 AFF A900 NVRAM 模块和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</p>
 </div>
 <div class="paragraph">
 <p>如果您尚未接地，请正确接地。</p>
@@ -2844,19 +2827,19 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="安装-aff-a900-nvs">安装 AFF A900 NVS</h2>
+<h2 id="安装-aff-a900-nvram-模块">安装 AFF A900 NVRAM 模块</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>使用以下操作步骤将 AFF A900 NVS 安装在节点 2 的插槽 6 中。</p>
+<p>使用以下操作步骤 将 AFF A900 NVRAM 模块安装在节点 2 的插槽 6 中。</p>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>将 NVS 与插槽 6 中机箱开口的边缘对齐。</p>
+<p>将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。</p>
 </li>
 <li>
-<p>将 NVS 轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVS 锁定到位。</p>
+<p>将 NVRAM 模块轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVRAM 模块锁定到位。</p>
 </li>
 </ol>
 </div>
@@ -2892,7 +2875,7 @@
 <img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="注">
 </td>
 <td class="content">
-在系统指示您将控制器模块完全插入机箱之前，请勿将其插入。
+请勿将控制器模块完全插入机箱，直到稍后在操作步骤 中指示您这样做为止。
 </td>
 </tr>
 </table>
@@ -2925,7 +2908,7 @@
 <img src="/us-en/ontap-systems-upgrade/images/warning.svg" alt="警告">
 </td>
 <td class="content">
-Do not use excessive force when sliding the controller module into the chassis to avoid damaging the connectors.
+为避免损坏连接器，请勿在将控制器模块滑入机箱时用力过大。
 </td>
 </tr>
 </table>
@@ -2935,7 +2918,7 @@ Do not use excessive force when sliding the controller module into the chassis t
 <p>一旦模块就位，请立即连接串行控制台，并准备好中断 node1 的自动启动。</p>
 </li>
 <li>
-<p>中断自动启动后， node2 将停留在 LOADER 提示符处。如果不中断自动启动，而 node2 开始启动，请等待提示符按 * Ctrl-C* 进入启动菜单。在节点停留在启动菜单后，使用选项 <code>8</code> 重新启动节点，并在重新启动期间中断自动启动。</p>
+<p>中断自动启动后， node2 将停留在 LOADER 提示符处。如果不中断自动启动，而 node2 开始启动，请等待提示符，然后按 * Ctrl-C * 进入启动菜单。在节点停留在启动菜单后，使用选项 <code>8</code> 重新启动节点，并在重新启动期间中断自动启动。</p>
 </li>
 </ol>
 </div>
@@ -2946,25 +2929,6 @@ Do not use excessive force when sliding the controller module into the chassis t
     <!-- Page Container -->
   </div>
 
-  
-  <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/issues/new?body=Page%3A%20[在节点 2 上安装 AFF A900 NVS 和控制器模块](https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-systems-upgrade/images/article-sm.svg" class="github-icon" />提供者指南</a>
-    </div>
-    <div class="page-nav-container">
-      <nav class="page-nav-fixed">
-        <div class="page-nav-title">在此页面上</div>
-        <div class="page-nav-links">
-          <ul class="page-nav-inner" id="page-menu"></ul>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
   <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>

@@ -9,14 +9,14 @@
   <meta property="og:title" content="准备要升级的节点" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/prepare_nodes_for_upgrade.html" />
-	<meta property="og:description" content="必须先准备好节点，然后才能进行升级。" />
+	<meta property="og:description" content="在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，准备节点，收集信息并确认所有集群节点都处于仲裁状态。" />
   <meta property="og:image" content="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="必须先准备好节点，然后才能进行升级。">
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，准备节点，收集信息并确认所有集群节点都处于仲裁状态。">
   <meta name="keywords" content=" prepare, nodes, upgrade, missing disks, HA pair, san"><!-- Icons -->
   <link rel="icon" href="/zh-cn/ontap-systems-upgrade/images/favicon.ico" type="image/x-icon">
 
@@ -50,10 +50,10 @@
   
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/tabbed-blocks.css" type="text/css">
-  <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/product-family.css' type="text/css">
   <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-  <!-- Used to import Promise for IE. Required for SearchKit -->
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-cn/ontap-systems-upgrade/js/na-search.js'></script><script src='/zh-cn/ontap-systems-upgrade/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/prism-netapp.css' type='text/css'>
 
@@ -131,7 +131,6 @@
   }
   </script>
   <script src='/zh-cn/ontap-systems-upgrade/js/version-dropdown.js'></script>
-  <script src='/zh-cn/ontap-systems-upgrade/js/product-family.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/FileSaver.min.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/jszip-utils.min.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/jszip.min.js'></script>
@@ -144,6 +143,25 @@
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div id="version-dropdown"></div>
+    <div class="page-nav-contribute"  >
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/issues/new?body=Page%3A%20[准备要升级的节点](https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/prepare_nodes_for_upgrade.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade-arl-manual/prepare_nodes_for_upgrade.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-systems-upgrade/images/article-sm.svg" class="github-icon" />提供者指南</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">在此页面上</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
   <!-- Start top_hat -->
   <div class="n-top-hat">
     <div class="n-container">
@@ -602,15 +620,13 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_RC2_或更高版本的_AFF_A900.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_或更高版本的_AFF_A900.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900
+            使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900
           </a>
           
-
-
 
 
 
@@ -687,11 +703,11 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVS_启动_node1.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node1.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1
+            第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
           </a>
           
 
@@ -743,11 +759,11 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVS_和控制器模块.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVRAM_模块和控制器模块.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块
+            第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
           </a>
           
 
@@ -769,11 +785,11 @@
         <li class="pdf-ux-container">
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVS_启动_node2.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node2.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2
+            第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
           </a>
           
 
@@ -881,8 +897,6 @@
             使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件
           </a>
           
-
-
 
 
 
@@ -1160,8 +1174,6 @@
 
 
 
-
-
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -1421,8 +1433,6 @@
             使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 9.7
           </a>
           
-
-
 
 
 
@@ -1741,8 +1751,6 @@
     
 
   
-
-
 
 
 
@@ -2150,7 +2158,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl/index.html">
         概述
       </a></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900</div>
+        <div class="na-navbar-padding"> 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html">
         概述
@@ -2164,8 +2172,6 @@
         从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html">
         ARL 升级概述
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2187,10 +2193,10 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node1.html">
         网络启动节点 1
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1</div>
+        <div class="na-navbar-padding"> 第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVS 启动 node1
+        使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node1_installation.html">
         验证 node1 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html">
@@ -2205,17 +2211,17 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/retire_node2.html">
         停用 node2
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块</div>
+        <div class="na-navbar-padding"> 第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html">
-        在节点 2 上安装 AFF A900 NVS 和控制器模块
+        在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node2.html">
         网络启动节点 2.
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2</div>
+        <div class="na-navbar-padding"> 第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVS 启动 node2
+        使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node2_installation.html">
         验证 node2 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_node2.html">
@@ -2271,8 +2277,6 @@
         验证切换，修复和切回
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/overview_of_the_arl_upgrade.html">
         ARL 升级概述
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2379,8 +2383,6 @@
         所需的工具和文档
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/worksheet_information_before_during_upgrade.html">
         工作表：在控制器升级之前和期间收集的信息
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2507,8 +2509,6 @@
         验证切换，修复和切回
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/overview_of_the_arl_upgrade.html">
         ARL 升级概述
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/upgrade_node_pair.html">
-        升级节点对
       </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
@@ -2640,9 +2640,7 @@
         持久启用交换机
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/verify_swtichover_healing_switchback.html">
         验证切换，修复和切回
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/upgrade_node_pair.html">
-        升级节点对
-      </a></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 第 1 阶段。准备升级</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/stage_1_index.html">
@@ -2773,19 +2771,16 @@
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
         <li class="n-breadcrumb__list-item">
-          <a href="https://www.netapp.com">主页</a>
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          <a href="https://docs.netapp.com">文档</a>
-        </li>
+        
+
         
 
         <li class="n-breadcrumb__list-item">
           <a href="/zh-cn/ontap-systems-upgrade/">AFF&nbsp;and&nbsp;FAS&nbsp;Controller&nbsp;Upgrade</a>
         </li>
-        <li class="n-breadcrumb__list-item">
-          准备要升级的节点
-        </li>
+
       </ul>
     </div>
     <div style="clear: both"></div><!-- Main needs to have height -->
@@ -2814,33 +2809,21 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-08 14:31:17 +0000">03/08/2022</time>
+    <time datetime="2022-03-23 17:40:29 +0000">03/23/2022</time>
     
   
-
-<span>提供者
-  <a target="_blank" href="https://github.com/netapp-pcarriga">
-    <img  class="avatar avatar-small"
-          alt="netapp-pcarriga"
-          width="20" height="20"
-          src="https://avatars.githubusercontent.com/u/77334475?v=4"
-          style="border-radius: 50%;"/>
-  </a>
-  
-</span>
 
 
 </p>
 
-
 <div class="paragraph lead">
-<p>在更换原始节点之前，您必须确保它们位于 HA 对中，没有缺失或故障磁盘，可以访问彼此的存储，并且不拥有分配给集群中其他节点的数据 LIF 。您还需要收集有关原始节点的信息，如果集群位于 SAN 环境中，请确保集群中的所有节点都处于仲裁状态。</p>
+<p>在更换原始节点之前，您必须确认它们位于 HA 对中，没有缺失或故障磁盘，可以访问彼此的存储，并且不拥有分配给集群中其他节点的数据 LIF 。此外，您还必须收集有关原始节点的信息，如果集群位于 SAN 环境中，请确认集群中的所有节点都处于仲裁状态。</p>
 </div>
 <div class="olist arabic">
 <div class="title">步骤</div>
 <ol class="arabic">
 <li>
-<p>确保每个原始节点都有足够的资源，以便在接管模式期间为这两个节点的工作负载提供充分的支持。</p>
+<p>确认每个原始节点都有足够的资源，可以在接管模式下为这两个节点的工作负载提供充分的支持。</p>
 <div class="paragraph">
 <p>请参见 <a href="other_references.html">"参考资料"</a> 链接到 <em>High Availability management</em> 并按照 _Best Practices for HA pairs_一 节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。</p>
 </div>
@@ -2883,7 +2866,7 @@
 <li>
 <p>验证 node3 和 node4 的 NVMEM 或 NVRAM 电池是否已充电，如果未充电，请为其充电。</p>
 <div class="paragraph">
-<p>您需要物理检查 node3 和 node4 以查看 NVMEM 或 NVRAM 电池是否已充电。有关 node3 和 node4 型号的 LED 的信息，请参见 <a href="other_references.html">"参考资料"</a> 链接到 <em>SIL</em> Hardware Universe 。</p>
+<p>您必须物理检查 node3 和 node4 以查看 NVMEM 或 NVRAM 电池是否已充电。有关 node3 和 node4 型号的 LED 的信息，请参见 <a href="other_references.html">"参考资料"</a> 链接到 <em>SIL</em> Hardware Universe 。</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -2901,7 +2884,7 @@
 <li>
 <p>检查 node3 和 node4 上的 ONTAP 版本。</p>
 <div class="paragraph">
-<p>新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则在安装新控制器后，需要通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 <a href="other_references.html">"参考资料"</a> 链接到 _Upgrade ONTAP 。</p>
+<p>新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则必须在安装新控制器后通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 <a href="other_references.html">"参考资料"</a> 链接到 _Upgrade ONTAP 。</p>
 </div>
 <div class="paragraph">
 <p>有关 node3 和 node4 上的 ONTAP 版本的信息应包含在装运箱中。节点启动时会显示 ONTAP 版本，您也可以将节点启动至维护模式并运行命令：</p>
@@ -3004,7 +2987,7 @@ RPC status:
 </div>
 </li>
 <li>
-<p>确保 node1 和 node2 位于 HA 对中，并验证节点是否彼此连接，以及是否可以进行接管：</p>
+<p>确认 node1 和 node2 位于 HA 对中，并验证节点是否彼此连接，以及是否可以进行接管：</p>
 <div class="paragraph">
 <p><code>s存储故障转移显示</code></p>
 </div>
@@ -3039,7 +3022,7 @@ node2          node1          true     Connected to node1</pre>
 </div>
 </li>
 <li>
-<p>【 man_prepare_nodes_step9]] 确保 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：</p>
+<p>【 man_prepare_nodes_step9]] 确认 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：</p>
 <div class="paragraph">
 <p><code>storage aggregate show -node &lt;node_name&gt; -is-home false -fields owner-name ， homename ， state</code></p>
 </div>
@@ -3134,7 +3117,7 @@ aggr4         node1        node1        online
 </div>
 </li>
 <li>
-<p><a id="man_prepare_nodes_step12"></a> 确保 node1 和 node2 可以访问彼此的存储，并验证是否没有缺少磁盘：</p>
+<p>【 ｛ man_prepare_nodes_step12]] 确认 node1 和 node2 可以访问彼此的存储，并确认没有磁盘缺失：</p>
 <div class="paragraph">
 <p><code>storage failover show -fields local-missing-disks ， partner-missing-disks</code></p>
 </div>
@@ -3156,7 +3139,7 @@ node2    None                None</pre>
 </div>
 </li>
 <li>
-<p>确保 node1 和 node2 运行状况良好且有资格加入集群：</p>
+<p>确认 node1 和 node2 运行状况良好且有资格加入集群：</p>
 <div class="paragraph">
 <p><code>cluster show</code></p>
 </div>
@@ -3181,7 +3164,7 @@ node2                 true    true</pre>
 </div>
 </li>
 <li>
-<p><a id="man_prepare_nodes_step15"></a> 确保 node1 和 node2 运行相同的 ONTAP 版本：</p>
+<p>【 ｛ man_prepare_nodes_step15]] 确认 node1 和 node2 运行的是相同的 ONTAP 版本：</p>
 <div class="paragraph">
 <p><code>ssystem node image show -node &lt;node1 ， node2 &gt; -iscurrent true</code></p>
 </div>
@@ -3256,20 +3239,14 @@ vs0
 </li>
 <li>
 <p>通过完成以下子步骤并记录每个命令的输出，收集有关 node1 和 node2 的信息：</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="注">
-</td>
-<td class="content">
-您稍后将在操作步骤中使用此信息。
-</td>
-</tr>
-</table>
+</li>
+</ol>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<div class="paragraph">
+<p>+ 注意：您稍后将在操作步骤 中使用此信息。</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>记录两个节点的型号，系统 ID 和序列号：</p>
 <div class="paragraph">
@@ -3329,9 +3306,6 @@ vs0
 <div class="paragraph">
 <p><code>volume show -node &lt;node_name&gt; -state offline</code></p>
 </div>
-</li>
-</ol>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -3344,7 +3318,8 @@ vs0
 </tr>
 </table>
 </div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>输入以下命令，查看 node1 或 node2 上是否配置了任何接口组或 VLAN ：</p>
 <div class="paragraph">
@@ -3353,14 +3328,20 @@ vs0
 <div class="paragraph">
 <p><code>network port vlan show</code></p>
 </div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>请注意接口组或 VLAN 是在 node1 还是 node2 上配置的；您需要在下一步以及后续步骤的操作步骤中提供这些信息。</p>
 </div>
-</li>
-<li>
-<p>在 node1 和 node2 上完成以下子步骤，以确保稍后可以在操作步骤中正确映射物理端口：</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>在 node1 和 node2 上完成以下子步骤，以确认稍后可以在操作步骤 中正确映射物理端口：</p>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>输入以下命令以查看除 <code>clusterwide</code> 以外的节点上是否存在故障转移组：</p>
 <div class="paragraph">
@@ -3403,9 +3384,6 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 <div class="paragraph">
 <p>系统将显示节点上配置的 VLAN ，如以下示例所示：</p>
 </div>
-</li>
-</ol>
-</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::&gt; network port vlan show
@@ -3416,14 +3394,11 @@ Node    VLAN Name Port    VLAN ID MAC Address
 node1   e1b-70    e1b     70      00:15:17:76:7b:69</pre>
 </div>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>如果节点上配置了 VLAN ，请记下每个网络端口和 VLAN ID 配对。</p>
-</li>
-</ol>
-</div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>执行以下操作之一：</p>
 <table class="tableblock frame-all grid-all stretch">
@@ -3469,6 +3444,9 @@ There are no entries matching your query.</pre>
 <div class="paragraph">
 <p>如果为 SVM 配置了 iSCSI 或 FC ，则该命令将显示类似于以下示例的消息：</p>
 </div>
+</li>
+</ol>
+</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::&gt; network interface show -vserver vs1 -data-protocol iscsi|fcp
@@ -3479,11 +3457,14 @@ Vserver  Interface  Admin/Oper Address/Mask       Node     Port    Home
 vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true</pre>
 </div>
 </div>
-</li>
-<li>
-<p><a id="man_prepare_nodes_step24"></a> 通过完成以下子步骤验证集群中的所有节点是否都处于仲裁状态：</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p><a id="man_prepare_nodes_step24"></a> 通过完成以下子步骤验证集群中的所有节点是否都处于仲裁状态：</p>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>输入高级权限级别：</p>
 <div class="paragraph">
@@ -3510,9 +3491,6 @@ Do you wish to continue? (y or n):</pre>
 <div class="paragraph">
 <p>系统将显示类似于以下示例的消息：</p>
 </div>
-</li>
-</ol>
-</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::*&gt; cluster kernel-service show
@@ -3527,20 +3505,16 @@ node1         node1         in-quorum     true          operational
 </div>
 </div>
 <div class="paragraph">
-<p>+<br>
-如果大多数节点运行状况良好，并且可以彼此通信，则集群中的节点将处于仲裁状态。有关详细信息，请参见 <a href="other_references.html">"参考资料"</a> 链接到系统管理参考。</p>
+<p>如果大多数节点运行状况良好，并且可以彼此通信，则集群中的节点将处于仲裁状态。有关详细信息，请参见 <a href="other_references.html">"参考资料"</a> 链接到系统管理参考。</p>
 </div>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+</li>
 <li>
 <p>返回到管理权限级别：</p>
 <div class="paragraph">
 <p><code>set -privilege admin</code></p>
 </div>
-</li>
-</ol>
-</div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>执行以下操作之一：</p>
 <table class="tableblock frame-all grid-all stretch">
@@ -3637,6 +3611,9 @@ node2   0d      fc      initiator -       -         online
 <div class="paragraph">
 <p>系统将显示拓扑信息，如以下示例所示：</p>
 </div>
+</li>
+</ol>
+</div>
 <div class="literalblock">
 <div class="content">
 <pre>cluster::&gt; storage array config show -switch
@@ -3656,11 +3633,14 @@ node2 0   50  I_1818FAStT_1
 7 entries were displayed.</pre>
 </div>
 </div>
-</li>
-<li>
-<p>[man_prepare_nodes_step29]] 完成以下子步骤：</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
+<li>
+<p>[man_prepare_nodes_step29]] 完成以下子步骤：</p>
+</li>
+</ol>
+</div>
+</li>
 <li>
 <p>在一个原始节点上输入以下命令并记录输出：</p>
 <div class="paragraph">
@@ -3671,20 +3651,18 @@ node2 0   50  I_1818FAStT_1
 </div>
 </li>
 <li>
-<p>确保 SP 状态为 <code>online</code> 。</p>
+<p>确认 SP 状态为 <code>online</code> 。</p>
 </li>
 <li>
-<p>确保已配置 SP 网络。</p>
+<p>确认已配置 SP 网络。</p>
 </li>
 <li>
 <p>记录 IP 地址和有关 SP 的其他信息。</p>
-</li>
-</ol>
-</div>
 <div class="paragraph">
 <p>您可能希望在新节点上重复使用原始系统中远程管理设备（此处为 SP ）的网络参数。有关 SP 的详细信息，请参见 <a href="other_references.html">"参考资料"</a> 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。</p>
 </div>
-</li>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
 <p>【 man_prepare_nodes_step30]] 如果希望新节点与原始节点具有相同的许可功能，请输入以下命令以查看原始系统上的集群许可证：</p>
 <div class="paragraph">
@@ -3754,8 +3732,8 @@ node2            enable    Postmaster    -                 mailhost
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">已启用 AutoSupport &#8230;&#8203;</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowerroman">
+<ol class="lowerroman" type="i">
 <li>
 <p>转至 <a href="#man_prepare_nodes_step34">第 34 步</a>。</p>
 </li>
@@ -3767,8 +3745,8 @@ node2            enable    Postmaster    -                 mailhost
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">未启用 AutoSupport &#8230;&#8203;</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="olist loweralpha">
-<ol class="loweralpha" type="a">
+<td class="tableblock halign-left valign-top"><div class="content"><div class="olist lowerroman">
+<ol class="lowerroman" type="i">
 <li>
 <p>按照 _System 管理参考 _ 中的说明启用 AutoSupport 。请参见 <a href="other_references.html">"参考资料"</a> 链接到系统管理参考。）</p>
 <div class="ulist">
@@ -3820,6 +3798,9 @@ node2            enable    Postmaster    -                 mailhost
 <div class="paragraph">
 <p><code>ssystem node AutoSupport show -node &lt;node1&gt; -instance</code></p>
 </div>
+</li>
+</ol>
+</div>
 <div class="paragraph">
 <p>字段 <code>Last Subject Sent ：</code> 和 <code>Last Time Sent ：</code> 包含上次发送消息的消息标题以及消息发送时间。</p>
 </div>
@@ -3831,25 +3812,6 @@ node2            enable    Postmaster    -                 mailhost
     <!-- Page Container -->
   </div>
 
-  
-  <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/issues/new?body=Page%3A%20[准备要升级的节点](https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/prepare_nodes_for_upgrade.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade-arl-manual/prepare_nodes_for_upgrade.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-systems-upgrade/images/article-sm.svg" class="github-icon" />提供者指南</a>
-    </div>
-    <div class="page-nav-container">
-      <nav class="page-nav-fixed">
-        <div class="page-nav-title">在此页面上</div>
-        <div class="page-nav-links">
-          <ul class="page-nav-inner" id="page-menu"></ul>
-        </div>
-      </nav>
-    </div>
-  </div>
-  
   <div style="clear: both"></div><!-- Main needs to have height --></div>
 
         </main>
