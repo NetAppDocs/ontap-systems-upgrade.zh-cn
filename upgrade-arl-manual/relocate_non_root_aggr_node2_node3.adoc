@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/relocate_non_root_aggr_node2_node3.html 
 keywords: node2, node3, node2, aggregates, autosupport 
-summary: 发送 node2 的 AutoSupport 消息，然后将 node2 所拥有的非根聚合重新定位到 node3 。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，发送 node2 的 AutoSupport 消息并将 node2 的非根聚合重新定位到 node3 。 
 ---
 = 将非根聚合从 node2 重新定位到 node3
 :hardbreaks:

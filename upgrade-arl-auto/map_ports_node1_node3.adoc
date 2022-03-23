@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/map_ports_node1_node3.html 
 keywords: map, port, node1, node3, settings, restore, cluster 
-summary: 验证 node1 上的物理端口是否正确映射到 node3 上的物理端口 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，验证 node1 上的物理端口是否正确映射到 node3 。' 
 ---
 = 将端口从 node1 映射到 node3
 :hardbreaks:
@@ -161,7 +161,7 @@ network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
 
 
 
-. 【 auto_map_3_step5]] 调整托管集群 LIF 和节点管理 /clustermanagement LIF 的广播域。确保每个广播域包含正确的端口。如果某个端口托管 LIF 或位于 LIF 的主目录中，则无法在广播域之间移动该端口，因此您可能需要按如下所示迁移和修改 LIF ：
+. 【 auto_map_3_step5]] 调整托管集群 LIF 和节点管理 /clustermanagement LIF 的广播域。确认每个广播域包含正确的端口。如果某个端口托管 LIF 或位于 LIF 的主目录中，则无法在广播域之间移动该端口，因此您可能需要按如下所示迁移和修改 LIF ：
 +
 .. 显示 LIF 的主端口：
 +

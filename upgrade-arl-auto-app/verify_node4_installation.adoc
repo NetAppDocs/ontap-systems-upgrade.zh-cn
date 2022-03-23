@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/verify_node4_installation.html 
 keywords: verify, node4, installation, physical ports, node2, node, LIF, MetroCluster 
-summary: 验证 node4 安装 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，验证 node2 的物理端口是否正确映射到 node4 并还原 node4 上的网络配置。' 
 ---
 = 验证 node4 安装
 :hardbreaks:
@@ -256,7 +256,7 @@ Warning: Repairing port "node2_node4: e0h" may cause it to move into a different
 `网络端口 broadcast-domain add-port`
 
 +
-确认不存在不可访问或意外的端口。使用以下命令检查所有物理端口的可访问性状态，并检查输出以确保状态为 `ok` ：
+确认不存在不可访问或意外的端口。使用以下命令并检查输出以确认状态为 `ok` ，以检查所有物理端口的可访问性状态：
 
 +
 `网络端口可访问性 show -detail`

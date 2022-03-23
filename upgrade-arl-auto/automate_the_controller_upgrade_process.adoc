@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/automate_the_controller_upgrade_process.html 
 keywords: automate, controller, upgrade, nondisruptive 
-summary: 在控制器升级期间，此控制器将被替换为另一个运行更新或功能更强大的平台的控制器。 
+summary: 使用部分自动化的 ARL 操作步骤 将运行 ONTAP 9.5 的控制器升级到 9.7 。 
 ---
 = 自动执行控制器升级过程
 :hardbreaks:
@@ -17,4 +17,4 @@ summary: 在控制器升级期间，此控制器将被替换为另一个运行�
 
 此内容的早期版本包含无中断控制器更新过程的说明，该过程由完全手动的步骤组成。此内容提供了新的自动化操作步骤的步骤。
 
-手动过程耗时冗长且复杂，但在此简化的操作步骤中，您可以通过聚合重新定位来实施控制器更新，从而为 HA 对实现更高效的无中断升级。手动步骤明显减少，尤其是在验证，收集信息和 POST 检查方面。
+手动过程漫长而复杂，但在此简化的操作步骤 中，您可以通过聚合重新定位来实施控制器更新，从而可以更高效地对 HA 对进行无中断升级。手动步骤明显减少，尤其是在验证，收集信息和 POST 检查方面。

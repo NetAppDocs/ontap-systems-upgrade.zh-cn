@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual/check_mcc_config_errors.html 
-keywords: config advisor, mcc, metrocluster,configuration, configure, error, check 
-summary: 使用 Config Advisor 检查常见配置错误。 
+keywords: config advisor, mcc, metrocluster, configuration, configure, error, check 
+summary: 使用 Config Advisor 工具在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间检查常见配置错误。 
 ---
 = 检查 MetroCluster 配置错误
 :hardbreaks:

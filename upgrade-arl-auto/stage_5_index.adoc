@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto/stage_5_index.html 
-keywords: install, boot, node4, node2, node-management 
-summary: 在第 5 阶段，您安装并启动 node4 ，将集群和节点管理端口从 node2 映射到 node4 。 
+keywords: install, boot, node4, node2, node-management,  stage 5 
+summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 5 阶段流程顺序。' 
 ---
 = 第 5 阶段。安装并启动节点 4.
 :hardbreaks:

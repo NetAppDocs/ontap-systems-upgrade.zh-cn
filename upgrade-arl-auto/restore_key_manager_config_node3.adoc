@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/restore_key_manager_config_node3.html 
 keywords: restore, key manager, configuration, node3, nve, netapp volume encryption, encryption 
-summary: 要使 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，必须将加密配置同步到新节点。 
+summary: '如果需要，请在使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时还原 node3 上的 key-manager 配置。' 
 ---
 = 还原 node3 上的 key-manager 配置
 :hardbreaks:

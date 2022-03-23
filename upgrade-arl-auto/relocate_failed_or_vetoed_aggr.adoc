@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/relocate_failed_or_vetoed_aggr.html 
 keywords: relocate, aggregates, fail, veto 
-summary: 如果任何聚合无法重新定位或被否决，您必须手动重新定位这些聚合。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，手动重新定位出现故障或被否决的聚合。' 
 ---
 = 重新定位失败或被否决的聚合
 :hardbreaks:

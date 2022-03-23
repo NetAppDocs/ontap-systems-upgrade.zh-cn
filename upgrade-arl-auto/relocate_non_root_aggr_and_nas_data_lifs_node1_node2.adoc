@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html 
 keywords: relocate, non-root, aggregates, nas, lif, node2, node3 
-summary: 在将 node2 替换为 node4 之前，必须将 node2 所拥有的非根聚合重新定位到 node3 。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 ，并将 node1 的资源移动到 node3 。' 
 ---
 = 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
 :hardbreaks:
@@ -15,7 +15,7 @@ summary: 在将 node2 替换为 node4 之前，必须将 node2 所拥有的非�
 [role="lead"]
 在将 node1 替换为 node3 之前，必须先将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 ，然后再最终将 node1 的资源移动到 node3 。
 
-开始任务时，此操作应已暂停；您必须手动恢复此操作。
+在开始任务时，此操作必须已暂停；您必须手动恢复此操作。
 
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。使 node3 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。
 

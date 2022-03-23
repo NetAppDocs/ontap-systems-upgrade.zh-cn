@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/lif_migration_failure.html 
 keywords: lif, migration, error, failure, troubleshoot 
-summary: LIF 迁移失败 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，在第 2 阶段，第 3 阶段或第 5 阶段迁移后， LIF 不联机。 
 ---
 = LIF 迁移失败
 :hardbreaks:

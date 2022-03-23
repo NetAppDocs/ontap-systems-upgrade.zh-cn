@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html 
 keywords: move, nas, san, lif, ports, broadcast domain, node1, node2, node3 
-summary: 您需要将当前位于 node2 上的 node1 的 NAS 数据 LIF 从 node2 移动到 node3 。您还需要验证 node3 上的 SAN LIF 。 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，将 node2 上的 node1 NAS 数据 LIF 从 node2 移动到 node3 。 
 ---
 = 将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 您需要将当前位于 node2 上的 node1 的 NAS 数据 LIF 从 node
 
 
 [role="lead"]
-在将聚合从 node2 重新定位到 node3 之前，您需要将当前位于 node2 上的 node1 的 NAS 数据 LIF 从 node2 移动到 node3 。您还需要验证 node3 上的 SAN LIF 。
+在将聚合从 node2 重新定位到 node3 之前，必须将当前位于 node2 上的 node1 的 NAS 数据 LIF 从 node2 移动到 node3 。您还必须验证 node3 上的 SAN LIF 。
 
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node3 联机后，您将验证 LIF 是否运行正常并位于相应的端口上。
 
@@ -86,7 +86,7 @@ cluster::> network port broadcast-domain add-ports -ipspace Default -broadcast-d
 +
 `network interface modify -vserver vserver_name -lif LIF_name-home-port netport_ifgrp -home-node node3`
 
-. 【 man_lif_verif_3_step8]] 确保 SAN LIF 位于 node3 上的正确端口上：
+. 【 man_lif_verif_3_step8]] 确认 SAN LIF 位于 node3 上的正确端口上：
 +
 .. 输入以下命令并检查其输出：
 +
@@ -137,7 +137,7 @@ cluster::> net int show -data-protocol iscsi|fcp -home-node node3
 
 +
 
-NOTE: 您需要确保将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
+NOTE: 您必须将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
 
 
 

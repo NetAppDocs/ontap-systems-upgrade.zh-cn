@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/record_node1_information.html 
 keywords: record, information, node1, NVRAM 
-summary: 在关闭并停用 node1 之前，您需要记录有关其集群网络，管理和 FC 端口以及 NVRAM 系统 ID 的信息。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，记录有关 node1 集群网络，管理， FC 端口和 NVRAM 系统 ID 的信息。 
 ---
 = 记录 node1 信息
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 在关闭并停用 node1 之前，您需要记录有关其集群网络�
 
 
 [role="lead"]
-在关闭并停用 node1 之前，您需要记录有关其集群网络，管理和 FC 端口以及 NVRAM 系统 ID 的信息。稍后将 node1 映射到 node3 并重新分配磁盘时，您需要在操作步骤中提供此信息。
+在关闭并停用 node1 之前，您必须记录有关其集群网络，管理和 FC 端口以及 NVRAM 系统 ID 的信息。稍后将 node1 映射到 node3 并重新分配磁盘时，您需要在操作步骤中提供此信息。
 
 .步骤
 . 【第 1 步】输入以下命令并捕获其输出：

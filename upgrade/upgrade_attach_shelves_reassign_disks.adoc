@@ -78,7 +78,7 @@ Disk ownership will be updated on all disks previously belonging to Filer with s
 Do you want to continue (y/n)? y
 ----
 . 输入 `y` 以继续。
-. 确保在选项字段中将 node1 的根聚合设置为 `root` ，并且其他聚合处于联机状态：
+. 确认选项字段中 node1 的根聚合已设置为 `root` ，并且其他聚合已联机：
 +
 `聚合状态`
 

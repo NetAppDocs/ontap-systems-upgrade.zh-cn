@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/manage_authentication_kmip.html 
 keywords: kmip, authentication, keys, fips 
-summary: 使用 KMIP 服务器管理身份验证密钥。 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，使用 KMIP 服务器管理身份验证密钥。 
 ---
 = 使用 KMIP 服务器管理身份验证
 :hardbreaks:

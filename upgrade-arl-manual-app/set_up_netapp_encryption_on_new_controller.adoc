@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/set_up_netapp_encryption_on_new_controller.html 
 keywords: set up, netapp volume encryption, encryption, controller, module 
-summary: 如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密，则必须为新控制器模块配置 NetApp 卷加密。 
+summary: 如果需要，请在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间为 NVE 配置新控制器模块。 
 ---
 = 在新控制器模块上设置 NetApp 卷加密
 :hardbreaks:

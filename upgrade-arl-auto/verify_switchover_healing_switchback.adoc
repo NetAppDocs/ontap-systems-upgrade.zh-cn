@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/verify_switchover_healing_switchback.html 
 keywords: switchover, healing,  switchback, metrocluster 
-summary: 验证 MetroCluster 配置的切换，修复和切回操作。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，验证 MetroCluster 配置切换，修复和切回操作。' 
 ---
 = 验证切换，修复和切回
 :hardbreaks:

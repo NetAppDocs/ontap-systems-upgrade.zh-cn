@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/required_tools_documentation.html 
 keywords: Tool, documentation, center, content, reference, worksheet 
-summary: 升级期间需要的工具和文档。 
+summary: 要对运行 ONTAP 9.8 或更高版本的控制器执行手动 ARL 升级，您必须拥有特定的工具和文档。 
 ---
 = 所需的工具和文档
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 升级期间需要的工具和文档。
 
 
 [role="lead"]
-要安装新硬件，您必须使用特定工具，并且在升级过程中需要参考其他文档。您还需要记录完成控制器升级所需的信息；系统会提供一个工作表来记录信息。
+要安装新硬件，您必须使用特定工具，并且在升级过程中需要参考其他文档。您还必须记录完成控制器升级所需的信息；系统会提供一个工作表来记录信息。
 
 要执行升级，您需要使用以下工具：
 

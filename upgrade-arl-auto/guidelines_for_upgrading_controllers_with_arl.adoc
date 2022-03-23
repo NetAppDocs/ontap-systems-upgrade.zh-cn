@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/guidelines_for_upgrading_controllers_with_arl.html 
 keywords: upgrade, controllers, guidelines, ARL, aggregate relocation, supported upgrades, two-node, cluster, troubleshoot 
-summary: 将一对运行 ONTAP 9.5 的控制器升级到 ONTAP 9.7 取决于原始控制器和替代控制器的平台和配置。 
+summary: '了解是否可以使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 。' 
 ---
 = 使用 ARL 升级控制器的准则
 :hardbreaks:
@@ -63,4 +63,4 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 
 如果在升级控制器时出现任何问题，请参见 link:troubleshoot.html["故障排除"] 部分，请参见操作步骤末尾的详细信息和可能的解决方案。
 
-如果您未找到与遇到的问题相关的解决方案，则应联系技术支持。
+如果您未找到与遇到的问题相关的解决方案 ，请联系技术支持。

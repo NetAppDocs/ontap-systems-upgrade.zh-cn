@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/stage_3_index.html 
-keywords: installing, booting, node3, install, cluster 
-summary: 在阶段 3 中，您将安装并启动 node3 。 
+keywords: installing, booting, node3, install, cluster, stage 3 
+summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 3 阶段流程顺序。' 
 ---
 = 第 3 阶段。安装并启动 node3
 :hardbreaks:

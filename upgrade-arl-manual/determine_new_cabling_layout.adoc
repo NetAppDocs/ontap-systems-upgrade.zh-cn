@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/determine_new_cabling_layout.html 
 keywords: cable, cabling, layout, disk shelf, fc switches 
-summary: 确定新控制器模块和任何新磁盘架与现有 FC 交换机之间的布线。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，确定新控制器模块和磁盘架的布线布局。 
 ---
 = 确定新的布线布局
 :hardbreaks:

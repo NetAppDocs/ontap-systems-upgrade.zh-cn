@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/retire_node1.html 
 keywords: retire, node1 
-summary: 要停用 node1 ，您需要正确关闭 node1 并将其从机架或机箱中卸下。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，使用 node2 禁用 HA 对并关闭 node1 。' 
 ---
 = 停用 node1
 :hardbreaks:

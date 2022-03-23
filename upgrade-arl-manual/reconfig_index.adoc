@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/reconfig_index.html 
 keywords: reconfigure, fc, switch, layout, RCF, metrocluster 
-summary: 停用旧系统 
+summary: 对于 ONTAP 9.1 或更高版本，请在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间重新配置端口布局并应用最新的 RCF 。 
 ---
 = 重新配置 ONTAP 9.1 或更高版本的 FC 交换机布局
 :hardbreaks:

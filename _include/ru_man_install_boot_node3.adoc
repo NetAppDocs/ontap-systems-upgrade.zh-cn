@@ -1,9 +1,9 @@
 = 
 
 
-您需要在机架中安装 node3 ，将 node1 的连接传输到 node3 ，启动 node3 并安装 ONTAP 。然后，您需要重新分配 node1 的任何备用磁盘，属于根卷的任何磁盘以及先前未重新定位到 node2 的任何非根聚合。
+您必须在机架中安装 node3 ，将 node1 的连接传输到 node3 ，启动 node3 并安装 ONTAP 。此外，您还必须重新分配 node1 的任何备用磁盘，属于根卷的任何磁盘以及先前未重新定位到 node2 的任何非根聚合。
 
-如果 node3 与 node1 上安装的 ONTAP 9 版本不同，则需要对其进行网络启动。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。请参见 link:prepare_for_netboot.html["准备网络启动"]。
+如果 node3 与 node1 上安装的 ONTAP 9 版本不同，则必须对其执行网络启动。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。请参见 link:prepare_for_netboot.html["准备网络启动"]。
 
 但是，如果 node3 安装的 ONTAP 9 版本与 node1 相同或更高，则不需要对其执行网络启动。
 
@@ -177,7 +177,7 @@ WARNING: * 警告 * ：如果此新节点曾在任何其他集群或 HA 对中�
 . 【 man_install3_step20]] 通过选择以下操作之一来配置网络启动连接。
 +
 
-NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
+NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
 
 +
 [cols="35,65"]
@@ -203,7 +203,7 @@ NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数�
 | 所有其他系统 | `netboot \http://web_server_ip/path_to_webaccessible_directory/ontap_version_image.tgz` 
 |===
 +
-`path_to_the_web-accessible_directory` 应指向下载 `ontap_version_image.tgz` 的位置 link:prepare_for_netboot.html#man_netboot_Step1["第 1 步"] 在 _prepare for netboot_ 一节中。
+`path_to_the_web-accessible_directory` 会指向您下载 `ontap_version_image.tgz` 的位置 link:prepare_for_netboot.html#man_netboot_Step1["第 1 步"] 在 _prepare for netboot_ 一节中。
 
 +
 
@@ -339,7 +339,7 @@ Disk ownership will be updated on all disks previously belonging to Filer with s
 Do you want to continue (y/n)?
 ----
 . 【 man_install3_step31]] 输入 `y` 。
-. 【 ｛ man_install3_step32]] 如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如， AFF A800 系统），请将 node1 聚合设置为 root ，以确保 node3 从 node1 的根聚合启动。
+. 【 ｛ man_install3_step32]] 如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如， AFF A800 系统），请将 node1 聚合设置为 root ，以确认 node3 从 node1 的根聚合启动。
 +
 
 WARNING: * 警告 * ：您必须按所示的确切顺序执行以下子步骤；否则可能发生原因会导致中断甚至数据丢失。
@@ -407,7 +407,7 @@ NOTE: 如果不执行上一个子步骤，发生原因 node3 可能会从内部�
     Controller HA configuration: ha
 ----
 +
-系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独立系统或 HA 对中的所有组件的状态都必须相同。
+系统会记录在可编程 ROM （ PROM ）中，无论是 HA 对还是独立配置。独立系统或 HA 对中的所有组件的状态都必须相同。
 
 +
 如果控制器和机箱未配置为 "ha" ，请使用以下命令更正配置：

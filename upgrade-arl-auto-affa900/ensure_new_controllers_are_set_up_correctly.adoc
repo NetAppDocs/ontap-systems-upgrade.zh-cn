@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/ensure_new_controllers_are_set_up_correctly.html 
 keywords: ensure, controllers, new, setup, ha, pair, node1, node2, lif, cluster, high, availability 
-summary: 通过启用 HA 对并验证 node1 和 node2 是否可以访问彼此的存储来确保设置正确。 
+summary: 在将 AFF A700 升级到 AFF A900 后，验证是否已启用 HA 对，验证 node1 和 node2 存储访问和 LIF ，并确认聚合所有权。 
 ---
-= 确保新控制器设置正确
+= 确认新控制器设置正确
 :hardbreaks:
 :nofooter: 
 :icons: font
@@ -13,7 +13,7 @@ summary: 通过启用 HA 对并验证 node1 和 node2 是否可以访问彼此�
 
 
 [role="lead"]
-要确保设置正确，您必须验证是否已启用 HA 对。此外，还必须验证 node1 和 node2 是否可以访问彼此的存储，并且它们都不拥有属于集群上其他节点的数据 LIF 。此外，您还必须确保所有数据聚合都位于其正确的主节点上，并且两个节点的卷均联机。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改此适配器的使用。
+要确认设置是否正确，您必须验证是否已启用 HA 对。此外，还必须验证 node1 和 node2 是否可以访问彼此的存储，并且它们都不拥有属于集群上其他节点的数据 LIF 。此外，您还必须验证所有数据聚合是否位于其正确的主节点上，以及两个节点的卷是否联机。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改此适配器的使用。
 
 .步骤
 . 在对 node2 执行后检之后，将为 node2 集群启用存储故障转移和集群 HA 对。操作完成后，两个节点均显示为已完成，系统将执行一些清理操作。
@@ -119,9 +119,9 @@ Do you want to continue? {y|n}: y
 `s系统许可证显示`
 
 +
-您可能需要将输出与中捕获的输出进行比较 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 部分。
+您可以将输出与中捕获的输出进行比较 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 部分。
 
-. 如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 `true` with the `kmip.init.maxwait` variable `off` （ in _Boot node2 with the AFF A900 controller module and NVS_ ， link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["第 1 步"]），您需要重置变量：
+. 如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 `true` with the `kmip.init.maxwait` variable `off` （ in _boot node2 with the AFF A900 controller module and NVRAM module_ ， link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["第 1 步"]），必须重置变量：
 +
 `set diag ； systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
 

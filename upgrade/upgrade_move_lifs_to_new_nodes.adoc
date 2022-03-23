@@ -10,7 +10,7 @@ summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群�
 
 
 [role="lead"]
-从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群管理 LIF 从原始节点迁移到新节点。
+从原始节点移动卷后，必须将非 SAN 数据 LIF 和集群管理 LIF 从原始节点迁移到新节点。
 
 您不能使用 VMware vStorage APIs for Array Integration （ VAAI ）迁移用于副本卸载操作的 LIF 。
 

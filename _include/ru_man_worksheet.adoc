@@ -27,10 +27,10 @@
 | （仅限使用 FlexArray 虚拟化软件的 V 系列系统或系统）适用于使用 FlexArray 虚拟化软件的 V 系列系统或系统的拓扑 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 3 阶段： _Install and boot node3_ 第 5 阶段： _Install and boot node4_ |  
 
 
-| SP 的 IP 地址 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 6 阶段： _ensure that the new controllers are set up correctly _ |  
+| SP 的 IP 地址 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 6 阶段： _Confirm that the new controllers are set up correctly _ |  
 
 
-| 许可证密钥 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 6 阶段： _ensure that the new controllers are set up correctly _ |  
+| 许可证密钥 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 6 阶段： _Confirm that the new controllers are set up correctly _ |  
 
 
 | 外部密钥管理服务器的 IP 地址 | 第 1 阶段： _Rekey disks for Storage Encryption" | 第 6 阶段： _set up Storage Encryption on the new nodes_ |  

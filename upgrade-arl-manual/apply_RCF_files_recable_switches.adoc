@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/apply_RCF_files_recable_switches.html 
 keywords: rcf files, reference configuration, switches, nodes, recable, fc 
-summary: 应用适当的 RCF 文件以重新配置交换机以容纳新节点。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，安装 RCF 文件以重新配置 Cisco 和 Brocade 交换机。 
 ---
 = 应用 RCF 文件并重新对交换机进行布线
 :hardbreaks:

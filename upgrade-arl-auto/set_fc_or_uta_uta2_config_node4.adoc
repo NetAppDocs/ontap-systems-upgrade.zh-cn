@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/set_fc_or_uta_uta2_config_node4.html 
 keywords: fc configuration, uta configuration, UTA2 configuration, configure FC ports, UTA/UTA2 card, node4, target, adapter, ports 
-summary: 如果 node4 具有板载 FC 端口， UTA/UTA2 端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。 
+summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.5 的控制器时，配置 node4 板载 FC 端口， UTA/UTA2 端口或 UTA/UTA2 卡。' 
 ---
 = 在 node4 上设置 FC 或 UTA/UTA2 配置
 :hardbreaks:
@@ -121,7 +121,7 @@ NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 �
 
 您必须为 UTA/UTA2 端口配备正确的 SFP+ 模块。
 
-UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10 GbE SFP+ 接口并支持 FC 目标。
+UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。
 
 
 NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和端口。但是，命令行界面使用术语 CNA 。
@@ -211,7 +211,7 @@ f-a    0h       cna      target     -          -        online
 `ucadmin modify -m fc|cna -t initiators|target <adapter_name>`
 
 +
-** ` -m` 是特性模式 FC 或 10 GbE UTA 。
+** ` -m` 是个性化模式， FC 或 10GbE UTA 。
 ** ` -t` 是 FC4 类型， `target` 或 `initiator` 。
 +
 

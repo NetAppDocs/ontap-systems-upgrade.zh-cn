@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto/stage_6_index.html 
-keywords: complete upgrade, node, unified, target, storage, encryption, MetroCluster 
-summary: 在第 6 阶段，确保正确设置了新节点。 
+keywords: complete upgrade, node, unified, target, storage, encryption, MetroCluster, stage 6 
+summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 6 阶段流程顺序。' 
 ---
 = 第 6 阶段。完成升级
 :hardbreaks:

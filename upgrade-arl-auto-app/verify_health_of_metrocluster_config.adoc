@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/verify_health_of_metrocluster_config.html 
 keywords: verifying, health, metrocluster, configuration, fabric, mcc 
-summary: 开始升级 Fabric MetroCluster 配置之前。 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，验证 MetroCluster 配置的运行状况以及操作是否正确。' 
 ---
 = 验证 MetroCluster 配置的运行状况。
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 开始升级 Fabric MetroCluster 配置之前。
 
 
 [role="lead"]
-在开始对光纤 MetroCluster 配置进行升级之前，您必须检查 MetroCluster 配置的运行状况以验证是否正常运行。
+在开始对光纤 MetroCluster 配置进行升级之前，您必须检查 MetroCluster 配置的运行状况以验证操作是否正确。
 
 .步骤
 . 验证 MetroCluster 组件是否运行正常：

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/set_fc_uta_uta2_config_node3.html 
 keywords: configure, configuration, fc, uta, uta2, settings 
-summary: 必须先配置设置，然后才能完成升级。 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，配置 Node3 板载 FC 端口， UTA/UTA2 端口或 UTA/UTA2 卡。 
 ---
 = 在 node3 上设置 FC 或 UTA/UTA2 配置
 :hardbreaks:
@@ -24,7 +24,7 @@ NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和�
 * 但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回 _Install and boot node3_ 并在中继续 link:install_boot_node3.html#step22["第 22 步"]。
 
 
-.选项
+.选项：
 * <<Configure FC ports on node3>>
 * <<Check and configure UTA/UTA2 ports on node3>>
 
@@ -187,7 +187,7 @@ NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和�
  1b       fc       target     -        -          online
 6 entries were displayed.
 ----
-UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10 GbE SFP+ 接口并支持 FC 目标。
+UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式支持并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。
 
 UTA/UTA2 端口可能位于适配器或控制器上，并且具有以下配置，但您应检查 node3 上的 UTA/UTA2 端口的配置，并根据需要进行更改：
 
@@ -196,7 +196,7 @@ UTA/UTA2 端口可能位于适配器或控制器上，并且具有以下配置�
 * 新控制器上的板载 UTA/UTA2 端口会在发货前配置为具有您请求的个性化设置。
 +
 
-NOTE: * 注意 * ：如果您的系统具有存储磁盘，除非指示您进入维护模式，否则您可以在集群提示符处输入本节中的命令。如果您使用的是 Vseries 系统或 FlexArray 虚拟化软件并连接到存储阵列，则可以在维护模式提示符处在此部分中输入命令。要配置 UTA/UTA2 端口，您必须处于维护模式。
+NOTE: * 注意 * ：如果您的系统具有存储磁盘，则必须在集群提示符处输入本节中的命令，除非系统指示您进入维护模式。如果您使用的是 Vseries 系统或 FlexArray 虚拟化软件并连接到存储阵列，则必须在维护模式提示符处在此部分中输入命令。要配置 UTA/UTA2 端口，您必须处于维护模式。
 
 
 

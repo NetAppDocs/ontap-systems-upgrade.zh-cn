@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto/verify_node3_installation.html 
-keywords: install, boot, node3, join quorum 
-summary: 安装并启动 node3 后，您需要验证是否已正确安装它。 
+keywords: install, boot, node3, join quorum, restore, key, manager 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，验证 node3 是否加入仲裁，重新创建 node1 的 VLAN ，接口组和广播域，并还原密钥管理器配置。' 
 ---
 = 验证 node3 安装
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 安装并启动 node3 后，您需要验证是否已正确安装它。
 
 
 [role="lead"]
-安装并启动 node3 后，您需要验证是否已正确安装它。您必须等待 node3 加入仲裁，然后恢复重新定位操作。
+安装并启动 node3 后，您必须验证是否已正确安装它。您必须等待 node3 加入仲裁，然后恢复重新定位操作。
 
 此时，在操作步骤中，操作将暂停，因为 node3 加入仲裁。
 

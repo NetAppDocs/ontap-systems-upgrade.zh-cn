@@ -6,4 +6,4 @@
 您可能需要完成此部分 <<Configure FC ports on node3>>，部分 <<Check and configure UTA/UTA2 ports on node3>>或这两个部分。
 
 
-NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和端口。但是，命令行界面使用术语 CNA 。
+NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配器（ CNA ）适配器和端口。但是，命令行界面使用术语 CNA 。

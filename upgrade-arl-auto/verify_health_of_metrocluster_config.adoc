@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/verify_health_of_metrocluster_config.html 
 keywords: health, metrocluster, alerts 
-summary: 检查 MetroCluster 配置的运行状况以验证是否正常运行。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，验证 MetroCluster 配置的运行状况以及操作是否正确。' 
 ---
 = 验证 MetroCluster 配置的运行状况。
 :hardbreaks:

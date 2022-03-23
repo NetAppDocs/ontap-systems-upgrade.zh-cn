@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html 
 keywords: move, aggregates, nas, lif, node2, node3, node4 
-summary: 在将 node2 聚合从 node3 重新定位到 node4 之前，请将 node3 上当前由 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 ，并验证 node4 上的 SAN LIF 。 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，将 node3 上的 node2 NAS 数据 LIF 从 node3 移动到 node4 。 
 ---
 = 将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 在将 node2 聚合从 node3 重新定位到 node4 之前，请将 node
 
 
 [role="lead"]
-将端口从 node2 映射到 node4 之后，在将 node2 聚合从 node3 重新定位到 node4 之前，您需要将当前位于 node3 上的 node2 所拥有的 NAS 数据 LIF 从 node3 移动到 node4 。您还需要验证 node4 上的 SAN LIF 。
+将端口从 node2 映射到 node4 之后，在将 node2 聚合从 node3 重新定位到 node4 之前，必须将节点 3 上当前由 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 。您还必须验证 node4 上的 SAN LIF 。
 
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node4 联机后，您需要验证 LIF 是否运行正常并位于相应的端口上。
 
@@ -135,7 +135,7 @@ node4
 
 
 
-. [[man_lif_verif_4_Step10]] 通过完成以下子步骤，确保 SAN LIF 位于 node4 上的正确端口上：
+. 【 man_lif_verif_4_Step10]] 完成以下子步骤，确认 SAN LIF 位于 node4 上的正确端口上：
 +
 .. 输入以下命令：
 +
@@ -192,7 +192,7 @@ vs1
 
 +
 
-NOTE: 您需要确保将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
+NOTE: 您必须将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
 
 . 输入以下命令，将所有 LIF 的状态修改为 `up` ，以便 LIF 可以在节点上接受和发送流量：
 +

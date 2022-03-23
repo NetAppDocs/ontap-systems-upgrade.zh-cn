@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/prepare_nodes_for_upgrade.html 
 keywords: preparing, nodes, upgrade 
-summary: 在 ONTAP 命令行中输入以下命令，开始控制器更换过程。 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，请准备节点并运行一系列预检。' 
 ---
 = 准备要升级的节点
 :hardbreaks:
@@ -110,7 +110,7 @@ Controller replacement operation has been paused for user intervention.
 
 | 节点关联性作业检查 | 检查是否正在运行任何节点关联作业。如果节点关联性作业正在运行，则检查将失败。 
 |===
-. 在启动控制器更换操作并完成预检后，此操作将暂停，以便您稍后在配置 node3 时收集可能需要的输出信息。
+. 启动控制器更换操作并完成预检后，此操作将暂停，以便您稍后在配置 node3 时收集可能需要的输出信息。
 +
 
 NOTE: 如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 ，则必须先将集群 LIF 整合为每个节点两个集群端口，然后再开始控制器升级。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。
@@ -120,29 +120,29 @@ NOTE: 如果您的系统每个节点具有两个以上的集群端口，例如 F
 您必须分别运行和保存以下命令的输出：
 
 +
-** vserver services name-service dns show
-** network interface show -curr-node <nodename> -role <cluster ， intercluster ， node-mgmt ， cluster-mgmt ， data>
-** network port show -node <node_name> -type physical
-** service-processor show -node * -instance
-** network fcp adapter show -node <node_name>
-** network port ifgrp show
-** system node show -instance -node <node_name>
-** 运行 -node <node_name> sysconfig
-** storage aggregate show -node <node_name>
-** volume show -node <node_name>
-** storage array config show -switch <switch_name>
-** system license show -owner <node_name>
-** storage encryption disk show
-** security key-manager 板载 show-backup
-** security key-manager external show
-** security key-manager external show-status
-** 可访问性 show -detail
+** `vserver services name-service dns show`
+** `network interface show -curr-node nodename -role cluster ， intercluster ， node-mgmt ， cluster-mgmt ， data`
+** `network port show -node node_name -type physical`
+** `sservice-processor show -node * -instance`
+** `network fcp adapter show -node node_name`
+** `network port ifgrp show`
+** `ssystem node show -instance -node node_name`
+** `运行 -node <node_name> sysconfig`
+** `storage aggregate show -node node_name`
+** `volume show -node node_name`
+** `storage array config show -switch switch_name`
+** `ssystem license show -owner node_name`
+** `s存储加密磁盘 show`
+** `s安全密钥管理器板载 show-backup`
+** `security key-manager external show`
+** `s安全密钥管理器外部 show-status`
+** `re可访问性 show -detail`
 
 
 
 
 
-NOTE: 如果使用板载密钥管理器（ OKM ）进行 NetApp 卷加密，请准备好密钥管理器密码短语，以便稍后在操作步骤中完成密钥管理器重新同步。
+NOTE: 如果使用板载密钥管理器（ OKM ）进行 NetApp 卷加密，请保持密钥管理器密码短语已准备好，以便稍后在操作步骤 中完成密钥管理器重新同步。
 
 
 

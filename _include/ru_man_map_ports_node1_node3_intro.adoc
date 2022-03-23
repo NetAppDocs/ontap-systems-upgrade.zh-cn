@@ -1,7 +1,7 @@
 = 
 
 
-您需要确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
+您必须确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
 
 您必须已从 _Node_ 获得有关新节点上端口的信息 Hardware Universe 。转至 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe ）。您可以使用本节后面和中的信息 。
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/decommission_old_system.html 
 keywords: decommission, old system, upgrade, databases, netapp, support, site, serial, number, cluster 
-summary: 升级后，您可以通过 NetApp 支持站点停用旧系统。 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器后，告知 NetApp 旧系统不再运行。' 
 ---
 = 停用旧系统
 :hardbreaks:
@@ -27,7 +27,7 @@ summary: 升级后，您可以通过 NetApp 支持站点停用旧系统。
 ** " 我的位置 " 的序列号
 
 
-. 单击 * 执行！ *
+. 选择 * 执行！ *
 +
 下表显示了集群信息，包括序列号。
 

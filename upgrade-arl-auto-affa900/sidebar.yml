@@ -1,7 +1,6 @@
 ---
 section: upgrade-arl-auto-affa900
-title: 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF
-  A900
+title: 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900
 entries:
 - title: 概述
   url: "/upgrade-arl-auto-affa900/index.html"
@@ -15,8 +14,6 @@ entries:
   url: "/upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html"
 - title: ARL 升级概述
   url: "/upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html"
-- title: 升级节点对
-  url: "/upgrade-arl-auto-affa900/upgrade_node_pair.html"
 - title: 第 1 阶段。准备升级
   entries:
   - title: 验证升级硬件
@@ -35,9 +32,9 @@ entries:
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
   - title: 网络启动节点 1
     url: "/upgrade-arl-auto-affa900/netboot_node1.html"
-- title: 第 3 阶段。使用 AFF A900 控制器模块和 NVS 启动 node1
+- title: 第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
   entries:
-  - title: 使用 AFF A900 控制器模块和 NVS 启动 node1
+  - title: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
     url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
   - title: 验证 node1 安装
     url: "/upgrade-arl-auto-affa900/verify_node1_installation.html"
@@ -51,15 +48,15 @@ entries:
     url: "/upgrade-arl-auto-affa900/relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html"
   - title: 停用 node2
     url: "/upgrade-arl-auto-affa900/retire_node2.html"
-- title: 第 5 阶段。在节点 2 上安装 AFF A900 NVS 和控制器模块
+- title: 第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
   entries:
-  - title: 在节点 2 上安装 AFF A900 NVS 和控制器模块
+  - title: 在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
     url: "/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html"
   - title: 网络启动节点 2.
     url: "/upgrade-arl-auto-affa900/netboot_node2.html"
-- title: 第 6 阶段。使用 AFF A900 控制器模块和 NVS 启动 node2
+- title: 第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
   entries:
-  - title: 使用 AFF A900 控制器模块和 NVS 启动 node2
+  - title: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
     url: "/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html"
   - title: 验证 node2 安装
     url: "/upgrade-arl-auto-affa900/verify_node2_installation.html"

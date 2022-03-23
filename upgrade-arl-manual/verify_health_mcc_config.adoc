@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/verify_health_mcc_config.html 
 keywords: health, mcc, metrocluster, configuration, configure 
-summary: 检查 MetroCluster 配置的运行状况以验证是否正常运行。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，验证 MetroCluster 配置的运行状况以及操作是否正确。 
 ---
 = 验证 MetroCluster 配置的运行状况。
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 检查 MetroCluster 配置的运行状况以验证是否正常运行。
 
 
 [role="lead"]
-您应检查 MetroCluster 配置的运行状况以验证是否正常运行。
+您应检查 MetroCluster 配置的运行状况以验证操作是否正确。
 
 .步骤
 . 验证 MetroCluster 组件是否运行正常：

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/stage_3_index.html 
-keywords: relocate, retire, node1, steps 
-summary: 在阶段 2 中，您将 node1 聚合和 LIF 重新定位到 node2 ，记录 node1 信息，然后停用 node1 。 
+keywords: relocate, retire, node1, steps, stage 3 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 的第 3 阶段流程顺序。 
 ---
 = 第 3 阶段。安装并启动 node3
 :hardbreaks:

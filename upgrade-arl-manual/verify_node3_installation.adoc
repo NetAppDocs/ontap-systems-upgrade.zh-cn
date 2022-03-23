@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual/verify_node3_installation.html 
-keywords: verify, node3, install, installation 
-summary: 安装并启动 node3 后，您需要验证它是否已正确安装，是否属于集群，以及是否可以与 node2 通信。 
+keywords: verify, node3, install, installation, node4 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，验证 node3 的安装以及与 node2 的通信。 
 ---
 = 验证 node3 安装
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 安装并启动 node3 后，您需要验证它是否已正确安装，�
 
 
 [role="lead"]
-安装并启动 node3 后，您需要验证它是否已正确安装，是否属于集群，以及是否可以与 node2 通信。
+安装并启动 node3 后，您必须验证它是否已正确安装，是否属于集群，以及是否可以与 node2 通信。
 
 .步骤
 . 在系统提示符处，登录到 node3 。然后，验证 node3 与 node2 位于同一集群中且运行状况良好：

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/verify_swtichover_healing_switchback.html 
 keywords: verify,switchover, healing, switchback, negotiated, mcc, metrocluster 
-summary: 验证切换，修复和切回操作。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，验证切换，修复和切回操作。 
 ---
 = 验证切换，修复和切回
 :hardbreaks:

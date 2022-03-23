@@ -5,10 +5,10 @@
 * 您可以升级以下类型的系统：
 +
 ** FAS 系统到 FAS 系统。
-** 将 FAS 系统连接到 V 系列系统或使用 FlexArray 虚拟化软件的系统。
-** V 系列系统到 V 系列系统或使用 FlexArray 虚拟化软件的系统。
-** 将使用 FlexArray 虚拟化软件的 V 系列系统或系统连接到 FAS 系统，前提是使用 FlexArray 虚拟化软件的 V 系列系统或系统没有阵列 LUN 。
+** 将 FAS 系统连接到使用 FlexArray 虚拟化软件的系统或 V 系列系统。
 ** AFF 系统到 AFF 系统。
+** 将安装了 FlexArray 虚拟化软件或 V 系列系统的系统连接到 FAS 系统，前提是安装了 FlexArray 虚拟化软件或 V 系列系统的系统没有阵列 LUN 。
+** V 系列系统到使用 FlexArray 虚拟化软件的系统或 V 系列系统。
 
 
 

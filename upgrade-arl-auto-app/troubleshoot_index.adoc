@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/troubleshoot_index.html 
-keywords: troubleshooting, node, aggregate, lif, migrate, failure 
-summary: 升级节点对时可能会遇到故障。 
+keywords: troubleshooting, troubleshoot, node, aggregate, lif, migrate, failure 
+summary: '使用 `ssystem controller replace` 命令对升级运行 ONTAP 9.8 或更高版本的控制器时可能发生的故障进行故障排除。' 
 ---
 = 故障排除
 :hardbreaks:

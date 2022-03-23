@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual/lifs_invalid_ports_after_upgrade.html 
-keywords: lifs, invalid, ports, error, mismatch, troublshoot, metrocluster 
-summary: 升级后，如果您使用的是 MetroCluster 配置，则 FC 逻辑接口（ LIF ）可能会留在不正确的端口上。 
+keywords: lifs, invalid, ports, error, mismatch, troubleshoot, metrocluster 
+summary: 在运行 MetroCluster ONTAP 9.7 或更早版本的控制器上手动升级 ARL 后，重新同步配置中无效端口上的 LIF 。 
 ---
 = 升级后， LIF 位于无效端口上
 :hardbreaks:

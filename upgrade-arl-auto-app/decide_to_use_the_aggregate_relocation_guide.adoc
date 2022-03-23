@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html 
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
-summary: 此内容介绍如何使用新控制器升级 HA 对中的存储控制器。 
+summary: '使用 `ssystem controller replace` 命令确定是否使用 ARL 升级运行 ONTAP 9.8 或更高版本的控制器。' 
 ---
 = 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
@@ -15,7 +15,7 @@ summary: 此内容介绍如何使用新控制器升级 HA 对中的存储控制�
 [role="lead"]
 此内容介绍如何使用新控制器升级 HA 对中的存储控制器，同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
 
-在以下情况下，应使用此内容：
+您可以在以下情况下使用此内容：
 
 * 您运行的是 ONTAP 9.8 或更高版本。
 * 您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。
@@ -59,8 +59,8 @@ NOTE: 如果上表不包含您的控制器升级型号组合，请联系技术�
 ^3^如果要在双节点无交换机集群配置中从 AFF A300 升级到 AFF A400 或 FAS8200 到 FAS8300 系统，则必须选择临时集群端口进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。
 
 * 对于采用以太网类型配置的 AFF A400 或 FAS8300 ，您可以使用两个夹层端口中的任何一个作为临时集群端口。
-* 对于采用 FC 类型配置的 AFF A400 或 FAS8300 ，您必须添加一个四端口 10 GbE 网络接口卡（部件号 X1147A ）以提供临时集群端口。
-* 使用临时集群端口完成控制器升级后，您可以无中断地将集群 LIF 迁移到 AFF A400 系统上的 E3a 和 e3b 100 GbE 端口以及 FAS8300 系统上的 e0c 和 e0d 100 GbE 端口。
+* 对于采用 FC 类型配置的 AFF A400 或 FAS8300 ，您必须添加一个四端口 10GbE 网络接口卡（部件号 X1147A ）以提供临时集群端口。
+* 使用临时集群端口完成控制器升级后，您可以无中断地将集群 LIF 迁移到 AFF A400 系统上的 E3a 和 e3b 100GbE 端口以及 FAS8300 系统上的 e0c 和 e0d 100GbE 端口。
 
 
 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。

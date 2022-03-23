@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/retire_node2.html 
 keywords: retire, node2, cluster, SAN, LIFs 
-summary: 要停用 node2 ，您需要正确关闭 node2 并将其从机架或机箱中卸下。 
+summary: 在对运行 ONTAP 9.8 或更高版本的控制器进行手动 ARL 升级期间，正确关闭 Node2 并将其从机架或机箱中卸下。 
 ---
 = 停用 node2
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 要停用 node2 ，您需要正确关闭 node2 并将其从机架或机
 
 
 [role="lead"]
-要停用 node2 ，您需要正确关闭 node2 并将其从机架或机箱中卸下。如果集群位于 SAN 环境中，则还需要删除 SAN LIF 。
+要停用 node2 ，您必须正确关闭 node2 并将其从机架或机箱中卸下。如果集群位于 SAN 环境中，则还必须删除 SAN LIF 。
 
 .步骤
 . 执行以下操作之一：
@@ -66,7 +66,7 @@ Warning: Cluster HA has not been configured. Cluster HA must be configured on a 
 ----
 +
 
-NOTE: 如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。
+NOTE: 如果要升级具有多个 HA 对的集群中的 HA 对，则必须将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。
 
 . 如果 node2 持有 epsilon ，请在节点上将 epsilon 标记为 `false` ，以便可以将其传输到 node3 ：
 +

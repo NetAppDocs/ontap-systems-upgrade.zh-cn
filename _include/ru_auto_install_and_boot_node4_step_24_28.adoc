@@ -10,7 +10,7 @@
 安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
 
 . 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-. `s步骤 27]] 如果在此配置上使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为` true `，并将 kmip.init.maxwait` `变量设置为` off ，以避免在加载 node2 配置后出现启动环路：
+. `s步骤 27]] 如果此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为` off ，以避免在加载 node2 配置后出现启动环路：
 +
 `setenv bootarg.storageencryption.support true`
 

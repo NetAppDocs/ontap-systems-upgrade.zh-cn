@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html 
 keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption 
-summary: 如果使用 NetApp 卷加密（ NVE ）对升级后的系统上的卷进行加密，请将加密配置同步到新节点。 
+summary: 如果需要，请在 AFF A700 升级到 AFF A900 期间还原升级后的 node1 上的 key-manager 配置。 
 ---
 = 在升级后的节点 1 上还原密钥管理器配置
 :hardbreaks:
@@ -18,7 +18,7 @@ summary: 如果使用 NetApp 卷加密（ NVE ）对升级后的系统上的卷�
 执行以下步骤，将加密配置同步到新节点：
 
 .步骤
-. 在集群提示符处使用以下命令同步 OKM 的加密配置：
+. 在集群提示符处使用以下命令，同步板载密钥管理器（ OKM ）的加密配置：
 +
 `sSecurity key-manager 板载同步`
 

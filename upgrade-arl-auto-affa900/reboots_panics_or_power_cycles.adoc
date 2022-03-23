@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/reboots_panics_or_power_cycles.html 
 keywords: reboots, panics, power, cycles, node, crash 
-summary: 系统可能发生崩溃—重新启动，崩溃或重新启动。 
+summary: 在将 AFF A700 升级到 AFF A900 时，系统可能会在不同阶段崩溃，重新启动，崩溃或重新启动。 
 ---
 = 重新启动，崩溃或重新启动
 :hardbreaks:
@@ -57,7 +57,7 @@ summary: 系统可能发生崩溃—重新启动，崩溃或重新启动。
 
 === 在禁用 HA 对的情况下， Node1 在第一个资源释放阶段崩溃
 
-Node2 不会接管，但它仍在从所有非根聚合提供数据。
+Node2 不会接管，但它仍从所有非根聚合提供数据。
 
 .步骤
 . 启动 node1 。
@@ -113,7 +113,7 @@ Node2 崩溃后 Node1 不会接管，因为 HA 对已禁用。
 
 === 在禁用 HA 对的情况下，节点 1 在第一个验证阶段崩溃
 
-Node2 不会接管，但它仍在从所有非根聚合提供数据。
+Node2 不会接管，但它仍从所有非根聚合提供数据。
 
 .步骤
 . 启动 node1 。

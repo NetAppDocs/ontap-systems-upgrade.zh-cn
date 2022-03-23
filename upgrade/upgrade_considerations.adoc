@@ -10,7 +10,7 @@ summary: 要规划升级，您应熟悉一般升级注意事项。如有必要�
 
 
 [role="lead"]
-要规划升级，您应熟悉一般升级注意事项。如有必要，请联系技术支持，以获取有关集群配置的建议和指导。
+要规划升级，您必须熟悉一般升级注意事项。如有必要，请联系技术支持，以获取有关集群配置的建议和指导。
 
 要求和限制
 
@@ -40,7 +40,7 @@ https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管�
 
 * HA 对中的控制器必须为两个 AFF 型号或两个 FAS 型号。
 * 如果节点位于同一集群中，则可以通过将卷或物理存储从一个 FAS2xxx 移动到更高的 FAS2xxx 来进行升级。例如，您可以将卷或物理存储从 FAS2552 移动到 FAS2750 。
-* 如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。
+* 如果要升级具有多个 HA 对的集群中的 HA 对，则必须将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。
 * 如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["NetApp 知识库文章 SU436 ： CLAMK takeover default configuration changed"^]。从 ONTAP 9.8 开始，默认情况下会启用 `KCS -enable-takeover` 参数。
 * 如果要升级双节点 MetroCluster 配置，请参见： https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"^]
 

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto/verify_node4_installation.html 
-keywords: verify, node4, installation, MetroCluster 
-summary: 验证 node4 是否安装正确。 
+keywords: verify, node4, installation, MetroCluster, restore, key, manager 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，验证 node4 是否加入仲裁，重新创建 node1 的 VLAN ，接口组和广播域，并还原密钥管理器配置。' 
 ---
 = 验证 node4 安装
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 验证 node4 是否安装正确。
 
 
 [role="lead"]
-安装并启动 node4 后，您需要验证它是否已正确安装，是否属于集群，以及是否可以与 node3 通信。
+安装并启动 node4 后，您必须验证它是否已正确安装，是否属于集群，以及是否可以与 node3 通信。
 
 此时，在操作步骤中，操作将暂停，因为 node4 加入仲裁。
 

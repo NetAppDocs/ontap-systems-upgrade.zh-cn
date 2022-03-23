@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/stage_6_index.html 
 keywords: stage 6, complete, upgrade, set up, setup, controller, storage encryption, netapp encryption, decommission, resume snapmirror 
-summary: 在第 6 阶段，确保正确设置了新节点。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 的第 6 阶段流程顺序。 
 ---
 = 第 6 阶段。完成升级
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 在第 6 阶段，确保正确设置了新节点。
 
 
 [role="lead"]
-在第 6 阶段，您可以确保正确设置新节点。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改适配器的个性化设置。如果新节点启用了加密，则还应设置存储加密。您还应停用旧节点。
+在第 6 阶段，您确认新节点设置正确。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改适配器的个性化设置。如果新节点已启用加密，则还必须设置存储加密。您还必须停用旧节点。
 
 . link:ensure_controllers_set_up_correctly.html["确保新控制器设置正确"]
 . link:set_up_storage_encryption_new_controller.html["在新控制器模块上设置存储加密"]

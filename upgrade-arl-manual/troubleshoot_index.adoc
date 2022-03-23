@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/troubleshoot_index.html 
 keywords: troubleshoot, troubleshooting, problem, error, failure 
-summary: 升级节点对时可能会遇到故障。 
+summary: 对在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间可能发生的故障进行故障排除。 
 ---
 = 故障排除
 :hardbreaks:

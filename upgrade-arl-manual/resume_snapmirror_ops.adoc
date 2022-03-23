@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/resume_snapmirror_ops.html 
 keywords: resume, snapmirror, transfers, relationships 
-summary: 您可以恢复升级前暂停的 SnapMirror 传输，并恢复 SnapMirror 关系。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间恢复 SnapMirror 传输和关系。 
 ---
 = 恢复 SnapMirror 操作
 :hardbreaks:

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/retire_node2.html 
 keywords: retire, node2 
-summary: 正确关闭 node2 并将其从机架或机箱中卸下，从而停用 node2 。 
+summary: 在将 AFF A700 升级到 AFF A900 期间，关闭 node2 并将其从机架或机箱中卸下。 
 ---
 = 停用 node2
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 正确关闭 node2 并将其从机架或机箱中卸下，从而停用 
 
 
 [role="lead"]
-要停用 node2 ，您需要正确关闭 node2 并将其从机架或机箱中卸下。
+要停用 node2 ，您必须正确关闭 node2 并将其从机架或机箱中卸下。
 
 .步骤
 . 恢复操作：

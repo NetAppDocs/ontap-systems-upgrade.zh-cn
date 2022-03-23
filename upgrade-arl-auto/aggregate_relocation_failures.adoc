@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/aggregate_relocation_failures.html 
 keywords: aggregate, relocation, failures, arl 
-summary: 在升级期间，聚合重新定位可能会在不同点失败。 
+summary: '使用 `ssystem controller replace` 命令对将运行 ONTAP 9.5 的控制器升级到 9.7 时可能发生的聚合重新定位故障进行故障排除。' 
 ---
 = 聚合重新定位失败
 :hardbreaks:

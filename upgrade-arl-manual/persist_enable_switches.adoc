@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/persist_enable_switches.html 
 keywords: enable, switches, fabric, persistent 
-summary: 持久启用网络结构中的交换机 Brocade ， Cisco 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，持久启用网络结构中的 Brocade 和 Cisco 交换机。 
 ---
 = 持久启用交换机
 :hardbreaks:

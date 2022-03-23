@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/map_ports_node2_node4.html 
 keywords: map, node2, node4, physical ports, cluster, network, connectivity 
-summary: 验证 node2 上的物理端口是否正确映射到 node4 上的物理端口。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动进行 ARL 升级期间，验证 node2 上的物理端口是否正确映射到 node4 。 
 ---
 = 将端口从 node2 映射到 node4
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 验证 node2 上的物理端口是否正确映射到 node4 上的物理
 
 
 [role="lead"]
-您需要确保 node2 上的物理端口正确映射到 node4 上的物理端口，从而使 node4 能够在升级后与集群中的其他节点以及网络进行通信。
+您必须确保 node2 上的物理端口正确映射到 node4 上的物理端口，从而使 node4 能够在升级后与集群中的其他节点以及网络进行通信。
 
 您必须已了解有关新节点上端口的信息，要访问此信息，请参见 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。您可以使用本节后面的信息。
 

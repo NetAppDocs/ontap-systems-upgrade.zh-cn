@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/map_ports_node1_node3.html 
 keywords: map, ports, node1, node3, cluster, home port, vlan ports, broadcast domain, connectivity 
-summary: 将端口从 node1 映射到 node3 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动进行 ARL 升级期间，验证 node1 上的物理端口是否正确映射到 node3 。 
 ---
 = 将端口从 node1 映射到 node3
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 将端口从 node1 映射到 node3
 
 
 [role="lead"]
-您需要确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
+您必须确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
 
 您必须已从 _Node_ 获得有关新节点上端口的信息 Hardware Universe 。转至 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe ）。您可以使用本节后面和中的信息 。
 
@@ -131,7 +131,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 ----
 WARNING: Repairing port "node_name:port" might cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
 ----
-.. 要使 ONTAP 完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
+.. 要使 ONTAP 能够完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
 .. 列出集群上的所有广播域：
 +
 `broadcast-domain show`

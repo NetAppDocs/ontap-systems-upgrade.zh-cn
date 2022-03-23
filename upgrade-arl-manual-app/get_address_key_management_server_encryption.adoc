@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/get_address_key_management_server_encryption.html 
 keywords: storage, encryption, authentication, key, manager, external 
-summary: 配置存储加密并建立客户端身份验证密钥。 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间配置存储加密。 
 ---
 = 获取用于存储加密的外部密钥管理服务器的 IP 地址
 :hardbreaks:

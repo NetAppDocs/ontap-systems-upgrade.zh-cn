@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/aggregate_relocation_failures.html 
 keywords: aggregate, relocation, failure, error, problem 
-summary: 聚合重新定位失败 
+summary: 对运行 ONTAP 9.8 或更高版本的控制器在手动 ARL 升级期间可能发生的聚合重新定位故障进行故障排除。 
 ---
 = 聚合重新定位失败
 :hardbreaks:
@@ -45,7 +45,7 @@ summary: 聚合重新定位失败
 
 == 升级完成后， node1 上的聚合属于 node4
 
-升级操作步骤结束时， node3 应为聚合的新主节点，而这些聚合最初将 node1 作为主节点。您可以在升级后重新定位它们。
+升级操作步骤 结束时， node3 必须是最初将 node1 作为主节点的聚合的新主节点。您可以在升级后重新定位它们。
 
 在以下情况下，聚合可能无法正确重新定位，将 node1 作为其主节点，而不是 node3 ：
 

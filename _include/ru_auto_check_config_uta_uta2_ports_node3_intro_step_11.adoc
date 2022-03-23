@@ -29,7 +29,7 @@ Adapter  Mode     Type       Mode      Type         Status
 1b      fc        target     -         -            online
 6 entries were displayed.
 ....
-UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10 GbE SFP+ 接口并支持 FC 目标。
+UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。
 
 UTA/UTA2 端口可能位于适配器或控制器上，并且具有以下配置，但您应检查 node3 上的 UTA/UTA2 端口的配置，并根据需要进行更改：
 

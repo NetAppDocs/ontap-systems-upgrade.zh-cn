@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/retire_node1.html 
 keywords: retiring, node 
-summary: 要停用 node1 ，您需要恢复自动操作，以便使用 node2 禁用 HA 对并正确关闭 Lonode1 。 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，使用 node2 禁用 HA 对并关闭 node1 。' 
 ---
 = 停用 node1
 :hardbreaks:

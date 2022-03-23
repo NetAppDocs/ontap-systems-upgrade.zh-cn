@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: /upgrade-arl-auto-affa900/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html 
 keywords: moving, non-root, aggregates, nas, lif, node1, node2 
-summary: 验证 node2 上的网络配置后，在将聚合从 node1 重新定位到 node2 之前，必须验证 node2 上的 LIF 所有权。 
+summary: 验证在 AFF A700 升级到 AFF A900 期间， node1 上的 node2 的 NAS 数据 LIF 是否已从 node1 重新定位到 node2 。 
 ---
 = 将非根聚合和 NAS 数据 LIF 移回 node2
 :hardbreaks:

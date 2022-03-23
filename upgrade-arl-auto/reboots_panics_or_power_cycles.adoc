@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/reboots_panics_or_power_cycles.html 
 keywords: reboots, panics, power, cycles, node, crash 
-summary: 系统可能发生崩溃—重新启动，崩溃或重新启动。 
+summary: '在使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，系统可能会在不同阶段崩溃—重新启动，崩溃或重新启动。' 
 ---
 = 重新启动，崩溃或重新启动
 :hardbreaks:

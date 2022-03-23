@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/map_ports_node1_node3.html 
 keywords: map, ports, node1, node3, cluster, home port, vlan ports, broadcast domain, connectivity 
-summary: 将端口从 node1 映射到 node3 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动进行 ARL 升级期间，验证 node1 上的物理端口是否正确映射到 node3 。 
 ---
 = 将端口从 node1 映射到 node3
 :hardbreaks:
@@ -13,13 +13,15 @@ summary: 将端口从 node1 映射到 node3
 
 
 [role="lead"]
-您需要确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
+您必须确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
 
 您必须已从 _Node_ 获得有关新节点上端口的信息 Hardware Universe 。转至 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe ）。您可以使用本节后面和中的信息 。
 
 node3 的软件配置必须与 node3 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。
 
-端口设置可能因节点型号而异。您必须使原始节点的端口和 LIF 配置与新节点的配置计划兼容。这是因为新节点在启动时会重放相同的配置，这意味着在启动 node3 时， ONTAP 将尝试在 node1 上使用的相同端口上托管 LIF 。
+端口设置可能因节点型号而异。
+
+您必须使原始节点的端口和 LIF 配置与新节点的配置计划兼容。这是因为新节点在启动时会重放相同的配置，这意味着在启动 node3 时， ONTAP 将尝试在 node1 上使用的相同端口上托管 LIF 。
 
 因此，如果 node1 上的物理端口不直接映射到 node3 上的物理端口，则需要更改软件配置，才能在启动后还原集群，管理和网络连接。此外，如果 node1 上的集群端口未直接映射到 node3 上的集群端口，则在重新启动时， node3 可能无法自动重新加入仲裁，直到对软件配置进行更改，以便将集群 LIF 托管在正确的物理端口上为止。
 
@@ -180,7 +182,7 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 
 
 
-. [[man_map_1_step5]] 调整托管集群 LIF 以及节点管理和 / 或集群管理 LIF 的广播域。确保每个广播域包含正确的端口。如果某个端口托管 LIF 或位于 LIF 的主目录中，则无法在广播域之间移动该端口，因此您可能需要按如下所示迁移和修改 LIF ：
+. [[man_map_1_step5]] 调整托管集群 LIF 以及节点管理和 / 或集群管理 LIF 的广播域。确认每个广播域包含正确的端口。如果某个端口托管 LIF 或位于 LIF 的主目录中，则无法在广播域之间移动该端口，因此您可能需要按如下所示迁移和修改 LIF ：
 +
 .. 显示 LIF 的主端口：
 +

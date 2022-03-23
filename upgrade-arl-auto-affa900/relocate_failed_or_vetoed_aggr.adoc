@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/relocate_failed_or_vetoed_aggr.html 
 keywords: relocate, failed, vetoed, aggregates, relocation, operation 
-summary: 如果聚合无法重新定位或被否决，您必须手动重新定位聚合或覆盖否决或目标检查。 
+summary: 将 AFF A700 升级到 AFF A900 期间发生故障或被否决的聚合重新定位。 
 ---
 = 重新定位失败或被否决的聚合
 :hardbreaks:

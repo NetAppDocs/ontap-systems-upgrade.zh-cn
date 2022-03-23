@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node4.html 
 keywords: node4, interface group, VLANs, broadcast domains, re-create 
-summary: 确认 node4 处于仲裁状态并可与 node3 通信后，您必须在 node4 上重新创建 node2 的 VLAN ，接口组和广播域。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，在 node4 上重新创建 node2 的 VLAN ，接口组和广播域。' 
 ---
 = 在 node4 上重新创建 VLAN ，接口组和广播域
 :hardbreaks:

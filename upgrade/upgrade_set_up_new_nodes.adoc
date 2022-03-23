@@ -95,7 +95,7 @@ NOTE: 如果无法通过网络启动新控制器，请联系技术支持。
 +
 link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行 SAN 管理"^]
 
-. 您应验证命令输出是否显示 `ha` ：
+. 您必须验证命令输出是否显示 `ha` ：
 +
 [listing]
 ----

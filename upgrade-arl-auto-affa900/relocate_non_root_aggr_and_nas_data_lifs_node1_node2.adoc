@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html 
-keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2, aff, a900, nvs, controller 
-summary: 在将 node1 更换为 AFF A900 控制器模块和 NVS 之前，必须将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 。 
+keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2, aff, a900, NVRAM, controller 
+summary: 在 AFF A700 升级到 AFF A900 期间，将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 并还原 node1 的资源。 
 ---
 = 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 在将 node1 更换为 AFF A900 控制器模块和 NVS 之前，必须�
 
 
 [role="lead"]
-在将 node1 替换为 AFF A900 控制器模块和 NVS 之前，必须先将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 ，然后才能最终将 node1 的资源恢复回运行在 AFF A900 系统上的 node1 上。此过程大部分是自动化的；操作将暂停，以便您可以检查其状态。
+在将 node1 更换为 AFF A900 控制器模块和 NVRAM 模块之前，必须先将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 ，然后才能最终将 node1 的资源恢复回运行在 AFF A900 系统上的 node1 上。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。
 
 开始任务时，此操作应已暂停；您必须手动恢复此操作。
 

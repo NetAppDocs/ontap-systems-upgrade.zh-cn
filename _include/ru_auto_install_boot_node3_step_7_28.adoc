@@ -43,7 +43,7 @@ NOTE: 请忽略以下消息： `HA 对上的无中断升级不支持此操作步
 `要开始使用新安装的软件，必须重新启动节点。是否要立即重新启动？｛ y|n ｝`
 
 +
-控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。
+控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且必须还原配置数据。
 
 
 
@@ -118,7 +118,7 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 
 
 
-. 在新节点的启动加载程序中，需要设置 `partner-sysid` 参数。对于 node3 ， `partner-sysid` 必须为 node2 。验证 node3 的 `partner-sysid` ：
+. 在新节点的启动加载程序中，必须设置 `partner-sysid` 参数。对于 node3 ， `partner-sysid` 必须为 node2 。验证 node3 的 `partner-sysid` ：
 +
 `printenv partner-sysid`
 
@@ -153,7 +153,7 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
 
 . 【第 26 步】如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-. `s步骤 27]] 如果在此配置上使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为` true `，并将 kmip.init.maxwait` `变量设置为` off ，以避免在加载 node1 配置后出现启动环路：
+. `s步骤 27]] 如果在此配置上使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为` off ，以避免在加载 node1 配置后出现启动环路：
 +
 `setenv bootarg.storageencryption.support true`
 

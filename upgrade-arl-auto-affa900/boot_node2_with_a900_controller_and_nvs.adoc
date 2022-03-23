@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html 
-keywords: boot, nvs, controller, module, node2, aff, a700, a900 
-summary: 使用 AFF A900 控制器模块和 NVS 启动 node2 。 
+keywords: boot, NVRAM, controller, module, node2, aff, a700, a900 
+summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。 
 ---
-= 使用 AFF A900 控制器模块和 NVS 启动 node2
+= 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
 :hardbreaks:
 :nofooter: 
 :icons: font
@@ -13,10 +13,10 @@ summary: 使用 AFF A900 控制器模块和 NVS 启动 node2 。
 
 
 [role="lead"]
-带有 AFF A900 控制器模块和 NVS 的 Node2 现在可以升级了。通过交换控制器模块和 NVS 从 AFF A700 升级到 AFF A900 只涉及移动控制台和管理连接。本节介绍使用 AFF A900 控制器模块和 NVS 启动 node2 所需的步骤。
+带有 AFF A900 控制器模块和 NVRAM 模块的 Node2 现在可进行升级。通过交换控制器模块和 NVRAM 模块从 AFF A700 升级到 AFF A900 只涉及移动控制台和管理连接。本节介绍使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 所需的步骤。
 
 .步骤
-. `s此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为` true `，并将 kmip.init.maxwait` `变量设置为` off ，以避免在加载 node2 配置后出现启动环路：
+. `s此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为` off ，以避免在加载 node2 配置后出现启动环路：
 +
 `setenv bootarg.storageencryption.support true`
 

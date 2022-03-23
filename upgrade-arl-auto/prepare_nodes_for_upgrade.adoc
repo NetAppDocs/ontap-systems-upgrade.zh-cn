@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/prepare_nodes_for_upgrade.html 
 keywords: prepare, nodes, upgrade, controller, replacement, license 
-summary: 您必须准备好要升级的节点。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，请准备节点并运行一系列预检。' 
 ---
 = 准备要升级的节点
 :hardbreaks:
@@ -100,33 +100,33 @@ Controller replacement operation has been paused for user intervention.
 
 | 节点关联性作业检查 | 检查是否正在运行任何节点关联作业。如果节点关联性作业正在运行，则检查将失败。 
 |===
-. 在启动控制器更换操作并完成预检后，此操作将暂停，以便您稍后在配置 node3 时收集可能需要的输出信息。
+. 启动控制器更换操作并完成预检后，此操作将暂停，以便您稍后在配置 node3 时收集可能需要的输出信息。
 . 按照系统控制台上控制器更换操作步骤的指示运行以下一组命令。
 +
 您必须分别运行和保存以下命令的输出：
 
 +
-** vserver services name-service dns show
-** network interface show -curr-node <nodename> -role cluster ， intercluster ， node-mgmt ， clustermgmt ， data
-** network port show -node <nodename> -type physical
-** service-processor show -node * -instance
-** network fcp adapter show -node <node_name>
-** network port ifgrp show
-** network port vlan show
-** system node show -instance -node <nodename>
-** 运行 -node <node_name> sysconfig
-** storage aggregate show -node <nodename
-** volume show -node <node_name>
-** network interface failover-groups show
-** storage array config show -switch <switch_name>
-** system license show -owner <node_name>
-** storage encryption disk show
+** `vserver services name-service dns show`
+** `network interface show -curr-node nodename -role cluster ， intercluster ， node-mgmt ， clustermgmt ， data`
+** `network port show -node nodename -type physical`
+** `sservice-processor show -node * -instance`
+** `network fcp adapter show -node node_name`
+** `network port ifgrp show`
+** `network port vlan show`
+** `ssystem node show -instance -node nodename`
+** `运行 -node <node_name> sysconfig`
+** `storage aggregate show -node nodename`
+** `volume show -node node_name`
+** `network interface failover-groups show`
+** `storage array config show -switch switch_name`
+** `ssystem license show -owner node_name`
+** `s存储加密磁盘 show`
 
 
 
 
 
-NOTE: 如果正在使用板载密钥管理器进行 NetApp 卷加密，请准备好密钥管理器密码短语，以便稍后在操作步骤中完成密钥管理器重新同步。
+NOTE: 如果正在使用板载密钥管理器进行 NetApp 卷加密，请准备好密钥管理器密码短语，以便稍后在操作步骤 中完成密钥管理器重新同步。
 
 
 

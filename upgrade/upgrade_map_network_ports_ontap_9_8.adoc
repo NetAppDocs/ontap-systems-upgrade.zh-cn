@@ -10,7 +10,7 @@ summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与
 
 
 [role="lead"]
-要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确保已为物理端口正确配置了用于预期用途的设置，例如集群，数据等。
+要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确认物理端口已正确配置了用于预期用途的设置，例如集群，数据等。
 
 这些步骤适用于运行 ONTAP 9.8 的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[使用 ONTAP 9.7 或更早版本映射网络端口]。
 
@@ -108,7 +108,7 @@ Warning: Repairing port "node_name:port" may cause it to move into a
 different broadcast domain, which can cause LIFs to be re-homed away
 from the port. Are you sure you want to continue? {y|n}:
 ----
-.. 要使 ONTAP 完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
+.. 要使 ONTAP 能够完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
 .. 列出集群上的所有广播域：
 +
 `broadcast-domain show`
@@ -177,10 +177,10 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 +
 `displaced interface show`
 
-
-
 +
 如果所有端口均已正确配置并添加到正确的广播域中，则 network port reachability show 命令应将所有已连接端口的可访问性状态报告为 ok ，而对于没有物理连接的端口，此状态报告为 no-reachability 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <<map_98_5,第 5 步>>。
+
+
 
 . 验证属于正确广播域的端口上的所有 LIF 是否均以管理员方式启动。
 +

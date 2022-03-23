@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto/stage_2_index.html 
-keywords: Prepare nodes for upgrade, storage encryption, KMS, key management server, 
-summary: 在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。 
+keywords: Prepare nodes for upgrade, storage encryption, KMS, key management server, stage 2 
+summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 2 阶段流程顺序。' 
 ---
 = 第 2 阶段。重新定位和停用节点 1
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 在第 1 阶段，您必须准备好节点进行升级并运行一系�
 
 
 [role="lead"]
-在阶段 2 中，您将 node1 聚合和 LIF 重新定位到 node2 ，记录 node1 信息，然后停用 node1 。此过程大部分是自动化的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。
+在阶段 2 中，您将 node1 聚合和 LIF 重新定位到 node2 ，记录 node1 信息，然后停用 node1 。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。
 
 .步骤
 . link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"]

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/reboots_panics_power_cycles.html 
 keywords: crash, reboot, node1, node2, node3, node4, upgrade 
-summary: 在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。这些问题的解决方案取决于它们发生的时间。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上执行手动 ARL 升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。 
 ---
 = 重新启动，崩溃或重新启动
 :hardbreaks:
@@ -153,7 +153,9 @@ Node2 将继续为其余聚合提供服务，但已重新定位到 Node3 的聚�
 
 由于发生灾难性故障，在第 3 阶段发生崩溃后无法启动 node3 。
 
-请联系技术支持。
+.步骤
+. 请联系技术支持。
+
 
 
 

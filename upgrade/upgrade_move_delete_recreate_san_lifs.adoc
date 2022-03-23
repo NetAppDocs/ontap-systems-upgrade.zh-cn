@@ -10,7 +10,7 @@ summary: 根据集群内容和集群环境的不同，您需要移动，删除�
 
 
 [role="lead"]
-根据集群内容和集群环境的不同，您需要移动，删除或创建 SAN LIF ，或者重新创建已删除的 SAN LIF 。
+根据集群内容和集群环境的不同，您必须移动，删除或创建 SAN LIF ，或者重新创建已删除的 SAN LIF 。
 
 * link:upgrade_considerations_move_san_lifs.html["移动 SAN LIF 的注意事项"]
 * link:upgrade-delete-san-lifs.html["从原始节点中删除不再需要的 SAN LIF"]

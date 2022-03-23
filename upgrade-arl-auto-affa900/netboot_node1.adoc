@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/netboot_node1.html 
 keywords: preparing, netboot, ontap, node1, aff, a900 
-summary: 在交换相应的 AFF A900 node1 控制器模块和 NVS 之后，您必须通过网络启动 node1 。 
+summary: 在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，您必须通过网络启动 node1 。 
 ---
 = 网络启动节点 1
 :hardbreaks:
@@ -13,9 +13,9 @@ summary: 在交换相应的 AFF A900 node1 控制器模块和 NVS 之后，您�
 
 
 [role="lead"]
-在交换相应的 AFF A900 node1 控制器模块和 NVS 之后，您必须通过网络启动 node1 。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。
+在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，您必须通过网络启动 node1 。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。
 
-无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本应与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像都应匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
+无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本必须与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
 
 
 NOTE: 您也可以使用 USB 启动选项执行网络启动。请参见 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["NetApp 知识库文章： How to use the boot_recovery loader command for installing ONTAP for initial setup of a system"^]。
@@ -35,7 +35,7 @@ NOTE: 您也可以使用 USB 启动选项执行网络启动。请参见 link:htt
 . 通过选择以下操作之一来配置网络启动连接。
 +
 
-NOTE: 您应使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
+NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
 
 +
 [cols="35,65"]
@@ -111,7 +111,7 @@ Do you want to restore the backup configuration now? {y|n}
 The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
 ----
 +
-控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且需要还原配置数据。
+控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且必须还原配置数据。
 
 
 
@@ -208,8 +208,11 @@ NOTE: 在 node1 上设置相应的 UTC 时间。
 
 
 
-. 在 node1 上的 LOADER 提示符处，您应验证 `partner-sysid` 。对于 node1 ， `partner-sysid` 必须为 node2 。验证 node1 的 `partner-sysid` ：
+. 在 node1 上的 LOADER 提示符处，验证 node1 的 `partner-sysid` ：
 +
 `printenv partner-sysid`
+
++
+对于 node1 ， `partner-sysid` 必须为 node2 。
 
 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/issues_multiple_stages_of_procedure.html 
 keywords: issues, problems, errors, multiple stages, procedure, troubleshoot 
-summary: 操作步骤的多个阶段可能会出现问题。 
+summary: 有关在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间可能发生的问题的信息。 
 ---
 = 操作步骤的多个阶段可能会出现的问题
 :hardbreaks:

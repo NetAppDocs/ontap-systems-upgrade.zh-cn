@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/move_nas_lifs_node1_node2.html 
 keywords: nas, node1, node2, lifs, cluster, san 
-summary: 如果您使用的是双节点集群，请将 node1 拥有的 NAS 数据 LIF 移动到 node2 ；如果您的集群具有两个以上的节点，请将其移动到第三个节点。 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，如果您使用的是双节点集群，请将 node1 的数据 LIF 移至 node2 ；如果您的集群具有两个以上的节点，则将其移至第三个节点。 
 ---
 = 将 node1 拥有的 NAS 数据 LIF 移动到 node2
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 如果您使用的是双节点集群，请将 node1 拥有的 NAS 数�
 
 
 [role="lead"]
-在将 node1 替换为 node3 之前，如果您使用的是双节点集群，则需要将 node1 拥有的 NAS 数据 LIF 移动到 node2 ；如果您的集群具有两个以上的节点，则需要将此数据 LIF 移动到第三个节点。您使用的方法取决于集群是为 NAS 配置还是为 SAN 配置的。
+在将 node1 替换为 node3 之前，如果您使用的是双节点集群，则必须将 node1 拥有的 NAS 数据 LIF 移动到 node2 ；如果您的集群具有两个以上的节点，则必须将此数据 LIF 移动到第三个节点。您使用的方法取决于集群是为 NAS 配置还是为 SAN 配置的。
 
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。使 node3 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。
 

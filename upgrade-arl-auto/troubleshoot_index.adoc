@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/troubleshoot_index.html 
 keywords: node, failure, upgrading, crash, relocate, solution 
-summary: 升级节点对时可能会遇到故障。 
+summary: '使用 `ssystem controller replace` 命令对运行 ONTAP 9.5 的控制器升级到 9.7 时可能发生的故障进行故障排除。' 
 ---
 = 故障排除
 :hardbreaks:

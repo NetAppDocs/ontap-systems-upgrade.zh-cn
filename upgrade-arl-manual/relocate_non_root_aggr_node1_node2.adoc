@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/relocate_non_root_aggr_node1_node2.html 
 keywords: node1, node2, aggregate, relocation, storage 
-summary: 将节点 1 的资源移至节点 3 之前，请先将非根聚合从节点 1 移至节点 2 。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，将非根聚合从 node1 移至 node2 并验证重新定位。 
 ---
 = 将非根聚合从 node1 重新定位到 node2
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 将节点 1 的资源移至节点 3 之前，请先将非根聚合从�
 
 
 [role="lead"]
-在将 node1 替换为 node3 之前，您需要先使用 storage aggregate relocation 命令将非根聚合从 node1 移动到 node2 ，然后再验证重新定位。
+在将 node1 替换为 node3 之前，必须使用 storage aggregate relocation 命令将非根聚合从 node1 移动到 node2 ，然后验证重新定位。
 
 .步骤
 . 【第 1 步】通过完成以下子步骤重新定位非根聚合：
@@ -28,7 +28,7 @@ summary: 将节点 1 的资源移至节点 3 之前，请先将非根聚合从�
 
 .. 出现提示时，输入 `y` 。
 +
-重新定位将在后台进行。重新定位聚合可能需要几秒到几分钟的时间。时间包括客户端中断和非中断部分。此命令不会重新定位任何脱机或受限聚合。
+重新定位将在后台进行。重新定位聚合可能需要几秒到几分钟的时间。此时间既包括客户端中断，也包括非中断部分。此命令不会重新定位任何脱机或受限聚合。
 
 .. 输入以下命令，返回到管理员级别：
 +

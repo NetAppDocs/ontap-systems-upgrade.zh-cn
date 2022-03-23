@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html 
 keywords: preparing, nodes, upgrade, stage 1, prechecks 
-summary: 在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。 
+summary: 在将 AFF A700 升级到 AFF A900 期间，准备节点并运行一系列预检。 
 ---
 = 准备要升级的节点
 :hardbreaks:
@@ -39,7 +39,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 
 Do you want to continue? {y|n}: y
 ....
-. 选择 `y` ，您将看到以下输出：
+. 选择 `y` 。您将看到以下输出：
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -84,7 +84,7 @@ Controller replacement operation has been paused for user intervention.
 | 集群 LIF 状态 | 检查两个节点的集群 LIF 是否均已启动。如果集群 LIF 已关闭，则此任务将失败。 
 
 
-| ASUP 状态检查 | 如果未配置 ASUP 通知，则任务将失败。在开始更换控制器操作步骤之前，必须启用 ASUP 。 
+| ASUP 状态检查 | 如果未配置 AutoSupport 通知，则任务将失败。在开始更换控制器操作步骤 之前，必须启用 AutoSupport 。 
 
 
 | CPU 利用率检查 | 检查要更换的任何节点的 CPU 利用率是否超过 50% 。如果 CPU 使用率在相当长的一段时间内超过 50% ，则此任务将失败。 
@@ -123,7 +123,7 @@ Controller replacement operation has been paused for user intervention.
 
 
 
-NOTE: 如果使用板载密钥管理器（ OKM ）进行 NetApp 卷加密，请准备好密钥管理器密码短语，以便稍后在操作步骤中完成密钥管理器重新同步。
+NOTE: 如果正在使用板载密钥管理器进行 NetApp 卷加密，请准备好密钥管理器密码短语，以便稍后在操作步骤 中完成密钥管理器重新同步。
 
 
 
@@ -174,6 +174,6 @@ aggr4       node1      node1       online
 
 如果没有新的许可证密钥，则新控制器可以使用集群中当前已获得许可的功能。但是，在控制器上使用未经许可的功能可能会使您不符合您的许可协议，因此，您应在升级完成后为新控制器安装新的许可证密钥。
 
-请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ ，在此可以获取 9.10.1 或更高版本的新 2 字符许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，您可以联系您的 NetApp 销售代表。
+请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ ，在此可以获取 9.10.1 或更高版本的新 2 字符许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，请联系您的 NetApp 销售代表。
 
 有关许可的详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。

@@ -9,7 +9,7 @@
 +
 `network interface modify -vserver vserver_name -lif LIF_name-home-port netport_ifgrp -home-node node3`
 
-. 【 man_lif_verif_3_step8]] 确保 SAN LIF 位于 node3 上的正确端口上：
+. 【 man_lif_verif_3_step8]] 确认 SAN LIF 位于 node3 上的正确端口上：
 +
 .. 输入以下命令并检查其输出：
 +
@@ -60,7 +60,7 @@ cluster::> net int show -data-protocol iscsi|fcp -home-node node3
 
 +
 
-NOTE: 您需要确保将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
+NOTE: 您必须将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
 
 
 

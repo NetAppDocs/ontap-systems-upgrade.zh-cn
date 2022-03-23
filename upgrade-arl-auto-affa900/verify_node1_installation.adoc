@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/verify_node1_installation.html 
-keywords: verifying, verify, node1, install, installation, aff, a900, nvs, controller 
-summary: 使用 AFF A900 控制器模块和 NVS 验证 node1 安装。 
+keywords: verifying, verify, node1, install, installation, aff, a900, NVRAM, controller 
+summary: 使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 安装。 
 ---
 = 验证 node1 安装
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 使用 AFF A900 控制器模块和 NVS 验证 node1 安装。
 
 
 [role="lead"]
-您必须使用 AFF A900 控制器模块和 NVS 验证 node1 安装。由于物理端口不变，您无需将物理端口从 AFF A700 node1 映射到 AFF A900 node1 。
+您必须使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 的安装。由于物理端口不变，您无需将物理端口从 AFF A700 node1 映射到 AFF A900 node1 。
 
 使用 AFF A900 控制器模块启动 node1 后，必须验证是否已正确安装它。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。
 
@@ -69,7 +69,7 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 ----
 +
 
-NOTE: 在本指南中， _re-creating VLAN ， ifgrp 和 broadcast domains_has been re命名 为 _Restore network configuration on node1_ 。
+NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node1_ 上的网络配置。
 
 . 在控制器更换处于暂停状态的情况下，继续执行 <<Restore network configuration on node1>>。
 
@@ -165,7 +165,7 @@ Cluster ::> reachability repair -node node1 -port e11b
 Warning: Repairing port "node1:e11b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
 ----
 +
-对于可访问性状态可能与当前所在广播域的可访问性状态不同的端口，应显示一条警告消息，如上所示。根据需要查看端口和问题解答 `y` 或 `n` 的连接。
+对于可访问性状态可能与当前所在广播域的可访问性状态不同的端口，应显示警告消息，如上例所示。根据需要查看端口和问题解答 `y` 或 `n` 的连接。
 
 +
 验证所有物理端口是否具有预期可访问性：

@@ -1,8 +1,8 @@
 ---
 permalink: upgrade/upgrade-reset-default-configuration-node3-and-node4.html 
 sidebar: sidebar 
-keywords: ensure, configuration, information, boot, media, interfere, controller, upgrade, reset, node3, node4, node, default, setting, reset default configuration on the new nodes 
-summary: 要确保启动介质上的配置信息不会影响控制器升级，您需要将 node3 和 node4 的配置重置为默认配置设置。 
+keywords: confirm, configuration, information, boot, media, interfere, controller, upgrade, reset, node3, node4, node, default, setting, reset default configuration on the new nodes 
+summary: 要确认启动介质上的配置信息不会影响控制器升级，您需要将 node3 和 node4 的配置重置为默认配置设置。 
 ---
 = 重置新节点上的默认配置
 :icons: font
@@ -10,9 +10,9 @@ summary: 要确保启动介质上的配置信息不会影响控制器升级，�
 
 
 [role="lead"]
-要确保启动介质上的配置信息不会影响控制器升级，您需要将 node3 和 node4 的配置重置为默认配置设置。
+要确认启动介质上的配置信息不会影响控制器升级，必须将 node3 和 node4 的配置重置为默认配置设置。
 
-您需要对 node3 和 node4 执行以下步骤。您可以在每个节点上并行执行这些步骤。
+您必须对 node3 和 node4 执行以下步骤。您可以在每个节点上并行执行这些步骤。
 
 . 将节点启动至启动菜单：
 +

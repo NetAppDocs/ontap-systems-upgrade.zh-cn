@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/verify_switchover_healing_switchback.html 
 keywords: verifying, switchover, healing, switchback, metrocluster, management, disaster, recovery, mcc 
-summary: 您应验证 MetroCluster 配置的切换，修复和切回操作。 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，验证 MetroCluster 配置切换，修复和切回操作。' 
 ---
 = 验证切换，修复和切回
 :hardbreaks:

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/set_up_storage_encryption_new_controller.html 
 keywords: set up, setup, storage encryption, new, controller, module 
-summary: 如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密，则必须为新控制器模块配置 NetApp 卷加密。 
+summary: 如果需要，请在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间配置存储加密，安装 SSL 证书以及设置密钥管理服务器。 
 ---
 = 在新控制器模块上设置存储加密
 :hardbreaks:

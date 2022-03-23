@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/verify_node3_installation.html 
 keywords: verifying, verify, node, install, installation 
-summary: 验证 node3 安装 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，验证 node1 的物理端口是否正确映射到 node3 并还原 node3 上的网络配置。' 
 ---
 = 验证 node3 安装
 :hardbreaks:
@@ -131,7 +131,7 @@ NOTE: 在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains
 `network port show -node node3`
 
 +
-此时将显示节点上的所有物理网络端口， VLAN 端口和接口组端口。在此输出中，您可以看到 ONTAP 已将任何物理端口移至 `集群` 广播域。您可以使用此输出来帮助确定应将哪些端口用作接口组成员端口， VLAN 基本端口或独立物理端口来托管 LIF 。
+此时将显示节点上的所有物理网络端口， VLAN 端口和接口组端口。在此输出中，您可以看到 ONTAP 已将任何物理端口移至 `集群` 广播域。您可以使用此输出来帮助确定哪些端口必须用作接口组成员端口， VLAN 基本端口或独立物理端口来托管 LIF 。
 
 . 【第 2 步】列出集群上的广播域：
 +
@@ -250,7 +250,7 @@ Warning: Repairing port "node1_node3: e0h" may cause it to move into a different
 `网络端口 broadcast-domain add-port`
 
 +
-确认不存在不可访问或意外的端口。使用以下命令检查所有物理端口的可访问性状态，并检查输出以确保状态为 `ok` ：
+确认不存在不可访问或意外的端口。使用以下命令并检查输出以确认状态为 `ok` ，以检查所有物理端口的可访问性状态：
 
 +
 `网络端口可访问性 show -detail`

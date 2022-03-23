@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/set_fc_or_uta_uta2_config_on_node3.html 
 keywords: FC, UTA, UTA2, configure, node3, CNA adapters, onboard ports, FlexArray Virtualization 
-summary: c 在完成其余操作步骤之前配置端口和卡设置。 
+summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.5 的控制器时，配置 node3 板载 FC 端口， UTA/UTA2 端口或 UTA/UTA2 卡。' 
 ---
 = 在 node3 上设置 FC 或 UTA/UTA2 配置
 :hardbreaks:
@@ -18,7 +18,7 @@ summary: c 在完成其余操作步骤之前配置端口和卡设置。
 您可能需要完成此部分 <<Configure FC ports on node3>>，部分 <<Check and configure UTA/UTA2 ports on node3>>或这两个部分。
 
 
-NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和端口。但是，命令行界面使用术语 CNA 。
+NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配器（ CNA ）适配器和端口。但是，命令行界面使用术语 CNA 。
 
 * 如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"] 部分。
 * 但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回到 _Install and boot node3_ 部分并继续执行 link:install_boot_node3.html#step23["第 23 步"]。
@@ -141,7 +141,7 @@ Adapter  Mode     Type       Mode      Type         Status
 1b      fc        target     -         -            online
 6 entries were displayed.
 ....
-UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10 GbE SFP+ 接口并支持 FC 目标。
+UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。
 
 UTA/UTA2 端口可能位于适配器或控制器上，并且具有以下配置，但您应检查 node3 上的 UTA/UTA2 端口的配置，并根据需要进行更改：
 
@@ -411,7 +411,7 @@ Login:
 +
 现在，在启动时，节点可以检测到先前分配给它的所有磁盘，并可按预期启动。
 
-. 【 ｛ auto_check3_step23]] 如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如， AFF A800 系统），请将 node1 聚合设置为根聚合，以确保 node3 从 node1 的根聚合启动。要设置根聚合，请转到启动菜单并选择选项 `5` 以进入维护模式。
+. 【 ｛ auto_check3_step23]] 如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如， AFF A800 系统），请将 node1 聚合设置为根聚合，以确认 node3 从 node1 的根聚合启动。要设置根聚合，请转到启动菜单并选择选项 `5` 以进入维护模式。
 +
 
 CAUTION: * 您必须按所示的确切顺序执行以下子步骤；否则可能发生原因会导致中断甚至数据丢失。 *

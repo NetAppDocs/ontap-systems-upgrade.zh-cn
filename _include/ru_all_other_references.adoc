@@ -18,7 +18,13 @@
 | 内容 | Description 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"^] | 介绍如何通过移动存储或卷快速升级集群中的控制器硬件。还介绍如何将受支持的型号转换为磁盘架。 
+| link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["CLI 管理概述"^] | 介绍如何管理 ONTAP 系统，向您展示如何使用命令行界面，如何访问集群，如何管理节点等。 
+
+
+| link:https://docs.netapp.com/us-en/ontap/software_setup/concept_decide_whether_to_use_ontap_cli.html["确定是使用 System Manager 还是使用 ONTAP 命令行界面进行集群设置"^] | 介绍如何设置和配置 ONTAP 。 
+
+
+| link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管理磁盘和聚合"^] | 介绍如何使用命令行界面管理 ONTAP 物理存储。其中介绍了如何创建，扩展和管理聚合，如何使用 Flash Pool 聚合，如何管理磁盘以及如何管理 RAID 策略。 
 
 
 | link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"^] | 介绍如何在网络结构配置中安装和配置 MetroCluster 硬件和软件组件。 
@@ -27,10 +33,19 @@
 | link:https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["《 FlexArray 虚拟化安装要求和参考》"^] | 包含 FlexArray 虚拟化系统的布线说明和其他信息。 
 
 
+| link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用性管理"^] | 介绍如何安装和管理高可用性集群配置，包括存储故障转移和接管 / 交还。 
+
+
+| link:https://docs.netapp.com/us-en/ontap/volumes/index.html["使用 CLI 进行逻辑存储管理"^] | 介绍如何使用卷， FlexClone 卷，文件和 LUN 高效管理逻辑存储资源， FlexCache 卷，重复数据删除，数据压缩， qtree 和配额。 
+
+
 | link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["MetroCluster 管理和灾难恢复"^] | 介绍如何在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。 
 
 
 | link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["MetroCluster 升级和扩展"^] | 介绍升级 MetroCluster 配置中的控制器和存储型号，从 MetroCluster FC 过渡到 MetroCluster IP 配置以及通过添加更多节点扩展 MetroCluster 配置的过程。 
+
+
+| link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络管理"^] | 介绍如何在集群中配置和管理物理和虚拟网络端口（ VLAN 和接口组）， LIF ，路由和主机解析服务；如何通过负载平衡优化网络流量；以及如何使用 SNMP 监控集群。 
 
 
 | link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-900%2Fhome.html["《 ONTAP 9.0 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.0 命令的语法和用法。 
@@ -66,34 +81,19 @@
 | link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-9101/home.html["《 ONTAP 9.10.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.10.1 命令的语法和用法。 
 
 
-| link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管理磁盘和聚合"^] | 介绍如何使用命令行界面管理 ONTAP 物理存储。其中介绍了如何创建，扩展和管理聚合，如何使用 Flash Pool 聚合，如何管理磁盘以及如何管理 RAID 策略。 
-
-
-| link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["高可用性管理"^] | 介绍如何安装和管理高可用性集群配置，包括存储故障转移和接管 / 交还。 
-
-
-| link:https://docs.netapp.com/us-en/ontap/volumes/index.html["使用 CLI 进行逻辑存储管理"^] | 介绍如何使用卷， FlexClone 卷，文件和 LUN ， FlexCache 卷， 重复数据删除，数据压缩， qtree 和配额。 
-
-
-| link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络管理"^] | 介绍如何在集群中配置和管理物理和虚拟网络端口（ VLAN 和接口组）， LIF ，路由和主机解析服务；如何通过负载平衡优化网络流量；以及如何使用 SNMP 监控集群。 
-
-
 | link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行 SAN 管理"^] | 介绍如何使用 iSCSI 和 FC 协议配置和管理 LUN ， igroup 和目标，以及使用 NVMe/FC 协议的命名空间和子系统。 
 
 
 | link:https://docs.netapp.com/us-en/ontap/san-config/index.html["SAN 配置参考"^] | 包含有关 FC 和 iSCSI 拓扑和布线方案的信息。 
 
 
-| link:https://docs.netapp.com/us-en/ontap/software_setup/concept_decide_whether_to_use_ontap_cli.html["确定是使用 System Manager 还是使用 ONTAP 命令行界面进行集群设置"^] | 介绍如何设置和配置 ONTAP 。 
-
-
-| link:https://docs.netapp.com/us-en/ontap/system-admin/index.html["CLI 管理概述"^] | 介绍如何管理 ONTAP 系统，向您展示如何使用命令行界面，如何访问集群，如何管理节点等。 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"^] | 介绍如何通过移动存储或卷快速升级集群中的控制器硬件。还介绍如何将受支持的型号转换为磁盘架。 
 
 
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^] | 包含有关下载和升级 ONTAP 的说明。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900"^] | 介绍使用 system controller replace 命令将 AFF A700 无中断升级到运行 ONTAP 9.10.1 RC2 或更高版本的 AFF A900 所需的聚合重新定位过程。 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900"^] | 介绍使用 system controller replace 命令将 AFF A700 无中断升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900 所需的聚合重新定位过程。 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] | 介绍使用 system controller replace 命令无中断升级运行 ONTAP 9.8 的控制器所需的聚合重新定位过程。 

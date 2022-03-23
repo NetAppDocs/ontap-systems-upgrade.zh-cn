@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html 
 keywords: IP address, external, key management, server, storage encryption, kmip, onboard key management 
-summary: 配置存储加密并建立集群范围的身份验证密钥以替换先前的节点级别身份验证密钥 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，配置和管理存储加密，管理身份验证密钥并暂停 SnapMirror 关系。' 
 ---
 = 获取用于存储加密的外部密钥管理服务器的 IP 地址
 :hardbreaks:

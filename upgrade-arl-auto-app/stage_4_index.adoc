@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/stage_4_index.html 
-keywords: relocate, retire, node2, LIF, node3, non-root aggregates 
-summary: 在阶段 4 中，所有非根聚合都会从 node2 重新定位到 node3 。 
+keywords: relocate, retire, node2, LIF, node3, non-root aggregates, stage 4 
+summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 4 阶段流程顺序。' 
 ---
 = 第 4 阶段。重新定位和停用节点 2
 :hardbreaks:

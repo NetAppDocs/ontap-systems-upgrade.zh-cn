@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/automate_the_controller_upgrade_process.html 
 keywords: automating, controller, upgrade, network, port, aff, a700, a900 
-summary: 使用自动操作步骤将 AFF A700 控制器更换为 AFF A900 控制器。 
+summary: 使用部分自动化的 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。 
 ---
 = 自动执行控制器升级过程
 :hardbreaks:
@@ -13,4 +13,4 @@ summary: 使用自动操作步骤将 AFF A700 控制器更换为 AFF A900 控制
 
 
 [role="lead"]
-在此控制器升级期间，您需要将 AFF A700 控制器更换为 AFF A900 控制器。此内容介绍了自动化操作步骤的步骤，它利用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。
+在此控制器升级期间，您需要将 AFF A700 控制器更换为 AFF A900 控制器。此内容介绍了自动化操作步骤 的步骤，该过程使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。

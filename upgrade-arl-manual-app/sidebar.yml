@@ -14,8 +14,6 @@ entries:
   url: "/upgrade-arl-manual-app/required_tools_documentation.html"
 - title: 工作表：在控制器升级之前和期间收集的信息
   url: "/upgrade-arl-manual-app/worksheet_information_before_during_upgrade.html"
-- title: 升级节点对
-  url: "/upgrade-arl-manual-app/upgrade_node_pair.html"
 - title: 第 1 阶段。准备升级
   entries:
   - title: 概述

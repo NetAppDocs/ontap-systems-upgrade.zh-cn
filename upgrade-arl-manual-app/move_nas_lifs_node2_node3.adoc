@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/move_nas_lifs_node2_node3.html 
 keywords: move, nas, lif, node2, node3, san, nfs, cifs, ifgrp 
-summary: 将聚合从 node2 重新定位到 node3 后，您需要将 node2 拥有的 NAS 数据 LIF 移动到 node3 。 
+summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，将节点 2 的 NAS 数据 LIF 移动到节点 3 。 
 ---
 = 将 Node2 拥有的 NAS 数据 LIF 移动到 Node3
 :hardbreaks:

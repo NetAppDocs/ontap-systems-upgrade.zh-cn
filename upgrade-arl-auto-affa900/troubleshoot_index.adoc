@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/troubleshoot_index.html 
 keywords: troubleshooting, node, aggregate, lif, migrate, failure 
-summary: 对升级节点对时可能发生的故障进行故障排除。 
+summary: 对 AFF A700 升级到 AFF A900 期间可能发生的故障进行故障排除。 
 ---
 = 故障排除
 :hardbreaks:

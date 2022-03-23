@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/check_metrocluster_config_errors.html 
 keywords: Config Advisor, configuration, errors, validation, health, Active IQ 
-summary: 使用 Config Advisor 工具检查常见配置错误。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，使用 Config Advisor 工具检查常见配置错误。' 
 ---
 = 检查 MetroCluster 配置错误
 :hardbreaks:

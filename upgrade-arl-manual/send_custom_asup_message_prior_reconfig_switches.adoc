@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html 
 keywords: autosupport, reconfigure, send message, maintenance, netapp support 
-summary: 在重新配置交换机之前发送自定义 AutoSupport 消息 
+summary: 通知 NetApp 技术支持，正在对运行 ONTAP 9.7 或更早版本的控制器进行手动 ARL 升级期间进行维护。 
 ---
 = 在重新配置交换机之前发送自定义 AutoSupport 消息
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 在重新配置交换机之前发送自定义 AutoSupport 消息
 
 
 [role="lead"]
-在重新配置交换机问题描述之前，您应发送 AutoSupport 消息以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
+在重新配置交换机问题描述 之前，您必须发送 AutoSupport 消息，以通知 NetApp 技术支持正在进行维护。告知技术支持正在进行维护，可防止他们在假定已发生中断的情况下创建案例。
 
 必须在每个 MetroCluster 站点上执行此任务。
 

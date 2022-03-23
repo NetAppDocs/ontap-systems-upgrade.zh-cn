@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html 
 keywords: move, non-root, aggregates, nas, lif, node2, node3, node4 
-summary: 验证 node4 安装后，在将聚合从 node3 重新定位到 node4 之前，请移动属于 node2 的 NAS 数据 LIF 。 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，将 node3 上 node2 的 NAS 数据 LIF 从 node3 移动到 node4 。' 
 ---
 = 将 node2 拥有的非根聚合和 NAS 数据 LIF 从 node3 移动到 node4
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 验证 node4 安装后，在将聚合从 node3 重新定位到 node4 �
 
 
 [role="lead"]
-在验证 node4 安装并将聚合从 node3 重新定位到 node4 之前，您需要将当前位于 node3 上的 node2 的 NAS 数据 LIF 从 node3 移动到 node4 。您还需要验证 node4 上是否存在 SAN LIF 。
+在验证 node4 安装并将聚合从 node3 重新定位到 node4 之前，必须将当前位于 node3 上的 node2 的 NAS 数据 LIF 从 node3 移动到 node4 。您还需要验证 node4 上是否存在 SAN LIF 。
 
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node4 联机后，您将验证 LIF 是否运行正常并位于相应的端口上。
 
@@ -64,7 +64,7 @@ To complete the "Network Reachability" phase, ONTAP network configuration must b
 +
 如果任何聚合无法重新定位或被否决，您必须手动重新定位聚合，或者在必要时覆盖否决或目标检查。请参见一节 link:relocate_failed_or_vetoed_aggr.html["重新定位失败或被否决的聚合"] 有关详细信息 ...
 
-. 通过完成以下子步骤，确保 SAN LIF 位于 node4 上的正确端口上：
+. 通过完成以下子步骤，确认 SAN LIF 位于 node4 上的正确端口上：
 +
 .. 输入以下命令并检查其输出：
 +
@@ -115,7 +115,7 @@ vs1
 
 +
 
-NOTE: 您需要确保将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
+NOTE: 您必须确认将 SAN LIF 移动到与原始端口具有相同链路速度的端口。
 
 
 

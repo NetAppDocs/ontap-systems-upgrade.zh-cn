@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/retire_node1.html 
 keywords: retire, node1, epsilon, shut down, failover 
-summary: 要停用 node1 ，您需要禁用 node2 的 HA 对，正确关闭 node1 并将其从机架或机箱中卸下。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，禁用带有 node2 的 HA 对并正确关闭 node1 。 
 ---
 = 停用 node1
 :hardbreaks:
@@ -13,7 +13,7 @@ summary: 要停用 node1 ，您需要禁用 node2 的 HA 对，正确关闭 node
 
 
 [role="lead"]
-要停用 node1 ，您需要禁用 node2 的 HA 对，正确关闭 node1 并将其从机架或机箱中卸下。
+要停用 node1 ，您必须禁用 node2 的 HA 对，正确关闭 node1 并将其从机架或机箱中卸下。
 
 .步骤
 . 验证集群中的节点数：
@@ -129,7 +129,7 @@ High Availability Configured: false
 ====
 如果您使用的是四节点集群，则 Epsilon 可能位于集群中不同 HA 对中的节点上。
 
-如果要升级具有多个 HA 对的集群中的 HA 对，则应将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置为 nodeA/nodeB 且节点 C/noded 的集群中升级 nodeA/nodeB ，则应将 epsilon 移至 nodeC 或 noded 。
+如果要升级具有多个 HA 对的集群中的 HA 对，则必须将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。
 
 ====
 +

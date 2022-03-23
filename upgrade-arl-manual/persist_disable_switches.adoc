@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual/persist_disable_switches.html 
 keywords: disable, switches, fabric, persistent, modify, configuration, configure 
-summary: 持久禁用网络结构中的交换机，以便修改其配置。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，禁用网络结构中的 Brocade 和 Cisco 交换机并修改配置。 
 ---
 = 永久禁用交换机
 :hardbreaks:
