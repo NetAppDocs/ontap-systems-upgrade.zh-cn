@@ -45,12 +45,52 @@
   <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/na-utility.css' type='text/css'>
   <link rel="stylesheet" href='/zh-cn/ontap-systems-upgrade/css/na-sidebar.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/custom-dropdown.css' type='text/css'>
   <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-pagenav.css' type='text/css'>
 
   
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/ontap-systems-upgrade/css/tabbed-blocks.css" type="text/css">
-  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-feature.css' type='text/css'><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/zh-cn/ontap-systems-upgrade/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    if (document.location.hostname === "docs.netapp.com") {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      head.appendChild(onetrustScript);
+    }
+
+    function OptanonWrapper() { }
+
+    if (document.location.hostname === "docs.netapp.com") {
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
+      head.appendChild(adobe);
+
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-81697994-3');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
@@ -60,15 +100,6 @@
 
   <script src='/zh-cn/ontap-systems-upgrade/js/na-utility.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/clouddocs.js'></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    var head = document.getElementsByTagName('head')[0];
-    var adobe = document.createElement("script");
-    adobe.type = "text/javascript";
-    adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-    head.appendChild(adobe);
-  }
-  </script>
   <script src='/zh-cn/ontap-systems-upgrade/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/toc.js'></script>
@@ -121,16 +152,8 @@
               $("#tg-sb-icon").toggleClass('fa-toggle-off');
           });
       });
-  </script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
-  <script>
-  if (document.location.hostname === "docs.netapp.com") {
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-81697994-3');
-  }
   </script>
-  <script src='/zh-cn/ontap-systems-upgrade/js/version-dropdown.js'></script>
+  <script src='/zh-cn/ontap-systems-upgrade/js/custom-dropdown.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/FileSaver.min.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/jszip-utils.min.js'></script>
   <script src='/zh-cn/ontap-systems-upgrade/js/jszip.min.js'></script>
@@ -138,20 +161,15 @@
 </head>
 
 
-  <body class role="document">
+  <body class role="document" data-flavor="">
     <div id="page" class="n-off-canvas-menu">
       <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
       <div class="n-off-canvas-menu__content-wrap">
         <header class="site-header" id="banner">
   
   <!-- Start Page Toolbar -->
-  <div class="page-nav-toolbar">
-    <div id="version-dropdown"></div>
-    <div class="page-nav-contribute"  >
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/issues/new?body=Page%3A%20[使用 KMIP 服务器管理身份验证](https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/manage_authentication_kmip.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/discuss-sm.svg" class="github-icon" />请求文档变更</a>
-      <a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade-arl-manual/manage_authentication_kmip.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a>
-      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-systems-upgrade/images/article-sm.svg" class="github-icon" />提供者指南</a>
-    </div>
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/issues/new?body=Page%3A%20[使用 KMIP 服务器管理身份验证](https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/manage_authentication_kmip.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/discuss-sm.svg" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/ontap-systems-upgrade/blob/main/upgrade-arl-manual/manage_authentication_kmip.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/ontap-systems-upgrade/images/edit-sm.svg" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/ontap-systems-upgrade/images/article-sm.svg" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -161,6 +179,7 @@
       </nav>
     </div>
   </div>
+  
   
   <!-- Start top_hat -->
   <div class="n-top-hat">
@@ -244,7 +263,8 @@
           data-did-you-mean="搜索 {suggestion}。" 
           data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
           data-results-found="找到 {hitCount} 个结果"  
-          data-sk-es-pf-indexes=""></div>
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
             <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
               <title>search</title>
@@ -333,6 +353,9 @@
 </div>
 <div class="n-pdf-body-container">
   <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
         <a target="_blank" href="/zh-cn/ontap-systems-upgrade/pdfs/fullsite-sidebar/AFF_和_FAS_系统升级文档.pdf" >
           <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>此文档站点的 PDF</a>
 
@@ -341,6 +364,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/通过移动卷或存储进行升级.pdf" 
@@ -360,6 +386,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/通过移动存储进行升级.pdf" 
@@ -387,6 +416,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/可选_移动内部存储或转换为驱动器架.pdf" 
@@ -419,6 +451,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/完成升级.pdf" 
@@ -432,6 +467,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/概述.pdf" 
@@ -445,6 +483,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/完成_ONTAP_9_8.pdf" 
@@ -473,6 +514,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/在_ONTAP_9_7_或更早版本中完成.pdf" 
@@ -528,6 +572,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/通过移动卷进行升级.pdf" 
@@ -551,6 +598,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/移动_删除或创建_SAN_LIF.pdf" 
@@ -603,6 +653,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用聚合重新定位升级控制器硬件.pdf" 
@@ -618,6 +671,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_或更高版本的_AFF_A900.pdf" 
@@ -643,6 +699,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
@@ -671,6 +730,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位资源并停用_AFF_A700_节点_1.pdf" 
@@ -701,6 +763,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node1.pdf" 
@@ -731,6 +796,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位节点_2_中的资源并停用节点_2.pdf" 
@@ -757,6 +825,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVRAM_模块和控制器模块.pdf" 
@@ -783,6 +854,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node2.pdf" 
@@ -813,6 +887,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_7_阶段_完成升级.pdf" 
@@ -845,6 +922,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
@@ -888,6 +968,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令升级运行_ONTAP_9_8_或更高版本的控制器硬件.pdf" 
@@ -919,6 +1002,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
@@ -947,6 +1033,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
@@ -979,6 +1068,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
@@ -1013,6 +1105,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用节点_2.pdf" 
@@ -1041,6 +1136,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
@@ -1075,6 +1173,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
@@ -1109,6 +1210,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
@@ -1152,6 +1256,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/手动升级运行_ONTAP_9_8_或更高版本的控制器硬件.pdf" 
@@ -1177,6 +1284,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
@@ -1215,6 +1325,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
@@ -1247,6 +1360,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
@@ -1256,6 +1372,8 @@
             第 3 阶段。安装并启动 node3
           </a>
           
+
+
 
 
 
@@ -1283,6 +1401,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_记录信息并停用_node2.pdf" 
@@ -1311,6 +1432,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
@@ -1320,6 +1444,8 @@
             第 5 阶段。安装并启动节点 4.
           </a>
           
+
+
 
 
 
@@ -1345,6 +1471,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
@@ -1379,6 +1508,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
@@ -1424,6 +1556,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将运行_ONTAP_9_5_的控制器硬件升级到_9_7.pdf" 
@@ -1455,6 +1590,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
@@ -1483,6 +1621,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
@@ -1515,6 +1656,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
@@ -1551,6 +1695,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用节点.pdf" 
@@ -1579,6 +1726,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
@@ -1615,6 +1765,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
@@ -1649,6 +1802,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
@@ -1692,6 +1848,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/手动升级运行_ONTAP_9_7_或更早版本的控制器硬件.pdf" 
@@ -1717,6 +1876,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/重新配置_ONTAP_9_1_或更高版本的_FC_交换机布局.pdf" 
@@ -1757,6 +1919,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_1_阶段_准备升级.pdf" 
@@ -1804,6 +1969,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位和停用节点_1.pdf" 
@@ -1836,6 +2004,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_安装并启动_node3.pdf" 
@@ -1845,6 +2016,8 @@
             第 3 阶段。安装并启动 node3
           </a>
           
+
+
 
 
 
@@ -1874,6 +2047,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_记录信息并停用_node2.pdf" 
@@ -1902,6 +2078,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_安装并启动节点_4_.pdf" 
@@ -1911,6 +2090,8 @@
             第 5 阶段。安装并启动节点 4.
           </a>
           
+
+
 
 
 
@@ -1938,6 +2119,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_完成升级.pdf" 
@@ -1972,6 +2156,9 @@
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
+          
+          
+          
           <a target="_blank" 
             
               href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/故障排除.pdf" 
@@ -2428,6 +2615,8 @@
         将端口从 node1 映射到 node3
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html">
         将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/worksheet_information_before_moving_san_lifs_node3.html">
+        工作表：将 NAS 数据 LIF 移动到 node3 之前要记录的信息
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/relocate_non_root_aggr_node2_node3.html">
         将非根聚合从 node2 重新定位到 node3
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/move_nas_lifs_node2_node3.html">
@@ -2454,6 +2643,8 @@
         将端口从 node2 映射到 node4
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html">
         将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/worksheet_information_before_moving_san_lifs_node4.html">
+        工作表：将 NAS 数据 LIF 移动到 node4 之前要记录的信息
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual-app/relocate_node2_non_root_aggr_node3_node4.html">
         将 node2 的非根聚合从 node3 重新定位到 node4
       </a></li></ul></li><li class="subfolders "><a href="#">
@@ -2687,6 +2878,8 @@
         验证 node3 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html">
         将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/worksheet_information_before_moving_san_lifs_node3.html">
+        工作表：将 NAS 数据 LIF 移动到 node3 之前要记录的信息
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/relocate_non_root_aggr_node2_node3.html">
         将非根聚合从 node2 重新定位到 node3
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/move_nas_lifs_node2_node3.html">
@@ -2715,6 +2908,8 @@
         验证 node4 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html">
         将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF
+      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/worksheet_information_before_moving_san_lifs_node4.html">
+        工作表：将 NAS 数据 LIF 移动到 node4 之前要记录的信息
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-manual/relocate_node2_non_root_aggr_node3_node4.html">
         将 node2 的非根聚合从 node3 重新定位到 node4
       </a></li></ul></li><li class="subfolders "><a href="#">
@@ -2760,6 +2955,7 @@
 </script>
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
+
 
   </div>
   
@@ -2873,98 +3069,122 @@
   <div class="n-footer__bottom">
     <div class="n-container">
       <div class="n-footer__bottom-left">
-
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
+              <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2022 NetApp, Inc.</a>
             </li>
-
-</ul>
-</div>
-<div class="n-footer__social-links">
-<ul class="n-footer__social-link-list">
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
-<span class="n-footer__social-link-text">blog</span>
-<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
-  <title>blog@</title>
-  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#blog"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
-<span class="n-footer__social-link-text">community</span>
-<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
-<title>community@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#comments"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
-<span class="n-footer__social-link-text">twitter</span>
-<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
-<title>twitter@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#twitter"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
-<span class="n-footer__social-link-text">facebook</span>
-<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
-<title>facebook@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#facebook"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
-<span class="n-footer__social-link-text">linkedin</span>
-<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
-<title>linkedin@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#linkedin"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
-<span class="n-footer__social-link-text">youtube</span>
-<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
-<title>youtube@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#youtube"></use>
-</svg>
-
-</a>
-</li>
-<li class="n-footer__social-link-list-item">
-<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
-<span class="n-footer__social-link-text">slideshare</span>
-<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
-<title>slideshare@</title>
-<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#slideshare"></use>
-</svg>
-
-</a>
-</li>
-</ul>
-</div>
-
-</div>
-<div class="n-footer__bottom-right">
-  <p class="n-footer__fine-print">想就我们的网站提供反馈?<a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">请告诉我们</a>
-  <a href="https://docs.netapp.com/zh-cn/announcements/" class="n-footer__copyright">通知</a>
-  </p>
-</div>
-</div>
-</div>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">条款和条件</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">隐私政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Cookie 政策</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Cookie 设置</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <span class="n-footer__fine-print">想就我们的网站提供反馈?</span>
+              <a target="_self" href="javascript:netapp_mailto()">请告诉我们</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://docs.netapp.com/zh-cn/announcements/">通知</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
       </div><!-- Elasticsearch JS -->
