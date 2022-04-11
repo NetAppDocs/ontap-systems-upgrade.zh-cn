@@ -1,0 +1,58 @@
+= 
+
+
+为了帮助您在将 SAN LIF 从 node3 移动到 node4 后验证配置是否正确，您可以使用以下工作表记录每个 LIF 的 `adapter` 和 `switch-port` 信息。
+
+记录 `network interface show -data-protocol fc*` 命令输出中的 LIF `adapter` 信息以及 node3 的 `fcp adapter show -fields switch-port ， fc-wwpn` 命令输出中的 `sswitch-port` 信息。
+
+完成到 node4 的迁移后，记下 node4 上 LIF 的 LIF `adapter` 和 `switch-port` 信息，并验证每个 LIF 是否仍连接到同一个 `s交换机端口` 。
+
+[cols="6*"]
+|===
+3+| 节点 3. 3+| 节点 4. 
+
+
+| LIF | `适配器` | `s交换机端口` | LIF | `适配器` | `s交换机端口` 
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+
+
+|  |  |  |  |  |  
+|===

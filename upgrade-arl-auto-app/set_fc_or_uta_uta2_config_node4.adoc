@@ -18,7 +18,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 您可能需要完成 <<Configure FC ports on node4>> 部分 <<Check and configure UTA/UTA2 ports on node4>>或这两个部分。
 
 
-NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:verify_node4_installation.html["验证 node4 安装"]。但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回 _Install and boot node4_ 部分并继续执行 。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
+NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:verify_node4_installation.html["验证 node4 安装"]。但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回 _Install and boot node4_ 部分并继续执行 link:install_boot_node4.html#step22["第 22 步"]。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
 
 .选项
 * <<Configure FC ports on node4>>

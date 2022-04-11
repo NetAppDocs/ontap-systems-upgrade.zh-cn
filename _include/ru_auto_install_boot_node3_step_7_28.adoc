@@ -165,6 +165,6 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 `boot_ontap 菜单`
 
 +
-如果您没有 FC 或 UTA/UTA2 配置，请执行 link:set_fc_or_uta_uta2_config_on_node3.html#auto9597_check_node3_step15["检查并配置节点 3 上的 UTA/UTA2 端口，步骤 15"] 以便 node3 可以识别 node1 的磁盘。
+如果您没有 FC 或 UTA/UTA2 配置，请执行 link:set_fc_or_uta_uta2_config_on_node3.html#auto9597_check_node3_step15["检查并配置 node3 步骤 15 上的 UTA/UTA2 端口"] 以便 node3 可以识别 node1 的磁盘。
 
 

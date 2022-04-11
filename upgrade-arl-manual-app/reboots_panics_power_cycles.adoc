@@ -118,7 +118,7 @@ node2 已将其部分或全部聚合重新定位到 node3 ，而 node3 将从重
 
 .步骤
 . 启动 node2 。
-. 完成后重新定位其余聚合 link:relocate_non_root_aggr_node2_node3.html#step1["第 1 步"] 到  在 _relocate non-root aggregates from node2 to node3_ 一节中。
+. 完成后重新定位其余聚合 link:relocate_non_root_aggr_node2_node3.html#step1["第 1 步"] 到 link:relocate_non_root_aggr_node2_node3.html#step3["第 3 步"] 在 _relocate non-root aggregates from node2 to node3_ 一节中。
 . 继续执行节点对升级操作步骤。
 
 
@@ -198,7 +198,7 @@ node3 已将 node2 的部分或全部聚合重新定位到 node4 。Node4 不会
 
 .步骤
 . 启动 node3 。
-. 重复重新定位属于 node2 的其余聚合 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到  在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 一节中。
+. 重复重新定位属于 node2 的其余聚合 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到 link:relocate_node2_non_root_aggr_node3_node4.html#step3["第 3 步"] 在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 一节中。
 . 继续执行节点对升级操作步骤。
 
 
@@ -212,6 +212,6 @@ node3 已将 node2 的部分或全部聚合重新定位到 node4 。node3 不会
 
 .步骤
 . 启动 node4 。
-. 重新完成属于 node2 的其余聚合的重新定位 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到  在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 中。
+. 重新完成属于 node2 的其余聚合的重新定位 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到 link:relocate_node2_non_root_aggr_node3_node4.html#step3["第 3 步"] 在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 中。
 . 继续执行节点对升级操作步骤。
 

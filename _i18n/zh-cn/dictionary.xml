@@ -551,8 +551,6 @@
   <block id="3ba1b014c973048d41b40e37b1cfeb69" category="list-text">【第 25 步】修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。</block>
   <block id="be6df649a349785ed8ec2a552e7c8903" category="list-text">【第 26 步】如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。</block>
   <block id="dc19b23ad13df9e69f052ca959f75ad8" category="list-text">【第 28 步】启动节点进入启动菜单：</block>
-  <block id="d5a2736750f555e1b93002d11e192b77" category="inline-link-macro">检查并配置节点 3 上的 UTA/UTA2 端口，步骤 15</block>
-  <block id="8105e4198590e4ba2b52ef420719d8f6" category="paragraph">如果您没有 FC 或 UTA/UTA2 配置，请执行 <block ref="197bcdf5306898ec17e6022b26568f43" category="inline-link-macro-rx"></block> 以便 node3 可以识别 node1 的磁盘。</block>
   <block id="bc26b5e5559721e19875fb91dce22cec" category="inline-link-macro">在 node3 上设置 FC 或 UTA/UTA2 配置</block>
   <block id="8ba547e72776f098f3b70a6614639f73" category="list-text">【第 29 步】对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，您必须在 node3 上设置和配置 FC 或 UTA/UTA2 端口，以检测连接到节点的磁盘。要完成此任务，请转至第节 <block ref="c73225f56714e22dffa9ff7369895ce1" category="inline-link-macro-rx"></block>。</block>
   <block id="1a4d3feb333aa03c1008e54bae47d8e9" category="doc">确保新控制器设置正确</block>
@@ -813,8 +811,6 @@
   <block id="f52de228b93a6f965c1879aa97b007d6" category="paragraph">检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用 `volume online` 命令将这些卷恢复联机。</block>
   <block id="7bd5452d2f3a1c07fc54d3a08cc82d64" category="paragraph">如果 node3 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。</block>
   <block id="d897564a1ca4a58b7f422ba34b232ab7" category="paragraph">您可能需要完成此部分 <block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block>，部分 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>或这两个部分。</block>
-  <block id="61a70f63b15f41db325598863adb0177" category="inline-link-macro">验证节点 3 安装</block>
-  <block id="9ddd1c356c6ec43f630dd03fa71725d5" category="list-text">如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 <block ref="d402045f7964b6e0cf4fcac8fa4d9846" category="inline-link-macro-rx"></block> 部分。</block>
   <block id="be6b715addf3303698d174b13e915620" category="list-text">但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回到 _Install and boot node3_ 部分并继续执行中的部分 <block ref="279060155dcadaa13689560d46e381cb" category="inline-link-macro-rx"></block>。</block>
   <block id="a1a2d377f686ce4835b9ee342fd6089b" category="list-text"><block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block></block>
   <block id="3088a544c36eafa56a0950901fa93b6a" category="list-text"><block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block></block>
@@ -1021,12 +1017,10 @@
   <block id="b9dd5a9a2b21507e0342ef620ec6824d" category="list-text">检查并配置 UTA/UTA2 端口。</block>
   <block id="8de9e3207ca31bee139241ad4fc0650f" category="list-text">验证 node3 是否已成功安装。</block>
   <block id="e60e41c512cd3f2ad332e91763d4d2a5" category="list-text">还原 node3 网络配置。</block>
-  <block id="6b01c45aa39022f8fcfff3f90434c89c" category="list-text">将节点 1 下的非 SAN 数据 LIF 从 node2 移动到 node3 。</block>
   <block id="fd37436f77e7bb0f803c1afad985d422" category="list-text">将 node1 拥有的非根聚合从 node2 重新定位到 node3 。</block>
   <block id="ff8f4c5aae9f0216fa1c088e4c636ab0" category="paragraph">第 3 阶段结束时的聚合所有权：</block>
   <block id="d58c33bf48643b15350ce1c80bb474d8" category="list-text">node3 是 node1 聚合的主所有者和当前所有者。</block>
   <block id="04bf2293479cb8cadbf0c59e985f585e" category="list-text">将非根聚合从 node2 重新定位到 node3 。</block>
-  <block id="6ab2fb4ca5571833687af9b24c03405b" category="list-text">将节点 2 拥有的非 SAN 数据 LIF 重新定位到节点 3 。</block>
   <block id="8f4919c4d65b1afa5ab9c7d7757a53af" category="list-text">停用 node2 。</block>
   <block id="d517ee6c427837d3874a695e344df510" category="paragraph">第 4 阶段结束时的聚合所有权：</block>
   <block id="312d1c4e0e8f2ca55c86dd955ac42bff" category="list-text">node3 是最初属于 node1 的聚合的主所有者和当前所有者。</block>
@@ -1254,7 +1248,6 @@
   <block id="e13ef1734f457a6634d02e817f76fb23" category="paragraph">配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。</block>
   <block id="7e4c3807e46f1f800d0e720965a7fe3a" category="paragraph">有关 `storage aggregate relocation start` ， `override-vetoes` 和 `override-destination-checks` 选项的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _Microsoft ONTAP 9 命令：手册页参考 _ 。</block>
   <block id="38cf27caef6776abd0225a54be1e9972" category="list-text">[autos9597_istall3_step6]] 通过选择以下操作之一配置网络启动连接。</block>
-  <block id="1e1bab3dc1010e23c8cb467fc3006ae4" category="list-text">[auto9597_istall3_step29]] 对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，请转至 <block ref="197bcdf5306898ec17e6022b26568f43" category="inline-link-macro-rx"></block>。</block>
   <block id="2dc628959227b30796539097566ced4e" category="list-text">在两个节点上使用以下命令配置 SP ：</block>
   <block id="cffe1635d7e645065b5457e425a54cdd" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 ONTAP `s管理参考 _ 以了解 SP 的相关信息，以及 _SP 9 命令：手册页参考 _ 以了解有关 system` service-processor network modify 命令的详细信息。</block>
   <block id="17acc08dd9b9cc179eb2c71ee42f1438" category="paragraph">在此信息中，原始节点称为 "node1" 和 "node2" ，新节点称为 "node3" 和 "node4" 。在所述的操作步骤期间， "node1" 将替换为 "node3" ， "node2" 将替换为 "node4" 。</block>
@@ -1397,7 +1390,6 @@
   <block id="bc8f48f93dda6e3952b34dfbe1025b15" category="list-text">设置 FC 或 CNA 配置。</block>
   <block id="3f5c1bacca95dbafb20a5f179a1942a1" category="list-text">将端口从 node1 映射到 node3</block>
   <block id="54a39699f4ada20f9a2f7d43ba99505c" category="list-text">将 node1 拥有的非 SAN 数据 LIF 从 node2 移动到 node3 。</block>
-  <block id="91e22d907fccb4bca308f7b5eda21afe" category="list-text">将节点 2 拥有的非 SAN 数据 LIF 移动到节点 3 。</block>
   <block id="3fdf70ee47a45b22517705d18baeebc9" category="list-text">将端口从 node2 映射到 node4</block>
   <block id="d27f63bee356811b88d04e4d588f22db" category="list-text">验证 node4 安装</block>
   <block id="0895162788980393fe5dfd2240f70f94" category="list-text">根据需要恢复 SnapMirror 操作。</block>
@@ -2102,7 +2094,6 @@
   <block id="34c13ce480fd28c643a03477e436ea69" category="cell">第 3 阶段：安装并启动节点 3.</block>
   <block id="9831ac08d1511b2493ac2b60bb2c8719" category="list-text">在 node3 上设置 UTA/UTA2 配置。</block>
   <block id="0ecfaa523b3b44d06f14bc6b97a490f1" category="list-text">验证 node3 安装</block>
-  <block id="d6836a12958b1cab97098bd6a3acd9e1" category="list-text">将节点 1 所拥有的非 SAN 数据 LIF 从 node2 移动到 node3 ，并验证 node3 上的 SNA LIF 。</block>
   <block id="eb20f04ed8fd91952c34e1e4620e246e" category="list-text">将节点 2 拥有的非 SAN 数据 LIF 移动到节点 3 。</block>
   <block id="6bcc99fe1628db9ec14216040c21696b" category="list-text">node2 是 node2 聚合的主所有者，但不是当前所有者。</block>
   <block id="96823812e251fed8294451535c6f95b0" category="list-text">node3 是最初属于 node1 的聚合的主所有者和当前所有者。</block>
@@ -2254,7 +2245,6 @@
   <block id="65e4801fe9cb3563a071b657463a3c1c" category="cell">转至 <block ref="610cb2d6e87c5e838ceef8f48f57b082" category="inline-link-macro-rx"></block>。</block>
   <block id="30183fbd349bcd94fdabd371e0fdc8d9" category="cell">未在中记录 NVRAM 系统 ID 编号 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block></block>
   <block id="b31b744fd8c5cbe34c282a8e3311866b" category="cell">完成 <block ref="3ef612fafd35c4ea98dad97a133c5f3f" category="inline-xref-macro-rx"></block> 和 <block ref="a3461a8cfeac3856b6bf21e7388f2534" category="inline-xref-macro-rx"></block> 然后转到下一节， <block ref="610cb2d6e87c5e838ceef8f48f57b082" category="inline-link-macro-rx"></block>。</block>
-  <block id="435d35070ba8894d910a50e35db1d4e2" category="list-text">【 man_record_2_step9]] 显示节点 2 的属性：</block>
   <block id="5d34eef64c7b53994a7dde374d44b94b" category="paragraph">`ssystem node show -instance -node node2`</block>
   <block id="bc110b3ccc057d2275d5e8ae87f525b0" category="list-text">【 man_record_2_step10]] 记录要在部分中使用的 NVRAM 系统 ID <block ref="f326c815b47f4f2909494bae5cd735d5" category="inline-link-macro-rx"></block>。</block>
   <block id="7314fe3b616597bb78463e3503d3cdea" category="paragraph">要了解是否可以使用聚合重新定位（ Aggregate Relocation ， ARL ）将一对运行 ONTAP 9.0 的控制器升级到 9.7 ，取决于原始控制器和更换控制器的平台和配置。</block>
@@ -2303,7 +2293,6 @@
   <block id="051d9c31ffa2621a5e49ba9e6d76c916" category="list-text">检查 node3 和 node4 上的 ONTAP 版本。</block>
   <block id="53e359796554176ecef5639c8ed3ed05" category="paragraph">有关 node3 和 node4 上的 ONTAP 版本的信息应包含在装运箱中。节点启动时会显示 ONTAP 版本，您也可以将节点启动至维护模式并运行命令：</block>
   <block id="7877022c956918624cc0373ff564cad4" category="paragraph">`ve版本`</block>
-  <block id="232ac82576b399b9dcdc3a264bb0c6ec" category="list-text">检查 node1 和节点 2 上是否有两个或四个集群 LIF ：</block>
   <block id="a2d27af8ce0592e36b8a208c0cb93d3e" category="paragraph">`network interface show -role cluster`</block>
   <block id="97946b80ce2a390dfbe694abb89b8da6" category="paragraph">系统将显示任何集群 LIF ，如以下示例所示：</block>
   <block id="b6f048f47d754b1245e072cf13364151" category="list-text">如果 node1 或 node2 上有两个或四个集群 LIF ，请通过完成以下子步骤确保您可以在所有可用路径上对两个集群 LIF 执行 ping 操作：</block>
@@ -2560,9 +2549,7 @@
   <block id="44bbe343e421273c157c5d1c833a433b" category="list-text">【第 1 步】通过在任一节点上输入以下命令并捕获输出，列出 node2 不拥有的所有 NAS 数据 LIF ：</block>
   <block id="690cd6839e2f529e9d1be34efa6f9791" category="paragraph">`network interface show -role data -curr-node node2 -is-home false -home-node node3`</block>
   <block id="4273a0997ee0d6df35945422d9f57ec6" category="cell">已配置接口组或 VLAN</block>
-  <block id="05aa25da736018fa33e8cc8667b1e0f1" category="cell">转至 <block ref="fa7afcf3541ce640333b443234c694da" category="inline-xref-macro-rx"></block>。</block>
   <block id="31a8cab14d1d7febef6f8053dcd9552d" category="cell">未配置接口组或 VLAN</block>
-  <block id="09b00a0d82c468f9038424665ba3a692" category="cell">跳过步骤 3 ，然后转到 <block ref="a5ee73999909412ce73c7e745a3cb5c2" category="inline-xref-macro-rx"></block>。</block>
   <block id="8c5ada6be3ca66f32616fd020694ec45" category="list-text">[[man_lif_verif_3_step3]] 执行以下子步骤，将最初位于 node1 上的接口组和 VLAN 上托管的任何 NAS 数据 LIF 从 node2 迁移到 node3 ：</block>
   <block id="fd8bd88e1dcef54d04236465f2b87693" category="list-text">【 man_lif_verif_3_substepa 】通过为每个 LIF 输入以下命令，将先前属于接口组中 node1 的 node2 上托管的任何数据 LIF 迁移到 node3 上能够在同一网络上托管 LIF 的端口：</block>
   <block id="494973c7f1f28c90b456a3998b09b84a" category="paragraph">`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 – destination-port netport_ifgrp`</block>
@@ -2571,7 +2558,6 @@
   <block id="569a27e0dcf14d4091837fcac510315b" category="list-text">【 man_lif_verif_3_substepc]] 通过为每个 LIF 输入以下命令，将先前属于 VLAN 端口上 node1 的 node2 上托管的任何数据 LIF 迁移到 node3 上能够在同一网络上托管 LIF 的端口：</block>
   <block id="acdda21dc8c7ea3a875f05cfa2d42fb8" category="list-text">在中修改 LIF 的主端口和主节点 <block ref="0ba0c3832c194a002bde244af82cc6e8" category="inline-xref-macro-rx"></block> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：</block>
   <block id="f0de8680ab31eb7304741a5d6c335bce" category="list-text">[[man_lif_verif_3_step4]] 执行以下操作之一：</block>
-  <block id="a8737f289941aae34c7bdcaf30a6f49c" category="cell">完成 <block ref="5bf3f4cb83f848c38272cdda13b03424" category="inline-xref-macro-rx"></block> 和 <block ref="5afb3629d2897001a44bd62c86195932" category="inline-xref-macro-rx"></block>，跳过步骤 7 并完成 <block ref="6f2b0e2c7df1e7ce442716f4a9ac5045" category="inline-xref-macro-rx"></block> 到 <block ref="d664f7f06c19c1d6c4e1d7d9cba27620" category="inline-xref-macro-rx"></block>。</block>
   <block id="e7bc8e4a360dbc42e9759f708ed40f33" category="cell">禁用节点上的所有 SAN LIF 以将其关闭以进行升级： `network interface modify -vserver vserver_name -lif LIF_name -home-node node_to_upgrade -home-port netport_ifgrp -status-admin down`</block>
   <block id="99025819fe651e3a15c4cafd9ba07587" category="list-text">【 man_lif_verif_3_step5]] 如果平台上的数据端口不同，请将这些端口添加到广播域：</block>
   <block id="76b84f6ac9c180bd922bf1f7f126e4f3" category="list-text">【 man_lif_verif_3_step6]] 通过输入以下命令将每个 NAS 数据 LIF 迁移到 node3 ，每个 LIF 一次：</block>
@@ -2912,8 +2898,6 @@
   <block id="8d20a51d0c0718e7e116461f15d49fb3" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node4 联机后，您需要验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="12720c14368020238cd7150824f980eb" category="list-text">通过在任一节点上输入以下命令并捕获输出，列出不属于 node3 的所有 NAS 数据 LIF ：</block>
   <block id="9482a7fa27802a7ab7e05f7ded4a42bd" category="paragraph">`network interface show -role data -curr-node node3 -is-home false`</block>
-  <block id="f4f6617b632a0c1c2dc3fa9db1c234c1" category="cell">转至 <block ref="81b5453f8cd7e29a23486e4650786cf5" category="inline-xref-macro-rx"></block>。</block>
-  <block id="2a0ce78ac6ca1adeedbcfa1fd0a257cc" category="cell">跳过步骤 3 ，然后转到 <block ref="945e0dec7328bd39afca611c47b45c97" category="inline-xref-macro-rx"></block>。</block>
   <block id="dac6519e0e0abeb2d86af52963ff687b" category="list-text">[[man_lif_verif_4_Step3]] 执行以下步骤，将最初位于 node2 上的接口组和 VLAN 上托管的任何 NAS 数据 LIF 从 node3 迁移到 node4 。</block>
   <block id="bea582814d8029e4e79ed1f1f67178fa" category="list-text">【 man_lif_verif_4_substepa 】通过为每个 LIF 输入以下命令，将先前属于接口组上 node2 的 node3 上托管的任何 LIF 迁移到 node4 上能够在同一网络上托管 LIF 的端口：</block>
   <block id="d78b67076b08536aa74614da580aa8e7" category="paragraph">`network interface migrate -vserver vserver_name -lif lif_name -destination-node node4 – destination-port netportsifgrp`</block>
@@ -2924,9 +2908,6 @@
   <block id="b9698583aeb95570efa407aaaba06094" category="list-text">在中修改 LIF 的主端口和主节点 <block ref="239198568c8cd082441ca4901dc23f34" category="inline-xref-macro-rx"></block> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：</block>
   <block id="9b464868d559a5e4c0a4b39f6f928522" category="paragraph">`network interface modify -vserver vserver_name -lif datalif_name -home-node node4 home-port netport_ifgrp`</block>
   <block id="1ba9f89e7307ad05e44ad05bb958ca27" category="list-text">【 man_lif_verif_4_Step4]] 执行以下操作之一：</block>
-  <block id="583ceb80a05614853a17d060bdc9978d" category="cell">完成 <block ref="24ba20dfe80c75ddf74b686c1f78edbe" category="inline-xref-macro-rx"></block> 到 <block ref="464cefb825ec041ae0f8085658a0717b" category="inline-xref-macro-rx"></block>，跳过步骤 9 并完成 <block ref="487182da65d4a8fd64dac32686f96826" category="inline-xref-macro-rx"></block> 到 <block ref="6d60445fd0a028ec8dafc7e8858e9dac" category="inline-xref-macro-rx"></block>。</block>
-  <block id="407fbf8918b07e23f7ad6bd07a5d9cd9" category="cell">跳过步骤 5 到步骤 8 并完成 <block ref="95473255aa630f367ac347162090735e" category="inline-xref-macro-rx"></block> 到 <block ref="6d60445fd0a028ec8dafc7e8858e9dac" category="inline-xref-macro-rx"></block>。</block>
-  <block id="b7cf099ecc920b7356c7938e36ead518" category="cell">完成 <block ref="24ba20dfe80c75ddf74b686c1f78edbe" category="inline-xref-macro-rx"></block> 到 <block ref="6d60445fd0a028ec8dafc7e8858e9dac" category="inline-xref-macro-rx"></block>。</block>
   <block id="486afcecd3768de955874ac9b04d982d" category="list-text">【 man_lif_verif_4_Step5]] 如果您的平台上的数据端口不同，请输入以下命令将这些端口添加到广播域：</block>
   <block id="0d0d30231651c6bea6f3a8ab9bef8b41" category="paragraph">`network port broadcast-domain add-ports -ipspace ipspace_name -broadcast-domain mgmt ports node ： port`</block>
   <block id="59770005b7a829dfa2de1246fe18d7ed" category="paragraph">以下示例将节点 "6280-1 " 上的端口 "e0a" 和节点 "8060-1 " 上的端口 "e0i" 添加到 IP 空间默认值中的广播域管理中：</block>
@@ -3018,8 +2999,6 @@
   <block id="24738875225e89a3fe6b531d598a45f9" category="paragraph">有关获取此信息的步骤，请参见 " 录制节点 2 信息 " 一节。</block>
   <block id="7974b2ee243c61270cbc49955821fd33" category="list-text">使用上表中相同的操作步骤记录节点 4 ，端口，广播域和 IP 空间的所有布线信息 <block ref="bf281b48b35a7cc176890f2be65ca906" category="inline-link-macro-rx"></block> 第节介绍了获取此信息的步骤。</block>
   <block id="4a4552a72df2a500f815fd3a0166db9c" category="list-text">通过执行以下步骤将 node4 置于仲裁状态：</block>
-  <block id="3117fde9d13ce2738e8565c02388235e" category="inline-link-macro">安装并启动节点 4.</block>
-  <block id="6a3f0aa15ae6d8d1023d18e294158b6d" category="list-text">启动节点 4.请参见 <block ref="2f432fc28ce55bdf3f9384f7801ca745" category="inline-link-macro-rx"></block> 以启动节点（如果尚未启动）。</block>
   <block id="8a624db640009bfcd8e57f0c71e33d5a" category="paragraph">`network port show -node -port port -fields broadcast-domain` 以下示例显示端口 "e0a" 位于 node4 上的集群域中：</block>
   <block id="8ce18e9d769ff67698580bd546d1e73d" category="admonition">对于 MetroCluster 配置，您可能无法更改某个端口的广播域，因为该端口与托管 sync-destination SVM 的 LIF 的端口相关联，并且会看到类似于但不限于以下内容的错误：</block>
   <block id="1e73d25bc38bc6b9d12b63ae78620236" category="paragraph">`MetroCluster SVM resync -vserver vserver_name`</block>
@@ -3327,7 +3306,6 @@
   <block id="f86f16f11e093ddd1a9acafc8ee58e6f" category="sidebar">移动非 SAN 数据 LIF 和集群管理 LIF</block>
   <block id="cf3329822cb6acbd3f59abba0514d804" category="sidebar">删除 SAN LIF</block>
   <block id="d2e2f3320c4d610d0815b1405859a98b" category="sidebar">取消加入原始节点</block>
-  <block id="ede813b2f7c6a203c236d7726f79da2c" category="sidebar">工作表：在控制器升级之前和期间收集的信息</block>
   <block id="79f3abfd76c996d707b348dbfb91c42b" category="sidebar">在 node4 上设置 FC 或 UTA/UTA2 配置</block>
   <block id="2e546c2ae4e7d18e3a62352f7899f8ad" category="paragraph">按照 node4 平台的 _Installation and Setup Instructions_or the _FlexArray 虚拟化安装要求和参考 _ 中的说明，使用缆线连接以下连接，并参考相应的磁盘架文档和 _High Availability Management_ 。</block>
   <block id="96fc3790ed0f779b648493fc7e4b2e7c" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _High Availability Management_ 和 _FlexArray 虚拟化安装要求和参考。</block>
@@ -3342,9 +3320,7 @@
   <block id="a3b8dcbb945865e5ef0e1c83b68c8824" category="cell"><block ref="a3b8dcbb945865e5ef0e1c83b68c8824" category="inline-link-macro-rx"></block></block>
   <block id="2894d35f6fa87d4eee09a10919737e2f" category="cell"><block ref="2894d35f6fa87d4eee09a10919737e2f" category="inline-link-macro-rx"></block></block>
   <block id="07ae19817dfc58c8d1b72b612a233da3" category="inline-link-macro">MetroCluster 管理和灾难恢复</block>
-  <block id="2e78b745dc7527d7e142f60838ac795c" category="cell"><block ref="2e78b745dc7527d7e142f60838ac795c" category="inline-link-macro-rx"></block></block>
   <block id="c750cfcf9c6045b6e0b4b0d6de2212f3" category="inline-link-macro">MetroCluster 升级和扩展</block>
-  <block id="61999f6fa7ffc8c1f676441d457e3d86" category="cell"><block ref="61999f6fa7ffc8c1f676441d457e3d86" category="inline-link-macro-rx"></block></block>
   <block id="d1b75581244e03161b57c29a9ac4bb22" category="inline-link-macro">使用 CLI 管理磁盘和聚合</block>
   <block id="c3aed88c9ee3a48f5d62930613f5710f" category="cell"><block ref="c3aed88c9ee3a48f5d62930613f5710f" category="inline-link-macro-rx"></block></block>
   <block id="083222857448e1fa46a20ea7d228c4a3" category="cell">介绍如何使用命令行界面管理 ONTAP 物理存储。其中介绍了如何创建，扩展和管理聚合，如何使用 Flash Pool 聚合，如何管理磁盘以及如何管理 RAID 策略。</block>
@@ -3434,7 +3410,6 @@
   <block id="2c6770803baeb326c3573c2c99ff387a" category="summary">此内容介绍如何通过移动存储或卷来升级集群中 AFF 系统或 FAS 系统的控制器硬件。</block>
   <block id="10ce071fec41e8ee934d0d2c7ef28c46" category="doc">确定是通过移动卷还是存储进行升级</block>
   <block id="ec9ed7bffd77d0096865ed2f7cdcc6cb" category="inline-link">MetroCluster ® 升级和扩展</block>
-  <block id="b57acc6aae5b9384209bb66a6c83f8e9" category="paragraph">如果要升级双节点 MetroCluster 配置，则必须使用中的操作步骤<block ref="8f8223d27ded43641f85508576e6eb9a" category="inline-link-rx"></block> 内容</block>
   <block id="ee50784c4307d33a05ee2e7ea5146e6b" category="inline-link-macro">ARL 控制器硬件升级</block>
   <block id="a96bbb56bf9f254d0e2034d1d7d6da26" category="paragraph">此内容不介绍如何使用聚合重新定位（ Aggregate Relocation ， ARL ）升级控制器硬件，如中所述 <block ref="f1bb1f12e9cbaac696243166fca7cc1f" category="inline-link-macro-rx"></block> 内容</block>
   <block id="4888a1163bab7e13f5a9de829f599dba" category="inline-link">从何处查找 MetroCluster 维护任务的过程</block>
@@ -4397,4 +4372,53 @@
   <block id="a1e942c10f3ef940af9560fa7f9b1bcf" category="sidebar">第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1</block>
   <block id="1eec8458b505239680f521752a8c01ec" category="sidebar">第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</block>
   <block id="994245d9c168d8ec5856e8519cf95566" category="sidebar">第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</block>
+  <block id="46d710808513caa456c59b3efa90d166" category="list-text">检查 node1 和 node2 上是否有两个或四个集群 LIF ：</block>
+  <block id="cae5b224d557c99a0eebcc5cacc40bf4" category="inline-link-macro">检查并配置 node3 步骤 15 上的 UTA/UTA2 端口</block>
+  <block id="a298d19803fc12a7c7efaba3c5bf6f9c" category="paragraph">如果您没有 FC 或 UTA/UTA2 配置，请执行 <block ref="9a0e78facca94ea7347680acb603c7fe" category="inline-link-macro-rx"></block> 以便 node3 可以识别 node1 的磁盘。</block>
+  <block id="7fb38727f894ed52a58d4bcc31b06aaf" category="list-text">【 man_record_2_step9]] 显示 node2 的属性：</block>
+  <block id="532b323cb941c2d695f99125c68410df" category="cell"><block ref="532b323cb941c2d695f99125c68410df" category="inline-link-macro-rx"></block></block>
+  <block id="b4fe4daa97eb40900235ae04f1cd5873" category="cell"><block ref="b4fe4daa97eb40900235ae04f1cd5873" category="inline-link-macro-rx"></block></block>
+  <block id="91b0db424a5fefe25b3d6fccaca1b289" category="inline-link-macro">工作表</block>
+  <block id="7d059b3dc572790c32264682daa9e3a8" category="list-text">【 ｛ 工作表 _step2_node2]] 如果为集群配置了 SAN LIF ，请在此记录 SAN LIF 和现有配置信息 <block ref="ed0401b9f31c3a01c0ae9e44a18d8569" category="inline-link-macro-rx"></block> 以供日后在操作步骤 中使用。</block>
+  <block id="13fe413dcdf6cd4af5dc15452c261c5d" category="list-text">列出 node3 上的 SAN LIF 并检查输出：</block>
+  <block id="c81ec76e9b8604cac0a0b80f119ad7ca" category="paragraph">`network interface show -data-protocol fc*`</block>
+  <block id="fefd289d498d5d5326f83433241db103" category="list-text">列出现有配置并检查输出：</block>
+  <block id="2b8adeabb17e2a28fffec9935d24095e" category="paragraph">`fcp adapter show -fields switch-port ， fc-wwpn`</block>
+  <block id="0570a87f66b52b8f17fb5de7ee7bc50e" category="cell">转至 <block ref="1feafd371df4188baa75107ccc365ce6" category="inline-xref-macro-rx"></block>。</block>
+  <block id="a0c840707955fb428322cd9929f8594f" category="cell">跳过步骤 4 ，然后转到 <block ref="fed6d849a1c6887a0026c6afdf0be295" category="inline-xref-macro-rx"></block>。</block>
+  <block id="81822d00068323377a946aa7bf001d37" category="inline-xref">第 14 步</block>
+  <block id="203c350886e723f8907aa98829856dea" category="cell">完成 <block ref="9b6384c6e14a01b359b3ceca503dc7e8" category="inline-xref-macro-rx"></block> 到 <block ref="0384eb2d62c044428afa7420fa66b7f3" category="inline-xref-macro-rx"></block>，跳过步骤 10 并完成 <block ref="e8b56490494689060c7f97c7205b356e" category="inline-xref-macro-rx"></block> 到 <block ref="ec14a10fceb4bd2f9e1f7036303b7f20" category="inline-xref-macro-rx"></block>。</block>
+  <block id="d7e12627113c3a73f5a80bf4274e8846" category="cell">跳过步骤 6 到步骤 9 并完成 <block ref="5ec476e5dfed929f240a4e732b5ca6eb" category="inline-xref-macro-rx"></block> 到 <block ref="ec14a10fceb4bd2f9e1f7036303b7f20" category="inline-xref-macro-rx"></block>。</block>
+  <block id="6944af912471eeed2e022cefd73bd566" category="cell">完成 <block ref="9b6384c6e14a01b359b3ceca503dc7e8" category="inline-xref-macro-rx"></block> 到 <block ref="ec14a10fceb4bd2f9e1f7036303b7f20" category="inline-xref-macro-rx"></block>。</block>
+  <block id="24fe95a95d6e3a63f99e4a3c5ef9f89a" category="list-text">通过将 `fcp adapter show` 命令的输出与您在工作表中记录的新配置信息进行比较，验证新的 `adapter` 和 `switch-port` 配置是否正确 <block ref="126eae74e75ac7b320d7d5918436b8fc" category="inline-xref-macro-rx"></block>。</block>
+  <block id="a9b96c57877203a59f39e6cc79d93f2c" category="paragraph">列出 node4 上的新 SAN LIF 配置：</block>
+  <block id="b2d67401d96e568ee0cf85d65ef2b19b" category="admonition">如果新配置中的 SAN LIF 不在仍连接到同一个 `s交换机端口` 发生原因 的适配器上，则在重新启动节点时，它可能会导致系统中断。</block>
+  <block id="82b42c933396be79780fabd5e97f3c55" category="list-text">通过将 `fcp adapter show` 命令的输出与您在工作表中记录的配置信息进行比较，验证新的和 `adapter` 和 `switch-port` 配置是否正确 <block ref="0cc92f396d72c25a12260a5b674f18bb" category="inline-xref-macro-rx"></block>。</block>
+  <block id="c60cff9ca9befe11cdfbe93fdcc641c4" category="paragraph">列出 node3 上的新 SAN LIF 配置：</block>
+  <block id="51dffedbaa43215c9eb261627011dc71" category="list-text">【工作表 _step2]] 如果为集群配置了 SAN LIF ，请在此记录 SAN LIF `adapter` 和 `sswitch-port` 配置信息 <block ref="df642b24162f163cd69ded792f71f977" category="inline-link-macro-rx"></block> 以供日后在操作步骤 中使用。</block>
+  <block id="82bc4d9ae00b977a00f8b2b3183a9785" category="list-text">列出 node2 上的 SAN LIF 并检查输出：</block>
+  <block id="018c22c5b30c017d8feb43ab61d41950" category="cell">转至 <block ref="8695dd713093cfe118008b3f87c0754f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="2b11e293cb7289a197df3561593aeffa" category="cell">跳过步骤 4 ，然后转到 <block ref="a890970ca155ddb2f966787cdb699906" category="inline-xref-macro-rx"></block>。</block>
+  <block id="584e8d9cc5ee8c735cfb3dd7222c5f97" category="cell">完成 <block ref="ad851a431673e6dae9d14b296383f37c" category="inline-xref-macro-rx"></block> 和 <block ref="1d64360fb04a1f29d7e0234ee858d9f1" category="inline-xref-macro-rx"></block>，跳过步骤 8 并完成 <block ref="9da2a3cb41411f3d8e4509b7d9f419c9" category="inline-xref-macro-rx"></block> 到 <block ref="268954e5efe55fe9bc0459f35479f2f6" category="inline-xref-macro-rx"></block>。</block>
+  <block id="b9c0ca8a434a5002becc00cfe521a241" category="paragraph">为了帮助您在将 SAN LIF 从 node3 移动到 node4 后验证配置是否正确，您可以使用以下工作表记录每个 LIF 的 `adapter` 和 `switch-port` 信息。</block>
+  <block id="53148cc93c14512428f6220d831a49bc" category="paragraph">记录 `network interface show -data-protocol fc*` 命令输出中的 LIF `adapter` 信息以及 node3 的 `fcp adapter show -fields switch-port ， fc-wwpn` 命令输出中的 `sswitch-port` 信息。</block>
+  <block id="4609868b369b1b30d3b39e9d3f09f22f" category="paragraph">完成到 node4 的迁移后，记下 node4 上 LIF 的 LIF `adapter` 和 `switch-port` 信息，并验证每个 LIF 是否仍连接到同一个 `s交换机端口` 。</block>
+  <block id="bbb747b1516b5225f1ec1c65887b39fc" category="cell">节点 3.</block>
+  <block id="9d976e7c6f1c5d3d7ceae80a4e6a8146" category="cell">节点 4.</block>
+  <block id="b3625fe2fca73900be4e5cc7287b2712" category="cell">`适配器`</block>
+  <block id="ea345f47a717359f0fdba3d2e4713ef4" category="cell">`s交换机端口`</block>
+  <block id="c05bee806c6f915cf5ff2806f39a07ed" category="paragraph">为了帮助您在将 SAN LIF 从 node2 移动到 node3 后验证配置是否正确，您可以使用以下工作表记录每个 LIF 的 `adapter` 和 `switch-port` 信息。</block>
+  <block id="9112b6be69a2001742ac0ee10829bee2" category="paragraph">记录 `network interface show -data-protocol fc*` 命令输出中的 LIF `adapter` 信息以及 node2 的 `fcp adapter show -fields switch-port ， fc-wwpn` 命令输出中的 `sswitch-port` 信息。</block>
+  <block id="22b2fefa28a06ec3cc06d7ec099d5c74" category="paragraph">完成到 node3 的迁移后，记下 node3 上 LIF 的 LIF `adapter` 和 `switch-port` 信息，并验证每个 LIF 是否仍连接到同一个 `s交换机端口` 。</block>
+  <block id="f5f366263dcc357e2720042f33286f8f" category="cell">节点 2.</block>
+  <block id="b343f23906663addd5a74e2a7ef1081c" category="paragraph">如果要升级双节点 MetroCluster 配置，则必须使用中的操作步骤<block ref="1c2430d337b01f5c69e59f26ce11e5ee" category="inline-link-rx"></block> 内容</block>
+  <block id="79376a6dcb786ca7697c041779a511ed" category="list-text">将 node1 拥有的非 SAN 数据 LIF 从 node2 移动到 node3 ，并验证 node3 上的 SNA-LIF 。</block>
+  <block id="9563ae143e5fe7208056b0b71e25b465" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，记录 node2 NAS 数据 LIF 配置信息。</block>
+  <block id="f2c792d165cf5982bc257f272cf61213" category="doc">工作表：将 NAS 数据 LIF 移动到 node4 之前要记录的信息</block>
+  <block id="3845d8de38880910997f948c4173a5ae" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，记录 node1 NAS 数据 LIF 配置信息。</block>
+  <block id="3a9b491c3933919f7944d284e7bdf2a9" category="doc">工作表：将 NAS 数据 LIF 移动到 node3 之前要记录的信息</block>
+  <block id="1702aae1f318978efc37a136675dc355" category="list-text">如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 <block ref="35ed01fca1dde6c35ca197b89d2bbfc7" category="inline-link-macro-rx"></block> 部分。</block>
+  <block id="97b4b76caf0d5b4cd013ca71056a29df" category="list-text">将节点 2 拥有的非 SAN 数据 LIF 重新定位到节点 3 。</block>
+  <block id="79ba45215eeed9692f00f54cd98176eb" category="list-text">[auto9597_istall3_step29]] 对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，请转至 <block ref="9a0e78facca94ea7347680acb603c7fe" category="inline-link-macro-rx"></block>。</block>
+  <block id="42b2cb9f9e1a3cf15145887e95d849a8" category="sidebar">工作表：在控制器升级之前和期间收集的信息</block>
 </blocks>

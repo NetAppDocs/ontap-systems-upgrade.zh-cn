@@ -77,7 +77,7 @@ summary: '了解使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8
 . 检查并配置 UTA/UTA2 端口。
 . 验证 node3 是否已成功安装。
 . 还原 node3 网络配置。
-. 将节点 1 下的非 SAN 数据 LIF 从 node2 移动到 node3 。
+. 将 node1 拥有的非 SAN 数据 LIF 从 node2 移动到 node3 。
 . 将 node1 拥有的非根聚合从 node2 重新定位到 node3 。
 
 

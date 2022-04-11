@@ -24,7 +24,7 @@ summary: '您可以使用 `ssystem controller replace` 命令重新定位非根�
 在整个信息中，术语 " 使用 FlexArray 虚拟化软件的系统 " 是指属于这些新平台的系统。术语 "V 系列系统 " 是指可以连接到存储阵列的单独硬件系统。
 
 .重要信息：
-* 此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还必须阅读并了解 link:guidelines_for_upgrading_controllers_with_arl.html["使用 ARL 升级控制器的准则"] 和  开始升级前的章节。
+* 此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还必须阅读并了解 link:guidelines_for_upgrading_controllers_with_arl.html["使用 ARL 升级控制器的准则"] 和 link:overview_of_the_arl_upgrade.html["ARL 升级概述"] 开始升级前的章节。
 * 此操作步骤假定更换用的控制器硬件是新的，尚未使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果先前使用的是替代控制器硬件，则必须联系技术支持，尤其是在控制器以 7- 模式运行 Data ONTAP 时。
 * 您可以使用 ARL 无中断地将控制器升级到运行的 ONTAP 版本高于要升级的集群上运行的版本的新控制器。新旧控制器的 ONTAP 版本组合取决于 ONTAP 软件版本 NDU 的节奏模型。例如，如果您的控制器运行的是 ONTAP 9.8 ，而该控制器最后支持的版本是 ONTAP 9.8 ，则可以升级到运行 ONTAP 9.8 之后版本的新控制器。
 +

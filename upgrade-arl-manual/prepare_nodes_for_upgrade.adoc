@@ -58,7 +58,7 @@ WARNING: * 注意 * 请勿尝试清除 NVRAM 内容。如果需要清除 NVRAM �
 +
 `ve版本`
 
-. 检查 node1 和节点 2 上是否有两个或四个集群 LIF ：
+. 检查 node1 和 node2 上是否有两个或四个集群 LIF ：
 +
 `network interface show -role cluster`
 

@@ -52,7 +52,7 @@ NOTE: 您可以对此操作步骤使用 NetApp 存储加密（ NSE ）和 NetApp
 
 NOTE: 如果上表不包含您的控制器升级型号组合，请联系技术支持。
 
-^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 link:set_fc_or_uta_uta2_config_on_node3.html#step23["检查并配置 node3 上的 UTA/UTA2 端口，步骤 23"]或 。
+^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 link:set_fc_or_uta_uta2_config_on_node3.html#step23["检查并配置 node3 上的 UTA/UTA2 端口，步骤 23"]或 link:set_fc_or_uta_uta2_config_node4.html#step23["检查并配置 node4 上的 UTA/UTA2 端口，步骤 23"]。
 
 ^2^从 ONTAP 9.1.1 开始，支持 ARL 自动从 AFF A320 升级到 AFF A400 系统。
 

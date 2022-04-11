@@ -56,6 +56,8 @@ entries:
     url: "/upgrade-arl-manual-app/map_ports_node1_node3.html"
   - title: 将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF
     url: "/upgrade-arl-manual-app/move_nas_lifs_node1_from_node2_node3_verify_san_lifs_node3.html"
+  - title: 工作表：将 NAS 数据 LIF 移动到 node3 之前要记录的信息
+    url: "/upgrade-arl-manual-app/worksheet_information_before_moving_san_lifs_node3.html"
   - title: 将非根聚合从 node2 重新定位到 node3
     url: "/upgrade-arl-manual-app/relocate_non_root_aggr_node2_node3.html"
   - title: 将 Node2 拥有的 NAS 数据 LIF 移动到 Node3
@@ -80,6 +82,8 @@ entries:
     url: "/upgrade-arl-manual-app/map_ports_node2_node4.html"
   - title: 将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF
     url: "/upgrade-arl-manual-app/move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html"
+  - title: 工作表：将 NAS 数据 LIF 移动到 node4 之前要记录的信息
+    url: "/upgrade-arl-manual-app/worksheet_information_before_moving_san_lifs_node4.html"
   - title: 将 node2 的非根聚合从 node3 重新定位到 node4
     url: "/upgrade-arl-manual-app/relocate_node2_non_root_aggr_node3_node4.html"
 - title: 第 6 阶段。完成升级

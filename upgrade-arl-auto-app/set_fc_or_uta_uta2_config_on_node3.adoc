@@ -20,7 +20,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配器（ CNA ）适配器和端口。但是，命令行界面使用术语 CNA 。
 
-* 如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:verify_node3_installation.html["验证节点 3 安装"] 部分。
+* 如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:verify_node3_installation.html["验证 node3 安装"] 部分。
 * 但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回到 _Install and boot node3_ 部分并继续执行中的部分 link:install_boot_node3.html#step23["第 23 步"]。
 
 

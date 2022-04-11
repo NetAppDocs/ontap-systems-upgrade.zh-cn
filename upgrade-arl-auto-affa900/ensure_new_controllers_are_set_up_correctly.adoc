@@ -157,4 +157,4 @@ Do you want to continue? {y|n}: y
 . 如果要在新节点上设置无交换机集群，请参见 link:other_references.html["参考资料"] 要链接到 _NetApp 支持站点 _ 并按照 _switchover to a two-node switchless cluster_ 中的说明进行操作。
 
 
-如果在 node1 和 node2 上启用了存储加密，请完成此部分 link:set_up_storage_encryption_new_module.html["在新控制器模块上设置存储加密"]。否则，请完成部分 。
+如果在 node1 和 node2 上启用了存储加密，请完成此部分 link:set_up_storage_encryption_new_module.html["在新控制器模块上设置存储加密"]。否则，请完成部分 link:decommission_old_system.html["停用旧系统"]。

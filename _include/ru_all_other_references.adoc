@@ -39,10 +39,10 @@
 | link:https://docs.netapp.com/us-en/ontap/volumes/index.html["使用 CLI 进行逻辑存储管理"^] | 介绍如何使用卷， FlexClone 卷，文件和 LUN 高效管理逻辑存储资源， FlexCache 卷，重复数据删除，数据压缩， qtree 和配额。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/index.html["MetroCluster 管理和灾难恢复"^] | 介绍如何在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/disaster-recovery/concept_dr_workflow.html["MetroCluster 管理和灾难恢复"^] | 介绍如何在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["MetroCluster 升级和扩展"^] | 介绍升级 MetroCluster 配置中的控制器和存储型号，从 MetroCluster FC 过渡到 MetroCluster IP 配置以及通过添加更多节点扩展 MetroCluster 配置的过程。 
+| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级和扩展"^] | 介绍升级 MetroCluster 配置中的控制器和存储型号，从 MetroCluster FC 过渡到 MetroCluster IP 配置以及通过添加更多节点扩展 MetroCluster 配置的过程。 
 
 
 | link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络管理"^] | 介绍如何在集群中配置和管理物理和虚拟网络端口（ VLAN 和接口组）， LIF ，路由和主机解析服务；如何通过负载平衡优化网络流量；以及如何使用 SNMP 监控集群。 
@@ -111,7 +111,7 @@
 
 == 参考站点
 
-。 link:https://mysupport.netapp.com["NetApp 支持站点"^] 此外，还包含有关网络接口卡（ NIC ）以及可能与系统结合使用的其他硬件的文档。它还包含 ，提供有关新系统支持的硬件的信息。
+。 link:https://mysupport.netapp.com["NetApp 支持站点"^] 此外，还包含有关网络接口卡（ NIC ）以及可能与系统结合使用的其他硬件的文档。它还包含 link:https://hwu.netapp.com["Hardware Universe"^]，提供有关新系统支持的硬件的信息。
 
 访问 https://docs.netapp.com/us-en/ontap/index.html["ONTAP 9 文档"^]。
 

@@ -49,7 +49,7 @@ NOTE: 如果上表不包含您的控制器升级型号组合，请联系技术�
 
 ^1^ONTAP 9.7P2 支持 AFF A700 系统的 ARL 自动升级。
 
-^2^如果要更新到 AFF A800 或支持内部和外部磁盘的系统，则必须按照内部 NVMe 磁盘上根聚合的特定说明进行操作。请参见 link:set_fc_or_uta_uta2_config_on_node3.html#step14["检查并配置 node3 步骤 14 上的 UTA/UTA2 端口"] 和 。
+^2^如果要更新到 AFF A800 或支持内部和外部磁盘的系统，则必须按照内部 NVMe 磁盘上根聚合的特定说明进行操作。请参见 link:set_fc_or_uta_uta2_config_on_node3.html#step14["检查并配置 node3 步骤 14 上的 UTA/UTA2 端口"] 和 link:set_fc_or_uta_uta2_config_node4.html#step14["检查并配置 node4 上的 UTA/UTA2 端口，步骤 14"]。
 
 ^3^ONTAP 9.7P5 支持 ARL 自动从 AFF A300 升级到 AFF A800 系统。
 

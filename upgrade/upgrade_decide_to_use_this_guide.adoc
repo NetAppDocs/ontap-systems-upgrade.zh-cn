@@ -28,7 +28,7 @@ NOTE: ONTAP 9.8 简化了硬件升级过程，引入了自动端口放置功能�
 * 您计划将受支持型号的节点转换为磁盘架，然后将其连接到新节点。
 
 
-如果要升级双节点 MetroCluster 配置，则必须使用中的操作步骤 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/index.html["MetroCluster ® 升级和扩展"^] 内容
+如果要升级双节点 MetroCluster 配置，则必须使用中的操作步骤 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster ® 升级和扩展"^] 内容
 
 此内容不介绍如何使用聚合重新定位（ Aggregate Relocation ， ARL ）升级控制器硬件，如中所述 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl/index.html["ARL 控制器硬件升级"^] 内容
 

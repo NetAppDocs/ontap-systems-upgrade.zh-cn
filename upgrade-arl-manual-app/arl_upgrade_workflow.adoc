@@ -83,7 +83,7 @@ image:arl_upgrade_manual_image1.PNG["图中显示了 ARL 操作步骤的各个�
 . 安装并启动 node3 。
 . 在 node3 上设置 UTA/UTA2 配置。
 . 将端口从 node1 映射到 node3
-. 将节点 1 所拥有的非 SAN 数据 LIF 从 node2 移动到 node3 ，并验证 node3 上的 SNA LIF 。
+. 将 node1 拥有的非 SAN 数据 LIF 从 node2 移动到 node3 ，并验证 node3 上的 SNA-LIF 。
 . 将非根聚合从 node2 重新定位到 node3 。
 . 将节点 2 拥有的非 SAN 数据 LIF 移动到节点 3 。
 

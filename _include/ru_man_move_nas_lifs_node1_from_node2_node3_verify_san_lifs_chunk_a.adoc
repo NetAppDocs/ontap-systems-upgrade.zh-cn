@@ -8,17 +8,83 @@
 +
 `network interface show -role data -curr-node node2 -is-home false -home-node node3`
 
-. 【第 2 步】执行以下操作之一：
+. 【工作表 _step2]] 如果为集群配置了 SAN LIF ，请在此记录 SAN LIF `adapter` 和 `sswitch-port` 配置信息 link:worksheet_information_before_moving_san_lifs_node3.html["工作表"] 以供日后在操作步骤 中使用。
++
+.. 列出 node2 上的 SAN LIF 并检查输出：
++
+`network interface show -data-protocol fc*`
+
++
+系统将返回类似于以下示例的输出：
+
++
+[listing]
+----
+cluster1::> net int show -data-protocol fc*
+  (network interface show)
+             Logical     Status     Network            Current        Current Is
+Vserver      Interface   Admin/Oper Address/Mask       Node           Port    Home
+-----------  ----------  ---------- ------------------ -------------  ------- ----
+svm2_cluster1
+             lif_svm2_cluster1_340
+                         up/up      20:02:00:50:56:b0:39:99
+                                                       cluster1-01    1b      true
+             lif_svm2_cluster1_398
+                         up/up      20:03:00:50:56:b0:39:99
+                                                       cluster1-02    1a      true
+             lif_svm2_cluster1_691
+                         up/up      20:01:00:50:56:b0:39:99
+                                                       cluster1-01    1a      true
+             lif_svm2_cluster1_925
+                         up/up      20:04:00:50:56:b0:39:99
+                                                       cluster1-02    1b      true
+4 entries were displayed.
+----
+.. 列出现有配置并检查输出：
++
+`fcp adapter show -fields switch-port ， fc-wwpn`
+
++
+系统将返回类似于以下示例的输出：
+
++
+[listing]
+----
+cluster1::> fcp adapter show -fields switch-port,fc-wwpn
+  (network fcp adapter show)
+node         adapter  fc-wwpn                  switch-port
+-----------  -------  -----------------------  -------------
+cluster1-01  0a       50:0a:09:82:9c:13:38:00  ACME Switch:0
+cluster1-01  0b       50:0a:09:82:9c:13:38:01  ACME Switch:1
+cluster1-01  0c       50:0a:09:82:9c:13:38:02  ACME Switch:2
+cluster1-01  0d       50:0a:09:82:9c:13:38:03  ACME Switch:3
+cluster1-01  0e       50:0a:09:82:9c:13:38:04  ACME Switch:4
+cluster1-01  0f       50:0a:09:82:9c:13:38:05  ACME Switch:5
+cluster1-01  1a       50:0a:09:82:9c:13:38:06  ACME Switch:6
+cluster1-01  1b       50:0a:09:82:9c:13:38:07  ACME Switch:7
+cluster1-02  0a       50:0a:09:82:9c:6c:36:00  ACME Switch:0
+cluster1-02  0b       50:0a:09:82:9c:6c:36:01  ACME Switch:1
+cluster1-02  0c       50:0a:09:82:9c:6c:36:02  ACME Switch:2
+cluster1-02  0d       50:0a:09:82:9c:6c:36:03  ACME Switch:3
+cluster1-02  0e       50:0a:09:82:9c:6c:36:04  ACME Switch:4
+cluster1-02  0f       50:0a:09:82:9c:6c:36:05  ACME Switch:5
+cluster1-02  1a       50:0a:09:82:9c:6c:36:06  ACME Switch:6
+cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
+16 entries were displayed
+----
+
+
+. 【第 3 步】执行以下操作之一：
 +
 [cols="35,65"]
 |===
 | 如果 node1... | 那么 ... 
 
 
-| 已配置接口组或 VLAN | 转至 <<man_lif_verify_3_step3,第 3 步>>。 
+| 已配置接口组或 VLAN | 转至 <<man_lif_verify_3_step3,第 4 步>>。 
 
 
-| 未配置接口组或 VLAN | 跳过步骤 3 ，然后转到 <<man_lif_verify_3_step4,第 4 步>>。 
+| 未配置接口组或 VLAN | 跳过步骤 4 ，然后转到 <<man_lif_verify_3_step4,第 5 步>>。 
 |===
 . [[man_lif_verif_3_step3]] 执行以下子步骤，将最初位于 node1 上的接口组和 VLAN 上托管的任何 NAS 数据 LIF 从 node2 迁移到 node3 ：
 +
@@ -47,7 +113,7 @@
 | 如果集群配置为 ... | 那么 ... 
 
 
-| NAS | 完成 <<man_lif_verify_3_step5,第 5 步>> 和 <<man_lif_verify_3_step6,第 6 步>>，跳过步骤 7 并完成 <<man_lif_verify_3_step8,第 8 步>> 到 <<man_lif_verify_3_step11,第 11 步>>。 
+| NAS | 完成 <<man_lif_verify_3_step5,第 6 步>> 和 <<man_lif_verify_3_step6,第 7 步>>，跳过步骤 8 并完成 <<man_lif_verify_3_step8,第 9 步>> 到 <<man_lif_verify_3_step11,第 12 步>>。 
 
 
 | SAN | 禁用节点上的所有 SAN LIF 以将其关闭以进行升级： `network interface modify -vserver vserver_name -lif LIF_name -home-node node_to_upgrade -home-port netport_ifgrp -status-admin down` 
