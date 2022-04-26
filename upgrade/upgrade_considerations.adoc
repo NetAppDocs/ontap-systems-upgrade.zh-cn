@@ -5,6 +5,7 @@ keywords: plan, upgrade, consideration, contact, technical, support, recommendat
 summary: 要规划升级，您应熟悉一般升级注意事项。如有必要，请联系技术支持，以获取有关集群配置的建议和指导。 
 ---
 = 升级控制器硬件的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

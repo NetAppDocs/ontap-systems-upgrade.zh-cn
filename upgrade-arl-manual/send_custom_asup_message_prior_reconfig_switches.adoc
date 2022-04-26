@@ -6,6 +6,7 @@ summary: 通知 NetApp 技术支持，正在对运行 ONTAP 9.7 或更早版本�
 ---
 = 在重新配置交换机之前发送自定义 AutoSupport 消息
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

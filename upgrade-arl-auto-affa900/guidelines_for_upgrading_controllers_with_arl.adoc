@@ -6,6 +6,7 @@ summary: 了解是否可以使用 ARL 将 AFF A700 升级到 AFF A900 。
 ---
 = 从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

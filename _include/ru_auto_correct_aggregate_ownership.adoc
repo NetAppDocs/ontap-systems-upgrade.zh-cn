@@ -1,4 +1,5 @@
 = 如果 ARL 预检失败，请更正聚合所有权
+:allow-uri-read: 
 
 
 

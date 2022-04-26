@@ -6,6 +6,7 @@ summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem cont
 ---
 = 第 5 阶段。安装并启动节点 4.
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

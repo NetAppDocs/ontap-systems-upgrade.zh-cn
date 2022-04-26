@@ -6,6 +6,7 @@ summary: 使用 Config Advisor 工具在运行 ONTAP 9.7 或更早版本的控�
 ---
 = 检查 MetroCluster 配置错误
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

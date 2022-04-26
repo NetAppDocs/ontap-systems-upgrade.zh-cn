@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 * 配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。

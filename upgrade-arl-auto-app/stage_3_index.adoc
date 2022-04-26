@@ -6,6 +6,7 @@ summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem cont
 ---
 = 第 3 阶段。安装并启动 node3
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

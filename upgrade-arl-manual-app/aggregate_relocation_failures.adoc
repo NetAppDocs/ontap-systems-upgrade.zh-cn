@@ -6,6 +6,7 @@ summary: 对运行 ONTAP 9.8 或更高版本的控制器在手动 ARL 升级期�
 ---
 = 聚合重新定位失败
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller 
 ---
 = 第 3 阶段。安装并启动 node3
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

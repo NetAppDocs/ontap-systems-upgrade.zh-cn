@@ -6,6 +6,7 @@ summary: '在升级运行 ONTAP 9.8 或更高版本的控制器时，使用 `ssy
 ---
 = 重新定位失败或被否决的聚合
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

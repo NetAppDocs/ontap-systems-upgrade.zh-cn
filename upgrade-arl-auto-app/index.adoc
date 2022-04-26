@@ -5,6 +5,7 @@ keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, me
 summary: '您可以使用 `ssystem controller replace` 命令重新定位非根聚合的所有权，从而升级运行 ONTAP 9.8 或更高版本的控制器硬件。' 
 ---
 = 概述
+:allow-uri-read: 
 
 
 [role="lead lead"]

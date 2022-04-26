@@ -6,6 +6,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 后�
 ---
 = 确认新控制器设置正确
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

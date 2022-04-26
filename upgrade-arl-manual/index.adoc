@@ -6,6 +6,7 @@ summary: 使用手动 ARL 升级操作步骤 升级运行 ONTAP 9.7 或更早版
 ---
 = 概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

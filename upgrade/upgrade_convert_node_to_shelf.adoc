@@ -5,6 +5,7 @@ keywords: node, support, model, process, upgrading, upgrade, moving, move, conve
 summary: 如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点转换为驱动器架，然后将其连接到同一集群中的新节点。 
 ---
 = 将原始节点转换为驱动器架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

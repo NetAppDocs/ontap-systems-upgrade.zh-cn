@@ -6,6 +6,7 @@ summary: 您可以通过对运行 ONTAP 9.8 或更高版本的控制器上的原
 ---
 = 升级节点对
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

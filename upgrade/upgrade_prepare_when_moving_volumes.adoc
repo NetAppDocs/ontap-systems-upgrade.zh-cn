@@ -5,6 +5,7 @@ keywords: perform, preparation, upgrading, upgrade, controller, hardware, moving
 summary: 在通过移动卷升级控制器硬件之前，您需要执行一些准备步骤。 
 ---
 = 移动卷时准备升级
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller 
 ---
 = 第 1 阶段。准备升级
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 在以网络方式启动系统之前，请在运行 ONTAP 9.8 或更高
 ---
 = 暂停 SnapMirror 关系
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

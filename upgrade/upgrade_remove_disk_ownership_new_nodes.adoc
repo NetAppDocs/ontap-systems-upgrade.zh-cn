@@ -5,6 +5,7 @@ keywords: node, internal, disk, add-on, shelves, attach, system, interfere, cont
 summary: 如果新节点已将内部磁盘或附加磁盘架连接到系统，这些磁盘或附加磁盘架可能会干扰控制器升级。按照以下步骤删除 node3/node4 附带的任何新磁盘的所有权。 
 ---
 = 删除连接到新节点的磁盘的所有权
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

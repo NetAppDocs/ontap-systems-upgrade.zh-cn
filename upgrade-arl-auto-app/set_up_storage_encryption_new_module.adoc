@@ -6,6 +6,7 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 ---
 = 在新控制器模块上设置存储加密
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

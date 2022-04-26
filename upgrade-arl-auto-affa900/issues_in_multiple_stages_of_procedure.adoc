@@ -6,6 +6,7 @@ summary: 有关 AFF A700 升级到 AFF A900 期间可能发生的问题的信息
 ---
 = 操作步骤的多个阶段可能会出现的问题
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。

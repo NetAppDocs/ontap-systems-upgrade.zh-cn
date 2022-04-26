@@ -6,6 +6,7 @@ summary: 通过对原始节点和新节点执行任务，准备要升级的原�
 ---
 = 升级节点对
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

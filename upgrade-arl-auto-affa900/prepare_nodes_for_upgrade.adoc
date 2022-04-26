@@ -6,6 +6,7 @@ summary: 在将 AFF A700 升级到 AFF A900 期间，准备节点并运行一系
 ---
 = 准备要升级的节点
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

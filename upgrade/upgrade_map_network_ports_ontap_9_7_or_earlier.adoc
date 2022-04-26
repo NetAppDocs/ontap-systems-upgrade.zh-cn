@@ -5,6 +5,7 @@ keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, ph
 summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您需要确保物理端口已正确配置了用于预期用途的设置，例如集群，数据等。 
 ---
 = 使用 ONTAP 9.7 或更早版本映射网络端口
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

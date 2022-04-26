@@ -1,4 +1,5 @@
 = 许可证
+:allow-uri-read: 
 
 
 

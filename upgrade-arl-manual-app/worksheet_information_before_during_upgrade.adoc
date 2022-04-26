@@ -6,6 +6,7 @@ summary: 在对运行 ONTAP 9.8 或更高版本的控制器执行手动 ARL 升�
 ---
 = 工作表：在控制器升级之前和期间收集的信息
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

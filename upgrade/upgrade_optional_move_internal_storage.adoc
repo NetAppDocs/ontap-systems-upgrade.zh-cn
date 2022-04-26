@@ -5,6 +5,7 @@ keywords: node, support, model, internal, sata, drive, ssd, moving, move, upgrad
 summary: 如果原始节点是支持的型号之一，则可以在通过移动存储进行升级期间将其内部 SATA 驱动器或 SSD 移动到连接到新节点的驱动器架。您还可以将系统转换为驱动器架并将其连接到新节点。 
 ---
 = 可选：移动内部存储或将系统转换为驱动器架
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

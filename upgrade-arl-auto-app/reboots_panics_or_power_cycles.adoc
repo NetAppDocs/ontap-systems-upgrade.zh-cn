@@ -6,6 +6,7 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 ---
 = 重新启动，崩溃或重新启动
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 您可以链接到此主题中的其他参考内容和网站。
 ---
 = 参考资料
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: '了解是否可以使用 `ssystem controller replace` 命令将运行 
 ---
 = 使用 ARL 升级控制器的准则
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

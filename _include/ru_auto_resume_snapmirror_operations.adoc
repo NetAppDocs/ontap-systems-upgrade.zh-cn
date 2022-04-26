@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 您可以恢复升级前暂停的 SnapMirror 传输，并恢复 SnapMirror 关系。升级完成后，更新将按计划进行。

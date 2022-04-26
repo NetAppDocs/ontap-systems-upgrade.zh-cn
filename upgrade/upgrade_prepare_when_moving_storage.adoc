@@ -5,6 +5,7 @@ keywords: licenses
 summary: 在通过移动存储进行升级之前，您必须从原始节点收集许可证信息，规划网络配置，记录系统 ID 并准备网络启动所需的文件。 
 ---
 = 移动存储时准备升级
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 要对运行 ONTAP 9.8 或更高版本的控制器执行手动 ARL 升�
 ---
 = 所需的工具和文档
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

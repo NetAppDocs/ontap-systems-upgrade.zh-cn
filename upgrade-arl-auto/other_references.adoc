@@ -6,6 +6,7 @@ summary: '使用 `ssystem controller replace` 命令支持将运行 ONTAP 9.5 �
 ---
 = 参考资料
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

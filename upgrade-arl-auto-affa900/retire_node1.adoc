@@ -6,6 +6,7 @@ summary: 在将 AFF A700 升级到 AFF A900 期间，禁用带有 node2 的 HA �
 ---
 = 停用 node1
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

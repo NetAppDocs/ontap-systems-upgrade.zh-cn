@@ -6,6 +6,7 @@ summary: 如果需要，请在 AFF A700 升级到 AFF A900 期间配置存储加
 ---
 = 在新控制器模块上设置存储加密
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

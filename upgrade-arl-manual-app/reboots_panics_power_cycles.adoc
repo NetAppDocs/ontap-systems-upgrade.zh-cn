@@ -6,6 +6,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上执行手动 ARL 升�
 ---
 = 重新启动，崩溃或重新启动
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

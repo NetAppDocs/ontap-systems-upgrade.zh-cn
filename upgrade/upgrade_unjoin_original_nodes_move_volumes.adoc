@@ -5,6 +5,7 @@ keywords: volume, move, node, unjoin, original, cluster, configuration, disk, in
 summary: 将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都将初始化。 
 ---
 = 从集群中取消原始节点的加入
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

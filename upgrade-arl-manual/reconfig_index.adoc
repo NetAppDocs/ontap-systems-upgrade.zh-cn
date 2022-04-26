@@ -6,6 +6,7 @@ summary: 对于 ONTAP 9.1 或更高版本，请在运行 ONTAP 9.7 或更早版�
 ---
 = 重新配置 ONTAP 9.1 或更高版本的 FC 交换机布局
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

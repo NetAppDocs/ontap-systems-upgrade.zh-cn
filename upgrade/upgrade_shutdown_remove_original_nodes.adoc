@@ -5,6 +5,7 @@ keywords:
 summary: 关闭并删除原始节点时，您必须发送有关升级的 AutoSupport 消息，销毁邮箱，关闭节点电源并卸下机箱。 
 ---
 = 关闭原始节点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

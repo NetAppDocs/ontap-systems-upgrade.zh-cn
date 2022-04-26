@@ -5,6 +5,7 @@ keywords: install, node, join, cluster, volume, original, node, install the new 
 summary: 您必须安装新节点并将其加入集群，以便可以从原始节点移动卷。 
 ---
 = 安装新节点并将其加入集群
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

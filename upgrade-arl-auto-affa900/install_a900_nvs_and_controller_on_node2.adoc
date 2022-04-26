@@ -6,6 +6,7 @@ summary: AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步
 ---
 = 在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

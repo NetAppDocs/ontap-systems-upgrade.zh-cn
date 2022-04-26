@@ -5,6 +5,7 @@ keywords: cluster, san, environment, delete, lid, original, node, unjoin, origin
 summary: 如果集群位于 SAN 环境中，则必须先从原始节点中删除所有 SAN LIF ，然后才能从集群中取消原始节点的加入。 
 ---
 = 从原始节点中删除不再需要的 SAN LIF
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

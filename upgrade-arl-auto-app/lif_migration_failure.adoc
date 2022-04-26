@@ -6,6 +6,7 @@ summary: '在第 2 ，第 3 或第 5 阶段迁移后，如果使用 `ssystem con
 ---
 = LIF 迁移失败
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

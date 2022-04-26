@@ -8,6 +8,7 @@ summary: 使用聚合重新定位升级控制器硬件
 ---
 = AFF 和 FAS 系统升级文档
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: confirm, configuration, information, boot, media, interfere, controlle
 summary: 要确认启动介质上的配置信息不会影响控制器升级，您需要将 node3 和 node4 的配置重置为默认配置设置。 
 ---
 = 重置新节点上的默认配置
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

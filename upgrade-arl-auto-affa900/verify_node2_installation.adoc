@@ -6,6 +6,7 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块验证 node2 安装。
 ---
 = 验证 node2 安装
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 有关在运行 ONTAP 9.8 或更高版本的控制器上手动升级 AR
 ---
 = 操作步骤的多个阶段可能会出现的问题
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

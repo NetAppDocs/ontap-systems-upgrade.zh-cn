@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 . 在 `MetroCluster check run` 操作完成后，查看结果：

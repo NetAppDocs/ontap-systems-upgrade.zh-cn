@@ -6,6 +6,7 @@ summary: 请告知 NetApp ，升级到 AFF A900 后，旧系统不再运行。
 ---
 = 停用旧系统
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

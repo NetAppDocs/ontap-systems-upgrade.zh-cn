@@ -6,6 +6,7 @@ summary: 了解是否可以对运行 ONTAP 9.7 或更早版本的控制器使用
 ---
 = 使用 ARL 升级控制器的准则
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

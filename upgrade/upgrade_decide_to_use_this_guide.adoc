@@ -5,6 +5,7 @@ keywords:
 summary: 此内容介绍如何通过移动存储或卷来升级集群中 AFF 系统或 FAS 系统的控制器硬件。 
 ---
 = 确定是通过移动卷还是存储进行升级
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -6,6 +6,7 @@ summary: 在将 AFF A700 升级到 AFF A900 期间，关闭 node2 并将其从�
 ---
 = 停用 node2
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

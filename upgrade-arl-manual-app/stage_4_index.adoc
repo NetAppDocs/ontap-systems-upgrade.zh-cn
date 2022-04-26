@@ -6,6 +6,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 的�
 ---
 = 第 4 阶段。记录 node2 信息并停用 node2
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -5,6 +5,7 @@ keywords: cluster, san, environment, lif, original, node, unjoin, original, move
 summary: 只有在更改集群内容时才需要移动 SAN LIF 。 
 ---
 = 移动 SAN LIF 的注意事项
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

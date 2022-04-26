@@ -6,6 +6,7 @@ summary: 在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，
 ---
 = 网络启动节点 1
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

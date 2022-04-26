@@ -6,6 +6,7 @@ summary: 在对运行 ONTAP 9.8 或更高版本的控制器进行手动 ARL 升�
 ---
 = 停用 node2
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

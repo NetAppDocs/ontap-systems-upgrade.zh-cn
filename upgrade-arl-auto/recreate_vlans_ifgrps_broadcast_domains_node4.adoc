@@ -6,6 +6,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 ---
 = 在 node4 上重新创建 VLAN ，接口组和广播域
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

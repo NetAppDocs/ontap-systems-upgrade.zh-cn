@@ -6,6 +6,7 @@ summary: 了解 AFF A700 到 AFF A900 ARL 控制器升级操作步骤 的工作�
 ---
 = ARL 升级概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

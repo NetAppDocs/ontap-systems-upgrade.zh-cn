@@ -6,6 +6,7 @@ summary: 了解运行 ONTAP 9.7 或更早版本的控制器上的手动 ARL 升�
 ---
 = 概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

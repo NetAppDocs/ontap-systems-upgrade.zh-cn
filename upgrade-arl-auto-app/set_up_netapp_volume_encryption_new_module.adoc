@@ -6,6 +6,7 @@ summary: '如果需要，请使用 `ssystem controller replace` 命令在升级�
 ---
 = 在新控制器模块上设置 NetApp 卷加密
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

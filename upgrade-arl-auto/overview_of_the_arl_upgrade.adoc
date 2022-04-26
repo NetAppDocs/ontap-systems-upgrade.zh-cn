@@ -6,6 +6,7 @@ summary: '了解操作步骤 如何使用 `ssystem controller replace` 命令将
 ---
 = ARL 升级概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

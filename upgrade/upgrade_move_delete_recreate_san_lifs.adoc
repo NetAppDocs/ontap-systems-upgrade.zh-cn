@@ -5,6 +5,7 @@ keywords: cluster, san, environment, delete, lif, re-create, move san lifs, crea
 summary: 根据集群内容和集群环境的不同，您需要移动，删除或创建 SAN LIF ，或者重新创建已删除的 SAN LIF 。 
 ---
 = 移动，删除或创建 SAN LIF
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

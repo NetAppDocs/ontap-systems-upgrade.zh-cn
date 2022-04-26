@@ -6,6 +6,7 @@ summary: 您可以通过交换控制器模块和 NVS 将 AFF A700 上的控制�
 ---
 = 概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

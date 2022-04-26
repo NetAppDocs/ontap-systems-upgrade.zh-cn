@@ -6,6 +6,7 @@ summary: 在运行 MetroCluster ONTAP 9.8 或更高版本的控制器上手动�
 ---
 = 升级后， LIF 位于无效端口上
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

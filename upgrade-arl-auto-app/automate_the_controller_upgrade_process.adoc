@@ -6,6 +6,7 @@ summary: 使用部分自动化的 ARL 操作步骤 升级运行 ONTAP 9.8 或更
 ---
 = 自动执行控制器升级过程
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: '在第 3 阶段，使用 `ssystem controller replace` 命令将运行 
 ---
 = 当节点具有一组不同的网络端口时加入仲裁
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

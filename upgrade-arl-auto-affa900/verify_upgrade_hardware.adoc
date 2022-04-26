@@ -6,6 +6,7 @@ summary: 在开始升级之前，请确认您的硬件适用于从 AFF A700 升�
 ---
 = 验证升级硬件
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

@@ -6,6 +6,7 @@ summary: 在将 AFF A700 升级到 AFF A900 时，系统可能会在不同阶段
 ---
 = 重新启动，崩溃或重新启动
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

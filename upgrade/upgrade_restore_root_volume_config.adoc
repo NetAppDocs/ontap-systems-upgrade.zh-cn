@@ -5,6 +5,7 @@ keywords: Controller Hardware Upgrade Express Guide
 summary: 您必须将配置信息从根卷还原到启动设备。 
 ---
 = 还原根卷配置
+:allow-uri-read: 
 
 
 [role="lead"]

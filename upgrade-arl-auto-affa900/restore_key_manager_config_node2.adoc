@@ -6,6 +6,7 @@ summary: 如果需要，请在 AFF A700 升级到 AFF A900 期间还原 node2 �
 ---
 = 还原 node2 上的 key-manager 配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

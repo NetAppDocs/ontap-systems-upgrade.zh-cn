@@ -6,6 +6,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 ---
 = 获取用于存储加密的外部密钥管理服务器的 IP 地址
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

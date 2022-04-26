@@ -6,6 +6,7 @@ summary: 使用 system controller replace 命令将运行 ONTAP 9.5 的控制器
 ---
 = 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

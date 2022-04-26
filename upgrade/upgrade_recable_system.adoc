@@ -5,6 +5,7 @@ keywords: run, diagnostic, recable, controller, module, storage, network, connec
 summary: 运行诊断程序后，您必须重新对控制器模块的存储和网络连接进行布线。 
 ---
 = 重新为系统布线
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

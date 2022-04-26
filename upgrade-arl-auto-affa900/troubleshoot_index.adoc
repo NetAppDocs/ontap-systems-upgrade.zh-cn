@@ -6,6 +6,7 @@ summary: 对 AFF A700 升级到 AFF A900 期间可能发生的故障进行故障
 ---
 = 故障排除
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

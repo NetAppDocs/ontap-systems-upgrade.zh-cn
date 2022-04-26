@@ -5,6 +5,7 @@ keywords: complete, upgrade, ontap, complete the upgrade in ontap 9.7 or earlier
 summary: 按照以下步骤在 ONTAP 9.7 或更早版本中完成升级。 
 ---
 = 在 ONTAP 9.7 或更早版本中完成升级
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

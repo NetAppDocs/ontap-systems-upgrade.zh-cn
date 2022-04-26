@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 您应验证 MetroCluster 配置的切换，修复和切回操作。

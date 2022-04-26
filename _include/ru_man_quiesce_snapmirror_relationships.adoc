@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 在以网络方式启动系统之前，您必须确认所有 SnapMirror 关系均已暂停。暂停 SnapMirror 关系后，它会在重新启动和故障转移后保持静默状态。

@@ -6,6 +6,7 @@ summary: 如果需要，请在运行 ONTAP 9.8 或更高版本的控制器上手
 ---
 = 在新控制器模块上设置存储加密
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

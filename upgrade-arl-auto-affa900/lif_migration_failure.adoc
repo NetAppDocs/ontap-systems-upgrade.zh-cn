@@ -6,6 +6,7 @@ summary: 在将 AFF A700 升级到 AFF A900 期间， LIF 在第 2 阶段，第 
 ---
 = LIF 迁移失败
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

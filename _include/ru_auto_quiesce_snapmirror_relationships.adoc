@@ -1,4 +1,5 @@
 = 暂停 SnapMirror 关系（可选）。
+:allow-uri-read: 
 
 
 

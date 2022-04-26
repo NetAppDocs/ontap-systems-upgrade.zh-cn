@@ -5,6 +5,7 @@ keywords: node, support, model, upgrading, upgrade, moving, move, storage, inter
 summary: 如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。 
 ---
 = 从原始节点移动内部驱动器
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

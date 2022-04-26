@@ -6,6 +6,7 @@ summary: 确定是否使用 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。
 ---
 = 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

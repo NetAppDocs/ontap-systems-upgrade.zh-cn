@@ -6,6 +6,7 @@ summary: '如果需要，请在使用 `ssystem controller replace` 命令将运�
 ---
 = 还原 node4 上的 key-manager 配置
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

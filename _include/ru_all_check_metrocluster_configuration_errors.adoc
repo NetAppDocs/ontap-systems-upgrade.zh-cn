@@ -1,4 +1,5 @@
 = 
+:allow-uri-read: 
 
 
 您可以使用 NetApp 支持站点上提供的 Active IQ Config Advisor 工具检查常见配置错误。

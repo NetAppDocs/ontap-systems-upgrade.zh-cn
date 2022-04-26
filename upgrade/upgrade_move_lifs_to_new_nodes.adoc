@@ -5,6 +5,7 @@ keywords: move, volume, original, node, migrate, non-san, lif, cluster-managemen
 summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群管理 LIF 从原始节点迁移到新节点。 
 ---
 = 将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

@@ -5,6 +5,7 @@ keywords: upgrade, nodes, moving, storage, port, original, new
 summary: 在通过移动存储进行升级的过程中，打开 node3 和 node4 的电源，启动软件映像并配置节点。 
 ---
 = 设置新节点
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

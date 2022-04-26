@@ -6,6 +6,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 的�
 ---
 = 第 6 阶段。完成升级
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

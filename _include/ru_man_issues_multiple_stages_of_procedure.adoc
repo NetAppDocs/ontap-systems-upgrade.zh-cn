@@ -1,4 +1,5 @@
 = 意外的 "storage failover show" 命令输出
+:allow-uri-read: 
 
 
 某些问题可能会在操作步骤的不同阶段发生。

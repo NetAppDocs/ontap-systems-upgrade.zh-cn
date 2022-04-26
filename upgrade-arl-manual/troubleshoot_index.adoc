@@ -6,6 +6,7 @@ summary: 对在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL �
 ---
 = 故障排除
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

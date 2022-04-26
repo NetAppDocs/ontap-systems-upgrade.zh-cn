@@ -6,6 +6,7 @@ summary: 支持从 AFF A700 升级到 AFF A900 控制器所需的参考内容和
 ---
 = 参考资料
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

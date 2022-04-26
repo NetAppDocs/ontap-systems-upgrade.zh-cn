@@ -6,6 +6,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动进行 ARL 升�
 ---
 = 将端口从 node2 映射到 node4
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

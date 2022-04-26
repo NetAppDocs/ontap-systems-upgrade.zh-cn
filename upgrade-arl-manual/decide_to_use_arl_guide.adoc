@@ -6,6 +6,7 @@ summary: 确定是否使用手动 ARL 操作步骤 将 HA 对中的存储控制�
 ---
 = 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

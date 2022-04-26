@@ -6,6 +6,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 ---
 = 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

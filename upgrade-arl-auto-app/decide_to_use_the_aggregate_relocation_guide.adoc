@@ -6,6 +6,7 @@ summary: '使用 `ssystem controller replace` 命令确定是否使用 ARL 升�
 ---
 = 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

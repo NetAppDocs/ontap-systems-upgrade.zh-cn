@@ -6,6 +6,7 @@ summary: 在将 AFF A700 升级到 AFF A900 后，验证是否已启用 HA 对�
 ---
 = 确认新控制器设置正确
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

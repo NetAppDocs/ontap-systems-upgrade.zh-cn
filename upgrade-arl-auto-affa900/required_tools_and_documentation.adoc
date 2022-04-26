@@ -6,6 +6,7 @@ summary: 要执行 AFF A700 到 AFF A900 升级，您必须拥有特定的工具
 ---
 = 所需的工具和文档
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

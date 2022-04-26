@@ -6,6 +6,7 @@ summary: '了解使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8
 ---
 = ARL 升级概述
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

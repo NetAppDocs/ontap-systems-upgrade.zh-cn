@@ -6,6 +6,7 @@ summary: 对运行 ONTAP 9.8 或更高版本的控制器上手动 ARL 升级期�
 ---
 = 故障排除
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

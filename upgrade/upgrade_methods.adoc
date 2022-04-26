@@ -5,6 +5,7 @@ keywords:
 summary: 通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过移动存储 \ （中断操作步骤 \ ）或移动卷 \ （无中断操作步骤 \ ）进行升级。 
 ---
 = 选择升级控制器硬件的方法
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 

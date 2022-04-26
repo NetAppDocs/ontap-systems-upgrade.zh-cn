@@ -6,6 +6,7 @@ summary: 在 AFF A700 升级到 AFF A900 期间，将非根聚合和 NAS 数据 
 ---
 = 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

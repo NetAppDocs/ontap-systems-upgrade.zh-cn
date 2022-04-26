@@ -6,6 +6,7 @@ summary: '了解是否可以使用 `ssystem controller replace` 命令升级运�
 ---
 = 使用 ARL 升级控制器的准则
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
@@ -28,7 +29,7 @@ summary: '了解是否可以使用 `ssystem controller replace` 命令升级运�
 
 NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A250 ），但没有内部驱动器，请参见 link:other_references.html["参考资料"] 并使用 _aggregate relocation 中的操作步骤手动升级适用于您的 ONTAP 版本的控制器 Hardware_ 内容。
 
-如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 ，则必须先将集群 LIF 整合为每个节点两个集群端口，然后再开始控制器升级。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。
+如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。
 
 配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
 
