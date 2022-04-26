@@ -292,13 +292,13 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/guidelines_for_upgrading_controllers_with_arl.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/guidelines_for_upgrading_controllers_with_arl.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/ontap-systems-upgrade/upgrade-arl-auto-app/guidelines_for_upgrading_controllers_with_arl.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ko-kr/ontap-systems-upgrade/upgrade-arl-auto-app/guidelines_for_upgrading_controllers_with_arl.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/guidelines_for_upgrading_controllers_with_arl.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -3005,7 +3005,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-23 17:40:29 +0000">03/23/2022</time>
+    <time datetime="2022-04-26 18:49:11 +0000">04/26/2022</time>
     
   
 
@@ -3044,7 +3044,7 @@
 </table>
 </div>
 <div class="paragraph">
-<p>如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 ，则必须先将集群 LIF 整合为每个节点两个集群端口，然后再开始控制器升级。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</p>
+<p>如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</p>
 </div>
 <div class="paragraph">
 <p>配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。</p>
