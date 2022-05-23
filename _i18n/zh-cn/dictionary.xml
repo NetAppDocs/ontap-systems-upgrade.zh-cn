@@ -4420,4 +4420,7 @@
   <block id="79ba45215eeed9692f00f54cd98176eb" category="list-text">[auto9597_istall3_step29]] 对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，请转至 <block ref="9a0e78facca94ea7347680acb603c7fe" category="inline-link-macro-rx"></block>。</block>
   <block id="42b2cb9f9e1a3cf15145887e95d849a8" category="sidebar">工作表：在控制器升级之前和期间收集的信息</block>
   <block id="17f9514d7bcdbd086bef311b63567524" category="admonition">如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</block>
+  <block id="23ec9249d03285a513eaaf182a7bcd49" category="cell">AFF8080</block>
+  <block id="4c6ae5d985a0142843ba3f6f8875cf0b" category="cell">AFF A900^4^</block>
+  <block id="44b12a5fbf6c87a940ab615ec2102604" category="paragraph">^4^从ONATP 9.10.1开始、支持从运行ONTAP 9.8或更高版本的AFF8080系统自动升级到运行9.10.1或更高版本的AFF A900系统。</block>
 </blocks>
