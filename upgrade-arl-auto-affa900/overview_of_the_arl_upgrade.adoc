@@ -56,12 +56,12 @@ summary: 了解 AFF A700 到 AFF A900 ARL 控制器升级操作步骤 的工作�
 
 
 
-| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["第 2 阶段：从 node1 重新定位资源并停用 AFF A700 node1"]  a| 
+| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["第2阶段：重新定位节点1中的资源并停用AFF A700或FAS9000节点1"]  a| 
 . 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
 . 重新定位失败或被否决的聚合
 . 停用 node1
-. 卸下 AFF A700 控制器模块和 NVRAM 模块
-. 在节点 1 上安装 AFF A900 NVRAM 模块和控制器模块
+. 卸下AFF A700或FAS9000控制器和NVRAM模块
+. 在node1上安装AFF A900或FAS9500NVRAM和控制器模块
 . 网络启动节点 1
 
 
@@ -73,8 +73,8 @@ summary: 了解 AFF A700 到 AFF A900 ARL 控制器升级操作步骤 的工作�
 
 
 
-| link:boot_node1_with_a900_controller_and_nvs.html["第 3 阶段：使用 AFF A900 控制器模块 NVRAM 模块启动 node1"]  a| 
-. 使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
+| link:boot_node1_with_a900_controller_and_nvs.html["第3阶段：使用AFF A900或FAS9500控制 器和NVRAM模块启动node1"]  a| 
+. 使用AFF A900或FAS9500控制 器和NVRAM模块启动node1
 . 验证 node1 是否已成功安装
 . 还原 node1 网络配置
 . 在升级后的节点 1 上还原密钥管理器配置
@@ -83,7 +83,7 @@ summary: 了解 AFF A700 到 AFF A900 ARL 控制器升级操作步骤 的工作�
 
 第 3 阶段结束时的聚合所有权：
 
-* 升级后的 AFF A900 node1 是 node1 聚合的主所有者和当前所有者
+* 升级后的AFF A900或FAS9500node1是node1聚合的主所有者和当前所有者
 * node2 是 node2 聚合的主所有者和当前所有者
 
 
@@ -103,8 +103,8 @@ summary: 了解 AFF A700 到 AFF A900 ARL 控制器升级操作步骤 的工作�
 
 
 
-| link:install_a900_nvs_and_controller_on_node2.html["第 5 阶段：在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块"]  a| 
-. 在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
+| link:install_a900_nvs_and_controller_on_node2.html["第5阶段：在节点2上安装AFF A900或FAS9500NVRAM和控制器模块"]  a| 
+. 在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
 . 网络启动节点 2.
 
 
@@ -116,8 +116,8 @@ summary: 了解 AFF A700 到 AFF A900 ARL 控制器升级操作步骤 的工作�
 
 
 
-| link:boot_node2_with_a900_controller_and_nvs.html["第 6 阶段：使用 AFF A900 控制器模块和 NVRAM 模块启动 node2"]  a| 
-. 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
+| link:boot_node2_with_a900_controller_and_nvs.html["第6阶段：使用AFF A900或FAS9500控制 器和NVRAM模块启动node2"]  a| 
+. 使用AFF A900或FAS9500控制 器和NVRAM模块启动node2
 . 验证 node2 是否已正确安装
 . 还原 node2 网络配置
 . 将非根聚合和 NAS 数据 LIF 移回 node2

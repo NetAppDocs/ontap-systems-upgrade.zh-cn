@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.htm
 keywords: install, NVRAM, aff, a900, node2, controller, module 
 summary: AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步骤 期间的安装说明。 
 ---
-= 在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
+= 在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,15 +14,15 @@ summary: AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步
 
 
 [role="lead"]
-您必须在 node2 上安装为升级而收到的 AFF A900 NVRAM 模块和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
+您必须在node2上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
 
 如果您尚未接地，请正确接地。
 
 
 
-== 安装 AFF A900 NVRAM 模块
+== 安装AFF A900或FAS9500NVRAM模块
 
-使用以下操作步骤 将 AFF A900 NVRAM 模块安装在节点 2 的插槽 6 中。
+使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在节点2的插槽6中。
 
 .步骤
 . 将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。
@@ -31,9 +31,9 @@ summary: AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步
 
 
 
-== 在节点 2 中安装 AFF A900 控制器模块。
+== 在节点2中安装AFF A900或FAS9500控制 器模块
 
-使用以下操作步骤在 node2 中安装 AFF A900 控制器模块。
+使用以下操作步骤 在node2中安装AFF A900或FAS9500控制 器模块。
 
 .步骤
 . 将控制器模块的末端与机箱中的托架 B 对齐，然后将控制器模块轻轻推入系统的一半。

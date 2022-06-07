@@ -401,7 +401,7 @@ Login:
 
 NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。
 
-. 【第 16 步】如果系统进入重新启动循环并显示消息 `未找到磁盘` ，则表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法查看任何磁盘。要解决此问题，请继续 <<auto_check3_step17,第 17 步>> to <<auto_check3_step22,第 22 步>>或转到第节 link:verify_node3_installation.html["验证 node3 安装"]。
+. 如果系统进入重新启动循环并显示消息 `no disks found` ，则表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法看到任何磁盘。要解决此问题，请继续 <<auto_check3_step17,第 17 步>> to <<auto_check3_step22,第 22 步>>或转到第节 link:verify_node3_installation.html["验证 node3 安装"]。
 . 在自动启动期间按 `Ctrl-C` 在 `LOADER>` 提示符处停止节点。
 . 在 LOADER 提示符处，进入维护模式：
 +

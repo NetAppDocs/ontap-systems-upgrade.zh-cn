@@ -14,9 +14,9 @@ summary: 在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，
 
 
 [role="lead"]
-在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，您必须通过网络启动 node1 。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。
+在交换相应的AFF A900或FAS9500node1控制器和NVRAM模块后、您必须通过网络启动node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。
 
-无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本必须与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
+无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
 
 
 NOTE: 您也可以使用 USB 启动选项执行网络启动。请参见 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["NetApp 知识库文章： How to use the boot_recovery loader command for installing ONTAP for initial setup of a system"^]。
@@ -62,7 +62,7 @@ NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件�
 
 NOTE: 请勿中断启动。
 
-. 等待 AFF A900 控制器模块上当前运行的 node1 启动并显示启动菜单选项，如下所示：
+. 等待AFF A900或FAS9500控制器模块上当前运行的node1启动、并显示启动菜单选项、如下所示：
 +
 [listing]
 ----

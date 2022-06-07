@@ -381,7 +381,7 @@ Override system ID? {y|n} y
 Login:
 ...
 ----
-. 【第 16 步】如果系统进入重新启动循环并显示消息 `未找到磁盘` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <<auto_check3_step17,第 17 步>> to <<auto_check3_step22,第 22 步>> 以解决此问题。
+. 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <<auto_check3_step17,第 17 步>> to <<auto_check3_step22,第 22 步>> 以解决此问题。
 . 在自动启动期间按 `Ctrl-C` 在 `LOADER>` 提示符处停止节点。
 . 在 LOADER 提示符处，进入维护模式：
 +

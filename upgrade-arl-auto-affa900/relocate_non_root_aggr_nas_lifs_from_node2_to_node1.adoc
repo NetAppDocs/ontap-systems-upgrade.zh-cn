@@ -14,7 +14,7 @@ summary: 在将 AFF A700 升级到 AFF A900 期间，将节点 2 的非根聚合
 
 
 [role="lead"]
-在将 node2 更换为 AFF A900 控制器模块和 NVRAM 模块之前，必须先将 node2 所拥有的非根聚合重新定位到 node1 。
+在将node2更换为AFF A900或FAS9500控制 器模块和NVRAM模块之前、必须先将node2所拥有的非根聚合重新定位到node1。
 
 上一阶段的后处理检查完成后， node2 的资源释放将自动启动。非根聚合和非 SAN 数据 LIF 将从 node2 迁移到新的 node1 。
 

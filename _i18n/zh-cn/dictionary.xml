@@ -772,16 +772,11 @@
   <block id="96e7c50f9e1d1f9b66d5ab1dbe5d047a" category="cell">AFF8020 ， AFF8040 ， AFF8060 ， AFF8080</block>
   <block id="c1a19380507e7e6ae4f9e86f2f492cf1" category="cell">AFF A300 ， AFF A400 ， AFF A700 ， AFF A800^1^</block>
   <block id="c37feb3492d999b3f216448183986be2" category="cell">FAS8200</block>
-  <block id="7f627dd33a5bf840f270330c41badb8d" category="cell">FAS8700 ， FAS9000 ， FAS8300^3^</block>
   <block id="c78a423f3132ee2ac4f4f4c1fa5d4859" category="cell">AFF A300</block>
-  <block id="09c446ae2255191f73eeab607258baaa" category="cell">AFF A700 ， AFF A800^1^ ， AFF A400^3^</block>
   <block id="73ab298c8e00d66d28156892903a39ce" category="cell">AFF A320</block>
-  <block id="ce519c4631a5597216245426b360453b" category="cell">AFF A400^2^</block>
   <block id="4852954d031f57b417813707e91dd5bd" category="admonition">如果上表不包含您的控制器升级型号组合，请联系技术支持。</block>
   <block id="f02eccb3076760465f52e896d2649983" category="inline-link-macro">检查并配置 node3 上的 UTA/UTA2 端口，步骤 23</block>
   <block id="51de0f52809b4037608dba4b84c411b1" category="inline-link-macro">检查并配置 node4 上的 UTA/UTA2 端口，步骤 23</block>
-  <block id="55b7ad7b49f6385bd9a88c160fc047a1" category="paragraph">^2^从 ONTAP 9.1.1 开始，支持 ARL 自动从 AFF A320 升级到 AFF A400 系统。</block>
-  <block id="d94152152b104cd141cb46a6decafc34" category="paragraph">^3^如果要在双节点无交换机集群配置中从 AFF A300 升级到 AFF A400 或 FAS8200 到 FAS8300 系统，则必须选择临时集群端口进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。</block>
   <block id="3ea026f4657fa31414c8a7e80af567b7" category="list-text">对于采用以太网类型配置的 AFF A400 或 FAS8300 ，您可以使用两个夹层端口中的任何一个作为临时集群端口。</block>
   <block id="68f44553add308b567f9f6bbfc94913d" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。</block>
   <block id="12a1856797218081c363d4151a746a51" category="paragraph">升级后，您可以通过 NetApp 支持站点停用旧系统。停用系统会告知 NetApp 系统不再运行，并将其从支持数据库中删除。</block>
@@ -861,7 +856,6 @@
   <block id="56b97cceb683f15e6179871d3991edcc" category="list-text">【 auto_check3_step13]] 退出维护模式：</block>
   <block id="0e0a51d5d131ec116dbea50118d432b6" category="list-text">【第 14 步】运行 `boot_ontap menu` 将节点启动到启动菜单。如果要升级到 A800 ，请转至 <block ref="8de8415e5ddf050c51dc9df1ad54385b" category="inline-xref-macro-rx"></block>。</block>
   <block id="8818e56033c79a7d315b502b9d66c4b0" category="list-text">在 node3 上，转到启动菜单并使用 22/7 并选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node1 将 node1 的磁盘重新分配给 node3 ，如下例所示。</block>
-  <block id="78c17ca9081fa3b223c0d18eaf556df4" category="list-text">【第 16 步】如果系统进入重新启动循环并显示消息 `未找到磁盘` ，则表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法查看任何磁盘。要解决此问题，请继续 <block ref="cc511b4dbeed99af4a19f83ac3e97f04" category="inline-xref-macro-rx"></block> to <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block>或转到第节 <block ref="35ed01fca1dde6c35ca197b89d2bbfc7" category="inline-link-macro-rx"></block>。</block>
   <block id="014925696b96cf52282301c416016c05" category="list-text">在自动启动期间按 `Ctrl-C` 在 `LOADER&gt;` 提示符处停止节点。</block>
   <block id="46f0d1accd1916f786a903c85ad13b0f" category="list-text">在 LOADER 提示符处，进入维护模式：</block>
   <block id="8e26679b9fca64c8419387ed5ddbd066" category="list-text">在维护模式下，显示先前设置的所有启动程序端口，这些端口现在均处于目标模式：</block>
@@ -1314,7 +1308,6 @@
   <block id="a69c4b39f212e41199201fde407c6c9e" category="cell">转至 <block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block></block>
   <block id="5bb1d2d89905f521825083d671817bcb" category="cell">是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列</block>
   <block id="06ebdeec742f5f261b968dabee7ce4bc" category="cell">返回到 _Install and boot node3_ 并继续中的部分 <block ref="279060155dcadaa13689560d46e381cb" category="inline-link-macro-rx"></block>。</block>
-  <block id="98df3e165a2b52781e38f636917b8597" category="list-text">【第 16 步】如果系统进入重新启动循环并显示消息 `未找到磁盘` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <block ref="cc511b4dbeed99af4a19f83ac3e97f04" category="inline-xref-macro-rx"></block> to <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block> 以解决此问题。</block>
   <block id="224e96d1485db2dffbe7521db5e3b8db" category="paragraph">您可以对任何相关节点使用这些说明。node3 在以下样本中使用。</block>
   <block id="fb2ae3407dbb65ffe5f8f2ab09ba07d0" category="list-text">输入以下命令并检查其输出，以验证新集群端口是否位于集群广播域中：</block>
   <block id="3cb8659a043650dc7ac58ea24d685632" category="paragraph">`network port show -node -port port -fields broadcast-domain`</block>
@@ -2431,7 +2424,6 @@
   <block id="04bc530160a0c8cfe78397922bf1025e" category="list-text">但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回 _Install and boot node3_ 并在中继续 <block ref="8334b800bcf351711ec77ec1fb7390b3" category="inline-link-macro-rx"></block>。</block>
   <block id="218c1c22487e3cea0e94aedcabb843e2" category="paragraph">您必须具有保存在中的 node1 中的 FC 端口设置值 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block>。</block>
   <block id="53d8e9a89e7df0f2e9d3d1647aa47fa3" category="admonition">* 重要信息 * ：如果您的系统具有存储磁盘，请在集群提示符处输入本节中的命令。如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并连接到存储阵列，请在维护模式下在此部分中输入命令。</block>
-  <block id="9dc09e5212ac728648450db66b8f3668" category="list-text">【第 1 步】执行以下操作之一：</block>
   <block id="fb0e67401f3473ee656312bb98935878" category="cell">转至 <block ref="4e8d6367d01e7a88b5b6b591ecf5d6db" category="inline-xref-macro-rx"></block></block>
   <block id="32781b45218385923d91bc21b08c6b68" category="cell">转至 <block ref="79ba4e2202506d0f17b14ab90d196879" category="inline-xref-macro-rx"></block></block>
   <block id="838b228ad3b40461ad1dc100f5671807" category="list-text">【 man_config_3_step2]] 启动 node3 和访问维护模式：</block>
@@ -2465,7 +2457,6 @@
   <block id="306e854e226a650b7acec40ba5a0e249" category="list-text">如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block> 然后转到 <block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block>。</block>
   <block id="6c804c4adac8740743dd6f41da471795" category="list-text">如果 node3 具有卡或板载端口，请转至 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>。</block>
   <block id="49844625e7eb80b095f9d3c525f8cba6" category="list-text">如果 node3 没有卡或板载端口，请跳过 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>，并返回到 _Install 和 boot node3_ ，然后在继续 <block ref="a4103675c41ea57f7287e0804dd0c9dd" category="inline-link-macro-rx"></block>。</block>
-  <block id="d430acf9b1fab77a9b9905bbf1423c57" category="list-text">【第 1 步】在 node3 上输入以下命令，检查端口当前的配置方式：</block>
   <block id="1f81aa18292065e5242ce30775d96e2c" category="paragraph">系统将显示类似于以下示例的输出：</block>
   <block id="581e0d52eede5c7a9002197a5955188f" category="list-text">`s步骤 3]] 查看` system node hardware unified-connect show `或` ucadmin show 命令的输出，以确定 UTA/UTA2 端口是否具有所需的个性化设置。</block>
   <block id="39e1a687c8a1a3bb49c730ad7b98a3d5" category="cell">转至 <block ref="2fc3b3e515184c116c95342a9ca8cb9f" category="inline-xref-macro-rx"></block>。</block>
@@ -3512,19 +3503,16 @@
   <block id="9732e7498adc911676ddbf1eb96c90f1" category="inline-link-macro">手动升级运行 ONTAP 9.7 或更早版本的控制器硬件</block>
   <block id="c96cad4c802036afa3176e87bcda336b" category="cell"><block ref="c96cad4c802036afa3176e87bcda336b" category="inline-link-macro-rx"></block></block>
   <block id="22d219ca4c61aa27b2616b43ecd9678a" category="list-text">将节点启动至 `boot_menu` ：</block>
-  <block id="2bbe578e5c09f7900dc7f227b86c3682" category="list-text">节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将 AFF A700 节点 1 磁盘重新分配给 AFF A900 节点 1 ，请在提示符处输入节点 2 的实际名称。请使用以下示例作为参考：</block>
   <block id="8e490bd535c0b48fe8a594afea8a5f73" category="list-text">如果预检失败，请更正聚合所有权</block>
   <block id="10623903188f292ff7edcdd04a4bde0a" category="list-text">获取用于存储加密的 IP 地址</block>
   <block id="5967cd2dd5257e032e2c1568e265b057" category="list-text">node1 是 node1 聚合的主所有者和当前所有者</block>
   <block id="a324d0a89d17fcc011978fff16b784da" category="list-text">node2 是 node2 聚合的主所有者和当前所有者</block>
-  <block id="2752e749ec326bfcd5d2b1c8a96e0eec" category="cell">第 2 阶段：从 node1 重新定位资源并停用 AFF A700 node1</block>
   <block id="70bfac3efc816446939b969cb549c8b8" category="list-text">node2 是 node1 聚合的当前所有者</block>
   <block id="ec258c431af242bb93ebbf0d82a4afd2" category="list-text">node2 是 node2 聚合的主所有者和当前所有者</block>
   <block id="c355563dc6e37024ffcd7f18d583279e" category="list-text">验证 node1 是否已成功安装</block>
   <block id="8bc1591998d3254a215a1fea9cd0e4be" category="list-text">还原 node1 网络配置</block>
   <block id="0ac66da022e888300d8ec43f47b716d6" category="list-text">在升级后的节点 1 上还原密钥管理器配置</block>
   <block id="e1275af58e555e9cc3d59dc17d1d1ab1" category="list-text">将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1</block>
-  <block id="78f9df4f95654214c6e34228379e988b" category="list-text">升级后的 AFF A900 node1 是 node1 聚合的主所有者和当前所有者</block>
   <block id="fff8cb6f4bd9c58d6037356a96d73247" category="cell">第 4 阶段：从 node2 重新定位资源并停用 node2</block>
   <block id="487b7a723d50ceb8e8e166efb4cef927" category="list-text">将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node1</block>
   <block id="be74d1508b2732e00219890be181ffa6" category="list-text">升级后的 node1 是最初属于 node1 的聚合的主所有者和当前所有者</block>
@@ -3568,7 +3556,6 @@
   <block id="1b8060cb5ae9dd21090d2ec07cc376b2" category="paragraph">要执行升级，您必须具有接地线，并且在升级过程中需要参考其他文档。</block>
   <block id="0c28f03f85d0a7cc4b82f95fce4d86da" category="doc">验证升级硬件</block>
   <block id="af9d3f15b5098b02572b4a5b4c346c3d" category="doc">验证 node1 安装</block>
-  <block id="050ee0f77aff38c6ec36f73da8a54e1c" category="paragraph">使用 AFF A900 控制器模块启动 node1 后，必须验证是否已正确安装它。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。</block>
   <block id="c6fd244601cc323697fc7e6249268acd" category="paragraph">此时，在操作步骤中，控制器升级操作应已暂停，因为 node1 会自动尝试加入仲裁。</block>
   <block id="ff5725f7647773e4bb6ba48f86580a14" category="list-text">验证 node1 是否已加入仲裁：</block>
   <block id="73dac86302530c6371ee49f4ae0c3157" category="paragraph">`cluster show -node node1 -fields health`</block>
@@ -3582,7 +3569,6 @@
   <block id="85aa04fa5dfb58230ad2b2fb89c2b86d" category="paragraph">此时将显示节点上的所有物理网络端口， VLAN 端口和接口组端口。在此输出中，您可以看到 ONTAP 已将任何物理端口移至 `集群` 广播域。您可以使用此输出来帮助确定应将哪些端口用作接口组成员端口， VLAN 基本端口或用于托管 LIF 的独立物理端口。</block>
   <block id="97a140c436b20824a78c55187d8f3252" category="list-text">列出节点 1 上所有端口的网络端口可访问性：</block>
   <block id="cceb77422957d2a7588c1df43f5eacd8" category="paragraph">`network port reachability show -node node1`</block>
-  <block id="9eff901780752a19a1be28a5abb8114f" category="admonition">在将 AFF A700 升级到 AFF A900 控制器期间，网络端口及其连接不应发生变化。所有端口都应驻留在正确的广播域中，并且网络端口可访问性不应更改。但是，在将 LIF 从 node2 移回 node1 之前，您必须验证网络端口的可访问性和运行状况。</block>
   <block id="a5fb308a92e4604c009062c3de7b2789" category="list-text">[[restore_node1_step4]] 使用以下命令按以下顺序修复 node1 上每个端口的可访问性状态不是 `ok` 的可访问性：</block>
   <block id="2c7aa9454c1ca6be9ef48b69c5b8cab5" category="list-text">VLAN 端口</block>
   <block id="cf45ec2f4095abbc4f4afca15dbaa0f3" category="paragraph">如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 <block ref="b6d8caf83cd967ca96a109c1173cf68b" category="inline-xref-macro-rx"></block>。</block>
@@ -3602,15 +3588,8 @@
   <block id="701fa495284f4a753f53b83d9db59d99" category="paragraph">在验证 node2 上的网络配置以及将聚合从 node1 重新定位到 node2 之前，您必须验证当前位于 node1 上的 node2 所属的 NAS 数据 LIF 是否已从 node1 重新定位到 node2 。您还必须验证 node2 上是否存在 SAN LIF 。</block>
   <block id="ee2ce060961db1c7ec1f363acef87d91" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node2 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="b990f6960d7072e815b8e4d805f92035" category="paragraph">如果已替换任何 LIF ，请将主节点还原回 node2 ：</block>
-  <block id="b4487973401042be49d7ce291f0a7816" category="paragraph">在此控制器升级操作步骤期间，您可以将 AFF A700 升级到 AFF A900 系统。</block>
-  <block id="b506bf2d759395dc5e9a526b8a8a5085" category="admonition">您只能将 AFF A700 系统上每个节点上的两个现场可更换单元（ Field Replaceable Unit ， FRU ）更换为新的 FRU 。您无需移动，断开或重新连接 I/O 卡，数据缆线，磁盘架和磁盘。</block>
   <block id="61d5cfba7704fb82d2cf6a1ebdf016a2" category="admonition">术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。在操作步骤之后，您必须替换节点的实际名称。</block>
-  <block id="09ae20b09a8c19ed0bbb39e5bb05e664" category="inline-link-macro">从 AFF A700 升级到采用 ARL 的 AFF A900 的准则</block>
-  <block id="32898fc8f4a5029e42e4dec90f47aacf" category="list-text">此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应阅读并了解 <block ref="b49755eb65062586cd5b4474d108ae63" category="inline-link-macro-rx"></block> 和 <block ref="57e14e08755134bb6fef9ad899bb58ee" category="inline-link-macro-rx"></block> 开始升级前的章节。</block>
   <block id="51108f40a613018fdc6b3ad89f42122e" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未在其他系统中使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果更换用的控制器硬件先前已用作另一个 ONTAP 集群的一部分或用作独立的单节点系统，则必须联系技术支持。</block>
-  <block id="032e383323d25667eb1cf2fd98d90920" category="list-text">此操作步骤仅适用于 AFF A700 系统。有关需要升级到 AFF A900 系统的所有其他控制器型号，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件，以及使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件内容。</block>
-  <block id="3ad849030cc8cbffe73ee39692333dfd" category="list-text">如果要在停机的情况下从 AFF A700 系统升级，您可以通过移动存储来升级控制器硬件，也可以联系技术支持。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
-  <block id="907aff731fdff77dd937f103d185946f" category="paragraph">此内容介绍如何使用新的 AFF A900 控制器升级 AFF A700 HA 对中的存储控制器，同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
   <block id="71a227e766879a981c6aa0fd0ee08687" category="paragraph">在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。您还必须准备通过网络启动新控制器。</block>
   <block id="5077f34346404c6e6b1972588ad2c047" category="list-text">在 ONTAP 命令行的高级权限模式下输入以下命令，开始控制器更换过程：</block>
   <block id="78bcaff6352913ee1a07493a6be91635" category="paragraph">您将看到类似于以下内容的输出：</block>
@@ -3618,8 +3597,6 @@
   <block id="f51ac25569c065e7813718ef345e9ddc" category="cell">检查要更换的任何节点是否具有非本地数据 LIF 。节点不应包含其不是主所有者的任何数据 LIF 。如果其中一个节点包含非本地数据 LIF ，则任务将失败。</block>
   <block id="704a15d7928e671b1f24dd0bcbc6463a" category="list-text">network interface show -curr-node nodename -role cluster ， intercluster ， node-mgmt ， cluster-mgmt ， data</block>
   <block id="c293ce688a142a8943b3fa428c09e414" category="paragraph">node1 完全暂停后， node1 应出现在 LOADER 提示符处。要查看加载程序提示符，请连接到 node1 的串行控制台。</block>
-  <block id="7772cd0198105a3d1385b2e8a38dfd13" category="section-title">卸下 AFF A700 控制器模块</block>
-  <block id="aa7985a89f1c2f960f222e4a5876a369" category="paragraph">使用以下操作步骤删除 AFF A700 控制器模块。</block>
   <block id="21ae48aa7bbdbaeb1a967d5328b891b6" category="list-text">从 node1 控制器模块中卸下控制器模块之前，请断开控制台缆线（如果有）和管理缆线与 node1 控制器模块的连接。</block>
   <block id="16597a9dd20f2d5db13339b0bf3ad60c" category="admonition">在处理 node1 时，只需从 node1 中拔下控制台和 e0M 缆线。在此过程中，您不能移除或更改 node1 或 node2 上的任何其他缆线或连接。</block>
   <block id="4f15dffc58c8598c508fa46cd5335ebb" category="list-text">解锁控制器模块 A 并将其从机箱中卸下。</block>
@@ -3636,8 +3613,6 @@
   <block id="805f241c9acf04968d6f84157a96e0c1" category="list-text">Rotate the cam latch down until it is in a horizontal position.</block>
   <block id="c6e52defde912721ad3ec5315c5d9664" category="cell">Lettered and numbered I/O cam latch</block>
   <block id="0e50691d6ac3e9df529fa546f2486bd7" category="cell">I/O latch completely unlocked</block>
-  <block id="65aec26ee881486d9f784225cd0751c8" category="section-title">在节点 1 上安装 AFF A900 控制器模块。</block>
-  <block id="3624eaadadde076eadac129a6945d35a" category="paragraph">使用以下操作步骤在 node1 中安装 AFF A900 控制器模块。</block>
   <block id="85b0e5132d3bec02fcda8eb6f24b6062" category="list-text">使用缆线将管理和控制台端口连接到 node1 控制器模块。</block>
   <block id="9ce6fd0a8d01a2b4341b85fdb23f1ba5" category="list-text">Firmly push the controller module into the chassis until it meets the midplane and is fully seated.</block>
   <block id="9d3d5ccff9d9d7f336c5f4adfb3eea08" category="paragraph">控制器模块完全就位后，锁定闩锁会上升。</block>
@@ -3677,7 +3652,6 @@
   <block id="1e23f3f1f1ff4c1174660749785a3e47" category="admonition">您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。</block>
   <block id="2e9296c7316d4c4c76380224c1db72b2" category="list-text">对 node1 执行网络启动：</block>
   <block id="99002edb0db3876428b0f60105beedae" category="paragraph">`netboot \http://web_server_ip/path_to_web_accessible_directory/netboot/kernel`</block>
-  <block id="7158cb602a75d71a43fc88a8cc225d1e" category="list-text">等待 AFF A900 控制器模块上当前运行的 node1 启动并显示启动菜单选项，如下所示：</block>
   <block id="b0cf2f9b05191bd2a4d5a0a854fe9fee" category="paragraph">请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤` 。本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。</block>
   <block id="5401a55d9c4318be587707f2931a86b0" category="paragraph">请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景所有 ONTAP 版本。</block>
   <block id="a303e403af842ae1a3aee97050fd5dcf" category="list-text">如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`</block>
@@ -3714,12 +3688,9 @@
   <block id="93b0552d846cadbf1761e192e1b974a8" category="list-text">如有必要，请在 node2 上设置配对系统 ID ：</block>
   <block id="3baeda84b3e5fe7c80a71e2bb18f15ed" category="admonition">这是要升级到 AFF A900 的 node1 的系统 ID 。</block>
   <block id="08b43247e14b9d72a58205ddb14b21ab" category="paragraph">`setenv partner-sysid node1_sysid`</block>
-  <block id="206a1a8dfd426c156b48ab46846acc00" category="section-title">在节点 2 中安装 AFF A900 控制器模块。</block>
-  <block id="5290116daec6e79a183cfb76bc74414e" category="paragraph">使用以下操作步骤在 node2 中安装 AFF A900 控制器模块。</block>
   <block id="9242c558140d9a52d10f2e6b57f75893" category="list-text">将控制器模块的末端与机箱中的托架 B 对齐，然后将控制器模块轻轻推入系统的一半。</block>
   <block id="1ba57f7982d64e52fcc3eb0235996968" category="admonition">托架标签位于机箱上控制器模块正上方。</block>
   <block id="2cd913fdf7e7f2f1c4a048df3be22534" category="list-text">使用缆线将管理和控制台端口连接到 node2 控制器模块。</block>
-  <block id="35275fabaa2468d01cfdfe24836fec99" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。在升级期间，您无需移动 SAN LIF 即可实现集群或服务运行状况。在将 node1 作为 AFF A900 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="da2b45cbcbfabc951a211d4aed4ae9d5" category="doc">还原 node2 上的 key-manager 配置</block>
   <block id="c33d1193fa61b53992488cb1598a346b" category="list-text">在对 node2 执行后检之后，将为 node2 集群启用存储故障转移和集群 HA 对。操作完成后，两个节点均显示为已完成，系统将执行一些清理操作。</block>
   <block id="9eabbc872717665c9d6cf452e2e948ce" category="list-text">使用以下命令并检查输出，验证 node1 和 node2 是否属于同一集群：</block>
@@ -3732,9 +3703,7 @@
   <block id="8f3c31fbc98a55b30d3c8c6b6ba60ad1" category="list-text">使用以下命令并检查其输出，以验证是否已正确安装许可证：</block>
   <block id="83384f48b367d39b20d627f5230807a9" category="list-text">在两个节点上使用以下命令配置 SP ：</block>
   <block id="09e9f7abfe1cdfbd7b4465d4dbc6bd0c" category="paragraph">如果在 node1 和 node2 上启用了存储加密，请完成此部分 <block ref="18c90c300c0b71334b8b427eaf4f38a3" category="inline-link-macro-rx"></block>。否则，请完成部分 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
-  <block id="e1d4223a486d75812a7653769a14285b" category="list-text">节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将 AFF A700 node1 磁盘重新分配给 AFF A900 node1 ，请在提示符处输入 node1 的实际节点名称。请使用以下示例作为参考：</block>
   <block id="ab8666705fb8255d0f27c0919160c1e4" category="doc">验证 node2 安装</block>
-  <block id="c82f2298e8b3c76974b76a8ddcdc4261" category="paragraph">使用 AFF A900 控制器模块启动 node1 后，必须验证是否已正确安装它。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。</block>
   <block id="ba7d8f5ebb18592d91d949241848dfe6" category="paragraph">此时，在操作步骤中，操作将暂停，而 node2 加入仲裁。</block>
   <block id="c32050bd0152940e859c61963c8eac2b" category="list-text">验证 node2 是否已加入仲裁：</block>
   <block id="4944974c6eb515b06e75893287e18f10" category="list-text">确认 node2 与 node1 属于同一集群，并且运行状况良好：</block>
@@ -3753,7 +3722,6 @@
   <block id="5e997021ee0d4607339bb16384449e18" category="list-text">【第 3 步】列出节点 3 上所有端口的网络端口可访问性：</block>
   <block id="9d84cc48ac59ed03e236e199b8e72aa8" category="paragraph">^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 <block ref="46e0d635bf9a753e435b3e56ea555b72" category="inline-link-macro-rx"></block>或 <block ref="916a396aec2ea8c5191dac1b7e554adf" category="inline-link-macro-rx"></block>。</block>
   <block id="9bded937f001956ffed1ee6ccceb37db" category="sidebar">使用 system controller replace 命令（ AFF A700 至 AFF A900 ）</block>
-  <block id="2500b2e21dbe74e889f94334876e761f" category="sidebar">第 2 阶段。重新定位资源并停用 AFF A700 节点 1</block>
   <block id="7f34c3c52d70c0425b1f8f450d9011fa" category="sidebar">第 4 阶段。重新定位节点 2 中的资源并停用节点 2</block>
   <block id="e58fe7640209496d4d7a887457b3a8c5" category="sidebar">第 7 阶段。完成升级</block>
   <block id="815c0aa063df3c53b17744c860357708" category="paragraph">升级完成后，您可以停用 node2 。请参见 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
@@ -3859,8 +3827,6 @@
   <block id="2c57b3816ff5f5700ca371be22f428e1" category="cell">介绍如何使用卷， FlexClone 卷，文件和 LUN 高效管理逻辑存储资源， FlexCache 卷，重复数据删除，数据压缩， qtree 和配额。</block>
   <block id="97100ba8af68fa3886b472eaf454f74b" category="cell">介绍如何在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。</block>
   <block id="29f0de2b0e55e07da57cbc094ee90f18" category="inline-link-macro">使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900</block>
-  <block id="0a34d6af6eb5dc44a124da38508c4782" category="cell"><block ref="0a34d6af6eb5dc44a124da38508c4782" category="inline-link-macro-rx"></block></block>
-  <block id="878733e1c0833b1e42dc0c78c85de530" category="cell">介绍使用 system controller replace 命令将 AFF A700 无中断升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900 所需的聚合重新定位过程。</block>
   <block id="9207f0d2f15feec52f0acba2d7786a53" category="paragraph">您必须确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。</block>
   <block id="33f0e8a0f6ded5a1669e805f22005635" category="paragraph">原始节点或新节点可能已启用存储加密。在这种情况下，您必须在此操作步骤 中执行其他步骤，以验证是否已正确设置存储加密。</block>
   <block id="604021e164c6285018b6c1a32742b633" category="list-text">【 man_lif_verif_4_Step10]] 完成以下子步骤，确认 SAN LIF 位于 node4 上的正确端口上：</block>
@@ -4074,15 +4040,11 @@
   <block id="14173ffe47c7c7e4971c06932a3084e2" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，使用 KMIP 服务器管理身份验证密钥。</block>
   <block id="78bd6f667bd547c51374b0e978e9d001" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上支持手动 ARL 升级所需的参考内容和网站。</block>
   <block id="635d2c71cec041685e4ff0c76bb3a669" category="summary">对 AFF A700 升级到 AFF A900 期间可能发生的聚合重新定位故障进行故障排除。</block>
-  <block id="542aa4590c9b5c399bd6afe6d9019eab" category="list-text">在第 4 阶段之后，如果将 node2 更换为 AFF A900 控制器模块和 NVRAM 模块，</block>
   <block id="2fd90d60a25deece3a4d5127856e8967" category="summary">确定是否使用 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。</block>
   <block id="c08f0b6d71108219929095cbd90d111d" category="paragraph">在以下情况下使用此操作步骤 ：</block>
-  <block id="57f36738e6329d2ffcb04a05c9df66ce" category="list-text">您已向 NetApp 销售代表确认收到 AFF A900 控制器模块和 NVRAM 模块以及升级所需的部件。</block>
-  <block id="cb5c20f460544e3511cfa78abbc0bee7" category="list-text">您正在运行 ONTAP 9.10.1 或更高版本。</block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。</block>
   <block id="9cc6fc2f026195efe30da793b04e5bd0" category="paragraph">在以下情况下，请勿 * 使用此操作步骤 ：</block>
-  <block id="c97b09e63b29c1434e101e879c019813" category="list-text">您正在 AFF A700 系统上使用 FlexArray 虚拟化软件。</block>
   <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">您正在使用共享交换机进行集群互连和以太网连接存储。</block>
   <block id="c79acf75c7bb6af7f11f0d260b4152eb" category="paragraph">有关升级 Fabric MetroCluster 或 MetroCluster IP 配置的信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _RAID MetroCluster 升级和扩展 _ 内容。</block>
   <block id="4aa5a5226abeed57a9e86a4cdbd74335" category="summary">如果需要，请在 AFF A700 升级到 AFF A900 期间配置存储加密，安装 SSL 证书以及设置密钥管理服务器。</block>
@@ -4090,10 +4052,7 @@
   <block id="af18adb321560258c2b9a80d2757792a" category="paragraph">在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。</block>
   <block id="c7fc4caaca02af86d84b04f258dfd7e6" category="paragraph">Node2 不会接管，但它仍从所有非根聚合提供数据。</block>
   <block id="aceac87ad181071fb431ae2fdb715377" category="summary">在将 AFF A700 升级到 AFF A900 期间，将节点 2 的非根聚合重新定位到节点 1 。</block>
-  <block id="45bd8fa49096f851be07068b30dcaed0" category="paragraph">在将 node2 更换为 AFF A900 控制器模块和 NVRAM 模块之前，必须先将 node2 所拥有的非根聚合重新定位到 node1 。</block>
   <block id="295aeb05b88224ae18df0d9c12e9931d" category="summary">在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，您必须通过网络启动 node1 。</block>
-  <block id="55235259d45464d098b17f2b9f398779" category="paragraph">在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，您必须通过网络启动 node1 。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。</block>
-  <block id="22aba2c38dfd5be04ccecae539161f04" category="paragraph">无法检查 AFF A900 控制器模块启动介质上安装的 ONTAP 版本，除非该模块安装在机箱中并已启动。AFF A900 启动介质上的 ONTAP 版本必须与要升级的 AFF A700 系统上运行的 ONTAP 版本相同，并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
   <block id="7e3345ca183a02251269d1034b280331" category="list-text">在 node1 上的 LOADER 提示符处，验证 node1 的 `partner-sysid` ：</block>
   <block id="99b7f5e29fdd81a190e77a072da58a66" category="paragraph">对于 node1 ， `partner-sysid` 必须为 node2 。</block>
   <block id="042fc0ffc4af15d2e8abcf37fd293475" category="summary">在将 AFF A700 升级到 AFF A900 期间，准备节点并运行一系列预检。</block>
@@ -4110,50 +4069,26 @@
   <block id="07eb54c9387ce200e255440dfcbf0685" category="list-text">输入集群基础许可证密钥</block>
   <block id="d3a8c7c3bb961faba9a8a3172ae28089" category="list-text">使用密钥管理可操作性协议（ Key Management 可操作性协议， KMIP ）服务器管理身份验证</block>
   <block id="bafdb6036f860959892761c8ddf5ada2" category="list-text">使用板载密钥管理器（ OKM ）管理存储加密</block>
-  <block id="cb4c4746969288d0369714b8d83599db" category="cell"><block ref="cb4c4746969288d0369714b8d83599db" category="inline-link-macro-rx"></block></block>
-  <block id="a9e87ca1b1784ceb7feece392847957a" category="list-text">卸下 AFF A700 控制器模块和 NVRAM 模块</block>
-  <block id="b4403b18071e2ca5e05f326eba5b4948" category="list-text">在节点 1 上安装 AFF A900 NVRAM 模块和控制器模块</block>
-  <block id="28903874eab25751407a78548a11a0d4" category="inline-link-macro">第 3 阶段：使用 AFF A900 控制器模块 NVRAM 模块启动 node1</block>
-  <block id="dce08c9234f984510fc2b564a40b2ed3" category="cell"><block ref="dce08c9234f984510fc2b564a40b2ed3" category="inline-link-macro-rx"></block></block>
-  <block id="a08cb1ebd9789c8231c6f7fe95ac600b" category="list-text">使用 AFF A900 控制器模块和 NVRAM 模块启动 node1</block>
   <block id="3047a160705f1dd8a555e5c6e774b38e" category="cell"><block ref="3047a160705f1dd8a555e5c6e774b38e" category="inline-link-macro-rx"></block></block>
-  <block id="077a06e13ba85be7400a3c7082518a65" category="inline-link-macro">第 5 阶段：在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</block>
-  <block id="81f79958723f464ea2cc913e92d5fcd1" category="cell"><block ref="81f79958723f464ea2cc913e92d5fcd1" category="inline-link-macro-rx"></block></block>
-  <block id="acefe8f63b4f12e9f8f9caa7855c6b2b" category="list-text">在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</block>
-  <block id="637841b17ce301de3888791fb5dc3a05" category="inline-link-macro">第 6 阶段：使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</block>
-  <block id="18cd7454da0542e1edda356cabdf1e68" category="cell"><block ref="18cd7454da0542e1edda356cabdf1e68" category="inline-link-macro-rx"></block></block>
-  <block id="d2d55edd96c212fea9e5b9140695c621" category="list-text">使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</block>
   <block id="ee12784e23093c2fd279b5ec0540e621" category="cell"><block ref="ee12784e23093c2fd279b5ec0540e621" category="inline-link-macro-rx"></block></block>
   <block id="8e588b362fa6e77faa0431bb51b2e5d6" category="summary">使用部分自动化的 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。</block>
-  <block id="11fcc21387b876b11afb701ee44e39fc" category="paragraph">在此控制器升级期间，您需要将 AFF A700 控制器更换为 AFF A900 控制器。此内容介绍了自动化操作步骤 的步骤，该过程使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
   <block id="5d0e6c628fa55718654de0f71041a32a" category="summary">您可以通过交换控制器模块和 NVS 将 AFF A700 上的控制器硬件升级到 AFF A900 。</block>
-  <block id="04f31d48e56d090943746f00faca6286" category="paragraph">此操作步骤 介绍如何在以下系统配置中使用聚合重新定位（ Aggregate Relocation ， ARL ）升级控制器硬件：</block>
-  <block id="6b2b3132949d5e5963ea62440851e1da" category="cell">9.10 或更高版本</block>
   <block id="1c962f08f92ca556b5f958f512421f7b" category="cell">AFF A700 到 AFF A900</block>
-  <block id="0a991b6a26e16629e37325e8ec12b617" category="cell">通过保持相同的机箱，将 AFF A700 转换为 AFF A900</block>
-  <block id="d23f5051b54ef3a223ccfdaa74506f86" category="paragraph">您可以通过交换控制器模块和 NVRAM 模块，无中断地将 AFF A700 节点高可用性（ HA ）对上的控制器硬件升级到 AFF A900 系统。您可以在 AFF A700 节点之间迁移非根聚合。安装后，您可以将非根聚合从 AFF A700 节点迁移到 AFF A900 节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</block>
   <block id="1d257551bf86ffe550883c2efe77b8d8" category="paragraph">在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确保在整个升级操作步骤中至少有一个节点从聚合提供数据。在继续操作时，您还可以在集群中的节点之间迁移数据 LIF 。</block>
   <block id="addb9e70976c2f94b8ccfc3736a31888" category="list-title">重要信息</block>
-  <block id="feddf6629be3f6a618ac78bf3ed4030d" category="list-text">AFF A900 系统仅支持高端电源（ 200V 到 240V ）。如果 AFF A700 系统使用低端电源（ 100V 到 120V ）运行，则必须先转换 AFF A700 输入电源，然后再使用此操作步骤 。</block>
   <block id="06e8f251b536b4b0a7af95aa92a37415" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块验证 node2 安装。</block>
-  <block id="01a35799697d769b0c640182d9a4b59b" category="paragraph">您必须使用 AFF A900 控制器模块和 NVRAM 模块验证 node2 的安装。由于物理端口不变，您无需将物理端口从 AFF A700 节点 2 映射到 AFF A900 节点 2 。</block>
   <block id="1ed68b1a1c4717bcf9913f481374e7de" category="admonition">在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node2_ 上的网络配置。</block>
   <block id="550d4b66b2a123c0592e264de6261a21" category="paragraph">在上述示例中， node2 已在更换控制器后启动并加入仲裁。它具有多个不可访问的端口，并且正在等待可访问性扫描。</block>
   <block id="b09281cc619dc5d9e8148aef71038fcd" category="paragraph">对于可访问性状态可能与当前所在广播域的可访问性状态不同的端口，应显示警告消息，如上例所示。根据需要查看端口和问题解答 `y` 或 `n` 的连接。</block>
   <block id="5267f49248b15741904ddac0a8c8a79a" category="list-text">使用以下步骤还原 LIF 主端口，指定需要还原的 Vserver 和 LIF 主端口（如果有）：</block>
   <block id="e57d7ba8fb9b97ff4cc0b7b8c4a0b876" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。</block>
-  <block id="617a5d16b196505acad38817e41e4c81" category="paragraph">带有 AFF A900 控制器模块和 NVRAM 模块的 Node2 现在可进行升级。通过交换控制器模块和 NVRAM 模块从 AFF A700 升级到 AFF A900 只涉及移动控制台和管理连接。本节介绍使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 所需的步骤。</block>
   <block id="3891297e49eacc493b7b08dbb7fa3f93" category="list-text">`s此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为` off ，以避免在加载 node2 配置后出现启动环路：</block>
   <block id="9b043fdaedad96364338df4b458e563e" category="paragraph">在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。</block>
   <block id="939b677a0e4df037cd999a739cd94317" category="paragraph">上述示例中显示的系统 ID 是示例 ID 。要升级的节点的实际系统 ID 将不同。</block>
   <block id="5952acedcc143d30a19364d245887b58" category="paragraph">在提示符和登录提示符处输入节点名称之间，节点会重新启动几次以还原环境变量，更新系统中卡上的固件以及进行其他 ONTAP 更新。</block>
   <block id="4cc41ac3ff89b0e0d88cacedf58eb50d" category="summary">请告知 NetApp ，升级到 AFF A900 后，旧系统不再运行。</block>
   <block id="8a0b39942bdb20d83fc11a2c0940f45d" category="summary">AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步骤 期间的安装说明。</block>
-  <block id="310669d893d588644d176995ed9dad99" category="doc">在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</block>
-  <block id="0dc0def10482ec13946f7a807b4a2cc0" category="paragraph">您必须在 node2 上安装为升级而收到的 AFF A900 NVRAM 模块和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
   <block id="a7b5ccf02bd0f6b23fc889ebb5354dbc" category="paragraph">如果您尚未接地，请正确接地。</block>
-  <block id="6a41e779d849620d9eab27b1ac05d62c" category="section-title">安装 AFF A900 NVRAM 模块</block>
-  <block id="2ae4d49dac7c53580706a81482ea9eb9" category="paragraph">使用以下操作步骤 将 AFF A900 NVRAM 模块安装在节点 2 的插槽 6 中。</block>
   <block id="3d6ee5006b58007aa6b243ac902837ac" category="list-text">将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。</block>
   <block id="a8ad32b9b5381f0e3f1c5897679ae7eb" category="list-text">将 NVRAM 模块轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVRAM 模块锁定到位。</block>
   <block id="254d1495a725edffc2f7c4eb5441615a" category="admonition">请勿将控制器模块完全插入机箱，直到稍后在操作步骤 中指示您这样做为止。</block>
@@ -4163,7 +4098,6 @@
   <block id="1b829ba4059a871e329472e665878ce0" category="summary">在 AFF A700 升级到 AFF A900 期间恢复 SnapMirror 传输和关系。</block>
   <block id="aa3db39c0cd2973ce4d1a41590b797bd" category="summary">如果需要，请在将 AFF A700 升级到 AFF A900 期间为 NVE 配置新控制器模块。 "</block>
   <block id="0a3b7a3d7928584d593ce11f1af70bda" category="summary">验证在 AFF A700 升级到 AFF A900 期间， node1 上的 node2 的 NAS 数据 LIF 是否已从 node1 重新定位到 node2 。</block>
-  <block id="d6ff025120180dbbbc759b37191b4628" category="paragraph">执行这些检查后，系统会将非根聚合和 NAS 数据 LIF 重新定位回 node2 ，而 node2 目前正在 AFF A900 控制器上运行。</block>
   <block id="8ab86d38fbb9b5285e479977ebd1e54a" category="summary">在将 AFF A700 升级到 AFF A900 期间， LIF 在第 2 阶段，第 3 阶段或第 5 阶段迁移后不联机。</block>
   <block id="dcee0f9120fab3d583542a733afb5a2b" category="summary">如果需要，请在 AFF A700 升级到 AFF A900 期间还原升级后的 node1 上的 key-manager 配置。</block>
   <block id="44890d8a50a99cc721d8e6b9108090d8" category="summary">有关 AFF A700 升级到 AFF A900 期间可能发生的问题的信息。</block>
@@ -4175,26 +4109,17 @@
   <block id="b8083dfb29da686812e3bafb3a73f823" category="summary">在将 AFF A700 升级到 AFF A900 期间，关闭 node2 并将其从机架或机箱中卸下。</block>
   <block id="edb3af1551b6e96be7f9b204f3cec480" category="summary">将 AFF A700 升级到 AFF A900 期间发生故障或被否决的聚合重新定位。</block>
   <block id="d1f8c09926e8e53bc0799e4043d1af79" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 安装。</block>
-  <block id="fd09d973fc5068ff0886f9b666934f60" category="paragraph">您必须使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 的安装。由于物理端口不变，您无需将物理端口从 AFF A700 node1 映射到 AFF A900 node1 。</block>
   <block id="e373d02f1761d14eafc408b260c8b7da" category="admonition">在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node1_ 上的网络配置。</block>
   <block id="d51b3938c62e269961f6447fa716fc1f" category="paragraph">在上述示例中， node1 在更换控制器后启动。某些端口不具有可访问性，因为没有物理连接。您必须修复状态为 `ok` 以外的可访问性的任何端口。</block>
   <block id="5e6358f28b34aeff7c31a849cd71090e" category="summary">要执行 AFF A700 到 AFF A900 升级，您必须拥有特定的工具和文档。</block>
   <block id="d72e37445f435123c47c01a1bd03271c" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 可访问此升级所需的参考文档和参考站点列表。</block>
   <block id="b2d1e6982a7161543252f06b3304ae95" category="summary">在开始升级之前，请确认您的硬件适用于从 AFF A700 升级到 AFF A900 的过程。</block>
-  <block id="1176c0fcba3cf6f058a29800ebea5d8a" category="paragraph">在开始升级之前，您必须验证是否具有正确的硬件将 AFF A700 系统升级到 AFF A900 系统。对于要升级的每个 HA 对，您必须具有两个系统控制器模块和两个 NVRAM 模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。</block>
   <block id="b17a59560ebfb087ad44c6322178e9e4" category="summary">在将 AFF A700 升级到 AFF A900 期间，禁用带有 node2 的 HA 对并关闭 node1 。</block>
-  <block id="d833cdd8c2a2d78a9e958f2ad1aa027a" category="paragraph">要停用 node1 ，请恢复自动操作，以使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从 node1 机箱中卸下 AFF A700 控制器模块和 NVRAM 模块，然后在 node1 上安装 AFF A900 NVRAM 模块和控制器模块。</block>
   <block id="eedd3589e87e21a342b71fbe4c46b471" category="paragraph">在此阶段， node1 已关闭，所有数据均由 node2 提供。由于 node1 和 node2 位于同一机箱中，并由同一组电源供电，因此请勿关闭机箱电源。您必须小心地仅卸下 node1 控制器模块和 node1 NVRAM 模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。</block>
-  <block id="60add02e6f855fc403608c4428daa060" category="section-title">卸下 AFF A700 NVRAM 模块</block>
-  <block id="be1a493bb2bbb64bcab3e438e79773b3" category="paragraph">使用以下操作步骤 删除 AFF A700 NVRAM 模块。</block>
-  <block id="906fd0158ff703237eed6f1ded5f66d9" category="admonition">AFF A700 NVRAM 模块位于插槽 6 中，高度是系统中其他模块的两倍。</block>
   <block id="0857dbdec564e89c1ed34a571bb8af41" category="list-text">从 node1 的插槽 6 中解锁 NVRAM 模块并将其卸下。</block>
   <block id="646ac9208401ea9c6c2afc14b196cad5" category="paragraph">NVRAM 模块从机箱中分离并移动几英寸。</block>
   <block id="ca401bca71da68589a6c9f6ae6d2abdf" category="list-text">Remove the NVRAM module from the chassis by pulling on the pull tabs on the sides of the module face.</block>
   <block id="1ade29bb16a89d6eb1ac0378b26d08cc" category="image-alt">卸下 NVRAM 模块</block>
-  <block id="a0f5247271e7048116aa586dafd443b7" category="list-text">如果您在 AFF A700 NVRAM 模块上使用任何附加模块作为核心转储设备，请勿将其传输到 AFF A900 NVRAM 模块。</block>
-  <block id="f7ad80f76c353ca20776e333fbf2c24d" category="paragraph">您必须在 node1 上安装为升级而收到的 AFF A900 NVRAM 模块和控制器模块。请勿将核心转储设备从 AFF A700 NVRAM 模块移至 AFF A900 NVRAM 模块。</block>
-  <block id="56ae35a8a7c9aea560074a59dd85953e" category="paragraph">使用以下操作步骤 将 AFF A900 NVRAM 模块安装在 node1 的插槽 6 中。</block>
   <block id="5d555500d4c58002388a7088e1c8f510" category="image-alt">安装 NVRAM 模块</block>
   <block id="a93447d104277da61e99f98be3016581" category="list-text">将控制器模块的末端与机箱中的开口对齐，然后将控制器模块轻轻推入系统的一半。</block>
   <block id="8c3e973bd184c686de74d4c99763571c" category="admonition">请勿将控制器模块完全插入机箱，除非稍后在操作步骤 中指示您这样做。</block>
@@ -4202,25 +4127,17 @@
   <block id="a7b2214a170507e43e239d129ff056bd" category="image-alt">Install the controller module</block>
   <block id="79ba196960d086bc934b5c973394f991" category="list-text">中断自动启动后， node1 将停留在 LOADER 提示符处。如果不中断自动启动，而 node1 开始启动，请等待提示符，然后按 * Ctrl-C* 进入启动菜单。在节点停留在启动菜单后，使用选项 `8` 重新启动节点，并在重新启动期间中断自动启动。</block>
   <block id="5c29a1b28ae2f684e62d4c2276e7e8e6" category="summary">在交换相应的 AFF A900 node2 控制器模块和 NVRAM 模块后，您可能需要通过网络启动它们。</block>
-  <block id="703f447483d766269b52a3d26e221a3d" category="paragraph">在交换相应的 AFF A900 node2 控制器模块和 NVRAM 后，您可能需要通过网络启动这些模块。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
-  <block id="ef9602c57cf8182f8c7c4634f476ea25" category="list-text">等待 AFF A900 控制器模块上当前运行的 node2 启动，并显示启动菜单选项，如以下输出所示：</block>
   <block id="1cc02a52af13d4259858a0ef41cd105b" category="list-text">在 node2 上的 LOADER 提示符处，验证 node1 的 `partner-sysid` ：</block>
   <block id="1861716b0cfdb0620c0ad2a51976da67" category="paragraph">对于 node2 ， `partner-sysid` 必须为 node1 。</block>
   <block id="de9f7d5e1d4c04a6ec4f1097d1a1a241" category="summary">了解是否可以使用 ARL 将 AFF A700 升级到 AFF A900 。</block>
-  <block id="6244645d8886d0af5e5f9f789a1363cd" category="paragraph">使用 ARL 将一对运行 ONTAP 9.10.1 或更高版本的 AFF A700 控制器升级到 AFF A900 系统取决于系统以及原始控制器和更换控制器的配置。</block>
-  <block id="ab7cae63aadb61d757d1e31be5a5dfa4" category="paragraph">支持使用 ARL 将 AFF A700 升级到 AFF A900 并仅交换控制器模块和 NVRAM 模块的组合。如果您收到的新 AFF A900 系统是一个完整系统，包括一个新机箱，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。</block>
-  <block id="211e5683572c7d90b708c5a8728647a2" category="admonition">此操作步骤 会将 AFF A700 严格适用场景 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900 。请勿使用此操作步骤 在任何其他系统组合之间执行升级。</block>
   <block id="253fd57a6c2965ca518ebbfc6bf1e7cc" category="paragraph">如果在升级控制器时出现任何问题，请参见 <block ref="8b711d7eff849b62a32d0b2d66f85a6c" category="inline-link-macro-rx"></block> 部分，请参见操作步骤末尾的详细信息和可能的解决方案。</block>
   <block id="62685a7763bc1abddb93a736f4149d3a" category="summary">在将 AFF A700 升级到 AFF A900 后，验证是否已启用 HA 对，验证 node1 和 node2 存储访问和 LIF ，并确认聚合所有权。</block>
   <block id="30dfb9ed789b89ce66132f0084fdfe74" category="paragraph">要确认设置是否正确，您必须验证是否已启用 HA 对。此外，还必须验证 node1 和 node2 是否可以访问彼此的存储，并且它们都不拥有属于集群上其他节点的数据 LIF 。此外，您还必须验证所有数据聚合是否位于其正确的主节点上，以及两个节点的卷是否联机。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改此适配器的使用。</block>
   <block id="6e7e19ae8357eafafb5df9d5e403d692" category="paragraph">您可以将输出与中捕获的输出进行比较 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block> 部分。</block>
-  <block id="2104ce46042122ef5e6074d53e8e5b96" category="list-text">如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 `true` with the `kmip.init.maxwait` variable `off` （ in _boot node2 with the AFF A900 controller module and NVRAM module_ ， <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>），必须重置变量：</block>
   <block id="7bd08b5c3a9e3849e82a1fef790d117b" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 。</block>
-  <block id="7d30e2f4deef3993c9053b53b1e98242" category="paragraph">现在，带有 AFF A900 控制器模块和 NVRAM 模块的 node1 已做好启动准备。通过交换控制器模块和 NVRAM 模块从 AFF A700 升级到 AFF A900 只涉及移动控制台和管理连接。本节介绍使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 所需的步骤。</block>
   <block id="a9e10fdb71bd2ac495122a9187fd9483" category="list-text">如果此配置正在使用 NetApp 存储加密（ NSE ），则必须将 `setenv bootarg.storageencryption.support` 命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为 `off` ，以避免在加载 node1 配置后出现启动环路：</block>
   <block id="1da419b6d2e60d5ecd7df833a2ba8f52" category="summary">验证在 AFF A700 升级到 AFF A900 期间， node2 上的 node1 的 NAS 数据 LIF 是否已从 node2 重新定位到 node1 。</block>
   <block id="74d87258605a34730c51b53265d130eb" category="summary">在 AFF A700 升级到 AFF A900 期间，将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 并还原 node1 的资源。</block>
-  <block id="532e1c77f15a540d9366e10e815b985e" category="paragraph">在将 node1 更换为 AFF A900 控制器模块和 NVRAM 模块之前，必须先将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 ，然后才能最终将 node1 的资源恢复回运行在 AFF A900 系统上的 node1 上。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。</block>
   <block id="fa5b7598ff79398479188d836810f48d" category="summary">支持从 AFF A700 升级到 AFF A900 控制器所需的参考内容和网站。</block>
   <block id="395efc410823d3328f70ddb736016f0b" category="summary">使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，验证 node4 是否加入仲裁，重新创建 node1 的 VLAN ，接口组和广播域，并还原密钥管理器配置。</block>
   <block id="3a042ad216541ed5571bc523ce7be6e9" category="summary">使用 `ssystem controller replace` 命令对将运行 ONTAP 9.5 的控制器升级到 9.7 时可能发生的聚合重新定位故障进行故障排除。</block>
@@ -4367,9 +4284,6 @@
   <block id="ce9a79ebc7c19f98472942ce9de695aa" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，准备通过网络启动 node3 和 node4 。</block>
   <block id="c9e368205ce643c1e4f03ece9279d673" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，使用 KMIP 服务器管理身份验证密钥。</block>
   <block id="ed576374c6e7857fa007ac7fd9061164" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上支持手动 ARL 升级所需的参考内容和网站。</block>
-  <block id="a1e942c10f3ef940af9560fa7f9b1bcf" category="sidebar">第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1</block>
-  <block id="1eec8458b505239680f521752a8c01ec" category="sidebar">第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</block>
-  <block id="994245d9c168d8ec5856e8519cf95566" category="sidebar">第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</block>
   <block id="46d710808513caa456c59b3efa90d166" category="list-text">检查 node1 和 node2 上是否有两个或四个集群 LIF ：</block>
   <block id="cae5b224d557c99a0eebcc5cacc40bf4" category="inline-link-macro">检查并配置 node3 步骤 15 上的 UTA/UTA2 端口</block>
   <block id="a298d19803fc12a7c7efaba3c5bf6f9c" category="paragraph">如果您没有 FC 或 UTA/UTA2 配置，请执行 <block ref="9a0e78facca94ea7347680acb603c7fe" category="inline-link-macro-rx"></block> 以便 node3 可以识别 node1 的磁盘。</block>
@@ -4421,6 +4335,118 @@
   <block id="42b2cb9f9e1a3cf15145887e95d849a8" category="sidebar">工作表：在控制器升级之前和期间收集的信息</block>
   <block id="17f9514d7bcdbd086bef311b63567524" category="admonition">如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</block>
   <block id="23ec9249d03285a513eaaf182a7bcd49" category="cell">AFF8080</block>
-  <block id="4c6ae5d985a0142843ba3f6f8875cf0b" category="cell">AFF A900^4^</block>
-  <block id="44b12a5fbf6c87a940ab615ec2102604" category="paragraph">^4^从ONATP 9.10.1开始、支持从运行ONTAP 9.8或更高版本的AFF8080系统自动升级到运行9.10.1或更高版本的AFF A900系统。</block>
+  <block id="ae201a8621d5678d9f7db2f1543be658" category="inline-link-macro">使用system controller replace命令将AFF A700升级到AFF A900或FAS9000、并将其升级到运行ONTAP 9.10.1或更高版本的FAS9000</block>
+  <block id="df69e9ae0d9f7ac20a24f0c796c5fd93" category="cell"><block ref="df69e9ae0d9f7ac20a24f0c796c5fd93" category="inline-link-macro-rx"></block></block>
+  <block id="88b12ac6a25fc9dcdeff5648aa2d9e8f" category="cell">介绍使用system controller replace命令将AFF A700无中断升级到AFF A900系统或将FAS9000升级到运行ONTAP 9.10.1或更高版本的FAS9000系统所需的聚合重新定位过程。</block>
+  <block id="562fafbbb89476d10c038539c7edc691" category="list-text">如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <block ref="cc511b4dbeed99af4a19f83ac3e97f04" category="inline-xref-macro-rx"></block> to <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block> 以解决此问题。</block>
+  <block id="f2c15df21143edf73966939dd59ca6fb" category="list-text">如果系统进入重新启动循环并显示消息 `no disks found` ，则表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法看到任何磁盘。要解决此问题，请继续 <block ref="cc511b4dbeed99af4a19f83ac3e97f04" category="inline-xref-macro-rx"></block> to <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block>或转到第节 <block ref="35ed01fca1dde6c35ca197b89d2bbfc7" category="inline-link-macro-rx"></block>。</block>
+  <block id="a21bb6fd42ff6eb59f1b181296f7c703" category="cell">FAS8020^3^、FAS8040^3^、FAS8060、FAS8080</block>
+  <block id="34a273586a26b9c6b133c4ff92d23f7c" category="cell">FAS8060^4^、FAS8080^4^</block>
+  <block id="756d409209ace98589705774b5011aa0" category="cell">FAS9500</block>
+  <block id="8245966310b85f53855742d8e5ba304d" category="cell">AFF8020^3^、AFF8040^3^、AFF8060、AFF8080</block>
+  <block id="15669f56a9080989e0dd31ca6ec7de95" category="cell">AFF8060^4^、AFF8080^4^</block>
+  <block id="ec5e81cea4c5ee83d635778e86350e80" category="cell">AFF A900</block>
+  <block id="83881871feba8f42c547551eb77311c5" category="cell">FAS8300^2^、FAS8700、FAS9000、FAS9500</block>
+  <block id="b2eb0585a7b45bf3f01cacfcc45b17f6" category="cell">FAS8300、FAS8700、FAS9000</block>
+  <block id="5b7a8b52e3325206af4bfbcf07693215" category="cell">AFF A400^2^、AFF A700、AFF A800^1^、AFF A900</block>
+  <block id="e02a538b8ab4faf6c7d890fa1fcfa7a7" category="cell">AFF A320^4^</block>
+  <block id="540dacfeb5577ce4282c41e9c7518680" category="cell">AFF A400</block>
+  <block id="3987c2b3042faa1f0f41d1ec08f2ed7e" category="cell">AFF A400 ， AFF A700</block>
+  <block id="41c1636eb5024bf8b152d1ca09286521" category="paragraph">^2^如果要在双节点无交换机集群配置中从AFF A300升级到AFF A400或FAS8200到FAS8300系统、则必须选择临时集群端口进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。</block>
+  <block id="e9dc6fafb0f1f8ce64537ec567468d16" category="paragraph">^3^对于FAS8020、FAS8040、AFF8020和AFF8040系统升级到上表中列出的目标替代控制器、更换控制器必须与旧控制器运行相同的ONTAP 版本。请注意、FAS8020、FAS8040、AFF8020和AFF8040系统不支持ONTAP 9.8之后的ONTAP 版本。</block>
+  <block id="58639a55064ac1eb8afcb76dee256457" category="paragraph">^4^验证控制器升级支持的ONTAP 版本。</block>
+  <block id="a45da96d0bf6575970f2d27af22be28a" category="cell">系统</block>
+  <block id="d85bd4eac4ae2ba50be5c03b292af8f8" category="cell">9.9.1或更高版本</block>
+  <block id="94869c0e3d68936a54ce1ef1d7459f3e" category="cell">AFF8060</block>
+  <block id="a07a923eb6b740023890d052b6fb6e9a" category="cell">9.8P13或更高版本的修补程序</block>
+  <block id="728152178b0535e4c7e93f53223fbfff" category="cell">9.8P10或更高版本的修补程序</block>
+  <block id="edbeb952c4054f67ce1836afbda00903" category="cell">FAS8060</block>
+  <block id="eb30343e3b73c36d3224c319d83cc2e6" category="cell">9.10.1P3或更高版本</block>
+  <block id="8ed24dd5fb292ecefe76fe92a5fc3988" category="cell">FAS8080</block>
+  <block id="e2060bf680bf4facfccf3befec69ef04" category="cell">9.8P12或更高版本的修补程序</block>
+  <block id="c7f409d27e38c597f7352e5c3444f367" category="list-text">在node3上输入以下命令以检查端口当前的配置方式：</block>
+  <block id="d6c2e2d86e9dabadec600438d0eb1471" category="paragraph">您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node1的安装。由于物理端口不变、您无需将物理端口从旧节点1映射到替换节点1。</block>
+  <block id="bec9a7c0c4bfaaeb806f9f4ddb681c8c" category="paragraph">使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。</block>
+  <block id="8f34775699af0e65cbc1a35c0cb8b84b" category="admonition">在将AFF A700升级到AFF A900或将FAS9000升级到FAS9500控制器期间、网络端口及其连接不应发生变化。所有端口都应驻留在正确的广播域中，并且网络端口可访问性不应更改。但是，在将 LIF 从 node2 移回 node1 之前，您必须验证网络端口的可访问性和运行状况。</block>
+  <block id="6b31a3b30b01ea09ca78efcb226343b9" category="paragraph">在将node2更换为AFF A900或FAS9500控制 器模块和NVRAM模块之前、必须先将node2所拥有的非根聚合重新定位到node1。</block>
+  <block id="ec034682ed62501de72881ae5f23afb0" category="paragraph">在交换相应的AFF A900或FAS9500node2控制器模块和NVRAM后、您可能需要通过网络启动这些模块。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
+  <block id="7d4491ed84bf03aef84c9714a80e7635" category="paragraph">无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
+  <block id="a841a9a6470f2ced16c0b663704b5dfe" category="list-text">等待AFF A900或FAS9500控制 器模块上当前运行的node2启动、并显示启动菜单选项、如以下输出所示：</block>
+  <block id="162c8b4a39fcb111690cbc082fa26537" category="paragraph">要停用 node1 ，请恢复自动操作，以使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从node1机箱中卸下AFF A700或FAS9000控制器和NVRAM模块、然后在node1上安装AFF A900或FAS9500控制 器和NVRAM模块。</block>
+  <block id="f22136c41db26c6022caf6417275b450" category="section-title">卸下AFF A700或FAS9000控制器和NVRAM模块</block>
+  <block id="ba579f865c148542656e741f915bc210" category="section-title">卸下AFF A700或FAS9000控制器模块</block>
+  <block id="208671d931da81374958ab0bdeb8d0f0" category="paragraph">使用以下操作步骤 删除AFF A700或FAS9000控制器模块。</block>
+  <block id="831816e1924f3edb2d170ec4c291d0f3" category="section-title">卸下AFF A700或FAS9000 NVRAM模块</block>
+  <block id="fceff39b493e10b2b789e99ad15cc406" category="paragraph">使用以下操作步骤 删除AFF A700或FAS9000 NVRAM模块。</block>
+  <block id="3d748e41fa426d2025ff3eb80b369ede" category="admonition">AFF A700或FAS9000 NVRAM模块位于插槽6中、高度是系统中其他模块的两倍。</block>
+  <block id="1f15728c77802915b0186fe3b48a5405" category="section-title">在node1上安装AFF A900或FAS9500NVRAM和控制器模块</block>
+  <block id="44188a216db4c50ab80d8d6376079f11" category="paragraph">您必须在node1上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。</block>
+  <block id="32820fb65b578170b0fc242eb57ba80e" category="list-text">请勿将核心转储设备从AFF A700 NVRAM模块移至AFF A900 NVRAM模块。</block>
+  <block id="d0106eeb656b11c6a07a8e45dcf1b214" category="list-text">将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。</block>
+  <block id="c7fecf95820e09d00c74bf86805bc991" category="section-title">安装AFF A900或FAS9500NVRAM模块</block>
+  <block id="1a841cb7f620c7f0684b56a8a034fb65" category="paragraph">使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在node1的插槽6中。</block>
+  <block id="830a042377d7fdbd36c48ece8669e61c" category="section-title">在node1上安装AFF A900或FAS9500控制 器模块。</block>
+  <block id="bb0ced2b785386259d517f7ae7bd88d1" category="paragraph">使用以下操作步骤 在node1中安装AFF A900或FAS9500控制 器模块。</block>
+  <block id="a8785e7ad1cb0d71507bbcb99df9c1f7" category="cell">将AFF A700系统转换为AFF A900系统、保留A700机箱</block>
+  <block id="e1b003e7f655a9b7177c226f66898500" category="cell">9.10.1 P3或更高版本</block>
+  <block id="3029eeb5ee6e861b02eb2a1ffd3d3b8e" category="cell">FAS9000到FAS9500</block>
+  <block id="92edbfe3ededa1bb85b931ec295f360d" category="cell">将FAS9000系统转换为FAS9500系统、保留FAS9000机箱。</block>
+  <block id="a5ce3ab443f38c92fc244c3533db25fd" category="paragraph">您可以通过交换控制器和NVRAM模块来无中断升级高可用性(HA)对上的控制器硬件。首先、在旧控制器节点之间迁移非根聚合。安装后、您可以将非根聚合从旧控制器节点迁移到替代控制器节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</block>
+  <block id="3f8470255fba84fd3f339ba171093986" category="paragraph">在此控制器升级操作步骤 期间、您只能将AFF A700或FAS9000系统上每个节点上的两个现场可更换单元(Field Replaceable Unit、FRU)更换为新的FRU。</block>
+  <block id="c9df35145886ac45d1457faee2b9dd89" category="admonition">您无需移动，断开或重新连接 I/O 卡，数据缆线，磁盘架和磁盘。</block>
+  <block id="4ed758f1326f5379f7dc30fe674ce726" category="inline-link-macro">升级控制器的准则</block>
+  <block id="61bb0e064fd915427168b2e72e080eff" category="list-text">此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应阅读并了解 <block ref="937d04c1dac5501bcacf105e8700fe45" category="inline-link-macro-rx"></block> 和 <block ref="57e14e08755134bb6fef9ad899bb58ee" category="inline-link-macro-rx"></block> 开始升级前的章节。</block>
+  <block id="15bb782d54e5e11e2e8ab3b723e7ec55" category="list-text">此操作步骤 仅适用于AFF A700和FAS9000系统。对于需要升级到AFF A900或FAS9500-系统的所有其他控制器型号、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件，以及使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件内容。</block>
+  <block id="f57bde3eaa64080d17b3c49dfac5f25f" category="list-text">AFF A900和FAS9500系统仅支持高端电源(200V到240V)。如果您的AFF A700或FAS9000系统使用低端电源(100V到120V)运行、则必须先转换AFF A700或FAS9000输入电源、然后才能使用此操作步骤。</block>
+  <block id="a34fce485aa189385b6d78cd230756d8" category="list-text">如果要在停机的情况下从AFF A700或FAS9000系统升级、您可以通过移动存储来升级控制器硬件、也可以联系技术支持。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
+  <block id="3e6b0398ec9c232118e2d2bc538ec645" category="inline-link-macro">第2阶段：重新定位节点1中的资源并停用AFF A700或FAS9000节点1</block>
+  <block id="234aad7efddedee52ac80d1129d0fddf" category="cell"><block ref="234aad7efddedee52ac80d1129d0fddf" category="inline-link-macro-rx"></block></block>
+  <block id="f8268b4f2949c257f7e5044e9ac05880" category="inline-link-macro">第3阶段：使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</block>
+  <block id="14c73342ec8c7cda4bcc16e81c01222e" category="cell"><block ref="14c73342ec8c7cda4bcc16e81c01222e" category="inline-link-macro-rx"></block></block>
+  <block id="4440b548c1cae9d923561d0a7fe3a103" category="list-text">使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</block>
+  <block id="3e2a6a2edac30411bac1b47c4ba20774" category="list-text">升级后的AFF A900或FAS9500node1是node1聚合的主所有者和当前所有者</block>
+  <block id="88429116c298b552cf5a2fd1dfd8ac94" category="inline-link-macro">第5阶段：在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
+  <block id="610628fd4123449e9b763fe935601b98" category="cell"><block ref="610628fd4123449e9b763fe935601b98" category="inline-link-macro-rx"></block></block>
+  <block id="dbc99796dd5482cbc7660b57b686c30f" category="list-text">在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
+  <block id="25beb58d3a670fb2c16081f902a5bff2" category="inline-link-macro">第6阶段：使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
+  <block id="82fe66fed743ab06100b56ff7cede89d" category="cell"><block ref="82fe66fed743ab06100b56ff7cede89d" category="inline-link-macro-rx"></block></block>
+  <block id="d066afecd32f577c431df88c1a421ca4" category="list-text">使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
+  <block id="3d34e56cf21c4a138ab823660c2b5555" category="paragraph">使用ARL升级以下系统配置中的一对控制器：</block>
+  <block id="2a0a9f74d7fd41063ed18276c24550d5" category="list-text">将一对AFF A700控制器升级到运行ONTAP 9.10.1或更高版本的AFF A900系统</block>
+  <block id="546138e0b7501a286c581953c65b874d" category="list-text">将一对FAS9000控制器升级到运行ONTAP 9.10.1P3或更高版本的FAS9000系统</block>
+  <block id="8c3db477300524bd7d8bcf2bba005da2" category="paragraph">使用ARL将控制器从AFF A700升级到AFF A900或从FAS9000升级到FAS9500、并且支持NVRAM模块的组合。如果您收到的新AFF A900或FAS9500系统是一个完整系统、包括一个新机箱、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。</block>
+  <block id="89270eb0a4789198b9486a5396fb9846" category="admonition">此操作步骤 严格按照适用场景 ONTAP 9.10.1或更高版本对AFF A700至AFF A900进行升级、并对运行9.10.1P3或更高版本的FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。</block>
+  <block id="cf7bed4e96113c76fe71493d087876b9" category="paragraph">您必须在node2上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
+  <block id="446e34a339be0fda54aae2fe862c868f" category="paragraph">使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在节点2的插槽6中。</block>
+  <block id="b5e3968706cd8f4fee9d9a918b1b867f" category="section-title">在节点2中安装AFF A900或FAS9500控制 器模块</block>
+  <block id="43d062a38b70447bd532892c53e0817c" category="paragraph">使用以下操作步骤 在node2中安装AFF A900或FAS9500控制 器模块。</block>
+  <block id="7226eae03ab7f26a2dd297f61cf08736" category="paragraph">执行这些检查后、系统会将非根聚合和NAS数据LIF重新定位回node2、而node2目前正在AFF A900或FAS9500控制 器上运行。</block>
+  <block id="1e5f9f2daefe506ea2b48caff7fcf4ae" category="paragraph">在将node1更换为AFF A900或FAS9500控制 器和NVRAM模块之前、必须先将非根聚合和NAS数据LIF从node1移动到node2、然后才能最终将node1的资源恢复回运行在AFF A900或FAS9500系统 上的node1上。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。</block>
+  <block id="3cf8297a666eb50587e23b50dcba8b11" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。在升级期间，您无需移动 SAN LIF 即可实现集群或服务运行状况。在将node1作为AFF A900或FAS9500系统联机后、您必须验证LIF是否运行正常并位于相应的端口上。</block>
+  <block id="8a2c86b63701889cf10547896e555b82" category="list-text">在第4阶段之后、如果将node2更换为AFF A900或FAS9500控制 器和NVRAM模块、</block>
+  <block id="c0bf6385dfa15c204a13d5abb6770653" category="paragraph">在此控制器升级期间、您可以将AFF A700控制器更换为AFF A900控制器、或者将FAS9000控制器更换为FAS9500控制器。此内容介绍了自动化操作步骤 的步骤，该过程使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
+  <block id="2a2d4d28b7b0848fbdd189061adaff52" category="paragraph">此内容介绍如何升级AFF A700 HA对中的存储控制器以及FAS9000 HA对中的新AFF A900控制器或控制器以及新的FAS9500控制器、同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
+  <block id="3d58d6338cfd5f06b224201846bd6759" category="list-text">您已向NetApp销售代表确认、您已收到AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件。</block>
+  <block id="58fd942a7ba8a430b491bba397e88d17" category="list-text">您正在为AFF A900控制器运行ONTAP 9.10.1或更高版本。</block>
+  <block id="7addcb2495004d218f3791cfcb74d41e" category="list-text">您正在为FAS9500控制 器运行ONTAP 9.10.1P3或更高版本。</block>
+  <block id="b0ce3e25b9ec3a13c13ca9a6fa5323b7" category="list-text">您正在AFF A700或FAS9000系统上使用FlexArray 虚拟化软件。</block>
+  <block id="c72ac68ecc63380b07ba76bc038edf2e" category="paragraph">您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。</block>
+  <block id="fbb88f36cd542fa5f9d7d9b7989c4fa9" category="paragraph">使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。</block>
+  <block id="2547b168178c27dad563f660708cda35" category="list-text">如果在配置中使用了NetApp存储加密(NSE)、并且您将`setenv bootarg.storageencryption.support`命令设置为`true` with the `kmip.init.maxwait` variable `off`(in _Boot node2 with the AFF A900 or the FAS9500controller and NVRAM modules_、 <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>），必须重置变量：</block>
+  <block id="0b67bd45e44a6983f2e329371f92a85c" category="paragraph">在交换相应的AFF A900或FAS9500node1控制器和NVRAM模块后、您必须通过网络启动node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。</block>
+  <block id="6bc5a701ba593a754b9fc417aacb558c" category="paragraph">无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
+  <block id="fed5188660beab0c1ca98ade1cf9e488" category="list-text">等待AFF A900或FAS9500控制器模块上当前运行的node1启动、并显示启动菜单选项、如下所示：</block>
+  <block id="2fef7d8ad2c6da5a6bfc7b0d1cb4d82f" category="doc">使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
+  <block id="85a900d149967784a6d6e1061792097f" category="paragraph">带有AFF A900或FAS9500控制 器和NVRAM模块的Node2现已做好升级准备。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或FAS9000升级到FAS9500时、仅需要移动控制台和管理连接。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node2所需的步骤。</block>
+  <block id="29af000d792467e009d5e082d6fb2b1e" category="list-text">节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将AFF A700或FAS9000节点1磁盘重新分配给AFF A900或FAS9500节点1、请在提示符处输入节点2的实际名称。请使用以下示例作为参考：</block>
+  <block id="5e1956d6adc0bdab37f993d5b46e373b" category="paragraph">具有AFF A900或FAS9500控制 器和NVRAM模块的Node1现在可以启动。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、只需要移动控制台和管理连接即可。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node1所需的步骤。</block>
+  <block id="def24406017cbdd73b740bba1a1e6765" category="list-text">节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将node1磁盘从AFF A700重新分配给AFF A900或从FAS9000重新分配给FAS9000、请在提示符处输入node1的实际节点名称。请使用以下示例作为参考：</block>
+  <block id="5fa38b455ca95ac213888d230b770ee7" category="paragraph">在开始升级之前、您必须验证您的硬件是否正确、以便将AFF A700升级到AFF A900或将FAS9000升级到FAS9500。对于要升级的每个 HA 对，您必须具有两个系统控制器模块和两个 NVRAM 模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。</block>
+  <block id="ba5bb93bf3745b7b90abb302dc84dab9" category="sidebar">使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500</block>
+  <block id="cec0ad56d161fd372b8f511ac2258e91" category="sidebar">第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1</block>
+  <block id="3e7ed5dc4e5c354a7d48cc37baefc4ad" category="sidebar">第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</block>
+  <block id="f8963d11fe6453d2060dd15fbe008dd0" category="sidebar">使用AFF A900控制器和NVRAM模块启动node1</block>
+  <block id="1ed45ea6838f5dd96a4433ce598c8050" category="sidebar">第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
+  <block id="6c86470db96f676f214aa83001c5a57f" category="sidebar">在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
+  <block id="ae89e936215d96a55c04a947db881581" category="sidebar">第 6 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
 </blocks>

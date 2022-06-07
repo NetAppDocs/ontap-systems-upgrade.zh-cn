@@ -14,7 +14,7 @@ summary: 在将 AFF A700 升级到 AFF A900 期间，禁用带有 node2 的 HA �
 
 
 [role="lead"]
-要停用 node1 ，请恢复自动操作，以使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从 node1 机箱中卸下 AFF A700 控制器模块和 NVRAM 模块，然后在 node1 上安装 AFF A900 NVRAM 模块和控制器模块。
+要停用 node1 ，请恢复自动操作，以使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从node1机箱中卸下AFF A700或FAS9000控制器和NVRAM模块、然后在node1上安装AFF A900或FAS9500控制 器和NVRAM模块。
 
 .步骤
 . 恢复操作：
@@ -32,7 +32,7 @@ node1 完全暂停后， node1 应出现在 LOADER 提示符处。要查看加�
 
 
 
-== 卸下 AFF A700 控制器模块和 NVRAM 模块
+== 卸下AFF A700或FAS9000控制器和NVRAM模块
 
 在此阶段， node1 已关闭，所有数据均由 node2 提供。由于 node1 和 node2 位于同一机箱中，并由同一组电源供电，因此请勿关闭机箱电源。您必须小心地仅卸下 node1 控制器模块和 node1 NVRAM 模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。
 
@@ -40,9 +40,9 @@ node1 完全暂停后， node1 应出现在 LOADER 提示符处。要查看加�
 
 
 
-=== 卸下 AFF A700 控制器模块
+=== 卸下AFF A700或FAS9000控制器模块
 
-使用以下操作步骤删除 AFF A700 控制器模块。
+使用以下操作步骤 删除AFF A700或FAS9000控制器模块。
 
 .步骤
 . 从 node1 控制器模块中卸下控制器模块之前，请断开控制台缆线（如果有）和管理缆线与 node1 控制器模块的连接。
@@ -80,12 +80,12 @@ Make sure that you support the bottom of the controller module as you slide it o
 
 
 
-=== 卸下 AFF A700 NVRAM 模块
+=== 卸下AFF A700或FAS9000 NVRAM模块
 
-使用以下操作步骤 删除 AFF A700 NVRAM 模块。
+使用以下操作步骤 删除AFF A700或FAS9000 NVRAM模块。
 
 
-NOTE: AFF A700 NVRAM 模块位于插槽 6 中，高度是系统中其他模块的两倍。
+NOTE: AFF A700或FAS9000 NVRAM模块位于插槽6中、高度是系统中其他模块的两倍。
 
 .步骤
 . 从 node1 的插槽 6 中解锁 NVRAM 模块并将其卸下。
@@ -118,22 +118,25 @@ image::../media/black_circle_two.png[第二]
 |===
 
 
-. 如果您在 AFF A700 NVRAM 模块上使用任何附加模块作为核心转储设备，请勿将其传输到 AFF A900 NVRAM 模块。
 
 
 
 
-== 在节点 1 上安装 AFF A900 NVRAM 模块和控制器模块
+== 在node1上安装AFF A900或FAS9500NVRAM和控制器模块
 
-您必须在 node1 上安装为升级而收到的 AFF A900 NVRAM 模块和控制器模块。请勿将核心转储设备从 AFF A700 NVRAM 模块移至 AFF A900 NVRAM 模块。
+您必须在node1上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。
+
+* 请勿将核心转储设备从AFF A700 NVRAM模块移至AFF A900 NVRAM模块。
+* 将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。
+
 
 如果您尚未接地，请正确接地。
 
 
 
-=== 安装 AFF A900 NVRAM 模块
+=== 安装AFF A900或FAS9500NVRAM模块
 
-使用以下操作步骤 将 AFF A900 NVRAM 模块安装在 node1 的插槽 6 中。
+使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在node1的插槽6中。
 
 .步骤
 . 将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。
@@ -159,9 +162,9 @@ image::../media/black_circle_two.png[第二]
 
 
 
-=== 在节点 1 上安装 AFF A900 控制器模块。
+=== 在node1上安装AFF A900或FAS9500控制 器模块。
 
-使用以下操作步骤在 node1 中安装 AFF A900 控制器模块。
+使用以下操作步骤 在node1中安装AFF A900或FAS9500控制 器模块。
 
 .步骤
 . 将控制器模块的末端与机箱中的开口对齐，然后将控制器模块轻轻推入系统的一半。

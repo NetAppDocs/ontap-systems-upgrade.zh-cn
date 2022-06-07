@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html
 keywords: boot, NVRAM, controller, module, node2, aff, a700, a900 
 summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。 
 ---
-= 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
+= 使用AFF A900或FAS9500控制 器和NVRAM模块启动node2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。
 
 
 [role="lead"]
-带有 AFF A900 控制器模块和 NVRAM 模块的 Node2 现在可进行升级。通过交换控制器模块和 NVRAM 模块从 AFF A700 升级到 AFF A900 只涉及移动控制台和管理连接。本节介绍使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 所需的步骤。
+带有AFF A900或FAS9500控制 器和NVRAM模块的Node2现已做好升级准备。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或FAS9000升级到FAS9500时、仅需要移动控制台和管理连接。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node2所需的步骤。
 
 .步骤
 . `s此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为` off ，以避免在加载 node2 配置后出现启动环路：
@@ -28,7 +28,7 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。
 +
 `boot_ontap 菜单`
 
-. 节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将 AFF A700 节点 1 磁盘重新分配给 AFF A900 节点 1 ，请在提示符处输入节点 2 的实际名称。请使用以下示例作为参考：
+. 节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将AFF A700或FAS9000节点1磁盘重新分配给AFF A900或FAS9500节点1、请在提示符处输入节点2的实际名称。请使用以下示例作为参考：
 +
 [listing]
 ----
