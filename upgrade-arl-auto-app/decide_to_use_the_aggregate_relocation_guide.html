@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">简体中文</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">简体中文</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/ontap-systems-upgrade/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -678,11 +670,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_或更高版本的_AFF_A900.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用system_controller_replace命令将AFF_A700升级到AFF_A900或FAS9000升级到FAS9500.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900
+            使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500
           </a>
           
 
@@ -737,11 +729,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位资源并停用_AFF_A700_节点_1.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位资源并停用AFF_A700或FAS9000节点1.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 2 阶段。重新定位资源并停用 AFF A700 节点 1
+            第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1
           </a>
           
 
@@ -770,11 +762,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node1.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用AFF_A900或FAS9500控制_器和NVRAM模块启动node1.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
+            第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1
           </a>
           
 
@@ -832,11 +824,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVRAM_模块和控制器模块.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点2上安装AFF_A900或FAS9500NVRAM和控制器模块.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
+            第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
           </a>
           
 
@@ -861,11 +853,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node2.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用AFF_A900或FAS9500控制_器和NVRAM模块启动node2.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
+            第 6 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node2
           </a>
           
 
@@ -2247,7 +2239,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/index.html">
         AFF 和 FAS 系统升级文档
       </a></li><li class="subfolders "><a href="#">
@@ -2347,7 +2339,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl/index.html">
         概述
       </a></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900</div>
+        <div class="na-navbar-padding"> 使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html">
         概述
@@ -2358,7 +2350,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/required_tools_and_documentation.html">
         所需的工具和文档
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html">
-        从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
+        升级控制器的准则
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html">
         ARL 升级概述
       </a></li><li class="subfolders "><a href="#">
@@ -2371,7 +2363,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/get_ip_address_of_external_kms_for_storage_encryption.html">
         获取用于存储加密的外部密钥管理服务器的 IP 地址
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 2 阶段。重新定位资源并停用 AFF A700 节点 1</div>
+        <div class="na-navbar-padding"> 第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html">
         将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
@@ -2382,10 +2374,10 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node1.html">
         网络启动节点 1
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1</div>
+        <div class="na-navbar-padding"> 第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
+        使用AFF A900控制器和NVRAM模块启动node1
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node1_installation.html">
         验证 node1 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html">
@@ -2400,17 +2392,17 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/retire_node2.html">
         停用 node2
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</div>
+        <div class="na-navbar-padding"> 第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html">
-        在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
+        在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node2.html">
         网络启动节点 2.
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</div>
+        <div class="na-navbar-padding"> 第 6 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
+        使用AFF A900或FAS9500控制 器和NVRAM模块启动node2
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node2_installation.html">
         验证 node2 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_node2.html">
@@ -3007,7 +2999,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-23 18:21:56 +0000">05/23/2022</time>
+    <time datetime="2022-06-07 23:54:37 +0000">06/07/2022</time>
     
   
 
@@ -3067,28 +3059,40 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8020 ， FAS8040 ， FAS8060 ， FAS8080</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8020<sup>3</sup>、FAS8040<sup>3</sup>、FAS8060、FAS8080</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FAS8200 ， FAS8300 ， FAS8700 ， FAS9000</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AFF8020 ， AFF8040 ， AFF8060 ， AFF8080</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8060<sup>4</sup>、FAS8080<sup>4</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS9500</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF8020<sup>3</sup>、AFF8040<sup>3</sup>、AFF8060、AFF8080</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AFF A300 ， AFF A400 ， AFF A700 ， AFF A800<sup>1</sup></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF8060<sup>4</sup>、AFF8080<sup>4</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">FAS8200</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8700 ， FAS9000 ， FAS8300<sup>3</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8300<sup>2</sup>、FAS8700、FAS9000、FAS9500</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8300、FAS8700、FAS9000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS9500</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AFF A300</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A700 ， AFF A800<sup>1</sup> ， AFF A400<sup>3</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A400<sup>2</sup>、AFF A700、AFF A800<sup>1</sup>、AFF A900</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A320</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A400<sup>2</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A320<sup>4</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A400</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AFF8080</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900<sup>4</sup></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A400 ， AFF A700</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900</p></td>
 </tr>
 </tbody>
 </table>
@@ -3108,10 +3112,7 @@
 <p><sup>1</sup>有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 <a href="set_fc_or_uta_uta2_config_on_node3.html#step23">"检查并配置 node3 上的 UTA/UTA2 端口，步骤 23"</a>或 <a href="set_fc_or_uta_uta2_config_node4.html#step23">"检查并配置 node4 上的 UTA/UTA2 端口，步骤 23"</a>。</p>
 </div>
 <div class="paragraph">
-<p><sup>2</sup>从 ONTAP 9.1.1 开始，支持 ARL 自动从 AFF A320 升级到 AFF A400 系统。</p>
-</div>
-<div class="paragraph">
-<p><sup>3</sup>如果要在双节点无交换机集群配置中从 AFF A300 升级到 AFF A400 或 FAS8200 到 FAS8300 系统，则必须选择临时集群端口进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。</p>
+<p><sup>2</sup>如果要在双节点无交换机集群配置中从AFF A300升级到AFF A400或FAS8200到FAS8300系统、则必须选择临时集群端口进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3127,8 +3128,63 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><sup>4</sup>从ONATP 9.10.1开始、支持从运行ONTAP 9.8或更高版本的AFF8080系统自动升级到运行9.10.1或更高版本的AFF A900系统。</p>
+<p><sup>3</sup>对于FAS8020、FAS8040、AFF8020和AFF8040系统升级到上表中列出的目标替代控制器、更换控制器必须与旧控制器运行相同的ONTAP 版本。请注意、FAS8020、FAS8040、AFF8020和AFF8040系统不支持ONTAP 9.8之后的ONTAP 版本。</p>
 </div>
+<div class="paragraph">
+<p><sup>4</sup>验证控制器升级支持的ONTAP 版本。</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 30%;">
+<col style="width: 20%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" colspan="2">旧控制器</th>
+<th class="tableblock halign-left valign-top" colspan="2">更换控制器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">系统</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 版本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">系统</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ONTAP 版本</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A320</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.9.1或更高版本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.9.1或更高版本</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF8060</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.8P13或更高版本的修补程序</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 或更高版本</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF8080</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.8P10或更高版本的修补程序</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AFF A900</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 或更高版本</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8060</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.8P13或更高版本的修补程序</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS9500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P3或更高版本</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS8080</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.8P12或更高版本的修补程序</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS9500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1P3或更高版本</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
 <p>如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 <a href="other_references.html">"参考资料"</a> 通过移动卷或存储链接到 _Upgrade 。</p>
 </div>
@@ -3281,4 +3337,5 @@
     </script>
     <script src='/zh-cn/ontap-systems-upgrade/js/www-ntap.js'></script>
     <script src='/zh-cn/ontap-systems-upgrade/js/tabbed-blocks.js'></script>
+    <script src='/zh-cn/ontap-systems-upgrade/js/sidebar.js'></script>
   </body></html>

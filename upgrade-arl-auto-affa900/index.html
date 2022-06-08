@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">简体中文</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">简体中文</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/zh-cn/ontap-systems-upgrade/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -678,11 +670,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用_system_controller_replace_命令将_AFF_A700_升级到运行_ONTAP_9_10_1_或更高版本的_AFF_A900.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/使用system_controller_replace命令将AFF_A700升级到AFF_A900或FAS9000升级到FAS9500.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900
+            使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500
           </a>
           
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -746,11 +738,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位资源并停用_AFF_A700_节点_1.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_2_阶段_重新定位资源并停用AFF_A700或FAS9000节点1.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 2 阶段。重新定位资源并停用 AFF A700 节点 1
+            第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1
           </a>
           
 
@@ -779,11 +771,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node1.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_3_阶段_使用AFF_A900或FAS9500控制_器和NVRAM模块启动node1.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
+            第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1
           </a>
           
 
@@ -841,11 +833,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点_2_上安装_AFF_A900_NVRAM_模块和控制器模块.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_5_阶段_在节点2上安装AFF_A900或FAS9500NVRAM和控制器模块.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
+            第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
           </a>
           
 
@@ -870,11 +862,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用_AFF_A900_控制器模块和_NVRAM_模块启动_node2.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_6_阶段_使用AFF_A900或FAS9500控制_器和NVRAM模块启动node2.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" width="16" height="16"/>
-            第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
+            第 6 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node2
           </a>
           
 
@@ -2247,7 +2239,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class="  active "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/index.html">
         AFF 和 FAS 系统升级文档
       </a></li><li class="subfolders "><a href="#">
@@ -2347,7 +2339,7 @@
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl/index.html">
         概述
       </a></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900</div>
+        <div class="na-navbar-padding"> 使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500</div>
       </a>
       <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html">
         概述
@@ -2358,7 +2350,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/required_tools_and_documentation.html">
         所需的工具和文档
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html">
-        从 AFF A700 升级到采用 ARL 的 AFF A900 的准则
+        升级控制器的准则
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html">
         ARL 升级概述
       </a></li><li class="subfolders "><a href="#">
@@ -2371,7 +2363,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/get_ip_address_of_external_kms_for_storage_encryption.html">
         获取用于存储加密的外部密钥管理服务器的 IP 地址
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 2 阶段。重新定位资源并停用 AFF A700 节点 1</div>
+        <div class="na-navbar-padding"> 第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html">
         将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
@@ -2382,10 +2374,10 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node1.html">
         网络启动节点 1
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 3 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node1</div>
+        <div class="na-navbar-padding"> 第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVRAM 模块启动 node1
+        使用AFF A900控制器和NVRAM模块启动node1
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node1_installation.html">
         验证 node1 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html">
@@ -2400,17 +2392,17 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/retire_node2.html">
         停用 node2
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 5 阶段。在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块</div>
+        <div class="na-navbar-padding"> 第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/install_a900_nvs_and_controller_on_node2.html">
-        在节点 2 上安装 AFF A900 NVRAM 模块和控制器模块
+        在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/netboot_node2.html">
         网络启动节点 2.
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 6 阶段。使用 AFF A900 控制器模块和 NVRAM 模块启动 node2</div>
+        <div class="na-navbar-padding"> 第 6 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/boot_node2_with_a900_controller_and_nvs.html">
-        使用 AFF A900 控制器模块和 NVRAM 模块启动 node2
+        使用AFF A900或FAS9500控制 器和NVRAM模块启动node2
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/verify_node2_installation.html">
         验证 node2 安装
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto-affa900/restore_key_manager_config_node2.html">
@@ -3011,7 +3003,7 @@
 </p>
 
 <div class="paragraph lead">
-<p>此操作步骤 介绍如何在以下系统配置中使用聚合重新定位（ Aggregate Relocation ， ARL ）升级控制器硬件：</p>
+<p>此操作步骤 介绍了如何在以下系统配置中使用聚合重新定位（ Aggregate Relocation ， ARL ）升级控制器硬件：</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -3031,17 +3023,23 @@
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">使用 <code>ssystem controller replace</code> 命令</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">9.10 或更高版本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 或更高版本</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AFF A700 到 AFF A900</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">通过保持相同的机箱，将 AFF A700 转换为 AFF A900</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">将AFF A700系统转换为AFF A900系统、保留A700机箱</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">使用 <code>ssystem controller replace</code> 命令</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9.10.1 P3或更高版本</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAS9000到FAS9500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">将FAS9000系统转换为FAS9500系统、保留FAS9000机箱。</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>您可以通过交换控制器模块和 NVRAM 模块，无中断地将 AFF A700 节点高可用性（ HA ）对上的控制器硬件升级到 AFF A900 系统。您可以在 AFF A700 节点之间迁移非根聚合。安装后，您可以将非根聚合从 AFF A700 节点迁移到 AFF A900 节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</p>
+<p>您可以通过交换控制器和NVRAM模块来无中断升级高可用性(HA)对上的控制器硬件。首先、在旧控制器节点之间迁移非根聚合。安装后、您可以将非根聚合从旧控制器节点迁移到替代控制器节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</p>
 </div>
 <div class="paragraph">
-<p>在此控制器升级操作步骤期间，您可以将 AFF A700 升级到 AFF A900 系统。</p>
+<p>在此控制器升级操作步骤 期间、您只能将AFF A700或FAS9000系统上每个节点上的两个现场可更换单元(Field Replaceable Unit、FRU)更换为新的FRU。</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -3050,7 +3048,7 @@
 <img src="/us-en/ontap-systems-upgrade/images/note.svg" alt="注">
 </td>
 <td class="content">
-您只能将 AFF A700 系统上每个节点上的两个现场可更换单元（ Field Replaceable Unit ， FRU ）更换为新的 FRU 。您无需移动，断开或重新连接 I/O 卡，数据缆线，磁盘架和磁盘。
+您无需移动，断开或重新连接 I/O 卡，数据缆线，磁盘架和磁盘。
 </td>
 </tr>
 </table>
@@ -3077,7 +3075,7 @@
 <div class="title">重要信息</div>
 <ul>
 <li>
-<p>此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应阅读并了解 <a href="guidelines_for_upgrading_controllers_with_arl.html">"从 AFF A700 升级到采用 ARL 的 AFF A900 的准则"</a> 和 <a href="overview_of_the_arl_upgrade.html">"ARL 升级概述"</a> 开始升级前的章节。</p>
+<p>此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应阅读并了解 <a href="guidelines_for_upgrading_controllers_with_arl.html">"升级控制器的准则"</a> 和 <a href="overview_of_the_arl_upgrade.html">"ARL 升级概述"</a> 开始升级前的章节。</p>
 </li>
 <li>
 <p>此操作步骤假定更换用的控制器硬件是新的，尚未在其他系统中使用。使用 <code>wipeconfig</code> 命令准备已用控制器所需的步骤不在此操作步骤中。如果更换用的控制器硬件先前已用作另一个 ONTAP 集群的一部分或用作独立的单节点系统，则必须联系技术支持。</p>
@@ -3086,13 +3084,13 @@
 <p>您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个 HA 对单独执行操作步骤。</p>
 </li>
 <li>
-<p>此操作步骤仅适用于 AFF A700 系统。有关需要升级到 AFF A900 系统的所有其他控制器型号，请参见 <a href="other_references.html">"参考资料"</a> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件，以及使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件内容。</p>
+<p>此操作步骤 仅适用于AFF A700和FAS9000系统。对于需要升级到AFF A900或FAS9500-系统的所有其他控制器型号、请参见 <a href="other_references.html">"参考资料"</a> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件，以及使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件内容。</p>
 </li>
 <li>
-<p>AFF A900 系统仅支持高端电源（ 200V 到 240V ）。如果 AFF A700 系统使用低端电源（ 100V 到 120V ）运行，则必须先转换 AFF A700 输入电源，然后再使用此操作步骤 。</p>
+<p>AFF A900和FAS9500系统仅支持高端电源(200V到240V)。如果您的AFF A700或FAS9000系统使用低端电源(100V到120V)运行、则必须先转换AFF A700或FAS9000输入电源、然后才能使用此操作步骤。</p>
 </li>
 <li>
-<p>如果要在停机的情况下从 AFF A700 系统升级，您可以通过移动存储来升级控制器硬件，也可以联系技术支持。请参见 <a href="other_references.html">"参考资料"</a> 通过移动卷或存储链接到 _Upgrade 。</p>
+<p>如果要在停机的情况下从AFF A700或FAS9000系统升级、您可以通过移动存储来升级控制器硬件、也可以联系技术支持。请参见 <a href="other_references.html">"参考资料"</a> 通过移动卷或存储链接到 _Upgrade 。</p>
 </li>
 </ul>
 </div>
@@ -3242,4 +3240,5 @@
     </script>
     <script src='/zh-cn/ontap-systems-upgrade/js/www-ntap.js'></script>
     <script src='/zh-cn/ontap-systems-upgrade/js/tabbed-blocks.js'></script>
+    <script src='/zh-cn/ontap-systems-upgrade/js/sidebar.js'></script>
   </body></html>
