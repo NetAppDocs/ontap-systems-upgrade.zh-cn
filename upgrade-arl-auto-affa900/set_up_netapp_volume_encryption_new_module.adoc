@@ -27,7 +27,7 @@ summary: '如果需要，请在将 AFF A700 升级到 AFF A900 期间为 NVE 配
 +
 .. 添加密钥管理服务器：
 +
-`security key-manager external add-servers -key-servers key_management_server_ip_address`
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
 
 .. 对列出的每个密钥管理服务器重复上述步骤。您最多可以链接四个密钥管理服务器。
 .. 验证是否已成功添加密钥管理服务器：

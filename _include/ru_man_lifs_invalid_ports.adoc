@@ -7,6 +7,6 @@
 .步骤
 . 输入 `MetroCluster vserver resync` 命令将 LIF 重新分配到正确的端口。
 +
-`MetroCluster vserver resync -vserver vserver_name fcp-mc.headupgrade.test.vs`
+`MetroCluster SVM resync -vserver _vserver_name_ fcp-mc.headupgrade.test.vs`
 
 

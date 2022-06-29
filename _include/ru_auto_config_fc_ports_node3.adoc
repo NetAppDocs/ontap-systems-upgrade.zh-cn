@@ -28,18 +28,18 @@
 ** 要对目标端口进行编程：
 
 
-`ucadmin modify -m fc -t target <adapter>`
+`ucadmin modify -m fc -t target _adapter_`
 
 ** 要对启动程序端口进行编程：
 
 
-`ucadmin modify -m fc -t initiator <adapter>`
+`ucadmin modify -m fc -t initiator _adapter_`
 
 ` -t` 是 FC4 类型： target 或 initiator 。
 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 在维护模式（启动菜单中的选项 5 ）下，根据需要修改 node3 上的 FC 端口： `ucadmin modify -m fc -t initiator -f <adapter_port_name>` ` -t` 是 FC4 类型，目标或启动程序。* 注 * ：必须将 FC 端口编程为启动程序。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 在维护模式(启动菜单中的选项5)下、根据需要修改node3上的FC端口：`ucadmin modify -m fc -t initiator -f _adapter_port_name_``-t`是FC4类型、目标或启动程序。* 注 * ：必须将 FC 端口编程为启动程序。 
 |===
 . 【第 3 步】执行以下操作之一：
 +

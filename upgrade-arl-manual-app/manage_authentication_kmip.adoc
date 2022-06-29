@@ -19,11 +19,11 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 .步骤
 . 添加新控制器：
 +
-`security key-manager setup -node <new_controller_name>`
+`security key-manager setup -node _new_controller_name_`
 
 . 添加密钥管理器：
 +
-`security key-manager -add <key_management_server_ip_address>`
+`security key-manager -add _key_management_server_ip_address_`
 
 . 验证密钥管理服务器是否已配置且可供集群中的所有节点使用：
 +
@@ -31,7 +31,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 . 将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：
 +
-`security key-manager restore -node <new_controller_name>`
+`security key-manager restore -node _new_controller_name_`
 
 . 使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
 +

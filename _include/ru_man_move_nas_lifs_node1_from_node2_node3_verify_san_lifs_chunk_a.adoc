@@ -7,7 +7,7 @@
 .步骤
 . 【第 1 步】通过在任一节点上输入以下命令并捕获输出，列出 node2 不拥有的所有 NAS 数据 LIF ：
 +
-`network interface show -role data -curr-node node2 -is-home false -home-node node3`
+`network interface show -role data -curr-node _node2_-is-home false -home-node _node3_`
 
 . 【工作表 _step2]] 如果为集群配置了 SAN LIF ，请在此记录 SAN LIF `adapter` 和 `sswitch-port` 配置信息 link:worksheet_information_before_moving_san_lifs_node3.html["工作表"] 以供日后在操作步骤 中使用。
 +
@@ -91,19 +91,19 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 .. 【 man_lif_verif_3_substepa 】通过为每个 LIF 输入以下命令，将先前属于接口组中 node1 的 node2 上托管的任何数据 LIF 迁移到 node3 上能够在同一网络上托管 LIF 的端口：
 +
-`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 – destination-port netport_ifgrp`
+`network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
 .. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_3_substepa,子步骤 A>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
-`network interface modify -vserver vserver_name -lif LIF_name -home-node node3 -home-port netport_ifgrp`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-home-port _netport_ifgrp_`
 
 .. 【 man_lif_verif_3_substepc]] 通过为每个 LIF 输入以下命令，将先前属于 VLAN 端口上 node1 的 node2 上托管的任何数据 LIF 迁移到 node3 上能够在同一网络上托管 LIF 的端口：
 +
-`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 – destination-port netport_ifgrp`
+`network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
 .. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_3_substepc,子步骤 c>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
-`network interface modify -vserver vserver_name -lif LIF_name -home-node node3 -home-port netport_ifgrp`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-home-port _netport_ifgrp_`
 
 
 
@@ -117,6 +117,6 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | NAS | 完成 <<man_lif_verify_3_step5,第 6 步>> 和 <<man_lif_verify_3_step6,第 7 步>>，跳过步骤 8 并完成 <<man_lif_verify_3_step8,第 9 步>> 到 <<man_lif_verify_3_step11,第 12 步>>。 
 
 
-| SAN | 禁用节点上的所有 SAN LIF 以将其关闭以进行升级： `network interface modify -vserver vserver_name -lif LIF_name -home-node node_to_upgrade -home-port netport_ifgrp -status-admin down` 
+| SAN | 禁用节点上的所有SAN LIF以将其关闭以进行升级：`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node_to_upgrade_-home-port _netport_ifgrp_-status-admin down` 
 |===
 

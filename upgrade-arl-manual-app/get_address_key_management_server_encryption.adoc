@@ -39,6 +39,6 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 . 记下新的身份验证密钥 ID 。
 . 使用新的身份验证密钥重新设置所有自加密驱动器的密钥：
 +
-`storage encryption disk modify -disk * -data-key-id <authentication_key_id>`
+`storage encryption disk modify -disk *-data-key-id _authentication_key_id_`
 
 

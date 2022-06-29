@@ -22,7 +22,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 . 检查 EMS 日志以确定聚合无法重新定位或被否决的原因。
 . 重新定位任何出现故障或被否决的聚合：
 +
-`storage aggregate relocation start -node <node1> -destination <node2> aggregate-list * -ndocontroller-upgrade true`
+`storage aggregate relocation start -node _node1_-destination _node2_ aggregate-list *-ndocontroller-upgrade true`
 
 . 出现提示时，输入 `y` 。
 . 您可以使用以下方法之一强制重新定位：

@@ -15,7 +15,7 @@
 将端口改回启动程序模式：
 
 +
-`ucadmin modify -m fc -t initiator -f < 适配器名称 >`
+`ucadmin modify -m fc -t initiator -f _adapter name_`
 
 . 【第 20 步】验证端口是否已更改为启动程序模式：
 +
@@ -25,7 +25,15 @@
 +
 `halt`
 
-. 在 LOADER 提示符处启动：
++
+[NOTE]
+====
+如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <<auto_check3_step22,第 22 步>>。
+
+如果要从支持外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check3_step23,第 23 步>>。
+
+====
+. 在LOADER提示符处、启动：
 +
 `boot_ontap`
 
@@ -55,15 +63,15 @@ CAUTION: * 您必须按所示的确切顺序执行以下子步骤；否则可能
 
 .. 如有必要，将 node1 聚合置于联机状态：
 +
-`aggr_online root_aggr_from_<node1>`
+`aggr_online root_aggr_from__node1_`
 
 .. 阻止 node3 从其原始根聚合启动：
 +
-`aggr offline <root_aggr_on_node3>`
+`aggr offline _root_aggr_on_node3_`
 
 .. 将 node1 根聚合设置为 node3 的新根聚合：
 +
-`aggr options aggr_from_<node1> root`
+`aggr options aggr_from__node1_ root`
 
 .. 验证 node3 的根聚合是否脱机，从 node1 接管的磁盘的根聚合是否联机并设置为 root ：
 +

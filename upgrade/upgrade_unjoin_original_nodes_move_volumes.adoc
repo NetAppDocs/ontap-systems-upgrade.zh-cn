@@ -14,7 +14,7 @@ summary: 将卷移至新节点后，您将从集群中取消原始节点的加�
 将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都会初始化。
 
 .步骤
-. 在原始节点上禁用高可用性配置： `storage failover modify -node original_node_name -enabled false`
+. 在原始节点上禁用高可用性配置：`storage failover modify -node _original_node_name_-enabled false`
 . 访问高级权限级别：
 +
 `set -privilege advanced`
@@ -39,13 +39,13 @@ node3                true    true         false
 ----
 . 如果原始节点之一持有 epsilon ，请将 epsilon 移动到其他节点：
 +
-.. 从原始节点中删除 epsilon ： + `cluster modify -node original_node_name -epsilon false`
-.. 将 epsilon 分配给其他节点： + `cluster modify -node new_node_name -epsilon true`
+.. 从原始节点中删除epsilon：+`cluster modify -node _original_node_name_-epsilon false`
+.. 将epsilon分配给其他节点：+`cluster modify -node _new_node_name_-epsilon true`
 
 
 . 从将保留在集群中的节点中，取消每个原始节点与集群的连接（高级权限级别）：
 +
-`cluster unjoin -node original_node_name`
+`cluster unjoin -node _original_node_name_`
 
 +
 系统将显示类似于以下内容的消息：

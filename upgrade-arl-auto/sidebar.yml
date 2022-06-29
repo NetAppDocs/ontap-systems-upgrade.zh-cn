@@ -21,6 +21,7 @@ entries:
 - title: ARL 升级概述
   url: "/upgrade-arl-auto/overview_of_the_arl_upgrade.html"
 - title: 第 1 阶段。准备升级
+  pdf-filename: 第 1 阶段。准备升级(在‘sONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/stage_1_index.html"
@@ -29,6 +30,7 @@ entries:
   - title: 获取用于存储加密的外部密钥管理服务器的 IP 地址
     url: "/upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html"
 - title: 第 2 阶段。重新定位和停用节点 1
+  pdf-filename: 第 2 阶段。重新定位和停用node1 (在‘sONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/stage_2_index.html"
@@ -41,6 +43,7 @@ entries:
   - title: 准备网络启动
     url: "/upgrade-arl-auto/prepare_for_netboot.html"
 - title: 第 3 阶段。安装并启动 node3
+  pdf-filename: 第 3 阶段。‘s和启动node3 (在ONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/stage_3_index.html"
@@ -65,6 +68,7 @@ entries:
   - title: 停用 node2
     url: "/upgrade-arl-auto/retire_node2.html"
 - title: 第 5 阶段。安装并启动节点 4.
+  pdf-filename: 第 5 阶段。‘s和启动node4 (在ONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/stage_5_index.html"
@@ -81,6 +85,7 @@ entries:
   - title: 将 node2 拥有的非根聚合和 NAS 数据 LIF 从 node3 移动到 node4
     url: "/upgrade-arl-auto/move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html"
 - title: 第 6 阶段。完成升级
+  pdf-filename: 第 6 阶段。完成升级(在‘sONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/stage_6_index.html"
@@ -95,6 +100,7 @@ entries:
   - title: 恢复 SnapMirror 操作
     url: "/upgrade-arl-auto/resume_snapmirror_operations.html"
 - title: 故障排除
+  pdf-filename: 故障排除(在‘sONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/troubleshoot_index.html"

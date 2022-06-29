@@ -23,6 +23,6 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 . 恢复 SnapMirror 关系：
 +
-`snapmirror resume -destination – vserver <vserver_name>`
+`snapmirror resume -destination–vserver _vserver_name_`
 
 

@@ -21,7 +21,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 .步骤
 . 【第 1 步】通过在任一节点上输入以下命令并捕获输出，列出 node2 拥有的所有 NAS 数据 LIF ：
 +
-`network interface show -data-protocol nfs|cifs -home-node node2`
+`network interface show -data-protocol nfs|cifs -home-node _node2_`
 
 +
 以下示例显示了 node2 的命令输出：
@@ -58,19 +58,19 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 +
 .. [[man_move_lif_2_3_substepa]] 通过为每个 LIF 输入以下命令，将 node2 上接口组上托管的任何数据 LIF 迁移到 node3 上能够在同一网络上托管 LIF 的端口：
 +
-`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 – destination-port netport_ifgrp`
+`network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
 .. 在中修改 LIF 的主端口和主节点 <<man_move_lif_2_3_substepa,子步骤 A>> 通过输入以下命令将 LIF 连接到当前托管 LIF 的端口和节点，每个节点输入一次：
 +
-`network interface modify -vserver vserver_name -lif LIF_name -home-node node3 -homport netports|ifgrp`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-homport _netport_ifgrp_`
 
 .. 【 man_move_lif_2_3_substepc]] 通过为每个 LIF 输入以下命令，将节点 2 上 VLAN 上托管的任何 LIF 迁移到节点 3 上能够在与 VLAN 相同的网络上托管 LIF 的端口：
 +
-`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 – destination-port netport_ifgrp`
+`network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
 .. 在中修改 LIF 的主端口和主节点 <<man_move_lif_2_3_substepc,子步骤 c>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
-`network interface modify -vserver vserver_name -lif LIF_name -home-node node3 -homport netports|ifgrp`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-homport _netport_ifgrp_`
 
 
 
@@ -91,7 +91,7 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 |===
 . [[man_move_lif_2_3_step5]] 如果平台上的数据端口不同，请将这些端口添加到广播域：
 +
-`network port broadcast-domain add-ports -ipspace ipspace_name -broadcast-domain mgmt -ports node ： port`
+`network port broadcast-domain add-ports -ipspace _ipspace_name_-broadcast-domain mgmt -ports _node：port_`
 
 +
 以下示例将节点 "6280-1 " 上的端口 "e0a" 和节点 "8060-1 " 上的端口 "e0i" 添加到 IP 空间 "Default" 中的广播域 "mgmt" ：
@@ -104,25 +104,25 @@ cluster::> network port broadcast-domain add-ports -ipspace Default
 ----
 . 【第 6 步】输入以下命令，将每个 NAS 数据 LIF 迁移到 node3 ，每个 LIF 一次：
 +
-`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node3 -destination-port netport_ifgrp`
+`network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_-destination-port _netport_ifgrp_`
 
 . 【第 7 步】在任一节点上输入以下命令并检查输出，以验证 NAS LIF 是否已移至正确的端口以及 LIF 的状态是否为 up ：
 +
-`network interface show -curr-node <node3>-data-protocol cifs|nfs`
+`network interface show -curr-node _node3_-data-protocol cifs|nfs`
 
 . [[man_move_lif_2_3_step8]] 如果任何 LIF 已关闭，请通过输入以下命令将 LIF 的管理状态设置为 "up" ，每个 LIF 一次：
 +
-`network interface modify -vserver <vserver_name> -lif <LIF_name> -status-admin up`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-status-admin up`
 
 . [[man_move_lif_2_3_step9]] 如果您配置了接口组或 VLAN ，请完成以下子步骤：
 +
 .. 从接口组中删除 VLAN ：
 +
-`network port vlan delete -node node_name -port ifgrp -vlan-id vlan_ID`
+`network port vlan delete -node _node_name_-port _ifgrp_-vlan-id _vlan_ID_`
 
 .. 输入以下命令并检查其输出，以确定节点上是否配置了任何接口组：
 +
-`network port ifgrp show -node <node_name> -ifgrp <ifgrp_name> -instance`
+`network port ifgrp show -node _node_name_-ifgrp _ifgrp_name_-instance`
 
 +
 系统将显示节点的接口组信息，如以下示例所示：
@@ -143,7 +143,7 @@ Distribution Function: ip
 ----
 .. 如果节点上配置了任何接口组，请记录接口组的名称以及分配给这些接口组的端口，然后输入以下命令删除这些端口，每个端口输入一次：
 +
-`network port ifgrp remove-port -node node_name -ifgrp ifgrp_name -port port_name`
+`network port ifgrp remove-port -node _node_name_-ifgrp _ifgrp_name_-port _port_name_`
 
 
 

@@ -100,7 +100,7 @@ cluster::>
 .. 启动节点 3.请参见 link:install_boot_node3.html["安装并启动 node3"] 以启动节点（如果尚未启动）。
 .. 验证新集群端口是否位于集群广播域中：
 +
-`network port show -node <node> -port <port> -fields broadcast-domain`
+`network port show -node _nodge_-port _port_-fields broadcast-domain`
 
 +
 以下示例显示端口 "e0a" 位于 node3 上的集群域中：
@@ -108,7 +108,7 @@ cluster::>
 +
 [listing]
 ----
- cluster::> network port show -node <node3> -port e0a -fields broadcast-domain
+ cluster::> network port show -node _node3_ -port e0a -fields broadcast-domain
 
  node       port broadcast-domain
  ---------- ---- ----------------
@@ -116,7 +116,7 @@ cluster::>
 ----
 .. 如果集群端口不在集群广播域中，请使用以下命令添加它们：
 +
-`broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports <node ： port>`
+`broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports _node：port_`
 
 +
 此示例将在 node3 上添加集群端口 "e1b" ：
@@ -140,11 +140,11 @@ network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
 ----
 .. 将每个 LIF 的集群 LIF 迁移到新端口一次：
 +
-`network interface migrate -vserver cluster -lif <lif_name> -source-node <node3> -destination-node <node3> -destination-port <port_name>`
+`network interface migrate -vserver cluster -lif _lif_name_-source-node _node3_-destination-node _node3_-destination-port _port_name_`
 
 .. 修改集群 LIF 的主端口：
 +
-`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+`network interface modify -vserver cluster -lif _lif_name_–home-port _port_name_`
 
 .. 从集群广播域中删除旧端口：
 +
@@ -170,7 +170,7 @@ network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
 
 .. 显示包含此端口的广播域：
 +
-`network port broadcast-domain show -ports <node_name ： port_name>`
+`network port broadcast-domain show -ports _node_name：port_name_`
 
 .. 在广播域中添加或删除端口：
 +
@@ -181,7 +181,7 @@ network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
 
 .. 修改 LIF 的主端口：
 +
-`network interface modify -vserver vserver -lif <lif_name> – home-port <port_name>`
+`network interface modify -vserver vserver -lif _lif_name_–home-port _port_name_`
 
 
 
@@ -195,7 +195,7 @@ network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
 
 .. 要删除端口，请执行以下操作：
 +
-`network port delete -node <node_name> -port <port_name>`
+`network port delete -node _node_name_-port _port_name_`
 
 .. 返回到管理员级别：
 +
@@ -205,7 +205,7 @@ network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
 
 . 调整所有 LIF 故障转移组：
 +
-`network interface modify -failover-group <failover_group> -failover-policy <failover_policy>`
+`network interface modify -failover-group _failover_group_-failover-policy _failover_policy_`
 
 +
 以下命令会将故障转移策略设置为 `broadcast-domain-wide` ，并使用故障转移组 "fg1" 中的端口作为 node3 上 LIF"data1" 的故障转移目标：

@@ -23,6 +23,6 @@ summary: '在升级运行 ONTAP 9.8 或更高版本的控制器时，使用 `ssy
 
 . 恢复 SnapMirror 关系：
 +
-`snapmirror resume -destination – vserver <vserver_name>`
+`snapmirror resume -destination–vserver _vserver_name_`
 
 

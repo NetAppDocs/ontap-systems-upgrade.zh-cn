@@ -7,7 +7,7 @@
 .步骤
 . 【 man_relocate_3_4_Step1]] 在任一控制器上输入以下命令，并检查输出以确定要重新定位的非根聚合：
 +
-`storage aggregate show -owner-name node3 -home-id node2_system_id`
+`storage aggregate show -owner-name _node3_-home-id _node2_system_id_`
 
 . 通过完成以下子步骤重新定位聚合：
 +
@@ -17,7 +17,7 @@
 
 .. 输入以下命令：
 +
-`s存储聚合重新定位 start -node node3 -destination node4 -aggregate-list aggr_name1 ， aggr_name2... -nt-controller-upgrade true`
+`s存储聚合重新定位start -node _node3_-destination _node4_-aggregate-list _aggr_name1、aggr_name2..._-no-controller-upgrade true`
 
 +
 聚合列表是您在中获取的 node4 所拥有的聚合的列表 <<man_relocate_3_4_Step1,第 1 步>>。
@@ -34,7 +34,7 @@
 
 . 【第 3 步】检查重新定位状态：
 +
-`storage aggregate relocation show -node node3`
+`storage aggregate relocation show -node _node3_`
 
 +
 重新定位聚合后，输出将显示该聚合的 `D1` 。
@@ -62,7 +62,7 @@ NOTE: 等待所有 node2 聚合重新定位到 node4 ，然后再继续下一步
 
 .. 重新定位任何出现故障或被否决的聚合：
 +
-`s存储聚合重新定位 start -node node3 destination node4 -aggregate-list aggr_name1 ， aggr_name2... nt-controller-upgrade true`
+`s存储聚合重新定位start -node _node3_ destination _node4_-aggregate-list _aggr_name1、aggr_name2..._ no-controller-upgrade true`
 
 +
 聚合列表是失败或被否决的聚合的列表。
@@ -91,25 +91,25 @@ NOTE: 等待所有 node2 聚合重新定位到 node4 ，然后再继续下一步
 |===
 . [[man_relocate_3_4_Step5]] 验证所有 node2 非根聚合是否已联机及其在 node4 上的状态：
 +
-`storage aggregate show -node <node4> -state offline -root false`
+`storage aggregate show -node _node4_-state offline -root false`
 
 +
 node2 聚合在中的命令输出中列出 <<man_relocate_3_4_Step1,第 1 步>>。
 
 . 如果任何聚合脱机或变为外部聚合，请对每个聚合使用以下命令将其联机：
 +
-`storage aggregate online -aggregate <aggr_name>`
+`storage aggregate online -aggregate _aggr_name_`
 
 . 验证 node2 聚合中的所有卷是否在 node4 上处于联机状态：
 +
-`volume show -node <node4> -state offline`
+`volume show -node _node4_-state offline`
 
 . 如果 node4 上的任何卷脱机，请将其联机：
 +
-`volume online -vserver <vserver-name> -volume <volume_name>`
+`volume online -vserver _vserver-name_-volume _volume_name_`
 
 . 向 NetApp 发送有关 node4 的升级后 AutoSupport 消息：
 +
-`ssystem node AutoSupport invoke -node node4 -type all -message "node2 successfully up级 从 platform_old 升级到 platform_new"`
+`ssystem node AutoSupport invoke -node _node4_-type all -message "_node2_ successfully uped" from _platform_old_ to _platform_new_"`
 
 

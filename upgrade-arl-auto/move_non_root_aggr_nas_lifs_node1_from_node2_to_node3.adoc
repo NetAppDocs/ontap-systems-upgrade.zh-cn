@@ -76,7 +76,7 @@ completed? [y/n]
 +
 .. 输入以下命令并检查其输出：
 +
-`network interface show -data-protocol iscsi_FCP -home-node <node3>`
+`network interface show -data-protocol _iscsi_FCP_-home-node _node3_`
 
 +
 系统将返回类似于以下示例的输出：
@@ -102,25 +102,25 @@ vs1
 +
 ... 将 LIF 状态设置为 down ：
 +
-`network interface modify -vserver <vserver_name> -lif <LIF_name> -status-admin down`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-status-admin down`
 
 ... 从端口集中删除 LIF ：
 +
-`portset remove -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
+`portset remove -vserver _vserver_name_-portset _portset_name_-port-name _port_name_`
 
 ... 输入以下命令之一：
 +
 **** 移动单个 LIF ：
 +
-`network interface modify -vserver <vserver_name> -lif <LIF_name> -home-port <new_home_port>`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-port _new_home_port_`
 
 **** 将一个不存在或不正确的端口上的所有 LIF 移动到新端口：
 +
-`network interface modify ｛ -home-port <port_on_node1> -home-node <node1> -role data ｝ -home-port <new_home_port_on_node3 >`
+`network interface modify｛-home-port _port_on_node1_-home-node _node1_-role data｝-home-port _new_home_port_on_node3_`
 
 **** 将 LIF 重新添加到端口集：
 +
-`portset add -vserver <vserver_name> -portset <portset_name> -port-name <port_name>`
+`portset add -vserver _vserver_name_-portset _portset_name_-port-name _port_name_`
 
 +
 
@@ -132,15 +132,15 @@ NOTE: 您必须确认已将 SAN LIF 移动到与原始端口具有相同链路�
 
 .. 将所有 LIF 的状态修改为 "up" ，以便 LIF 可以在节点上接受和发送流量：
 +
-`network interface modify -home-port <port_name> -home-node <node3>-lif data -status-admin up`
+`network interface modify -home-port _port_name_-home-node _node3_-lif data -status admin up`
 
 .. 在任一节点上输入以下命令并检查其输出，以验证 LIF 是否已移至正确的端口，以及 LIF 的状态是否为 `up` ：
 +
-`network interface show -home-node <node3> -role data`
+`network interface show -home-node _node3_-role data`
 
 .. 如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
 +
-`network interface modify -vserver <vserver_name> -lif <lif_name> -status-admin up`
+`network interface modify -vserver _vserver_name_-lif _lif_name_-status-admin up`
 
 
 

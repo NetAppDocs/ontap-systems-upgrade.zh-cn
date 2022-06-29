@@ -138,14 +138,14 @@ Adapter  Mode     Type       Mode     Type     Status
 |===
 . [[man_check_3_step7]] 如果适配器处于启动程序模式，并且 UTA/UTA2 端口联机，请使 UTA/UTA2 端口脱机：
 +
-`storage disable adapter <adapter_name>`
+`storage disable adapter _adapter_name_`
 
 +
 目标模式下的适配器会在维护模式下自动脱机。
 
 . [[man_check_3_step8]] 如果当前配置与所需用途不匹配，请根据需要更改配置：
 +
-`ucadmin modify -m fc|cna -t initiators|target <adapter_name>`
+`ucadmin modify -m fc|cna -t initiators|target _adapter_name_`
 
 +
 ** ` -m` 是特性模式， `fc` 或 `CNA` 。
@@ -235,10 +235,10 @@ Adapter  Mode     Type       Mode     Type       Status
 | 如果系统 ... | 那么 ... 
 
 
-| 具有存储磁盘 | `network fcp adapter modify -node <node_name> -adapter <adapter_name> -state up` 
+| 具有存储磁盘 | `network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up` 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP 配置 <adapter_name> up` 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP config _adapter_name_ up` 
 |===
 . 【 man_check_3_step13]] 为端口布线。
 . 【第 14 步】执行以下操作之一：

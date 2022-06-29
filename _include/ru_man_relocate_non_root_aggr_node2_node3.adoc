@@ -7,11 +7,11 @@
 .步骤
 . 【第 1 步】向 NetApp 发送 node2 的 AutoSupport 消息：
 +
-`ssystem node AutoSupport invoke -node node2 -type all -message "upgrading node2 from platform_old to platform_new"`
+`ssystem node AutoSupport invoke -node _node2_-type all -message "upgrading _node2_ from _platform_old_ to _platform_new_"`
 
 . 验证是否已发送 AutoSupport 消息：
 +
-`ssystem node AutoSupport show -node <node2>-instance`
+`ssystem node AutoSupport show -node _node2_-instance`
 
 +
 字段 " 上次发送主题： " 和 " 上次发送时间： " 包含上次发送消息的消息标题以及消息发送时间。
@@ -24,11 +24,11 @@
 
 .. 列出 Node2 所拥有的聚合：
 +
-`storage aggregate show -owner-name node2`
+`storage aggregate show -owner-name _node2_`
 
 .. 启动聚合重新定位：
 +
-`storage aggregate relocation start -node <node2>-destination <node3>-aggregate-list * -no-controller-upgrade true`
+`s存储聚合重新定位start -node _node2_-destination _node3_-aggregate-list *-no-controller-upgrade true`
 
 +
 
@@ -46,7 +46,7 @@ NOTE: 此命令仅查找非根聚合。
 
 . 验证 node2 的重新定位状态：
 +
-`storage aggregate relocation show -node node2`
+`storage aggregate relocation show -node _node2_`
 
 +
 重新定位聚合后，输出将显示 "done" 。
@@ -74,7 +74,8 @@ NOTE: 您必须等待 node2 所拥有的所有聚合都重新定位到 node3 ，
 您还可以检查 EMS 日志以查看所需的更正操作。
 
 +
-* 注释 * ： `event log show` 命令可列出发生的任何错误。
+
+NOTE: `event log show`命令可列出已发生的任何错误。
 
 .. 执行更正操作。
 .. 将权限级别设置为高级：
@@ -83,7 +84,7 @@ NOTE: 您必须等待 node2 所拥有的所有聚合都重新定位到 node3 ，
 
 .. 重新定位任何出现故障或被否决的聚合：
 +
-`storage aggregate relocation start -node <node2>-destination <node3>-aggregate-list * -no-controllerupgrade true`
+`s存储聚合重新定位start -node _node2_-destination _node3_-aggregate-list *-no-controllerupgrade true`
 
 .. 出现提示时，输入 `y` 。
 .. 返回到管理权限级别：
@@ -109,27 +110,27 @@ NOTE: 您必须等待 node2 所拥有的所有聚合都重新定位到 node3 ，
 |===
 . 【 man_relocate_2_3_step6]] 验证 node3 上的所有非根聚合是否联机：
 +
-`storage aggregate show -node <node3> -state offline -root false`
+`storage aggregate show -node _node3_-state offline -root false`
 
 +
 如果任何聚合已脱机或变为外部聚合，则必须使其联机，每个聚合一次：
 
 +
-`storage aggregate online -aggregate <aggr_name>`
+`storage aggregate online -aggregate _aggr_name_`
 
 . 验证 node3 上的所有卷是否均已联机：
 +
-`volume show -node <node3> -state offline`
+`volume show -node _node3_-state offline`
 
 +
 如果 node3 上的任何卷脱机，则必须使其联机，每个卷一次：
 
 +
-`volume online -vserver vserver-name -volume volume-name`
+`volume online -vserver _vserver-name_-volume _volume-name_`
 
 . 验证 node2 不拥有任何联机非根聚合：
 +
-`storage aggregate show -owner-name <node2>-ha-policy sfo -state online`
+`storage aggregate show -owner-name _node2_-ha-policy sfo -state online`
 
 +
 命令输出不应显示联机非根聚合，因为所有非根联机聚合都已重新定位到 node3 。

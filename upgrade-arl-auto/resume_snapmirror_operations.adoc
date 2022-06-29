@@ -23,6 +23,6 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 
 . 恢复 SnapMirror 关系：
 +
-`snapmirror resume -destination – vserver <vserver_name>`
+`snapmirror resume -destination–vserver _vserver_name_`
 
 

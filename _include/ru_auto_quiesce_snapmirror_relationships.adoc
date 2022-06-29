@@ -16,7 +16,7 @@
 +
 [NOTE]
 ====
-如果状态为 "Transferring" ，则必须中止这些传输： `snapmirror abort -destination-vserver <vserver_name>`
+如果状态为"Transferring"、则必须中止这些传输：`snapmirror abort -destination-vserver _vserver_name_`
 
 ====
 +
@@ -24,6 +24,6 @@
 
 . 暂停集群之间的所有关系：
 +
-`snapmirror quiesce -destination-vserver <vserver_name>`
+`snapmirror quiesce -destination-vserver _vserver_name_`
 
 

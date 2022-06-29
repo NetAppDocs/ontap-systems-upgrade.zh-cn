@@ -99,7 +99,7 @@ NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用�
 | 正在运行 | 在启动环境提示符处输入以下命令，以自动配置连接： `ifconfig e0M -auto` 
 
 
-| 未运行 | 在启动环境提示符处输入以下命令以手动配置连接： `ifconfig e0M -addr=<filer_addr> -mask=<netmask> -gw=<gateway> -dns=<dns_addr> domain=<dns_domain>` ` <filer_addr>` 是存储系统的 IP 地址。` < 网络掩码 >` 是存储系统的网络掩码。` < 网关 >` 是存储系统的网关。` <dns_addr>` 是网络上名称服务器的 IP 地址。` <dns_domain>` 是域名服务（ DNS ）域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注： * 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
+| 未运行 | 在启动环境提示符处输入以下命令以手动配置连接：`ifconfig e0M -addr=_filer_addr_-mask=_netmask_-gw=_gateway_-dns=_dns_addr_-domain=_dns_domain_`` filer_addr_`是存储系统的IP地址。` netmask_`是存储系统的网络掩码。` gateway_`是存储系统的网关。` dns_addr_`是网络上名称服务器的IP地址。` dns_domain_`是域名服务(DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注： * 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
 |===
 . 【第 7 步】对 node3 执行网络启动：
 +
@@ -197,7 +197,7 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 
 . 【第 17 步】如有必要，请在 node3 上设置日期：
 +
-`set date <MM/dd/yyy>`
+`set date _MM/dd/yyy_`
 
 . 在 node3 上，在启动环境提示符处使用以下命令检查时间：
 +
@@ -205,11 +205,11 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 
 . 【第 19 步】如有必要，请在 node3 上设置时间：
 +
-`set time <hh ： mm ： ss>`
+`set time _hh：mm：ss_`
 
 . 【第 20 步】如有必要，请在 node3 上设置配对系统 ID ：
 +
-`setenv partner-sysid <node2_sysid>`
+`setenv partner-sysid _node2_sysid_`
 
 +
 .. 保存设置：

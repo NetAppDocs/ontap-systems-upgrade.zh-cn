@@ -38,7 +38,7 @@
 当 node1 进入 `Waiting for giveback` 状态时， node2 将交还所有 node1 非根聚合。
 
 .步骤
-. 启动 node1 后， node1 的所有非根聚合均已移回 node1 。您必须手动将聚合从 node1 重新定位到 node2 ： `storage aggregate relocation start -node node1 -destination node2 -aggregate-list * - ndocontroller-upgrade true`
+. 启动 node1 后， node1 的所有非根聚合均已移回 node1 。您必须手动将聚合从node1重新定位到node2：`storage aggregate relocation start -node node1 -destination node2 -aggregate -list *-ndocontroller-upgrade true`
 . 继续执行节点对升级操作步骤。
 
 

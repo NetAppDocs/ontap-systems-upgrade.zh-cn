@@ -25,7 +25,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 .. 输入以下命令：
 +
-`storage aggregate relocation start -node <node1> -destination <node2>-aggregate-list * -no-controller-upgrade true`
+`s存储聚合重新定位start -node _node1_-destination _node2_-aggregate-list *-no-controller-upgrade true`
 
 .. 出现提示时，输入 `y` 。
 +
@@ -39,7 +39,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 . 在 node1 上输入以下命令，以检查重新定位状态：
 +
-`storage aggregate relocation show -node node1`
+`storage aggregate relocation show -node _node1_`
 
 +
 重新定位聚合后，输出将显示该聚合的 `D1` 。
@@ -61,7 +61,7 @@ NOTE: 等待 node1 拥有的所有非根聚合重新定位到 node2 ，然后再
 | 任何聚合出现故障或被否决  a| 
 .. 检查 EMS 日志以了解更正操作。
 .. 执行更正操作。
-.. 重新定位任何出现故障或被否决的聚合： `storage aggregate relocation start -node <node1> - destination <node2> -aggregate-list * -no-controller-upgrade true`
+.. 重新定位任何出现故障或被否决的聚合：`s存储聚合重新定位开始-node _node1_- destination _node2_-aggregate-list *-no-controller-upgrade true`
 .. 出现提示时，输入 `y` 。
 .. 返回到管理员级别： `set -privilege admin` 如有必要，您可以使用以下方法之一强制执行重新定位：
 +
@@ -76,7 +76,7 @@ NOTE: 等待 node1 拥有的所有非根聚合重新定位到 node2 ，然后再
 |===
 . [[man_relocate_1_2_step4]] 验证所有非根聚合是否均已联机及其在节点 2 上的状态：
 +
-`storage aggregate show -node <node2> -state online -root false`
+`storage aggregate show -node _node2_-state online -root false`
 
 +
 以下示例显示 node2 上的非根聚合处于联机状态：
@@ -98,24 +98,24 @@ aggr_2     825.0GB 825.0GB      0% online       1 node2            raid_dp,
 如果 node2 上的聚合脱机或变为外部聚合，请在 node2 上使用以下命令将其联机，每个聚合一次：
 
 +
-`storage aggregate online -aggregate <aggr_name>`
+`storage aggregate online -aggregate _aggr_name_`
 
 . 在 node2 上输入以下命令并检查其输出，以验证 node2 上的所有卷是否联机：
 +
-`volume show -node <node2> -state offline`
+`volume show -node _node2_-state offline`
 
 +
 如果 node2 上的任何卷脱机，请在 node2 上使用以下命令将其联机，每个卷一次：
 
 +
-`volume online -vserver <vserver-name> -volume <volume-name>`
+`volume online -vserver _vserver-name_-volume _volume-name_`
 
 +
 可在上一个 `volume show` 命令的输出中找到与此命令结合使用的 `vserver-name` 。
 
 . 在 node2 上输入以下命令：
 +
-`storage failover show -node node2`
+`storage failover show -node _node2_`
 
 +
 输出应显示以下消息：
@@ -127,7 +127,7 @@ Node owns partner's aggregates as part of the nondisruptive controller upgrade p
 ----
 . 验证 node1 不拥有任何联机的非根聚合：
 +
-`storage aggregate show -owner-name <node1> -ha-policy sfo -state online`
+`storage aggregate show -owner-name _node1_-ha-policy SFO -state online`
 
 +
 输出不应显示任何已重新定位到 node2 的联机非根聚合。

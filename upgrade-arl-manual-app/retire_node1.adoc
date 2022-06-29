@@ -50,11 +50,11 @@ node2                 true    true
 .. 禁用存储故障转移：
 
 
-`storage failover modify -node <node1> -enabled false`
+`storage failover modify -node _node1_-enabled false`
 
 
 
-| 包含两个以上节点的集群 | 禁用存储故障转移： `storage failover modify -node <node1> -enabled false` 
+| 包含两个以上节点的集群 | 禁用存储故障转移：`storage failover modify -node _node1_-enabled false` 
 |===
 . 验证是否已禁用存储故障转移：
 +
@@ -82,7 +82,7 @@ node2                 true    true
 ----
 . 验证数据 LIF 状态：
 +
-`network interface show -role data -curr-node node2 -home-node node1`
+`network interface show -role data -curr-node _node2_-home-node _node1_`
 
 +
 查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果有任何 LIF 发生故障，请参见 link:troubleshoot.html["故障排除"] 部分。
@@ -148,11 +148,11 @@ High Availability Configured: false
 ----
 . 如果 node1 持有 epsilon ，则在节点上标记 epsilon `false` ，以便将其传输到 node2 ：
 +
-`cluster modify -node <node1> -epsilon false`
+`cluster modify -node _node1_-epsilon false`
 
 . 将 epsilon `true` 标记为 node2 ，将 epsilon 传输到 node2 ：
 +
-`cluster modify -node <node2> -epsilon true`
+`cluster modify -node _node2_-epsilon true`
 
 . 验证是否已对 node2 进行更改：
 +
@@ -190,7 +190,7 @@ node2 的 epsilon 现在应为 true ， node1 的 epsilon 现在应为 false 。
 
 . 从 node1 提示符处暂停 node1 ：
 +
-`ssystem node halt -node node1`
+`ssystem node halt -node _node1_`
 
 +
 

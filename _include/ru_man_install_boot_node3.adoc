@@ -189,7 +189,7 @@ NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用�
 | 正在运行 | 在启动环境提示符处输入以下命令，以自动配置连接： `ifconfig e0M -auto` 
 
 
-| 未运行 | 在启动环境提示符处输入以下命令以手动配置连接： `ifconfig e0M -addr=filer_addr -mask=netmask -gw=gateway -dns=dns_addr domain=dns_domain` `filer_addr` 是存储系统的 IP 地址。`netmask` 是存储系统的网络掩码。`gateway` 是存储系统的网关。`dns_addr` 是网络上名称服务器的 IP 地址。`dns_domain` 是域名服务（ DNS ）域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注 * ：接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
+| 未运行 | 在启动环境提示符处输入以下命令以手动配置连接：`ifconfig e0M -addr=_filer_addr_-mask=_netmask_-gw=_gateway_-dns=_dns_addr_-domain=_dns_domain_`` filer_addr_`是存储系统的IP地址。` netmask_`是存储系统的网络掩码。` gateway_`是存储系统的网关。` dns_addr_`是网络上名称服务器的IP地址。` dns_domain_`是域名服务(DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注 * ：接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
 |===
 . 【 man_install3_step21]] 对 node3 执行网络启动：
 +
@@ -294,20 +294,20 @@ NOTE: 输入命令后，您可能会看到消息 `disk show ： no disks match o
 | 磁盘类型 | 然后运行命令 ... 
 
 
-| 共享磁盘 | `dreassign -s node1_sysid -d node3_sysid -p node2_sysid` 
+| 共享磁盘 | `dreassign -s _node1_sysid_-d _node3_sysid_-p _node2_sysid_` 
 
 
-| 无共享磁盘 | `dreassign -s node1_sysid -d node3_sysid` 
+| 无共享磁盘 | `dreassign -s _node1_sysid_-d _node3_sysid_` 
 |===
 +
-对于 `node1_sysid` 值，请使用中捕获的信息 link:record_node1_information.html["记录 node1 信息"]。要获取 `node3_sysid` 的值，请使用 `ssysconfig` 命令。
+对于` node1_sysid_`值、请使用中捕获的信息 link:record_node1_information.html["记录 node1 信息"]。要获取` node3_sysid_`的值、请使用`ssysconfig`命令。
 
 +
 
 NOTE: 只有当存在共享磁盘时，才需要在维护模式下使用 ` -p` 选项。
 
 +
-使用 `disk reassign` 命令仅重新分配 `node1_sysid` 为当前所有者的磁盘。
+`d` reassign`命令仅重新分配` node1_sysid_为其当前所有者的磁盘。
 
 +
 系统将显示以下消息：
@@ -359,12 +359,12 @@ WARNING: * 警告 * ：您必须按所示的确切顺序执行以下子步骤；
 
 .. 如果需要，将 node1 聚合置于联机状态：
 +
-`aggr_online root_aggr_from_node1`
+`aggr_online _root_aggr_from_node1_`
 
-.. 阻止 node3 从其原始根聚合启动： `aggr offline root_aggr_on_node3`
+.. 阻止node3从其原始根聚合启动：`aggr offline _root_aggr_on_node3_`
 .. 将 node1 根聚合设置为 node3 的新根聚合：
 +
-`aggr options <aggr_from_node1> root`
+`aggr options _aggr_from_node1_ root`
 
 .. 验证 node3 的根聚合是否脱机，从 node1 接管的磁盘的根聚合是否联机并设置为 root ：
 +
@@ -458,7 +458,7 @@ Destroying mailboxes forces a node to create new empty mailboxes, which clears a
 
 . 【 man_install3_step39]] 如有必要，请在 node3 上设置日期：
 +
-`set date <MM/dd/yyy>`
+`set date _MM/dd/yyy_`
 
 . 在 node3 上，在启动环境提示符处检查时间：
 +
@@ -466,7 +466,7 @@ Destroying mailboxes forces a node to create new empty mailboxes, which clears a
 
 . 【 man_install3_step41]] 如有必要，请在 node3 上设置时间：
 +
-`set time <hh ： mm ： ss>`
+`set time _hh：mm：ss_`
 
 . 【 man_install3_step42]] 验证配对系统 ID 是否设置正确，如中所述 <<man_install3_step28,第 28 步>> 在 -p 开关下：
 +
@@ -474,7 +474,7 @@ Destroying mailboxes forces a node to create new empty mailboxes, which clears a
 
 . 如果需要，请在 node3 上设置配对系统 ID ：
 +
-`setenv partner-sysid <node2_sysid>`
+`setenv partner-sysid _node2_sysid_`
 
 +
 保存设置：

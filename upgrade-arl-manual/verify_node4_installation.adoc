@@ -24,7 +24,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 
 . 验证 node4 是否可以与 node3 通信以及所有 LIF 是否均已启动：
 +
-`network interface show -curr-node node4`
+`network interface show -curr-node _node4_`
 
 . 执行以下操作之一：
 +

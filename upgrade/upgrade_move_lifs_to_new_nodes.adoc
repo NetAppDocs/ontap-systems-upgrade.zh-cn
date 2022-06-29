@@ -18,7 +18,7 @@ summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群�
 .步骤
 . 从托管集群 LIF 的节点中，将非 SAN 数据 LIF 的主端口从原始节点更改为新节点：
 +
-`network interface modify -vserver vserver_name -lif lif_name -home-node new_node_name -home-port ｛ netport_ifgrp ｝`
+`network interface modify -vserver _vserver_name_-lif _lif_name_-home-node _new_node_name_-home-port｛<netport_ifgrp>｝`
 
 . 执行以下操作之一：
 +
@@ -30,14 +30,14 @@ summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群�
  a| 
 特定 LIF
  a| 
-`network interface migrate -vserver vserver_name -lif lif_name -source-node source_node_name -destination-node dest_node_name -destination-port dest_port_name`
+`network interface migrate -vserver _vserver_name_-lif _lif_name_-source-node _source_node_name_-destination-node _dest_node_name_-destination-port _dest_port_name_`
 
 
 
  a| 
 所有非 SAN 数据 LIF 和集群管理 LIF
  a| 
-`network interface migrate-all -node node_name`
+`network interface migrate-all -node _node_name_`
 
 |===
 +
@@ -61,11 +61,11 @@ cluster::> network interface migrate-all -node local
 +
 .. 将集群管理 LIF 的主节点切换到一个新节点：
 +
-`network interface modify -vserver cluster_name -lif cluster_mgmt -home-node new_node_name -home-port ｛ netport_ifgrp ｝`
+`network interface modify -vserver _cluster_name_-lif cluster_mgmt -home-node _new_node_name_-home-port｛<netport_ifgrp>｝`
 
 .. 将集群管理 LIF 迁移到一个新节点：
 +
-`network interface migrate -vserver vserver_name -lif cluster-mgmt -destination-node new_node_name -destination-port ｛ netport_ifgrp ｝`
+`network interface migrate -vserver _vserver_name_-lif cluster-mgmt -destination-node _new_node_name_-destination-port｛<netport_ifgrp>｝`
 
 
 

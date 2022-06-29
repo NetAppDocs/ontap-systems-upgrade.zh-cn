@@ -65,7 +65,7 @@ summary: 对 AFF A700 升级到 AFF A900 期间可能发生的聚合重新定位
 .步骤
 . 获取聚合列表：
 +
-`storage aggregate show -nodes node2 -is-home true`
+`storage aggregate show -nodes _node2_-is-home true`
 
 +
 要确定未正确重新定位的聚合，请参阅在一节中获取的主所有者为 node1 的聚合列表 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并将其与上述命令的输出进行比较。
@@ -73,17 +73,17 @@ summary: 对 AFF A700 升级到 AFF A900 期间可能发生的聚合重新定位
 . 将步骤 1 的输出与您在一节中为 node1 捕获的输出进行比较 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并记下未正确重新定位的所有聚合。
 . 重新定位节点 2 上遗留的聚合：
 +
-`s存储聚合重新定位 start -node node2 -aggr aggr_node_1 -destination node1`
+`s存储聚合重新定位start -node _node2_-aggr _aggr_node_1_-destination _node1_`
 
 +
 在此重新定位期间，请勿使用 -nt-controller-upgrade 参数。
 
 . 验证 node1 现在是否为聚合的主所有者：
 +
-`storage aggregate show -aggregate <aggr1 ， aggr2 ， aggr3...> -fields home-name`
+`storage aggregate show -aggregate _aggr1、aggr2、aggr3..._-fields home-name`
 
 +
-` <aggr1 ， aggr2 ， aggr3...>` 是将 node1 作为原始主所有者的聚合列表。
+`_aggr1、aggr2、aggr3..._`是将node1作为原始主所有者的聚合列表。
 
 +
 如果聚合的主所有者不是 node1 ，则可以使用步骤 3 中的相同重新定位命令将其重新定位到 node1 。

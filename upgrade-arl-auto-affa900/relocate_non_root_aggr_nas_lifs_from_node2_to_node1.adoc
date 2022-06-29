@@ -45,7 +45,7 @@ aggr_2	      825.0GB	    825.0GB	 0%	 online	  1	 node1	  raid_dp  normal
 如果 node1 上的聚合脱机或变为外部聚合，请在新的 node1 上使用以下命令将其联机，每个聚合一次：
 
 +
-`storage aggregate online -aggregate <aggr_name>`
+`storage aggregate online -aggregate _aggr_name_`
 
 . 在 node1 上使用以下命令并检查其输出，以验证 node1 上的所有卷是否联机：
 +
@@ -55,17 +55,17 @@ aggr_2	      825.0GB	    825.0GB	 0%	 online	  1	 node1	  raid_dp  normal
 如果 node1 上的任何卷脱机，请在 node1 上使用以下命令将其联机，每个卷一次：
 
 +
-`volume online -vserver <vserver-name> -volume <volume-name>`
+`volume online -vserver _vserver-name_-volume _volume-name_`
 
 +
 要与此命令结合使用的 ` <vserver-name>` 可在上一个 `volume show` 命令的输出中找到。
 
 . 验证 LIF 是否已移至正确的端口且状态为 `up` 。如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 up ：
 +
-`network interface modify -vserver <vserver_name> -lif <LIF_name> -home-node <nodename> - status-admin up`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _nodename_- status-admin up`
 
 . 使用以下命令并检查输出，以验证 node2 上是否没有剩余数据 LIF ：
 +
-`network interface show - curr-node <node2>-role data`
+`network interface show -curr-node _node2_-role data`
 
 

@@ -67,11 +67,11 @@ NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 �
 
 ** 要对目标端口进行编程：
 +
-`ucadmin modify -m fc -t target <adapter>`
+`ucadmin modify -m fc -t target _adapter_`
 
 ** 要对启动程序端口进行编程：
 +
-`ucadmin modify -m fc -t initiator <adapter>`
+`ucadmin modify -m fc -t initiator _adapter_`
 
 
 
@@ -79,7 +79,7 @@ NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 �
 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改 node4 上的 FC 端口： `ucadmin modify -m fc -t initiator -f <adapter_port_name>` ` -t` 是 FC4 类型，目标或启动程序。* 注 * ：必须将 FC 端口编程为启动程序。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改node4上的FC端口：`ucadmin modify -m fc -t initiator -f _adapter_port_name_``-t`是FC4类型、目标或启动程序。* 注 * ：必须将 FC 端口编程为启动程序。 
 |===
 . 退出维护模式：
 +
@@ -202,14 +202,14 @@ f-a    0h       cna      target     -          -        online
 |===
 . 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
 +
-`storage disable adapter <adapter_name>`
+`storage disable adapter _adapter_name_`
 
 +
 目标模式下的适配器会在维护模式下自动脱机。
 
 . 【 auto_check_4_step7]] 如果当前配置与所需用途不匹配，请根据需要更改配置：
 +
-`ucadmin modify -m fc|cna -t initiators|target <adapter_name>`
+`ucadmin modify -m fc|cna -t initiators|target _adapter_name_`
 
 +
 ** ` -m` 是个性化模式， FC 或 10GbE UTA 。
@@ -258,10 +258,10 @@ f-a   2b       fc             target       cna           -             online
 | 如果系统 ... | 然后选择… 
 
 
-| 具有存储磁盘 | `network fcp adapter modify -node <node_name> -adapter <adapter_name> -state up` 
+| 具有存储磁盘 | `network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up` 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP 配置 <adapter_name> up` 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP config _adapter_name_ up` 
 |===
 . 为端口布线。
 
@@ -380,7 +380,7 @@ Login: ...
 将端口改回启动程序模式：
 
 +
-`ucadmin modify -m fc -t initiator -f < 适配器名称 >`
+`ucadmin modify -m fc -t initiator -f _adapter name_`
 
 . 验证端口是否已更改为启动程序模式：
 +
@@ -390,7 +390,15 @@ Login: ...
 +
 `halt`
 
-. 在 LOADER 提示符处启动：
++
+[NOTE]
+====
+如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <<auto_check_4_step22,第 22 步>>。
+
+如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check_4_step23,第 23 步>>。
+
+====
+. 在LOADER提示符处、启动：
 +
 `boot_ontap`
 
@@ -422,15 +430,15 @@ WARNING: * 您必须按所示的确切顺序执行以下子步骤；否则可能
 
 .. 如有必要，将 node2 聚合置于联机状态：
 +
-`aggr_online root_aggr_from_<node2>`
+`aggr_online root_aggr_from__node2_`
 
 .. 阻止 node4 从其原始根聚合启动：
 +
-`aggr offline <root_aggr_on_node4>`
+`aggr offline_root_aggr_on_node4_`
 
 .. 将 node2 根聚合设置为 node4 的新根聚合：
 +
-`aggr options aggr_from_<node2>root`
+`aggr options aggr_from__node2_ root`
 
 
 

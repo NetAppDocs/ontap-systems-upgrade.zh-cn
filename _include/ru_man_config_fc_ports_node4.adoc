@@ -60,18 +60,18 @@
 ** 要对目标端口进行编程：
 
 
-`ssystem node hardware unified-connect modify -type | -t target -adapter port_name`
+`ssystem node hardware unified-connect modify -type |-t target -adapter _port_name_`
 
 ** 要对启动程序端口进行编程：
 
 
-`ssystem node unified-connect modify type | -t initiator -adapter port_name`
+`ssystem node unified-connect modify type |-t initiator -adapter _port_name_`
 
 ` 类型` 是 FC4 类型，目标或启动程序。
 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改 node4 上的 FC 端口： `ucadmin modify -m fc -t initiator -f adapter_port_name` ` -t` 是 FC4 类型，目标或启动程序。* 注 * ：需要将 FC 端口编程为启动程序。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改node4上的FC端口：`ucadmin modify -m fc -t initiator -f _adapter_port_name_``-t`是FC4类型、目标或启动程序。* 注 * ：需要将 FC 端口编程为启动程序。 
 |===
 . 执行以下操作之一：
 +

@@ -9,7 +9,7 @@
 .步骤
 . 输入 nodeshell ，每个原始节点输入一次。
 +
-`ssystem node run -node node_name`
+`ssystem node run -node _node_name_`
 
 . 显示内部驱动器：
 +

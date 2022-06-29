@@ -21,7 +21,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 .步骤
 . 输入以下命令并捕获输出，列出 node1 上托管的所有 NAS 数据 LIF ：
 +
-`network interface show -data-protocol nfs|cifs -curr-node node1`
+`network interface show -data-protocol nfs|cifs -curr-node _node1_`
 
 +
 系统将在 node1 上显示 NAS 数据 LIF ，如以下示例所示：
@@ -62,11 +62,11 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 +
 .. [[man_move_lif_1_2_substepa]] 通过为每个 LIF 输入以下命令，将任何接口组上托管的 LIF 以及 node1 上的 VLAN 迁移到 node2 上能够在与接口组相同的网络上托管 LIF 的端口：
 +
-`network interface migrate -vserver vserver_name -lif LIF_name -destination-node node2 – destination-port netport_ifgrp`
+`network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node2_–destination-port _netport_ifgrp_`
 
 .. 在中修改 LIF 和 VLAN 的主端口和主节点 <<man_move_lif_1_2_substepa,子步骤 A>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
-`network interface modify -vserver vserver_name -lif LIF_name -home-node node2 - home-port netport_ifgrp`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node2_- home-port _netport_ifgrp_`
 
 
 
@@ -80,59 +80,59 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 | NAS | 完成 <<man_move_lif_1_2_step5,第 5 步>> 到 <<man_move_lif_1_2_step8,第 8 步>>。 
 
 
-| SAN | 禁用节点上的所有 SAN LIF 以将其关闭以进行升级： `network interface modify -vserver vserver-name -lif LIF_name -home-node node_to_upgrade -home-port netports|ifgrp -status-admin down` 
+| SAN | 禁用节点上的所有SAN LIF以将其关闭以进行升级：`network interface modify -vserver _vserver-name_-lif _LIF_name_-home-node _node_to_upgrade_-home-port _netport_ifgrp_-status-admin down` 
 |===
 . 【 man_move_lif_1_2_step5]] 通过输入以下命令将 NAS 数据 LIF 从 node1 迁移到 node2 ，每个数据 LIF 输入一次：
 +
-`network interface migrate -vserver vserver-name -lif LIF_name -destination-node node2 -destination-port data_port`
+`network interface migrate -vserver _vserver-name_-lif _LIF_name_-destination-node _node2_-destination-port _data_port_`
 
 . 【第 6 步】输入以下命令并检查其输出，通过在任一节点上输入以下命令并检查输出来验证 LIF 是否已移至正确的端口以及 LIF 的状态是否为 up ：
 +
-`network interface show -curr-node node2 -data-protocol nfs|cifs`
+`network interface show -curr-node _node2_-data-protocol nfs|cifs`
 
 . 【第 7 步】输入以下命令，修改已迁移 LIF 的主节点：
 +
-`network interface modify -vserver vserver-name -lif LIF_name -home-node node2 -home-port port_name`
+`network interface modify -vserver _vserver-name_-lif _LIF_name_-home-node _node2_-home-port _port_name_`
 
 . [[man_move_lif_1_2_step8]] 验证 LIF 是否正在使用此端口作为其主端口或当前端口。如果端口不是主端口或当前端口，请转到 <<man_move_lif_1_2_step9,第 9 步>>：
 +
-`network interface show -home-node node2 -home-port port_name`
+`network interface show -home-node _node2_-home-port _port_name_`
 
 +
-`network interface show -curr-node node_name -curr-port port_name`
+`network interface show -curr-node _node_name_-curr-port _port_name_`
 
 . 【 ｛ man_move_lif_1_2_step9]] 如果 LIF 使用此端口作为主端口或当前端口，请修改此 LIF 以使用其他端口：
 +
-`network interface migrate -vserver vserver-name -lif LIF_name -destination – node node_name -destination-port port_name`
+`network interface migrate -vserver _vserver-name_-lif _LIF_name_-destination–node _node_name_-destination-port _port_name_`
 
 +
-`network interface modify -vserver vserver-name -lif LIF_name -home – node node_name -home-port port_name`
+`network interface modify -vserver _vserver-name_-lif _LIF_name_-home–node _node_name_-home-port _port_name_`
 
 . 【第 10 步】如果新硬件上不存在当前托管数据 LIF 的端口，请立即将其从广播域中删除：
 +
-`network port broadcast-domain remove-ports -ipspace default -broadcast-domain default -ports node ： port`
+`network port broadcast-domain remove-ports -ipspace default -broadcast-domain default -ports _node：port_`
 
 . 【第 11 步】如果任何 LIF 已关闭，请输入以下命令，将 LIF 的管理状态设置为 "up" ，每个 LIF 一次：
 +
-`network interface modify -vserver vserver-name -lif LIF_name -home-node nodename -status-admin up`
+`network interface modify -vserver _vserver-name_-lif _LIF_name_-home-node _nodename_-status-admin up`
 
 +
 
-NOTE: 对于 MetroCluster 配置，您可能无法更改端口的广播域，因为它与托管目标 Storage Virtual Machine （ SVM ） LIF 的端口相关联。从远程站点上对应的源 SVM 输入以下命令，将目标 LIF 重新分配到相应的端口： `MetroCluster vserver resync -vserver vserver_name`
+NOTE: 对于 MetroCluster 配置，您可能无法更改端口的广播域，因为它与托管目标 Storage Virtual Machine （ SVM ） LIF 的端口相关联。从远程站点上对应的源SVM输入以下命令、将目标LIF重新分配到相应的端口：`MetroCluster vserver resync -vserver _vserver_name_`
 
 . 【第 12 步】输入以下命令并检查其输出，以验证 node1 上是否没有剩余数据 LIF ：
 +
-`network interface show -curr-node node1 -role data`
+`network interface show -curr-node _node1_-role data`
 
 . 【第 13 步】如果配置了接口组或 VLAN ，请完成以下子步骤：
 +
 .. 输入以下命令，从接口组中删除 VLAN ：
 +
-`network port vlan delete -node nodename -port ifgrp_name -vlan-id vlan_ID`
+`network port vlan delete -node _nodename_-port _ifgrp_name_-vlan-id _vlan_ID_`
 
 .. 输入以下命令并检查其输出，以查看节点上是否配置了任何接口组：
 +
-`network port ifgrp show -node <nodename > -ifgrp <ifgrp_name> -instance`
+`network port ifgrp show -node _nodename_ -ifgrp _ifgrp_name_ -instance`
 
 +
 系统将显示节点的接口组信息，如以下示例所示：
@@ -153,7 +153,7 @@ NOTE: 对于 MetroCluster 配置，您可能无法更改端口的广播域，因
 ----
 .. 如果节点上配置了任何接口组，请记录这些组的名称以及分配给它们的端口，然后输入以下命令删除这些端口，每个端口输入一次：
 +
-`network port ifgrp remove-port -node <nodename > -ifgrp <ifgrp_name> -port <netport>`
+`network port ifgrp remove-port -node _nodename_ -ifgrp _ifgrp_name_ -port _netport_`
 
 
 

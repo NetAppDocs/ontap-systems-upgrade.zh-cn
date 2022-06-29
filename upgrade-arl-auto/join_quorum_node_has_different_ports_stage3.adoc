@@ -48,15 +48,15 @@ network port modify -node node3 -port e1b -ipspace Cluster -mtu 9000
 ----
 . 使用以下命令将每个 LIF 的集群 LIF 迁移到新端口一次：
 +
-`network interface migrate -vserver cluster -lif <lif_name> -source-node node3 - destination-node node3 -destination-port <port_name>`
+`network interface migrate -vserver cluster -lif _lif_name_-source-node node3 - destination-node node3 -destination-port _port_name_`
 
 . 修改集群 LIF 的主端口：
 +
-`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+`network interface modify -vserver cluster -lif _lif_name_–home-port _port_name_`
 
 . 如果集群端口不在集群广播域中，请使用以下命令添加它们：
 +
-`network port broadcast-domain add-ports -ipspace cluster -broadcastdomain cluster - ports node ： port`
+`network port broadcast-domain add-ports -ipspace cluster -broadcast-domain Cluster - ports node：port`
 
 . 从集群广播域中删除旧端口。您可以对任何相关节点使用。以下命令将删除 node3 上的端口 "e0d" ：
 +
@@ -74,10 +74,10 @@ network port modify -node node3 -port e1b -ipspace Cluster -mtu 9000
 
 .. 显示包含此端口的广播域：
 +
-`network port broadcast-domain show -ports <node_name ： port_name>`
+`network port broadcast-domain show -ports _node_name：port_name_`
 
 .. 在广播域中添加或删除端口： `network port broadcast-domain add-ports network port broadcast-domain remove-port`
-.. 修改 LIF 的主端口： `network interface modify -vserver vserver -lif <lif_name> – home-port <port_name>` 根据需要调整集群间广播域并迁移集群间 LIF 。数据 LIF 保持不变。
+.. 修改LIF的主端口：`network interface modify -vserver vserver -lif _lif_name_–home-port _port_name_`根据需要调整集群间广播域并迁移集群间LIF。数据 LIF 保持不变。
 
 
 

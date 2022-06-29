@@ -98,7 +98,7 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 
 . 【第 17 步】如有必要，请在 node3 上设置日期：
 +
-`set date <MM/dd/yyy>`
+`set date _MM/dd/yyy_`
 
 . 在 node3 上，在启动环境提示符处使用以下命令检查时间：
 +
@@ -106,11 +106,11 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 
 . 【第 19 步】如有必要，请在 node3 上设置时间：
 +
-`set time <hh ： mm ： ss>`
+`set time _hh：mm：ss_`
 
 . 【第 20 步】如有必要，请在 node3 上设置配对系统 ID ：
 +
-`setenv partner-sysid <node2_sysid>`
+`setenv partner-sysid _node2_sysid_`
 
 +
 .. 保存设置：

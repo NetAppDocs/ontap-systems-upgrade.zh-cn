@@ -59,11 +59,11 @@ NOTE: 如果要升级具有多个 HA 对的集群中的 HA 对，则必须将 ep
 
 . 如果 node2 持有 epsilon ，请在节点上将 epsilon 标记为 `false` ，以便可以将其传输到 node3 ：
 +
-`cluster modify -node <node2> -epsilon false`
+`cluster modify -node _node2_-epsilon false`
 
 . 将 epsilon `true` 标记为 node3 ，将 epsilon 传输到 node3 ：
 +
-`cluster modify -node <node3> -epsilon true`
+`cluster modify -node _node3_-epsilon true`
 
 . 验证设置是否为双节点无交换机集群：
 +
@@ -95,6 +95,6 @@ Enable Switchless Cluster: false/true
 +
 `set -privilege admin`
 
-. 在任一控制器上输入以下命令以暂停 node2 ： `ssystem node halt -node node2`
+. 在任一控制器上输入以下命令以暂停node2：`ssystem node halt -node _node2_`
 . node2 完全关闭后，将其从机箱或机架中卸下。升级完成后，您可以停用 node2 。请参见 link:decommission_old_system.html["停用旧系统"]。
 

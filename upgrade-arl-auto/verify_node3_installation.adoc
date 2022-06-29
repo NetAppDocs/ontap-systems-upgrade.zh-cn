@@ -48,19 +48,19 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 .步骤
 . 使用中记录的 node1 信息在 node3 上重新创建 VLAN link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"] 部分。
 +
-`network port vlan create -node <node_name> -vlan <vlan-name>`
+`网络端口vlan create -node _node_name_-vlan _vlan-name_`
 
 . 使用中记录的 node1 信息在 node3 上重新创建接口组 link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"] 部分。
 +
-`network port ifgrp create -node <node_name> -ifgrp <port_ifgrp_name>-cluster-func`
+`network port ifgrp create -node _node_name_-ifgrp _port_ifgrp_name_-cluster-func`
 
 . 使用中记录的 node1 信息在 node3 上重新创建广播域 link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"] 部分。
 +
-`network port broadcast-domain create -ipspace default -broadcast-domain <broadcast_domain_name> -mtu <mt_size> -ports <node_name ： port_name ， node_name ： port_name>`
+`network port broadcast-domain create -ipspace default -broadcast-domain _broadcast_domain_name_-mtu _mtu _size_-ports _node_name：port_name、node_name：port_name_`
 
 . 将 node3 端口添加到新重新创建的广播域：
 +
-`network port broadcast-domain add-ports -broadcast-domain <broadcast_domain_name> -ports <node_name ： port_name ， node_name ： port_name>`
+`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_name_-ports _node_name：port_name、node_name：port_name_`
 
 
 
@@ -68,7 +68,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 
 == 还原 node3 上的 key-manager 配置
 
-如果使用 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，则加密配置必须与新节点同步。从 node2 到 node3 的 node1 聚合的 ARL 完成后，加密卷将脱机。
+如果使用 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，则加密配置必须与新节点同步。如果不还原key-manager、则在使用ARL将node1聚合从node2重新定位到node3时、加密卷将脱机。
 
 .步骤
 . 要同步板载密钥管理器的加密配置，请在集群提示符处运行以下命令：
@@ -77,10 +77,10 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 | 对于此 ONTAP 版本… | 使用此命令 ... 
 
 
-| ONTAP 9.6 或 9.7 | 安全密钥管理器板载同步 
+| ONTAP 9.6 或 9.7 | `sSecurity key-manager 板载同步` 
 
 
-| ONTAP 9.5 | security key-manager setup -node <node_name> 
+| ONTAP 9.5 | `sSecurity key-manager setup -node _node_name_` 
 |===
 . 输入板载密钥管理器的集群范围密码短语。
 

@@ -22,7 +22,7 @@ summary: 将 AFF A700 升级到 AFF A900 期间发生故障或被否决的聚合
 . 检查事件管理系统（ EMS ）日志以确定聚合无法重新定位或被否决的原因。
 . 重新定位任何出现故障或被否决的聚合：
 +
-`storage aggregate relocation start -node <node1> -destination <node2> aggregate-list <aggr_name> -no-controller-upgrade true`
+`s存储聚合重新定位start -node _node1_-destination _node2_-aggregate-list _aggr_name_-no-controller-upgrade true`
 
 . 出现提示时，输入 `y` 。
 . 您可以使用以下方法之一强制重新定位：
@@ -33,8 +33,8 @@ summary: 将 AFF A700 升级到 AFF A900 期间发生故障或被否决的聚合
 | 选项 | Description 
 
 
-| 覆盖否决检查 | 使用以下命令： `storage aggregate relocation start -node node1 -destination node2 -aggregate-list <aggr_list> -no-controller-upgrade true -override-vetoes true` 
+| 覆盖否决检查 | 使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true` 
 
 
-| 覆盖目标检查 | 使用以下命令： `storage aggregate relocation start -node node1 -destination node2 -aggregate-list <aggr_list> -no-controller-upgrade true -override-vetoes true -override-destination-checks true` 
+| 覆盖目标检查 | 使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===

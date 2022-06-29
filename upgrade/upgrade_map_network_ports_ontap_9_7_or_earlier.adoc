@@ -32,7 +32,7 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 .. 如果尚未将 node3 和 node4 启动到集群提示符，请执行此操作。
 .. 将正确的端口添加到 `集群` 广播域：
 +
-`network port modify -node node_name -port port_name -mtu 9000 -ipspace cluster`
+`network port modify -node _node_name_-port _port_name_-mtu 9000 -ipspace Cluster`
 
 +
 此示例在 "`node1` " 上添加了 `Cluster` 端口 e1b ：
@@ -42,22 +42,22 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 
 .. 将每个 LIF 的 LIF 迁移到新端口一次：
 +
-`network interface migrate -vserver vserver_name -lif lif_name -source-node node1 -destination-node node1 -destination-port port_name`
+`network interface migrate -vserver _vserver_name_-lif _lif_name_-source-node node1 -destination-node node1 -destination-port _port_name_`
 
 +
 SAN 数据 LIF 只能在脱机时进行迁移。
 
 .. 修改集群 LIF 的主端口：
 +
-`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+`network interface modify -vserver cluster -lif _lif_name_–home-port _port_name_`
 
 .. 从集群广播域中删除旧端口：
 +
-`network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster -ports node1 ： port`
+`network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster -ports _node1：port_`
 
 .. 显示 node3 和 node4 的运行状况：
 +
-`cluster show -node node1 -fields health`
+`cluster show -node _node1_-fields health`
 
 .. 每个集群 LIF 都必须侦听端口 7700 。验证集群 LIF 是否正在侦听端口 7700 ：
 +
@@ -82,7 +82,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 ----
 .. 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
 +
-` ：： > net int modify -vserver cluster -lif <cluster-lif> -status-admin down ； net int modify -vserver cluster -lif <cluster-lif> -status-admin up`
+`：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
 +
 重复子步骤（ g ）以验证集群 LIF 是否正在侦听端口 7700 。
@@ -92,7 +92,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 . 修改 VLAN 和 `ifgrp config` 以匹配新的控制器物理端口布局。
 . 删除 node3 和 node4 上不再存在的 node1 和 node2 端口（高级权限级别）：
 +
-`network port delete -node node1 -port port_name`
+`network port delete -node _node1_-port _port_name_`
 
 . [[map_97_7]] 调整节点管理广播域，并根据需要迁移节点管理和集群管理 LIF ：
 +
@@ -102,7 +102,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 
 .. 显示包含端口的广播域：
 +
-`network port broadcast-domain show -ports <node_name ： port_name>`
+`network port broadcast-domain show -ports _node_name：port_name_`
 
 .. 根据需要在广播域中添加或删除端口：
 +
@@ -113,7 +113,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 
 .. 根据需要修改 LIF 的主端口：
 +
-`network interface modify -vserver vserver_name -lif lif_name – home-port port_name`
+`network interface modify -vserver _vserver_name_-lif _lif_name_–home-port _port_name_`
 
 
 
@@ -121,7 +121,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 . 如果需要，请使用中的命令调整任何其他广播域并迁移数据 LIF <<map_97_7,第 7 步>>。
 . 调整所有 LIF 故障转移组：
 +
-`network interface modify -failover-group <failover_group> -failover-policy <failover_policy>`
+`network interface modify -failover-group _failover_group_-failover-policy _failover_policy_`
 
 +
 以下命令会将故障转移策略设置为广播域范围，并使用故障转移组 "fg1" 中的端口作为 "node1" 上 LIF"data1" 的故障转移目标：

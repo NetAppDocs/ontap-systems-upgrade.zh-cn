@@ -183,7 +183,7 @@ node2_node4
 
 . 【 auto_restore_4_Step4]] 修复 node4 上每个端口的可访问性状态不是 `ok` 的可访问性。首先对任何物理端口运行以下命令，然后对任何 VLAN 端口运行以下命令，一次运行一个：
 +
-`network port reachability repair -node <node_name> -port <port_name>`
+`network port reachability repair -node _node_name_-port _port_name_`
 
 +
 输出如下所示：
@@ -215,22 +215,22 @@ Warning: Repairing port "node2_node4: e0h" may cause it to move into a different
 +
 .. 您必须先从其广播域成员资格中删除接口组成员端口的物理端口。您可以使用以下命令执行此操作：
 +
-`network port broadcast-domain remove-ports -broadcast-domain <broadcast_domain_name> -ports <node_name ： port_name>`
+`network port broadcast-domain remove-ports -broadcast-domain _broadcast_domain_name_-ports _node_name：port_name_`
 
 .. 将成员端口添加到接口组：
 +
-`network port ifgrp add-port -node <node_name> - ifgrp <ifgrp> -port <port_name>`
+`network port ifgrp add-port -node _node_name_-ifgrp _ifgrp_-port _port_name_`
 
 .. 在添加第一个成员端口后大约一分钟，接口组会自动添加到广播域中。
 .. 验证接口组是否已添加到相应的广播域：
 +
-`network port reachability show -node <node_name> -port <ifgrp>`
+`network port reachability show -node _node_name_-port _ifgrp_`
 
 +
 如果接口组的可访问性状态为 NOT `ok` ，请将其分配给相应的广播域：
 
 +
-`network port broadcast-domain add-ports -broadcast-domain <broadcast_domain_name> -ports <node ： port>`
+`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_name_-ports _node：port_`
 
 
 
@@ -242,13 +242,13 @@ Warning: Repairing port "node2_node4: e0h" may cause it to move into a different
 
 .. 如果可访问性状态不是 `正常` ，请修复可访问 `集群` 广播域的任何端口：
 +
-`network port reachability repair -node <node_name> -port <port_name>`
+`network port reachability repair -node _node_name_-port _port_name_`
 
 
 
 . 使用以下命令之一将其余物理端口移动到其正确的广播域中：
 +
-`network port reachability repair -node <node_name> -port <port_name>`
+`network port reachability repair -node _node_name_-port _port_name_`
 
 +
 `network port broadcast-domain remove-port`
@@ -310,7 +310,7 @@ Cluster::*> displaced-vlans restore -node node2_node4 -port e0e -destination-por
 
 . 完成所有端口修复后，删除任何空广播域：
 +
-`broadcast-domain delete -broadcast-domain <broadcast_domain_name>`
+`broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
 
 . 验证端口可访问性：
 +
@@ -335,12 +335,12 @@ Cluster::*> displaced-vlans restore -node node2_node4 -port e0e -destination-por
 
 .. 还原 LIF 主端口：
 +
-`displaced interface restore-home-node -node <node_name> -vserver <vserver_name > - lif-name <LIF_name>`
+`displaced interface restore-home-node -node _node_name_-vserver _vserver_name_-lif-name _LIF_name_`
 
 
 
 . 验证所有 LIF 是否都具有主端口且已由管理员启动：
 +
-`network interface show -fields home-port ， status-admin`
+`network interface show -fields home-port、status-admin`
 
 

@@ -22,7 +22,7 @@ NOTE: 不会修改聚合和 LIF 的主所有者；只会修改当前所有者。
 
 . 在操作仍处于暂停状态的情况下，验证所有非根聚合在 node2 上的状态是否均处于联机状态：
 +
-`storage aggregate show -node <node2> -state online -root false`
+`storage aggregate show -node _node2_-state online -root false`
 
 +
 以下示例显示 node2 上的非根聚合处于联机状态：
@@ -42,19 +42,19 @@ aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
 如果 node2 上的聚合脱机或变为外部聚合，请在 node2 上使用以下命令将其联机，每个聚合一次：
 
 +
-`storage aggregate online -aggregate <aggr_name>`
+`storage aggregate online -aggregate _aggr_name_`
 
 . 在 node2 上使用以下命令并检查其输出，以验证 node2 上的所有卷是否联机：
 +
-`volume show -node <node2> -state offline`
+`volume show -node _node2_-state offline`
 
 +
 如果 node2 上的任何卷脱机，请在 node2 上使用以下命令将其联机，每个卷一次：
 
 +
-`volume online -vserver <vserver_name> -volume <volume_name>`
+`volume online -vserver _vserver_name_-volume _volume_name_`
 
 +
-要与此命令结合使用的 ` <vserver_name>` 可在上一个 `volume show` 命令的输出中找到。
+要与此命令结合使用的` vserver_name_`可在上一个`volume show`命令的输出中找到。
 
 

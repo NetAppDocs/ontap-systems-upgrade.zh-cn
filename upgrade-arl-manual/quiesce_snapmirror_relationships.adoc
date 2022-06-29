@@ -23,13 +23,13 @@ summary: 在以网络方式启动系统之前，请在运行 ONTAP 9.7 或更早
 
 +
 
-NOTE: 如果状态为 `transferring` ，则必须中止这些传输： `snapmirror abort -destination-vserver vserver name`
+NOTE: 如果状态为`transferring`、则必须中止这些传输：`snapmirror abort -destination-vserver _vserver name_`
 
 +
 如果 SnapMirror 关系未处于 `Transferring` 状态，则中止将失败。
 
 . 暂停集群之间的所有关系：
 +
-`snapmirror quiesce -destination-vserver vserver-name`
+`snapmirror quiesce -destination-vserver _vserver-name_`
 
 

@@ -15,7 +15,7 @@
 将端口改回启动程序模式：
 
 +
-`ucadmin modify -m fc -t initiator -f < 适配器名称 >`
+`ucadmin modify -m fc -t initiator -f _adapter name_`
 
 . 验证端口是否已更改为启动程序模式：
 +
@@ -25,7 +25,15 @@
 +
 `halt`
 
-. 在 LOADER 提示符处启动：
++
+[NOTE]
+====
+如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <<auto_check_4_step22,第 22 步>>。
+
+如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check_4_step23,第 23 步>>。
+
+====
+. 在LOADER提示符处、启动：
 +
 `boot_ontap`
 

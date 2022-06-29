@@ -152,7 +152,7 @@ node2          node1          true     Connected to node1
 
 . 【 man_prepare_nodes_step9]] 确认 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
-`storage aggregate show -node <node_name> -is-home false -fields owner-name ， homename ， state`
+`storage aggregate show -nodes _node_name_-is-home false -fields owner-name、home-name、state`
 
 +
 如果 node1 和 node2 都不拥有当前所有者（而不是主所有者）的聚合，则系统将返回类似于以下示例的消息：
@@ -195,11 +195,11 @@ aggr4         node1        node2        online
 +
 .. 将配对节点当前拥有的聚合返回到主所有者节点：
 +
-`storage failover giveback -ofnode home_node_name`
+`storage failover giveback -ofnode _home_node_name_`
 
 .. 验证 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
-`storage aggregate show -nodes <node_name> -is-home false -fields owner-name ， home-name ， state`
+`storage aggregate show -nodes _node_name_-is-home false -fields owner-name、home-name、state`
 
 +
 以下示例显示了当节点同时是聚合的当前所有者和主所有者时命令的输出：
@@ -261,7 +261,7 @@ node2                 true    true
 
 . 【 ｛ man_prepare_nodes_step15]] 确认 node1 和 node2 运行的是相同的 ONTAP 版本：
 +
-`ssystem node image show -node <node1 ， node2 > -iscurrent true`
+`ssystem node image show -node _node1、node2_-iscurrent true`
 
 +
 以下示例显示了命令的输出：
@@ -282,7 +282,7 @@ node2
 ....
 . 验证 node1 和 node2 均不拥有属于集群中其他节点的任何数据 LIF ，并检查输出中的 `Current Node` 和 `is Home` 列：
 +
-`network interface show -role data -is-home false -curr-node node_name`
+`network interface show -role data -is-home false -curr-node _node_name_`
 
 +
 以下示例显示了 node1 中没有归集群中其他节点所有的 LIF 时的输出：
@@ -317,7 +317,7 @@ vs0
 
 . 检查 node1 或 node2 是否拥有任何故障磁盘：
 +
-`storage disk show -nodelist <node1 ， node2 > -broken`
+`storage disk show -nodelist _node1、node2_-broken`
 
 +
 如果任何磁盘出现故障，请按照 _Disk 和使用 cli_ 进行聚合管理中的说明将其删除。请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理。）

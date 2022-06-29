@@ -192,7 +192,7 @@ NOTE: 您必须使用管理端口和 IP 地址作为网络启动连接。请勿�
 | 正在运行 | 在启动环境提示符处输入以下命令，以自动配置连接： `ifconfig e0M -auto` 
 
 
-| 未运行 | 在启动环境提示符处输入以下命令，以手动配置连接： `ifconfig e0M -addr=filer_addr mask=netmask -gw=gateway dns_addr domain=dns_domain` `filer_addr` 是存储系统的 IP 地址。`netmask` 是存储系统的网络掩码。`gateway` 是存储系统的网关。`dns_addr` 是网络上名称服务器的 IP 地址。`dns_domain` 是域名服务（ DNS ）域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注 * ：接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
+| 未运行 | 在启动环境提示符处输入以下命令以手动配置连接：`ifconfig e0M -addr=_filer_addr_ mask=_netmask_-gw=_gateway_ dns_dns_addr_ domain=_dns_domain_`` filer_addr_`是存储系统的IP地址。` netmask_`是存储系统的网络掩码。` gateway_`是存储系统的网关。` dns_addr_`是网络上名称服务器的IP地址。` dns_domain_`是域名服务(DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注 * ：接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
 |===
 . 对 node4 执行网络启动：
 +
@@ -279,20 +279,20 @@ DISK         OWNER                       POOL   SERIAL NUMBER   HOME
 | Disk type | 运行命令 ... 
 
 
-| 共享磁盘 | `dreassign` `node2_sysid -d node4_sysid -p node3_sysid` 
+| 共享磁盘 | `dreassign -s`` node2_sysid_-d _node4_sysid_-p _node3_sysid_` 
 
 
-| 无共享 | `disks disk reassign -s` `node2_sysid -d node4_sysid` 
+| 无共享 | `disks disk reassign -s`` node2_sysid_-d _node4_sysid_` 
 |===
 +
-对于 `node2_sysid` 值，请使用中捕获的信息 link:record_node2_information.html#man_node2_info_step10["第 10 步"] 记录 node2 信息 _ 部分的。对于 `node4_sysid` ，请使用中捕获的信息 <<man_install4_step23,第 23 步>>。
+对于 `node2_sysid` 值，请使用中捕获的信息 link:record_node2_information.html#man_node2_info_step10["第 10 步"] 记录 node2 信息 _ 部分的。对于` node4_sysid_`、请使用中捕获的信息 <<man_install4_step23,第 23 步>>。
 
 +
 
 NOTE: 只有当存在共享磁盘时，才需要在维护模式下使用 ` -p` 选项。
 
 +
-使用 `disk reassign` 命令将仅重新分配 `node2_sysid` 是当前所有者的磁盘。
+`d`` reassign`命令将仅重新分配node2_sysid_是当前所有者的磁盘。
 
 +
 系统将显示以下消息：
@@ -350,15 +350,15 @@ WARNING: * 警告：必须按所示的确切顺序执行以下子步骤；否则
 
 .. 如有必要，将 node2 聚合置于联机状态：
 +
-`aggr_online root_aggr_from_<node2>`
+`aggr_online root_aggr_from__node2_`
 
 .. 阻止 node4 从其原始根聚合启动：
 +
-`aggr offline <root_aggr_on_node4>`
+`aggr offline _root_aggr_on_node4_`
 
 .. 将 node2 根聚合设置为 node4 的新根聚合：
 +
-`aggr options aggr_from_<node2>root`
+`aggr options aggr_from__node2_ root`
 
 
 
@@ -418,7 +418,7 @@ WARNING: * 警告：必须按所示的确切顺序执行以下子步骤；否则
 
 . 如有必要，请在 node4 上设置日期：
 +
-`set date <MM/dd/yyy>`
+`set date _MM/dd/yyy_`
 
 . 在 node4 上，在启动环境提示符处检查时间：
 +
@@ -426,7 +426,7 @@ WARNING: * 警告：必须按所示的确切顺序执行以下子步骤；否则
 
 . 如有必要，请在 node4 上设置时间：
 +
-`set time <hh ： mm ： ss>`
+`set time _hh：mm：ss_`
 
 . 验证配对系统 ID 是否设置正确，如中所述 <<man_install4_Step26,第 26 步>> 在选项下。
 +
@@ -434,7 +434,7 @@ WARNING: * 警告：必须按所示的确切顺序执行以下子步骤；否则
 
 . 如有必要，请在 node4 上设置配对系统 ID ：
 +
-`setenv partner-sysid node3_sysid`
+`setenv partner-sysid _node3_sysid_`
 
 +
 .. 保存设置：

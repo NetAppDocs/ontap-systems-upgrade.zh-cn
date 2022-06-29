@@ -85,18 +85,18 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 ** 要对目标端口进行编程：
 
 
-`ssystem node hardware unified-connect modify -type | -t target -adapter port_name`
+`ssystem node hardware unified-connect modify -type |-t target -adapter _port_name_`
 
 ** 要对启动程序端口进行编程：
 
 
-`ssystem node unified-connect modify type | -t initiator -adapter port_name`
+`ssystem node unified-connect modify type |-t initiator -adapter _port_name_`
 
 ` 类型` 是 FC4 类型，目标或启动程序。
 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改 node4 上的 FC 端口： `ucadmin modify -m fc -t initiator -f adapter_port_name` ` -t` 是 FC4 类型，目标或启动程序。* 注 * ：需要将 FC 端口编程为启动程序。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改node4上的FC端口：`ucadmin modify -m fc -t initiator -f _adapter_port_name_``-t`是FC4类型、目标或启动程序。* 注 * ：需要将 FC 端口编程为启动程序。 
 |===
 . 执行以下操作之一：
 +
@@ -260,14 +260,14 @@ f-a    0h       cna      target     -          -        online
 |===
 . 【 man_check_4_Step7]] 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
 +
-`storage disable adapter <adapter_name>`
+`storage disable adapter _adapter_name_`
 
 +
 目标模式下的适配器会在维护模式下自动脱机。
 
 . [[man_check_4_Step8]] 如果当前配置与所需用途不匹配，请输入以下命令根据需要更改配置：
 +
-`ucadmin modify -m fc|cna -t initiators|target <adapter_name>`
+`ucadmin modify -m fc|cna -t initiators|target _adapter_name_`
 
 +
 ** ` -m` 是特性模式： FC 或 10GbE UTA 。
@@ -356,10 +356,10 @@ f-a    2b      fc      target    cna      -          online
 | 如果系统 ... | 那么 ... 
 
 
-| 具有存储磁盘 | `network fcp adapter modify -node <node_name> -adapter <adapter_name> -state up` 
+| 具有存储磁盘 | `network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up` 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP 配置 <adapter_name> up` 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP config _adapter_name_ up` 
 |===
 . 【 man_check_4_Step13]] 连接端口。
 . 执行以下操作之一：

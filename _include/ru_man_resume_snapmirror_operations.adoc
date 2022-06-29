@@ -11,6 +11,6 @@
 
 . 恢复 SnapMirror 关系：
 +
-`snapmirror resume -destination – vserver <vserver_name>`
+`snapmirror resume -destination–vserver _vserver_name_`
 
 

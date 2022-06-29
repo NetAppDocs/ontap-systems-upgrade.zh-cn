@@ -21,7 +21,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 .步骤
 . 输入 nodeshell ，每个原始节点输入一次。
 +
-`ssystem node run -node node_name`
+`ssystem node run -node _node_name_`
 
 . 显示内部驱动器：
 +

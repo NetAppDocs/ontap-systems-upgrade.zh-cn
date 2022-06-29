@@ -7,7 +7,7 @@
 .步骤
 . 在 node2 上查找集群网络，节点管理，集群间和集群管理端口：
 +
-`network interface show -curr-node <node_name> -role cluster ， intercluster ， nodemgmt ， cluster-mgmt`
+`network interface show -curr-node _node_name_-role cluster、intercluster、nodemgmt、cluster-mgmt`
 
 +
 系统将显示该节点以及集群中其他节点的 LIF ，如以下示例所示：
@@ -37,10 +37,10 @@ NOTE: 您的系统可能没有集群间 LIF 。您只能在一个节点对的一
 
 . 确定节点 2 上的物理端口：
 +
-`network port show -node <node_name> -type physical` +
+`network port show -node _node_name_-type physical`+
 
 +
-`node_name` 是要迁移的节点。
+` node_name_`是要迁移的节点。
 
 +
 系统将显示 node2 上的物理端口，如以下示例所示：

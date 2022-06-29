@@ -112,7 +112,7 @@ node3 的软件配置必须与 node3 的物理连接匹配，并且必须先还�
 .. 启动节点 3.请参见 link:install_boot_node3.html["安装并启动 node3"] 以启动节点（如果尚未启动）。
 .. 验证新集群端口是否位于集群广播域中：
 +
-`network port show -node node-name -port port-name -fields broadcast-domain`
+`network port show -node _node-name_-port _port-name_-fields broadcast-domain`
 
 +
 以下示例显示端口 "e0a" 位于 node3 上的 "Cluster" 域中：
@@ -128,7 +128,7 @@ node3 的软件配置必须与 node3 的物理连接匹配，并且必须先还�
 ----
 .. 将正确的端口添加到集群广播域：
 +
-`network port modify -node node-name -port port-name -ipspace cluster -mtu 9000`
+`network port modify -node _node-name_-port _port-name_-ipspace Cluster -MTU 9000`
 
 +
 此示例将在 node3 上添加集群端口 "e1b" ：
@@ -151,19 +151,19 @@ command failed: This operation is not permitted on a Vserver that is configured 
 在远程站点上对应的 sync-source SVM 中输入以下命令，将 sync-destination LIF 重新分配到相应的端口：
 
 +
-`MetroCluster SVM resync -vserver vserver-name`
+`MetroCluster SVM resync -vserver _vserver-name_`
 
 .. 将每个 LIF 的集群 LIF 迁移到新端口一次：
 +
-`network interface migrate -vserver cluster -lif LIF-name -source-node node3 -destination-node node3 -destination-port port-name`
+`network interface migrate -vserver cluster -lif _LIF-name_-source-node _node3_-destination-node _node3_-destination-port _port-name_`
 
 .. 修改集群 LIF 的主端口：
 +
-`network interface modify -vserver cluster -lif LIF-name – home-port port-name`
+`network interface modify -vserver cluster -lif _LIF-name_–home-port _port-name_`
 
 .. 如果集群端口不在集群广播域中，请添加它们：
 +
-`network port broadcast-domain add-ports -ipspace cluster -broadcast-domain Cluster -ports node ： port`
+`network port broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports _node：port_`
 
 .. 从集群广播域中删除旧端口：
 +
@@ -179,7 +179,7 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 ----
 .. 验证 node3 是否已重新加入仲裁：
 +
-`cluster show -node node3 -fields health`
+`cluster show -node _node3_-fields health`
 
 
 
@@ -187,11 +187,11 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 +
 .. 显示 LIF 的主端口：
 +
-`network interface show -fields home-node ， home-port`
+`network interface show -fields _home-node、home-port_`
 
 .. 显示包含此端口的广播域：
 +
-`network port broadcast-domain show -ports <node_name ： port_name>`
+`network port broadcast-domain show -ports _node_name：port_name_`
 
 .. 在广播域中添加或删除端口：
 +
@@ -202,7 +202,7 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 
 .. 修改 LIF 的主端口：
 +
-`network interface modify -vserver vserver-name -lif LIF-name – home-port port-name`
+`network interface modify -vserver _vserver-name_-lif _LIF-name_–home-port _port-name_`
 
 
 
@@ -216,7 +216,7 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 
 .. 删除端口：
 +
-`network port delete -node node-name -port port-name`
+`network port delete -node _node-name_-port _port-name_`
 
 .. 返回到管理员级别：
 +
@@ -226,7 +226,7 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 
 . 【第 9 步】调整所有 LIF 故障转移组：
 +
-`network interface modify -failover-group failover-group -failover-policy failover-policy`
+`network interface modify -failover-group _failover-group_-failover-policy _failover-policy_`
 
 +
 以下示例将故障转移策略设置为 " 广播域范围 " ，并使用故障转移组 "fg1" 中的端口作为 "node3" 上 LIF"data1" 的故障转移目标：
@@ -266,7 +266,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 ----
 . 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
 +
-` ：： > net int modify -vserver cluster -lif <cluster-lif> -status-admin down ； net int modify -vserver cluster -lif <cluster-lif> -status-admin up`
+`：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
 +
 重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。

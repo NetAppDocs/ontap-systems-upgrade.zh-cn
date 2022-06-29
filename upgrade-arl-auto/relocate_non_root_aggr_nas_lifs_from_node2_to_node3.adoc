@@ -28,7 +28,7 @@ NOTE: 不会修改聚合和 LIF 的主所有者；只会修改当前所有者。
 .步骤
 . 验证所有非根聚合是否均已联机及其在 node3 上的状态：
 +
-`storage aggregate show -node node3 -state online -root false`
+`storage aggregate show -node _node3_-state online -root false`
 
 +
 以下示例显示 node2 上的非根聚合处于联机状态：
@@ -47,24 +47,24 @@ aggr_2         825.0GB      825.0GB      0%     online  1      node2  raid_dp  n
 如果 node3 上的聚合脱机或变为外部聚合，请在 node3 上使用以下命令将其联机，每个聚合一次：
 
 +
-`storage aggregate online -aggregate <aggr_name>`
+`storage aggregate online -aggregate _aggr_name_`
 
 . 在 node3 上使用以下命令并检查输出，以验证 node3 上的所有卷是否联机：
 +
-`volume show -node <node3> -state offline`
+`volume show -node _node3_-state offline`
 
 +
 如果 node3 上的任何卷脱机，请在 node3 上使用以下命令将其联机，每个卷一次：
 
 +
-`volume online -vserver <vserver_name> -volume <volume_name>`
+`volume online -vserver _vserver_name_-volume _volume_name_`
 
 +
-要与此命令结合使用的 ` <vserver_name>` 可在上一个 `volume show` 命令的输出中找到。
+要与此命令结合使用的` vserver_name_`可在上一个`volume show`命令的输出中找到。
 
 . 验证 LIF 是否已移至正确的端口且状态为 `up` 。如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
 +
-`network interface modify -vserver <vserver_name> - lif <LIF_name> -home-node <node_name> - status-admin up`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node_name_-status-admin up`
 
 . 如果新硬件上不存在当前托管数据 LIF 的端口，请将其从广播域中删除：
 +
@@ -74,18 +74,18 @@ aggr_2         825.0GB      825.0GB      0%     online  1      node2  raid_dp  n
 
 . 【第 5 步】输入以下命令并检查输出，验证 node2 上是否没有剩余数据 LIF ：
 +
-`network interface show - curr-node <node2>-role data`
+`network interface show -curr-node _node2_-role data`
 
 . 如果配置了接口组或 VLAN ，请完成以下子步骤：
 +
 .. 记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。
 .. 从接口组中删除 VLAN ：
 +
-`network port vlan delete -node <nodename > -port <ifgrp> -vlan-id <vlan_ID>`
+`network port vlan delete -node _nodename_ -port _ifgrp_ -vlan-id _vlan_ID_`
 
 .. 输入以下命令并检查其输出，以检查节点上是否配置了任何接口组：
 +
-`network port ifgrp show -node <node2>-ifgrp <ifgrp_name> -instance`
+`network port ifgrp show -node _node2_-ifgrp _ifgrp_name_-instance`
 
 +
 系统将显示节点的接口组信息，如以下示例所示：
@@ -106,7 +106,7 @@ Distribution Function: ip
 ----
 .. 如果节点上配置了任何接口组，请记录这些组的名称以及分配给它们的端口，然后输入以下命令删除这些端口，每个端口输入一次：
 +
-`network port ifgrp remove-port -node <nodename > -ifgrp <ifgrp_name> -port <netport>`
+`network port ifgrp remove-port -node _nodename_ -ifgrp _ifgrp_name_ -port _netport_`
 
 
 

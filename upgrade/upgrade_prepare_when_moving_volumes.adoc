@@ -46,6 +46,6 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 Ne
 
 . 从每个原始节点发送一条 AutoSupport 消息，以通知技术支持升级：
 +
-`ssystem node AutoSupport invoke -node node_name -type all -message "upgrading node_name from platform_original to platform_new"`
+`ssystem node AutoSupport invoke -node _node_name_-type all -message "upgrading node_name from _platform_original_to _platform_new_"`
 
 

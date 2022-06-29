@@ -129,7 +129,7 @@ Node2
 
 . [[restore_node2_step4]] 使用以下命令按以下顺序修复 node2 上每个端口的可访问性状态不是 `ok` 的可访问性：
 +
-`network port reachability repair -node <node_name> -port <port_name>`
+`network port reachability repair -node _node_name_-port _port_name_`
 
 +
 --
@@ -186,7 +186,7 @@ Warning: Repairing port "node2:e9d" may cause it to move into a different broadc
 
 .. 还原 LIF 主节点和主端口：
 +
-`displaced interface restore-home-node -node node_name -vserver vserver_name -lif-name LIF_name`
+`displaced interface restore-home-node -node _node_name_-vserver _vserver_name_-lif-name _LIF_name_`
 
 
 

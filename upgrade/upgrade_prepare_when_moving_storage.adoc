@@ -40,7 +40,7 @@ summary: 在通过移动存储进行升级之前，您必须从原始节点收�
  a| 
 磁盘架，每个磁盘架中的磁盘数，闪存存储详细信息，内存， NVRAM 和网卡
  a| 
-`ssystem node run -node node_name sysconfig`
+`ssystem node run -node _node_name_ sysconfig`
 
 
 
@@ -54,14 +54,14 @@ summary: 在通过移动存储进行升级之前，您必须从原始节点收�
  a| 
 物理端口
  a| 
-`network port show -node node_name -type physical`
+`network port show -node _node_name_-type physical`
 
 
 
  a| 
 故障转移组
  a| 
-`network interface failover-groups show -vserver vserver_name`
+`network interface failover-groups show -vserver _vserver_name_`
 
 记录集群范围之外的故障转移组的名称和端口。
 
@@ -70,7 +70,7 @@ summary: 在通过移动存储进行升级之前，您必须从原始节点收�
  a| 
 VLAN 配置
  a| 
-`network port vlan show -node node_name`
+`network port vlan show -node _node_name_`
 
 记录每个网络端口和 VLAN ID 配对。
 
@@ -79,7 +79,7 @@ VLAN 配置
  a| 
 接口组配置
  a| 
-`network port ifgrp show -node node_name -instance`
+`network port ifgrp show -node _node_name_ -instance`
 
 记录接口组的名称以及分配给这些接口组的端口。
 

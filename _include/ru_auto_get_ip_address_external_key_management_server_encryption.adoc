@@ -15,7 +15,7 @@
 
 . 添加每个密钥管理服务器的 IP 地址：
 +
-`security key-manager external add-servers -key-servers key_management_server_ip_address`
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
 
 . 验证是否已在集群中的所有节点上配置相同的密钥管理服务器并使其可用：
 +
@@ -28,6 +28,6 @@
 . 记下新的身份验证密钥 ID 。
 . 使用新的身份验证密钥重新设置所有自加密驱动器的密钥：
 +
-`storage encryption disk modify -disk * -data-key-id <authentication_key_id>`
+`storage encryption disk modify -disk *-data-key-id _authentication_key_id_`
 
 

@@ -55,7 +55,7 @@ node3 的软件配置必须与 node3 的物理连接匹配，并且必须先还�
 +
 .. 修改将属于集群广播域的端口：
 +
-`network port modify -node node_name -port port_name -mtu 9000 -ipspace cluster`
+`network port modify -node _node_name_-port _port_name_-mtu 9000 -ipspace Cluster`
 
 +
 此示例将在 "node1" 上添加集群端口 e1b ：
@@ -67,22 +67,22 @@ network port modify -node node1 -port e1b -ipspace Cluster -mtu 9000
 ----
 .. 将每个 LIF 的集群 LIF 迁移到新端口一次：
 +
-`network interface migrate -vserver vserver_name -lif lif_name -source-node node1 -destination-node node1 -destination-port port_name`
+`network interface migrate -vserver _vserver_name_-lif _lif_name_-source-node _node1_-destination-node _node1_-destination-port _port_name_`
 
 +
 迁移所有集群 LIF 并建立集群通信后，集群应达到仲裁状态。
 
 .. 修改集群 LIF 的主端口：
 +
-`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+`network interface modify -vserver cluster -lif _lif_name_–home-port _port_name_`
 
 .. 从集群广播域中删除旧端口：
 +
-`network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster -ports node1 ： port`
+`network port broadcast-domain remove-ports -ipspace cluster -broadcast-domain cluster -ports _node1：port_`
 
 .. 显示 node1 和 node3 的运行状况：
 +
-`cluster show -node node1 -fields health`
+`cluster show -node _node1_-fields health`
 
 .. 每个集群 LIF 都必须侦听端口 7700 。验证集群 LIF 是否正在侦听端口 7700 ：
 +
@@ -107,7 +107,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 ----
 .. 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
 +
-` ：： > net int modify -vserver cluster -lif <cluster-lif> -status-admin down ； net int modify -vserver cluster -lif <cluster-lif> -status-admin up`
+`：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
 +
 重复子步骤（ f ）以验证集群 LIF 是否正在侦听端口 7700 。
@@ -122,7 +122,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 
 .. 通过在每个端口上运行以下命令，修复物理端口以及 VLAN 端口的可访问性，一次运行一个端口：
 +
-`re可访问性修复 -node node_name -port port_name`
+`re可访问性修复-node _node_name_-port _port_name_`
 
 +
 此时将显示类似以下内容的警告。查看并根据需要输入 `y` 或 `n` ：
@@ -139,30 +139,30 @@ WARNING: Repairing port "node_name:port" might cause it to move into a different
 
 .. 在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口与任何现有广播域不对应，则 ONTAP 将为这些端口创建新的广播域。如果新创建的广播域的所有成员端口都将成为接口组的成员端口，则可以根据需要删除这些成员端口。删除广播域
 +
-`broadcast-domain delete -broadcast-domain broadcast_domain`
+`broadcast-domain delete -broadcast-domain _broadcast_domain_`
 
 .. 查看接口组配置，并根据需要添加或删除成员端口。
 +
 将成员端口添加到接口组端口：
 
 +
-`ifgrp add-port -node node_name -ifgrp ifgrp_port -port port_name`
+`ifgrp add-port -node _node_name_-ifgrp _ifgrp_port_-port _port_name_`
 
 +
 从接口组端口删除成员端口：
 
 +
-`ifgrp remove-port -node _node_name_ -ifgrp ifgrp_port -port port_name`
+`ifgrp remove-port -node _node_name_-ifgrp _ifgrp_port_-port _port_name_`
 
 .. 根据需要删除并重新创建 VLAN 端口。删除 VLAN 端口：
 +
-`vlan delete -node node_name -vlan-name vlan_port_`
+`vlan delete -node _node_name_-vlan-name _vlan_port_`
 
 +
 创建 VLAN 端口：
 
 +
-`vlan create -node node_name -vlan-namevlan_port`
+`vlan create -node _node_name_-vlan-name_vlan_port_`
 
 +
 
@@ -178,7 +178,7 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 
 .. 将已替换的 VLAN 还原到所需的目标端口：
 +
-`displaced -vVLAN restore -node node_name -port port_name -destination-port destination_port`
+`displaced -vVLAN restore -node _node_name_-port _port_name_-destination-port _destination_port_`
 
 .. 验证所有已替换的 VLAN 是否已还原：
 +
@@ -198,7 +198,7 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 
 .. 还原每个 LIF 的主端口：
 +
-`displaced interface restore -vserver vserver_name -lif-name LIF_name`
+`displaced interface restore -vserver _vserver_name_-lif-name _LIF_name_`
 
 .. 验证是否已还原所有 LIF 主端口：
 +
@@ -213,15 +213,15 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 +
 .. 检查是否存在任何已被管理员关闭的 LIF ：
 +
-`network interface show -vserver vserver_name -status-admin down`
+`network interface show -vserver _vserver_name_-status-admin down`
 
 .. 检查是否有任何 LIF 运行中断：
 +
-`network interface show -vserver vserver_name -status-oper down`
+`network interface show -vserver _vserver_name_-status-oper down`
 
 .. 修改任何需要修改的 LIF ，使其具有不同的主端口：
 +
-`network interface modify -vserver vserver_name -lif LIF_name -home-port home_port`
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-port _home_port_`
 
 +
 

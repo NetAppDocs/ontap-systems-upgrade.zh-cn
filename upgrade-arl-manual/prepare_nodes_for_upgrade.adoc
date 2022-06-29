@@ -164,7 +164,7 @@ node2          node1          true     Connected to node1
 
 . 【 man_prepare_nodes_step9]] 确认 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
-`storage aggregate show -node <node_name> -is-home false -fields owner-name ， homename ， state`
+`storage aggregate show -nodes _node_name_-is-home false -fields owner-name、home-name、state`
 
 +
 如果 node1 和 node2 都不拥有当前所有者（而不是主所有者）的聚合，则系统将返回类似于以下示例的消息：
@@ -207,11 +207,11 @@ aggr4         node1        node2        online
 +
 .. 将配对节点当前拥有的聚合返回到主所有者节点：
 +
-`storage failover giveback -ofnode home_node_name`
+`storage failover giveback -ofnode _home_node_name_`
 
 .. 验证 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
-`storage aggregate show -nodes <node_name> -is-home false -fields owner-name ， home-name ， state`
+`storage aggregate show -nodes _node_name_-is-home false -fields owner-name、home-name、state`
 
 +
 以下示例显示了当节点同时是聚合的当前所有者和主所有者时命令的输出：
@@ -273,7 +273,7 @@ node2                 true    true
 
 . 【 ｛ man_prepare_nodes_step15]] 确认 node1 和 node2 运行的是相同的 ONTAP 版本：
 +
-`ssystem node image show -node <node1 ， node2 > -iscurrent true`
+`ssystem node image show -node _node1、node2_-iscurrent true`
 
 +
 以下示例显示了命令的输出：
@@ -294,7 +294,7 @@ node2
 ....
 . 验证 node1 和 node2 均不拥有属于集群中其他节点的任何数据 LIF ，并检查输出中的 `Current Node` 和 `is Home` 列：
 +
-`network interface show -role data -is-home false -curr-node node_name`
+`network interface show -role data -is-home false -curr-node _node_name_`
 
 +
 以下示例显示了 node1 中没有归集群中其他节点所有的 LIF 时的输出：
@@ -329,7 +329,7 @@ vs0
 
 . 检查 node1 或 node2 是否拥有任何故障磁盘：
 +
-`storage disk show -nodelist <node1 ， node2 > -broken`
+`storage disk show -nodelist _node1、node2_-broken`
 
 +
 如果任何磁盘出现故障，请按照 _Disk 和使用 cli_ 进行聚合管理中的说明将其删除。请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理。）
@@ -341,7 +341,7 @@ vs0
 
 . 记录两个节点的型号，系统 ID 和序列号：
 +
-`ssystem node show -node <node1 ， node2 > -instance`
+`ssystem node show -node _node1、node2_-instance`
 
 +
 
@@ -349,7 +349,7 @@ NOTE: 您将使用此信息重新分配磁盘并停用原始节点。
 
 . 在 node1 和 node2 上输入以下命令，并记录输出中有关磁盘架，每个磁盘架中的磁盘数，闪存存储详细信息，内存， NVRAM 和网卡的信息：
 +
-`运行 -node <node_name> sysconfig`
+`运行-node _node_name_ sysconfig`
 
 +
 
@@ -357,7 +357,7 @@ NOTE: 您可以使用此信息确定可能要传输到 node3 或 node4 的部件
 
 . 在 node1 和 node2 上输入以下命令，并记录两个节点上处于联机状态的聚合：
 +
-`storage aggregate show -node <node_name> -state online`
+`storage aggregate show -node _node_name_-state online`
 
 +
 
@@ -365,7 +365,7 @@ NOTE: 您可以使用此信息以及以下子步骤中的信息来验证聚合�
 
 . 【 man_prepare_nodes_step19]] 在 node1 和 node2 上输入以下命令，并记录两个节点上脱机的卷：
 +
-`volume show -node <node_name> -state offline`
+`volume show -node _node_name_-state offline`
 
 +
 
@@ -413,7 +413,7 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 . 如果存在非 `clusterwide` 的故障转移组，请记录故障转移组名称以及属于故障转移组的端口。
 . 输入以下命令以查看节点上是否配置了任何 VLAN ：
 +
-`network port vlan show -node node_name`
+`network port vlan show -node _node_name_`
 
 +
 VLAN 通过物理端口进行配置。如果物理端口发生更改，则稍后需要在操作步骤中重新创建 VLAN 。
@@ -446,7 +446,7 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 |===
 .. [[man_prepare_nodes_step23]] 如果您不知道 node1 和 node2 是在 SAN 环境还是非 SAN 环境中，请输入以下命令并检查其输出：
 +
-`network interface show -vserver <vserver_name> -data-protocol iscsi_FCP`
+`network interface show -vserver _vserver_name_-data-protocol iscsi_FCP`
 
 +
 如果没有为 SVM 配置 iSCSI 或 FC ，则此命令将显示类似于以下示例的消息：
@@ -528,7 +528,7 @@ node1         node1         in-quorum     true          operational
 |===
 .. 【 man_prepare_nodes_step26]] 输入以下命令并检查其输出，验证 node1 和 node2 上是否存在已启用 SAN iSCSI 或 FC 服务的每个 SVM 的 SAN LIF ：
 +
-`network interface show -data-protocol iscsi_FCP -home-node node_name`
+`network interface show -data-protocol iscsi_FCP -home-node _node_name_`
 
 +
 命令可显示 node1 和 node2 的 SAN LIF 信息。以下示例将状态 Admin/Oper 列中的状态显示为 up/up ，表示 SAN iSCSI 和 FC 服务已启用：
@@ -654,7 +654,7 @@ SnapVault         site    SnapVault License     -
 
 .. 在每个节点上输入以下命令并检查其输出，以检查原始系统是否已启用 AutoSupport ：
 +
-`ssystem node AutoSupport show -node node1 ， node2`
+`ssystem node AutoSupport show -node _node1、node2_`
 
 +
 命令输出显示是否已启用 AutoSupport ，如以下示例所示：
@@ -710,7 +710,7 @@ NOTE: 此时，请勿向 NetApp 发送 node2 的 AutoSupport 消息；稍后可�
 
 .. 【 man_prepare_nodes_step36 ，步骤 36]] 输入以下命令并检查其输出，以验证是否已发送 AutoSupport 消息：
 +
-`ssystem node AutoSupport show -node <node1> -instance`
+`ssystem node AutoSupport show -node _node1_-instance`
 
 +
 字段 `Last Subject Sent ：` 和 `Last Time Sent ：` 包含上次发送消息的消息标题以及消息发送时间。

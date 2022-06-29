@@ -61,7 +61,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 ----
 . [[man_record_node1_step3]] 在任一控制器上输入以下命令，以查找 node1 上的集群网络和节点管理端口：
 +
-`network interface show -curr-node <node1> -role cluster ， intercluster ， node-mgmt ， cluster-mgmt`
+`network interface show -curr-node _node1_-role cluster、intercluster、node-mgmt、cluster-mgmt`
 
 +
 系统将显示集群中节点的集群，集群间，节点管理和集群管理 LIF ，如以下示例所示：
@@ -94,7 +94,7 @@ NOTE: 您的系统可能没有集群间 LIF 。
 
 . 在 node1 上输入以下命令：
 +
-`network port show -node <node1> -type physical`
+`network port show -node _node1_-type physical`
 
 +
 系统将显示节点上的物理端口，如以下示例所示：
@@ -127,7 +127,7 @@ NOTE: 您的系统可能没有集群间 LIF 。
 
 . 在 node1 上输入以下命令：
 +
-`network fcp adapter show -node node1`
+`network fcp adapter show -node _node1_`
 
 +
 系统将显示节点上的 FC 端口，如以下示例所示：
@@ -177,7 +177,7 @@ NOTE: 您的系统可能没有集群间 LIF 。
 |===
 . 【 man_record_node1_step11]] 在任一控制器上输入以下命令：
 +
-`ssystem node show -instance -node node1`
+`ssystem node show -instance -node _node1_`
 
 +
 系统将显示 node1 的相关信息，如以下示例所示：

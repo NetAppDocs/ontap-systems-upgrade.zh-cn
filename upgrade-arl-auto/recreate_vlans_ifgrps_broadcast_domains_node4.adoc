@@ -21,18 +21,18 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 .步骤
 . 使用中记录的 node2 信息在 node4 上重新创建 VLAN link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"] 部分。
 +
-`network port vlan create -node <node4> -vlan <vlan-name>`
+`网络端口vlan create -node _node4_-vlan _vlan-names_`
 
 . 使用中记录的 node2 信息在 node4 上重新创建接口组 link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"] 部分。
 +
-`network port ifgrp create -node <node4>-ifgrp <port_ifgrp_names>-cluster-func`
+`network port ifgrp create -node _node4_-ifgrp _port_ifgrp_names_-cluster-func`
 
 . 使用中记录的 node2 信息在 node4 上重新创建广播域 link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"] 部分。
 +
-`network port broadcast-domain create -ipspace default -broadcast-domain <broadcast_domain_name> -mtu <mt_size> -ports <node_name ： port_name ， node_name ： port_name>`
+`network port broadcast-domain create -ipspace default -broadcast-domain _broadcast_domain_name_-mtu _mtu _size_-ports _node_name：port_name、node_name：port_name_`
 
 . 将 node4 端口添加到新重新创建的广播域：
 +
-`network port broadcast-domain add-ports -broadcast-domain <broadcast_domain_name> -ports <node_name ： port_name ， node_name ： port_name>`
+`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_name_-ports _node_name：port_name、node_name：port_name_`
 
 

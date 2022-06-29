@@ -9,10 +9,10 @@
 | 对于此 ONTAP 版本… | 使用此命令 ... 
 
 
-| ONTAP 9.6 或 9.7 | 安全密钥管理器板载同步 
+| ONTAP 9.6 或 9.7 | `sSecurity key-manager 板载同步` 
 
 
-| ONTAP 9.5 | security key-manager setup -node <node_name> 
+| ONTAP 9.5 | `sSecurity key-manager setup -node _node_name_` 
 |===
 . 输入板载密钥管理器的集群范围密码短语。
 

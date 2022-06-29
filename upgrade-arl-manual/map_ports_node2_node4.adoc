@@ -104,7 +104,7 @@ cluster::>
 .. 启动节点 4.请参见 link:install_boot_node4.html["安装并启动节点 4."] 以启动节点（如果尚未启动）。
 .. 验证新集群端口是否位于集群广播域中：
 +
-`network port show -node -port port -fields broadcast-domain` 以下示例显示端口 "e0a" 位于 node4 上的集群域中：
+`network port show -node _nod_-port _port_-fields broadcast-domain`以下示例显示端口"e0a"位于node4上的集群域中：
 
 +
 [listing]
@@ -117,7 +117,7 @@ node4      e1a  Cluster
 ----
 .. 如果集群端口不在集群广播域中，请使用以下命令添加它们：
 +
-`broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports <node ： port>`
+`broadcast-domain add-ports -ipspace cluster -broadcast-domain cluster -ports _node：port_`
 
 .. 将正确的端口添加到集群广播域：
 +
@@ -142,15 +142,15 @@ command failed: This operation is not permitted on a Vserver that is configured 
 在远程站点上对应的 sync-source SVM 中输入以下命令，将 sync-destination LIF 重新分配到相应的端口：
 
 +
-`MetroCluster SVM resync -vserver vserver_name`
+`MetroCluster SVM resync -vserver _vserver_name_`
 
 .. 将每个 LIF 的集群 LIF 迁移到新端口一次：
 +
-`network interface migrate -vserver cluster -lif lif_name -source-node node4 - destination-node node4 -destination-port port_name`
+`network interface migrate -vserver cluster -lif _lif_name_-source-node node4 - destination-node node4 -destination-port _port_name_`
 
 .. 修改集群 LIF 的主端口：
 +
-`network interface modify -vserver cluster -lif <lif_name> – home-port <port_name>`
+`network interface modify -vserver cluster -lif _lif_name_–home-port _port_name_`
 
 .. 从集群广播域中删除旧端口：
 +
@@ -173,7 +173,7 @@ command failed: This operation is not permitted on a Vserver that is configured 
 
 .. 显示包含此端口的广播域：
 +
-`network port broadcast-domain show -ports <node_name ： port_name>`
+`network port broadcast-domain show -ports _node_name：port_name_`
 
 .. 在广播域中添加或删除端口：
 +
@@ -184,7 +184,7 @@ command failed: This operation is not permitted on a Vserver that is configured 
 
 .. 修改 LIF 的主端口：
 +
-`network interface modify -vserver vserver_name -lif lif_name – home-port port_name`
+`network interface modify -vserver _vserver_name_-lif _lif_name_–home-port _port_name_`
 
 
 
@@ -198,7 +198,7 @@ command failed: This operation is not permitted on a Vserver that is configured 
 
 .. 要删除端口，请执行以下操作：
 +
-`network port delete -node <node_name> -port <port_name>`
+`network port delete -node _node_name_-port _port_name_`
 
 .. 返回到管理员级别：
 +
@@ -206,7 +206,7 @@ command failed: This operation is not permitted on a Vserver that is configured 
 
 
 
-. 调整所有 LIF 故障转移组： `network interface modify -failover-group failover_group -failover-policy failover_policy`
+. 调整所有LIF故障转移组：`network interface modify -failover-group _failover_group_-failover-policy _failover_policy_`
 +
 以下命令会将故障转移策略设置为 `broadcast-domain-wide` ，并使用故障转移组 `fg1` 中的端口作为 LIF `data1` on `node4` 的故障转移目标：
 
@@ -243,7 +243,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 ----
 . 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
 +
-` ：： > net int modify -vserver cluster -lif <cluster-lif> -status-admin down ； net int modify -vserver cluster -lif <cluster-lif> -status-admin up`
+`：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
 +
 重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。

@@ -15,6 +15,7 @@ entries:
 - title: ARL 升级概述
   url: "/upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html"
 - title: 第 1 阶段。准备升级
+  pdf-filename: 第 1 阶段。准备升级(升级到AFF A900或FAS9500)
   entries:
   - title: 验证升级硬件
     url: "/upgrade-arl-auto-affa900/verify_upgrade_hardware.html"
@@ -77,6 +78,7 @@ entries:
   - title: 恢复 SnapMirror 操作
     url: "/upgrade-arl-auto-affa900/resume_snapmirror_operations.html"
 - title: 故障排除
+  pdf-filename: 故障排除(升级到AFF A900或FAS9500)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto-affa900/troubleshoot_index.html"

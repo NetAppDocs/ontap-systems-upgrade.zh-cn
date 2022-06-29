@@ -18,7 +18,7 @@
 +
 .. 添加密钥管理服务器：
 +
-`security key-manager -add <key_management_server_ip_address>`
+`security key-manager -add _key_management_server_ip_address_`
 
 .. 对列出的每个密钥管理服务器重复上述步骤。
 +
@@ -37,13 +37,13 @@
 +
 .. 在新节点上启动密钥管理服务器设置向导：
 +
-`security key-manager setup -node <new_controller_name>`
+`security key-manager setup -node _new_controller_name_`
 
 .. 完成向导中的步骤以配置密钥管理服务器。
 
 
 . 将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：
 +
-`security key-manager restore -node <new_controller_name>`
+`security key-manager restore -node _new_controller_name_`
 
 

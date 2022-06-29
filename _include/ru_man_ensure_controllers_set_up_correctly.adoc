@@ -7,7 +7,7 @@
 .步骤
 . 在其中一个节点上输入以下命令，以启用存储故障转移：
 +
-`storage failover modify -enabled true -node node3`
+`storage failover modify -enabled true -node _node3_`
 
 . 验证是否已启用存储故障转移：
 +
@@ -54,27 +54,27 @@ node4          node3          true     Connected to node3
 
 . 确认 node3 拥有 node1 中的聚合，而 node4 拥有 node2 中的聚合：
 +
-`storage aggregate show -owner-name node3` `storage aggregate show -owner-name node4`
+`storage aggregate show -owner-name _node3_``storage aggregate show -owner-name _node4_`
 
 . 确定是否有任何卷脱机：
 +
-`volume show -node <node3> -state offline` `volume show -node <node4> -state offline`
+`volume show -node _node3_-state offline``volume show -node _node4_-state offline`
 
 . 如果任何卷处于脱机状态，请将其与您在中捕获的脱机卷列表进行比较 link:prepare_nodes_for_upgrade.html#step19d["第 19 步（ d ）"] 在 _Prepare the nodes for upgrade" 中，根据需要输入以下命令使任何脱机卷联机，每个卷一次：
 +
-`volume online -vserver <vserver_name> -volume <volume_name>`
+`volume online -vserver _vserver_name_-volume _volume_name_`
 
 . 通过为每个节点输入以下命令，为新节点安装新许可证：
 +
-`ssystem license add -license-code < 许可证代码，许可证代码，许可证代码 ...>`
+`ssystem license add -license-code _license_code、license_code、license_code..._`
 
 +
 license-code 参数接受一个包含 28 个大写字母字符密钥的列表。您可以一次添加一个许可证，也可以一次添加多个许可证，每个许可证密钥用逗号分隔。
 
-. 如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 "true" ，并将 `kmip.init.maxwait` 变量 "off" （在中 link:install_boot_node3.html#step16["第 16 步"] 对于 _Install and boot node3_ ），您需要重置变量： `set diag ； systemshell -node <node_name> -command sudo kenv -u -p kmip.init.maxwait`
+. 如果在配置中使用了 NetApp 存储加密（ NSE ），并且您将 `setenv bootarg.storageencryption.support` 命令设置为 "true" ，并将 `kmip.init.maxwait` 变量 "off" （在中 link:install_boot_node3.html#step16["第 16 步"] 对于_Install and boot node3_)、您需要重置变量：`set diag；systemshell -node _node_name_-command sudo kenv -u -p kmip.init.maxwait`
 . 要从原始节点中删除所有旧许可证，请输入以下命令之一：
 +
-`ssystem license clean-up -unused -expired` `ssystem license delete -serial number node_serial _number -package licensable_package`
+`ssystem license clean-up -unused -expired``ssystem license delete -serial number _node_serial number_-package _licensable_package_`
 
 +
 ** 要删除所有已过期的许可证，请输入：
@@ -87,7 +87,7 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 
 ** 要从集群中删除特定许可证，请在节点上输入以下命令：
 +
-`ssystem license delete -serial -number <node1_serial number> -package *` `ssystem license delete -serial -number <node2_serial number> -package *`
+`ssystem license delete -serial -number _node1_serial _number_-package *``ssystem license delete -serial -number _node2_serial _number_-package *`
 
 +
 此时将显示以下输出：
@@ -113,7 +113,7 @@ Do you want to continue? {y|n}: y
 
 . 通过在两个节点上执行以下命令来配置 SP ：
 +
-`ssystem service-processor network modify -node <node_name>`
+`ssystem service-processor network modify -node _node_name_`
 
 +
 转至 link:other_references.html["参考资料"] 链接到系统管理参考 _ 以了解 SP 的相关信息，以及 _System 9 ONTAP 命令：手册页参考 _ 以了解有关 `ssystem service-processor network modify` 命令的详细信息。
@@ -126,7 +126,7 @@ Do you want to continue? {y|n}: y
 
 .. 输入以下命令：
 +
-`storage failover modify -node <node-name> -cifs-no-duration default-medium_low`
+`s存储故障转移修改-node _node-name_-cifs-no-duration defaults_medium_low`
 
 +
 *** 如果系统的工作负载的 50% 到 75% 的操作小于 4 KB ，请输入 `medium` 。

@@ -27,7 +27,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 . 添加每个密钥管理服务器的 IP 地址：
 +
-`security key-manager external add-servers -key-servers key_management_server_ip_address`
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
 
 . 验证是否已在集群中的所有节点上配置相同的密钥管理服务器并使其可用：
 +
@@ -40,7 +40,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 . 记下新的身份验证密钥 ID 。
 . 使用新的身份验证密钥重新设置所有自加密驱动器的密钥：
 +
-`storage encryption disk modify -disk * -data-key-id <authentication_key_id>`
+`storage encryption disk modify -disk *-data-key-id _authentication_key_id_`
 
 
 
@@ -57,7 +57,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 . 添加密钥管理器：
 +
-`security key-manager external add-servers -key-servers key_management_server_ip_address`
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
 
 . 验证密钥管理服务器是否已配置且可供集群中的所有节点使用：
 +
@@ -65,7 +65,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 . 将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：
 +
-`security key-manager external restore -node new_controller_name`
+`sSecurity key-manager external restore -node _new_controller_name_`
 
 . 使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
 +
@@ -105,7 +105,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 +
 [NOTE]
 ====
-如果状态为 "Transferring" ，则必须中止这些传输： `snapmirror abort -destination-vserver <vserver_name>`
+如果状态为"Transferring"、则必须中止这些传输：`snapmirror abort -destination-vserver _vserver_name_`
 
 ====
 +
@@ -113,6 +113,6 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 . 暂停集群之间的所有关系：
 +
-`snapmirror quiesce -destination-vserver <vserver_name>`
+`snapmirror quiesce -destination-vserver _vserver_name_`
 
 

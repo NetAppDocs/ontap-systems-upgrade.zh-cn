@@ -10,7 +10,7 @@
 
 .. 输入以下命令：
 +
-`storage failover modify -node <node_name> - cifs- no-duration default_medium_low`
+`storage failover modify -node _node_name_-cifs- no-duration _default_medium_low_`
 
 +
 *** 如果系统的工作负载的 50% 到 75% 的操作小于 4 KB ，请输入 `medium` 。
