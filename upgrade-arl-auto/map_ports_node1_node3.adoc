@@ -243,7 +243,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 ----
 . 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
 +
-` ：： > net int modify -vserver cluster -lif <cluster-lif> -status-admin down ； net int modify -vserver cluster -lif <cluster-lif> -status-admin up`
+`：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
 +
 重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。

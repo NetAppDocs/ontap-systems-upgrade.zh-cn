@@ -162,7 +162,7 @@ WARNING: Repairing port "node_name:port" might cause it to move into a different
 创建 VLAN 端口：
 
 +
-`vlan create -node _node_name_-vlan-name_vlan_port_`
+`vlan create -node _node_name_-vlan-name _vlan_port_`
 
 +
 
@@ -174,7 +174,7 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 +
 .. 显示已替换的 VLAN ：
 +
-`displaced VLAN show`
+`cluster controller-replacement network placed-vlans show`
 
 .. 将已替换的 VLAN 还原到所需的目标端口：
 +
@@ -182,7 +182,7 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 
 .. 验证所有已替换的 VLAN 是否已还原：
 +
-`displaced VLAN show`
+`cluster controller-replacement network placed-vlans show`
 
 .. VLAN 会在创建后大约一分钟自动放置到相应的广播域中。验证已还原的 VLAN 是否已放置在相应的广播域中：
 +

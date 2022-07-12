@@ -73,7 +73,7 @@ node2                 true    true
 `network interface show -role data -curr-node _node2_-home-node _node1_`
 
 +
-查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果有任何 LIF 发生故障，请参见 link:troubleshoot.html["故障排除"] 部分。
+查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果有任何 LIF 发生故障，请参见 link:troubleshoot_index.html["故障排除"] 部分。
 
 . 执行以下操作之一：
 +

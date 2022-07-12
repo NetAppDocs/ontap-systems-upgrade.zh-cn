@@ -413,7 +413,6 @@
   <block id="d5457a285ea7fce244bde8387644b062" category="list-text">具有内部驱动器的入门级控制器，例如： FAS 2500 。</block>
   <block id="231cf4c70d866b616c21baddaeed0696" category="section-title">故障排除</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="inline-link-macro">故障排除</block>
-  <block id="bc11cb73d84dd1ca35d5b999ca9afb54" category="paragraph">如果在升级控制器时出现任何问题，请参见 <block ref="5b03d19ea0e9e656b77e7538c0164f96" category="inline-link-macro-rx"></block> 部分，请参见操作步骤末尾的详细信息和可能的解决方案。</block>
   <block id="d5dcbeb79cc6a2aa334dc821840400c2" category="summary">在升级期间，聚合重新定位（ ARL ）可能会在不同点失败。</block>
   <block id="b02aac451baf6d7b36d981f898537961" category="doc">聚合重新定位失败</block>
   <block id="bdbf296139657929f989f110dccebbd3" category="section-title">检查聚合重新定位失败</block>
@@ -623,15 +622,12 @@
   <block id="add7de11dea94372ab92280144dd2eae" category="paragraph">`网络端口可访问性 show -detail`</block>
   <block id="67d13fe1d5e641d73d6e558118a0902a" category="list-text">使用以下步骤还原可能已被替换的任何 VLAN ：</block>
   <block id="cb91f704c28ecf5de2f29274ef6bf62e" category="list-text">列出已替换的 VLAN ：</block>
-  <block id="81a71f7b68d86411acd35a0832051632" category="paragraph">`displaced VLAN show`</block>
   <block id="551f04031696758c1c256f1c90e57b39" category="paragraph">此时应显示如下输出：</block>
   <block id="a806d4909353769619f495a130cabdbd" category="list-text">还原从先前的基本端口中替换的 VLAN ：</block>
-  <block id="7e13cce614ffd7f318255684f22d3da9" category="paragraph">`displaced VLAN restore`</block>
   <block id="e08a0549a69b4bf0d4b807833ac0b586" category="paragraph">以下示例显示了将已从接口组 a0a 中移出的 VLAN 还原到同一接口组的过程：</block>
   <block id="5382f5bbbe74b198aaaf36efb0dd9ef3" category="paragraph">以下是将端口 "e0e" 上的已替换 VLAN 还原到 "e0h" 的示例：</block>
   <block id="2a31dfadfe9a33da55e9d278be8596a4" category="paragraph">成功还原 VLAN 后，将在指定的目标端口上创建已替换的 VLAN 。如果目标端口是接口组的成员或目标端口已关闭，则 VLAN 还原将失败。</block>
   <block id="aad2ee0340b449143fc7eaa87d78ba8b" category="paragraph">等待大约一分钟，以便将新还原的 VLAN 放置到其相应的广播域中。</block>
-  <block id="3dd496dea37dae38c9dc7eb802d64409" category="list-text">根据需要为不在 `displaced - vlan show` 输出中，但应在其他物理端口上配置的 VLAN 端口创建新的 VLAN 端口。</block>
   <block id="9ba5961a2332be610ae3121c25c32aeb" category="list-text">完成所有端口修复后，删除任何空广播域：</block>
   <block id="6fbbdf7318a95fb2400613497f103b75" category="list-text">验证端口可访问性：</block>
   <block id="e3d6faf783eff413421d5abeaf1dad48" category="paragraph">如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 <block ref="4f595e600f8320b4ad2d574fa1a9fe37" category="inline-xref-macro-rx"></block>。</block>
@@ -683,7 +679,6 @@
   <block id="761df4f887d66569090abb51e2ec705f" category="paragraph">如果 node2 上的聚合脱机或变为外部聚合，请在 node2 上使用以下命令将其联机，每个聚合一次：</block>
   <block id="f999b6b276f2c64e10bfb3630f92f94c" category="list-text">在 node2 上使用以下命令并检查其输出，以验证 node2 上的所有卷是否联机：</block>
   <block id="074f2db71729d7f84803e85e33520125" category="paragraph">如果 node2 上的任何卷脱机，请在 node2 上使用以下命令将其联机，每个卷一次：</block>
-  <block id="a3b6690b513bd53e12723fa3f48d8134" category="paragraph">要与此命令结合使用的 ` &lt;vserver-name&gt;` 可在上一个 `volume show` 命令的输出中找到。</block>
   <block id="fa39e98dea804607ace91ae82c9543d7" category="list-text">`步骤 5]] 如果任何 LIF 已关闭，请使用以下命令将 LIF 的管理状态设置为` up ，每个 LIF 一次：</block>
   <block id="fdf5cd6af4cb356df1504c2897e0d9f2" category="list-text">您运行的是 ONTAP 9.8 或更高版本。</block>
   <block id="5d07aebfbe36ac522f2e416e3efcad81" category="list-text">您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。</block>
@@ -2632,7 +2627,6 @@
   <block id="2adf18e995507a97d0d1e8af8c85e4f0" category="paragraph">以下示例显示了在为节点禁用存储故障转移后， `storage failover show` 命令的输出：</block>
   <block id="c4b530495164ce1eeaab4b08e9534859" category="list-text">验证数据 LIF 状态：</block>
   <block id="5fbed693cb6b31f11a703890fc87d45f" category="inline-link-macro">故障排除</block>
-  <block id="1337205e844f111a9850e68ab7fe85fb" category="paragraph">查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果有任何 LIF 发生故障，请参见 <block ref="f37de8559f00b8ef58b12c6857d24513" category="inline-link-macro-rx"></block> 部分。</block>
   <block id="8405f8a611485472bfa1ab420a9a9a02" category="cell">转至 <block ref="caeb7d58e7293f2d87a762ba5d4df397" category="inline-xref-macro-rx"></block>。</block>
   <block id="a4749d514e1548558e90fda0a15746ff" category="cell">转至 <block ref="242f372e62d4ec9b0208b2bd3cc69817" category="inline-xref-macro-rx"></block>。</block>
   <block id="9cd28d632d37554bc6b8bc94ae2073e5" category="list-text">【 man_REALET_1_step6]] 访问任一节点上的高级权限级别：</block>
@@ -2837,7 +2831,6 @@
   <block id="68e6b44b3a749a5a92b3130b283a8d5c" category="paragraph">必须在每个 MetroCluster 站点上执行此任务。</block>
   <block id="2582e010e97c2f1b4ef7a684672e4598" category="list-text">登录到集群。</block>
   <block id="ee4b431a595989bb32df666099e34bf8" category="list-text">调用指示维护开始的 AutoSupport 消息：</block>
-  <block id="000be743e2bbedc544736fd887cacf7b" category="paragraph">`ssystem node AutoSupport invoke -node * -type all -message MAINT=maintenance-window-in-hours`</block>
   <block id="8b8313711f50dddf1be23555c3e398af" category="paragraph">`m值` 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</block>
   <block id="538f577c4284d097aef57681a2acf728" category="paragraph">`ssystem node AutoSupport invoke -node * -type all -message MAINT=end`</block>
   <block id="047c004f2f53364ce170133f533be47f" category="list-text">在配对站点上重复上述步骤。</block>
@@ -3132,7 +3125,6 @@
   <block id="511701430e4fbf5079759a7c3b7c28ff" category="doc">第 4 阶段。记录 node2 信息并停用 node2</block>
   <block id="d21a0858f74e1b40b984bb621122ad41" category="doc">第 5 阶段。安装并启动节点 4.</block>
   <block id="0df71f161bb7f6f4a1dd4c0ceefcb245" category="sidebar">第 4 阶段。记录信息并停用 node2</block>
-  <block id="a0f8aeff2834e59d628ba56c42b411bc" category="sidebar">第 4 阶段。重新定位和停用节点</block>
   <block id="69dd6fe430ae07730e1c32b2939c278c" category="inline-link-macro">《 ONTAP 9.9.1 命令：手册页参考》</block>
   <block id="9d844ecf2e54ad978b96146975590298" category="cell"><block ref="9d844ecf2e54ad978b96146975590298" category="inline-link-macro-rx"></block></block>
   <block id="aaf9449e1999e9c9362cfeac571fbaee" category="cell">介绍支持的 ONTAP 9.9.1 命令的语法和用法。</block>
@@ -3371,7 +3363,6 @@
   <block id="b8dabd137df5202c83400e4fde74838d" category="paragraph">` ：：： &gt; 网络连接侦听 show -vserver Cluster`</block>
   <block id="9c26c389cd17f0bf0da92eb4d2187822" category="paragraph">对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：</block>
   <block id="17a934761f44517e9bcc906e1eb8bfe9" category="list-text">如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：</block>
-  <block id="4839ad4e20e071cacb55dad56989809b" category="paragraph">` ：： &gt; net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin down ； net int modify -vserver cluster -lif &lt;cluster-lif&gt; -status-admin up`</block>
   <block id="8f6f15e3cd3793ad38c3214c75a0a348" category="paragraph">重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。</block>
   <block id="d1a7512eb8f4b6dc2ebea16def830204" category="paragraph">重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。</block>
   <block id="ceb1502357ca7edd7dc13458f9f78895" category="paragraph">重复子步骤（ g ）以验证集群 LIF 是否正在侦听端口 7700 。</block>
@@ -4113,7 +4104,6 @@
   <block id="e031a855de8a6709ad76ee26da7e1409" category="paragraph">`network interface modify -vserver _vserver_name_-lif _lif_name_–home-port _port_name_`</block>
   <block id="b81db1e95a382ce3628dd1e8a693ba94" category="paragraph">`network interface modify -failover-group _failover_group_-failover-policy _failover_policy_`</block>
   <block id="91b0b9d75ab5100fdef2cc4b9abcbf78" category="paragraph">`network interface migrate -vserver _vserver_name_-lif _lif_name_-source-node _node1_-destination-node _node1_-destination-port _port_name_`</block>
-  <block id="7026ec6e9e64d0cd954f925dea928b75" category="paragraph">`vlan create -node _node_name_-vlan-name_vlan_port_`</block>
   <block id="bd804b237ebb8835d7e3b85da5d2132b" category="paragraph">`displaced interface restore -vserver _vserver_name_-lif-name _LIF_name_`</block>
   <block id="aad098d45c08b648ea491886918a7403" category="paragraph">`network interface show -vserver _vserver_name_-status-admin down`</block>
   <block id="0c50d3945bcacd6caf3b39ff87c93171" category="paragraph">`network interface show -vserver _vserver_name_-status-oper down`</block>
@@ -4354,7 +4344,6 @@
   <block id="7f88c1930a909f734d7a128aa7ac5c0d" category="paragraph">如果使用 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，则加密配置必须与新节点同步。如果不还原key-manager、则在使用ARL将node2聚合从node3重新定位到node4时、加密卷将脱机。</block>
   <block id="11f09c937d4460ab0e473a33da9b1ab8" category="paragraph">`network interface show -curr-node _node2_-role data`</block>
   <block id="5dad8f32e66b8ee8eadc502efd8b13f1" category="paragraph">`network port ifgrp show -node _node2_-ifgrp _ifgrp_name_-instance`</block>
-  <block id="977f3dd1a310456c777f225b9b32f0ba" category="paragraph">`aggr offline_root_aggr_on_node4_`</block>
   <block id="9b7d57d0483912f37373984d2377cd38" category="paragraph">`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _nodename_-status-admin up`</block>
   <block id="be169d5dec3b5782fc54ffe06db0f01d" category="paragraph">`network interface show -data-protocol _iscsi_FCP_-home-node _node3_`</block>
   <block id="de16a1a2e971f09625e82410defe17a1" category="paragraph">`network interface modify -vserver _vserver_name_-lif _LIF_name_-status-admin down`</block>
@@ -4451,4 +4440,10 @@
   <block id="c7f6c7edba62aeb0070664af2982188f" category="sidebar">第 5 阶段。‘s和启动node4 (在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)</block>
   <block id="a7bb4f4bc15b3845dcbe4dd85398882a" category="sidebar">第 6 阶段。完成‘s(在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)</block>
   <block id="ad783963276a8d71cfdce2a0884ea6fe" category="sidebar">故障排除(在‘sONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)</block>
+  <block id="8ec9dcb34f09496bfb877249e8b20474" category="paragraph">如果在升级控制器时出现任何问题，请参见 <block ref="8b711d7eff849b62a32d0b2d66f85a6c" category="inline-link-macro-rx"></block> 部分，请参见操作步骤末尾的详细信息和可能的解决方案。</block>
+  <block id="06f03bd659c1d709e9f3635dd299f179" category="paragraph">查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果有任何 LIF 发生故障，请参见 <block ref="ee9e7ed4648f930256981fc705ceec06" category="inline-link-macro-rx"></block> 部分。</block>
+  <block id="9513edce58e5f4ee5ec2d01f6e5957ea" category="paragraph">`ssystem node AutoSupport invoke -node * -type all -message MAIN=_maintenance-window-in-hours_`</block>
+  <block id="8ae18c4ca2d925d74bcd4990d28f04f0" category="paragraph">要与此命令结合使用的` vserver-name_`可在上一个`volume show`命令的输出中找到。</block>
+  <block id="deb8c459cd0f080a7a777d2ba3e57215" category="sidebar">第 4 阶段。重新定位和停用node2 (‘s在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)</block>
+  <block id="d0a53cd31cb7e1982b0b4b4350530c07" category="sidebar">第 4 阶段。重新定位和停用node2 (‘s在ONTAP 9.5至9.7中使用"系统控制器更换"进行升级)</block>
 </blocks>

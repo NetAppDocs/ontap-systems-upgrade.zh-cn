@@ -22,7 +22,7 @@ summary: 通知 NetApp 技术支持，正在对运行 ONTAP 9.7 或更早版本�
 . 登录到集群。
 . 调用指示维护开始的 AutoSupport 消息：
 +
-`ssystem node AutoSupport invoke -node * -type all -message MAINT=maintenance-window-in-hours`
+`ssystem node AutoSupport invoke -node * -type all -message MAIN=_maintenance-window-in-hours_`
 
 +
 `m值` 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：

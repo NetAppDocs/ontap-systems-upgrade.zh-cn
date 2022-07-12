@@ -61,7 +61,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 ----
 . 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
 +
-` ：： > net int modify -vserver cluster -lif <cluster-lif> -status-admin down ； net int modify -vserver cluster -lif <cluster-lif> -status-admin up`
+`：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
 +
 重复步骤 3 以验证集群 LIF 是否正在侦听端口 7700 。
@@ -266,7 +266,7 @@ Warning: Repairing port "node2_node4: e0h" may cause it to move into a different
 +
 .. 列出已替换的 VLAN ：
 +
-`displaced VLAN show`
+`cluster controller-replacement network placed-vlans show`
 
 +
 此时应显示如下输出：
@@ -283,7 +283,7 @@ Node1       a0a           822, 823
 ....
 .. 还原从先前的基本端口中替换的 VLAN ：
 +
-`displaced VLAN restore`
+`cluster controller-replacement network placed-vlans restore`
 
 +
 以下示例显示了将已从接口组 a0a 中移出的 VLAN 还原到同一接口组的过程：
@@ -305,7 +305,7 @@ Cluster::*> displaced-vlans restore -node node2_node4 -port e0e -destination-por
 +
 等待大约一分钟，以便将新还原的 VLAN 放置到其相应的广播域中。
 
-.. 根据需要为不在 `displaced - vlan show` 输出中，但应在其他物理端口上配置的 VLAN 端口创建新的 VLAN 端口。
+.. 根据需要为不在`cluster controller-replacement network placed-vlans show`输出中但应在其他物理端口上配置的VLAN端口创建新的VLAN端口。
 
 
 . 完成所有端口修复后，删除任何空广播域：

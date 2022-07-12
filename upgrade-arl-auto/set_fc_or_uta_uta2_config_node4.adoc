@@ -434,7 +434,7 @@ WARNING: * 您必须按所示的确切顺序执行以下子步骤；否则可能
 
 .. 阻止 node4 从其原始根聚合启动：
 +
-`aggr offline_root_aggr_on_node4_`
+`aggr offline _root_aggr_on_node4_`
 
 .. 将 node2 根聚合设置为 node4 的新根聚合：
 +

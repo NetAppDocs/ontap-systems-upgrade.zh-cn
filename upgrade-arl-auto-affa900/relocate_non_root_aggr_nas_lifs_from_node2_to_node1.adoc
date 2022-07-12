@@ -58,7 +58,7 @@ aggr_2	      825.0GB	    825.0GB	 0%	 online	  1	 node1	  raid_dp  normal
 `volume online -vserver _vserver-name_-volume _volume-name_`
 
 +
-要与此命令结合使用的 ` <vserver-name>` 可在上一个 `volume show` 命令的输出中找到。
+要与此命令结合使用的` vserver-name_`可在上一个`volume show`命令的输出中找到。
 
 . 验证 LIF 是否已移至正确的端口且状态为 `up` 。如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 up ：
 +

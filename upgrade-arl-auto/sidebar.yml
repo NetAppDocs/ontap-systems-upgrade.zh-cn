@@ -59,7 +59,8 @@ entries:
     url: "/upgrade-arl-auto/verify_node3_installation.html"
   - title: 将 node1 拥有的非根聚合和 NAS 数据 LIF 从 node2 移动到 node3
     url: "/upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html"
-- title: 第 4 阶段。重新定位和停用节点
+- title: 第 4 阶段。重新定位和停用节点 2
+  pdf-filename: 第 4 阶段。重新定位和停用node2 (‘s在ONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/stage_4_index.html"
