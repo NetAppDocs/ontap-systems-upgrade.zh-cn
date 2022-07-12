@@ -258,11 +258,13 @@
           <div id="react-search" 
           data-search-html="/zh-cn/ontap-systems-upgrade/search.html"
           data-type="widget" 
-          data-placeholder="搜索文档" 
-          data-no-results-found="未找到与 {query} 匹配的结果。" 
-          data-did-you-mean="搜索 {suggestion}。" 
-          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?" 
-          data-results-found="找到 {hitCount} 个结果"  
+          data-placeholder="搜索文档"
+          data-no-results-found="未找到与 {query} 匹配的结果。"
+          data-did-you-mean="搜索 {suggestion}。"
+          data-no-results-found-did-you-mean="未找到与 {query} 匹配的结果。您是否要搜索 {suggestion}?"
+          data-results-found="找到 {hitCount} 个结果"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
           data-sk-es-pf-indexes=""
           data-flavor=""></div>
           <button class="n-property-bar__search-toggle-button" type="button">
@@ -1062,7 +1064,7 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用节点_2.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用node2___s在ONTAP_9_8或更高版本中使用_系统控制器更换_进行升级_.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
@@ -1620,11 +1622,11 @@
           
           <a target="_blank" 
             
-              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用节点.pdf" 
+              href="/zh-cn/ontap-systems-upgrade/pdfs/sidebar/第_4_阶段_重新定位和停用node2___s在ONTAP_9_5至9_7中使用_系统控制器更换_进行升级_.pdf" 
             
           >
             <img src="/zh-cn/ontap-systems-upgrade/images/pdf.png" alt="" width="16" height="16"/>
-            第 4 阶段。重新定位和停用节点
+            第 4 阶段。重新定位和停用节点 2
           </a>
           
 
@@ -2622,7 +2624,7 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/move_non_root_aggr_nas_lifs_node1_from_node2_to_node3.html">
         将 node1 拥有的非根聚合和 NAS 数据 LIF 从 node2 移动到 node3
       </a></li></ul></li><li class="subfolders "><a href="#">
-        <div class="na-navbar-padding"> 第 4 阶段。重新定位和停用节点</div>
+        <div class="na-navbar-padding"> 第 4 阶段。重新定位和停用节点 2</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/ontap-systems-upgrade/upgrade-arl-auto/stage_4_index.html">
         概述
@@ -2887,7 +2889,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-26 18:49:11 +0000">04/26/2022</time>
+    <time datetime="2022-07-12 17:42:49 +0000">07/12/2022</time>
     
   
 
@@ -2909,7 +2911,7 @@
 <li>
 <p>调用指示维护开始的 AutoSupport 消息：</p>
 <div class="paragraph">
-<p><code>ssystem node AutoSupport invoke -node * -type all -message MAINT=maintenance-window-in-hours</code></p>
+<p><code>ssystem node AutoSupport invoke -node * -type all -message MAIN=<em>maintenance-window-in-hours</em></code></p>
 </div>
 <div class="paragraph">
 <p><code>m值</code> 指定维护时段的长度，最长为 72 小时。如果在该时间过后完成维护，您可以调用一条 AutoSupport 消息，指示维护期结束：</p>
