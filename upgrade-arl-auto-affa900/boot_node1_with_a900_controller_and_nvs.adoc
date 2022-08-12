@@ -17,19 +17,44 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 。
 具有AFF A900或FAS9500控制 器和NVRAM模块的Node1现在可以启动。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、只需要移动控制台和管理连接即可。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node1所需的步骤。
 
 .步骤
-. 如果此配置正在使用 NetApp 存储加密（ NSE ），则必须将 `setenv bootarg.storageencryption.support` 命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为 `off` ，以避免在加载 node1 配置后出现启动环路：
+. `sA900_boot_node1]]如果此配置正在使用NetApp存储加密(NSE)、则必须将` etenv bootarg.storageencryption.support `命令设置为`true`、并且必须将`kmip.init.maxwait`变量设置为` off、以避免在加载node1配置后出现启动环路：
 +
 `setenv bootarg.storageencryption.support true`
 
 +
 `setenv kmip.init.maxwait off`
 
-. 将节点启动至 `boot_menu` ：
+. 将节点启动至启动菜单：
 +
 `boot_ontap 菜单`
 
-. 节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将node1磁盘从AFF A700重新分配给AFF A900或从FAS9000重新分配给FAS9000、请在提示符处输入node1的实际节点名称。请使用以下示例作为参考：
+. 输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700 node1磁盘重新分配给AFF A900 node1。
 +
+经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。
+
++
+这些提示可能会被埋在控制台消息中。如果未输入节点名称或输入的名称不正确、系统将提示您重新输入此名称。
+
++
+[NOTE]
+====
+如果` localhost：disk.encryptNoSupport：aler]：检测到FIPS认证的加密驱动器`和、或`、则执行以下步骤：localhost：diskown.errorDuringIO：error]：disk` error 3 (disk failed) on disk error occur、则执行以下步骤：
+
+.. 在LOADER提示符处暂停节点。
+.. 检查并重置中所述的存储加密启动目标 <<A900_boot_node1,第 1 步>>。
+.. 在LOADER提示符处、启动：
++
+`boot_ontap`
+
+
+
+====
++
+您可以使用以下示例作为参考：
+
++
+.展开控制台输出示例
+====
 [listing]
 ----
 LOADER-A> boot_ontap menu
@@ -153,11 +178,10 @@ Override system ID? {y|n} y
 .
 Login:
 ----
+====
 +
 [NOTE]
 ====
-在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。
-
 上述示例中显示的系统 ID 是示例 ID 。要升级的节点的实际系统 ID 将不同。
 
 在提示符和登录提示符处输入节点名称之间，节点会重新启动几次以还原环境变量，更新系统中卡上的固件以及进行其他 ONTAP 更新。

@@ -302,6 +302,8 @@ Adapter  Mode       Type        Mode     Type        Status
 
 . 在 node3 上，转到启动菜单并使用 22/7 并选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node1 将 node1 的磁盘重新分配给 node3 ，如下例所示。
 +
+.展开控制台输出示例
+====
 ....
 LOADER-A> boot_ontap menu
 .
@@ -397,6 +399,7 @@ Override system ID? {y|n} y
 .
 Login:
 ....
+====
 +
 
 NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。

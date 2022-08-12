@@ -291,6 +291,8 @@ f-a   2b       fc             target       cna           -             online
 
 . 【 auto_check_4_step15]] 在 node4 上，转到启动菜单，然后使用 22/7 选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node2 以将 node2 的磁盘重新分配给 node4 ，如以下示例所示。
 +
+.展开控制台输出示例
+====
 [listing]
 ----
 LOADER-A> boot_ontap menu ...
@@ -366,6 +368,7 @@ WARNING: System ID mismatch. This usually occurs when replacing a boot device or
 Override system ID? {y|n} y
 Login: ...
 ----
+====
 . 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <<auto_check_4_step17,第 17 步>> 到 <<auto_check_4_step22,第 22 步>> 以解决此问题。
 . 在自动启动期间按 `Ctrl-C` 在 `LOADER>` 提示符处停止节点。
 . 在 LOADER 提示符处，进入维护模式：

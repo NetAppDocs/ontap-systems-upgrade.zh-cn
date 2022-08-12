@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, physical, port, correct, configure, setting, data, map network ports using ontap 9.8 
 summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确保已为物理端口正确配置了用于预期用途的设置，例如集群，数据等。 
 ---
-= 使用 ONTAP 9.8 映射网络端口
+= 使用ONTAP 9.8或更高版本映射网络端口
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,7 @@ summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与
 [role="lead"]
 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确认物理端口已正确配置了用于预期用途的设置，例如集群，数据等。
 
-这些步骤适用于运行 ONTAP 9.8 的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[使用 ONTAP 9.7 或更早版本映射网络端口]。
+这些步骤适用于运行ONTAP 9.8或更高版本的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-7-or-earlier.adoc[使用 ONTAP 9.7 或更早版本映射网络端口]。
 
 您必须对 node3 和 node4 执行这些步骤。
 
@@ -164,7 +164,7 @@ NOTE: 根据要升级的系统的网络配置的复杂性，可能需要重复�
 
 
 
-. 自 ONTAP 9.8 起，如果在网络端口可访问性修复操作步骤期间在广播域之间移动了 LIF 的主端口，则 ONTAP 将自动修改 LIF 的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。
+. 从ONTAP 9.8开始、如果在网络端口可访问性修复操作步骤 期间在广播域之间移动了LIF的主端口、则ONTAP 将自动修改LIF的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。
 +
 .. 显示主端口可能已移至另一个节点或不再存在的 LIF ：
 +
@@ -206,4 +206,4 @@ NOTE: 对于 iSCSI LIF ，修改主端口需要以管理员方式关闭 LIF 。
 
 
 
-您已完成物理端口映射。要完成升级，请转至 xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[在 ONTAP 9.8 中执行最终升级步骤]。
+您已完成物理端口映射。要完成升级，请转至 xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[在ONTAP 9.8或更高版本中执行最终升级步骤]。

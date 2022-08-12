@@ -384,7 +384,6 @@
   <block id="54279af53279de10320508d0526f332e" category="paragraph">您可以使用 OKM 管理加密密钥。如果您计划使用 OKM ，则必须在开始升级之前记录密码短语和备份材料。</block>
   <block id="259c8a53b900b4102babb5d05e113f67" category="list-text">将密码短语保存到安全位置。</block>
   <block id="19077cc2690337623f542cbef7fae627" category="list-text">创建备份以进行恢复。运行以下命令并保存输出：</block>
-  <block id="d1599347e2c1e8206cd8017da7de3ee0" category="paragraph">`key-manager 板载 show-backup`</block>
   <block id="bad82f8550ff52390ef854218320ca8e" category="list-text">验证目标集群上的 SnapMirror 关系状态：</block>
   <block id="5bab70a374b8d81dfb1cf1f910800c2a" category="paragraph">`snapmirror show`</block>
   <block id="4240e52a9ba444973cab2a23381467d2" category="paragraph">如果 SnapMirror 关系未处于 " 正在传输 " 状态，则中止将失败。</block>
@@ -1120,7 +1119,6 @@
   <block id="48d957729e77cbd1ec1cf772f951270a" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果先前使用的是替代控制器硬件，则必须联系技术支持，尤其是在控制器以 7- 模式运行 Data ONTAP 时。</block>
   <block id="e5e0e33438e3e93b68faec10a86b2f1c" category="list-text">您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个 HA 对单独执行操作步骤。</block>
   <block id="8aa258d7d2576cff89b65debb971736d" category="list-text">此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9.5 之后发布的 FAS 系统可以连接到存储阵列。ONTAP 9.5 支持现有 V 系列系统。有关存储阵列和 V 系列型号的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _V Hardware Universe 系列支持表，请访问 V 系列支持表。</block>
-  <block id="01cc348d995c86d2845e5e78e5e9c63a" category="list-text">从 ONTAP 9.6 开始，此操作步骤适用场景系统运行的是 4 节点 MetroCluster 配置或更高版本。由于 MetroCluster 配置站点可能位于两个物理位置不同的位置，因此对于 HA 对，必须在每个 MetroCluster 站点上单独执行控制器自动升级。</block>
   <block id="aeeef62c5133714906c67f69ce2b1ace" category="paragraph">在第 3 阶段，您将安装并启动 node3 ，将集群和节点管理端口从 node1 映射到 node3 ，并验证 node3 安装。属于 node1 的非 SAN 数据 LIF 和非根聚合将从 node2 移动到 node3 。</block>
   <block id="3b6c063a8efbc88c969c7838f0611434" category="list-text"><block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block></block>
   <block id="2bef9a25a25f8408b93c008177e86cf5" category="inline-link-macro">当节点具有一组不同的网络端口时加入仲裁</block>
@@ -1264,10 +1262,6 @@
   <block id="8f2f5cebfa6b4e869a159dbf3cedb773" category="inline-link">查找适用于您的 Data ONTAP 8 版本的《集群扩展快速指南》</block>
   <block id="2f22c527d871517945ac34102d2f6931" category="summary">要通过移动存储来完成操作步骤升级，您需要从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器 \ （ SP\ ），安装新许可证并设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。</block>
   <block id="5112ce36807c8e031c9ab063bc28ce71" category="doc">在 ONTAP 9.7 或更早版本中执行最终升级步骤</block>
-  <block id="6afad8777741cb158249cdcde37c14fe" category="inline-xref-macro">在 ONTAP 9.8 中执行最终升级步骤</block>
-  <block id="253783c6125a504d15d61a091415d8d8" category="paragraph">这些步骤适用于运行 ONTAP 9.7 或更早版本的系统。如果您运行的是 ONTAP 9.8 ，则必须在中使用操作步骤 <block ref="b47981dbddf657334d68e85ddce9d886" category="inline-xref-macro-rx"></block>。</block>
-  <block id="38e9bf55ae23722d14604ba35ee5bcd1" category="inline-xref-macro">在 ONTAP 9.8 中执行最终升级步骤</block>
-  <block id="50aee2f4fc79ea5e0b4ababa4a4889b1" category="list-text">如果系统运行的是 ONTAP 9.8 ，请执行 * 停止 * 。您必须在中使用操作步骤 <block ref="362f5b69398efdd58c711f175ac3611b" category="inline-xref-macro-rx"></block>。</block>
   <block id="83e8f1a7c1a2c10d90059989f69becc7" category="list-text">在存储系统提示符处，显示有关 LIF 的信息：</block>
   <block id="de11c3d9da699c5b0528297ad39e25cb" category="list-text">从新节点中删除任何未使用的端口（高级权限级别）：</block>
   <block id="1edc30c9cec2665a01f0a9cc7910d9fc" category="paragraph">`网络端口删除`</block>
@@ -1355,12 +1349,7 @@
   <block id="faadc653b9d5250917700d625763b5cc" category="paragraph">强制卷移动操作完成可能会中断客户端对要移动的卷的访问。</block>
   <block id="c127e808b121ddcc589e1612e8629e3d" category="list-text">验证卷是否已成功移至指定的 SVM 并位于正确的聚合中：</block>
   <block id="9366aa36db246276006f86c846f493d4" category="paragraph">`volume show -vserver svm_name`</block>
-  <block id="308dc930942875f893b863a55b973e8a" category="summary">按照以下步骤在 ONTAP 9.8 中完成升级。</block>
-  <block id="f2190862dcb9dfdb205bb24e6c66cace" category="doc">在 ONTAP 9.8 中完成升级</block>
-  <block id="f88d69698129a6371fe8a552c1380b8a" category="paragraph">按照以下步骤在 ONTAP 9.8 中完成升级：</block>
   <block id="88b8cfb0eb0372af5622adb072f8536f" category="inline-link-macro">使用 ONTAP 9.8 映射网络端口</block>
-  <block id="3ffb7b6a90c761ac843e42b770d3b80c" category="list-text"><block ref="3ffb7b6a90c761ac843e42b770d3b80c" category="inline-link-macro-rx"></block></block>
-  <block id="9f17fc6c1046f4722f2d0dff8c12c850" category="list-text"><block ref="9f17fc6c1046f4722f2d0dff8c12c850" category="inline-link-macro-rx"></block></block>
   <block id="1c83ee60998c00cf537e241e2bd00614" category="summary">如果原始节点是支持的型号之一，则可以在通过移动存储进行升级期间将其内部 SATA 驱动器或 SSD 移动到连接到新节点的驱动器架。您还可以将系统转换为驱动器架并将其连接到新节点。</block>
   <block id="0f25f34bbc6624def56436f34d66a8ca" category="doc">可选：移动内部存储或将系统转换为驱动器架</block>
   <block id="dd49867a2bdd430ef0f1501edf2afc71" category="paragraph">您只能在同一集群中移动驱动器或驱动器架。</block>
@@ -1518,7 +1507,6 @@
   <block id="4d3a4f006fa6b11c769a39a41cac5793" category="summary">要通过移动存储来完成操作步骤升级，您必须从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器 \ （ SP\ ），安装新许可证并设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。</block>
   <block id="de87a7c00dcfcf1112ca50efd583f924" category="paragraph">要通过移动存储来完成操作步骤升级，您必须从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器（ SP ），安装新许可证以及设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。</block>
   <block id="0bde8f7cae6f7006cf8059b9d923c0a4" category="inline-xref-macro">在 ONTAP 9.7 或更早版本中执行最终升级步骤</block>
-  <block id="3891cdc6868c6f151d43254aeaf389d9" category="paragraph">这些步骤适用于运行 ONTAP 9.8 的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 <block ref="91f2c94dbfb488703dd443559499d8cb" category="inline-xref-macro-rx"></block>。</block>
   <block id="a1aef6bc19056065e0e5c87b39d71b96" category="list-text">如果系统运行的是 ONTAP 9.7 或更早版本，请执行 * 停止 * 。您必须在中使用操作步骤 <block ref="91f2c94dbfb488703dd443559499d8cb" category="inline-xref-macro-rx"></block>。</block>
   <block id="602dfb74c3c65622a6e81f6da6da5716" category="paragraph">重新启用高可用性： `cluster ha modify -configured true`</block>
   <block id="68e75079cb8b3e7a53d47ecb9c69a59e" category="paragraph">重新启用存储故障转移： `storage failover modify -node node_name -enabled true`</block>
@@ -1583,7 +1571,6 @@
   <block id="e322e9be3fd030740b4239a7bfbeed70" category="paragraph">确保显示所有磁盘架且所有磁盘均显示在输出中，以更正您发现的任何布线问题。</block>
   <block id="2d46bc00fe1306e504816e238db01e8e" category="list-text">单击相应的选项卡，然后检查 Config Advisor 的输出，以检查其他布线。</block>
   <block id="28b82aeb57b341ad6d877342a1ec8842" category="summary">要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确保已为物理端口正确配置了用于预期用途的设置，例如集群，数据等。</block>
-  <block id="acf19a04295768ba1ad8e06c738b60d8" category="paragraph">这些步骤适用于运行 ONTAP 9.8 的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 <block ref="02cafea91ec73e57361f0e2559069996" category="inline-xref-macro-rx"></block>。</block>
   <block id="1e9be7aa46166eca7db0fc1c4e7a887b" category="paragraph">您必须对 node3 和 node4 执行这些步骤。</block>
   <block id="7f0307060728fe46960f5901c576848b" category="admonition">以下命令示例引用 "node1" ，因为在操作步骤的此阶段，替代节点 "node3" 和 "node4" 实际上分别命名为 "node1" 和 "node2" 。</block>
   <block id="49b95b3a1c8fd0bd354de5fc2ec2b96e" category="list-text">如果系统运行的是 ONTAP 9.7 或更早版本，请执行 * 停止 * 。您必须在中使用操作步骤 <block ref="02cafea91ec73e57361f0e2559069996" category="inline-xref-macro-rx"></block>。</block>
@@ -1619,7 +1606,6 @@
   <block id="0f5308f3f4f3c464e7f648069ec71c80" category="admonition">对于 iSCSI LIF ，修改主端口需要以管理员方式关闭 LIF 。</block>
   <block id="7960433234d5162e1055d53630a352f5" category="list-text">还原不在其各自主端口主端口的 LIF ：</block>
   <block id="50314d4f124e0153ee89d1686a2bc452" category="paragraph">`网络接口还原 *`</block>
-  <block id="e5d91a7fa665e8fe97e2979e274c9883" category="paragraph">您已完成物理端口映射。要完成升级，请转至 <block ref="362f5b69398efdd58c711f175ac3611b" category="inline-xref-macro-rx"></block>。</block>
   <block id="029d23f0db183aa13dd611784328ec8c" category="admonition">ONTAP 9.8 简化了硬件升级过程，引入了自动端口放置功能。</block>
   <block id="797fc5bb1530b93a4d119b95138dc85d" category="list-text">原始节点与新节点兼容并受支持。</block>
   <block id="e047dcc5ff8dd437e2b3a8e513bf32f3" category="list-text">您要将一对运行 ONTAP 9.0 或更高版本的节点升级到一对运行同一版本的新节点。</block>
@@ -1642,10 +1628,7 @@
   <block id="cf9dafa4aad7081e3241e5bc4acb350f" category="inline-xref-macro">从集群中取消原始节点的加入</block>
   <block id="ce218642d156a102e02a50d62a3bf028" category="list-text"><block ref="ce218642d156a102e02a50d62a3bf028" category="inline-xref-macro-rx"></block></block>
   <block id="58c6b3bbc2bbb34b0e96a9731bc9133c" category="list-text"><block ref="58c6b3bbc2bbb34b0e96a9731bc9133c" category="inline-xref-macro-rx"></block></block>
-  <block id="bb0c96213a94c4304b5c450772cc0659" category="summary">在 ONTAP 9.8 ， ONTAP 9.7 或更早版本中完成升级。</block>
   <block id="f5b49dd631a7fa0c45fc2aea8bcfa384" category="paragraph">您必须对您的 ONTAP 版本使用操作步骤。</block>
-  <block id="e2be5a85f52a3a5f613d4aadf4e57e2f" category="list-text">要在 ONTAP 9.8 中完成升级，请转至 <block ref="92fec23dfa4ff2645c1b7d56969a9e86" category="inline-xref-macro-rx"></block>。</block>
-  <block id="188912cb793d3e0c2cd2b15edb10057a" category="list-text">要在 ONTAP 9.7 或更早版本中完成升级，请转至 <block ref="a6085d08f51c0f7b45dd12344b481637" category="inline-xref-macro-rx"></block>。</block>
   <block id="51bea01f527b8a0a7714408789058c6b" category="summary">关闭并删除原始节点时，您必须发送有关升级的 AutoSupport 消息，销毁邮箱，关闭节点电源并卸下机箱。</block>
   <block id="0b5874c3f69c1393f6461a11d78dfa9c" category="list-text">从 node1 和 node2 发送 AutoSupport 消息，以通知技术支持升级：</block>
   <block id="3173ac672a7cdfb43fd506ad10daef11" category="list-text">在 node1 和 node2 上禁用高可用性或存储故障转移：</block>
@@ -1664,8 +1647,6 @@
   <block id="250a399ca40ceae22935ccb2c65facb5" category="list-text">标记并拔下节点 1 和节点 2 上的所有缆线。</block>
   <block id="ee6adde8f8004d94fe449a931d889e98" category="list-text">卸下包含 node1 和 node2 的机箱。</block>
   <block id="112d12268c7f4b3d566746465f42201d" category="summary">要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您需要确保物理端口已正确配置了用于预期用途的设置，例如集群，数据等。</block>
-  <block id="7e00c0ffb3f4f8002976d8431b57d3f0" category="paragraph">这些步骤适用于运行 ONTAP 9.7 或更早版本的系统。如果您运行的是 ONTAP 9.8 ，则必须在中使用操作步骤 <block ref="7523ee9f03a6fb590a93b67219c26179" category="inline-xref-macro-rx"></block>。</block>
-  <block id="348d1bc957542f25e2e2871b40cfd26f" category="list-text">如果系统运行的是 ONTAP 9.8 ，请执行 * 停止 * 。您必须在中使用操作步骤 <block ref="7523ee9f03a6fb590a93b67219c26179" category="inline-xref-macro-rx"></block>。</block>
   <block id="1a8639e4c8ee9656522efd4a2b9f58d0" category="list-text">如果尚未将 node3 和 node4 启动到集群提示符，请执行此操作。</block>
   <block id="4a95a6730ba2310bfeb433fbf30d8aab" category="list-text">将正确的端口添加到 `集群` 广播域：</block>
   <block id="48965dff18dc1b1a8625e27956a0c97b" category="paragraph">此示例在 "`node1` " 上添加了 `Cluster` 端口 e1b ：</block>
@@ -2863,7 +2844,6 @@
   <block id="4f8ff7a721c81a3185d356f1a33fae2d" category="paragraph">将成员端口添加到接口组端口：</block>
   <block id="615e12bd105ff14dbfe4918eedb06e9c" category="admonition">根据要升级的系统的网络配置的复杂性，可能需要重复子步骤（ a ）到（ g ），直到所有端口都在需要时正确放置为止。</block>
   <block id="f885f903824205e3ac8b26efa5254e8d" category="list-text">【第 4 步】如果系统上未配置任何 VLAN ，请转至 <block ref="4c0abef6869b6cad04a71c175246f8ab" category="inline-xref-macro-rx"></block>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。</block>
-  <block id="5b16c41785a8844c7ae2d2b5c45588ec" category="list-text">自 ONTAP 9.8 起，如果在网络端口可访问性修复操作步骤期间在广播域之间移动了 LIF 的主端口，则 ONTAP 将自动修改 LIF 的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
   <block id="aaa2b516ee5f7ea24e6108032acc280f" category="paragraph">如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 "ok" ，而对于没有物理连接的端口，此状态报告为 "no-reachability " 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <block ref="908f101af36ad2335dd086df5698bdbf" category="inline-xref-macro-rx"></block>。</block>
   <block id="c2e8f597299baf99355b3fa78126f551" category="list-text">[[man_map_1_step6]] 验证属于正确广播域的端口上的所有 LIF 是否已由管理员启动。</block>
   <block id="294217f067c6d528ded0650ae8192e3f" category="list-text">检查是否有任何 LIF 运行中断：</block>
@@ -2896,7 +2876,6 @@
   <block id="6897b79e7e86c3bf656b3cf8bb05bc85" category="list-text">[[man_map_2_Step3]] 修改托管数据 LIF 的物理端口的广播域成员资格。</block>
   <block id="322b25940728d29a26180978d33a75a7" category="paragraph">此时将显示类似以下内容的警告。查看并根据需要输入 y 或 n ：</block>
   <block id="28ffee9aa7a190ca41675de91fb9710b" category="list-text">如果系统上未配置任何 VLAN ，请转至 <block ref="f0f83db123b2b495e546349e9d3200d8" category="inline-xref-macro-rx"></block>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。</block>
-  <block id="88979d326c7ea690819e5ebc2c65edb9" category="list-text">自 ONTAP 9.8 起，如果在网络端口可访问性修复操作步骤期间在广播域之间移动了 LIF 的主端口，则 ONTAP 将自动修改 LIF 的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
   <block id="c5c3d54cdf6631e2e290953a91dcd842" category="paragraph">如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <block ref="42e2bf4f4ef15f603bcc30bc206d35c3" category="inline-xref-macro-rx"></block>。</block>
   <block id="fd6616fb43f706cbccb578942fa320ab" category="paragraph">通过将非根聚合从原始节点迁移到同一集群中的新节点，您可以无中断地升级运行 ONTAP 9 的一对节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。</block>
   <block id="60b36970c08352c3c476769f29561cf4" category="paragraph">此操作步骤使用一种称为聚合重新定位（ Aggregate Relocation ， ARL ）的方法，该方法利用 HA 配置，可以将非根聚合的所有权从一个节点移动到另一个节点，前提是它们在同一集群中共享存储。</block>
@@ -3050,7 +3029,6 @@
   <block id="3098dc1e81196ed0a5c7526536b21dc6" category="list-text">找到您在 _prepare for upgrade when moving storage_ 中记录的 node1 和 node2 的端口和 LIF 配置信息， <block ref="54c74de3517b342dfae1a3129a67e9ec" category="inline-link-macro-rx"></block>。</block>
   <block id="785fd52ca2c4957e9caba4406db084c0" category="list-text">找到您在移动存储时准备升级中记录的端口，广播域和 IP 空间的信息， <block ref="54c74de3517b342dfae1a3129a67e9ec" category="inline-link-macro-rx"></block>。</block>
   <block id="b27e1f5014645cf6a835fb2e11524da4" category="list-text">如果系统上未配置任何 VLAN ，请转至 <block ref="44c817ee9110592f40577b67e8940aff" category="inline-xref-macro-rx"></block>。如果已配置 VLAN ，请还原先前在不再存在的端口上配置的或在已移至另一广播域的端口上配置的已替换 VLAN 。</block>
-  <block id="ebabbc1ebee66becea669b0e9c3afadc" category="list-text">自 ONTAP 9.8 起，如果在网络端口可访问性修复操作步骤期间在广播域之间移动了 LIF 的主端口，则 ONTAP 将自动修改 LIF 的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
   <block id="72a19323d192a6a70bcf03b98d5355ae" category="paragraph">如果所有端口均已正确配置并添加到正确的广播域中，则 network port reachability show 命令应将所有已连接端口的可访问性状态报告为 ok ，而对于没有物理连接的端口，此状态报告为 no-reachability 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <block ref="84a764803e273063ea87749716b7c654" category="inline-xref-macro-rx"></block>。</block>
   <block id="2c6770803baeb326c3573c2c99ff387a" category="summary">此内容介绍如何通过移动存储或卷来升级集群中 AFF 系统或 FAS 系统的控制器硬件。</block>
   <block id="10ce071fec41e8ee934d0d2c7ef28c46" category="doc">确定是通过移动卷还是存储进行升级</block>
@@ -3145,7 +3123,6 @@
   <block id="4a5512afba1f93dd83104eaac4237453" category="cell"><block ref="4a5512afba1f93dd83104eaac4237453" category="inline-link-macro-rx"></block></block>
   <block id="9732e7498adc911676ddbf1eb96c90f1" category="inline-link-macro">手动升级运行 ONTAP 9.7 或更早版本的控制器硬件</block>
   <block id="c96cad4c802036afa3176e87bcda336b" category="cell"><block ref="c96cad4c802036afa3176e87bcda336b" category="inline-link-macro-rx"></block></block>
-  <block id="22d219ca4c61aa27b2616b43ecd9678a" category="list-text">将节点启动至 `boot_menu` ：</block>
   <block id="8e490bd535c0b48fe8a594afea8a5f73" category="list-text">如果预检失败，请更正聚合所有权</block>
   <block id="10623903188f292ff7edcdd04a4bde0a" category="list-text">获取用于存储加密的 IP 地址</block>
   <block id="5967cd2dd5257e032e2c1568e265b057" category="list-text">node1 是 node1 聚合的主所有者和当前所有者</block>
@@ -3701,8 +3678,6 @@
   <block id="b09281cc619dc5d9e8148aef71038fcd" category="paragraph">对于可访问性状态可能与当前所在广播域的可访问性状态不同的端口，应显示警告消息，如上例所示。根据需要查看端口和问题解答 `y` 或 `n` 的连接。</block>
   <block id="5267f49248b15741904ddac0a8c8a79a" category="list-text">使用以下步骤还原 LIF 主端口，指定需要还原的 Vserver 和 LIF 主端口（如果有）：</block>
   <block id="e57d7ba8fb9b97ff4cc0b7b8c4a0b876" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。</block>
-  <block id="3891297e49eacc493b7b08dbb7fa3f93" category="list-text">`s此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为` off ，以避免在加载 node2 配置后出现启动环路：</block>
-  <block id="9b043fdaedad96364338df4b458e563e" category="paragraph">在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。</block>
   <block id="939b677a0e4df037cd999a739cd94317" category="paragraph">上述示例中显示的系统 ID 是示例 ID 。要升级的节点的实际系统 ID 将不同。</block>
   <block id="5952acedcc143d30a19364d245887b58" category="paragraph">在提示符和登录提示符处输入节点名称之间，节点会重新启动几次以还原环境变量，更新系统中卡上的固件以及进行其他 ONTAP 更新。</block>
   <block id="4cc41ac3ff89b0e0d88cacedf58eb50d" category="summary">请告知 NetApp ，升级到 AFF A900 后，旧系统不再运行。</block>
@@ -3753,7 +3728,6 @@
   <block id="30dfb9ed789b89ce66132f0084fdfe74" category="paragraph">要确认设置是否正确，您必须验证是否已启用 HA 对。此外，还必须验证 node1 和 node2 是否可以访问彼此的存储，并且它们都不拥有属于集群上其他节点的数据 LIF 。此外，您还必须验证所有数据聚合是否位于其正确的主节点上，以及两个节点的卷是否联机。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改此适配器的使用。</block>
   <block id="6e7e19ae8357eafafb5df9d5e403d692" category="paragraph">您可以将输出与中捕获的输出进行比较 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block> 部分。</block>
   <block id="7bd08b5c3a9e3849e82a1fef790d117b" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 。</block>
-  <block id="a9e10fdb71bd2ac495122a9187fd9483" category="list-text">如果此配置正在使用 NetApp 存储加密（ NSE ），则必须将 `setenv bootarg.storageencryption.support` 命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为 `off` ，以避免在加载 node1 配置后出现启动环路：</block>
   <block id="1da419b6d2e60d5ecd7df833a2ba8f52" category="summary">验证在 AFF A700 升级到 AFF A900 期间， node2 上的 node1 的 NAS 数据 LIF 是否已从 node2 重新定位到 node1 。</block>
   <block id="74d87258605a34730c51b53265d130eb" category="summary">在 AFF A700 升级到 AFF A900 期间，将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 并还原 node1 的资源。</block>
   <block id="fa5b7598ff79398479188d836810f48d" category="summary">支持从 AFF A700 升级到 AFF A900 控制器所需的参考内容和网站。</block>
@@ -4044,15 +4018,12 @@
   <block id="b0ce3e25b9ec3a13c13ca9a6fa5323b7" category="list-text">您正在AFF A700或FAS9000系统上使用FlexArray 虚拟化软件。</block>
   <block id="c72ac68ecc63380b07ba76bc038edf2e" category="paragraph">您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。</block>
   <block id="fbb88f36cd542fa5f9d7d9b7989c4fa9" category="paragraph">使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。</block>
-  <block id="2547b168178c27dad563f660708cda35" category="list-text">如果在配置中使用了NetApp存储加密(NSE)、并且您将`setenv bootarg.storageencryption.support`命令设置为`true` with the `kmip.init.maxwait` variable `off`(in _Boot node2 with the AFF A900 or the FAS9500controller and NVRAM modules_、 <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>），必须重置变量：</block>
   <block id="0b67bd45e44a6983f2e329371f92a85c" category="paragraph">在交换相应的AFF A900或FAS9500node1控制器和NVRAM模块后、您必须通过网络启动node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。</block>
   <block id="6bc5a701ba593a754b9fc417aacb558c" category="paragraph">无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
   <block id="fed5188660beab0c1ca98ade1cf9e488" category="list-text">等待AFF A900或FAS9500控制器模块上当前运行的node1启动、并显示启动菜单选项、如下所示：</block>
   <block id="2fef7d8ad2c6da5a6bfc7b0d1cb4d82f" category="doc">使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
   <block id="85a900d149967784a6d6e1061792097f" category="paragraph">带有AFF A900或FAS9500控制 器和NVRAM模块的Node2现已做好升级准备。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或FAS9000升级到FAS9500时、仅需要移动控制台和管理连接。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node2所需的步骤。</block>
-  <block id="29af000d792467e009d5e082d6fb2b1e" category="list-text">节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将AFF A700或FAS9000节点1磁盘重新分配给AFF A900或FAS9500节点1、请在提示符处输入节点2的实际名称。请使用以下示例作为参考：</block>
   <block id="5e1956d6adc0bdab37f993d5b46e373b" category="paragraph">具有AFF A900或FAS9500控制 器和NVRAM模块的Node1现在可以启动。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、只需要移动控制台和管理连接即可。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node1所需的步骤。</block>
-  <block id="def24406017cbdd73b740bba1a1e6765" category="list-text">节点将停留在启动菜单处。输入 "22/7" 并选择隐藏选项 `boot_after_controller_replacement` 。要将node1磁盘从AFF A700重新分配给AFF A900或从FAS9000重新分配给FAS9000、请在提示符处输入node1的实际节点名称。请使用以下示例作为参考：</block>
   <block id="5fa38b455ca95ac213888d230b770ee7" category="paragraph">在开始升级之前、您必须验证您的硬件是否正确、以便将AFF A700升级到AFF A900或将FAS9000升级到FAS9500。对于要升级的每个 HA 对，您必须具有两个系统控制器模块和两个 NVRAM 模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。</block>
   <block id="ba5bb93bf3745b7b90abb302dc84dab9" category="sidebar">使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500</block>
   <block id="cec0ad56d161fd372b8f511ac2258e91" category="sidebar">第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1</block>
@@ -4446,4 +4417,55 @@
   <block id="8ae18c4ca2d925d74bcd4990d28f04f0" category="paragraph">要与此命令结合使用的` vserver-name_`可在上一个`volume show`命令的输出中找到。</block>
   <block id="deb8c459cd0f080a7a777d2ba3e57215" category="sidebar">第 4 阶段。重新定位和停用node2 (‘s在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)</block>
   <block id="d0a53cd31cb7e1982b0b4b4350530c07" category="sidebar">第 4 阶段。重新定位和停用node2 (‘s在ONTAP 9.5至9.7中使用"系统控制器更换"进行升级)</block>
+  <block id="cef52224881fd5dedd26a040c1359ee9" category="inline-xref-macro">在ONTAP 9.8或更高版本中执行最终升级步骤</block>
+  <block id="c2acf33141c1e1d2087c7bc181c42bb7" category="paragraph">这些步骤适用于运行 ONTAP 9.7 或更早版本的系统。如果您运行的是ONTAP 9.8或更高版本、则必须在中使用操作步骤 <block ref="3b2ec221cc352b28fa15c204e2ae21f2" category="inline-xref-macro-rx"></block>。</block>
+  <block id="c8ff2d709da7bd973a342d6eb7c6952c" category="inline-xref-macro">在ONTAP 9.8或更高版本中执行最终升级步骤</block>
+  <block id="8369511a77d2231fe0dc2666b1eb7bc3" category="list-text">如果系统运行的是ONTAP 9.8或更高版本、请使用*停止*。您必须在中使用操作步骤 <block ref="9755845ab3f2cc4f5f51d0cd1be3153b" category="inline-xref-macro-rx"></block>。</block>
+  <block id="be1c64568381eb09df4f452433b584eb" category="inline-xref-macro">使用ONTAP 9.8或更高版本映射网络端口</block>
+  <block id="1e6def9e9dd4f1f64f3de8b0a57f2778" category="paragraph">这些步骤适用于运行 ONTAP 9.7 或更早版本的系统。如果您运行的是ONTAP 9.8或更高版本、则必须在中使用操作步骤 <block ref="ccd35a957ce7354dac1b2737d83bc4f4" category="inline-xref-macro-rx"></block>。</block>
+  <block id="2fdb8263a29ca795ef82322d81fda239" category="list-text">如果系统运行的是ONTAP 9.8或更高版本、请使用*停止*。您必须在中使用操作步骤 <block ref="ccd35a957ce7354dac1b2737d83bc4f4" category="inline-xref-macro-rx"></block>。</block>
+  <block id="8b793a703e41666db1139bfcac16c982" category="inline-xref-macro">已重新分配任何管理或集群间LIF</block>
+  <block id="619d3ee4d9d03f1c8e85902faacf818d" category="admonition">如果您要将控制器原位升级到使用端口"e0a"和"e0b"作为高可用性(HA)互连端口的系统、例如FAS8300、AFF A400或FAS8700、 验证您是否已安装 <block ref="5b2064061510a35b81a212ddd1a165e7" category="inline-xref-macro-rx"></block> 在开始升级操作步骤 之前、在原始系统的端口"e0a"和"e0b"上配置。</block>
+  <block id="7389b01d5fe0e17f5523a7fb85295f91" category="inline-link-macro">此知识库文章</block>
+  <block id="2ee5a2dd85f4cccb6dbb3701b2a263ba" category="paragraph">如果控制器升级失败并报告`rlib_port_ipspace_assign`错误消息、则必须还原升级并删除原始系统上用作替代系统上HA端口的网络端口上的LIF。有关详细信息，请参见 <block ref="48beba1570dcc6cd04554aaa6118327f" category="inline-link-macro-rx"></block>。</block>
+  <block id="209c912a443f069511053cb5ed7c8175" category="paragraph">这些步骤适用于运行ONTAP 9.8或更高版本的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 <block ref="91f2c94dbfb488703dd443559499d8cb" category="inline-xref-macro-rx"></block>。</block>
+  <block id="81115b2b20b22282416f6d252f1227a9" category="summary">按照以下步骤在ONTAP 9.8或更高版本中完成升级。</block>
+  <block id="7b416fb3b0ecbf485baebef5aa26f421" category="doc">在ONTAP 9.8或更高版本中完成升级</block>
+  <block id="7a67102068269b1046a62f34688d751f" category="paragraph">按照以下步骤在ONTAP 9.8或更高版本中完成升级：</block>
+  <block id="910c99c10b2b8f326ca77c1b3e34eb83" category="list-text"><block ref="910c99c10b2b8f326ca77c1b3e34eb83" category="inline-link-macro-rx"></block></block>
+  <block id="479694184a7596b8d654b4519a939fb4" category="list-text"><block ref="479694184a7596b8d654b4519a939fb4" category="inline-link-macro-rx"></block></block>
+  <block id="6502ece9e464ee9b76872ac1891890b1" category="paragraph">这些步骤适用于运行ONTAP 9.8或更高版本的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 <block ref="02cafea91ec73e57361f0e2559069996" category="inline-xref-macro-rx"></block>。</block>
+  <block id="7893bfa78df90b820f889d3721889827" category="list-text">从ONTAP 9.8开始、如果在网络端口可访问性修复操作步骤 期间在广播域之间移动了LIF的主端口、则ONTAP 将自动修改LIF的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
+  <block id="4a78c0c542d23d6fb37a4fe36a2eadfa" category="paragraph">您已完成物理端口映射。要完成升级，请转至 <block ref="9755845ab3f2cc4f5f51d0cd1be3153b" category="inline-xref-macro-rx"></block>。</block>
+  <block id="ef29cfe4123c7b4d36dffdb01aac77fc" category="summary">在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级。</block>
+  <block id="a728e0150a3319c807decfef9fd8b00c" category="list-text"><block ref="a728e0150a3319c807decfef9fd8b00c" category="inline-xref-macro-rx"></block></block>
+  <block id="a6085d08f51c0f7b45dd12344b481637" category="list-text"><block ref="a6085d08f51c0f7b45dd12344b481637" category="inline-xref-macro-rx"></block></block>
+  <block id="ee4259e7fa1dc73036cc58b6216ac26d" category="list-text">[[assign_lifs]]某些系统、例如FAS8300、AFF A400或FAS8700系统、 使用端口"e0a"和"e0b"作为高可用性(HA)互连端口。如果要从FAS8200或AFF A300等系统升级到使用端口e0a和e0b作为HA互连端口的系统、 您必须将在原始系统上的这些端口上配置的管理和集群间LIF重新分配给替代系统上的备用端口。</block>
+  <block id="bb90459e9b4aa7c112f4569c2ec19b97" category="admonition">当端口"e0a"和"e0b"在更换系统上用作HA互连端口时、在这些端口上配置的任何管理或集群间LIF可能会导致升级失败、因为它会阻止HA配置使用端口"e0a"和"e0b"启动到更换系统。</block>
+  <block id="6e739de8c1925a6779ee076df8d4a525" category="list-text">验证更换用的系统是否使用端口"e0a"和"e0b"作为HA端口：<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block></block>
+  <block id="894aba2fe8eca246912b5f6b167c23c7" category="list-text">如果需要、请确定在原始系统的端口e0a和e0b上配置的管理或集群间LIF：</block>
+  <block id="2852e76cc043363d809f6bf5b5528cc8" category="paragraph">`network interface show -home-port _port_name_`</block>
+  <block id="d76cdfb6e1e829cf1a8b29cf0365bb25" category="list-text">如果需要、请仅将受影响的管理或集群间LIF重新分配给替代系统上未用作HA端口的网络端口：</block>
+  <block id="868d1b2090ba0cdd2fdfac75d3678175" category="paragraph">`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-port _new_port_name_`</block>
+  <block id="8764c983c6cbb2a9680fb3a948850423" category="paragraph">`network interface revert -vserver _vserver_name_-lif _LIF_name_`</block>
+  <block id="e413e03d3c6a379c74dbb9834ed46b76" category="paragraph">在以下示例中、网络端口"e0a"和"e0b"上的管理和集群间LIF将重新分配给网络端口"e1a"和"e1b"。您的节点可能使用不同的网络端口、因为它们因系统而异。</block>
+  <block id="82d8cfa6b0eabc1385f0c7a740d05580" category="image-alt">将LIF重新分配给更换系统上的网络端口</block>
+  <block id="2052b0cdd036221aef35041d554abfe3" category="example-title">展开控制台输出示例</block>
+  <block id="9bcbfad54c93824c94a6b85331bed53e" category="list-text">从ONTAP 9.6开始、此 操作步骤 适用场景 系统运行的是4节点MetroCluster 配置或更高版本。由于 MetroCluster 配置站点可能位于两个物理位置不同的位置，因此对于 HA 对，必须在每个 MetroCluster 站点上单独执行控制器自动升级。</block>
+  <block id="17c47d164b7fe13ac454c776902ff45f" category="list-text">从ONTAP 9.8开始、如果在网络端口可访问性修复操作步骤 期间在广播域之间移动了LIF的主端口、则ONTAP 将自动修改LIF的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
+  <block id="b4e995bdd78b40e4a973dab2bcf9ed16" category="list-text">从ONTAP 9.8开始、如果在网络端口可访问性修复操作步骤 期间在广播域之间移动了LIF的主端口、则ONTAP 将自动修改LIF的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
+  <block id="9fba1587cf9ecb10691d38652754afe6" category="list-text">如果在配置中使用了NetApp存储加密(NSE)、并且您将`setenv bootarg.storageencryption.support`命令设置为`true` with the `kmip.init.maxwait` variable `off`(in _Boot node2 with the AFF A900 or the FAS9500controller and NVRAM modules_、 <block ref="78c38799df1e07e5f585fe434be2c744" category="inline-link-macro-rx"></block>），必须重置变量：</block>
+  <block id="e532a21bf2c2e3d3ecd97106f9267054" category="list-text">`sA900_boot_node1]]如果此配置正在使用NetApp存储加密(NSE)、则必须将` etenv bootarg.storageencryption.support `命令设置为`true`、并且必须将`kmip.init.maxwait`变量设置为` off、以避免在加载node1配置后出现启动环路：</block>
+  <block id="b20fa92767a639ebf6c7b69aac21e88f" category="list-text">将节点启动至启动菜单：</block>
+  <block id="50a538d5879b1b2e51ce2921f4a4ee75" category="list-text">输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700 node1磁盘重新分配给AFF A900 node1。</block>
+  <block id="c1ff3d9c3e793a92f67d6a17048a954d" category="paragraph">经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。</block>
+  <block id="01b22e2b8dff1191395f34f0d45cdd7e" category="paragraph">这些提示可能会被埋在控制台消息中。如果未输入节点名称或输入的名称不正确、系统将提示您重新输入此名称。</block>
+  <block id="bca73eff7b855bcc19e7f22f49e2b8a3" category="paragraph">如果` localhost：disk.encryptNoSupport：aler]：检测到FIPS认证的加密驱动器`和、或`、则执行以下步骤：localhost：diskown.errorDuringIO：error]：disk` error 3 (disk failed) on disk error occur、则执行以下步骤：</block>
+  <block id="36c8627224211217ec34fd42fe9d5435" category="list-text">在LOADER提示符处暂停节点。</block>
+  <block id="4881f451a26b5944c6775b5342df3dbd" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="370a03845d272602c838e3924a658003" category="inline-xref-macro-rx"></block>。</block>
+  <block id="6e44d165d43069030cd99e370aeb5107" category="list-text">在LOADER提示符处、启动：</block>
+  <block id="5dd3fadb015da65e82238831e11341c9" category="paragraph">您可以使用以下示例作为参考：</block>
+  <block id="45fbb19b9a72a9e5e763d0da5d76ebf4" category="list-text">`sA900_boot_node2]]如果此配置正在使用NetApp存储加密(NSE)、则必须将` etenv bootarg.storageencryption.support `命令设置为`true`、并且必须将`kmip.init.maxwait`变量设置为` off、以避免在加载node2配置后出现启动环路：</block>
+  <block id="b76a3b855e625194513f3473a25582fd" category="list-text">输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700节点2磁盘重新分配给AFF A900节点2。</block>
+  <block id="3dbb60dab5c1891455791640814da2b9" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="025202ee75dff38076e126e76d5042ed" category="inline-xref-macro-rx"></block>。</block>
 </blocks>

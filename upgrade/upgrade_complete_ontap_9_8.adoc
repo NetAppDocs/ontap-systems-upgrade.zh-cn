@@ -2,17 +2,17 @@
 permalink: upgrade/upgrade-complete-ontap-9-8.html 
 sidebar: sidebar 
 keywords: complete, upgrade, ontap, complete the upgrade in ontap 9.8 
-summary: 按照以下步骤在 ONTAP 9.8 中完成升级。 
+summary: 按照以下步骤在ONTAP 9.8或更高版本中完成升级。 
 ---
-= 在 ONTAP 9.8 中完成升级
+= 在ONTAP 9.8或更高版本中完成升级
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-按照以下步骤在 ONTAP 9.8 中完成升级：
+按照以下步骤在ONTAP 9.8或更高版本中完成升级：
 
-* link:upgrade-map-network-ports-ontap-9-8.html["使用 ONTAP 9.8 映射网络端口"]
-* link:upgrade-final-upgrade-steps-in-ontap-9-8.html["在 ONTAP 9.8 中执行最终升级步骤"]
+* link:upgrade-map-network-ports-ontap-9-8.html["使用ONTAP 9.8或更高版本映射网络端口"]
+* link:upgrade-final-upgrade-steps-in-ontap-9-8.html["在ONTAP 9.8或更高版本中执行最终升级步骤"]
 

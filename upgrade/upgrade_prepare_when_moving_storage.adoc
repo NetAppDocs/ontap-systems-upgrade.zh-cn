@@ -99,6 +99,34 @@ IPspace 信息
 
 |===
 . 获取有关要升级到的每个新节点的默认集群端口，数据端口和节点管理端口的信息： https://hwu.netapp.com["NetApp Hardware Universe"^]
+. [[assign_lifs]]某些系统、例如FAS8300、AFF A400或FAS8700系统、 使用端口"e0a"和"e0b"作为高可用性(HA)互连端口。如果要从FAS8200或AFF A300等系统升级到使用端口e0a和e0b作为HA互连端口的系统、 您必须将在原始系统上的这些端口上配置的管理和集群间LIF重新分配给替代系统上的备用端口。
++
+
+WARNING: 当端口"e0a"和"e0b"在更换系统上用作HA互连端口时、在这些端口上配置的任何管理或集群间LIF可能会导致升级失败、因为它会阻止HA配置使用端口"e0a"和"e0b"启动到更换系统。
+
++
+--
+.. 验证更换用的系统是否使用端口"e0a"和"e0b"作为HA端口： https://hwu.netapp.com["NetApp Hardware Universe"^]
+.. 如果需要、请确定在原始系统的端口e0a和e0b上配置的管理或集群间LIF：
++
+`network interface show -home-port _port_name_`
+
+.. 如果需要、请仅将受影响的管理或集群间LIF重新分配给替代系统上未用作HA端口的网络端口：
++
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-port _new_port_name_`
+
++
+`network interface revert -vserver _vserver_name_-lif _LIF_name_`
+
++
+在以下示例中、网络端口"e0a"和"e0b"上的管理和集群间LIF将重新分配给网络端口"e1a"和"e1b"。您的节点可能使用不同的网络端口、因为它们因系统而异。
+
++
+image::../upgrade/media/reassign_lifs.PNG[将LIF重新分配给更换系统上的网络端口]
+
+
+
+--
 . 【预备 _move_store_5]] 下载并准备用于执行网络启动的文件。
 +
 安装新节点后，您可能需要通过网络启动来确保新节点运行的 ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。

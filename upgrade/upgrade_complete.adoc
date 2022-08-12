@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-complete.html 
 sidebar: sidebar 
 keywords: complete, upgrade, ontap, complete the upgrade 
-summary: 在 ONTAP 9.8 ， ONTAP 9.7 或更早版本中完成升级。 
+summary: 在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级。 
 ---
 = 完成升级
 :allow-uri-read: 
@@ -11,12 +11,12 @@ summary: 在 ONTAP 9.8 ， ONTAP 9.7 或更早版本中完成升级。
 
 
 [role="lead"]
-在 ONTAP 9.8 ， ONTAP 9.7 或更早版本中完成升级。
+在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级。
 
 您必须对您的 ONTAP 版本使用操作步骤。
 
 image::../upgrade/media/workflow_completing_upgrade_98_or_97x.png[完成升级]
 
-* 要在 ONTAP 9.8 中完成升级，请转至 xref:upgrade-complete-ontap-9-8.adoc[在 ONTAP 9.8 中完成升级]。
-* 要在 ONTAP 9.7 或更早版本中完成升级，请转至 xref:upgrade-complete-ontap-9-7-or-earlier.adoc[在 ONTAP 9.7 或更早版本中完成升级]。
+* xref:upgrade-complete-ontap-9-8.adoc[在ONTAP 9.8或更高版本中完成升级]
+* xref:upgrade-complete-ontap-9-7-or-earlier.adoc[在 ONTAP 9.7 或更早版本中完成升级]
 
