@@ -47,7 +47,7 @@ node4          node3          true     Connected to node3
 | 双节点集群 | 在任一节点上输入以下命令以启用集群高可用性： `cluster ha modify -configured true` 
 
 
-| 包含两个以上节点的集群 | 转至 <<man_ensure_setup_Step4,第 4 步>>。 
+| 包含两个以上节点的集群 | 转至 ,第 4 步。 
 |===
 . 【 man_ense_setup_Step4]] 输入以下命令并检查输出，以验证 node3 和 node4 是否属于同一集群：
 +

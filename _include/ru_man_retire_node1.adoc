@@ -82,10 +82,10 @@ node2                 true    true
 | 如果集群 ... | 那么 ... 
 
 
-| 双节点集群 | 转至 <<man_retire_1_step6,第 6 步>>。 
+| 双节点集群 | 转至 ,第 6 步。 
 
 
-| 包含两个以上节点的集群 | 转至 <<man_retire_1_step8,第 8 步>>。 
+| 包含两个以上节点的集群 | 转至 ,第 8 步。 
 |===
 . 【 man_REALET_1_step6]] 访问任一节点上的高级权限级别：
 +
@@ -104,7 +104,7 @@ node2                 true    true
 High Availability Configured: false
 ----
 +
-如果尚未禁用集群 HA ，请重复此操作 <<man_retire_1_step2,第 2 步>>。
+如果尚未禁用集群 HA ，请重复此操作 ,第 2 步。
 
 . 【 ｛ man_REALET_1_step8]] 检查 node1 当前是否持有 epsilon ：
 +

@@ -20,7 +20,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 物理端口布局可能因节点型号而异。当新节点启动时， ONTAP 将尝试确定应托管集群 LIF 的端口，以便自动达到仲裁。
 
-如果 node1 上的物理端口未直接映射到 node3 上的物理端口，请执行下一节 <<Restore network configuration on node3>> 必须用于修复网络连接。
+如果 node1 上的物理端口未直接映射到 node3 上的物理端口，请执行下一节  network configuration on node3 必须用于修复网络连接。
 
 安装并启动 node3 后，您必须验证是否已正确安装它。您必须等待 node3 加入仲裁，然后恢复重新定位操作。
 
@@ -315,7 +315,7 @@ Cluster::*> displaced-vlans restore -node node1_node3 -port e0e -destination-por
 `网络端口可访问性显示`
 
 +
-如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 <<auto_verify_3_step4,第 4 步>>。
+如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 ,第 4 步。
 
 . 验证所有端口是否均已置于广播域中：
 +

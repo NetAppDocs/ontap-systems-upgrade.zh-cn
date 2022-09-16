@@ -206,8 +206,8 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 
 
 
-. 【 man_map_1_step6]] 调整集群间广播域，并根据需要使用中所示的相同命令迁移集群间 LIF <<man_map_1_step5,第 5 步>>。
-. 【第 7 步】调整任何其他广播域，并在必要时使用中所示的相同命令迁移数据 LIF <<man_map_1_step5,第 5 步>>。
+. 【 man_map_1_step6]] 调整集群间广播域，并根据需要使用中所示的相同命令迁移集群间 LIF ,第 5 步。
+. 【第 7 步】调整任何其他广播域，并在必要时使用中所示的相同命令迁移数据 LIF ,第 5 步。
 . 【第 8 步】如果 node1 上有任何端口不再位于 node3 上，请按照以下步骤将其删除：
 +
 .. 访问任一节点上的高级权限级别：

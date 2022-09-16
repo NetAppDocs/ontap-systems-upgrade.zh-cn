@@ -64,7 +64,7 @@ summary: 对运行 ONTAP 9.8 或更高版本的控制器在手动 ARL 升级期�
 +
 要确定未正确重新定位的聚合，请参阅在一节中获取的主所有者为 node1 的聚合列表 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并将其与上述命令的输出进行比较。
 
-. 【第 2 步】比较的输出 <<man_aggr_fail_step1,第 1 步>> 以及您在部分中为 node1 捕获的输出 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并记下未正确重新定位的所有聚合。
+. 【第 2 步】比较的输出 ,第 1 步 以及您在部分中为 node1 捕获的输出 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并记下未正确重新定位的所有聚合。
 . 【 man_aggr_fail_Step3]] 重新定位 node4 上遗留的聚合：
 +
 `s存储聚合重新定位start -node _node4_-aggr _aggr_node_1_-destination _node3_`
@@ -80,6 +80,6 @@ summary: 对运行 ONTAP 9.8 或更高版本的控制器在手动 ARL 升级期�
 `_aggr1、aggr2、aggr3..._`是将node1作为原始主所有者的聚合列表。
 
 +
-如果聚合的主所有者不是 node3 ，则可以在中使用相同的重新定位命令将其重新定位到 node3 <<man_aggr_fail_Step3,第 3 步>>。
+如果聚合的主所有者不是 node3 ，则可以在中使用相同的重新定位命令将其重新定位到 node3 ,第 3 步。
 
 

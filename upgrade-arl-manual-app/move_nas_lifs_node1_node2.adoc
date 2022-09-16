@@ -50,7 +50,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 +
 `network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node2_–destination-port _netport_ifgrp_`
 
-.. 在中修改 LIF 和 VLAN 的主端口和主节点 <<substepa,子步骤 A>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
+.. 在中修改 LIF 和 VLAN 的主端口和主节点 ,子步骤 A 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
 `network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node2_- home-port _netport_ifgrp_`
 
@@ -63,7 +63,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 | 如果集群配置为 ... | 那么 ... 
 
 
-| NAS | 完成 <<man_lif_1_2_step5,第 5 步>> 到 <<man_lif_1_2_step8,第 8 步>>。 
+| NAS | 完成 ,第 5 步 到 ,第 8 步。 
 
 
 | SAN | 禁用节点上的所有SAN LIF以将其关闭以进行升级：`network interface modify -vserver _vserver-name_-lif _LIF_name_-home-node _node_to_upgrade_-home-port _netport_ifgrp_-status-admin down` 
@@ -80,7 +80,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 +
 `network interface modify -vserver _vserver-name_-lif _LIF_name_-home-node _node2_-home-port _port_name_`
 
-. 【 man_lif_1_2_step8]] 验证 LIF 是否正在使用此端口作为其主端口或当前端口。如果端口不是主端口或当前端口，请转到 <<man_lif_1_2_step9,第 9 步>>：
+. 【 man_lif_1_2_step8]] 验证 LIF 是否正在使用此端口作为其主端口或当前端口。如果端口不是主端口或当前端口，请转到 ,第 9 步：
 +
 `network interface show -home-node _node2_-home-port _port_name_`
 

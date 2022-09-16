@@ -10,7 +10,7 @@
 
 您必须具有在部分中保存的 node2 中的 FC 端口设置值 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。
 
-如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置 <<Check and configure UTA/UTA2 ports on node4>>。
+如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置  and configure UTA/UTA2 ports on node4。
 
 * 重要说明 * ：如果系统具有存储磁盘，则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。
 

@@ -130,12 +130,12 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 | 如果您的系统 ... | Description 
 
 
-| 具有磁盘，无后端存储 | 转至 <<auto_install3_step23,第 23 步>> 
+| 具有磁盘，无后端存储 | 转至 ,第 23 步 
 
 
 | 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 
 .. 转至第节 link:set_fc_or_uta_uta2_config_on_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"] 并完成本节中的各小节。
-.. 返回到此部分，完成从开始的其余步骤 <<auto_install3_step23,第 23 步>>。
+.. 返回到此部分，完成从开始的其余步骤 ,第 23 步。
 
 
 * 重要信息 * ：在使用 FlexArray 虚拟化软件的 V 系列或系统上启动 ONTAP 之前，必须重新配置 FC 板载端口， CNA 板载端口和 CNA 卡。

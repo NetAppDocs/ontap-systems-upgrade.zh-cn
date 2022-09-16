@@ -87,10 +87,10 @@ Adapter  Mode     Type        Mode      Type       Status
 | 如果 UTA/UTA2 端口 ... | 然后选择… 
 
 
-| 没有所需的个性化设置 | 转至 <<auto_check3_step5,第 5 步>>。 
+| 没有所需的个性化设置 | 转至 ,第 5 步。 
 
 
-| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 <<auto_check3_step13,第 13 步>>。 
+| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 ,第 13 步。 
 |===
 . 【 auto_check3_step5]] 执行以下操作之一：
 +
@@ -99,10 +99,10 @@ Adapter  Mode     Type        Mode      Type       Status
 | 如果要配置 | 然后选择… 
 
 
-| UTA/UTA2 卡上的端口 | 转至 <<auto_check3_step7,第 7 步>> 
+| UTA/UTA2 卡上的端口 | 转至 ,第 7 步 
 
 
-| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 <<auto_check3_step8,第 8 步>>。 
+| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 ,第 8 步。 
 |===
 . 【第 6 步】如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
 +

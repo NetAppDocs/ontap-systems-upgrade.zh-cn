@@ -95,7 +95,7 @@ Selection (1-11)?
 ====
 . 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`
 +
-`path_to_the_web-accessible_directory` 应指向下载 `ontap_version_image.tgz` 的位置 <<netboot_node2_step2,第 2 步>>。
+`path_to_the_web-accessible_directory` 应指向下载 `ontap_version_image.tgz` 的位置 ,第 2 步。
 
 . 完成以下子步骤以重新启动控制器模块：
 +

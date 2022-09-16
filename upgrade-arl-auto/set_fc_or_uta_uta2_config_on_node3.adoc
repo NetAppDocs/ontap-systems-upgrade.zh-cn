@@ -16,7 +16,7 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.5 �
 [role="lead"]
 如果 node3 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。
 
-您可能需要完成此部分 <<Configure FC ports on node3>>，部分 <<Check and configure UTA/UTA2 ports on node3>>或这两个部分。
+您可能需要完成此部分  FC ports on node3，部分  and configure UTA/UTA2 ports on node3或这两个部分。
 
 
 NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配器（ CNA ）适配器和端口。但是，命令行界面使用术语 CNA 。
@@ -26,8 +26,8 @@ NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配�
 
 
 .选项
-* <<Configure FC ports on node3>>
-* <<Check and configure UTA/UTA2 ports on node3>>
+*  FC ports on node3
+*  and configure UTA/UTA2 ports on node3
 
 
 
@@ -38,7 +38,7 @@ NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配�
 
 您必须具有在部分中保存的 node1 中的 FC 端口设置值 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。
 
-如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 卡，则可以在中对其进行配置 <<Check and configure UTA/UTA2 ports on node3>>。
+如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 卡，则可以在中对其进行配置  and configure UTA/UTA2 ports on node3。
 
 * 重要信息 * ：如果您的系统具有存储磁盘，请在集群提示符处输入本节中的命令。如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并连接到存储阵列，请在维护模式下在此部分中输入命令。
 
@@ -100,15 +100,15 @@ NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配�
 
 
 | 具有存储磁盘  a| 
-** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至部分 <<Check and configure UTA/UTA2 ports on node3>>。
-** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分 <<Check and configure UTA/UTA2 ports on node3>>。然后转到部分 link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"]。
+** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至部分  and configure UTA/UTA2 ports on node3。
+** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分  and configure UTA/UTA2 ports on node3。然后转到部分 link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"]。
 
 
 
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
-** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至部分 <<Check and configure UTA/UTA2 ports on node3>>。
-** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分 <<Check and configure UTA/UTA2 ports on node3>> 并返回到恢复时的 _Install and boot node3_ 部分 link:install_boot_node3.html#step23["第 23 步"]。
+** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至部分  and configure UTA/UTA2 ports on node3。
+** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分  and configure UTA/UTA2 ports on node3 并返回到恢复时的 _Install and boot node3_ 部分 link:install_boot_node3.html#step23["第 23 步"]。
 
 
 |===
@@ -199,10 +199,10 @@ Adapter  Mode     Type        Mode      Type       Status
 | 如果 UTA/UTA2 端口 ... | 然后选择… 
 
 
-| 没有所需的个性化设置 | 转至 <<auto_check3_step5,第 5 步>>。 
+| 没有所需的个性化设置 | 转至 ,第 5 步。 
 
 
-| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 <<auto_check3_step13,第 13 步>>。 
+| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 ,第 13 步。 
 |===
 . 【 auto_check3_step5]] 执行以下操作之一：
 +
@@ -211,10 +211,10 @@ Adapter  Mode     Type        Mode      Type       Status
 | 如果要配置 | 然后选择… 
 
 
-| UTA/UTA2 卡上的端口 | 转至 <<auto_check3_step7,第 7 步>> 
+| UTA/UTA2 卡上的端口 | 转至 ,第 7 步 
 
 
-| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 <<auto_check3_step8,第 8 步>>。 
+| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 ,第 8 步。 
 |===
 . 【第 6 步】如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
 +
@@ -299,7 +299,7 @@ Adapter  Mode       Type        Mode     Type        Status
 +
 `halt`
 
-. 【第 14 步】运行 `boot_ontap menu` 将节点启动到启动菜单。如果要升级到 A800 ，请转至 <<auto_check3_step23,第 23 步>>。
+. 【第 14 步】运行 `boot_ontap menu` 将节点启动到启动菜单。如果要升级到 A800 ，请转至 ,第 23 步。
 
 
 . 在 node3 上，转到启动菜单并使用 22/7 并选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node1 将 node1 的磁盘重新分配给 node3 ，如下例所示。
@@ -384,7 +384,7 @@ Login:
 ...
 ----
 ====
-. 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <<auto_check3_step17,第 17 步>> to <<auto_check3_step22,第 22 步>> 以解决此问题。
+. 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 ,第 17 步 to ,第 22 步 以解决此问题。
 . 在自动启动期间按 `Ctrl-C` 在 `LOADER>` 提示符处停止节点。
 . 在 LOADER 提示符处，进入维护模式：
 +
@@ -411,9 +411,9 @@ Login:
 +
 [NOTE]
 ====
-如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <<auto_check3_step22,第 22 步>>。
+如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 ,第 22 步。
 
-如果要从支持外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check3_step23,第 23 步>>。
+如果要从支持外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 ,第 23 步。
 
 ====
 . 在LOADER提示符处、启动：

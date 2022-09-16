@@ -70,10 +70,10 @@ f-a    0h       cna      target     -          -        online
 | 如果 CNA 端口 ... | 那么 ... 
 
 
-| 没有所需的个性化设置 | 转至 <<man_check_4_Step5,第 5 步>>。 
+| 没有所需的个性化设置 | 转至 ,第 5 步。 
 
 
-| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 <<man_check_4_Step13,第 13 步>>。 
+| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 ,第 13 步。 
 |===
 . [[man_check_4_Step5]] 执行以下操作之一：
 +
@@ -85,7 +85,7 @@ f-a    0h       cna      target     -          -        online
 | 具有存储磁盘，并且正在运行 Data ONTAP 8.3 | 启动 node4 并进入维护模式： `boot_ontap maint` 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 转至 <<man_check_4_Step6,第 6 步>>。您应已处于维护模式。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 转至 ,第 6 步。您应已处于维护模式。 
 |===
 . [[man_check_4_Step6]] 执行以下操作之一：
 +
@@ -94,10 +94,10 @@ f-a    0h       cna      target     -          -        online
 | 如果要配置 | 那么 ... 
 
 
-| UTA/UTA2 卡上的端口 | 转至 <<man_check_4_Step7,第 7 步>>。 
+| UTA/UTA2 卡上的端口 | 转至 ,第 7 步。 
 
 
-| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 <<man_check_4_Step8,第 8 步>>。 
+| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 ,第 8 步。 
 |===
 . 【 man_check_4_Step7]] 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
 +

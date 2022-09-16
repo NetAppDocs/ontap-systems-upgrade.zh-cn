@@ -82,10 +82,10 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | 如果 node1... | 那么 ... 
 
 
-| 已配置接口组或 VLAN | 转至 <<man_lif_verify_3_step3,第 4 步>>。 
+| 已配置接口组或 VLAN | 转至 ,第 4 步。 
 
 
-| 未配置接口组或 VLAN | 跳过步骤 4 ，然后转到 <<man_lif_verify_3_step4,第 5 步>>。 
+| 未配置接口组或 VLAN | 跳过步骤 4 ，然后转到 ,第 5 步。 
 |===
 . [[man_lif_verif_3_step3]] 执行以下子步骤，将最初位于 node1 上的接口组和 VLAN 上托管的任何 NAS 数据 LIF 从 node2 迁移到 node3 ：
 +
@@ -93,7 +93,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
-.. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_3_substepa,子步骤 A>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
+.. 在中修改 LIF 的主端口和主节点 ,子步骤 A 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
 `network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-home-port _netport_ifgrp_`
 
@@ -101,7 +101,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
-.. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_3_substepc,子步骤 c>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
+.. 在中修改 LIF 的主端口和主节点 ,子步骤 c 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
 `network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-home-port _netport_ifgrp_`
 
@@ -114,7 +114,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | 如果集群配置为 ... | 那么 ... 
 
 
-| NAS | 完成 <<man_lif_verify_3_step5,第 6 步>> 和 <<man_lif_verify_3_step6,第 7 步>>，跳过步骤 8 并完成 <<man_lif_verify_3_step8,第 9 步>> 到 <<man_lif_verify_3_step11,第 12 步>>。 
+| NAS | 完成 ,第 6 步 和 ,第 7 步，跳过步骤 8 并完成 ,第 9 步 到 ,第 12 步。 
 
 
 | SAN | 禁用节点上的所有SAN LIF以将其关闭以进行升级：`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node_to_upgrade_-home-port _netport_ifgrp_-status-admin down` 

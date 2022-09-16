@@ -27,7 +27,7 @@ summary: 如果新节点已将内部磁盘或附加磁盘架连接到系统，�
 如果您对在控制器升级期间删除磁盘所有权有任何疑问，请联系 NetApp 技术支持。
 
 +
-下面列出了具有内部存储的系统： FAS2220 ， FAS2240-2 ， FAS2240-4 ， FAS2520 ， FAS2552 ， FAS2554 ， FAS2620 ， FAS2650 ， FAS2720 ， FAS2750 ， AFF A200 ， AFF A220 ， AFF A700s ， AFF A800 ， AFF A250 。
+下面列出了具有内部存储的系统：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250。
 
 +
 如果您的系统未在上面列出，请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 以检查它是否具有内部驱动器。

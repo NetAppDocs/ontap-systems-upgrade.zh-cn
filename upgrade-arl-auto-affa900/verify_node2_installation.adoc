@@ -72,7 +72,7 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 
 NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node2_ 上的网络配置。
 
-. 在控制器更换处于暂停状态的情况下，继续执行 <<Restore network configuration on node2>>。
+. 在控制器更换处于暂停状态的情况下，继续执行  network configuration on node2。
 
 
 
@@ -168,7 +168,7 @@ Warning: Repairing port "node2:e9d" may cause it to move into a different broadc
 `网络端口可访问性显示`
 
 +
-如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 <<restore_node2_step4,第 4 步>>。
+如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 ,第 4 步。
 
 . 验证所有端口是否均已置于广播域中：
 +

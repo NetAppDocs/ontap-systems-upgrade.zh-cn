@@ -113,7 +113,7 @@ node2
 | 已在中记录 NVRAM 系统 ID 编号 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] | 转至 link:retire_node2.html["停用 node2"]。 
 
 
-| 未在中记录 NVRAM 系统 ID 编号 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] | 完成 <<man_record_2_step9,第 9 步>> 和 <<man_record_2_step10,第 10 步>> 然后转到下一节， link:retire_node2.html["停用 node2"]。 
+| 未在中记录 NVRAM 系统 ID 编号 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] | 完成 ,第 9 步 和 ,第 10 步 然后转到下一节， link:retire_node2.html["停用 node2"]。 
 |===
 . 【 man_record_2_step9]] 显示 node2 的属性：
 +

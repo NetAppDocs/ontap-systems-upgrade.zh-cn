@@ -195,13 +195,13 @@ aggr4         node1        node2        online
 +
 [cols="35,65"]
 |===
-| 如果命令位于中 <<man_prepare_nodes_step9,第 9 步>>... | 那么 ... 
+| 如果命令位于中 ,第 9 步... | 那么 ... 
 
 
-| 输出为空 | 跳过步骤 11 ，然后转到 <<man_prepare_nodes_step12,第 12 步>>。 
+| 输出为空 | 跳过步骤 11 ，然后转到 ,第 12 步。 
 
 
-| 具有输出 | 转至 <<man_prepare_nodes_step11,第 11 步>>。 
+| 具有输出 | 转至 ,第 11 步。 
 |===
 . [[man_prepare_nodes_step11]] 如果 node1 或 node2 拥有其当前所有者而非主所有者的聚合，请完成以下子步骤：
 +
@@ -320,7 +320,7 @@ vs0
 
 2 entries were displayed.
 ....
-. 如果中的输出 <<man_prepare_nodes_step15,第 15 步>> 显示 node1 或 node2 拥有集群中其他节点拥有的任何数据 LIF ，请将这些数据 LIF 从 node1 或 node2 迁移出：
+. 如果中的输出 ,第 15 步 显示 node1 或 node2 拥有集群中其他节点拥有的任何数据 LIF ，请将这些数据 LIF 从 node1 或 node2 迁移出：
 +
 `network interface revert -vserver * -lif *`
 
@@ -439,10 +439,10 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 | 接口组或 VLAN | 那么 ... 
 
 
-| 在 node1 或 node2 上 | 完成 <<man_prepare_nodes_step23,第 23 步>> 和 <<man_prepare_nodes_step24,第 24 步>>。 
+| 在 node1 或 node2 上 | 完成 ,第 23 步 和 ,第 24 步。 
 
 
-| 不在 node1 或 node2 上 | 转至 <<man_prepare_nodes_step24,第 24 步>>。 
+| 不在 node1 或 node2 上 | 转至 ,第 24 步。 
 |===
 .. [[man_prepare_nodes_step23]] 如果您不知道 node1 和 node2 是在 SAN 环境还是非 SAN 环境中，请输入以下命令并检查其输出：
 +
@@ -521,10 +521,10 @@ node1         node1         in-quorum     true          operational
 | 如果集群 ... | 那么 ... 
 
 
-| 已配置 SAN | 转至 <<man_prepare_nodes_step26,第 26 步>>。 
+| 已配置 SAN | 转至 ,第 26 步。 
 
 
-| 未配置 SAN | 转至 <<man_prepare_nodes_step29,第 29 步>>。 
+| 未配置 SAN | 转至 ,第 29 步。 
 |===
 .. 【 man_prepare_nodes_step26]] 输入以下命令并检查其输出，验证 node1 和 node2 上是否存在已启用 SAN iSCSI 或 FC 服务的每个 SVM 的 SAN LIF ：
 +
@@ -678,7 +678,7 @@ node2            enable    Postmaster    -                 mailhost
 
 
 | 已启用 AutoSupport ...  a| 
-... 转至 <<man_prepare_nodes_step34,第 34 步>>。
+... 转至 ,第 34 步。
 ... 转到部分 link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]。
 
 

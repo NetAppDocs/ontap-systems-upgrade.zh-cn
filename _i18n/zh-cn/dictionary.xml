@@ -1305,7 +1305,6 @@
   <block id="5b0415c2846efde1fb66c48433f25633" category="doc">选择升级控制器硬件的方法</block>
   <block id="39b87627b0135db0ab3ea0a8e2f859bd" category="paragraph">通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过移动存储（中断操作步骤）或移动卷（无中断操作步骤）来升级。</block>
   <block id="e8617aabffae0af74d02587319a2e105" category="image-alt">升级控制器硬件的方法</block>
-  <block id="dc49ed6b9d1ec56bf48eacc8c90c1a11" category="admonition">使用内部驱动器的型号包括： FAS2220 ， FAS2240-2 ， FAS2240-4 ， FAS2520 ， FAS2552 ， FAS2554 ， FAS2620 ， FAS2650 ， FAS2720 ， FAS2750 ， AFF A200 ， AFF A220 ， AFF A700s ， AFF A800 ， AFF A250 。</block>
   <block id="e5e09031843479ef9ef8cbbd4c2f404c" category="inline-link">NetApp Hardware Universe</block>
   <block id="d33f2a600ba4fe43084a26e95e4908c0" category="paragraph">* 相关信息 *</block>
   <block id="dafbb22fd53a8bbbcd7e0e587f256606" category="inline-link-macro">通过移动存储进行升级的工作流</block>
@@ -1395,10 +1394,7 @@
   <block id="fe2b4e59713b2c74efcd804489cd6316" category="list-text">如果节点位于同一集群中，则可以通过将卷或物理存储从一个 FAS2xxx 移动到更高的 FAS2xxx 来进行升级。例如，您可以将卷或物理存储从 FAS2552 移动到 FAS2750 。</block>
   <block id="301e2a674920a7bb1b220a6ccd88ce36" category="inline-link">选择升级或刷新方法</block>
   <block id="f2c81e3dbd5898a4f589948eb2c23e36" category="paragraph">具有内部存储的系统</block>
-  <block id="da7e3567682b36e70ff65421081173d5" category="admonition">以下系统具有内部存储： FAS2220 ， FAS2240-2 ， FAS2240-4 ， FAS2520 ， FAS2552 ， FAS2554 ， FAS2620 ， FAS2650 ， FAS2720 ， FAS2750 ， AFF A200 ， AFF A220 ， AFF A700s ， AFF A800 ， AFF A250 。</block>
   <block id="2c422b7143016a62faa144bc1c6e89e1" category="list-text">如果您的系统具有内部存储，建议的升级方法是通过移动卷进行升级。</block>
-  <block id="7ed352a3d30fd06459f6bd682d94f397" category="list-text">如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。FAS2220 和 FAS2520 控制器无法转换为驱动器架。</block>
-  <block id="f4f3c3690b3eac7a8c0dd6678b738164" category="paragraph">在通过移动存储进行升级的工作流中，将 FAS2240 或 FAS255x 系统转换为驱动器架是一项可选任务。</block>
   <block id="b96d37f28c3d7d06841f391d5e809dbd" category="list-text">如果您的系统具有内部存储，或者系统中的卷或聚合位于内部 SATA 驱动器或 SSD 上，则可以通过将内部存储传输到连接到同一集群中新节点的驱动器架来进行升级。</block>
   <block id="3c62ff9b7896a5eed67cfbeb8bc9bfdf" category="paragraph">在通过移动存储进行升级的工作流中，传输内部存储是一项可选任务。</block>
   <block id="ae966ba3c2ce03e0c6c49d4dfc8f5702" category="paragraph">可能需要执行其他步骤的情况</block>
@@ -1698,7 +1694,6 @@
   <block id="9ec9f63f098d105f79f28fc374c9efa9" category="list-text">如果要升级硬件，您无需删除磁盘所有权，只需在内部驱动器平台上将旧控制器更换为新控制器，同时保留旧控制器的机箱和磁盘即可。</block>
   <block id="eece111dbeb75d75a9174395ce77bfe2" category="paragraph">例如，如果要将系统从 A200 升级到 A220 ，只需将旧的 A200 控制器模块更换为新的 A220 控制器模块，同时保持旧 A200 的机箱和磁盘就位， 您不会按照本节 " 删除连接到新节点的磁盘的所有权 " 中所述删除新 A220 控制器模块的磁盘所有权。</block>
   <block id="70cb24dc68388db99857a34f097c9997" category="paragraph">如果您对在控制器升级期间删除磁盘所有权有任何疑问，请联系 NetApp 技术支持。</block>
-  <block id="2b9741a797759c9ecbbb675ca7437fbd" category="paragraph">下面列出了具有内部存储的系统： FAS2220 ， FAS2240-2 ， FAS2240-4 ， FAS2520 ， FAS2552 ， FAS2554 ， FAS2620 ， FAS2650 ， FAS2720 ， FAS2750 ， AFF A200 ， AFF A220 ， AFF A700s ， AFF A800 ， AFF A250 。</block>
   <block id="bd6c6f37524ad70ce38bbd0fcea22fe4" category="list-text">在节点的 LOADER 提示符处，输入命令：</block>
   <block id="1d16d3ddc3b796c6db7da6cbb645757e" category="list-text">在启动菜单提示符处，输入 `9a` ，然后按 Enter 键。</block>
   <block id="8b33e54d0bef1c80ef3462386d101928" category="paragraph">以下屏幕将显示启动菜单提示符：</block>
@@ -4468,4 +4463,9 @@
   <block id="45fbb19b9a72a9e5e763d0da5d76ebf4" category="list-text">`sA900_boot_node2]]如果此配置正在使用NetApp存储加密(NSE)、则必须将` etenv bootarg.storageencryption.support `命令设置为`true`、并且必须将`kmip.init.maxwait`变量设置为` off、以避免在加载node2配置后出现启动环路：</block>
   <block id="b76a3b855e625194513f3473a25582fd" category="list-text">输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700节点2磁盘重新分配给AFF A900节点2。</block>
   <block id="3dbb60dab5c1891455791640814da2b9" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="025202ee75dff38076e126e76d5042ed" category="inline-xref-macro-rx"></block>。</block>
+  <block id="e427f9006ac0f6079ad11054809d205e" category="admonition">使用内部驱动器的型号包括：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250。</block>
+  <block id="db80f5bf265434b9ca90bc5f0cac1f17" category="admonition">以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250和AFF C190。</block>
+  <block id="e908e6e2b5df3efafd19fa616b538a72" category="list-text">如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。FAS2520控制器无法转换为驱动器架。</block>
+  <block id="e9ddbc0542fbe11aae2eccf01c4e4a89" category="paragraph">在通过移动存储进行升级的工作流中、将FAS255x系统转换为驱动器架是一项可选任务。</block>
+  <block id="aa5eafaf3f0b641d5e680da72815213b" category="paragraph">下面列出了具有内部存储的系统：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250。</block>
 </blocks>

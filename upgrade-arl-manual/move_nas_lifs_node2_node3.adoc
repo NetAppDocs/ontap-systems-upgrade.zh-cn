@@ -49,10 +49,10 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 | 如果 node2... | 那么 ... 
 
 
-| 已配置接口组或 VLAN | 转至 <<man_move_lif_2_3_step3,第 3 步>>。 
+| 已配置接口组或 VLAN | 转至 ,第 3 步。 
 
 
-| 未配置接口组或 VLAN | 跳过步骤 3 ，然后转到 <<man_move_lif_2_3_step4,第 4 步>>。 
+| 未配置接口组或 VLAN | 跳过步骤 3 ，然后转到 ,第 4 步。 
 |===
 . [[man_move_lif_2_3_step3]] 执行以下步骤以迁移节点 2 上接口组和 VLAN 上托管的 NAS 数据 LIF ：
 +
@@ -60,7 +60,7 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 +
 `network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
-.. 在中修改 LIF 的主端口和主节点 <<man_move_lif_2_3_substepa,子步骤 A>> 通过输入以下命令将 LIF 连接到当前托管 LIF 的端口和节点，每个节点输入一次：
+.. 在中修改 LIF 的主端口和主节点 ,子步骤 A 通过输入以下命令将 LIF 连接到当前托管 LIF 的端口和节点，每个节点输入一次：
 +
 `network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-homport _netport_ifgrp_`
 
@@ -68,7 +68,7 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 +
 `network interface migrate -vserver _vserver_name_-lif _LIF_name_-destination-node _node3_–destination-port _netport_ifgrp_`
 
-.. 在中修改 LIF 的主端口和主节点 <<man_move_lif_2_3_substepc,子步骤 c>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
+.. 在中修改 LIF 的主端口和主节点 ,子步骤 c 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
 `network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node3_-homport _netport_ifgrp_`
 
@@ -81,13 +81,13 @@ cluster::> network interface show -data-protocol nfs|cifs -home-node node2
 | 如果集群配置为 ... | 那么 ... 
 
 
-| NAS | 完成 <<man_move_lif_2_3_step5,第 5 步>> 到 <<man_move_lif_2_3_step8,第 8 步>>。 
+| NAS | 完成 ,第 5 步 到 ,第 8 步。 
 
 
-| SAN | 跳过步骤 5 到步骤 8 ，然后完成 <<man_move_lif_2_3_step9,第 9 步>>。 
+| SAN | 跳过步骤 5 到步骤 8 ，然后完成 ,第 9 步。 
 
 
-| NAS 和 SAN | 完成 <<man_move_lif_2_3_step5,第 5 步>> 到 <<man_move_lif_2_3_step9,第 9 步>>。 
+| NAS 和 SAN | 完成 ,第 5 步 到 ,第 9 步。 
 |===
 . [[man_move_lif_2_3_step5]] 如果平台上的数据端口不同，请将这些端口添加到广播域：
 +

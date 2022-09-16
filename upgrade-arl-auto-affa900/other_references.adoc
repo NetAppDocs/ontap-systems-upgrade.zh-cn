@@ -16,8 +16,8 @@ summary: 支持从 AFF A700 升级到 AFF A900 控制器所需的参考内容和
 [role="lead"]
 在执行此内容中的过程时，您可能需要查看参考内容或访问参考网站。
 
-* <<Reference content>>
-* <<Reference sites>>
+*  content
+*  sites
 
 
 
