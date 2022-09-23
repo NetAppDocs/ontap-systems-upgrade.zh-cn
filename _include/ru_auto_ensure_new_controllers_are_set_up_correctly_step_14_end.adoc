@@ -2,28 +2,6 @@
 :allow-uri-read: 
 
 
-. 对其中一个新节点执行以下操作：
-+
-.. 输入高级权限级别：
-+
-`set -privilege advanced`
-
-.. 输入以下命令：
-+
-`storage failover modify -node _node_name_-cifs- no-duration _default_medium_low_`
-
-+
-*** 如果系统的工作负载的 50% 到 75% 的操作小于 4 KB ，请输入 `medium` 。
-*** 如果系统的工作负载的 75% 到 100% 的操作小于或小于 4 KB ，请输入 `low` 。
-
-
-.. 返回到管理员级别：
-+
-`set -privilege admin`
-
-.. 重新启动系统以确保更改生效。
-
-
 . 如果要在新节点上设置无交换机集群，请参见 link:other_references.html["参考资料"] 要链接到 _NetApp 支持站点 _ 并按照 _switchover to a two-node switchless cluster_ 中的说明进行操作。
 
 
