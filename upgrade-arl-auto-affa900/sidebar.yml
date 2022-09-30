@@ -35,7 +35,7 @@ entries:
     url: "/upgrade-arl-auto-affa900/netboot_node1.html"
 - title: 第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1
   entries:
-  - title: 使用AFF A900控制器和NVRAM模块启动node1
+  - title: 使用AFF A900或FAS9500控制 器和NVRAM模块启动node1
     url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
   - title: 验证 node1 安装
     url: "/upgrade-arl-auto-affa900/verify_node1_installation.html"

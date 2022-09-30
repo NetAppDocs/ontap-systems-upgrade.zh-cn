@@ -21,7 +21,7 @@ summary: 使用手动 ARL 升级操作步骤 升级运行 ONTAP 9.8 或更高版
 | 方法 | ONTAP 版本 | 支持的系统 
 
 
-| 使用 ARL 手动升级 | 9.8 或更早版本  a| 
+| 使用 ARL 手动升级 | 9.8 或更高版本  a| 
 * FAS 系统到 FAS 系统
 * 将 FAS 系统连接到使用 FlexArray 虚拟化软件的系统或 V 系列系统
 * AFF 系统到 AFF 系统
