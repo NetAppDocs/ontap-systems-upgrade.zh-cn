@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-move-internal-drives.html 
 sidebar: sidebar 
 keywords: node, support, model, upgrading, upgrade, moving, move, storage, internal, sata, drive, ssd, drive, shelf, attach, cluster, transfer, sas, drive, move internal drives from an original node 
-summary: 如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。 
+summary: 如果原始节点是支持的型号之一、则在通过移动存储进行升级的过程中、您可以将节点的内部SATA驱动器、SSD或SAS驱动器移动到连接到同一集群中新节点的驱动器架。 
 ---
 = 从原始节点移动内部驱动器
 :allow-uri-read: 
@@ -11,16 +11,16 @@ summary: 如果原始节点是支持的型号之一，则在通过移动存储�
 
 
 [role="lead"]
-如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。
+如果原始节点是支持的型号之一、则在通过移动存储进行升级的过程中、您可以将节点的内部SATA驱动器、SSD或SAS驱动器移动到连接到同一集群中新节点的驱动器架。
 
 .开始之前
 * 您必须已查看 link:upgrade-considerations.html["升级控制器硬件的注意事项"] 关于移动内部驱动器。
 +
 如果您需要特定于您的配置的指导，请联系技术支持。
 
-* 原始节点中的 SATA 或 SSD 驱动器托架必须与新驱动器架兼容。
+* 原始节点中的SATA、SSD或SAS驱动器托架必须与新驱动器架兼容。
 * 新节点必须已连接兼容的驱动器架。
-* 驱动器架必须具有足够的可用托架，以容纳原始节点上的 SATA 或 SSD 驱动器托架。
+* 驱动器架必须具有足够的可用托架、以容纳原始节点上的SATA、SSD或SAS驱动器托架。
 
 
 .步骤

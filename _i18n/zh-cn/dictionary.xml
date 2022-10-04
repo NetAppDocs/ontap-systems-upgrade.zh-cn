@@ -530,15 +530,10 @@
   <block id="9dabc4c6addd92ab1be1dd1cd49038f7" category="inline-link-macro">安装并启动 node4 步骤 27</block>
   <block id="1534946b2dbb4d79955a0d451c913c4c" category="list-text">在两个节点上使用以下命令配置 SP ：</block>
   <block id="e4c074cd0d17a1426d4153413c21f2b8" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 ONTAP `s管理参考 _ 以了解 SP 的相关信息，以及 _SP 9.8 命令：手册页参考 _ 以了解有关 system` service-processor network modify 命令的详细信息。</block>
-  <block id="c3e44bb7c41d54ab04ed9048fc5b39f1" category="list-text">对其中一个新节点执行以下操作：</block>
-  <block id="102261de999f6bca12acc79b316dfb42" category="list-text">输入高级权限级别：</block>
   <block id="5fd1bcc8472b38442961eb87ca3f844a" category="paragraph">`set -privilege advanced`</block>
   <block id="6dcd1ebf4390170868ab9bcdfd967581" category="list-text">输入以下命令：</block>
-  <block id="bdaf872fbb56ca73fe6e9dd9a980aba6" category="list-text">如果系统的工作负载的 50% 到 75% 的操作小于 4 KB ，请输入 `medium` 。</block>
-  <block id="c347ef9cd4bc7e044fc3d1aa22c41ed4" category="list-text">如果系统的工作负载的 75% 到 100% 的操作小于或小于 4 KB ，请输入 `low` 。</block>
   <block id="0ac9d40efe1470ec53257470c91f7314" category="list-text">返回到管理员级别：</block>
   <block id="d260c71f1d73fe6dce24fae82cd28aca" category="paragraph">`set -privilege admin`</block>
-  <block id="0fbda10a905dbd102127a7a65daf7abd" category="list-text">重新启动系统以确保更改生效。</block>
   <block id="01e6682dee79033af96ab718c5ec6c11" category="list-text">如果要在新节点上设置无交换机集群，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _NetApp 支持站点 _ 并按照 _switchover to a two-node switchless cluster_ 中的说明进行操作。</block>
   <block id="27af4227ca8acc558df96e2723ec9b37" category="inline-link-macro">在新控制器模块上设置存储加密</block>
   <block id="a1e79be82a0d3f4b4c3568d0f3e32af4" category="paragraph">如果在 node3 和 node4 上启用了存储加密，请完成此部分 <block ref="18c90c300c0b71334b8b427eaf4f38a3" category="inline-link-macro-rx"></block>。否则，请完成部分 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
@@ -1349,21 +1344,15 @@
   <block id="c127e808b121ddcc589e1612e8629e3d" category="list-text">验证卷是否已成功移至指定的 SVM 并位于正确的聚合中：</block>
   <block id="9366aa36db246276006f86c846f493d4" category="paragraph">`volume show -vserver svm_name`</block>
   <block id="88b8cfb0eb0372af5622adb072f8536f" category="inline-link-macro">使用 ONTAP 9.8 映射网络端口</block>
-  <block id="1c83ee60998c00cf537e241e2bd00614" category="summary">如果原始节点是支持的型号之一，则可以在通过移动存储进行升级期间将其内部 SATA 驱动器或 SSD 移动到连接到新节点的驱动器架。您还可以将系统转换为驱动器架并将其连接到新节点。</block>
   <block id="0f25f34bbc6624def56436f34d66a8ca" category="doc">可选：移动内部存储或将系统转换为驱动器架</block>
   <block id="dd49867a2bdd430ef0f1501edf2afc71" category="paragraph">您只能在同一集群中移动驱动器或驱动器架。</block>
   <block id="5445f44c8361f04d7db7417496478290" category="inline-link-macro">从原始节点移动内部驱动器</block>
   <block id="8aeeee2821310e6e14e76fc1d344c892" category="list-text"><block ref="8aeeee2821310e6e14e76fc1d344c892" category="inline-link-macro-rx"></block></block>
-  <block id="f7ccfa056b989c8b002a462176655b42" category="paragraph">如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。</block>
   <block id="32bdc1101e093c57bf74fbd9789794c2" category="inline-link-macro">将原始节点转换为驱动器架</block>
   <block id="f27c828441c4bcde6d66323e36803847" category="list-text"><block ref="f27c828441c4bcde6d66323e36803847" category="inline-link-macro-rx"></block></block>
   <block id="3fae42f30ee83a6721eb3d8ce8dc8e9e" category="paragraph">如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点转换为驱动器架，然后将其连接到同一集群中的新节点。</block>
-  <block id="f78094c2959388f67bc989ba1cae66f1" category="summary">如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。</block>
-  <block id="2bfab688f89dc9f9721b34f9cf812b87" category="paragraph">如果原始节点是支持的型号之一，则在通过移动存储进行升级的过程中，您可以将节点的内部 SATA 驱动器或 SSD 移动到连接到同一集群中新节点的驱动器架。您不能将 SAS 驱动器传输到连接到新节点的驱动器架。</block>
   <block id="afe97a2560f5930aa2a5c5663fce5add" category="inline-link-macro">升级控制器硬件的注意事项</block>
-  <block id="48b8c1b9a7f4340b2c4a53567867ba1c" category="list-text">原始节点中的 SATA 或 SSD 驱动器托架必须与新驱动器架兼容。</block>
   <block id="84dc193ac12ec0c17e52a119451eb5ee" category="list-text">新节点必须已连接兼容的驱动器架。</block>
-  <block id="5936d4e5bf9684df84f3298fd69c5ff7" category="list-text">驱动器架必须具有足够的可用托架，以容纳原始节点上的 SATA 或 SSD 驱动器托架。</block>
   <block id="14118424a52e5faf27de83ea1ae0b462" category="list-text">从系统正面轻轻卸下挡板。</block>
   <block id="1009ece53b201ef044edbb499bcabdd6" category="list-text">[[move_int_drive_2]] 按驱动器托架左侧的释放按钮。</block>
   <block id="addb5ded0310559ea0a26d75615eeff4" category="paragraph">托架上的凸轮把手部分弹开，托架从中板上松开。</block>
@@ -2796,9 +2785,6 @@
   <block id="7092e15f19aa79a4b642157f15a4bcf6" category="inline-link-macro">第 30 步</block>
   <block id="65816664fef74fe3f15406730c518f76" category="list-text">通过在两个节点上执行以下命令来配置 SP ：</block>
   <block id="3d39e72120bdfa8b32eb4183896ece25" category="paragraph">转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到系统管理参考 _ 以了解 SP 的相关信息，以及 _System 9 ONTAP 命令：手册页参考 _ 以了解有关 `ssystem service-processor network modify` 命令的详细信息。</block>
-  <block id="8bd516232448307a629aa2ad8fe64430" category="list-text">输入以下命令，输入高级权限级别：</block>
-  <block id="ee16bb116206ed27e74abc4888edf806" category="list-text">如果系统的工作负载的 50% 到 75% 的操作小于 4 KB ，请输入 `medium` 。</block>
-  <block id="93b838bedea5b323f56d1fb4aec030fe" category="list-text">如果系统的工作负载的 75% 到 100% 的操作小于 4 KB ，请输入 `low` 。</block>
   <block id="52eb8cb5708af7396828abc72517413d" category="list-text">如果要在新节点上设置无交换机集群，请转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Network 支持站点 _ 并按照 _switchover to a two-node switchless cluster_ 中的说明进行操作。</block>
   <block id="a98b8d21a1cabe96a7d765976c724ace" category="paragraph">如果在 node3 和 node4 上启用了存储加密，请完成中的步骤 <block ref="94c0a6a874300fcf012d00a23a1b673f" category="inline-link-macro-rx"></block>。否则，请完成中的步骤 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
   <block id="7a7a97b0a4426efc4fdcea55664d34bf" category="summary">在阶段 4 中，您会记录 node2 信息，然后停用 node2 。</block>
@@ -3408,7 +3394,6 @@
   <block id="90b3509f7da0bd37fd6636cace1d2404" category="paragraph">要确认设置正确，必须启用 HA 对。此外，还必须验证 node3 和 node4 是否可以访问彼此的存储，并且它们都不拥有属于集群上其他节点的数据 LIF 。此外，您还必须确认 node3 拥有 node1 的聚合， node4 拥有 node2 的聚合，并且两个节点的卷均联机。</block>
   <block id="4883a9a9fced202f6b61720c6c0446a2" category="list-text">输入以下命令并检查其输出，以验证是否已正确安装许可证：</block>
   <block id="d9128463a6e9a9f5e58f74dfe42dba7b" category="paragraph">您可以将输出与中捕获的输出进行比较 <block ref="aa31de159a7a7903f22336e05c00b63e" category="inline-link-macro-rx"></block> 的 _ 准备节点以进行升级 _ 。</block>
-  <block id="3adabad83ef7117848b8695e18369de7" category="list-text">重新启动系统以确认更改生效。</block>
   <block id="6e8734f19d50032240b4c921c28e1359" category="admonition">NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配器（ CNA ）适配器和端口。但是，命令行界面使用术语 CNA 。</block>
   <block id="d7907cb3489253518aab7ff40ebf0def" category="paragraph">要停用 node2 ，您必须正确关闭 node2 并将其从机架或机箱中卸下。如果集群位于 SAN 环境中，则还必须删除 SAN LIF 。</block>
   <block id="ef5ec2a32c562be2385847f4327ea89b" category="paragraph">UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。</block>
@@ -3575,7 +3560,6 @@
   <block id="afe5b70a93730d0b136c0f9de3376f9e" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，记录有关 node2 集群网络，管理， FC 端口和 NVRAM 系统 ID 的信息。</block>
   <block id="ad7dc11f39fb32e1f4ba6e7e9644fdd2" category="summary">使用手动 ARL 升级操作步骤 升级运行 ONTAP 9.8 或更高版本的控制器硬件，重新定位非根聚合的所有权。</block>
   <block id="a18ad921f7c87b8c08b808c84ff5bfe6" category="cell">使用 ARL 手动升级</block>
-  <block id="e2a7cf2eab50dd41c99197aeb0c7dba3" category="cell">9.8 或更早版本</block>
   <block id="1124fb2cf4d1e4ab29aa545667f1d946" category="list-text">FAS 系统到 FAS 系统</block>
   <block id="e083e9919602f31d35ef93e48f70d9cd" category="list-text">将 FAS 系统连接到使用 FlexArray 虚拟化软件的系统或 V 系列系统</block>
   <block id="0c3fa4233df158763903bac5cebd18a9" category="list-text">AFF 系统到 AFF 系统</block>
@@ -4023,7 +4007,6 @@
   <block id="ba5bb93bf3745b7b90abb302dc84dab9" category="sidebar">使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500</block>
   <block id="cec0ad56d161fd372b8f511ac2258e91" category="sidebar">第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1</block>
   <block id="3e7ed5dc4e5c354a7d48cc37baefc4ad" category="sidebar">第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</block>
-  <block id="f8963d11fe6453d2060dd15fbe008dd0" category="sidebar">使用AFF A900控制器和NVRAM模块启动node1</block>
   <block id="1ed45ea6838f5dd96a4433ce598c8050" category="sidebar">第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
   <block id="6c86470db96f676f214aa83001c5a57f" category="sidebar">在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
   <block id="ae89e936215d96a55c04a947db881581" category="sidebar">第 6 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
@@ -4184,7 +4167,6 @@
   <block id="f8bb98c031da24e788f5f02332ac5bb8" category="paragraph">`ssystem license clean-up -unused -expired``ssystem license delete -serial number _node_serial number_-package _licensable_package_`</block>
   <block id="e4c31b5f2905d746c57c1b1f1e038eac" category="paragraph">`ssystem license delete -serial -number _node1_serial _number_-package *``ssystem license delete -serial -number _node2_serial _number_-package *`</block>
   <block id="bb445430e4b0638bdd79f943cd99a597" category="paragraph">`ssystem service-processor network modify -node _node_name_`</block>
-  <block id="55042a11401b6f78df5bb2c76e00d80a" category="paragraph">`s存储故障转移修改-node _node-name_-cifs-no-duration defaults_medium_low`</block>
   <block id="676d4cfadd30ded5fabdceb082fde10a" category="paragraph">`network interface show -curr-node _node1_-role cluster、intercluster、node-mgmt、cluster-mgmt`</block>
   <block id="bbbfa87c5efa2321ddc7c2656baf791f" category="paragraph">`network port show -node _node1_-type physical`</block>
   <block id="842f84c9ecff4442b192c3b8a383847f" category="paragraph">`network fcp adapter show -node _node1_`</block>
@@ -4270,7 +4252,6 @@
   <block id="786cfe1c4db21c6a96fc7abf3a002267" category="paragraph">`s存储聚合重新定位start -node _node1_-destination _node2_-aggregate-list _aggr_name_-no-controller-upgrade true`</block>
   <block id="07d2b82cff600a145725916fee544709" category="cell">使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true`</block>
   <block id="eb3cf479c5f4d8026ff2061e0c748373" category="cell">使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true -override-destination-checks true`</block>
-  <block id="76171f8eb9bf6bbe52c1453ffa4a156f" category="paragraph">`storage failover modify -node _node_name_-cifs- no-duration _default_medium_low_`</block>
   <block id="b23b4170fdfdcbdd9354becf14343de7" category="paragraph">`ucadmin modify -m fc -t initiator -f _adapter name_`</block>
   <block id="fe1416becf68ed78aa702542213dd3b3" category="paragraph">如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block>。</block>
   <block id="9395831ce33669d17052a27e98938d9c" category="paragraph">如果要从支持外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <block ref="8de8415e5ddf050c51dc9df1ad54385b" category="inline-xref-macro-rx"></block>。</block>
@@ -4468,4 +4449,9 @@
   <block id="e908e6e2b5df3efafd19fa616b538a72" category="list-text">如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。FAS2520控制器无法转换为驱动器架。</block>
   <block id="e9ddbc0542fbe11aae2eccf01c4e4a89" category="paragraph">在通过移动存储进行升级的工作流中、将FAS255x系统转换为驱动器架是一项可选任务。</block>
   <block id="aa5eafaf3f0b641d5e680da72815213b" category="paragraph">下面列出了具有内部存储的系统：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250。</block>
+  <block id="4e54dc85c62992992a1dbefa82b638aa" category="summary">如果原始节点是支持的型号之一、则在通过移动存储进行升级的过程中、您可以将节点的内部SATA驱动器、SSD或SAS驱动器移动到连接到同一集群中新节点的驱动器架。</block>
+  <block id="fb4b0cb9efc21f6a0b33d6eb082f6db1" category="list-text">原始节点中的SATA、SSD或SAS驱动器托架必须与新驱动器架兼容。</block>
+  <block id="3b95007d4159237fc8935f46a265e025" category="list-text">驱动器架必须具有足够的可用托架、以容纳原始节点上的SATA、SSD或SAS驱动器托架。</block>
+  <block id="1b8d5202659e9a9176d67fd289952994" category="summary">如果原始节点是支持的型号之一、则可以在通过移动存储进行升级期间将其内部SATA驱动器、SSD或SAS驱动器移动到连接到新节点的驱动器架。您还可以将系统转换为驱动器架并将其连接到新节点。</block>
+  <block id="f9327226ba1739cf1ffb9d6b89ba96b7" category="paragraph">如果原始节点是支持的型号之一、则在通过移动存储进行升级的过程中、您可以将节点的内部SATA驱动器、SSD或SAS驱动器移动到连接到同一集群中新节点的驱动器架。</block>
 </blocks>
