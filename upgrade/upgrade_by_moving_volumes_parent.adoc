@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: upgrade by moving volumes 
 summary: 如果要通过移动卷进行升级，请准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。 
 ---
-= 通过移动卷升级控制器硬件
+= 工作流
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-如果要通过移动卷进行升级，请准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。
+如果要通过移动卷来升级控制器硬件、则需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。
 
 image::../upgrade/media/workflow_for_upgrading_by_moving_volumes.gif[通过移动卷升级控制器硬件的工作流]
 

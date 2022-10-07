@@ -4,7 +4,7 @@ permalink: upgrade-arl/index.html
 keywords: aggregate, relocation, moving, manual, upgrade, relocate, hardware 
 summary: 使用聚合重新定位升级控制器硬件 
 ---
-= 使用聚合重新定位升级控制器硬件
+= 概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

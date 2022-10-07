@@ -26,7 +26,7 @@ entries:
     url: "/upgrade/upgrade-set-up-new-nodes.html"
   - title: 可选—移动内部存储或转换为驱动器架
     entries:
-    - title: 选项
+    - title: 概述
       url: "/upgrade/upgrade-optional-move-internal-storage.html"
     - title: 移动内部驱动器
       url: "/upgrade/upgrade-move-internal-drives.html"
@@ -40,23 +40,22 @@ entries:
     entries:
     - title: 概述
       url: "/upgrade/upgrade-complete.html"
+    - title: 在ONTAP 9.8或更高版本中完成
       entries:
-      - title: 完成 ONTAP 9.8
-        entries:
-        - title: 概述
-          url: "/upgrade/upgrade-complete-ontap-9-8.html"
-        - title: 使用 ONTAP 9.8 映射网络端口
-          url: "/upgrade/upgrade-map-network-ports-ontap-9-8.html"
-        - title: 在 ONTAP 9.8 中执行最终步骤
-          url: "/upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html"
-      - title: 在 ONTAP 9.7 或更早版本中完成
-        entries:
-        - title: 概述
-          url: "/upgrade/upgrade-complete-ontap-9-7-or-earlier.html"
-        - title: 使用 ONTAP 9.7 或更早版本映射网络端口
-          url: "/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html"
-        - title: 在 ONTAP 9.7 或更早版本中执行最终步骤
-          url: "/upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html"
+      - title: 概述
+        url: "/upgrade/upgrade-complete-ontap-9-8.html"
+      - title: 使用 ONTAP 9.8 映射网络端口
+        url: "/upgrade/upgrade-map-network-ports-ontap-9-8.html"
+      - title: 在 ONTAP 9.8 中执行最终步骤
+        url: "/upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html"
+    - title: 在 ONTAP 9.7 或更早版本中完成
+      entries:
+      - title: 概述
+        url: "/upgrade/upgrade-complete-ontap-9-7-or-earlier.html"
+      - title: 使用 ONTAP 9.7 或更早版本映射网络端口
+        url: "/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html"
+      - title: 在 ONTAP 9.7 或更早版本中执行最终步骤
+        url: "/upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html"
 - title: 通过移动卷进行升级
   entries:
   - title: 工作流
