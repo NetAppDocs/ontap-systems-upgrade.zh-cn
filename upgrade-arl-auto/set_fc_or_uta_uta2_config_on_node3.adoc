@@ -305,6 +305,7 @@ Adapter  Mode       Type        Mode     Type        Status
 . 在 node3 上，转到启动菜单并使用 22/7 并选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node1 将 node1 的磁盘重新分配给 node3 ，如下例所示。
 +
 .展开控制台输出示例
+[%collapsible]
 ====
 [listing]
 ----

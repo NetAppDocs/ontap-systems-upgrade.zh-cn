@@ -124,8 +124,11 @@ image::../media/black_circle_two.png[第二]
 
 == 在node1上安装AFF A900或FAS9500NVRAM和控制器模块
 
-您必须在node1上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。
+在node1上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。
 
+执行安装时、必须注意以下事项：
+
+* 将插槽6-1和6-2中的所有空白填充模块从旧NVRAM模块移至新的NVRAM模块。
 * 请勿将核心转储设备从AFF A700 NVRAM模块移至AFF A900 NVRAM模块。
 * 将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。
 

@@ -292,6 +292,7 @@ f-a   2b       fc             target       cna           -             online
 . 【 auto_check_4_step15]] 在 node4 上，转到启动菜单，然后使用 22/7 选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node2 以将 node2 的磁盘重新分配给 node4 ，如以下示例所示。
 +
 .展开控制台输出示例
+[%collapsible]
 ====
 [listing]
 ----

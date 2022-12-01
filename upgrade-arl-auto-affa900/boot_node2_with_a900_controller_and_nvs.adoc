@@ -54,6 +54,7 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。
 
 +
 .展开控制台输出示例
+[%collapsible]
 ====
 [listing]
 ----
