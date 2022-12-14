@@ -16,6 +16,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 [role="lead"]
 安装并启动 node4 后，您必须验证它是否已正确安装，是否属于集群，以及是否可以与 node3 通信。
 
+.关于此任务
 此时，在操作步骤中，操作将暂停，因为 node4 加入仲裁。
 
 .步骤
@@ -47,6 +48,7 @@ CAUTION: * 注意： * 在此阶段， MetroCluster 配置将不会处于正常�
 
 确认 node4 处于仲裁状态并可与 node3 通信后，您必须在 node4 上重新创建 node2 的 VLAN ，接口组和广播域。您还必须将 node3 端口添加到新重新创建的广播域中。
 
+.关于此任务
 有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请访问 link:other_references.html["参考资料"] 并链接到 _Network Management_ 。
 
 .步骤

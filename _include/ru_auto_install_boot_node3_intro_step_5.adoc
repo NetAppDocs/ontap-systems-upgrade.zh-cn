@@ -4,12 +4,13 @@
 
 您必须在机架中安装 node3 ，将 node1 的连接传输到 node3 ，启动 node3 并安装 ONTAP 。然后，您必须重新分配 node1 的任何备用磁盘，属于根卷的任何磁盘以及此过程先前未重新定位到 node2 的任何非根聚合，如本节所述。
 
+.关于此任务
 重新定位操作在此阶段开始时暂停。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。此外，您还必须验证 SAN LIF 是否已成功移至 node3 。
 
 如果 node3 与 node1 上安装的 ONTAP 9 版本不同，则需要对其进行网络启动。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以按照中的说明将正确的文件下载到启动介质设备，以供后续系统启动 link:prepare_for_netboot.html["准备网络启动"]。
 
 .重要
-* 如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则需要完成升级 ,第 1 步 到 ,第 21 步，然后退出本节并按照中的说明进行操作 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要输入相应部分，在维护模式下输入命令。然后，您必须返回到此部分并继续使用 ,第 23 步。
+* 如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则需要完成升级 <<auto_install3_step1,第 1 步>> 到 <<auto_install3_step21,第 21 步>>，然后退出本节并按照中的说明进行操作 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要输入相应部分，在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<auto_install3_step23,第 23 步>>。
 * 如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 部分，在集群提示符处输入命令。
 
 
@@ -57,7 +58,7 @@ WARNING: The battery is unfit to retain data during a power outage. This is like
 When the battery is ready, the boot process will complete and services will be engaged.
 To override this delay, press 'c' followed by 'Enter'
 ....
-. 如果您在中看到警告消息，则需要执行以下操作 ,第 4 步，执行以下操作：
+. 如果您在中看到警告消息，则需要执行以下操作 <<auto_install3_step4,第 4 步>>，执行以下操作：
 +
 .. 检查是否存在任何可能指示 NVRAM 电池电量低以外问题的控制台消息，如有必要，请采取任何必要的更正措施。
 .. 让电池充电并完成启动过程。

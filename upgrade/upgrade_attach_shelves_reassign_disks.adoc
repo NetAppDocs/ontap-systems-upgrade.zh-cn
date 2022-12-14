@@ -13,6 +13,7 @@ summary: 您必须将属于 node1 和 node2 的磁盘分别重新分配给 node3
 [role="lead"]
 您必须将属于 node1 和 node2 的磁盘分别重新分配给 node3 和 node4 。
 
+.关于此任务
 您可以对 node3 和 node4 执行本节中的步骤，依次完成 node3 和 node4 上的每个步骤，然后再继续下一步。
 
 .步骤

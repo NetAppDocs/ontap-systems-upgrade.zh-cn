@@ -16,8 +16,10 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 [role="lead"]
 在将 node1 替换为 node3 之前，必须先将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 ，然后再最终将 node1 的资源移动到 node3 。
 
+.开始之前
 开始任务时，此操作应已暂停；您必须手动恢复此操作。
 
+.关于此任务
 迁移聚合和 LIF 后，此操作将暂停以进行验证。在此阶段，您必须验证是否所有非根聚合和非 SAN 数据 LIF 都已迁移到 node3 。
 
 

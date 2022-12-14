@@ -8,9 +8,11 @@
 
 如果 node4 具有板载或 FC 适配器上的 FC 端口，则必须先在节点上设置端口配置，然后再将其投入使用，因为这些端口未经过预配置。如果未配置端口，则可能会发生服务中断。
 
+.开始之前
 您必须具有在部分中保存的 node2 中的 FC 端口设置值 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。
 
-如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置  and configure UTA/UTA2 ports on node4。
+.关于此任务
+如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置 <<检查并配置 node4 上的 UTA/UTA2 端口>>。
 
 * 重要说明 * ：如果系统具有存储磁盘，则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。
 
@@ -22,10 +24,10 @@
 | 如果要升级的系统 ... | 然后选择… 
 
 
-| 具有存储磁盘 | 转至 ,第 5 步。 
+| 具有存储磁盘 | 转至 <<man_config_4_Step5,第 5 步>>。 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 转至 ,第 2 步。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 转至 <<man_config_4_Step2,第 2 步>>。 
 |===
 . 【 man_config_4_Step2]] 访问维护模式：
 +
@@ -92,10 +94,10 @@
 | 新节点上的默认 FC 设置 | 然后选择… 
 
 
-| 与在原始节点上捕获的相同 | 转至 ,第 11 步。 
+| 与在原始节点上捕获的相同 | 转至 <<man_config_4_Step11,第 11 步>>。 
 
 
-| 与您在原始节点上捕获的不同 | 转至 ,第 8 步。 
+| 与您在原始节点上捕获的不同 | 转至 <<man_config_4_Step8,第 8 步>>。 
 |===
 . 【 man_config_4_Step8]] 退出维护模式：
 +
@@ -122,14 +124,14 @@
 
 
 | 具有存储磁盘  a| 
-** 转至  and configure UTA/UTA2 ports on node4 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
+** 转至 <<检查并配置 node4 上的 UTA/UTA2 端口>> 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
 ** 跳过此部分，然后转到 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"] 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
 
 
 
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
-** 转至  and configure UTA/UTA2 ports on node4 如果 node4 具有 UTA/ UTA2 卡或 UTA/UTA2 板载端口。
+** 转至 <<检查并配置 node4 上的 UTA/UTA2 端口>> 如果 node4 具有 UTA/ UTA2 卡或 UTA/UTA2 板载端口。
 ** 跳过 _Check and configure UTA/UTA2 ports on node4_ 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请返回 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#Step9["第 9 步"]。
 
 

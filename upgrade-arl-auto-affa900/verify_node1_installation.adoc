@@ -16,6 +16,7 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 安装。
 [role="lead"]
 您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node1的安装。由于物理端口不变、您无需将物理端口从旧节点1映射到替换节点1。
 
+.关于此任务
 使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。
 
 此时，在操作步骤中，控制器升级操作应已暂停，因为 node1 会自动尝试加入仲裁。
@@ -72,7 +73,7 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 
 NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node1_ 上的网络配置。
 
-. 在控制器更换处于暂停状态的情况下，继续执行  network configuration on node1。
+. 在控制器更换处于暂停状态的情况下，继续执行 <<还原 node1 上的网络配置>>。
 
 
 
@@ -81,6 +82,7 @@ NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domai
 
 确认 node1 处于仲裁状态并可与 node2 通信后，请确认 node1 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证所有 node1 网络端口是否均已配置在其正确的广播域中。
 
+.关于此任务
 有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 内容。
 
 .步骤
@@ -182,7 +184,7 @@ Warning: Repairing port "node1:e11b" may cause it to move into a different broad
 `网络端口可访问性显示`
 
 +
-如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 ,第 4 步。
+如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 <<restore_node1_step4,第 4 步>>。
 
 . 验证所有端口是否均已置于广播域中：
 +

@@ -16,6 +16,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 [role="lead"]
 您必须应用适当的参考配置文件（ Reference Configuration Files ， RCF ）来重新配置交换机以容纳新节点。应用 RCF 后，您可以对交换机进行重新布线。
 
+.开始之前
 FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置 _ 内容中所述的使用情况匹配，才能使用这些 RCF 。转至 link:other_references.html["参考资料"] 链接到 _Fabric-Attached MetroCluster 安装和配置 _ 内容。
 
 .步骤

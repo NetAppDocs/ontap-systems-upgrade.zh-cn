@@ -16,10 +16,12 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动进行 ARL 升�
 [role="lead"]
 您必须确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
 
+.开始之前
 您必须已从 _Node_ 获得有关新节点上端口的信息 Hardware Universe 。转至 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe ）。您可以使用本节后面和中的信息 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。
 
 node3 的软件配置必须与 node3 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。
 
+.关于此任务
 端口设置可能因节点型号而异。
 
 您必须使原始节点的端口和 LIF 配置与新节点的配置计划兼容。这是因为新节点在启动时会重放相同的配置，这意味着在启动 node3 时， ONTAP 将尝试在 node1 上使用的相同端口上托管 LIF 。
@@ -206,8 +208,8 @@ network port broadcast-domain remove-ports -ipspace Cluster -broadcast-domain Cl
 
 
 
-. 【 man_map_1_step6]] 调整集群间广播域，并根据需要使用中所示的相同命令迁移集群间 LIF ,第 5 步。
-. 【第 7 步】调整任何其他广播域，并在必要时使用中所示的相同命令迁移数据 LIF ,第 5 步。
+. 【 man_map_1_step6]] 调整集群间广播域，并根据需要使用中所示的相同命令迁移集群间 LIF <<man_map_1_step5,第 5 步>>。
+. 【第 7 步】调整任何其他广播域，并在必要时使用中所示的相同命令迁移数据 LIF <<man_map_1_step5,第 5 步>>。
 . 【第 8 步】如果 node1 上有任何端口不再位于 node3 上，请按照以下步骤将其删除：
 +
 .. 访问任一节点上的高级权限级别：

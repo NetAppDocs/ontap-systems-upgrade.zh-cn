@@ -3,6 +3,6 @@
 
 
 .选项
-*  FC ports on node4
-*  and configure UTA/UTA2 ports on node4
+* <<在节点 4 上配置 FC 端口>>
+* <<检查并配置 node4 上的 UTA/UTA2 端口>>
 

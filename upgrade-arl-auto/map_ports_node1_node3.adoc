@@ -16,6 +16,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 [role="lead"]
 您必须验证 node1 上的物理端口是否正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
 
+.关于此任务
 请参见 link:other_references.html["参考资料"] 链接到 _Node_ Hardware Universe 以捕获有关新节点上端口的信息。您将在本节稍后部分使用此信息。
 
 端口设置可能因节点型号而异。您必须使原始节点上的端口和 LIF 配置与新节点的计划使用和配置兼容。这是因为新节点在启动时会重放相同的配置，这意味着在启动 node3 时， ONTAP 将尝试在 node1 上使用的相同端口上托管 LIF 。
@@ -185,8 +186,8 @@ network port modify -node node4 -port e1b -ipspace Cluster -mtu 9000
 
 
 
-. 使用中所示的相同命令调整用于集群间 LIF 的网络端口的广播域成员资格 ,第 5 步。
-. 如有必要，请使用中所示的相同命令调整任何其他广播域并迁移数据 LIF ,第 5 步。
+. 使用中所示的相同命令调整用于集群间 LIF 的网络端口的广播域成员资格 <<auto_map_3_step5,第 5 步>>。
+. 如有必要，请使用中所示的相同命令调整任何其他广播域并迁移数据 LIF <<auto_map_3_step5,第 5 步>>。
 . 如果 node1 上有任何端口不再位于 node3 上，请按照以下步骤删除它们：
 +
 .. 访问任一节点上的高级权限级别：

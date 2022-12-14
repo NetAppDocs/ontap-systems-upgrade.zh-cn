@@ -16,4 +16,5 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 [role="lead"]
 您应验证 MetroCluster 配置的切换，修复和切回操作。
 
+.步骤
 请参见 link:other_references.html["参考资料"] 链接到 _RAID MetroCluster 管理和灾难恢复 _ 内容，并按照协商切换，修复和切回的过程进行操作。

@@ -32,7 +32,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 `s存储聚合重新定位start -node _node3_-destination _node4_-aggregate-list _aggr_name1、aggr_name2..._-no-controller-upgrade true`
 
 +
-聚合列表是您在中获取的 node4 所拥有的聚合的列表 ,第 1 步。
+聚合列表是您在中获取的 node4 所拥有的聚合的列表 <<man_relocate_3_4_Step1,第 1 步>>。
 
 .. 出现提示时，输入 `y` 。
 +
@@ -62,7 +62,7 @@ NOTE: 等待所有 node2 聚合重新定位到 node4 ，然后再继续下一步
 | 如果重新定位 ... | 那么 ... 
 
 
-| 所有聚合均已成功 | 转至 ,第 5 步。 
+| 所有聚合均已成功 | 转至 <<man_relocate_3_4_Step5,第 5 步>>。 
 
 
 | 任何聚合失败或被否决  a| 
@@ -106,7 +106,7 @@ NOTE: 等待所有 node2 聚合重新定位到 node4 ，然后再继续下一步
 `storage aggregate show -node _node4_-state offline -root false`
 
 +
-node2 聚合在中的命令输出中列出 ,第 1 步。
+node2 聚合在中的命令输出中列出 <<man_relocate_3_4_Step1,第 1 步>>。
 
 . 如果任何聚合脱机或变为外部聚合，请对每个聚合使用以下命令将其联机：
 +

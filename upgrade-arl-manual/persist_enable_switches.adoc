@@ -16,6 +16,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 [role="lead"]
 您必须持久启用网络结构中的交换机。
 
+.步骤
 持久启用交换机：
 
 * 对于 Brocade 交换机，请使用 `sswitch/CfgPersistentenable` 命令。

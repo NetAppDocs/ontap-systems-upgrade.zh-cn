@@ -13,8 +13,10 @@ summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与
 [role="lead"]
 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确认物理端口已正确配置了用于预期用途的设置，例如集群，数据等。
 
+.开始之前
 这些步骤适用于运行 ONTAP 9.7 或更早版本的系统。如果您运行的是ONTAP 9.8或更高版本、则必须在中使用操作步骤 xref:upgrade-map-network-ports-ontap-9-8.adoc[使用ONTAP 9.8或更高版本映射网络端口]。
 
+.关于此任务
 您必须对 node3 和 node4 执行这些步骤。
 
 
@@ -117,8 +119,8 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 
 
 
-. 如有必要，请使用中的命令调整集群间广播域并迁移集群间 LIF ,第 7 步。
-. 如果需要，请使用中的命令调整任何其他广播域并迁移数据 LIF ,第 7 步。
+. 如有必要，请使用中的命令调整集群间广播域并迁移集群间 LIF <<map_97_7,第 7 步>>。
+. 如果需要，请使用中的命令调整任何其他广播域并迁移数据 LIF <<map_97_7,第 7 步>>。
 . 调整所有 LIF 故障转移组：
 +
 `network interface modify -failover-group _failover_group_-failover-policy _failover_policy_`
@@ -135,4 +137,5 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 
 
 
+.完成后
 您已完成物理端口映射。要完成升级，请转至 xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[在 ONTAP 9.7 或更早版本中执行最终升级步骤]。

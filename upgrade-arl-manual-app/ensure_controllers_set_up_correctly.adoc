@@ -47,7 +47,7 @@ node4          node3          true     Connected to node3
 | 双节点集群 | 在任一节点上输入以下命令以启用集群高可用性： `cluster ha modify -configured true` 
 
 
-| 包含两个以上节点的集群 | 转至 ,第 4 步。 
+| 包含两个以上节点的集群 | 转至 <<man_ensure_setup_Step4,第 4 步>>。 
 |===
 . 【 man_ense_setup_Step4]] 输入以下命令并检查输出，以验证 node3 和 node4 是否属于同一集群：
 +
@@ -133,4 +133,5 @@ Do you want to continue? {y|n}: y
 . 如果要在新节点上设置无交换机集群，请转至 link:other_references.html["参考资料"] 要链接到 _Network 支持站点 _ 并按照 _switchover to a two-node switchless cluster_ 中的说明进行操作。
 
 
+.完成后
 如果在 node3 和 node4 上启用了存储加密，请完成中的步骤 link:set_up_storage_encryption_new_controller.html["在新控制器模块上设置存储加密"]。否则，请完成中的步骤 link:decommission_old_system.html["停用旧系统"]。

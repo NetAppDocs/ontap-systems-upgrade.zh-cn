@@ -13,6 +13,7 @@ summary: 在通过移动存储进行升级的过程中，打开 node3 和 node4 
 [role="lead"]
 During the process of upgrading by moving storage, you power on node3 and node4, boot the software image, and configure the nodes.Physical port layout between original and new nodes can be different.Mapping of ports between original and replacement nodes should be done to identify proper layout of ports and connections.
 
+.开始之前
 如果在新节点上运行的 ONTAP 版本与原始节点上的版本不同，则必须已从 NetApp 支持站点将正确的 ` <ontap_version>_image.tgz` 文件下载到可通过 Web 访问的目录中（请参见 _prepare for the upgrade when moving storage_ ， link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["第 5 步"]）。要对系统执行网络启动，您需要使用 ` <ontap_version>_image.tgz` 文件。
 
 .步骤

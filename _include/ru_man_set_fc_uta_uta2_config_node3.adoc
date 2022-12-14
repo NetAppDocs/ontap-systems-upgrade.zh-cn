@@ -4,7 +4,8 @@
 
 如果 node3 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。
 
-您可能需要完成  FC ports on node3或  and configure UTA/UTA2 ports on node3或这两个部分。
+.关于此任务
+您可能需要完成 <<在 node3 上配置 FC 端口>>或 <<检查并配置 node3 上的 UTA/UTA2 端口>>或这两个部分。
 
 
 NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和端口。但是，命令行界面使用术语 "CNA" 。
@@ -14,6 +15,6 @@ NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和�
 
 
 .选项：
-*  FC ports on node3
-*  and configure UTA/UTA2 ports on node3
+* <<在 node3 上配置 FC 端口>>
+* <<检查并配置 node3 上的 UTA/UTA2 端口>>
 

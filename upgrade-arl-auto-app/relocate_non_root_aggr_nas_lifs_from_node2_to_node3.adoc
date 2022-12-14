@@ -16,8 +16,10 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 [role="lead"]
 在将 node2 替换为 node4 之前，必须将 node2 所拥有的非根聚合重新定位到 node3 。
 
+.开始之前
 上一阶段的后处理检查完成后， node2 的资源释放将自动启动。非根聚合和非 SAN 数据 LIF 将从 node2 迁移到 node3 。
 
+.关于此任务
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。
 
 迁移聚合和 LIF 后，此操作将暂停以进行验证。在此阶段，您必须验证是否所有非根聚合和非 SAN 数据 LIF 都已迁移到 node3 。

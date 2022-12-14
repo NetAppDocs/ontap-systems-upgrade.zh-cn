@@ -16,6 +16,7 @@ summary: '如果需要，请在使用 `ssystem controller replace` 命令升级�
 [role="lead"]
 如果使用 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，则加密配置必须与新节点同步。如果不还原key-manager、则在使用ARL将node1聚合从node2重新定位到node3时、加密卷将脱机。
 
+.关于此任务
 执行以下步骤，将加密配置同步到新节点：
 
 .步骤

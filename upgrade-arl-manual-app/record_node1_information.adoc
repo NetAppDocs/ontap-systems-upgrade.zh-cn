@@ -88,7 +88,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 NOTE: 您的系统可能没有集群间 LIF 。
 
-. 捕获中命令输出中的信息 ,第 3 步 以在部分中使用 link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"]。
+. 捕获中命令输出中的信息 <<man_record_node1_step3,第 3 步>> 以在部分中使用 link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"]。
 +
 要将新控制器端口映射到旧控制器端口，需要提供输出信息。
 
@@ -173,7 +173,7 @@ NOTE: 您的系统可能没有集群间 LIF 。
 | 已在部分中记录 NVRAM 系统 ID 编号 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。 | 转到下一部分， link:retire_node1.html["停用 node1"]。 
 
 
-| 未在部分中记录 NVRAM 系统 ID 编号 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] | 完成 ,第 11 步 和 ,第 12 步 然后继续 link:retire_node1.html["停用 node1"]。 
+| 未在部分中记录 NVRAM 系统 ID 编号 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] | 完成 <<man_record_node1_step11,第 11 步>> 和 <<man_record_node1_step12,第 12 步>> 然后继续 link:retire_node1.html["停用 node1"]。 
 |===
 . 【 man_record_node1_step11]] 在任一控制器上输入以下命令：
 +

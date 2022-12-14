@@ -4,6 +4,7 @@
 
 您可以使用 NetApp 支持站点上提供的 Active IQ Config Advisor 工具检查常见配置错误。
 
+.关于此任务
 Active IQ Config Advisor 是一款配置验证和运行状况检查工具。您可以将其部署在安全站点和非安全站点上，以便进行数据收集和系统分析。
 
 

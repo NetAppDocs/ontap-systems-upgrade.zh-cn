@@ -13,6 +13,7 @@ summary: 要通过移动存储来完成操作步骤升级，您必须从新节�
 [role="lead"]
 要通过移动存储来完成操作步骤升级，您必须从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器（ SP ），安装新许可证以及设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。
 
+.开始之前
 这些步骤适用于运行ONTAP 9.8或更高版本的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 xref:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.adoc[在 ONTAP 9.7 或更早版本中执行最终升级步骤]。
 
 .步骤
@@ -109,4 +110,5 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 Ne
 
 
 
+.完成后
 您已完成升级操作步骤。

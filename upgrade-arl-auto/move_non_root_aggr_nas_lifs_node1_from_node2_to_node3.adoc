@@ -16,6 +16,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 [role="lead"]
 在验证 node3 安装并将聚合从 node2 重新定位到 node3 之前，必须将当前位于 node2 上的 node1 的 NAS 数据 LIF 从 node2 移动到 node3 。此外，还必须验证 node3 上是否存在 SAN LIF 。
 
+.关于此任务
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node3 联机后，您将验证 LIF 是否运行正常并位于相应的端口上。
 
 .步骤

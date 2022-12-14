@@ -2,6 +2,7 @@
 :allow-uri-read: 
 
 
+.关于此任务
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node4 联机后，您需要验证 LIF 是否运行正常并位于相应的端口上。
 
 .步骤
@@ -82,10 +83,10 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | 如果 node2... | Description 
 
 
-| 已配置接口组或 VLAN | 转至 ,第 4 步。 
+| 已配置接口组或 VLAN | 转至 <<man_lif_verify_4_Step3,第 4 步>>。 
 
 
-| 未配置接口组或 VLAN | 跳过步骤 4 ，然后转到 ,第 5 步。 
+| 未配置接口组或 VLAN | 跳过步骤 4 ，然后转到 <<man_lif_verify_4_Step4,第 5 步>>。 
 |===
 . [[man_lif_verif_4_Step3]] 执行以下步骤，将最初位于 node2 上的接口组和 VLAN 上托管的任何 NAS 数据 LIF 从 node3 迁移到 node4 。
 +
@@ -93,7 +94,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_-lif _lif_name_-destination-node node4–destination-port _netport_ifgrp_`
 
-.. 在中修改 LIF 的主端口和主节点 ,子步骤 A 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
+.. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_4_substepa,子步骤 A>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
 `network interface modify -vserver _vserver_name_-lif _datalif_name_-home-node node4 home-port _netport_ifgrp_`
 
@@ -101,7 +102,7 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 +
 `network interface migrate -vserver _vserver_name_-lif _datalif_name_-destination-node node4–destination-port _netport_ifgrp_`
 
-.. 在中修改 LIF 的主端口和主节点 ,子步骤 c 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
+.. 在中修改 LIF 的主端口和主节点 <<man_lif_verify_4_substepc,子步骤 c>> 输入以下命令，将 LIF 设置为当前托管 LIF 的端口和节点，每个 LIF 设置为一次：
 +
 `network interface modify -vserver _vserver_name_-lif _datalif_name_-home-node _node4_ home-port _netport_ifgrp_`
 
@@ -114,13 +115,13 @@ cluster1-02  1b       50:0a:09:82:9c:6c:36:07  ACME Switch:7
 | 如果集群配置为 ... | 那么 ... 
 
 
-| NAS | 完成 ,第 6 步 到 ,第 9 步，跳过步骤 10 并完成 ,第 11 步 到 ,第 14 步。 
+| NAS | 完成 <<man_lif_verify_4_Step5,第 6 步>> 到 <<man_lif_verify_4_Step8,第 9 步>>，跳过步骤 10 并完成 <<man_lif_verify_4_Step10,第 11 步>> 到 <<man_lif_verify_4_Step13,第 14 步>>。 
 
 
-| SAN | 跳过步骤 6 到步骤 9 并完成 ,第 10 步 到 ,第 14 步。 
+| SAN | 跳过步骤 6 到步骤 9 并完成 <<man_lif_verify_4_Step9,第 10 步>> 到 <<man_lif_verify_4_Step13,第 14 步>>。 
 
 
-| NAS 和 SAN | 完成 ,第 6 步 到 ,第 14 步。 
+| NAS 和 SAN | 完成 <<man_lif_verify_4_Step5,第 6 步>> 到 <<man_lif_verify_4_Step13,第 14 步>>。 
 |===
 . 【 man_lif_verif_4_Step5]] 如果您的平台上的数据端口不同，请输入以下命令将这些端口添加到广播域：
 +
@@ -213,7 +214,7 @@ vs1
             lif1         up/up    172.17.176.120/24  node4         e0c     true
             lif2         up/up    172.17.176.121/24  node4
 ----
-.. 通过将 `fcp adapter show` 命令的输出与您在工作表中记录的新配置信息进行比较，验证新的 `adapter` 和 `switch-port` 配置是否正确 ,第 2 步。
+.. 通过将 `fcp adapter show` 命令的输出与您在工作表中记录的新配置信息进行比较，验证新的 `adapter` 和 `switch-port` 配置是否正确 <<worksheet_step2_node2,第 2 步>>。
 +
 列出 node4 上的新 SAN LIF 配置：
 

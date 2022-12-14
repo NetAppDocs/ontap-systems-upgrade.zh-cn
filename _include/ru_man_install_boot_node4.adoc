@@ -4,13 +4,14 @@
 
 您必须在机架中安装 node4 ，将 node2 连接传输到 node4 以及启动 node4 。此外，还必须重新分配任何 node2 备用磁盘，属于 root 的任何磁盘以及先前未重新定位到 node3 的任何非根聚合。
 
+.关于此任务
 如果 node4 的 ONTAP 9 版本与 node2 上安装的版本不同，则必须使用 netboot node4 。安装 node4 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以按照中的说明将正确的文件下载到启动介质设备，以供后续系统启动 link:prepare_for_netboot.html["准备网络启动"]
 
 但是，如果 node4 安装的 Data ONTAP 9 版本与 node2 上安装的版本相同或更高，则不需要对其执行网络启动。
 
 * 重要信息： *
 
-* 如果要升级连接到存储阵列的 V 系列系统或使用 FlexArray 虚拟化软件的系统，则需要完成 ,第 1 步 到 ,第 7 步，请将此部分保留在 ,第 8 步 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"] 根据需要在维护模式下输入命令。然后，您需要返回到此部分并通过恢复操作步骤 ,第 9 步。
+* 如果要升级连接到存储阵列的 V 系列系统或使用 FlexArray 虚拟化软件的系统，则需要完成 <<man_install4_Step1,第 1 步>> 到 <<man_install4_Step7,第 7 步>>，请将此部分保留在 <<man_install4_Step8,第 8 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"] 根据需要在维护模式下输入命令。然后，您需要返回到此部分并通过恢复操作步骤 <<man_install4_Step9,第 9 步>>。
 * 但是，如果要升级具有存储磁盘的系统，则需要完成整个部分，然后继续执行部分 link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"]，在集群提示符处输入命令。
 
 
@@ -22,10 +23,10 @@
 | 如果 node4 将位于 ... | 那么 ... 
 
 
-| 与 node3 不同的机箱 | 转至 ,第 2 步。 
+| 与 node3 不同的机箱 | 转至 <<man_install4_Step2,第 2 步>>。 
 
 
-| 具有 node3 的同一机箱 | 跳过步骤 2 和 3 ，然后转到 ,第 4 步。 
+| 具有 node3 的同一机箱 | 跳过步骤 2 和 3 ，然后转到 <<man_install4_Step4,第 4 步>>。 
 |===
 . [[man_install4_Step2]] 确保 node4 具有足够的机架空间。
 +
@@ -62,10 +63,10 @@ NOTE: 您无需将互连卡 /FC_VI 卡或互连 /FC_VI 缆线连接从 node2 移
 | 如果 node4 位于 ... | 那么 ... 
 
 
-| 与 node3 相同的机箱 | 转至 ,第 8 步。 
+| 与 node3 相同的机箱 | 转至 <<man_install4_Step8,第 8 步>>。 
 
 
-| 与 node3 不同的机箱 | 转至 ,第 6 步。 
+| 与 node3 不同的机箱 | 转至 <<man_install4_Step6,第 6 步>>。 
 |===
 . 【 man_install4_Step6]] 打开 node4 的电源，然后按 `Ctrl-C` 以访问启动环境提示符来中断启动。
 +
@@ -100,12 +101,12 @@ WARNING: * 警告：不要覆盖此延迟。如果不允许电池充电，可能
 | 如果您的系统 ... | 那么 ... 
 
 
-| 具有磁盘，无后端存储 | 跳过第 9 步到第 14 步，然后转到 ,第 15 步。 
+| 具有磁盘，无后端存储 | 跳过第 9 步到第 14 步，然后转到 <<man_install4_Step15,第 15 步>>。 
 
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
 .. 转至 _set the FC or UTA/UTA2 configuration on node4_ 一节并完成各节 link:set_fc_uta_uta2_config_node4.html#configure-fc-ports-on-node4["在节点 4 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["检查并配置 node4 上的 UTA/UTA2 端口"]，根据您的系统情况而定。
-.. 返回到此部分，完成从开始的其余步骤 ,第 9 步。
+.. 返回到此部分，完成从开始的其余步骤 <<man_install4_Step9,第 9 步>>。
 
 
 * 重要信息 * ：在 V 系列系统上启动 Data ONTAP 之前，您必须重新配置 FC 板载端口， UTA/UTA2 板载端口和 UTA/UTA2 卡。
@@ -161,10 +162,10 @@ WARNING: * 警告：不要覆盖此延迟。如果不允许电池充电，可能
 | 如果要升级的系统 ... | 那么 ... 
 
 
-| node4 上的 ONTAP 版本不正确或当前不正确 | 转至 ,第 20 步。 
+| node4 上的 ONTAP 版本不正确或当前不正确 | 转至 <<man_install4_Step20,第 20 步>>。 
 
 
-| node4 上的 ONTAP 版本正确或最新 | 转至 ,第 25 步。 
+| node4 上的 ONTAP 版本正确或最新 | 转至 <<man_install4_Step25,第 25 步>>。 
 |===
 . 【 man_install4_Step20]] 通过选择以下操作之一来配置网络启动连接。
 +
@@ -273,7 +274,7 @@ DISK         OWNER                       POOL   SERIAL NUMBER   HOME
 | 无共享 | `disks disk reassign -s`` node2_sysid_-d _node4_sysid_` 
 |===
 +
-对于 `node2_sysid` 值，请使用中捕获的信息 link:record_node2_information.html#man_node2_info_step10["第 10 步"] 记录 node2 信息 _ 部分的。对于` node4_sysid_`、请使用中捕获的信息 ,第 23 步。
+对于 `node2_sysid` 值，请使用中捕获的信息 link:record_node2_information.html#man_node2_info_step10["第 10 步"] 记录 node2 信息 _ 部分的。对于` node4_sysid_`、请使用中捕获的信息 <<man_install4_step23,第 23 步>>。
 
 +
 
@@ -416,7 +417,7 @@ WARNING: * 警告：必须按所示的确切顺序执行以下子步骤；否则
 +
 `set time _hh：mm：ss_`
 
-. 验证配对系统 ID 是否设置正确，如中所述 ,第 26 步 在选项下。
+. 验证配对系统 ID 是否设置正确，如中所述 <<man_install4_Step26,第 26 步>> 在选项下。
 +
 `printenv partner-sysid`
 

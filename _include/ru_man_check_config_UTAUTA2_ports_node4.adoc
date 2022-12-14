@@ -8,8 +8,10 @@
 
 如果 node4 具有板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须检查这些端口的配置并进行配置，具体取决于您希望如何使用升级后的系统。
 
+.开始之前
 您必须为 UTA/UTA2 端口配备正确的 SFP+ 模块。
 
+.关于此任务
 UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式可使并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。
 
 
@@ -70,10 +72,10 @@ f-a    0h       cna      target     -          -        online
 | 如果 CNA 端口 ... | 那么 ... 
 
 
-| 没有所需的个性化设置 | 转至 ,第 5 步。 
+| 没有所需的个性化设置 | 转至 <<man_check_4_Step5,第 5 步>>。 
 
 
-| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 ,第 13 步。 
+| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 <<man_check_4_Step13,第 13 步>>。 
 |===
 . [[man_check_4_Step5]] 执行以下操作之一：
 +
@@ -85,7 +87,7 @@ f-a    0h       cna      target     -          -        online
 | 具有存储磁盘，并且正在运行 Data ONTAP 8.3 | 启动 node4 并进入维护模式： `boot_ontap maint` 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 转至 ,第 6 步。您应已处于维护模式。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 转至 <<man_check_4_Step6,第 6 步>>。您应已处于维护模式。 
 |===
 . [[man_check_4_Step6]] 执行以下操作之一：
 +
@@ -94,10 +96,10 @@ f-a    0h       cna      target     -          -        online
 | 如果要配置 | 那么 ... 
 
 
-| UTA/UTA2 卡上的端口 | 转至 ,第 7 步。 
+| UTA/UTA2 卡上的端口 | 转至 <<man_check_4_Step7,第 7 步>>。 
 
 
-| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 ,第 8 步。 
+| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 <<man_check_4_Step8,第 8 步>>。 
 |===
 . 【 man_check_4_Step7]] 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
 +

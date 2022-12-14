@@ -22,6 +22,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 在操作步骤期间，如果托管所有数据聚合的节点发生崩溃或意外重新启动，您可能会在重新启动，崩溃或重新启动前后看到 `storage failover show` 命令的意外输出。
 
+.关于此任务
 您可能会在阶段 2 ，阶段 3 ，阶段 4 或阶段 5 中看到 `storage failover show` 命令的意外输出。
 
 以下示例显示了托管所有数据聚合的节点上没有重新启动或崩溃时 `storage failover show` 命令的预期输出：
@@ -48,4 +49,5 @@ node2    node1     false     Waiting for node1, Partial giveback, Takeover is no
 ....
 尽管输出显示某个节点正在进行部分交还，并且已禁用存储故障转移，但您可以忽略此消息。
 
+.步骤
 无需执行任何操作；请继续执行节点对升级操作步骤。

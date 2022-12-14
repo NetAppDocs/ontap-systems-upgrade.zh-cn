@@ -16,6 +16,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 [role="lead"]
 安装并启动 node3 后，您必须验证是否已正确安装它。您必须等待 node3 加入仲裁，然后恢复重新定位操作。
 
+.关于此任务
 此时，在操作步骤中，操作将暂停，因为 node3 加入仲裁。
 
 .步骤
@@ -43,6 +44,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 
 确认 node3 处于仲裁状态并可与 node2 通信后，您必须在 node3 上重新创建 node1 的 VLAN ，接口组和广播域。您还必须将 node3 端口添加到新重新创建的广播域中。
 
+.关于此任务
 有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请访问 link:other_references.html["参考资料"] 并链接到 _Network Management_ 。
 
 .步骤

@@ -4,4 +4,5 @@
 
 如果 node4 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。
 
-您可能需要完成  FC ports on node4 部分  and configure UTA/UTA2 ports on node4或这两个部分。
+.关于此任务
+您可能需要完成 <<在节点 4 上配置 FC 端口>> 部分 <<检查并配置 node4 上的 UTA/UTA2 端口>>或这两个部分。

@@ -16,14 +16,15 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.5 �
 [role="lead"]
 如果 node4 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。
 
-您可能需要完成  FC ports on node4 部分  and configure UTA/UTA2 ports on node4或这两个部分。
+.关于此任务
+您可能需要完成 <<在节点 4 上配置 FC 端口>> 部分 <<检查并配置 node4 上的 UTA/UTA2 端口>>或这两个部分。
 
 
 NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"] 部分。但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并已连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回 _Install and boot node4_ 部分并继续执行 link:install_boot_node4.html#step22["第 22 步"]。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
 
 .选项
-*  FC ports on node4
-*  and configure UTA/UTA2 ports on node4
+* <<在节点 4 上配置 FC 端口>>
+* <<检查并配置 node4 上的 UTA/UTA2 端口>>
 
 
 
@@ -32,9 +33,11 @@ NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 �
 
 如果 node4 具有板载或 FC 适配器上的 FC 端口，则必须先在节点上设置端口配置，然后再将其投入使用，因为这些端口未经过预配置。如果未配置端口，则可能会发生服务中断。
 
+.开始之前
 您必须具有在部分中保存的 node2 中的 FC 端口设置值 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。
 
-如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置  and configure UTA/UTA2 ports on node4。
+.关于此任务
+如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置 <<检查并配置 node4 上的 UTA/UTA2 端口>>。
 
 * 重要说明 * ：如果系统具有存储磁盘，则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。
 
@@ -120,8 +123,10 @@ NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 �
 
 如果 node4 具有板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须检查这些端口的配置并进行配置，具体取决于您希望如何使用升级后的系统。
 
+.开始之前
 您必须为 UTA/UTA2 端口配备正确的 SFP+ 模块。
 
+.关于此任务
 UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式允许并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。
 
 
@@ -183,10 +188,10 @@ f-a    0h       cna      target     -          -        online
 | 如果 CNA 端口 ... | 然后选择… 
 
 
-| 没有所需的个性化设置 | 转至 ,第 5 步。 
+| 没有所需的个性化设置 | 转至 <<auto_check_4_step5,第 5 步>>。 
 
 
-| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 ,第 13 步。 
+| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 <<auto_check_4_step13,第 13 步>>。 
 |===
 . 【 auto_check_4_step5]] 执行以下操作之一：
 +
@@ -195,10 +200,10 @@ f-a    0h       cna      target     -          -        online
 | 如果要配置 | 然后选择… 
 
 
-| UTA/UTA2 卡上的端口 | 转至 ,第 7 步 
+| UTA/UTA2 卡上的端口 | 转至 <<auto_check_4_step7,第 7 步>> 
 
 
-| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 ,第 8 步。 
+| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 <<auto_check_4_step8,第 8 步>>。 
 |===
 . 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
 +
@@ -287,7 +292,7 @@ f-a   2b       fc             target       cna           -             online
 `boot_ontap 菜单`
 
 +
-如果要升级到 A800 ，请转至 ,第 23 步。
+如果要升级到 A800 ，请转至 <<auto_check_4_step23,第 23 步>>。
 
 . 【 auto_check_4_step15]] 在 node4 上，转到启动菜单，然后使用 22/7 选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node2 以将 node2 的磁盘重新分配给 node4 ，如以下示例所示。
 +
@@ -370,7 +375,7 @@ Override system ID? {y|n} y
 Login: ...
 ----
 ====
-. 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 ,第 17 步 到 ,第 22 步 以解决此问题。
+. 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <<auto_check_4_step17,第 17 步>> 到 <<auto_check_4_step22,第 22 步>> 以解决此问题。
 . 在自动启动期间按 `Ctrl-C` 在 `LOADER>` 提示符处停止节点。
 . 在 LOADER 提示符处，进入维护模式：
 +
@@ -397,9 +402,9 @@ Login: ...
 +
 [NOTE]
 ====
-如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 ,第 22 步。
+如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <<auto_check_4_step22,第 22 步>>。
 
-如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 ,第 23 步。
+如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check_4_step23,第 23 步>>。
 
 ====
 . 在LOADER提示符处、启动：

@@ -16,6 +16,7 @@ summary: '如果需要，请使用 `ssystem controller replace` 命令在将运�
 [role="lead"]
 如果更换的控制器或新控制器的 HA 配对项使用 NetApp 卷加密，则必须为新控制器模块配置 NetApp 卷加密。
 
+.关于此任务
 此操作步骤包含对新控制器模块执行的步骤。您必须在正确的节点上输入命令。
 
 .步骤
@@ -84,4 +85,5 @@ summary: '如果需要，请使用 `ssystem controller replace` 命令在将运�
 
 
 
+.完成后
 检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用 `volume online` 命令将这些卷恢复联机。

@@ -38,12 +38,12 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 
 .. 将 node3 的顶部互连端口连接到 node4 的顶部互连端口。
 .. 将 node3 的底部互连端口连接到 node4 的底部互连端口。
-.. 转至 ,第 5 步。
+.. 转至 <<第 5 步,第 5 步>>。
 
 
 
 
-| 与 node3 位于同一机箱中 | 转至 ,第 5 步。您无需在节点之间手动连接 HA 互连；在同机箱配置中， HA 互连会通过背板自动连接。 
+| 与 node3 位于同一机箱中 | 转至 <<第 5 步,第 5 步>>。您无需在节点之间手动连接 HA 互连；在同机箱配置中， HA 互连会通过背板自动连接。 
 |===
 . 【第 5 步】执行以下操作之一：
 +
@@ -52,7 +52,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 | 如果集群 ... | 那么 ... 
 
 
-| 在 SAN 环境中 | 完成 ,第 6 步 然后转到部分 link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF"]。 
+| 在 SAN 环境中 | 完成 <<Step6,第 6 步>> 然后转到部分 link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF"]。 
 
 
 | 不在 SAN 环境中 | 跳过步骤 6 转至部分 link:move_nas_lifs_node2_from_node3_node4_verify_san_lifs_node4.html["将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF"]。 

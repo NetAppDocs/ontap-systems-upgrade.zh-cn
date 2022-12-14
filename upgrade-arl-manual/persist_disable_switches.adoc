@@ -16,8 +16,10 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 [role="lead"]
 您必须持久禁用网络结构中的交换机，以便修改其配置。
 
+.关于此任务
 您可以通过在交换机命令行上运行命令来禁用交换机；用于此操作的命令不是 ONTAP 命令。
 
+.步骤
 持久禁用交换机：
 
 * 对于 Brocade 交换机，请使用 `sswitch/CfgPersistentDisable` 命令。

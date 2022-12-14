@@ -183,13 +183,13 @@ aggr4         node1        node2        online
 +
 [cols="35,65"]
 |===
-| 如果命令位于中 ,第 9 步... | 那么 ... 
+| 如果命令位于中 <<man_prepare_nodes_step9,第 9 步>>... | 那么 ... 
 
 
-| 输出为空 | 跳过步骤 11 ，然后转到 ,第 12 步。 
+| 输出为空 | 跳过步骤 11 ，然后转到 <<man_prepare_nodes_step12,第 12 步>>。 
 
 
-| 具有输出 | 转至 ,第 11 步。 
+| 具有输出 | 转至 <<man_prepare_nodes_step11,第 11 步>>。 
 |===
 . [[man_prepare_nodes_step11]] 如果 node1 或 node2 拥有其当前所有者而非主所有者的聚合，请完成以下子步骤：
 +
@@ -308,7 +308,7 @@ vs0
 
 2 entries were displayed.
 ....
-. 如果中的输出 ,第 15 步 显示 node1 或 node2 拥有集群中其他节点拥有的任何数据 LIF ，请将这些数据 LIF 从 node1 或 node2 迁移出：
+. 如果中的输出 <<man_prepare_nodes_step15,第 15 步>> 显示 node1 或 node2 拥有集群中其他节点拥有的任何数据 LIF ，请将这些数据 LIF 从 node1 或 node2 迁移出：
 +
 `network interface revert -vserver * -lif *`
 

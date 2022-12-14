@@ -16,11 +16,12 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 [role="lead"]
 您必须验证 node2 中的物理端口是否正确映射到 node4 上的物理端口。这样， node4 便可在升级后与集群中的其他节点以及网络进行通信。
 
+.关于此任务
 请参见 link:other_references.html["参考资料"] 链接到 _Node_ Hardware Universe 以捕获有关新节点上端口的信息。您将在本节稍后部分使用此信息。
 
 物理端口布局可能因节点型号而异。当新节点启动时， ONTAP 将尝试确定应托管集群 LIF 的端口，以便自动达到仲裁。
 
-如果 node2 上的物理端口未直接映射到 node4 上的物理端口，请执行下一节  network configuration on node4 必须用于修复网络连接。
+如果 node2 上的物理端口未直接映射到 node4 上的物理端口，请执行下一节 <<还原 node4 上的网络配置>> 必须用于修复网络连接。
 
 安装并启动 node4 后，您必须验证是否已正确安装它。您必须等待 node4 加入仲裁，然后恢复重新定位操作。
 
@@ -79,7 +80,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 
 . 如果您正在处理 MetroCluster 系统，请验证是否已为 MetroCluster 配置正确配置更换的控制器； MetroCluster 配置应处于运行状况良好的状态。请参见 link:verify_health_of_metrocluster_config.html["验证 MetroCluster 配置的运行状况。"]。
 +
-在 MetroCluster 节点 node4 上重新配置集群间 LIF ，并检查集群对等关系以恢复 MetroCluster 节点之间的通信，然后再继续 ,第 6 步。
+在 MetroCluster 节点 node4 上重新配置集群间 LIF ，并检查集群对等关系以恢复 MetroCluster 节点之间的通信，然后再继续 <<auto_verify_4_Step6,第 6 步>>。
 
 +
 检查 MetroCluster 节点状态：
@@ -130,6 +131,7 @@ NOTE: 在此操作步骤中， _re-creating VLANs ， ifgrp 和 broadcast domain
 
 确认 node4 处于仲裁状态并可与 node3 通信后，请确认 node4 上显示了 node2 的 VLAN ，接口组和广播域。此外，验证所有 node4 网络端口是否均已配置在其正确的广播域中。
 
+.关于此任务
 有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 。
 
 .步骤
@@ -317,7 +319,7 @@ Cluster::*> displaced-vlans restore -node node2_node4 -port e0e -destination-por
 `网络端口可访问性显示`
 
 +
-如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 ,第 4 步。
+如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中的说明执行可访问性修复并在其广播域中添加或删除端口 <<auto_restore_4_Step4,第 4 步>>。
 
 . 验证所有端口是否均已置于广播域中：
 +

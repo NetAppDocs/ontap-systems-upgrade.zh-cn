@@ -36,6 +36,7 @@
 
 升级操作步骤 结束时， node3 必须是最初将 node1 作为主节点的聚合的新主节点。您可以在升级后重新定位它们。
 
+.关于此任务
 在以下情况下，聚合可能无法正确重新定位，将 node1 作为其主节点，而不是 node3 ：
 
 * 在第 3 阶段，聚合从 node2 重新定位到 node3 。要重新定位的某些聚合的主节点为 node1 。例如，此类聚合可以称为 aggr_node_1 。如果 aggr_node_1 的重新定位在第 3 阶段失败，并且无法强制重新定位，则聚合将留在 node2 上。
@@ -52,7 +53,7 @@
 +
 要确定未正确重新定位的聚合，请参阅在一节中获取的主所有者为 node1 的聚合列表 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并将其与上述命令的输出进行比较。
 
-. 【第 2 步】比较的输出 ,第 1 步 以及您在部分中为 node1 捕获的输出 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并记下未正确重新定位的所有聚合。
+. 【第 2 步】比较的输出 <<man_aggr_fail_step1,第 1 步>> 以及您在部分中为 node1 捕获的输出 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 并记下未正确重新定位的所有聚合。
 . 【 man_aggr_fail_Step3]] 重新定位 node4 上遗留的聚合：
 +
 `s存储聚合重新定位start -node _node4_-aggr _aggr_node_1_-destination _node3_`
@@ -68,6 +69,6 @@
 `_aggr1、aggr2、aggr3..._`是将node1作为原始主所有者的聚合列表。
 
 +
-如果聚合的主所有者不是 node3 ，则可以在中使用相同的重新定位命令将其重新定位到 node3 ,第 3 步。
+如果聚合的主所有者不是 node3 ，则可以在中使用相同的重新定位命令将其重新定位到 node3 <<man_aggr_fail_Step3,第 3 步>>。
 
 

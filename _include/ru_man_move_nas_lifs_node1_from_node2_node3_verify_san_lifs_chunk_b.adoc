@@ -35,7 +35,7 @@ cluster::> net int show -data-protocol iscsi|fcp -home-node node3
               lif1        up/up       172.17.176.120/24   node3          e0c      true
               lif2        up/up       172.17.176.121/24   node3          e1a      true
 ----
-.. 通过将 `fcp adapter show` 命令的输出与您在工作表中记录的配置信息进行比较，验证新的和 `adapter` 和 `switch-port` 配置是否正确 ,第 2 步。
+.. 通过将 `fcp adapter show` 命令的输出与您在工作表中记录的配置信息进行比较，验证新的和 `adapter` 和 `switch-port` 配置是否正确 <<worksheet_step2,第 2 步>>。
 +
 列出 node3 上的新 SAN LIF 配置：
 
