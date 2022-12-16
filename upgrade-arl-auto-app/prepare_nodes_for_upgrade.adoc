@@ -140,10 +140,28 @@ NOTE: 如果您的系统每个节点具有两个以上的集群端口，例如 F
 ** `re可访问性 show -detail`
 
 
-
-
++
 
 NOTE: 如果使用板载密钥管理器（ OKM ）进行 NetApp 卷加密，请保持密钥管理器密码短语已准备好，以便稍后在操作步骤 中完成密钥管理器重新同步。
+
+. 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
++
+--
+** 经FIPS认证的NetApp存储加密(NSE) SAS或NVMe驱动器
+** 非FIPS自加密NVMe驱动器(SED)
+
+
+[NOTE]
+====
+** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
+** 您可以在同一节点或HA对上混用SED和非加密驱动器。
+
+
+====
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["了解有关支持的自加密驱动器的更多信息"^]。
+
+--
+
 
 
 

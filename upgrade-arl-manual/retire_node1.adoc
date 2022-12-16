@@ -56,6 +56,10 @@ node2                 true    true
 
 | 包含两个以上节点的集群 | 禁用存储故障转移：`storage failover modify -node _node1_-enabled false` 
 |===
++
+
+WARNING: 如果不禁用存储故障转移、则可能发生控制器升级失败、从而可能会中断数据访问并导致数据丢失。
+
 . 验证是否已禁用存储故障转移：
 +
 `s存储故障转移显示`

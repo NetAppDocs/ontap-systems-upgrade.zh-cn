@@ -11,13 +11,39 @@
 安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
 
 . 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-. `s步骤 27]] 如果此配置正在使用 NetApp 存储加密（ NSE ），则必须将` etenv bootarg.storageencryption.support `命令设置为 `true` ，并且必须将 `kmip.init.maxwait` 变量设置为` off ，以避免在加载 node2 配置后出现启动环路：
+. 【第27步】设置 `bootarg.storageencryption.support` 和 `kmip.init.maxwait` 用于避免在加载node2配置后启动环路的变量。
 +
-`setenv bootarg.storageencryption.support true`
+如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定正在使用的自加密驱动器的类型。
 
 +
-`setenv kmip.init.maxwait off`
+[cols="35,65"]
+|===
+| 如果正在使用以下驱动器、请使用… | 然后选择… 
 
+
+| NetApp存储加密(NSE)驱动器、符合FIPS 140-2 2级自加密要求  a| 
+** `setenv bootarg.storageencryption.support *true*`
+** `setenv kmip.init.maxwait off`
+
+
+
+
+| NetApp非FIPS SED  a| 
+** `setenv bootarg.storageencryption.support *false*`
+** `setenv kmip.init.maxwait off`
+
+
+|===
++
+[NOTE]
+====
+** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
+** 您可以在同一节点或HA对上混用SED和非加密驱动器。
+** 如果在设置后发生断电 `kmip.init.maxwait` 变量设置为 `off`、请联系技术支持以获得帮助、避免可能的数据丢失。
+** 在HA对上完成控制器升级后、您必须取消设置 `kmip.init.maxwait` 变量。请参见 link:ensure_new_controllers_are_set_up_correctly.html["确认新控制器设置正确"]。
+
+
+====
 . 启动节点进入启动菜单：
 +
 `boot_ontap 菜单`

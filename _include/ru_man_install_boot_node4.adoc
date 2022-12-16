@@ -144,13 +144,39 @@ WARNING: * 警告：不要覆盖此延迟。如果不允许电池充电，可能
 +
 `set-defaults`
 
-. 如果在此配置中使用 FDE ，则必须将 `setenv bootarg.storageencryption.support` 变量设置为 `true` ，并将 `kmip.init.maxwait` 变量设置为 `off` ，以避免在加载 node2 配置后出现启动环路：
+. 设置 `bootarg.storageencryption.support` 和 `kmip.init.maxwait` 用于避免在加载node2配置后启动环路的变量。
 +
-`setenv bootarg.storageencryption.support true`
+如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定正在使用的自加密驱动器的类型。
 
 +
-`setenv kmip.init.maxwait off`
+[cols="35,65"]
+|===
+| 如果正在使用以下驱动器、请使用… | 然后选择… 
 
+
+| NetApp存储加密(NSE)驱动器、符合FIPS 140-2 2级自加密要求  a| 
+** `setenv bootarg.storageencryption.support *true*`
+** `setenv kmip.init.maxwait off`
+
+
+
+
+| NetApp非FIPS SED  a| 
+** `setenv bootarg.storageencryption.support *false*`
+** `setenv kmip.init.maxwait off`
+
+
+|===
++
+[NOTE]
+====
+** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
+** 您可以在同一节点或HA对上混用SED和非加密驱动器。
+** 如果在设置后发生断电 `kmip.init.maxwait` 变量设置为 `off`、请联系技术支持以获得帮助、避免可能的数据丢失。
+** 在HA对上完成控制器升级后、您必须取消设置 `kmip.init.maxwait` 变量。请参见 link:ensure_controllers_set_up_correctly.html["确认新控制器设置正确"]。
+
+
+====
 . 如果 node4 上安装的 ONTAP 版本与 node2 上安装的 ONTAP 9 版本相同或更高，请输入以下命令：
 +
 `boot_ontap 菜单`
@@ -262,6 +288,10 @@ DISK         OWNER                       POOL   SERIAL NUMBER   HOME
 ......
 ----
 . 重新分配 node2 的备用磁盘，属于根的磁盘以及第节前面未重新定位到 node3 的任何非根聚合 link:relocate_non_root_aggr_node2_node3.html["将非根聚合从 node2 重新定位到 node3"]：
++
+
+NOTE: 如果系统上有共享磁盘、混合聚合或这两者、则必须使用正确的 `disk reassign` 下表中的命令。
+
 +
 [cols="35,65"]
 |===

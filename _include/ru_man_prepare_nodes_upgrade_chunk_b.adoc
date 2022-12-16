@@ -378,6 +378,23 @@ NOTE: 此时，请勿向 NetApp 发送 node2 的 AutoSupport 消息；稍后可�
 +
 字段 `Last Subject Sent ：` 和 `Last Time Sent ：` 包含上次发送消息的消息标题以及消息发送时间。
 
+.. 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
++
+--
+*** 经FIPS认证的NetApp存储加密(NSE) SAS或NVMe驱动器
+*** 非FIPS自加密NVMe驱动器(SED)
+
+
+[NOTE]
+====
+*** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
+*** 您可以在同一节点或HA对上混用SED和非加密驱动器。
+
+
+====
+https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["了解有关支持的自加密驱动器的更多信息"^]。
+
+--
 
 
 

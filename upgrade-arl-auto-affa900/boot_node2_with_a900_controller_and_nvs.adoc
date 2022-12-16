@@ -17,13 +17,39 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。
 带有AFF A900或FAS9500控制 器和NVRAM模块的Node2现已做好升级准备。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或FAS9000升级到FAS9500时、仅需要移动控制台和管理连接。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node2所需的步骤。
 
 .步骤
-. `sA900_boot_node2]]如果此配置正在使用NetApp存储加密(NSE)、则必须将` etenv bootarg.storageencryption.support `命令设置为`true`、并且必须将`kmip.init.maxwait`变量设置为` off、以避免在加载node2配置后出现启动环路：
+. 【boot_node2_step1]]设置 `bootarg.storageencryption.support` 和 `kmip.init.maxwait` 用于避免在加载node2配置后启动环路的变量。
 +
-`setenv bootarg.storageencryption.support true`
+如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定正在使用的自加密驱动器的类型。
 
 +
-`setenv kmip.init.maxwait off`
+[cols="35,65"]
+|===
+| 如果正在使用以下驱动器、请使用… | 然后选择… 
 
+
+| NetApp存储加密(NSE)驱动器、符合FIPS 140-2 2级自加密要求  a| 
+** `setenv bootarg.storageencryption.support *true*`
+** `setenv kmip.init.maxwait off`
+
+
+
+
+| NetApp非FIPS SED  a| 
+** `setenv bootarg.storageencryption.support *false*`
+** `setenv kmip.init.maxwait off`
+
+
+|===
++
+[NOTE]
+====
+** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
+** 您可以在同一节点或HA对上混用SED和非加密驱动器。
+** 如果在设置后发生断电 `kmip.init.maxwait` 变量设置为 `off`、请联系技术支持以获得帮助、避免可能的数据丢失。
+** 在HA对上完成控制器升级后、您必须取消设置 `kmip.init.maxwait` 变量。请参见 link:ensure_new_controllers_are_set_up_correctly.html["确认新控制器设置正确"]。
+
+
+====
 . 将节点启动至启动菜单：
 +
 `boot_ontap 菜单`

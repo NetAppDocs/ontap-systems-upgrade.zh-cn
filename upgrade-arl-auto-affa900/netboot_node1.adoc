@@ -19,7 +19,7 @@ summary: 在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，
 无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。
 
 
-NOTE: 您也可以使用 USB 启动选项执行网络启动。请参见 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["NetApp 知识库文章： How to use the boot_recovery loader command for installing ONTAP for initial setup of a system"^]。
+NOTE: 您也可以使用 USB 启动选项执行网络启动。请参见知识库文章 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["如何使用boot_recovery loader命令安装ONTAP 以进行系统初始设置"^]。
 
 .开始之前
 * 确认您可以使用系统访问 HTTP 服务器。
