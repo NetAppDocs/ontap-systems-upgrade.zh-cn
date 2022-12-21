@@ -335,16 +335,16 @@ vs0
 如果任何磁盘出现故障，请按照 _Disk 和使用 cli_ 进行聚合管理中的说明将其删除。请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理。）
 
 . 通过完成以下子步骤并记录每个命令的输出，收集有关 node1 和 node2 的信息：
-
-
++
 [NOTE]
 ====
-* 您稍后将在操作步骤中使用此信息。
-* 如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。
+** 您稍后将在操作步骤中使用此信息。
+** 如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。
 
 
 ====
-. 记录两个节点的型号，系统 ID 和序列号：
++
+.. 记录两个节点的型号，系统 ID 和序列号：
 +
 `ssystem node show -node _node1、node2_-instance`
 
@@ -352,7 +352,7 @@ vs0
 
 NOTE: 您将使用此信息重新分配磁盘并停用原始节点。
 
-. 在 node1 和 node2 上输入以下命令，并记录输出中有关磁盘架，每个磁盘架中的磁盘数，闪存存储详细信息，内存， NVRAM 和网卡的信息：
+.. 在 node1 和 node2 上输入以下命令，并记录输出中有关磁盘架，每个磁盘架中的磁盘数，闪存存储详细信息，内存， NVRAM 和网卡的信息：
 +
 `运行-node _node_name_ sysconfig`
 
@@ -360,7 +360,7 @@ NOTE: 您将使用此信息重新分配磁盘并停用原始节点。
 
 NOTE: 您可以使用此信息确定可能要传输到 node3 或 node4 的部件或配件。如果您不知道节点是 V 系列系统还是具有 FlexArray 虚拟化软件，也可以从输出中了解到这一点。
 
-. 在 node1 和 node2 上输入以下命令，并记录两个节点上处于联机状态的聚合：
+.. 在 node1 和 node2 上输入以下命令，并记录两个节点上处于联机状态的聚合：
 +
 `storage aggregate show -node _node_name_-state online`
 
@@ -368,7 +368,7 @@ NOTE: 您可以使用此信息确定可能要传输到 node3 或 node4 的部件
 
 NOTE: 您可以使用此信息以及以下子步骤中的信息来验证聚合和卷在整个操作步骤中是否保持联机，但在重新定位期间处于脱机状态的短暂时间除外。
 
-. 【 man_prepare_nodes_step19]] 在 node1 和 node2 上输入以下命令，并记录两个节点上脱机的卷：
+.. 【 man_prepare_nodes_step19]] 在 node1 和 node2 上输入以下命令，并记录两个节点上脱机的卷：
 +
 `volume show -node _node_name_-state offline`
 
@@ -376,8 +376,9 @@ NOTE: 您可以使用此信息以及以下子步骤中的信息来验证聚合�
 
 NOTE: 升级后，您将再次运行命令并将此输出与此步骤中的输出进行比较，以查看是否有任何其他卷脱机。
 
-+
-.. 输入以下命令，查看 node1 或 node2 上是否配置了任何接口组或 VLAN ：
+
+
+. 输入以下命令，查看 node1 或 node2 上是否配置了任何接口组或 VLAN ：
 +
 `network port ifgrp show`
 
@@ -387,10 +388,9 @@ NOTE: 升级后，您将再次运行命令并将此输出与此步骤中的输�
 +
 请注意接口组或 VLAN 是在 node1 还是 node2 上配置的；您需要在下一步以及后续步骤的操作步骤中提供这些信息。
 
-.. 在 node1 和 node2 上完成以下子步骤，以确认稍后可以在操作步骤 中正确映射物理端口：
-
-
-. 输入以下命令以查看除 `clusterwide` 以外的节点上是否存在故障转移组：
+. 在 node1 和 node2 上完成以下子步骤，以确认稍后可以在操作步骤 中正确映射物理端口：
++
+.. 输入以下命令以查看除 `clusterwide` 以外的节点上是否存在故障转移组：
 +
 `network interface failover-groups show`
 
@@ -415,8 +415,8 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 
 2 entries were displayed.
 ....
-. 如果存在非 `clusterwide` 的故障转移组，请记录故障转移组名称以及属于故障转移组的端口。
-. 输入以下命令以查看节点上是否配置了任何 VLAN ：
+.. 如果存在非 `clusterwide` 的故障转移组，请记录故障转移组名称以及属于故障转移组的端口。
+.. 输入以下命令以查看节点上是否配置了任何 VLAN ：
 +
 `network port vlan show -node _node_name_`
 
@@ -435,9 +435,10 @@ Node    VLAN Name Port    VLAN ID MAC Address
 ------  --------- ------- ------- ------------------
 node1   e1b-70    e1b     70      00:15:17:76:7b:69
 ....
-. 如果节点上配置了 VLAN ，请记下每个网络端口和 VLAN ID 配对。
-+
-.. 执行以下操作之一：
+.. 如果节点上配置了 VLAN ，请记下每个网络端口和 VLAN ID 配对。
+
+
+. 执行以下操作之一：
 +
 [cols="35,65"]
 |===
@@ -449,7 +450,7 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 
 | 不在 node1 或 node2 上 | 转至 <<man_prepare_nodes_step24,第 24 步>>。 
 |===
-.. [[man_prepare_nodes_step23]] 如果您不知道 node1 和 node2 是在 SAN 环境还是非 SAN 环境中，请输入以下命令并检查其输出：
+. [[man_prepare_nodes_step23]] 如果您不知道 node1 和 node2 是在 SAN 环境还是非 SAN 环境中，请输入以下命令并检查其输出：
 +
 `network interface show -vserver _vserver_name_-data-protocol iscsi_FCP`
 
@@ -476,10 +477,9 @@ Vserver  Interface  Admin/Oper Address/Mask       Node     Port    Home
 -------- ---------- ---------- ------------------ -------- ------- ----
 vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true
 ....
-.. [[man_prepare_nodes_step24]] 通过完成以下子步骤验证集群中的所有节点是否都处于仲裁状态：
-
-
-. 输入高级权限级别：
+. [[man_prepare_nodes_step24]] 通过完成以下子步骤验证集群中的所有节点是否都处于仲裁状态：
++
+.. 输入高级权限级别：
 +
 `set -privilege advanced`
 
@@ -491,8 +491,8 @@ vs1      vs1_lif1   up/down    172.17.176.20/24   node1    0d      true
 Warning: These advanced commands are potentially dangerous; use them only when directed to do so by NetApp personnel.
 Do you wish to continue? (y or n):
 ....
-. 输入 `y` 。
-. 验证内核中每个节点的集群服务状态一次：
+.. 输入 `y` 。
+.. 验证内核中每个节点的集群服务状态一次：
 +
 `cluster kernel-service show`
 
@@ -514,12 +514,13 @@ node1         node1         in-quorum     true          operational
 +
 如果大多数节点运行状况良好，并且可以彼此通信，则集群中的节点将处于仲裁状态。有关详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
 
-. 返回到管理权限级别：
+.. 返回到管理权限级别：
 +
 `set -privilege admin`
 
-+
-.. 执行以下操作之一：
+
+
+. 执行以下操作之一：
 +
 [cols="35,65"]
 |===
@@ -531,7 +532,7 @@ node1         node1         in-quorum     true          operational
 
 | 未配置 SAN | 转至 <<man_prepare_nodes_step29,第 29 步>>。 
 |===
-.. 【 man_prepare_nodes_step26]] 输入以下命令并检查其输出，验证 node1 和 node2 上是否存在已启用 SAN iSCSI 或 FC 服务的每个 SVM 的 SAN LIF ：
+. 【 man_prepare_nodes_step26]] 输入以下命令并检查其输出，验证 node1 和 node2 上是否存在已启用 SAN iSCSI 或 FC 服务的每个 SVM 的 SAN LIF ：
 +
 `network interface show -data-protocol iscsi_FCP -home-node _node_name_`
 
@@ -561,7 +562,7 @@ c_vs_iscsi_fcp data1   up/up      20:0d:00:a0:98:19:9f:b0  node2     0c      tru
 +
 `network interface show -instance -data-protocol iscsi_FCP`
 
-.. 输入以下命令并记录系统的输出，以捕获原始节点上任何 FC 端口的默认配置：
+. 输入以下命令并记录系统的输出，以捕获原始节点上任何 FC 端口的默认配置：
 +
 `ucadmin show`
 
@@ -588,7 +589,7 @@ node2   0d      fc      initiator -       -         online
 +
 您可以在升级后使用此信息设置新节点上的 FC 端口配置。
 
-.. 如果要升级 V 系列系统或安装了 FlexArray 虚拟化软件的系统，请输入以下命令并记录输出，以捕获有关原始节点拓扑的信息：
+. 如果要升级 V 系列系统或安装了 FlexArray 虚拟化软件的系统，请输入以下命令并记录输出，以捕获有关原始节点拓扑的信息：
 +
 `storage array config show -switch`
 
@@ -613,24 +614,24 @@ node2 0   50  I_1818FAStT_1
                             208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
 7 entries were displayed.
 ....
-.. [man_prepare_nodes_step29]] 完成以下子步骤：
-
-
-. 在一个原始节点上输入以下命令并记录输出：
+. [man_prepare_nodes_step29]] 完成以下子步骤：
++
+.. 在一个原始节点上输入以下命令并记录输出：
 +
 `sservice-processor show -node * -instance`
 
 +
 系统会显示两个节点上的 SP 的详细信息。
 
-. 确认 SP 状态为 `online` 。
-. 确认已配置 SP 网络。
-. 记录 IP 地址和有关 SP 的其他信息。
+.. 确认 SP 状态为 `online` 。
+.. 确认已配置 SP 网络。
+.. 记录 IP 地址和有关 SP 的其他信息。
 +
 您可能希望在新节点上重复使用原始系统中远程管理设备（此处为 SP ）的网络参数。有关 SP 的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。
 
-+
-.. 【 man_prepare_nodes_step30]] 如果希望新节点与原始节点具有相同的许可功能，请输入以下命令以查看原始系统上的集群许可证：
+
+
+. 【 man_prepare_nodes_step30]] 如果希望新节点与原始节点具有相同的许可功能，请输入以下命令以查看原始系统上的集群许可证：
 +
 `ssystem license show -owner *`
 
@@ -653,11 +654,11 @@ FlexClone         site    FlexClone License     -
 SnapVault         site    SnapVault License     -
 6 entries were displayed.
 ....
-.. 在 _NetApp 支持站点 _ 为新节点获取新许可证密钥。请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 。
+. 在 _NetApp 支持站点 _ 为新节点获取新许可证密钥。请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 。
 +
 如果此站点没有所需的许可证密钥，请联系您的 NetApp 销售代表。
 
-.. 在每个节点上输入以下命令并检查其输出，以检查原始系统是否已启用 AutoSupport ：
+. 在每个节点上输入以下命令并检查其输出，以检查原始系统是否已启用 AutoSupport ：
 +
 `ssystem node AutoSupport show -node _node1、node2_`
 
@@ -675,7 +676,7 @@ node1            enable    Postmaster    admin@netapp.com  mailhost
 node2            enable    Postmaster    -                 mailhost
 2 entries were displayed.
 ....
-.. 执行以下操作之一：
+. 执行以下操作之一：
 +
 [cols="35,65"]
 |===
@@ -683,29 +684,29 @@ node2            enable    Postmaster    -                 mailhost
 
 
 | 已启用 AutoSupport ...  a| 
-... 转至 <<man_prepare_nodes_step34,第 34 步>>。
-... 转到部分 link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]。
+.. 转至 <<man_prepare_nodes_step34,第 34 步>>。
+.. 转到部分 link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]。
 
 
 
 
 | 未启用 AutoSupport ...  a| 
-... 按照 _System 管理参考 _ 中的说明启用 AutoSupport 。请参见 link:other_references.html["参考资料"] 链接到系统管理参考。）
+.. 按照 _System 管理参考 _ 中的说明启用 AutoSupport 。请参见 link:other_references.html["参考资料"] 链接到系统管理参考。）
 +
 * 注意： * 首次配置存储系统时，默认情况下会启用 AutoSupport 。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。
 
-... 转至 link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"] 部分。
+.. 转至 link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"] 部分。
 
 
 |===
-.. 【 man_prepare_nodes_step34]] 在两个原始节点上输入以下命令并检查输出，以验证 AutoSupport 是否配置了正确的邮件主机详细信息和收件人电子邮件 ID ：
+. 【 man_prepare_nodes_step34]] 在两个原始节点上输入以下命令并检查输出，以验证 AutoSupport 是否配置了正确的邮件主机详细信息和收件人电子邮件 ID ：
 +
 `ssystem node AutoSupport show -node node_name -instance`
 
 +
 有关 AutoSupport 的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。
 
-.. [[man_prepare_nodes_step35 ，步骤 35]] 输入以下命令向 NetApp 发送 node1 的 AutoSupport 消息：
+. [[man_prepare_nodes_step35 ，步骤 35]] 输入以下命令向 NetApp 发送 node1 的 AutoSupport 消息：
 +
 `ssystem node AutoSupport invoke -node node1 -type all -message "upgrading node1 from platform_old to platform_new"`
 
@@ -713,30 +714,28 @@ node2            enable    Postmaster    -                 mailhost
 
 NOTE: 此时，请勿向 NetApp 发送 node2 的 AutoSupport 消息；稍后可在操作步骤中执行此操作。
 
-.. 【 man_prepare_nodes_step36 ，步骤 36]] 输入以下命令并检查其输出，以验证是否已发送 AutoSupport 消息：
+. 【 man_prepare_nodes_step36 ，步骤 36]] 输入以下命令并检查其输出，以验证是否已发送 AutoSupport 消息：
 +
 `ssystem node AutoSupport show -node _node1_-instance`
 
 +
 字段 `Last Subject Sent ：` 和 `Last Time Sent ：` 包含上次发送消息的消息标题以及消息发送时间。
 
-.. 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
+. 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
 +
 --
-*** 经FIPS认证的NetApp存储加密(NSE) SAS或NVMe驱动器
-*** 非FIPS自加密NVMe驱动器(SED)
+** 经FIPS认证的NetApp存储加密(NSE) SAS或NVMe驱动器
+** 非FIPS自加密NVMe驱动器(SED)
 
 
 [NOTE]
 ====
-*** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
-*** 您可以在同一节点或HA对上混用SED和非加密驱动器。
+** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
+** 您可以在同一节点或HA对上混用SED和非加密驱动器。
 
 
 ====
 https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["了解有关支持的自加密驱动器的更多信息"^]。
 
 --
-
-
 
