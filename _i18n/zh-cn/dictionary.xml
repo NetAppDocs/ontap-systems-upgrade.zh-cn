@@ -3787,7 +3787,6 @@
   <block id="2c1932b86516656567d157f72eaf9746" category="summary">对于 ONTAP 9.1 或更高版本，请在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间重新配置端口布局并应用最新的 RCF 。</block>
   <block id="69824f6377ec4443972cf9847e831247" category="summary">有关在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间可能发生的问题的信息。</block>
   <block id="de58ee53439e59b040872d736eb4746a" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，准备节点，收集信息并确认所有集群节点都处于仲裁状态。</block>
-  <block id="930e54e1be27588126529911ee1a66bb" category="paragraph">+ 注意：您稍后将在操作步骤 中使用此信息。</block>
   <block id="528395f19572aa91b1963f0ea7b6ed6b" category="summary">在运行 ONTAP 9.7 或更高版本的控制器上手动升级 ARL 期间，记录有关 node2 集群网络，管理， FC 端口和 NVRAM 系统 ID 的信息。</block>
   <block id="45e4301bce74949fdb13b7b2b487a728" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，安装 RCF 文件以重新配置 Cisco 和 Brocade 交换机。</block>
   <block id="6d2acf13fe57f3aa46b46db44d2c7e40" category="summary">通知 NetApp 技术支持，正在对运行 ONTAP 9.7 或更早版本的控制器进行手动 ARL 升级期间进行维护。</block>
@@ -3941,7 +3940,6 @@
   <block id="830a042377d7fdbd36c48ece8669e61c" category="section-title">在node1上安装AFF A900或FAS9500控制 器模块。</block>
   <block id="bb0ced2b785386259d517f7ae7bd88d1" category="paragraph">使用以下操作步骤 在node1中安装AFF A900或FAS9500控制 器模块。</block>
   <block id="a8785e7ad1cb0d71507bbcb99df9c1f7" category="cell">将AFF A700系统转换为AFF A900系统、保留A700机箱</block>
-  <block id="e1b003e7f655a9b7177c226f66898500" category="cell">9.10.1 P3或更高版本</block>
   <block id="3029eeb5ee6e861b02eb2a1ffd3d3b8e" category="cell">FAS9000到FAS9500</block>
   <block id="92edbfe3ededa1bb85b931ec295f360d" category="cell">将FAS9000系统转换为FAS9500系统、保留FAS9000机箱。</block>
   <block id="a5ce3ab443f38c92fc244c3533db25fd" category="paragraph">您可以通过交换控制器和NVRAM模块来无中断升级高可用性(HA)对上的控制器硬件。首先、在旧控制器节点之间迁移非根聚合。安装后、您可以将非根聚合从旧控制器节点迁移到替代控制器节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</block>
@@ -4485,4 +4483,6 @@
   <block id="9d5ce6c4c82bf9a0ff455a50cadc1ab6" category="list-text">如果在配置中使用了自加密驱动器、并且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在使用AFF A900或FAS9500控制 器和NVRAM模块的_Boot node2中、 <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
   <block id="21b9417932c23289b6932c3a0ac2517f" category="list-text">【boot_node2_step1]]设置<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> 和<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 用于避免在加载node2配置后启动环路的变量。</block>
   <block id="083a0c049526537d6b95a268054814fb" category="list-text">您的系统上具有混合聚合。</block>
+  <block id="5c8ce8c10b94248d147cb23bb490fd9d" category="cell">使用<block ref="0cdc21b7c964923f382c6248332e0a1d" prefix=" " category="inline-code"></block> 命令</block>
+  <block id="6e1f6dfb0fcbfac6c4067f6818568970" category="cell">9.11.1P6或9.10.1P10 (目标日期为2023年2月)</block>
 </blocks>
