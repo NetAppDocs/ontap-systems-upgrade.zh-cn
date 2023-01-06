@@ -14,10 +14,10 @@ summary: 了解是否可以使用 ARL 将 AFF A700 升级到 AFF A900 。
 
 
 [role="lead"]
-使用ARL升级以下系统配置中的一对控制器：
+在以下系统配置中使用ARL升级一对运行ONTAP 9.11.1P6或9.10.1P10 (目标为2023年2月)的控制器：
 
-* 将一对AFF A700控制器升级到运行ONTAP 9.10.1或更高版本的AFF A900系统
-* 将一对FAS9000控制器升级到运行ONTAP 9.10.1P3或更高版本的FAS9000系统
+* 将AFF A700控制器连接到AFF A900系统
+* 将FAS9000控制器连接到FAS9000系统
 
 
 
@@ -27,7 +27,7 @@ summary: 了解是否可以使用 ARL 将 AFF A700 升级到 AFF A900 。
 使用ARL将控制器从AFF A700升级到AFF A900或从FAS9000升级到FAS9500、并且支持NVRAM模块的组合。如果您收到的新AFF A900或FAS9500系统是一个完整系统、包括一个新机箱、请参见 link:other_references.html["参考资料"] 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。
 
 
-WARNING: 此操作步骤 严格按照适用场景 ONTAP 9.10.1或更高版本对AFF A700至AFF A900进行升级、并对运行9.10.1P3或更高版本的FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。
+WARNING: 此操作步骤 严格按照适用场景 ONTAP 9.11.1P6或9.10.1P10 (目标日期为2023年2月)对AFF A700至AFF A900或FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。
 
 配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
 

@@ -21,7 +21,7 @@ summary: 您可以通过交换控制器模块和 NVS 将 AFF A700 上的控制�
 | 方法 | ONTAP 版本 | 支持的系统 | Description 
 
 
-| 使用 `system contlroller replace` 命令 | 9.11.1P6或9.10.1P10 (目标日期为2023年2月) | AFF A700 到 AFF A900 | 将AFF A700系统转换为AFF A900系统、保留A700机箱 
+| 使用 `ssystem controller replace` 命令 | 9.11.1P6或9.10.1P10 (目标日期为2023年2月) | AFF A700 到 AFF A900 | 将AFF A700系统转换为AFF A900系统、保留A700机箱 
 
 
 | 使用 `ssystem controller replace` 命令 | 9.11.1P6或9.10.1P10 (目标日期为2023年2月) | FAS9000到FAS9500 | 将FAS9000系统转换为FAS9500系统、保留FAS9000机箱。 

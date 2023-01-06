@@ -3962,11 +3962,7 @@
   <block id="25beb58d3a670fb2c16081f902a5bff2" category="inline-link-macro">第6阶段：使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
   <block id="82fe66fed743ab06100b56ff7cede89d" category="cell"><block ref="82fe66fed743ab06100b56ff7cede89d" category="inline-link-macro-rx"></block></block>
   <block id="d066afecd32f577c431df88c1a421ca4" category="list-text">使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
-  <block id="3d34e56cf21c4a138ab823660c2b5555" category="paragraph">使用ARL升级以下系统配置中的一对控制器：</block>
-  <block id="2a0a9f74d7fd41063ed18276c24550d5" category="list-text">将一对AFF A700控制器升级到运行ONTAP 9.10.1或更高版本的AFF A900系统</block>
-  <block id="546138e0b7501a286c581953c65b874d" category="list-text">将一对FAS9000控制器升级到运行ONTAP 9.10.1P3或更高版本的FAS9000系统</block>
   <block id="8c3db477300524bd7d8bcf2bba005da2" category="paragraph">使用ARL将控制器从AFF A700升级到AFF A900或从FAS9000升级到FAS9500、并且支持NVRAM模块的组合。如果您收到的新AFF A900或FAS9500系统是一个完整系统、包括一个新机箱、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。</block>
-  <block id="89270eb0a4789198b9486a5396fb9846" category="admonition">此操作步骤 严格按照适用场景 ONTAP 9.10.1或更高版本对AFF A700至AFF A900进行升级、并对运行9.10.1P3或更高版本的FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。</block>
   <block id="446e34a339be0fda54aae2fe862c868f" category="paragraph">使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在节点2的插槽6中。</block>
   <block id="b5e3968706cd8f4fee9d9a918b1b867f" category="section-title">在节点2中安装AFF A900或FAS9500控制 器模块</block>
   <block id="43d062a38b70447bd532892c53e0817c" category="paragraph">使用以下操作步骤 在node2中安装AFF A900或FAS9500控制 器模块。</block>
@@ -3977,8 +3973,6 @@
   <block id="c0bf6385dfa15c204a13d5abb6770653" category="paragraph">在此控制器升级期间、您可以将AFF A700控制器更换为AFF A900控制器、或者将FAS9000控制器更换为FAS9500控制器。此内容介绍了自动化操作步骤 的步骤，该过程使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
   <block id="2a2d4d28b7b0848fbdd189061adaff52" category="paragraph">此内容介绍如何升级AFF A700 HA对中的存储控制器以及FAS9000 HA对中的新AFF A900控制器或控制器以及新的FAS9500控制器、同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
   <block id="3d58d6338cfd5f06b224201846bd6759" category="list-text">您已向NetApp销售代表确认、您已收到AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件。</block>
-  <block id="58fd942a7ba8a430b491bba397e88d17" category="list-text">您正在为AFF A900控制器运行ONTAP 9.10.1或更高版本。</block>
-  <block id="7addcb2495004d218f3791cfcb74d41e" category="list-text">您正在为FAS9500控制 器运行ONTAP 9.10.1P3或更高版本。</block>
   <block id="b0ce3e25b9ec3a13c13ca9a6fa5323b7" category="list-text">您正在AFF A700或FAS9000系统上使用FlexArray 虚拟化软件。</block>
   <block id="c72ac68ecc63380b07ba76bc038edf2e" category="paragraph">您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。</block>
   <block id="fbb88f36cd542fa5f9d7d9b7989c4fa9" category="paragraph">使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。</block>
@@ -4483,6 +4477,10 @@
   <block id="9d5ce6c4c82bf9a0ff455a50cadc1ab6" category="list-text">如果在配置中使用了自加密驱动器、并且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在使用AFF A900或FAS9500控制 器和NVRAM模块的_Boot node2中、 <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
   <block id="21b9417932c23289b6932c3a0ac2517f" category="list-text">【boot_node2_step1]]设置<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> 和<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 用于避免在加载node2配置后启动环路的变量。</block>
   <block id="083a0c049526537d6b95a268054814fb" category="list-text">您的系统上具有混合聚合。</block>
-  <block id="5c8ce8c10b94248d147cb23bb490fd9d" category="cell">使用<block ref="0cdc21b7c964923f382c6248332e0a1d" prefix=" " category="inline-code"></block> 命令</block>
   <block id="6e1f6dfb0fcbfac6c4067f6818568970" category="cell">9.11.1P6或9.10.1P10 (目标日期为2023年2月)</block>
+  <block id="53f4933654122c2732aaf29d750ecb9c" category="list-text">您正在运行ONTAP 9.11.1P6或9.10.1P10 (目标日期为2023年2月)。</block>
+  <block id="34fe5db3348c8cff3877298c8c064752" category="paragraph">在以下系统配置中使用ARL升级一对运行ONTAP 9.11.1P6或9.10.1P10 (目标为2023年2月)的控制器：</block>
+  <block id="b99f39b13055b86a7e0146684c21e326" category="list-text">将AFF A700控制器连接到AFF A900系统</block>
+  <block id="9733b2ec9e26adc1936d94dc2a3bb0dd" category="list-text">将FAS9000控制器连接到FAS9000系统</block>
+  <block id="6425a395e3062e0f480ffee2bc19d2f7" category="admonition">此操作步骤 严格按照适用场景 ONTAP 9.11.1P6或9.10.1P10 (目标日期为2023年2月)对AFF A700至AFF A900或FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。</block>
 </blocks>
