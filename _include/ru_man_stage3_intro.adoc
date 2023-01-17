@@ -1,5 +1,0 @@
-= 
-:allow-uri-read: 
-
-
-在第 3 阶段，您将安装并启动 node3 ，将集群和节点管理端口从 node1 映射到 node3 ，验证 node3 安装，并将属于 node1 的数据 LIF 和 SAN LIF 从 node2 移动到 node3 。您还可以将所有聚合从 node2 重新定位到 node3 ，并将 node2 拥有的数据 LIF 和 SAN LIF 移动到 node3 。

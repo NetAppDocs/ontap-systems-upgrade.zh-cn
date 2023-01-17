@@ -129,7 +129,7 @@ image::../upgrade/media/reassign_lifs.PNG[将LIF重新分配给更换系统上�
 --
 . 【预备 _move_store_5]] 下载并准备用于执行网络启动的文件。
 +
-安装新节点后，您可能需要通过网络启动来确保新节点运行的 ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
+安装新节点后、您可能需要通过网络启动来确认新节点运行的ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
 
 +
 .. 访问 https://mysupport.netapp.com/site/["NetApp 支持站点"^] 下载用于执行系统网络启动的文件。

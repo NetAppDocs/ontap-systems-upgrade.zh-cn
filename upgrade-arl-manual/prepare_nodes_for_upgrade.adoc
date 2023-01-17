@@ -25,11 +25,13 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 +
 .. 确保诊断用户帐户已解锁。
 +
-* 重要信息 * ：诊断用户帐户仅用于低级别诊断，只能在技术支持的指导下使用。
+[IMPORTANT]
+====
+诊断用户帐户仅用于低级别诊断、只能在技术支持的指导下使用。
 
-+
-* 重要信息 * ：有关解锁用户帐户的信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
+有关解锁用户帐户的信息、请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
 
+====
 .. 请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 并下载性能和统计信息收集器（ Perfstat Converged ）。
 +
 使用 perfstat Converged 工具，您可以建立性能基线，以便在升级后进行比较。

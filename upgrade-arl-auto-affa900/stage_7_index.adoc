@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_7_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 1 阶段流程顺序。' 
+---
+= 第 7 阶段。完成升级
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。
+
+.步骤
+. link:get_ip_address_of_external_kms_for_storage_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]
+. link:ensure_new_controllers_are_set_up_correctly.html["确认新控制器设置正确"]
+. link:set_up_storage_encryption_new_module.html["在新控制器模块上设置存储加密"]
+. link:set_up_netapp_volume_encryption_new_module.html["在新控制器模块上设置NetApp卷或聚合加密"]
+. link:decommission_old_system.html["停用旧系统"]
+. link:resume_snapmirror_operations.html["恢复 SnapMirror 操作"]
+

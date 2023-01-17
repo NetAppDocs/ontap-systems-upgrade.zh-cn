@@ -27,8 +27,8 @@ entries:
     url: "/upgrade-arl-auto/stage_1_index.html"
   - title: 准备要升级的节点
     url: "/upgrade-arl-auto/prepare_nodes_for_upgrade.html"
-  - title: 获取用于存储加密的外部密钥管理服务器的 IP 地址
-    url: "/upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html"
+  - title: 使用板载密钥管理器管理存储加密
+    url: "/upgrade-arl-auto/manage_storage_encryption_using_okm.html"
 - title: 第 2 阶段。重新定位和停用节点 1
   pdf-filename: 第 2 阶段。重新定位和停用node1 (在‘sONTAP 9.5至9.7中使用"系统控制器更换"进行升级)
   entries:
@@ -90,11 +90,13 @@ entries:
   entries:
   - title: 概述
     url: "/upgrade-arl-auto/stage_6_index.html"
-  - title: 确保新控制器设置正确
+  - title: 获取用于存储加密的外部密钥管理服务器的 IP 地址
+    url: "/upgrade-arl-auto/get_ip_address_of_external_kms_for_storage_encryption.html"
+  - title: 确认新控制器设置正确
     url: "/upgrade-arl-auto/ensure_new_controllers_are_set_up_correctly.html"
   - title: 在新控制器模块上设置存储加密
     url: "/upgrade-arl-auto/set_up_storage_encryption_new_module.html"
-  - title: 在新控制器模块上设置 NetApp 卷加密
+  - title: 在新控制器模块上设置NetApp卷或聚合加密
     url: "/upgrade-arl-auto/set_up_netapp_volume_encryption_new_module.html"
   - title: 停用旧系统
     url: "/upgrade-arl-auto/decommission_old_system.html"

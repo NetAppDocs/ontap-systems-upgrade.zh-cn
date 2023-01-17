@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-manual-app/move_nas_lifs_node1_node2.html 
 keywords: nas, node1, node2, lifs, cluster, san 
-summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，如果您使用的是双节点集群，请将 node1 的数据 LIF 移至 node2 ；如果您的集群具有两个以上的节点，则将其移至第三个节点。 
+summary: 在运行ONTAP 9.8或更高版本的控制器上手动升级ARL期间、如果您使用的是双节点集群、请将node1数据LIF移动到node2；如果您的集群具有两个以上的节点、则移动到第三个节点。 
 ---
 = 将 node1 拥有的 NAS 数据 LIF 移动到 node2
 :hardbreaks:

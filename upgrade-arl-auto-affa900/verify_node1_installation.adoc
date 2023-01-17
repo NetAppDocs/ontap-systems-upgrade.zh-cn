@@ -95,7 +95,7 @@ NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domai
 
 . 列出集群上的广播域：
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 . 列出节点 1 上所有端口的网络端口可访问性：
 +

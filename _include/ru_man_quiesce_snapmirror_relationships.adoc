@@ -18,6 +18,6 @@ NOTE: 如果状态为`transferring`、则必须中止这些传输：`snapmirror 
 
 . 暂停集群之间的所有关系：
 +
-`snapmirror quiesce -destination-vserver _vserver-name_`
+`snapmirror quiesce -destination-vserver *`
 
 

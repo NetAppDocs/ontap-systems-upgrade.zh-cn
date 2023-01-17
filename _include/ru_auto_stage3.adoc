@@ -1,5 +1,0 @@
-= 
-:allow-uri-read: 
-
-
-在第 3 阶段，您安装并启动 node3 ，检查 node1 中的集群和节点管理端口是否在 node3 上联机，并验证 node3 安装。属于 node1 的非 SAN 数据 LIF 和非根聚合将从 node2 移动到 node3 。

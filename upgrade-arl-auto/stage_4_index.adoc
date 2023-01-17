@@ -14,7 +14,7 @@ summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller 
 
 
 [role="lead"]
-在阶段 4 中，所有非根聚合将从 node2 重新定位到 node3 ； node2 拥有的非 SAN 数据 LIF 将移至 node3 。您必须记录必要的 node2 信息，然后停用 node2 。
+在阶段4中、您会将非根聚合和NAS数据LIF从node2重新定位到node3。您必须记录必要的 node2 信息，然后停用 node2 。
 
 .步骤
 . link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"]

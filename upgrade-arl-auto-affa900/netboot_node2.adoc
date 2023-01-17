@@ -49,7 +49,14 @@ NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用�
 
 
 | 未运行  a| 
-在启动环境提示符处使用以下命令手动配置连接：`ifconfig e0M -addr=_filer_addr_-mask=_netmask_-gw=_gateway_-dns=_dns_addr_-domain=_dns_domain_`` filer_addr_`是存储系统的IP地址。` netmask_`是存储系统的网络掩码。` gateway_`是存储系统的网关。` dns_addr_`是网络上名称服务器的IP地址。此参数是可选的。` dns_domain_`是域名服务(DNS)域名。此参数是可选的。
+在启动环境提示符处使用以下命令手动配置连接：
+`ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
+
+`_filer_addr_` 是存储系统的IP地址(必填)。
+`_netmask_` 是存储系统的网络掩码(必需)。
+`_gateway_` 是存储系统的网关(必需)。
+`_dns_addr_` 是网络上名称服务器的IP地址(可选)。
+`_dns_domain_` 是域名服务(DNS)域名(可选)。
 
 
 NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
@@ -87,13 +94,18 @@ Selection (1-11)?
 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。
 
 +
-[NOTE]
-====
-请忽略以下消息： `HA 对上的无中断升级不支持此操作步骤` 。本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。
+请忽略以下消息：
 
-请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景所有 ONTAP 版本。
++
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
 
-====
++
+本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。
+
++
+
+NOTE: 请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。netboot操作步骤 与选项结合使用 `(7) Install new software` 擦除启动介质并将相同的ONTAP 版本放置在两个映像分区上。
+
 . 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`
 +
 `path_to_the_web-accessible_directory` 应指向下载 `ontap_version_image.tgz` 的位置 <<netboot_node2_step2,第 2 步>>。
@@ -186,13 +198,12 @@ NOTE: 在 node2 上设置相应的 UTC 日期。
 
 NOTE: 在 node2 上设置相应的 UTC 时间。
 
-. 如有必要，请在 node2 上设置配对系统 ID ：
-+
-
-NOTE: 这是要升级到 AFF A900 的 node1 的系统 ID 。
-
+. 在node2上设置配对系统ID：
 +
 `setenv partner-sysid _node1_sysid_`
+
++
+对于node2、为 `partner-sysid` 必须是要升级到AFF A900或FAS9500的node1中的节点。
 
 +
 .. 保存设置：
@@ -201,11 +212,8 @@ NOTE: 这是要升级到 AFF A900 的 node1 的系统 ID 。
 
 
 
-. 在 node2 上的 LOADER 提示符处，验证 node1 的 `partner-sysid` ：
+. 在node2上的LOADER提示符处、验证 `partner-sysid` 对于node2：
 +
 `printenv partner-sysid`
-
-+
-对于 node2 ， `partner-sysid` 必须为 node1 。
 
 

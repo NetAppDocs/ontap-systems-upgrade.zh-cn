@@ -3,7 +3,7 @@
 
 
 
-NOTE: 您可以对此操作步骤使用 NetApp 存储加密（ NSE ）和 NetApp 卷加密（ NVE ）。
+NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 

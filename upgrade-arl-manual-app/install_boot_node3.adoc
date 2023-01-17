@@ -21,9 +21,13 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 但是，如果 node3 安装的 ONTAP 9 版本与 node1 相同或更高，则不需要对其执行网络启动。
 
+[IMPORTANT]
+====
+如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则需要完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。
 
-NOTE: * 重要信息 * ：如果要升级连接到存储阵列的 V 系列系统或使用连接到存储阵列的 FlexArray 虚拟化软件的系统，则需要完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。但是，如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"]，在集群提示符处输入命令。
+但是，如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"]，在集群提示符处输入命令。
 
+====
 .步骤
 . 【 man_install3_step1]] 确保为 node3 预留机架空间。
 +
@@ -100,7 +104,8 @@ NOTE: * 注意 * ：请勿覆盖此延迟；如果不允许电池充电，可能
 .. 返回到此部分，完成从开始的其余步骤 <<man_install3_step7,第 7 步>>。
 
 
-* 重要信息 * ：在使用 FlexArray 虚拟化软件的 V 系列或系统上启动 ONTAP 之前，必须重新配置 FC 板载端口， CNA 板载端口和 CNA 卡。
+
+IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP 之前、必须重新配置FC板载端口、CNA板载端口和CNA卡。
 
 |===
 . 【 man_install3_step7]] 将新节点的 FC 启动程序端口添加到交换机分区。
@@ -148,7 +153,8 @@ NOTE: * 注意 * ：请勿覆盖此延迟；如果不允许电池充电，可能
 如果两个控制器位于同一机箱中，则应已打开电源。
 
 +
-* 注 * ：在启动环境提示符处保留 node4 ；您将返回到中的 node4 link:install_boot_node4.html["安装并启动节点 4."]。
+
+NOTE: 在启动环境提示符处保留node4；您将返回到中的node4 link:install_boot_node4.html["安装并启动节点 4."]。
 
 .. 如果您在中看到警告消息，请执行此操作 <<man_install3_step4,第 4 步>>，按照中的说明进行操作 <<man_install3_step5,第 5 步>>
 .. 将控制台缆线从 node4 切回到 node3 。
@@ -228,7 +234,19 @@ NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用�
 | 正在运行 | 在启动环境提示符处输入以下命令，以自动配置连接： `ifconfig e0M -auto` 
 
 
-| 未运行 | 在启动环境提示符处输入以下命令以手动配置连接：`ifconfig e0M -addr=_filer_addr_-mask=_netmask_-gw=_gateway_-dns=_dns_addr_-domain=_dns_domain_`` filer_addr_`是存储系统的IP地址。` netmask_`是存储系统的网络掩码。` gateway_`是存储系统的网关。` dns_addr_`是网络上名称服务器的IP地址。` dns_domain_`是域名服务(DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注 * ：接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
+| 未运行  a| 
+在启动环境提示符处输入以下命令、以手动配置连接：
+`ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
+
+`_filer_addr_` 是存储系统的IP地址(必填)。
+`_netmask_` 是存储系统的网络掩码(必需)。
+`_gateway_` 是存储系统的网关(必需)。
+`_dns_addr_` 是网络上名称服务器的IP地址(可选)。
+`_dns_domain_` 是域名服务(Domain Name Service、DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。
+
+
+NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
+
 |===
 . 【 man_install3_step21]] 对 node3 执行网络启动：
 +
@@ -254,20 +272,17 @@ NOTE: 请勿中断启动。
 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。
 
 +
-
-NOTE: 请忽略以下消息：
+请忽略以下消息：
 
 +
-[listing]
-----
-This procedure is not supported for Non-Disruptive Upgrade on an HA pair.
-----
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+
 +
 注意适用场景可无中断升级 ONTAP ，而不是升级控制器。
 
 +
 
-NOTE: 请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景是 ONTAP 的所有版本。
+NOTE: 请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景是 ONTAP 的所有版本。netboot操作步骤 与选项结合使用 `(7) Install new software` 擦除启动介质并将相同的ONTAP 版本ONTAP 放置在两个映像分区上。
 
 . 如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时输入以下 URL ：
 +

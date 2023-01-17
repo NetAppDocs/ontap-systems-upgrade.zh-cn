@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_5_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 1 阶段流程顺序。' 
+---
+= 第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在阶段5中、您将安装为升级后的node2和netboot node2收到的新NVRAM和控制器模块。
+
+.步骤
+. link:install_a900_nvs_and_controller_on_node2.html["在节点2上安装AFF A900或FAS9500NVRAM和控制器模块"]
+. link:netboot_node2.html["网络启动节点 2."]
+

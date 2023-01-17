@@ -2,12 +2,13 @@
 :allow-uri-read: 
 
 
-在第 6 阶段，确保正确设置了新节点。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改适配器的个性化设置。如果新节点已启用加密，则还应设置存储加密。您还应停用旧节点。
+在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。
 
 .步骤
-. link:ensure_new_controllers_are_set_up_correctly.html["确保新控制器设置正确"]
+. link:get_ip_address_of_external_kms_for_storage_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]
+. link:ensure_new_controllers_are_set_up_correctly.html["确认新控制器设置正确"]
 . link:set_up_storage_encryption_new_module.html["在新控制器模块上设置存储加密"]
-. link:set_up_netapp_volume_encryption_new_module.html["在新控制器模块上设置 NetApp 加密"]
+. link:set_up_netapp_volume_encryption_new_module.html["在新控制器模块上设置NetApp卷或聚合加密"]
 . link:decommission_old_system.html["停用旧系统"]
 . link:resume_snapmirror_operations.html["恢复 SnapMirror 操作"]
 

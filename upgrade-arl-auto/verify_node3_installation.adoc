@@ -70,7 +70,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 
 == 还原 node3 上的 key-manager 配置
 
-如果使用 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，则加密配置必须与新节点同步。如果不还原key-manager、则在使用ARL将node1聚合从node2重新定位到node3时、加密卷将脱机。
+如果要使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不还原key-manager、则在使用ARL将node1聚合从node2重新定位到node3时、加密卷将脱机。
 
 .步骤
 . 要同步板载密钥管理器的加密配置，请在集群提示符处运行以下命令：

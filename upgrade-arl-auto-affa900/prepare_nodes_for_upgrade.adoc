@@ -99,31 +99,32 @@ Controller replacement operation has been paused for user intervention.
 . 在启动控制器更换操作并完成预检后，此操作将暂停，以便收集稍后在控制器升级过程中可能需要的输出信息。
 . 按照系统控制台上控制器更换操作步骤的指示运行以下一组命令。
 +
-您必须分别运行和保存以下命令的输出：
+从连接到每个节点的串行端口中、分别运行并保存以下命令的输出：
 
 +
 ** `vserver services name-service dns show`
-** `network interface show -curr-node _nodename_-role cluster、intercluster、node-mgmt、cluster-mgmt、data`
-** `network port show -node _node_name_-type physical`
-** `sservice-processor show -node * -instance`
-** `network fcp adapter show -node _node_name_`
+** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,cluster-mgmt,data`
+** `network port show -node _local_ -type physical`
+** `service-processor show -local -instance`
+** `network fcp adapter show -node _local_`
 ** `network port ifgrp show`
-** `ssystem node show -instance -node _node_name_`
-** `运行-node _node_name_ sysconfig`
-** `storage aggregate show -node _node_name_`
-** `volume show -node _node_name_`
+** `system node show -instance -node _local_`
+** `run -node _local_ sysconfig`
+** `storage aggregate show -node _local_`
+** `volume show -node _local_`
 ** `storage array config show -switch _switch_name_`
-** `ssystem license show -owner _node_name_`
+** `system license show -owner _local_`
 ** `s存储加密磁盘 show`
 ** `s安全密钥管理器板载 show-backup`
 ** `security key-manager external show`
 ** `s安全密钥管理器外部 show-status`
-** `re可访问性 show -detail`
+** `网络端口可访问性 show -detail`
 
 
-+
 
-NOTE: 如果正在使用板载密钥管理器进行 NetApp 卷加密，请准备好密钥管理器密码短语，以便稍后在操作步骤 中完成密钥管理器重新同步。
+
+
+NOTE: 如果正在使用使用板载密钥管理器的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤 中完成密钥管理器重新同步。
 
 . 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
 +

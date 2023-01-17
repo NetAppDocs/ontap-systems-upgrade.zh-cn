@@ -14,11 +14,13 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 的�
 
 
 [role="lead"]
-在第 6 阶段，您确认新节点设置正确。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改适配器的个性化设置。如果新节点已启用加密，则还必须设置存储加密。您还必须停用旧节点。
+在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。
 
-. link:ensure_controllers_set_up_correctly.html["确保新控制器设置正确"]
+. link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]
+. link:manage_authentication_kmip.html["使用 KMIP 服务器管理身份验证"]
+. link:ensure_controllers_set_up_correctly.html["确认新控制器设置正确"]
 . link:set_up_storage_encryption_new_controller.html["在新控制器模块上设置存储加密"]
-. link:set_up_netapp_encryption_on_new_controller.html["在新控制器模块上设置 NetApp 加密"]
+. link:set_up_netapp_encryption_on_new_controller.html["在新控制器模块上设置NetApp卷或聚合加密"]
 . link:decommission_old_system.html["停用旧系统"]
 . link:resume_snapmirror_ops.html["恢复 SnapMirror 操作"]
 

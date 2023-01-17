@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-map-network-ports-ontap-9-8.html 
 sidebar: sidebar 
 keywords: enable, node3, node4, node, communicate, cluster, network, upgrade, physical, port, correct, configure, setting, data, map network ports using ontap 9.8 
-summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确保已为物理端口正确配置了用于预期用途的设置，例如集群，数据等。 
+summary: 要使 node3 和 node4 能够在升级后在集群中彼此通信并与网络通信，您必须确认物理端口已正确配置了用于预期用途的设置，例如集群，数据等。 
 ---
 = 使用ONTAP 9.8或更高版本映射网络端口
 :allow-uri-read: 
@@ -114,7 +114,7 @@ from the port. Are you sure you want to continue? {y|n}:
 .. 要使 ONTAP 能够完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
 .. 列出集群上的所有广播域：
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 .. 在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口与任何现有广播域不对应，则 ONTAP 将为这些端口创建新的广播域。如果新创建的广播域的所有成员端口都将成为接口组的成员端口，则可以根据需要删除这些成员端口。删除广播域
 +

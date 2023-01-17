@@ -74,7 +74,7 @@ CAUTION: * 注意： * 在此阶段， MetroCluster 配置将不会处于正常�
 
 == 还原 node4 上的 key-manager 配置
 
-如果使用 NetApp 卷加密（ NVE ）对要升级的系统上的卷进行加密，则加密配置必须与新节点同步。如果不还原key-manager、则在使用ARL将node2聚合从node3重新定位到node4时、加密卷将脱机。
+如果要使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不还原key-manager、则在使用ARL将node2聚合从node3重新定位到node4时、加密卷将脱机。
 
 .步骤
 . 要同步板载密钥管理器的加密配置，请在集群提示符处运行以下命令：

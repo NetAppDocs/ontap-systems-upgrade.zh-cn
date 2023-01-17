@@ -135,7 +135,7 @@ Warning: Repairing port "node_name:port" may cause it to move into a different b
 .. 要使 ONTAP 能够完成修复，请在最后一个端口上运行 `reachability repair` 命令后等待大约一分钟。
 .. 列出集群上的所有广播域：
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 .. 在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口与任何现有广播域不对应，则 ONTAP 将为这些端口创建新的广播域。如果新创建的广播域的所有成员端口都将成为接口组的成员端口，则可以根据需要删除这些成员端口。删除广播域
 +

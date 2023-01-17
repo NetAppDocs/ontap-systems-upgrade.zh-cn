@@ -121,7 +121,8 @@ WARNING: * 警告：不要覆盖此延迟。如果不允许电池充电，可能
 .. 返回到此部分，完成从开始的其余步骤 <<man_install4_Step9,第 9 步>>。
 
 
-* 重要信息 * ：在 V 系列系统上启动 Data ONTAP 之前，您必须重新配置 FC 板载端口， UTA/UTA2 板载端口和 UTA/UTA2 卡。
+
+IMPORTANT: 在V系列系统上启动Data ONTAP 之前、必须重新配置FC板载端口、UTA/UTA2板载端口和UTA/UTA2卡。
 
 |===
 . 【 man_install4_Step9]] 将新节点的 FC 启动程序端口添加到交换机分区。
@@ -211,15 +212,29 @@ WARNING: * 警告：不要覆盖此延迟。如果不允许电池充电，可能
 NOTE: 您必须使用管理端口和 IP 地址作为网络启动连接。请勿使用数据 LIF IP 地址，否则在执行升级期间可能会发生数据中断。
 
 +
-[cols="30,70"]
+[cols="35,75"]
 |===
 | 动态主机配置协议（ DHCP ） | 那么 ... 
 
 
-| 正在运行 | 在启动环境提示符处输入以下命令，以自动配置连接： `ifconfig e0M -auto` 
+| 正在运行  a| 
+在启动环境提示符处输入以下命令，以自动配置连接： `ifconfig e0M -auto`
 
 
-| 未运行 | 在启动环境提示符处输入以下命令以手动配置连接：`ifconfig e0M -addr=_filer_addr_ mask=_netmask_-gw=_gateway_ dns_dns_addr_ domain=_dns_domain_`` filer_addr_`是存储系统的IP地址。` netmask_`是存储系统的网络掩码。` gateway_`是存储系统的网关。` dns_addr_`是网络上名称服务器的IP地址。` dns_domain_`是域名服务(DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。* 注 * ：接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。 
+
+| 未运行  a| 
+在启动环境提示符处输入以下命令、以手动配置连接：
+`ifconfig e0M -addr=_filer_addr_ mask=_netmask_ -gw=_gateway_ dns=_dns_addr_ domain=_dns_domain_`
+
+`_filer_addr_` 是存储系统的IP地址(必填)。
+`_netmask_` 是存储系统的网络掩码(必需)。
+`_gateway_` 是存储系统的网关(必需)。
+`_dns_addr_` 是网络上名称服务器的IP地址(可选)。
+`_dns_domain_` 是域名服务(Domain Name Service、DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。
+
+
+NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
+
 |===
 . 对 node4 执行网络启动：
 +
@@ -248,10 +263,14 @@ NOTE: 请勿中断启动。
 请忽略以下消息：
 
 +
-` " 此操作步骤不支持在 HA 对上进行无中断升级 "`
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
 
 +
 注意适用场景可无中断升级 Data ONTAP ，而不是升级控制器。
+
++
+
+NOTE: 请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景是 ONTAP 的所有版本。netboot操作步骤 与选项结合使用 `(7) Install new software` 擦除启动介质并将相同的ONTAP 版本放置在两个映像分区上。
 
 . 【 ｛ man_install4_step23]] 如果系统提示您继续运行操作步骤，请输入 y ，当系统提示您输入软件包时，请输入 URL ：
 +

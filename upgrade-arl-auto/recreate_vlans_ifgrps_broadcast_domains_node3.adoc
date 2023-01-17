@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto/recreate_vlans_ifgrps_broadcast_domains_node3.html 
 keywords: node3, interface group, VLANs, broadcast domains, re-create 
-summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，在 node3 上重新创建 node1 的 VLAN ，接口组和广播域。' 
+summary: '使用将运行ONTAP 9.5的控制器升级到9.7时、在node3上重新创建node1 VLAN、接口组和广播域 `system controller replace` 命令' 
 ---
 = 在 node3 上重新创建 VLAN ，接口组和广播域
 :hardbreaks:

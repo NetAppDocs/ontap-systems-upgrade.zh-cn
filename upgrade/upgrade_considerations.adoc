@@ -22,7 +22,7 @@ link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^]
 
 * 您必须遵守最大集群大小。
 +
-通过移动卷进行升级时，在删除原始节点之前，新节点将加入集群。确保集群中的控制器数量在操作步骤期间不超过支持的最大集群大小。
+通过移动卷进行升级时，在删除原始节点之前，新节点将加入集群。确认集群中的控制器数量在操作步骤 期间不超过支持的最大集群大小。
 
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]

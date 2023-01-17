@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/verify_node3_installation.html 
 keywords: verifying, verify, node, install, installation 
-summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，验证 node1 的物理端口是否正确映射到 node3 并还原 node3 上的网络配置。' 
+summary: '使用升级运行ONTAP 9.8或更高版本的控制器时、验证node1物理端口是否正确映射到node3并还原node3上的网络配置 `system controller replace` 命令' 
 ---
 = 验证 node3 安装
 :hardbreaks:
@@ -138,7 +138,7 @@ NOTE: 在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains
 
 . 【第 2 步】列出集群上的广播域：
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 . 【第 3 步】列出节点 3 上所有端口的网络端口可访问性：
 +
@@ -310,7 +310,7 @@ Cluster::*> displaced-vlans restore -node node1_node3 -port e0e -destination-por
 
 . 【第 9 步】完成所有端口修复后，删除任何空广播域：
 +
-`broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
+`network port broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
 
 . 【第 10 步】验证端口可访问性：
 +

@@ -14,7 +14,7 @@ summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller 
 
 
 [role="lead"]
-在第 5 阶段，您将安装并启动 node4 ，将集群和节点管理端口从 node2 映射到 node4 ，并验证 node4 安装。您还可以将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 ，并将 node2 的聚合从 node3 重新定位到 node4 。
+在第 5 阶段，您将安装并启动 node4 ，将集群和节点管理端口从 node2 映射到 node4 ，并验证 node4 安装。如果需要、可以在node4上设置FC或UTA/UTA2配置、并确认node4已加入仲裁。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
 
 .步骤
 . link:install_boot_node4.html["安装并启动节点 4."]

@@ -1,0 +1,10 @@
+= 
+:allow-uri-read: 
+
+
+在阶段4中、您会记录node2信息以供稍后在操作步骤 中使用、然后停用node2。
+
+.步骤
+. link:record_node2_information.html["记录 node2 信息"]
+. link:retire_node2.html["停用 node2"]
+

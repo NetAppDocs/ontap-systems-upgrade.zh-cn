@@ -39,7 +39,8 @@ NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 �
 .关于此任务
 如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置 <<检查并配置 node4 上的 UTA/UTA2 端口>>。
 
-* 重要说明 * ：如果系统具有存储磁盘，则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。
+
+IMPORTANT: 如果您的系统具有存储磁盘、则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。
 
 .步骤
 . 执行以下操作之一：
@@ -82,7 +83,16 @@ NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 �
 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 根据需要修改node4上的FC端口：`ucadmin modify -m fc -t initiator -f _adapter_port_name_``-t`是FC4类型、目标或启动程序。* 注 * ：必须将 FC 端口编程为启动程序。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
+根据需要修改 node4 上的 FC 端口：
+
+`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
+
+`-t` 是FC4类型、目标或启动程序。
+
+
+NOTE: FC端口必须编程为启动程序。
+
 |===
 . 退出维护模式：
 +
@@ -294,7 +304,7 @@ f-a   2b       fc             target       cna           -             online
 +
 如果要升级到 A800 ，请转至 <<auto_check_4_step23,第 23 步>>
 
-. 在 node4 上，转到启动菜单并使用 22/7 并选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node2 以将 node2 的磁盘重新分配给 node4 ，如以下示例所示。
+. 【auto_check_4_step15]]在node4上、转到启动菜单、使用22/7选择隐藏选项 `boot_after_controller_replacement`。在提示符处，输入 node2 以将 node2 的磁盘重新分配给 node4 ，如以下示例所示。
 +
 .展开控制台输出示例
 [%collapsible]

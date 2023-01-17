@@ -25,7 +25,7 @@ summary: '使用 `ssystem controller replace` 命令确定是否使用 ARL 将�
 
 
 
-NOTE: 您可以对此操作步骤使用 NetApp 存储加密（ NSE ）和 NetApp 卷加密（ NVE ）。
+NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
 [[sys_commands_95_97_supported _systems]] 下表显示了控制器升级支持的型号列表。
 

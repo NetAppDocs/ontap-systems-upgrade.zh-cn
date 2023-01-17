@@ -144,7 +144,7 @@ NOTE: 在此操作步骤中， _re-creating VLANs ， ifgrp 和 broadcast domain
 
 . 列出集群上的广播域：
 +
-`broadcast-domain show`
+`network port broadcast-domain show`
 
 . 列出节点 4 上所有端口的网络端口可访问性：
 +
@@ -312,7 +312,7 @@ Cluster::*> displaced-vlans restore -node node2_node4 -port e0e -destination-por
 
 . 完成所有端口修复后，删除任何空广播域：
 +
-`broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
+`network port broadcast-domain delete -broadcast-domain _broadcast_domain_name_`
 
 . 验证端口可访问性：
 +

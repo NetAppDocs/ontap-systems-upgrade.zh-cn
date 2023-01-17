@@ -24,6 +24,6 @@
 
 . 暂停集群之间的所有关系：
 +
-`snapmirror quiesce -destination-vserver _vserver_name_`
+`snapmirror quiesce -destination-vserver *`
 
 

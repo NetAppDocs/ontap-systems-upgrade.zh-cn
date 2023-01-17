@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/stage_1_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 1 阶段流程顺序。' 
+---
+= 第 1 阶段。准备升级
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在第1阶段、您需要验证您的硬件是否正确、以便将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、运行预检、并根据需要更正聚合所有权。如果您要使用OKM管理存储加密、并且可以选择暂停SnapMirror关系、则必须记录某些信息。
+
+.步骤
+. link:verify_upgrade_hardware.html["验证升级硬件"]
+. link:prepare_nodes_for_upgrade.html["准备要升级的节点"]
+. link:manage_storage_encryption_using_okm.html["使用板载密钥管理器管理存储加密"]
+

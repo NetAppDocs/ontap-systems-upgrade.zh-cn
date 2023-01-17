@@ -14,7 +14,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 的�
 
 
 [role="lead"]
-在阶段 4 中，您会记录 node2 信息，然后停用 node2 。
+在阶段4中、您会记录node2信息以供稍后在操作步骤 中使用、然后停用node2。
 
 .步骤
 . link:record_node2_information.html["记录 node2 信息"]

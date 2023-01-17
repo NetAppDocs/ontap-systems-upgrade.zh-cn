@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual-app/relocate_node2_non_root_aggr_node3_node4.html
 keywords: relocate, non-root, aggregates, node3, node4 
 summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，将节点 2 的非根聚合从节点 3 重新定位到节点 4 。 
 ---
-= 将 node2 的非根聚合从 node3 重新定位到 node4
+= 将node2非根聚合从node3重新定位到node4
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

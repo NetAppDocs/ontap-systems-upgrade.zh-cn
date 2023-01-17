@@ -14,7 +14,7 @@ summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem cont
 
 
 [role="lead"]
-在第 3 阶段，您安装并启动 node3 ，检查 node1 中的集群和节点管理端口是否在 node3 上联机，并验证 node3 安装。属于 node1 的非 SAN 数据 LIF 和非根聚合将从 node2 移动到 node3 。
+在第 3 阶段，您安装并启动 node3 ，检查 node1 中的集群和节点管理端口是否在 node3 上联机，并验证 node3 安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。如果需要、可以在node3上设置FC或UTA/UTA2配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。
 
 .步骤
 . link:install_boot_node3.html["安装并启动 node3"]
