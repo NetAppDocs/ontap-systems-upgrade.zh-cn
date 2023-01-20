@@ -6,9 +6,25 @@
 执行以下步骤，将加密配置同步到新节点：
 
 .步骤
-. 在集群提示符处使用以下命令，同步板载密钥管理器（ OKM ）的加密配置：
+. 从node3运行以下命令：
 +
 `sSecurity key-manager 板载同步`
 
-. 输入 OKM 的集群范围密码短语。
+. 在重新定位数据聚合之前、请验证node3上的SVM-KEK密钥是否已还原为"true"：
++
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+----
++
+.示例
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+
+node     vserver   key-server   key-id                                  restored
+-------- --------- -----------  --------------------------------------- --------
+node3    svm1      ""           00000000000000000200000000000a008a81976 true
+                                2190178f9350e071fbb90f00000000000000000
+----
 

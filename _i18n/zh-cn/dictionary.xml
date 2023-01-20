@@ -328,7 +328,6 @@
   <block id="7dca1ec13f028b73f4170b0124cf9d45" category="list-text">验证端口是否已更改为启动程序模式：</block>
   <block id="bf1d9c5801bc3674bc765551ff2f2964" category="paragraph">`boot_ontap`</block>
   <block id="eedc84ab2e1ed2d5f77ae259bcc2e53d" category="paragraph">现在，在启动时，节点可以检测到先前分配给它的所有磁盘，并可按预期启动。</block>
-  <block id="a615e77be7318a1511c3e98bbe302ca7" category="list-text">【自动检查 _4_step23]] 如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如， AFF A800 系统），请将 node2 聚合设置为根聚合，以确保 node4 从 node2 的根聚合启动。要设置根聚合，请转到启动菜单并选择选项 `5` 以进入维护模式。</block>
   <block id="60429a189ace5d1ba3d34868ab11d685" category="admonition">* 您必须按所示的确切顺序执行以下子步骤；否则可能发生原因会导致中断甚至数据丢失。 *</block>
   <block id="534c28a3529827f81e0580e98c2c91b5" category="paragraph">以下操作步骤会将 node4 设置为从 node2 的根聚合启动：</block>
   <block id="c9029dad52ad7bd50890b949161a37e6" category="list-text">进入维护模式。</block>
@@ -345,7 +344,6 @@
   <block id="7ce57c4ce051863fc414ccd402a178f5" category="doc">还原 node3 上的 key-manager 配置</block>
   <block id="594ac9e04c14065852f0e508c7b91ccb" category="paragraph">执行以下步骤，将加密配置同步到新节点：</block>
   <block id="0a83ed732b07426c840d56d0ee6e648b" category="paragraph">`sSecurity key-manager 板载同步`</block>
-  <block id="9fe909e2cd822e396eda1b615c821ed1" category="list-text">输入 OKM 的集群范围密码短语。</block>
   <block id="15577d2c813239ab53fdc6f35d8a1dc5" category="doc">升级节点对</block>
   <block id="5634325c9c7a1ed8bb239cc0f0ecea96" category="paragraph">要升级节点对，您需要准备原始节点，然后对原始节点和新节点执行一系列步骤。然后，您可以停用原始节点。</block>
   <block id="a1bf01274d938e19b1e43eb57fc3c557" category="summary">您应验证 MetroCluster 配置的切换，修复和切回操作。</block>
@@ -3251,7 +3249,6 @@
   <block id="476ac05553cb9f39ca703fbfa6eee309" category="paragraph">检查是否有任何卷因身份验证密钥不可用或无法访问 EKM 服务器而脱机。使用 `volume online` 命令将这些卷恢复联机。</block>
   <block id="99216628ad8791a98d0d65a1149b6ef1" category="section-title">ARL 升级顺序概述</block>
   <block id="0bd65204fc591f4fe883290648b71d9f" category="paragraph">要停用 node1 ，您需要恢复自动操作，以便使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从机架或机箱中删除 node1 。</block>
-  <block id="52956fc9d114e587edb1afd76eb4b706" category="list-text">在集群提示符处使用以下命令，同步板载密钥管理器（ OKM ）的加密配置：</block>
   <block id="823095cde7c39355f11b0bd61e896495" category="paragraph">如果没有新的许可证密钥，则新控制器可以使用集群中当前已获得许可的功能，这些功能将继续正常工作。但是，在控制器上使用未经许可的功能可能会使您不符合您的许可协议，因此，您必须在升级完成后为新控制器安装新的许可证密钥。</block>
   <block id="4244f87afdd4c8b0ebf9ac5e3301a435" category="list-text">选择 * 执行！ *</block>
   <block id="de418d0eb742cb1027dedde84846a1a0" category="paragraph">UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式支持并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。</block>
@@ -4443,7 +4440,6 @@
   <block id="4716a557a98944472ebf4f49b8aadb3a" category="paragraph">在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。</block>
   <block id="ed4c694f0027e2bf59537b7fa3096ed7" category="list-text"><block ref="ed4c694f0027e2bf59537b7fa3096ed7" category="inline-link-macro-rx"></block></block>
   <block id="64dc6def82eca9c49c8fc6cf38327fd0" category="summary">如果需要、请在将AFF A700升级到AFF A900期间为NVE或NAE配置新控制器模块。"</block>
-  <block id="5caf15e5920cdc2dfc54f0b5927b0e8e" category="paragraph">如果使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不还原key-manager、则在使用ARL将node2聚合从升级后的node1重新定位到升级后的node2时、加密卷将脱机。</block>
   <block id="bd7ff3b41e18f2676d912826d206a900" category="list-text"><block ref="bd7ff3b41e18f2676d912826d206a900" category="inline-link-macro-rx"></block></block>
   <block id="9de185adfdd7642791839ee7a21f58be" category="list-text"><block ref="9de185adfdd7642791839ee7a21f58be" category="inline-link-macro-rx"></block></block>
   <block id="e0e34319efe30ed6573987c64ee73a17" category="paragraph">在第6阶段、使用升级后的控制器和NVRAM模块启动node2并验证升级后的node2安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。</block>
@@ -4451,7 +4447,6 @@
   <block id="1c8b8aeeae02461a9fadc4ceb618fbec" category="list-text"><block ref="1c8b8aeeae02461a9fadc4ceb618fbec" category="inline-link-macro-rx"></block></block>
   <block id="bf403b3f6213aa1d485dc29ba4deebc3" category="list-text"><block ref="bf403b3f6213aa1d485dc29ba4deebc3" category="inline-link-macro-rx"></block></block>
   <block id="0d500821bdc96d479f52180017fd421c" category="list-text"><block ref="0d500821bdc96d479f52180017fd421c" category="inline-link-macro-rx"></block></block>
-  <block id="3bc33b1cc2855fb878dece7cecc39de1" category="paragraph">如果要使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不还原key-manager、则在使用ARL将node1聚合从node2重新定位到升级后的node1时、加密卷将脱机。</block>
   <block id="52d44ddeddf5fcbcf47ca759910fa913" category="paragraph">在第1阶段、您需要验证您的硬件是否正确、以便将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、运行预检、并根据需要更正聚合所有权。如果您要使用OKM管理存储加密、并且可以选择暂停SnapMirror关系、则必须记录某些信息。</block>
   <block id="c164197fcb353dad04f1e8beb0243f33" category="list-text"><block ref="c164197fcb353dad04f1e8beb0243f33" category="inline-link-macro-rx"></block></block>
   <block id="68a11090e57970066317536eb452ff2d" category="inline-link-macro">使用板载密钥管理器管理存储加密</block>
@@ -4465,4 +4460,29 @@
   <block id="92b03f1ecf66a6ee3c76ebd05afbddda" category="list-text">在node2上的LOADER提示符处、验证<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 对于node2：</block>
   <block id="ab59755d5a1df870944890a24affe31a" category="paragraph">通过移动卷进行升级时，在删除原始节点之前，新节点将加入集群。确认集群中的控制器数量在操作步骤 期间不超过支持的最大集群大小。</block>
   <block id="bd7f71fd091a70c3f0b23cb5a356e64c" category="paragraph">安装新节点后、您可能需要通过网络启动来确认新节点运行的ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
+  <block id="7ab8dfe9c5b72e3472374677882c9caf" category="paragraph">如果要替换的集群节点使用根卷加密、则ONTAP 软件将无法从磁盘读取卷信息。还原根卷的密钥：</block>
+  <block id="973101ddb988b90ce601f6442c898594" category="list-text">返回到特殊的启动菜单：<block ref="16c75f7ad51c79b1cf539c94cd168367" prefix=" " category="inline-code"></block></block>
+  <block id="17c034fb2d21ea55cdb8a8e69c62f069" category="list-text">选择*(10)设置板载密钥管理器恢复密钥*</block>
+  <block id="a6b415fe2d6a649b63be379924ad9e5d" category="list-text">输入 ...<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block> 在以下提示符处：</block>
+  <block id="c2a77e29b8de9e8562b6fd93a28903df" category="paragraph"><block ref="4a405d8099ad49f7b92a6093775ada1b" prefix="" category="inline-code"></block></block>
+  <block id="99a40bbc477cdc17f6e88d32032fbee2" category="list-text">在提示符处、输入密钥管理器密码短语。</block>
+  <block id="97da9a68ce886c4978d84008bc3d4e8b" category="list-text">出现提示时、输入备份数据。</block>
+  <block id="71e3a0c9ae3930c06f28eb84647c689b" category="admonition">您必须已在中获取密码短语和备份数据 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block> section of this procedure.</block>
+  <block id="df032103f8364ffe0942ab84f5f27f22" category="list-text">系统重新启动到特殊启动菜单后、运行选项*(1) Normal Boot*</block>
+  <block id="1997ee79006c38a9f666947dd57857f2" category="admonition">您可能会在此阶段遇到错误。如果发生错误、请重复中的子步骤 <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block> 直到系统正常启动。</block>
+  <block id="5daba08f0febc7be0229c918d3deaa4d" category="admonition">您可能会在此阶段遇到错误。如果发生错误、请重复中的子步骤 <block ref="1abe7aef97cf6f4670adea7171f10403" category="inline-xref-macro-rx"></block> 直到系统正常启动。</block>
+  <block id="37bcf5964cba22a5e1026e3bfd999926" category="list-text">从node3运行以下命令：</block>
+  <block id="9b4b091bf0690393965fb7724be0006b" category="list-text">在重新定位数据聚合之前、请验证node3上的SVM-KEK密钥是否已还原为"true"：</block>
+  <block id="0a52730597fb4ffa01fc117d9e71e3a9" category="listing-title">示例</block>
+  <block id="13c13d2352f379924e4032f92cccb33a" category="paragraph">如果要使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)对要升级的系统上的卷进行加密、则必须将加密配置同步到新节点。如果不同步密钥管理器、则在使用ARL将node2聚合从node3重新定位到node4时、可能会发生故障、因为node4没有使加密卷和聚合联机所需的加密密钥。</block>
+  <block id="06faea2c1bf225d7dca01142c99c8244" category="list-text">从node4运行以下命令：</block>
+  <block id="e6c7a255c2aa3d1c9e8528fdbea53a6b" category="list-text">在重新定位数据聚合之前、请验证node4上的SVM-KEK密钥是否已还原为"true"：</block>
+  <block id="1b55e7f4887b8fb67aed1cfe14be88a6" category="list-text">[[auto_check_4_step23]]如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统(例如、AFF A800系统)、请将node2聚合设置为根聚合、以确保node4从node2的根聚合启动。要设置根聚合、请转到启动菜单并选择选项<block ref="e4da3b7fbbce2345d7772b0674a318d5" prefix=" " category="inline-code"></block> 以进入维护模式。</block>
+  <block id="364217334ff62898c99ab53d1c399fd0" category="paragraph">如果要使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)对要升级的系统上的卷进行加密、则必须将加密配置同步到新节点。如果不同步密钥管理器、则在使用ARL将node1聚合从node2重新定位到node3时、可能会发生故障、因为node3没有使加密卷和聚合联机所需的加密密钥。</block>
+  <block id="367030bfa78ce5edbeac0c34dadc8486" category="paragraph">如果要使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不重新同步key-manager、则在使用ARL将node1聚合从node2重新定位到升级后的node1时、可能会发生故障、因为node1没有使加密卷和聚合联机所需的加密密钥。</block>
+  <block id="d78fca99557049bfe942bd572aec4d13" category="list-text">从node1运行以下命令：</block>
+  <block id="722a50b23f118fce431bda63821ff8b6" category="list-text">在重新定位数据聚合之前、请验证node1上的SVM-KEK密钥是否已还原为"true"：</block>
+  <block id="5db260fa0b5fbfacb2534214a3285812" category="paragraph">如果使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不重新同步key-manager、则在使用ARL将node2聚合从已升级的node1重新定位到已升级的node2时、可能会发生故障、因为node2没有使加密卷和聚合联机所需的加密密钥。</block>
+  <block id="593e2ad3d429d61bda399cdc2971b3d5" category="list-text">从node2运行以下命令：</block>
+  <block id="2c44030cea2ae320e19712bb71a7d594" category="list-text">在重新定位数据聚合之前、请验证node2上的SVM-KEK密钥是否已还原为"true"：</block>
 </blocks>

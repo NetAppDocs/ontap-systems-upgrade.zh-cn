@@ -14,15 +14,31 @@ summary: 如果需要，请在 AFF A700 升级到 AFF A900 期间还原升级后
 
 
 [role="lead"]
-如果要使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不还原key-manager、则在使用ARL将node1聚合从node2重新定位到升级后的node1时、加密卷将脱机。
+如果要使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不重新同步key-manager、则在使用ARL将node1聚合从node2重新定位到升级后的node1时、可能会发生故障、因为node1没有使加密卷和聚合联机所需的加密密钥。
 
 .关于此任务
 执行以下步骤，将加密配置同步到新节点：
 
 .步骤
-. 在集群提示符处使用以下命令，同步板载密钥管理器（ OKM ）的加密配置：
+. 从node1运行以下命令：
 +
 `sSecurity key-manager 板载同步`
 
-. 输入 OKM 的集群范围密码短语。
+. 在重新定位数据聚合之前、请验证node1上的SVM-KEK密钥是否已还原为"true"：
++
+[listing]
+----
+::> security key-manager key query -node node1 -fields restored -key-type SVM-KEK
+----
++
+.示例
+[listing]
+----
+::> security key-manager key query -node node1 -fields restored -key-type SVM-KEK
+
+node     vserver   key-server   key-id                                  restored
+-------- --------- -----------  --------------------------------------- --------
+node1    svm1      ""           00000000000000000200000000000a008a81976 true
+                                2190178f9350e071fbb90f00000000000000000
+----
 
