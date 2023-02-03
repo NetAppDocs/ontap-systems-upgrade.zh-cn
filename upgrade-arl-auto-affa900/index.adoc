@@ -21,10 +21,10 @@ summary: 您可以通过交换控制器模块和 NVS 将 AFF A700 上的控制�
 | 方法 | ONTAP 版本 | 支持的系统 | Description 
 
 
-| 使用 `ssystem controller replace` 命令 | 9.11.1P6或9.10.1P10 (目标日期为2023年2月) | AFF A700 到 AFF A900 | 将AFF A700系统转换为AFF A900系统、保留A700机箱 
+| 使用 `ssystem controller replace` 命令 | 9.10.1P10、9.11.1P6或更高版本 | AFF A700 到 AFF A900 | 将AFF A700系统转换为AFF A900系统、保留A700机箱 
 
 
-| 使用 `ssystem controller replace` 命令 | 9.11.1P6或9.10.1P10 (目标日期为2023年2月) | FAS9000到FAS9500 | 将FAS9000系统转换为FAS9500系统、保留FAS9000机箱。 
+| 使用 `ssystem controller replace` 命令 | 9.10.1P10、9.11.1P6或更高版本 | FAS9000到FAS9500 | 将FAS9000系统转换为FAS9500系统、保留FAS9000机箱。 
 |===
 您可以通过交换控制器和NVRAM模块来无中断升级高可用性(HA)对上的控制器硬件。首先、在旧控制器节点之间迁移非根聚合。安装后、您可以将非根聚合从旧控制器节点迁移到替代控制器节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。
 

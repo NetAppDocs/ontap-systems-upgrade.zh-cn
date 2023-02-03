@@ -4274,12 +4274,8 @@
   <block id="9d5ce6c4c82bf9a0ff455a50cadc1ab6" category="list-text">如果在配置中使用了自加密驱动器、并且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在使用AFF A900或FAS9500控制 器和NVRAM模块的_Boot node2中、 <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
   <block id="21b9417932c23289b6932c3a0ac2517f" category="list-text">【boot_node2_step1]]设置<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> 和<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 用于避免在加载node2配置后启动环路的变量。</block>
   <block id="083a0c049526537d6b95a268054814fb" category="list-text">您的系统上具有混合聚合。</block>
-  <block id="6e1f6dfb0fcbfac6c4067f6818568970" category="cell">9.11.1P6或9.10.1P10 (目标日期为2023年2月)</block>
-  <block id="53f4933654122c2732aaf29d750ecb9c" category="list-text">您正在运行ONTAP 9.11.1P6或9.10.1P10 (目标日期为2023年2月)。</block>
-  <block id="34fe5db3348c8cff3877298c8c064752" category="paragraph">在以下系统配置中使用ARL升级一对运行ONTAP 9.11.1P6或9.10.1P10 (目标为2023年2月)的控制器：</block>
   <block id="b99f39b13055b86a7e0146684c21e326" category="list-text">将AFF A700控制器连接到AFF A900系统</block>
   <block id="9733b2ec9e26adc1936d94dc2a3bb0dd" category="list-text">将FAS9000控制器连接到FAS9000系统</block>
-  <block id="6425a395e3062e0f480ffee2bc19d2f7" category="admonition">此操作步骤 严格按照适用场景 ONTAP 9.11.1P6或9.10.1P10 (目标日期为2023年2月)对AFF A700至AFF A900或FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。</block>
   <block id="a2b13d30d388148b28bbb1a43f3d2d52" category="paragraph">提取的内容<block ref="f466b354adfc3ad817d7c11c037c8797" prefix=" " category="inline-code"></block> 文件到目标目录：</block>
   <block id="a9a690b194b002aca2d632eee1a1a1f2" category="paragraph"><block ref="1dfb54a15c6859407fd4c2e52579269b" prefix="" category="inline-code"></block></block>
   <block id="2483e54ca623f46ca2ae8747a545115d" category="admonition">如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。</block>
@@ -4485,4 +4481,8 @@
   <block id="5db260fa0b5fbfacb2534214a3285812" category="paragraph">如果使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不重新同步key-manager、则在使用ARL将node2聚合从已升级的node1重新定位到已升级的node2时、可能会发生故障、因为node2没有使加密卷和聚合联机所需的加密密钥。</block>
   <block id="593e2ad3d429d61bda399cdc2971b3d5" category="list-text">从node2运行以下命令：</block>
   <block id="2c44030cea2ae320e19712bb71a7d594" category="list-text">在重新定位数据聚合之前、请验证node2上的SVM-KEK密钥是否已还原为"true"：</block>
+  <block id="4cbf24460087ed8ef9a50719247b86e9" category="paragraph">在以下系统配置中使用ARL升级一对运行ONTAP 9.10.1P10、9.11.1P6或更高版本的控制器：</block>
+  <block id="582b7c7a6d50cab8d1a4af4c6741e5a6" category="admonition">此操作步骤 严格按照适用场景 ONTAP 9.10.1P10、9.11.1P6或更高版本对AFF A700至AFF A900或FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。</block>
+  <block id="c440ffbf92eaebdac0e849314781e4be" category="cell">9.10.1P10、9.11.1P6或更高版本</block>
+  <block id="9088ce39ce36bb44cd73f98337e0bfbc" category="list-text">您正在运行ONTAP 9.10.1P10、9.11.1P6或更高版本。</block>
 </blocks>
