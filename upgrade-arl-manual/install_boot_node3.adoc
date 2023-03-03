@@ -190,13 +190,15 @@ NOTE: 在启动环境提示符处保留node4；您将返回到中的node4 link:i
 
 |===
 +
+
+WARNING: *一旦HA对上的控制器升级完成、您必须取消设置 `kmip.init.maxwait` 变量。请参见 link:ensure_controllers_set_up_correctly.html#unset_maxwait_manual["确认已正确设置新控制器、步骤11"]。否则、如果发生断电、可能会导致数据丢失。*
+
++
 [NOTE]
 ====
-** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
-** 您可以在同一节点或HA对上混用SED和非加密驱动器。
-** 如果在设置后发生断电 `kmip.init.maxwait` 变量设置为 `off`、请联系技术支持以获得帮助、避免可能的数据丢失。
-** 在HA对上完成控制器升级后、您必须取消设置 `kmip.init.maxwait` 变量。请参见 link:ensure_controllers_set_up_correctly.html["确认新控制器设置正确"]。
+不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
 
+您可以在同一节点或HA对上混用SED和非加密驱动器。
 
 ====
 . 【 ｛ man_install3_step17]] 如果 node3 上安装的 ONTAP 版本与 node1 上安装的 ONTAP 9 版本相同或更高，请列出磁盘并将其重新分配给新的 node3 ：

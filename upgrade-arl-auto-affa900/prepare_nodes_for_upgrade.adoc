@@ -121,8 +121,7 @@ Controller replacement operation has been paused for user intervention.
 ** `网络端口可访问性 show -detail`
 
 
-
-
++
 
 NOTE: 如果正在使用使用板载密钥管理器的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤 中完成密钥管理器重新同步。
 
@@ -135,9 +134,9 @@ NOTE: 如果正在使用使用板载密钥管理器的NetApp卷加密(NVE)或Net
 
 [NOTE]
 ====
-** 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
-** 您可以在同一节点或HA对上混用SED和非加密驱动器。
+不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
 
+您可以在同一节点或HA对上混用SED和非加密驱动器。
 
 ====
 https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryption-concept.html#supported-self-encrypting-drive-types["了解有关支持的自加密驱动器的更多信息"^]。
