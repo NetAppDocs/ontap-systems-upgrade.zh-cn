@@ -4487,4 +4487,5 @@
   <block id="976c8c5d2aa0a879266bc997cec248ad" category="inline-link-macro">确认已正确设置新控制器、步骤11</block>
   <block id="a6b5dd0182841750a8833ae708a7b2f5" category="admonition">*一旦HA对上的控制器升级完成、您必须取消设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量。请参见 <block ref="70709a8592d9d71b5cffa2529c50ab50" category="inline-link-macro-rx"></block>。否则、如果发生断电、可能会导致数据丢失。*</block>
   <block id="d5252796ebf0e69c5d3078a9ac59bb72" category="list-text">【unset_maxWait_manual】如果在配置中使用自加密驱动器且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在中 <block ref="c34adc28d35ee24325c874eba95a8786" category="inline-link-macro-rx"></block> 对于_Install和boot node3_)、您必须取消设置变量：</block>
+  <block id="ff8e7d9040b97e4276e06db695236077" category="list-text">在node2的loader&gt;提示符处、设置默认环境变量：</block>
 </blocks>
