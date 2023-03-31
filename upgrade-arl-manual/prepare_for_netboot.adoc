@@ -24,7 +24,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 .关于此任务
 如果新控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本不同，则必须通过网络启动这些控制器。安装每个新控制器后，您可以从 Web 服务器上存储的 ONTAP 9 映像启动系统。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。
 
-但是，如果控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本相同，则无需通过网络启动控制器。如果是，您可以跳过此部分并继续 link:stage_3_install_boot_node3.html["第 3 阶段：安装并启动节点 3."]。
+但是，如果控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本相同，则无需通过网络启动控制器。如果是，您可以跳过此部分并继续 link:install_boot_node3.html["第 3 阶段：安装并启动节点 3."]。
 
 .步骤
 . 【 man_netboot_Step1]] 访问 NetApp 支持站点以下载用于执行系统网络启动的文件。
@@ -53,6 +53,6 @@ NOTE: 如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取�
 | 所有其他系统 | 您的目录列表应包含以下文件： `<ontap_version>_image.tgz`注意：您不需要提取的内容 `<ontap_version>_image.tgz` 文件 
 |===
 +
-您将使用中目录中的信息 link:stage_3_install_boot_node3.html["第 3 阶段"]。
+您将使用中目录中的信息 link:stage_3_index.html["第 3 阶段"]。
 
 

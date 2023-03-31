@@ -543,7 +543,6 @@
   <block id="bbbe961bb71cae13cea3f5b878f4dbb9" category="doc">第 2 阶段。重新定位和停用节点 1</block>
   <block id="7de24b16e7313de118da7559fecd8fd4" category="inline-link-macro">将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2</block>
   <block id="22e9bda17d40c1dbdb534fd455e19fcd" category="list-text"><block ref="22e9bda17d40c1dbdb534fd455e19fcd" category="inline-link-macro-rx"></block></block>
-  <block id="650a4c1ea41a0f666ee188ff323d26b9" category="list-text"><block ref="650a4c1ea41a0f666ee188ff323d26b9" category="inline-link-macro-rx"></block></block>
   <block id="93d6a78ca650a17d67b6a45ca81b7f3f" category="inline-link-macro">停用 node1</block>
   <block id="830cfeba72054433fc0dcccc19f6d055" category="list-text"><block ref="830cfeba72054433fc0dcccc19f6d055" category="inline-link-macro-rx"></block></block>
   <block id="4815c2d091d790c1d3bab94177b38eaf" category="list-text"><block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block></block>
@@ -791,7 +790,6 @@
   <block id="103ec41a89beb368e3357fad5f451a92" category="list-text">从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 ` &lt;ontap_version&gt;_image.tgz` 文件存储在可通过 Web 访问的目录中。</block>
   <block id="5b1b8c3f072422a936e63f0d977e41e0" category="list-text">切换到可通过 Web 访问的目录，并验证所需文件是否可用。</block>
   <block id="843ab277685630f82095416c5b9ae5a1" category="inline-link-macro">第 3 阶段</block>
-  <block id="c7b2f3e7dacd4ee5eb9b0618c5079d8f" category="paragraph">您将使用中目录中的信息 <block ref="1f9dd4a8865e8664f884ec11b5f13dfc" category="inline-link-macro-rx"></block>。</block>
   <block id="8e698b8d4467a7a6309118b19a3aa168" category="summary">要安装新硬件，您必须使用特定工具，并且在升级过程中需要参考其他文档。</block>
   <block id="0e635d7a91ccc4eccdfb03e35353c899" category="doc">所需的工具和文档</block>
   <block id="f987ca44be5e66313a3fedb59305367d" category="paragraph">要执行升级，您需要使用以下工具：</block>
@@ -1164,7 +1162,6 @@
   <block id="cc9d127dc39047b3e73421f03d8d0026" category="cell">输入以下内容： `storage aggregate relocation start -override-vetoes * -ndocontroller-upgrade true`</block>
   <block id="6067a4436975e19e7c76700ceeabd5c2" category="cell">输入以下内容： `storage aggregate relocation start -overridedestination-checks * -no-controllerupgrade true`</block>
   <block id="83e3abbe2d4f63155eff798e62e1a616" category="inline-link-macro">第 3 阶段安装和启动节点 3.</block>
-  <block id="bb9252c2a7cbae6e0a2014a53400a55c" category="paragraph">但是，如果控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本相同，则无需通过网络启动控制器。如果是，您可以跳过此部分并继续 <block ref="a3940c661e200ff7ee0136ca0ef37651" category="inline-link-macro-rx"></block></block>
   <block id="47d2d2bfe5e2f318b6d816e5adc3929d" category="paragraph">如果节点 3 在此阶段崩溃，则不会发生接管，因为 HA 已被禁用。</block>
   <block id="f361f80547aae98b60e1c7ecc861a027" category="paragraph">非根聚合发生中断，这些聚合已重新定位，直到 node3 重新启动。</block>
   <block id="07c1aaa58cd1a9ed9a8f92aecfc26662" category="paragraph">在 node3 启动期间，所有聚合都会发生客户端中断。</block>
@@ -1328,7 +1325,6 @@
   <block id="7a3f3e085939e759393b43bef32cbc95" category="list-text">如果集群具有 SAN 主机，则可能需要采取步骤来解决 LUN 序列号更改问题。</block>
   <block id="31e9ea6f4ed38186085bf9a52128a461" category="inline-link">如何使用 iSCSI 和 FCP 解决存储控制器主板更换和机头升级期间的问题</block>
   <block id="6125b5468b29015c919d2eaf565415e6" category="list-text">如果您的系统使用带外 ACP ，则可能需要从带外 ACP 迁移到带内 ACP 。</block>
-  <block id="c0ae7629e7bfcf00be0d40631578d6f7" category="inline-link">NetApp 知识库文章 1029778 ： In-Band ACP Setup and Support</block>
   <block id="41e8d90d580396f4d1d06d6dcc1e6ff7" category="paragraph"><block ref="41e8d90d580396f4d1d06d6dcc1e6ff7" category="inline-xref-macro-rx"></block></block>
   <block id="b578e0f4f47404bddfc292477bc08776" category="inline-xref-macro">通过移动存储升级控制器硬件</block>
   <block id="dbef6fd254e4765e61a6f3112a900a32" category="paragraph"><block ref="dbef6fd254e4765e61a6f3112a900a32" category="inline-xref-macro-rx"></block></block>
@@ -2647,9 +2643,7 @@
   <block id="1b9078b6f6fd34ef368d1162644a9f35" category="list-text">对于 Brocade 交换机，请使用 `sswitch/CfgPersistentenable` 命令。</block>
   <block id="7f53ae5380891cb24e6bd16877533f63" category="list-text">对于 Cisco 交换机，请使用 `no suspend` 命令。</block>
   <block id="017a287daf9403479607113762fdf28d" category="paragraph">在操作步骤中物理装入 node3 和 node4 后，您可能需要通过网络启动它们。术语 _netboot_ 表示您从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
-  <block id="3dd228d301de455327861edf46a3a6c7" category="paragraph">但是，如果控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本相同，则无需通过网络启动控制器。如果是，您可以跳过此部分并继续 <block ref="2bff11e37a7944fe4126fc6d0031317c" category="inline-link-macro-rx"></block>。</block>
   <block id="021eb7b60dabf41949ccbeca660311c4" category="list-text">【 man_netboot_Step1]] 访问 NetApp 支持站点以下载用于执行系统网络启动的文件。</block>
-  <block id="7704ef8efcd46a7ed3c60b0b5522a4f5" category="paragraph">您将使用中目录中的信息 <block ref="f7260a7bcbdd09edcf840aac6c5a4af7" category="inline-link-macro-rx"></block>。</block>
   <block id="630cec3291759dd967d8afd9c4e8545f" category="inline-link-macro">将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2</block>
   <block id="7115fb4a39be3cfe6cee8101025f1504" category="list-text"><block ref="7115fb4a39be3cfe6cee8101025f1504" category="inline-link-macro-rx"></block></block>
   <block id="381638a6e0f7aca4ddd9fcf0b9a1b531" category="inline-link-macro">将 node1 拥有的 NAS 数据 LIF 移动到 node2</block>
@@ -2884,7 +2878,6 @@
   <block id="58e1fb49e8eda8dc590e37ebdffc8e85" category="list-text">如果要升级双节点 MetroCluster 配置，请参见：<block ref="a3f8fb08d450ed0f7b5dc460c9a9149e" category="inline-link-rx"></block></block>
   <block id="b71567cb9c157f9c9b7aa387b9fe6ae0" category="paragraph"><block ref="b71567cb9c157f9c9b7aa387b9fe6ae0" category="inline-link-rx"></block></block>
   <block id="b1ddd6d6d90c80426e14d10c6ded3cc0" category="paragraph"><block ref="b1ddd6d6d90c80426e14d10c6ded3cc0" category="inline-link-rx"></block></block>
-  <block id="8481ff5a6197df6d5f77cc03a2cc6d88" category="paragraph"><block ref="8481ff5a6197df6d5f77cc03a2cc6d88" category="inline-link-rx"></block></block>
   <block id="793b486187db5ad7f686089607c08fea" category="list-text">参数 ` node1_sysid_` 是您在关闭原始节点 _ 中记录的值， <block ref="1e1f8cc7c148a6ce0e555a2eab402733" category="inline-link-macro-rx"></block>。</block>
   <block id="cfd2431baff6fc4122f2c8fed540c128" category="paragraph">During the process of upgrading by moving storage, you power on node3 and node4, boot the software image, and configure the nodes.Physical port layout between original and new nodes can be different.Mapping of ports between original and replacement nodes should be done to identify proper layout of ports and connections.</block>
   <block id="a57aac48a821a53a307169a496e18118" category="inline-link-macro">第 5 步</block>
@@ -4215,8 +4208,6 @@
   <block id="5dd3fadb015da65e82238831e11341c9" category="paragraph">您可以使用以下示例作为参考：</block>
   <block id="b76a3b855e625194513f3473a25582fd" category="list-text">输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700节点2磁盘重新分配给AFF A900节点2。</block>
   <block id="3dbb60dab5c1891455791640814da2b9" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="025202ee75dff38076e126e76d5042ed" category="inline-xref-macro-rx"></block>。</block>
-  <block id="e427f9006ac0f6079ad11054809d205e" category="admonition">使用内部驱动器的型号包括：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250。</block>
-  <block id="db80f5bf265434b9ca90bc5f0cac1f17" category="admonition">以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250和AFF C190。</block>
   <block id="e908e6e2b5df3efafd19fa616b538a72" category="list-text">如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。FAS2520控制器无法转换为驱动器架。</block>
   <block id="e9ddbc0542fbe11aae2eccf01c4e4a89" category="paragraph">在通过移动存储进行升级的工作流中、将FAS255x系统转换为驱动器架是一项可选任务。</block>
   <block id="aa5eafaf3f0b641d5e680da72815213b" category="paragraph">下面列出了具有内部存储的系统：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250。</block>
@@ -4488,4 +4479,12 @@
   <block id="a6b5dd0182841750a8833ae708a7b2f5" category="admonition">*一旦HA对上的控制器升级完成、您必须取消设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量。请参见 <block ref="70709a8592d9d71b5cffa2529c50ab50" category="inline-link-macro-rx"></block>。否则、如果发生断电、可能会导致数据丢失。*</block>
   <block id="d5252796ebf0e69c5d3078a9ac59bb72" category="list-text">【unset_maxWait_manual】如果在配置中使用自加密驱动器且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在中 <block ref="c34adc28d35ee24325c874eba95a8786" category="inline-link-macro-rx"></block> 对于_Install和boot node3_)、您必须取消设置变量：</block>
   <block id="ff8e7d9040b97e4276e06db695236077" category="list-text">在node2的loader&gt;提示符处、设置默认环境变量：</block>
+  <block id="12dd85e558ba4dfcc9dce978f489296a" category="admonition">使用内部驱动器的型号包括：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250和AFF C250。</block>
+  <block id="61a0b5df76df0fff1f7315d4d3251795" category="admonition">以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250、AFF C250和AFF C190。</block>
+  <block id="91d5a2c546d26762fc836e91700a4d86" category="inline-link">NetApp知识库文章：In-Band ACP Setup and Support</block>
+  <block id="0af17efca2dae8b310233b584154a94b" category="paragraph"><block ref="0af17efca2dae8b310233b584154a94b" category="inline-link-rx"></block></block>
+  <block id="00e3434af8f53caecc96a787f100e5fa" category="paragraph">但是，如果控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本相同，则无需通过网络启动控制器。如果是，您可以跳过此部分并继续 <block ref="6ba5630a5f60662e8fc1f03d17393494" category="inline-link-macro-rx"></block>。</block>
+  <block id="f2d3ce1d1db6751407cc3928aac9de0c" category="paragraph">您将使用中目录中的信息 <block ref="17f88a9bcb978d5101977810aab93c38" category="inline-link-macro-rx"></block>。</block>
+  <block id="ab2126455dabf7b57fb465e0cbe0ec41" category="paragraph">您将使用中目录中的信息 <block ref="ab6acaf1648b65fe7eff652317a95a17" category="inline-link-macro-rx"></block>。</block>
+  <block id="85e374a47bd77502ca7ecd58923ec819" category="paragraph">但是，如果控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本相同，则无需通过网络启动控制器。如果是，您可以跳过此部分并继续 <block ref="c6531ef0bbbd2a28b8b9b75b1dc2026b" category="inline-link-macro-rx"></block></block>
 </blocks>

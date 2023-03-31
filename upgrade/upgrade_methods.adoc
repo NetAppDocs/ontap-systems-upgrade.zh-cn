@@ -16,7 +16,7 @@ summary: 通常，控制器硬件的升级方式取决于原始节点的平台�
 image::../upgrade/media/methods_for_upgrading_controller_hardware.png[升级控制器硬件的方法]
 
 
-NOTE: 使用内部驱动器的型号包括：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250。
+NOTE: 使用内部驱动器的型号包括：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250和AFF C250。
 
 如果您的系统未在上面列出，请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 以检查它是否具有内部驱动器。
 

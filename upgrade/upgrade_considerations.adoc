@@ -49,7 +49,7 @@ https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管�
 具有内部存储的系统
 
 
-NOTE: 以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250和AFF C190。
+NOTE: 以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A200、AFF A220、AFF A700s、 AFF A800、AFF A250、AFF C250和AFF C190。
 
 * 如果您的系统未在上面列出，请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 以检查它是否具有内部驱动器。
 * 如果您的系统具有内部存储，建议的升级方法是通过移动卷进行升级。
@@ -79,7 +79,7 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_wi
 
 * 如果您的系统使用带外 ACP ，则可能需要从带外 ACP 迁移到带内 ACP 。
 +
-https://kb.netapp.com/app/answers/answer_view/a_id/1029778["NetApp 知识库文章 1029778 ： In-Band ACP Setup and Support"^]
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["NetApp知识库文章：In-Band ACP Setup and Support"^]
 
 
 
