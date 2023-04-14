@@ -37,7 +37,7 @@ entries:
   - title: 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
     url: "/upgrade-arl-auto-app/relocate_non_root_aggr_nas_data_lifs_node1_node2.html"
   - title: 重新定位失败或被否决的聚合
-    url: "/upgrade-arl-auto-app/relocate_failed_vetoed_aggr.html"
+    url: "/upgrade-arl-auto-app/relocate_failed_or_vetoed_aggr.html"
   - title: 停用 node1
     url: "/upgrade-arl-auto-app/retire_node1.html"
   - title: 准备网络启动

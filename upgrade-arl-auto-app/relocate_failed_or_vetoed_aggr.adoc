@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-app/relocate_failed_vetoed_aggr.html 
+permalink: upgrade-arl-auto-app/relocate_failed_or_vetoed_aggr.html 
 keywords: relocating, failed, vetoed, aggregates, relocation, operation 
 summary: '在升级运行 ONTAP 9.8 或更高版本的控制器时，使用 `ssystem controller replace` 命令手动重新定位出现故障或被否决的聚合。' 
 ---
