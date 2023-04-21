@@ -14,14 +14,14 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 
 [role="lead"]
-您可以使用 OKM 管理加密密钥。如果您计划使用 OKM ，则必须在开始升级之前记录密码短语和备份材料。
+您可以使用板载密钥管理器(OKM)管理加密密钥。如果您已设置OKM、则必须先记录密码短语和备份材料、然后再开始升级。
 
 .步骤
-. 将密码短语保存到安全位置。
-. 创建备份以进行恢复。运行以下命令并保存输出：
+. 记录集群范围的密码短语。
 +
-`s安全密钥管理器板载 show-backup`
+这是在使用命令行界面或REST API配置或更新OKM时输入的密码短语。
 
+. 运行以备份密钥管理器信息 `security key-manager onboard show-backup` 命令：
 
 
 

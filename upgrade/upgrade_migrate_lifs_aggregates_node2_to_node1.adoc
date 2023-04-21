@@ -1,0 +1,96 @@
+---
+permalink: upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node1, node2, migrate, aggregates, lifs 
+summary: '将node2上的逻辑接口(Logical Interface、Logical Interface、Logical Interface、Logical Aggregates)和数据聚合迁移到node1。' 
+---
+= 将node2上的生命周期管理器和数据聚合迁移到node1
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将AFF A250 node2转换为驱动器架之前、您需要将node2上的逻辑接口(Logical Interface、Logical Interface、Logical Interface、Logical Aggregates)和数据聚合迁移到node1。
+
+.开始之前
+验证是否满足以下要求：
+
+* AFF A250和AFF A400控制器安装了相同的ONTAP 版本和修补程序版本。
+* 两个AFF A400控制器在上均处于待机状态 `Maintenance Mode` 提示符。
+* 您已准备好所有适当的布线。
+
+
+.关于此任务
+在AFF A250 node1上执行以下步骤。
+
+.步骤
+. 禁用集群故障转移自动交还：
++
+`storage failover modify -node _node_name_ -auto-giveback false`
+
+. 在HA对的两个节点上禁用自动还原此两个节点上的生命周期：
++
+`network interface modify -lif * -auto-revert false`
+
+. 显示所有数据网络LUN的状态：
++
+`network interface show -role data`
+
+. 显示集群管理LUN的状态：
++
+`network interface show cluster_mgmt`
+
+. 从node2上托管的Storage Virtual Machine迁移所有数据SVM：
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+
++
+
+NOTE: 此命令仅会迁移非SAN SIFs。您不能使用它来迁移iSCSI和FCP LUN。
+
+. 显示集群中所有数据LUN的状态：
++
+`network interface show -role data`
+
+. 如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+
+. 显示集群中所有数据聚合的状态：
++
+`storage aggregate show`
+
+. 显示故障转移资格：
++
+`s存储故障转移显示`
+
+. 将node2上的数据聚合迁移到node1：
++
+`storage aggregate relocation start -aggregate _aggregate_name_ -node _node2_ -destination _node1_`
+
+. 显示集群中所有数据聚合的状态：
++
+`storage aggregate show`
+
+. 显示集群中所有数据卷的状态：
++
+`volume show`
+
+. 显示 `ha` Epsilon的状态和所有权：
++
+`cluster show`
+
+. 禁用 `cluster ha`：
++
+`cluster ha modify -configured false`
+
+. 显示 `ha` Epsilon的状态和所有权：
++
+`cluster show`
+
+. 暂停节点 2 ：
++
+`halt -node _node2_ -inhibit-takeover true -ignore-quorum-warnings true`
+
+

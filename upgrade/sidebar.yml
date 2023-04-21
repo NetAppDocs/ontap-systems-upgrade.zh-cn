@@ -82,3 +82,21 @@ entries:
     url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
   - title: 完成升级
     url: "/upgrade/upgrade-complete-move-volumes.html"
+- title: 通过转换为驱动器架将AFF A250升级到AFF A400
+  entries:
+  - title: 工作流
+    url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
+  - title: 将node2上的生命周期管理器和数据聚合迁移到node1
+    url: "/upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html"
+  - title: 将node2转换为驱动器架并连接到node4
+    url: "/upgrade/upgrade_convert_node2_drive_shelf_connect_node4.html"
+  - title: 将驱动器从node2重新分配给node4
+    url: "/upgrade/upgrade_reassign_drives_node2_to_node4.html"
+  - title: 将node1上的数据聚合、eps龙 和生命周期管理迁移到node4
+    url: "/upgrade/upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html"
+  - title: 将node1转换为驱动器架并连接到node3
+    url: "/upgrade/upgrade_convert_node1_drive_shelf_connect_node3.html"
+  - title: 将驱动器从node1重新分配给node3
+    url: "/upgrade/upgrade_reassign_drives_node1_to_node3.html"
+  - title: 将node4上的生命周期管理器和数据聚合迁移到node3
+    url: "/upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html"

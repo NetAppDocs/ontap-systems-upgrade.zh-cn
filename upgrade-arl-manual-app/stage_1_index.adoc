@@ -19,7 +19,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 的�
 .步骤
 . link:determine_aggregates_on_internal_drives.html["确定控制器是否在内部磁盘驱动器上具有聚合"]
 . link:prepare_nodes_for_upgrade.html["准备要升级的节点"]
-. link:manage_authentication_okm.html["使用板载密钥管理器管理身份验证"]
+. link:manage_authentication_okm.html["使用板载密钥管理器管理身份验证密钥"]
 . link:quiesce_snapmirror_relationships.html["暂停 SnapMirror 关系"]
 . link:prepare_for_netboot.html["准备网络启动"]
 

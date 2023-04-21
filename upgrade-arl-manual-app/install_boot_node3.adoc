@@ -23,15 +23,15 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 [IMPORTANT]
 ====
-如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则需要完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。
+如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则必须完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。
 
-但是，如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"]，在集群提示符处输入命令。
+但是、如果您要升级具有存储磁盘的系统、则必须完成整个部分、然后转到 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#check-and-configure-UTAUTA2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"]，在集群提示符处输入命令。
 
 ====
 .步骤
 . 【 man_install3_step1]] 确保为 node3 预留机架空间。
 +
-如果 node1 和 node2 位于不同的机箱中，则可以将 node3 与 node1 放在同一机架位置。但是，如果 node1 与 node2 位于同一机箱中，则需要将 node3 置于其自身的机架空间中，最好靠近 node1 的位置。
+如果 node1 和 node2 位于不同的机箱中，则可以将 node3 与 node1 放在同一机架位置。但是、如果node1与node2位于同一机箱中、则必须将node3放入其自身的机架空间、最好靠近node1的位置。
 
 . 【第 2 步】按照适用于您的节点型号的 _Installation and Setup Instructions_ 在机架中安装 node3 。
 +
@@ -60,7 +60,7 @@ NOTE: 如果要升级到两个节点位于同一机箱中的系统，请在机�
 ** SAN 配置： iSCSI 以太网和 FC 交换机端口
 +
 
-NOTE: 您可能不需要将互连卡或集群互连缆线连接从 node1 移至 node3 ，因为大多数平台型号都具有唯一的互连卡型号。对于 MetroCluster 配置，您需要将 FC-VI 缆线连接从 node1 移至 node3 。如果新主机没有 FC-VI 卡，则可能需要移动 FC-VI 卡。
+NOTE: 您可能不需要将互连卡或集群互连缆线连接从 node1 移至 node3 ，因为大多数平台型号都具有唯一的互连卡型号。对于MetroCluster 配置、必须将FC-VI缆线连接从node1移至node3。如果新主机没有 FC-VI 卡，则可能需要移动 FC-VI 卡。
 
 
 
@@ -166,33 +166,26 @@ NOTE: 在启动环境提示符处保留node4；您将返回到中的node4 link:i
 +
 `set-defaults`
 
-. 【man_install3_step16]]设置 `bootarg.storageencryption.support` 和 `kmip.init.maxwait` 用于避免在加载node1配置后启动环路的变量。
+. [[man_install3_STEP16]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
 +
-如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定正在使用的自加密驱动器的类型。
 
+NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。
+
++
+.. 设置 `bootarg.storageencryption.support` to `true` 或 `false`：
 +
 [cols="35,65"]
 |===
+
+
 | 如果正在使用以下驱动器、请使用… | 然后选择… 
 
 
-| NetApp存储加密(NSE)驱动器、符合FIPS 140-2 2级自加密要求  a| 
-** `setenv bootarg.storageencryption.support *true*`
-** `setenv kmip.init.maxwait off`
+| 符合FIPS 140-2 2级自加密要求的NSE驱动器 | `setenv bootarg.storageencryption.support *true*` 
 
 
-
-
-| NetApp非FIPS SED  a| 
-** `setenv bootarg.storageencryption.support *false*`
-** `setenv kmip.init.maxwait off`
-
-
+| NetApp非FIPS SED | `setenv bootarg.storageencryption.support *false*` 
 |===
-+
-
-WARNING: *一旦HA对上的控制器升级完成、您必须取消设置 `kmip.init.maxwait` 变量。请参见 link:ensure_controllers_set_up_correctly.html#unset_maxwait_manual["确认已正确设置新控制器、步骤11"]。否则、如果发生断电、可能会导致数据丢失。*
-
 +
 [NOTE]
 ====
@@ -201,6 +194,12 @@ WARNING: *一旦HA对上的控制器升级完成、您必须取消设置 `kmip.i
 您可以在同一节点或HA对上混用SED和非加密驱动器。
 
 ====
+.. 转到专用启动菜单并选择选项 `(10) Set Onboard Key Manager recovery secrets`。
++
+输入先前记录的操作步骤 密码短语和备份信息。请参见 link:manage_authentication_okm.html["使用板载密钥管理器管理身份验证密钥"]。
+
+
+
 . 【 ｛ man_install3_step17]] 如果 node3 上安装的 ONTAP 版本与 node1 上安装的 ONTAP 9 版本相同或更高，请列出磁盘并将其重新分配给新的 node3 ：
 +
 `boot_ontap`

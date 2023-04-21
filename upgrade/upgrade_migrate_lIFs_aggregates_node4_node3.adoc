@@ -1,0 +1,134 @@
+---
+permalink: upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node3, node4, migrate, aggregates, lif 
+summary: 准备node3、将节点node3连接到node4、然后将node4上的数据文件和数据聚合迁移到node3。 
+---
+= 将node4上的生命周期管理器和数据聚合迁移到node3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+要完成升级、请将node3连接到node4、然后将node4上的数据逻辑接口(Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface
+
+.步骤
+. 在节点的加载程序提示符处、将节点启动至启动菜单：
++
+`boot_ontap 菜单`
+
+. 选择选项 `6 Update flash from backup config` 将/var文件系统还原到node3。
++
+这将使用上次备份到磁盘的时间来替换基于闪存的所有配置。
+
+. 输入 `y` 以继续。
+. 允许节点正常启动。
++
+[NOTE]
+====
+按照预期、节点会自动重新启动以加载/var文件系统的新副本。
+
+节点报告系统ID不匹配的警告。输入 ... `y` 覆盖系统ID。
+
+====
+. 将node3连接到node4：
++
+.. 将多路径高可用性(MPHA)缆线连接到NS224磁盘架以确保冗余。
+.. 在节点之间连接HA对缆线(如果接口不同)。
+.. 在节点之间连接集群缆线(如果接口不同)。
+
+
+. 迁移集群Sifs：
++
+`set -privilege advanced`
+
++
+`network port show`
+
+. 修改集群广播域以包括所需的集群端口：
++
+`network port broadcast-domain remove-ports -broadcast-domain _broadcast_domain_name_ -ports _port_names_`
+
++
+`network port broadcast-domain add-ports -broadcast-domain Cluster -ports _port_names_`
+
++
+
+NOTE: 从ONTAP 9.8开始、可以为用于集群连接的现有物理端口指定新的IP空间以及一个或多个广播域。
+
+. 修改集群IP空间以包括所需的集群端口、并将最大传输单元设置为9000 (如果尚未设置)：
++
+`network port modify -node _node_name_-port _port_name_-mtu 9000 -ipspace Cluster`
+
+. 显示所有集群网络LUN：
++
+`network interface show -role cluster`
+
+. 将所有集群网络的网络连接迁移到主端口：
++
+`network interface show -role cluster`
+
+. 显示所有数据网络LUN：
++
+`network interface show -role data`
+
+. 将所有数据生命周期迁移到node3：
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+
+. 显示所有数据网络LUN：
++
+`network interface show -role data`
+
++
+集群和管理LUN不能在节点之间迁移。如果任何此类生命周期已关闭、请将此生命周期的管理状态设置为 `up` 通过输入以下命令、为每个LIF输入一次：
+
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+
+. 迁移集群管理LIF：
++
+`network interface migrate -vserver _vserver_name_ -lif cluster_mgmt -destination-node _node3_ -destination-port _port_name_`
+
+. 显示集群管理LIF的状态：
++
+`network interface show cluster_mgmt`
+
+. 显示集群中所有数据聚合的状态：
++
+`storage aggregate show`
+
+. 启用HA对、存储故障转移和自动交还：
++
+`cluster ha modify -configured true`
+
+. 将node4拥有的数据聚合迁移到node3：
++
+`storage aggregate relocation start -aggregate _aggregate_name_ -node _node4_ -destination _node3_`
+
+. 显示集群中所有数据聚合的状态：
++
+`storage aggregate show`
+
+. 在节点之间启用网络生命周期自动还原：
++
+`network interface modify -lif * -auto-revert true`
+
+. 显示集群状态：
++
+`cluster show`
+
+. 显示故障转移资格：
++
+`s存储故障转移显示`
+
++
+
+NOTE: 在集群报告输出中、某个节点可能会错误地拥有属于另一个节点的聚合。如果发生这种情况、请通过从集群两端执行接管和恢复来进行规范化。
+
+. 显示集群中所有数据聚合的状态：
++
+`storage aggregate show`
+
+

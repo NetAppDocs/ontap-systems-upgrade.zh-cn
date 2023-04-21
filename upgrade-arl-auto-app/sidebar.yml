@@ -86,8 +86,8 @@ entries:
   entries:
   - title: 概述
     url: "/upgrade-arl-auto-app/stage_6_index.html"
-  - title: 获取用于存储加密的外部密钥管理服务器的 IP 地址
-    url: "/upgrade-arl-auto-app/get_ip_address_of_external_kms_for_storage_encryption.html"
+  - title: 使用 KMIP 服务器管理身份验证
+    url: "/upgrade-arl-auto-app/manage-authentication-using-kmip-servers.html"
   - title: 确认新控制器设置正确
     url: "/upgrade-arl-auto-app/ensure_new_controllers_are_set_up_correctly.html"
   - title: 在新控制器模块上设置存储加密

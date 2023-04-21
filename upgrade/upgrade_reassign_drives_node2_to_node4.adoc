@@ -1,0 +1,85 @@
+---
+permalink: upgrade/upgrade_reassign_drives_node2_to_node4.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: 在将驱动器从node2重新分配到node4之前、将node2物理连接到node4。 
+---
+= 将驱动器从node2重新分配给node4
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将AFF A250 node2转换为NS224驱动器架并连接到AFF A400 node4之后、必须将先前属于node2的驱动器重新分配给node4。
+
+.开始之前
+在加载程序提示符处确认node2和node4均处于备用状态。
+
+.关于此任务
+您可以在node4上执行以下步骤。
+
+.步骤
+. 在加载程序提示符处、将node4启动至维护模式：
++
+`boot_ontap maint`
+
+. 显示100GbE接口的状态：
++
+`storage port show`
+
+. 将100GbE接口设置为存储端口：
++
+`storage port modify -p e0c -m storage`
+
++
+`storage port modify -p e0d -m storage`
+
+. 验证100GbE接口的模式更改：
++
+`storage port show`
+
++
+此时应显示如下输出：
+
++
+[listing]
+----
+*> storage port modify -p e0c -m storage
+Nov 10 16:27:23 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0c to storage mode.
+
+Nov 10 16:27:29 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8885.
+
+*> storage port modify -p e0d -m storage
+Nov 10 16:27:34 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0d to storage mode.
+
+Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8886.
+
+*> storage port show
+Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
+---- ---- ------- ----------- -------- ------- -------
+e0c  ENET storage 100 Gb/s    enabled  online  30
+e0d  ENET storage 100 Gb/s    enabled  online  30
+----
+. 显示所有连接的驱动器：
++
+`disk show -v`
+
+. 记录本地系统ID。
+. 将所有驱动器从node2重新分配到node4：
++
+`disk reassign -s _node2_ -d _node4_ -p _node1_`
+
+. 验证所有重新分配的驱动器是否可供新系统ID查看：
++
+`disk show -s _node4_System_ID_`
+
++
+
+NOTE: 如果无法查看驱动器、请执行*停止*并联系技术支持以获得帮助。
+
+. 退出维护模式：
++
+`halt`
+
+

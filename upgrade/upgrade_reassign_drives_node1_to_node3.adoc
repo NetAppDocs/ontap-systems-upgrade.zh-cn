@@ -1,0 +1,57 @@
+---
+permalink: upgrade/upgrade_reassign_drives_node1_to_node3.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: 在将驱动器从node1重新分配到node3之前、将node1物理连接到node3 
+---
+= 将驱动器从node1重新分配给node3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将AFF A250 node1转换为NS224驱动器架并连接到AFF A400 node3之后、必须将先前属于node1的驱动器重新分配给node3。
+
+.步骤
+. 在加载程序提示符处、将node3启动至维护模式：
++
+`boot_ontap maint`
+
+. 显示100GbE接口的状态：
++
+`storage port show`
+
+. 将100GbE接口设置为存储端口：
++
+`storage port modify -p e0c -m storage`
+
++
+`storage port modify -p e0d -m storage`
+
+. 验证100GbE接口的模式更改：
++
+`storage port show`
+
+. 显示所有连接的驱动器：
++
+`disk show -v`
+
+. 记录本地系统ID。
+. 将所有驱动器从node1重新分配到node3：
++
+`disk reassign -s _node1_ -d _node3_ -p _node2_`
+
+. 验证所有重新分配的驱动器是否可供新系统ID查看：
++
+`disk show -s _node3 system ID_`
+
++
+
+NOTE: 如果无法查看驱动器、请执行*停止*并联系技术支持以获得帮助。
+
+. 退出维护模式：
++
+`halt`
+
+

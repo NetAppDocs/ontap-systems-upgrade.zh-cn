@@ -1,0 +1,28 @@
+---
+permalink: upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, AFF, FAS, systems, entry, level 
+summary: 无需购买额外的存储和集群交换机、即可对入门级NetApp AFF 和FAS 系统执行NDU。 
+---
+= 工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过将每个AFF A250节点转换为NS224驱动器架、然后连接到AFF A400替代节点、从AFF A250系统无中断升级到AFF A400系统。
+
+在此操作步骤 中、AFF A250高可用性(HA)对控制器称为node1和node2、替代AFF A400 HA对控制器称为node3和node4。
+
+image::../upgrade/media/ndu_upgrade_entry_level_systems.PNG[通过转换为驱动器架将AFF A250升级到AFF A400的工作流]
+
+.步骤。
+. xref:upgrade_migrate_lifs_aggregates_node2_to_node1.adoc[将node2上的生命周期管理器和数据聚合迁移到node1]
+. xref:upgrade_convert_node2_drive_shelf_connect_node4.adoc[将node2转换为驱动器架并连接到node4]
+. xref:upgrade_reassign_drives_node2_to_node4.adoc[将驱动器从node2重新分配给node4]
+. xref:upgrade_migrate_aggregates_epsilon_lifs_node1_node4.adoc[将node1上的数据聚合、eps龙 和生命周期管理迁移到node4]
+. xref:upgrade_convert_node1_drive_shelf_connect_node3.html[将node1转换为驱动器架并连接到node3]
+. xref:upgrade_reassign_drives_node1_to_node3.adoc[将驱动器从node1重新分配给node3]
+. xref:upgrade_migrate_lIFs_aggregates_node4_node3.adoc[将node4上的生命周期管理器和数据聚合迁移到node3]
+

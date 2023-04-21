@@ -2,19 +2,12 @@
 :allow-uri-read: 
 
 
-您可以使用板载密钥管理器管理身份验证密钥。如果您计划使用板载密钥管理器（ OKM ），则必须在开始升级之前记录密码短语和备份材料。
+您可以使用板载密钥管理器(OKM)管理身份验证密钥。如果您已设置OKM、则必须先记录密码短语和备份材料、然后再开始升级。
 
 .步骤
-. 验证密钥管理服务器是否可用于集群中的所有节点：
+. 记录集群范围的密码短语。
 +
-`sSecurity key-manager key show`
+这是在使用命令行界面或REST API配置或更新OKM时输入的密码短语。
 
-. 使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
-+
-`storage encryption disk modify -disk * （ -data-key-id nonMSID AK ）`
-
-. 如果使用联邦信息处理标准（ FIPS ），请使用新的身份验证密钥重新设置所有自加密磁盘的密钥：
-+
-`storage encryption disk* modify -disk * "-fips-key-id nonMSID AK]`
-
+. 运行以备份密钥管理器信息 `security key-manager onboard show-backup` 命令：
 

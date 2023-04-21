@@ -273,49 +273,41 @@ IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP �
 安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
 
 . 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-. 【第27步】设置 `bootarg.storageencryption.support` 和 `kmip.init.maxwait` 用于避免在加载node2配置后启动环路的变量。
-+
-如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/How_to_tell_I_have_FIPS_drives_installed["如何判断是否已安装FIPS驱动器"^] 确定正在使用的自加密驱动器的类型。
 
+
+. 如果安装了NetApp存储加密驱动器、请执行以下步骤。
++
+
+NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。
+
++
+.. 设置 `bootarg.storageencryption.support` to `true` 或 `false`：
 +
 [cols="35,65"]
 |===
 | 如果正在使用以下驱动器、请使用… | 然后选择… 
 
 
-| NetApp存储加密(NSE)驱动器、符合FIPS 140-2 2级自加密要求  a| 
-** `setenv bootarg.storageencryption.support *true*`
-** `setenv kmip.init.maxwait off`
+| NetApp存储加密(NSE)驱动器、符合FIPS 140-2 2级自加密要求 | `setenv bootarg.storageencryption.support *true*` 
 
 
-
-
-| NetApp非FIPS SED  a| 
-** `setenv bootarg.storageencryption.support *false*`
-** `setenv kmip.init.maxwait off`
-
-
+| NetApp非FIPS SED | `setenv bootarg.storageencryption.support *false*` 
 |===
-+
-
-WARNING: *一旦HA对上的控制器升级完成、您必须取消设置 `kmip.init.maxwait` 变量。请参见 link:ensure_new_controllers_are_set_up_correctly.html#unset_maxwait_system_commands["确认已正确设置新控制器、步骤12"]。否则、如果发生断电、可能会导致数据丢失。*
-
 +
 [NOTE]
 ====
-不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。
-
-您可以在同一节点或HA对上混用SED和非加密驱动器。
+不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。您可以在同一节点或HA对上混用SED和非加密驱动器。
 
 ====
+.. 请联系NetApp支持部门以帮助还原板载密钥管理信息。
+
+
 . 启动节点进入启动菜单：
 +
 `boot_ontap 菜单`
 
 +
 如果您没有 FC 或 UTA/UTA2 配置，请执行 link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"] 以便 node4 可以识别 node2 的磁盘。
-
-
 
 . 【第 29 步】有关 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，请转至 link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"]。
 

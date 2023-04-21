@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app/manage-authentication-using-kmip-servers.html 
+keywords: ip, address, external, key, management, server, storage, encryption, upgrading, authentication 
+summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或更高版本的控制器时，配置和管理存储加密，管理身份验证密钥并暂停 SnapMirror 关系。' 
+---
+= 使用 KMIP 服务器管理身份验证
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+对于 ONTAP 9.8 或更高版本，您可以使用密钥管理互操作性协议（ KMIP ）服务器管理身份验证密钥。
+
+.步骤
+. 添加新控制器：
++
+`s安全密钥管理器外部启用`
+
+. 添加密钥管理器：
++
+`security key-manager external add-servers -key-servers _key_management_server_ip_address_`
+
+. 验证密钥管理服务器是否已配置且可供集群中的所有节点使用：
++
+`s安全密钥管理器外部 show-status`
+
+. 将所有链接的密钥管理服务器中的身份验证密钥还原到新节点：
++
+`sSecurity key-manager external restore -node _new_controller_name_`
+
+

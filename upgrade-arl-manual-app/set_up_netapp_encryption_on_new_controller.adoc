@@ -61,9 +61,10 @@ summary: 如果需要、请在运行ONTAP 9.8或更高版本的控制器上手�
 
 | 板载密钥管理器（ OKM ） | `sSecurity key-manager 板载同步` 
 |===
++
+有关详细信息、请参见知识库文章 https://kb.netapp.com/onprem/ontap/dm/Encryption/How_to_restore_external_key_manager_server_configuration_from_the_ONTAP_boot_menu["如何从ONTAP 启动菜单还原外部密钥管理器服务器配置"^]。
+
 
 
 .完成后
-检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用以下命令将这些卷恢复联机：
-
-`卷联机`
+检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用将这些卷恢复联机 `volume online` 命令：

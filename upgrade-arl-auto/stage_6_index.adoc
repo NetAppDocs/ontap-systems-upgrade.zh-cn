@@ -17,7 +17,7 @@ summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller 
 在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。
 
 .步骤
-. link:get_ip_address_of_external_kms_for_storage_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]
+. link:manage-authentication-using-kmip-servers.html["使用 KMIP 服务器管理身份验证"]
 . link:ensure_new_controllers_are_set_up_correctly.html["确认新控制器设置正确"]
 . link:set_up_storage_encryption_new_module.html["在新控制器模块上设置存储加密"]
 . link:set_up_netapp_volume_encryption_new_module.html["在新控制器模块上设置NetApp卷或聚合加密"]

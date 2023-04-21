@@ -16,7 +16,6 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 的�
 [role="lead"]
 在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。
 
-. link:get_address_key_management_server_encryption.html["获取用于存储加密的外部密钥管理服务器的 IP 地址"]
 . link:manage_authentication_kmip.html["使用 KMIP 服务器管理身份验证"]
 . link:ensure_controllers_set_up_correctly.html["确认新控制器设置正确"]
 . link:set_up_storage_encryption_new_controller.html["在新控制器模块上设置存储加密"]

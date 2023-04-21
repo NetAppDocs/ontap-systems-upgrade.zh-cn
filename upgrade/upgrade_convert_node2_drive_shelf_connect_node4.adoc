@@ -1,0 +1,35 @@
+---
+permalink: upgrade/upgrade_convert_node2_drive_shelf_connect_node4.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: '将节点2 (AFF A250)转换为NS224驱动器架、然后连接到节点4 (AFF A400)。' 
+---
+= 将node2转换为驱动器架并连接到node4
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将AFF A250 node2转换为NS224驱动器架、然后连接到AFF A400 node4、最后将驱动器从node2重新分配给node4。
+
+.步骤
+. 从node2断开所有网络缆线。
+. 从AFF A250机箱中卸下node2。
+. 将NVMe磁盘架模块(NSM)插入node2的托架。
+. 通过将node4 100GbE端口e0c连接到NSM B端口e0a、将NSM连接到node4。
++
+image::../upgrade/media/a400_with_ns224_shelf.PNG[具有一个NS224磁盘架的AFF A400]
+
+. 将25 GbE布线从node2端口e0c和e0d连接到node4上的任意两个25 GbE板载端口(e0e、e0f、e0g或e0h)。
++
+
+NOTE: 如果node4上不存在25GbE板载端口、则可以使用25GbE PCIe适配器进行连接。
+
+. 如果AFF A400系统使用FC端口作为板载端口、请在每个节点中安装一个25 Gb以太网适配器、以便在迁移期间进行集群连接：
++
+.. 使用端口e0a和e0b在AFF A400节点之间连接HA对缆线。
+.. 使用端口e3a和e3b在AFF A400节点之间连接集群缆线。
+
+
+

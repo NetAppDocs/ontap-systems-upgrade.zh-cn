@@ -1,0 +1,103 @@
+---
+permalink: upgrade/upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html 
+sidebar: sidebar 
+keywords: ndu, nondisruptive, upgrade, node1, node4, migrate, aggregates, lifs 
+summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4。 
+---
+= 将node1上的数据聚合、eps龙 和生命周期管理迁移到node4
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将AFF A250 node1转换为驱动器架之前、您需要将node1上的数据聚合、epson西 普龙和逻辑接口(Logical Interface、Logical Interface、)迁移到AFF A400 node4。
+
+.步骤
+. 在节点的加载程序提示符处、将节点启动至启动菜单：
++
+`boot_ontap 菜单`
+
+. 选择选项 `6 Update flash from backup config` 将/var文件系统还原到node4。
++
+这将使用上次备份到磁盘的时间来替换基于闪存的所有配置。
+
+. 输入 `y` 以继续。
++
+[NOTE]
+====
+按照预期、节点会自动重新启动以加载/var文件系统的新副本。
+
+节点报告系统ID不匹配警告。输入 ... `y` 覆盖系统ID。
+
+====
+. 迁移集群Sifs：
++
+`set -privilege advanced`
+
++
+`network port show`
+
++
+[NOTE]
+====
+如果在将AFF A250升级到AFF A400时系统集群端口不同、则可能需要临时将node4上的接口更改为集群端口：
+
+.. `network port modify -node _node4_ -port _port_name_ -mtu 9000 -ipspace Cluster`
+.. `network interface migrate -vserver Cluster -lif _cluster_LIF_  -destination-node _node4_ -destination-port _port_name_`
+
+
+====
+. 将node1上的数据聚合迁移到node4：
++
+`storage aggregate relocation start -aggregate-list _aggregate_list_name_ -node _node1_ -destination _node4_ -ndo-controller-upgrade true -override-destination-checks true`
+
+. 显示集群中所有数据聚合的状态：
++
+`storage aggregate show`
+
+. 通过从node1中删除IF并将其移动到node4来迁移Epsilon。
++
+.. 从node1中删除epsison:
++
+`cluster modify -epsilon false -node _local_node_name_`
+
+.. 将Epsilon移动到node4：
++
+`cluster modify -epsilon true -node _partner_node_name_`
+
+
+
+. 显示集群状态：
++
+`cluster show`
+
+. 显示所有数据网络LUN：
++
+`network interface show -role data`
+
+. 将所有数据生命周期迁移到node4：
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+
+. 显示集群中所有数据LUN的状态：
++
+`network interface show -role data`
+
+. 如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
++
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+
+. 迁移集群管理LIF：
++
+`network interface migrate -vserver _vserver_name_ -lif cluster_mgmt -destination-node _node4_ -destination-port _port_name_`
+
+. 显示集群管理LIF的状态：
++
+`network interface show cluster_mgmt`
+
+. 暂停 node1 ：
++
+`halt -node _node1_ -inhibit-takeover true -ignore-quorum-warnings true`
+
+

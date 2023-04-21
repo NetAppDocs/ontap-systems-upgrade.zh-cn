@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-manual/manage_authentication_kmip.html 
-keywords: kmip, authentication, keys, fips 
-summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，使用 KMIP 服务器管理身份验证密钥。 
+permalink: upgrade-arl-auto/manage-authentication-using-kmip-servers.html 
+keywords: IP address, external, key management, server, storage encryption, kmip, onboard key management 
+summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，配置和管理存储加密，管理身份验证密钥并暂停 SnapMirror 关系。' 
 ---
 = 使用 KMIP 服务器管理身份验证
 :hardbreaks:
@@ -14,9 +14,10 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 
 
 [role="lead"]
-对于 ONTAP 9.5 及更高版本，您可以使用密钥管理互操作性协议（ KMIP ）服务器管理身份验证密钥。
+在 ONTAP 9.5 到 9.7 中，您可以使用密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）服务器管理身份验证密钥。
 
-.步骤
+步骤
+
 . 添加新控制器：
 +
 `security key-manager setup -node _new_controller_name_`
