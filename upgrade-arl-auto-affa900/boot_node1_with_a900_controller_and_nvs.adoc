@@ -17,7 +17,7 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 。
 具有AFF A900或FAS9500控制 器和NVRAM模块的Node1现在可以启动。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、只需要移动控制台和管理连接即可。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node1所需的步骤。
 
 .步骤
-. 如果安装了NetApp存储加密驱动器、请执行以下步骤。
+. 如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
 +
 
 NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。
@@ -27,8 +27,6 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 +
 [cols="35,65"]
 |===
-
-
 | 如果正在使用以下驱动器、请使用… | 然后选择… 
 
 

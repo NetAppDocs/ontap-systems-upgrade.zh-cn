@@ -693,7 +693,7 @@ node2            enable    Postmaster    -                 mailhost
 | 未启用 AutoSupport ...  a| 
 按照 _System 管理参考 _ 中的说明启用 AutoSupport 。请参见 link:other_references.html["参考资料"] 链接到系统管理参考。）
 
-+*注：*首次配置存储系统时，AutoSupport 默认处于启用状态。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。
+* 注意： * 首次配置存储系统时，默认情况下会启用 AutoSupport 。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。
 
 |===
 . 【 man_prepare_nodes_step34]] 在两个原始节点上输入以下命令并检查输出，以验证 AutoSupport 是否配置了正确的邮件主机详细信息和收件人电子邮件 ID ：

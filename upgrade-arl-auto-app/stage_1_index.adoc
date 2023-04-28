@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app/stage_1_index.html
 keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
 summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 1 阶段流程顺序。' 
 ---
-= 第 1 阶段。准备升级
+= 概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

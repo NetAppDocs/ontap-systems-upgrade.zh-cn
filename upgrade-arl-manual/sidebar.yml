@@ -42,6 +42,8 @@ entries:
   - title: 确定控制器是否在内部磁盘驱动器上具有聚合
     url: "/upgrade-arl-manual/determine_aggregates_on_internal_drives.html"
   - title: 准备要升级的节点
+    url: "/upgrade-arl-manual/prepare_nodes_for_upgrade.html"
+  - title: 使用板载密钥管理器管理身份验证密钥
     url: "/upgrade-arl-manual/manage_authentication_okm.html"
   - title: 暂停 SnapMirror 关系
     url: "/upgrade-arl-manual/quiesce_snapmirror_relationships.html"

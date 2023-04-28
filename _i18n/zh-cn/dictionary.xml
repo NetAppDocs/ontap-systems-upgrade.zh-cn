@@ -2008,7 +2008,6 @@
   <block id="82afadce5c137568366e29a810db005a" category="cell">已启用 AutoSupport ...</block>
   <block id="c732f1d7a89abd68a48f92313a9b4364" category="inline-xref">第 34 步</block>
   <block id="1ab718a04314b36269d3b2b096aac75a" category="list-text">转至 <block ref="395265ffe56efe9e97ae9cc3752b2f60" category="inline-xref-macro-rx"></block>。</block>
-  <block id="e5358fe562a4d74ac4231d8e23d0b088" category="inline-link-macro">获取用于存储加密的外部密钥管理服务器的 IP 地址</block>
   <block id="9c13f9e2316ce6eb31c97c43c9f42070" category="cell">未启用 AutoSupport ...</block>
   <block id="6fcae9afe7013bc84597d8c4231312ba" category="list-text">按照 _System 管理参考 _ 中的说明启用 AutoSupport 。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到系统管理参考。）</block>
   <block id="4179c1d88c83e870ed525f69e82e0369" category="list-text">【 man_prepare_nodes_step34]] 在两个原始节点上输入以下命令并检查输出，以验证 AutoSupport 是否配置了正确的邮件主机详细信息和收件人电子邮件 ID ：</block>
@@ -2279,7 +2278,6 @@
   <block id="6bdf9080f49ca89e65220e312d51e688" category="list-text">使用以下命令添加密钥管理服务器：</block>
   <block id="0dd9d4ff0944e970430f96022e169191" category="list-text">使用以下命令验证是否已成功添加密钥管理服务器：</block>
   <block id="3bf7f9a82df0c130b46780052ca49e4c" category="list-text">使用以下命令在新节点上启动密钥管理服务器设置向导：</block>
-  <block id="ce647643e8b085a9425f156173190659" category="list-text">还原外部密钥管理器（ EDD ）的身份验证：</block>
   <block id="a5e463e5138622ba8c2355b41f67a0ff" category="paragraph">此命令需要板载密钥管理器（ OKM ）密码短语</block>
   <block id="ce4c94d5e669859aacda58a7f2429ddf" category="cell">所有其他 ONTAP 版本</block>
   <block id="fedb2a32e0130d4ae814cd5cc418f72f" category="list-text">【第 1 步】通过完成以下子步骤重新定位非根聚合：</block>
@@ -2682,7 +2680,6 @@
   <block id="94c614d182457fbc97ae1deaaabd5813" category="paragraph">如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为交换集群。</block>
   <block id="fdc03a42e0e3399344b3116546b77b4d" category="list-text">【 man_lif_verif_3_step5]] 如果平台上的数据端口不同，请将这些端口添加到广播域：</block>
   <block id="3e874a6c7a8a7acafa16272d6c2b74ee" category="paragraph">以下示例将节点 "8200-1 " 上的端口 "e0a" 和节点 "8060-1 " 上的端口 "e0i" 添加到 IP 空间 "Default" 中的广播域 "mgmt" ：</block>
-  <block id="08ac1a2fb254b60e9c511fe04b6536d0" category="cell">外部密钥管理器（ EKM ）</block>
   <block id="e5255775e89f083d8e69c73098e5fff2" category="list-text">输入以下命令，验证 node4 与 node3 位于同一集群中且运行状况良好：</block>
   <block id="a8b841bb612aacb195cf6acc0585fc92" category="list-text">输入以下命令，验证 node4 是否可以与 node3 通信以及所有 LIF 是否均已启动：</block>
   <block id="07d4c533878766923bd46c0ad1c07580" category="list-text">转至 <block ref="861668d9cff26e583cb336053a01f9e4" category="inline-xref-macro-rx"></block>。</block>
@@ -2922,8 +2919,6 @@
   <block id="fa332b15cdfbb22760413e4a60513a40" category="cell">完成 <block ref="a4882b71f5935aea43154f35b1a6d350" category="inline-xref-macro-rx"></block> 然后转到部分 <block ref="7401650b9cd3ea8be2a2d31b363b2b3c" category="inline-link-macro-rx"></block>。</block>
   <block id="b6481dacfe88e9c856041be2326875ff" category="cell">跳过步骤 4 ，然后转到 <block ref="7401650b9cd3ea8be2a2d31b363b2b3c" category="inline-link-macro-rx"></block>。</block>
   <block id="5055165524bf9c633a40b424396e9008" category="section-title">暂停 SnapMirror 关系（可选）。</block>
-  <block id="511701430e4fbf5079759a7c3b7c28ff" category="doc">第 4 阶段。记录 node2 信息并停用 node2</block>
-  <block id="d21a0858f74e1b40b984bb621122ad41" category="doc">第 5 阶段。安装并启动节点 4.</block>
   <block id="0df71f161bb7f6f4a1dd4c0ceefcb245" category="sidebar">第 4 阶段。记录信息并停用 node2</block>
   <block id="69dd6fe430ae07730e1c32b2939c278c" category="inline-link-macro">《 ONTAP 9.9.1 命令：手册页参考》</block>
   <block id="9d844ecf2e54ad978b96146975590298" category="cell"><block ref="9d844ecf2e54ad978b96146975590298" category="inline-link-macro-rx"></block></block>
@@ -3591,7 +3586,6 @@
   <block id="c3ca05cd3954f0276fbe21e438b23691" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 的第 6 阶段流程顺序。</block>
   <block id="bd01c5b770f12580d6d085fd6e8ad756" category="summary">在以网络方式启动系统之前，请在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间暂停所有 SnapMirror 关系。</block>
   <block id="cb42877b8f5a499b59fbb4b10124a134" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，安装和启动 node3 并安装 ONTAP 软件。</block>
-  <block id="c9db4eeeb7068245ea24e65d2b3044b1" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间配置存储加密。</block>
   <block id="a986e1d99c36977cba4daadf9f7b9d1e" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，在第 2 阶段，第 3 阶段或第 5 阶段迁移后， LIF 不联机。</block>
   <block id="10a1bf2406c5b22e1d135998f630df5f" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动进行 ARL 升级期间，验证 node2 上的物理端口是否正确映射到 node4 。</block>
   <block id="5392067398aba96b96eb467b43962fc8" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，验证 MetroCluster 配置的运行状况以及操作是否正确。</block>
@@ -4187,7 +4181,6 @@
   <block id="3468b73fe010ca505a63fcddaa4f3601" category="paragraph-title">此信息中使用的术语</block>
   <block id="5d022d26a75a4e30fae6648d5bcdd9e5" category="paragraph-title">用于MetroCluster FC配置</block>
   <block id="e05e5b3ebbe0e2f7ee773e008e2cd7bd" category="cell">如果正在使用以下驱动器、请使用…</block>
-  <block id="cbfa089efcac1a28956de515cdcbcecc" category="cell">NetApp存储加密(NSE)驱动器、符合FIPS 140-2 2级自加密要求</block>
   <block id="9a7a5052834bdcd10b9395aaeaf8d876" category="list-text"><block ref="62a739993e7d046df94dbc6dc7c3f174" prefix="" category="inline-code"></block></block>
   <block id="102a08eb3220b17bfbecbc277298074d" category="cell">NetApp非FIPS SED</block>
   <block id="ad55a196e6d3053365555c02e73f7628" category="list-text"><block ref="20ac903c04b877a6840785a4ed61d182" prefix="" category="inline-code"></block></block>
@@ -4347,7 +4340,6 @@
   <block id="2c524a09a41084103cfccb89e1e2dd49" category="paragraph">在第6阶段、使用升级后的控制器和NVRAM模块启动node2并验证升级后的node2安装。如果您使用的是NVE、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。</block>
   <block id="2201f8be38de620c7e36cb511d56aa13" category="cell"><block ref="2201f8be38de620c7e36cb511d56aa13" category="inline-link-macro-rx"></block></block>
   <block id="fb13f8b167e25a81b898b43d42165d58" category="paragraph">在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。</block>
-  <block id="3c71d8aea4515e5bab3212b7c7635c9b" category="doc">第 2 阶段。重新定位节点1中的资源并停用AFF A700或FAS9000节点1</block>
   <block id="98d03c0eb9112cc9024f712528415cd8" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。您必须记录node1信息以供日后在操作步骤 中使用、然后交换相应的node1控制器和NVRAM模块、停用node1并通过网络启动升级后的node1。</block>
   <block id="ba3ed006f5a9fb6f965da2e3e183b4ad" category="inline-link-macro">网络启动</block>
   <block id="d7c7c51e5bb760e2570a29b82d44f1bf" category="list-text"><block ref="d7c7c51e5bb760e2570a29b82d44f1bf" category="inline-link-macro-rx"></block></block>
@@ -4419,7 +4411,6 @@
   <block id="85e374a47bd77502ca7ecd58923ec819" category="paragraph">但是，如果控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本相同，则无需通过网络启动控制器。如果是，您可以跳过此部分并继续 <block ref="c6531ef0bbbd2a28b8b9b75b1dc2026b" category="inline-link-macro-rx"></block></block>
   <block id="ec8f42afc125efe6d556f20ecc052848" category="inline-link-macro">使用板载密钥管理器管理身份验证密钥</block>
   <block id="67f80d13cf548292184bc05f4b74227a" category="list-text"><block ref="67f80d13cf548292184bc05f4b74227a" category="inline-link-macro-rx"></block></block>
-  <block id="f4672cbaffd9e421a79615ec725fc37c" category="paragraph">+*注：*首次配置存储系统时，AutoSupport 默认处于启用状态。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。</block>
   <block id="905e3cdcc0a66a5627f194c9bef68b48" category="inline-link">如何判断驱动器是否已通过FIPS认证</block>
   <block id="9a939769a0a1b5b6c994c5ee6a8c23b2" category="list-text">如果您的系统使用自加密驱动器、请参见知识库文章<block ref="99bc6507ac71bae6bc6755b2bf68f73a" category="inline-link-rx"></block> 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：</block>
   <block id="93cbc4495a566db3a58548f326fa221c" category="paragraph">在通过网络启动系统之前、您必须确认所有SnapMirror关系均已静用。暂停 SnapMirror 关系后，它会在重新启动和故障转移后保持静默状态。</block>
@@ -4449,11 +4440,8 @@
   <block id="28556bd95def05fed56f5833d7b0b25b" category="inline-link-macro">使用板载密钥管理器管理存储加密</block>
   <block id="2b0f9b46416ed6835a9cf4374bf56295" category="list-text"><block ref="2b0f9b46416ed6835a9cf4374bf56295" category="inline-link-macro-rx"></block></block>
   <block id="2f3067e385c13bed8c91d99a529e1f6c" category="paragraph">您可以使用板载密钥管理器(OKM)管理加密密钥。如果您已设置OKM、则必须先记录密码短语和备份材料、然后再开始升级。</block>
-  <block id="56848c85d01c97e89fd91301765bc221" category="list-text">如果安装了NetApp存储加密驱动器、请执行以下步骤。</block>
   <block id="03b784c13f464c141a29ed9b7adc0b70" category="paragraph">不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。您可以在同一节点或HA对上混用SED和非加密驱动器。</block>
   <block id="bbe12f0052143b9b4fa08d13234931ab" category="paragraph">输入先前记录的操作步骤 密码短语和备份信息。请参见 <block ref="2b0f9b46416ed6835a9cf4374bf56295" category="inline-link-macro-rx"></block>。</block>
-  <block id="08054d649addde697b85edb4a8ffb183" category="list-text">如果您安装了NetApp存储加密(NSE)驱动器、请设置<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> to<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 或<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>。</block>
-  <block id="f5da7c2e2634ff80aa6ca2b591dbeb0c" category="paragraph">输入先前记录的操作步骤 密码短语和备份信息。请参见 <block ref="2b0f9b46416ed6835a9cf4374bf56295" category="inline-link-macro-rx"></block></block>
   <block id="1b2c9b4403be6eaaf7fa2209a153c703" category="list-text"><block ref="1b2c9b4403be6eaaf7fa2209a153c703" category="inline-link-macro-rx"></block></block>
   <block id="eaf73ead47320ec21942b56fd3660eea" category="list-text">请联系NetApp支持部门以帮助还原板载密钥管理信息。</block>
   <block id="c5915780f057e573017a845938fc8511" category="summary">准备node3、将节点node3连接到node4、然后将node4上的数据文件和数据聚合迁移到node3。</block>
@@ -4605,10 +4593,11 @@
   <block id="493f827b1132078fbdd11bc0ceceed47" category="list-text">将所有驱动器从node2重新分配到node4：</block>
   <block id="c6de9e9749bb1b9764c879c3f4e55899" category="paragraph"><block ref="d3a7175de7ab1d1112d49ac67a531b10" prefix="" category="inline-code"></block></block>
   <block id="eedfdc7d9365a1f9e29964c35c82e348" category="paragraph"><block ref="8cf81755f02bee986a80060b929f2335" prefix="" category="inline-code"></block></block>
-  <block id="c9c88276ee2c2102cc859c79f38df03f" category="paragraph">&lt;stdin&gt; 中未解析的指令-包括：..//_include/RU_MAN_GET IP地址_External KM_server.adoc[]</block>
   <block id="c8e281db9c8a31e8da74e7ff6bc12115" category="summary">在运行ONTAP 9.7或更早版本的控制器上手动升级ARL期间、使用OKM管理身份验证密钥。</block>
-  <block id="e9e0a1f4688f13dee423ee10d2c9cf11" category="list-text">[[man_install3_STEP16]]如果安装了NetApp存储加密驱动器、请执行以下步骤。</block>
   <block id="20c4be209ec6c65b4221fa6f09f2df42" category="inline-link-macro">使用板载密钥管理器管理存储加密</block>
   <block id="bd001ad1a159ea8195f2f6877d4e5047" category="list-text"><block ref="bd001ad1a159ea8195f2f6877d4e5047" category="inline-link-macro-rx"></block></block>
   <block id="73d106cd4da3fdbd0b8a8317db146c37" category="list-text">[[boot_node2_Step1]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。</block>
+  <block id="04f24e11b658105f38ef40a82c24839e" category="paragraph">* 注意： * 首次配置存储系统时，默认情况下会启用 AutoSupport 。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。</block>
+  <block id="cb6bc72e3e387b19e4fbc2f28ecc2940" category="list-text">设置<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> to<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 或<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>。</block>
+  <block id="e147253c0010bdd5968cb9b4b9ddf7dc" category="cell">外部密钥管理器</block>
 </blocks>

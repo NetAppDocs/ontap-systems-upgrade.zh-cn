@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/stage_3_index.html
 keywords: stage 3, install node3, non-SAN data LIFs, non-root aggregates 
 summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 3 阶段流程顺序。' 
 ---
-= 第 3 阶段。安装并启动 node3
+= 概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

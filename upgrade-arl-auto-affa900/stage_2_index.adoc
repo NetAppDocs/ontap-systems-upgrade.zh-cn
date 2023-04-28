@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_2_index.html
 keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
 summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 2 阶段过程顺序。' 
 ---
-= 第 2 阶段。重新定位节点1中的资源并停用AFF A700或FAS9000节点1
+= 概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

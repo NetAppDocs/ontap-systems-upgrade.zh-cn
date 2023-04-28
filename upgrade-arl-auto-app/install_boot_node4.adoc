@@ -280,16 +280,16 @@ IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP �
 . 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
 
 
-. 如果您安装了NetApp存储加密(NSE)驱动器、请设置 `bootarg.storageencryption.support` to `true` 或 `false`。
+. 如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
 +
 
 NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。
 
 +
+.. 设置 `bootarg.storageencryption.support` to `true` 或 `false`。
++
 [cols="35,65"]
 |===
-
-
 | 如果正在使用以下驱动器、请使用… | 然后选择… 
 
 
@@ -304,9 +304,11 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。您可以在同一节点或HA对上混用SED和非加密驱动器。
 
 ====
-. 转到专用启动菜单并选择选项 `(10) Set Onboard Key Manager recovery secrets`。
+.. 转到专用启动菜单并选择选项 `(10) Set Onboard Key Manager recovery secrets`。
 +
-输入先前记录的操作步骤 密码短语和备份信息。请参见 link:manage_storage_encryption_using_okm.html["使用板载密钥管理器管理存储加密"]
+输入先前记录的操作步骤 密码短语和备份信息。请参见 link:manage_storage_encryption_using_okm.html["使用板载密钥管理器管理存储加密"]。
+
+
 
 . 启动节点进入启动菜单：
 +

@@ -56,7 +56,7 @@ summary: 如果需要、请在运行ONTAP 9.8或更高版本的控制器上手�
 | 针对 ... | 使用此命令 ... 
 
 
-| 外部密钥管理器（ EKM ） | `security key-manager external restore` 此命令需要 OKM 密码短语 
+| 外部密钥管理器 | `security key-manager external restore` 此命令需要 OKM 密码短语 
 
 
 | 板载密钥管理器（ OKM ） | `sSecurity key-manager 板载同步` 

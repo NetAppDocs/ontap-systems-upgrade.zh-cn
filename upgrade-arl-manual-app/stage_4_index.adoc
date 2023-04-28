@@ -4,7 +4,7 @@ permalink: upgrade-arl-manual-app/stage_4_index.html
 keywords: stage 4, node2, retire, information 
 summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 的第 4 阶段流程顺序。 
 ---
-= 第 4 阶段。记录 node2 信息并停用 node2
+= 概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

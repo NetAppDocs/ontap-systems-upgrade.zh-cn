@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app/stage_2_index.html
 keywords: relocating, retiring, node1, lif, stage 2 
 summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 2 阶段过程顺序。' 
 ---
-= 第 2 阶段。重新定位和停用节点 1
+= 概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
