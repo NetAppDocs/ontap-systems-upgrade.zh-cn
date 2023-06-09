@@ -33,18 +33,40 @@ summary: 在将驱动器从node1重新分配到node3之前、将node1物理连�
 +
 `storage port show`
 
++
+应显示如下示例所示的输出：
+
++
+[listing]
+----
+*> storage port modify -p e0c -m storage
+Nov 10 16:27:23 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0c to storage mode.
+
+Nov 10 16:27:29 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8885.
+
+*> storage port modify -p e0d -m storage
+Nov 10 16:27:34 [localhost:nvmeof.port.modify:notice]: Changing NVMe-oF port e0d to storage mode.
+
+Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added at address fe80::2a0:98ff:fefa:8886.
+
+*> storage port show
+Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
+---- ---- ------- ----------- -------- ------- -------
+e0c  ENET storage 100 Gb/s    enabled  online  30
+e0d  ENET storage 100 Gb/s    enabled  offline 30
+----
 . 显示所有连接的驱动器：
 +
 `disk show -v`
 
-. 记录本地系统ID。
+. 记录本地系统ID值；这是node3的系统ID。另外、请记录"owner"列中node1和node2的系统ID。
 . 将所有驱动器从node1重新分配到node3：
 +
-`disk reassign -s _node1_ -d _node3_ -p _node2_`
+`disk reassign -s _node1_system_ID_ -d _node3_system_ID_ -p _node4_system_ID_`
 
 . 验证所有重新分配的驱动器是否可供新系统ID查看：
 +
-`disk show -s _node3 system ID_`
+`disk show -s _node3_system_ID_`
 
 +
 
@@ -55,3 +77,6 @@ NOTE: 如果无法查看驱动器、请执行*停止*并联系技术支持以获
 `halt`
 
 
+
+.下一步是什么？
+link:upgrade_migrate_lIFs_aggregates_node4_node3.html["将node4上的生命周期管理器和数据聚合迁移到node3"]

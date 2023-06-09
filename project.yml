@@ -23,6 +23,8 @@ homepage:
     links:
     - title: 升级控制器硬件
       url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+    - title: 通过转换为驱动器架将AFF A250升级到AFF A400
+      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
   - title: 在运行 ONTAP 9.8 及更高版本的系统上移动聚合以进行升级
     links:
     - title: 使用 system controller replace 命令（ AFF A700 至 AFF A900 ）

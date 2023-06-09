@@ -14,7 +14,7 @@ summary: 在将驱动器从node2重新分配到node4之前、将node2物理连�
 将AFF A250 node2转换为NS224驱动器架并连接到AFF A400 node4之后、必须将先前属于node2的驱动器重新分配给node4。
 
 .开始之前
-在加载程序提示符处确认node2和node4均处于备用状态。
+在加载程序提示符处确认node3和node4均处于备用状态。
 
 .关于此任务
 您可以在node4上执行以下步骤。
@@ -40,7 +40,7 @@ summary: 在将驱动器从node2重新分配到node4之前、将node2物理连�
 `storage port show`
 
 +
-此时应显示如下输出：
+应显示如下示例所示的输出：
 
 +
 [listing]
@@ -59,16 +59,16 @@ Nov 10 16:27:38 [localhost:nvmeof.subsystem.add:notice]: NVMe-oF subsystem added
 Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
 ---- ---- ------- ----------- -------- ------- -------
 e0c  ENET storage 100 Gb/s    enabled  online  30
-e0d  ENET storage 100 Gb/s    enabled  online  30
+e0d  ENET storage 100 Gb/s    enabled  offline 30
 ----
 . 显示所有连接的驱动器：
 +
 `disk show -v`
 
-. 记录本地系统ID。
+. 记录本地系统ID值；这是node4的系统ID。另外、请记录"owner"列中node1和node2的系统ID。
 . 将所有驱动器从node2重新分配到node4：
 +
-`disk reassign -s _node2_ -d _node4_ -p _node1_`
+`disk reassign -s _node2_system_ID_ -d _node4_system_ID_ -p _node1_system_ID_`
 
 . 验证所有重新分配的驱动器是否可供新系统ID查看：
 +
@@ -78,8 +78,15 @@ e0d  ENET storage 100 Gb/s    enabled  online  30
 
 NOTE: 如果无法查看驱动器、请执行*停止*并联系技术支持以获得帮助。
 
+. 验证输出中是否报告了node2的根聚合、并且此聚合是否处于联机状态：
++
+`聚合状态`
+
 . 退出维护模式：
 +
 `halt`
 
 
+
+.下一步是什么？
+link:upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html["将node1上的数据聚合、eps龙 和生命周期管理迁移到node4"]

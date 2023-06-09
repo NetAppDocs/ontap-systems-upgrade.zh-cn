@@ -16,8 +16,17 @@ summary: '将node2上的逻辑接口(Logical Interface、Logical Interface、Log
 .开始之前
 验证是否满足以下要求：
 
-* AFF A250和AFF A400控制器安装了相同的ONTAP 版本和修补程序版本。
-* 两个AFF A400控制器在上均处于待机状态 `Maintenance Mode` 提示符。
+* AFF A250和AFF A400控制器运行的ONTAP版本和修补程序版本相同。
++
+[NOTE]
+====
+** 您必须在每个AFF A400上通过网络启动并安装与AFF A250上运行的版本相同的ONTAP版本。
+** 每个AFF A400的主启动映像和备份启动映像必须具有相同的ONTAP版本。
+** 如果先前已配置AFF A400集群、则必须执行以清除任何残留的集群配置 `wipeconfig` 从启动菜单。
+
+
+====
+* 两个AFF A400控制器在加载程序提示符处均处于待机状态。
 * 您已准备好所有适当的布线。
 
 
@@ -25,9 +34,13 @@ summary: '将node2上的逻辑接口(Logical Interface、Logical Interface、Log
 在AFF A250 node1上执行以下步骤。
 
 .步骤
-. 禁用集群故障转移自动交还：
+. 访问高级权限级别：
 +
-`storage failover modify -node _node_name_ -auto-giveback false`
+`set -privilege advanced`
+
+. 禁用存储故障转移自动交还：
++
+`storage failover modify -node _node1_ -auto-giveback false`
 
 . 在HA对的两个节点上禁用自动还原此两个节点上的生命周期：
 +
@@ -39,11 +52,11 @@ summary: '将node2上的逻辑接口(Logical Interface、Logical Interface、Log
 
 . 显示集群管理LUN的状态：
 +
-`network interface show cluster_mgmt`
+`network interface show -role cluster_mgmt`
 
 . 从node2上托管的Storage Virtual Machine迁移所有数据SVM：
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node1_ -destination-port _port_name_`
 
 +
 
@@ -55,7 +68,7 @@ NOTE: 此命令仅会迁移非SAN SIFs。您不能使用它来迁移iSCSI和FCP 
 
 . 如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
 +
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_-lif _lif_name_-status-admin up`
 
 . 显示集群中所有数据聚合的状态：
 +
@@ -94,3 +107,6 @@ NOTE: 此命令仅会迁移非SAN SIFs。您不能使用它来迁移iSCSI和FCP 
 `halt -node _node2_ -inhibit-takeover true -ignore-quorum-warnings true`
 
 
+
+.下一步是什么？
+link:upgrade_convert_node2_drive_shelf_connect_node4.html["将node2转换为驱动器架并连接到node4"]

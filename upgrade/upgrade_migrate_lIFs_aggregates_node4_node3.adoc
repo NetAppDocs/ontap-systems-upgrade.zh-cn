@@ -14,7 +14,7 @@ summary: 准备node3、将节点node3连接到node4、然后将node4上的数据
 要完成升级、请将node3连接到node4、然后将node4上的数据逻辑接口(Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface、Logical Interface
 
 .步骤
-. 在节点的加载程序提示符处、将节点启动至启动菜单：
+. 在node3的加载程序提示符处、将节点启动至启动菜单：
 +
 `boot_ontap 菜单`
 
@@ -27,16 +27,16 @@ summary: 准备node3、将节点node3连接到node4、然后将node4上的数据
 +
 [NOTE]
 ====
-按照预期、节点会自动重新启动以加载/var文件系统的新副本。
+节点会自动重新启动以加载/var文件系统的新副本。
 
 节点报告系统ID不匹配的警告。输入 ... `y` 覆盖系统ID。
 
 ====
 . 将node3连接到node4：
 +
-.. 将多路径高可用性(MPHA)缆线连接到NS224磁盘架以确保冗余。
-.. 在节点之间连接HA对缆线(如果接口不同)。
-.. 在节点之间连接集群缆线(如果接口不同)。
+.. 将多路径高可用性(MPHA)缆线连接到NS224磁盘架以确保冗余。将node3 100GbE端口e0d连接到NSM B端口e0b、并将node4 100GbE端口e0d连接到NSM A端口e0a。
+.. 验证HA端口e0a和e0b是否已在节点之间连接。
+.. 验证节点之间的集群端口e3a和e3b是否已连接。
 
 
 . 迁移集群Sifs：
@@ -65,27 +65,29 @@ NOTE: 从ONTAP 9.8开始、可以为用于集群连接的现有物理端口指�
 +
 `network interface show -role cluster`
 
-. 将所有集群网络的网络连接迁移到主端口：
+. 将这两个节点上的所有集群网络Cifs迁移到其主端口：
++
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
+
+. 显示所有集群网络LUN：
 +
 `network interface show -role cluster`
 
-. 显示所有数据网络LUN：
+. 验证集群网络CIFs的主端口：
 +
-`network interface show -role data`
+`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-port _port_name_`
 
 . 将所有数据生命周期迁移到node3：
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_ -destination-port _port_name_`
 
 . 显示所有数据网络LUN：
 +
 `network interface show -role data`
 
+. 为所有数据生命周期配置主节点和主端口。如果任何此类生命周期已关闭、请将此生命周期的管理状态设置为 `up` 通过输入以下命令、为每个LIF输入一次：
 +
-集群和管理LUN不能在节点之间迁移。如果任何此类生命周期已关闭、请将此生命周期的管理状态设置为 `up` 通过输入以下命令、为每个LIF输入一次：
-
-+
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_ -lif lif_name -home-node _node_name_ -home-port _port_name_ -status-admin up`
 
 . 迁移集群管理LIF：
 +
@@ -114,6 +116,10 @@ NOTE: 从ONTAP 9.8开始、可以为用于集群连接的现有物理端口指�
 . 在节点之间启用网络生命周期自动还原：
 +
 `network interface modify -lif * -auto-revert true`
+
+. 启用存储故障转移自动交还：
++
+`storage failover modify -node * -auto-giveback true`
 
 . 显示集群状态：
 +

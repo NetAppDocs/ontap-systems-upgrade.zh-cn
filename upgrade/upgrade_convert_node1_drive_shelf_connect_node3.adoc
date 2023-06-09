@@ -21,9 +21,12 @@ summary: 在将驱动器从node1重新分配到node3之前、将node1物理连�
 +
 image::../upgrade/media/a400_with_ns224_shelf.PNG[具有一个NS224磁盘架的AFF A400]
 
-. 将25 GbE布线从node1端口e0c和e0d连接到node3上的任意两个25 GbE板载端口(e0e、e0f、e0g或e0h)。
+. 通过将25GbE布线从node1端口e0c和e0d移至node3上的任意两个25GbE板载端口(e0e、e0f、e0g或e0h)、将临时集群连接移至node3。
 +
 
-NOTE: 如果node3上不存在25GbE板载端口、则可以使用25GbE PCIe适配器进行连接。
+NOTE: 如果AFF A400系统使用FC端口作为板载端口、请在迁移期间在每个节点中安装一个25 Gb以太网适配器以实现集群连接。
 
 
+
+.下一步是什么？
+link:upgrade_reassign_drives_node1_to_node3.html["将驱动器从node1重新分配给node3"]

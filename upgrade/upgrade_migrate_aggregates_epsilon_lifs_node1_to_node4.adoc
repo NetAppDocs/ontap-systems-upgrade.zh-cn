@@ -14,7 +14,7 @@ summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4
 在将AFF A250 node1转换为驱动器架之前、您需要将node1上的数据聚合、epson西 普龙和逻辑接口(Logical Interface、Logical Interface、)迁移到AFF A400 node4。
 
 .步骤
-. 在节点的加载程序提示符处、将节点启动至启动菜单：
+. 在node4的加载程序提示符处、将节点启动至启动菜单：
 +
 `boot_ontap 菜单`
 
@@ -26,7 +26,7 @@ summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4
 +
 [NOTE]
 ====
-按照预期、节点会自动重新启动以加载/var文件系统的新副本。
+节点会自动重新启动以加载/var文件系统的新副本。
 
 节点报告系统ID不匹配警告。输入 ... `y` 覆盖系统ID。
 
@@ -43,11 +43,31 @@ summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4
 ====
 如果在将AFF A250升级到AFF A400时系统集群端口不同、则可能需要临时将node4上的接口更改为集群端口：
 
-.. `network port modify -node _node4_ -port _port_name_ -mtu 9000 -ipspace Cluster`
-.. `network interface migrate -vserver Cluster -lif _cluster_LIF_  -destination-node _node4_ -destination-port _port_name_`
-
+`network port modify -node _node4_ -port _port_name_ -mtu 9000 -ipspace Cluster`
 
 ====
++
+`network interface migrate -vserver Cluster -lif _cluster_LIF_  -destination-node _node4_ -destination-port _port_name_`
+
+. 等待集群进入仲裁状态、然后验证集群节点是否运行正常：
++
+`– cluster show`
+
++
+
+NOTE: 在当前状态下、HA对和存储故障转移将保持禁用状态。
+
+. 将集群LUN移动到node4上的临时25G集群端口：
++
+`network interface modify`
+
+. 如果要升级的AFF A250集群正在使用接口组和数据VLAN、请执行此步骤。如果不是、请转至 <<migrate_node1_nod4,第 8 步>>。
++
+AFF A250和AFF A400系统的物理网络端口名称不同。因此、node4上的接口组和VLAN可能配置不正确。检查并根据需要修复任何配置不正确的接口组和替换的VLAN。
+
+
+
+[[migrate_node1_nod4]]
 . 将node1上的数据聚合迁移到node4：
 +
 `storage aggregate relocation start -aggregate-list _aggregate_list_name_ -node _node1_ -destination _node4_ -ndo-controller-upgrade true -override-destination-checks true`
@@ -60,11 +80,11 @@ summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4
 +
 .. 从node1中删除epsison:
 +
-`cluster modify -epsilon false -node _local_node_name_`
+`cluster modify -epsilon false -node _node1_`
 
 .. 将Epsilon移动到node4：
 +
-`cluster modify -epsilon true -node _partner_node_name_`
+`cluster modify -epsilon true -node _node4_`
 
 
 
@@ -78,7 +98,7 @@ summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4
 
 . 将所有数据生命周期迁移到node4：
 +
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _node4_ -destination-port _port_name_`
 
 . 显示集群中所有数据LUN的状态：
 +
@@ -86,7 +106,7 @@ summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4
 
 . 如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
 +
-`network interface modify -vserver _vserver_name_ -lif _lif_name_ -home-node _node_name_ -status-admin up`
+`network interface modify -vserver _vserver_name_-lif _lif_name_-status-admin up`
 
 . 迁移集群管理LIF：
 +
@@ -101,3 +121,6 @@ summary: 将node1上的数据聚合、eps能 和生命周期管理迁移到node4
 `halt -node _node1_ -inhibit-takeover true -ignore-quorum-warnings true`
 
 
+
+.下一步是什么？
+link:upgrade_convert_node1_drive_shelf_connect_node3.html["将node1转换为驱动器架并连接到node3"]

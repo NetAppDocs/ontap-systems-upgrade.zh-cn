@@ -65,7 +65,7 @@ NOTE: 以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、F
 
 可能需要执行其他步骤的情况
 
-* 如果要从AFF A250升级到AFF A400、请参见 xref:upgrade-aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[通过转换为驱动器架将AFF A250升级到AFF A400]。
+* 如果要从AFF A250升级到AFF A400、请参见 xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[通过转换为驱动器架将AFF A250升级到AFF A400]。
 * 如果新系统的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
 +
 https://hwu.netapp.com["NetApp Hardware Universe"^]
