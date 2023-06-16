@@ -31,7 +31,7 @@ summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群�
  a| 
 特定 LIF
  a| 
-`network interface migrate -vserver _vserver_name_-lif _lif_name_-source-node _source_node_name_-destination-node _dest_node_name_-destination-port _dest_port_name_`
+`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _dest_node_name_ -destination-port _dest_port_name_`
 
 
 
