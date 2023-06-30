@@ -105,9 +105,9 @@ Controller replacement operation has been paused for user intervention.
 ** `vserver services name-service dns show`
 ** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,cluster-mgmt,data`
 ** `network port show -node _local_ -type physical`
-** `service-processor show -local -instance`
+** `service-processor show -node _local_ -instance`
 ** `network fcp adapter show -node _local_`
-** `network port ifgrp show`
+** `network port ifgrp show -node _local_`
 ** `system node show -instance -node _local_`
 ** `run -node _local_ sysconfig`
 ** `storage aggregate show -node _local_`
@@ -118,7 +118,7 @@ Controller replacement operation has been paused for user intervention.
 ** `s安全密钥管理器板载 show-backup`
 ** `security key-manager external show`
 ** `s安全密钥管理器外部 show-status`
-** `网络端口可访问性 show -detail`
+** `network port reachability show -detail -node _local_`
 
 
 +

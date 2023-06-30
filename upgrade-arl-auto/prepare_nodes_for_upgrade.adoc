@@ -110,9 +110,9 @@ Controller replacement operation has been paused for user intervention.
 ** `vserver services name-service dns show`
 ** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,clustermgmt, data`
 ** `network port show -node _local_ -type physical`
-** `service-processor show -local -instance`
+** `service-processor show -node _local_ -instance`
 ** `network fcp adapter show -node _local_`
-** `network port ifgrp show`
+** `network port ifgrp show -node _local_`
 ** `network port vlan show`
 ** `system node show -instance -node _local_`
 ** `run -node _local_ sysconfig`
