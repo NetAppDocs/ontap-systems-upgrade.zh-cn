@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/lif_migration_failure.html 
 keywords: lif, migration, failure, mtu 
-summary: 在将 AFF A700 升级到 AFF A900 期间， LIF 在第 2 阶段，第 3 阶段或第 5 阶段迁移后不联机。 
+summary: 使用ARL升级同一机箱中的控制器型号时、在阶段2、阶段3或阶段5中迁移后LI未联机。 
 ---
 = LIF 迁移失败
 :hardbreaks:

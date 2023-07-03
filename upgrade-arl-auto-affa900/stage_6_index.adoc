@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/stage_6_index.html 
-keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
-summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 1 阶段流程顺序。' 
+keywords: upgrade, boot, node2, verify, restore, overview, stage 1 
+summary: '使用进行ARL升级的第1阶段流程 `system controller replace` 用于升级同一机箱中的控制器型号的命令。' 
 ---
 = 概述
 :hardbreaks:
@@ -14,9 +14,9 @@ summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem cont
 
 
 [role="lead"]
-在第6阶段、使用升级后的控制器和NVRAM模块启动node2并验证升级后的node2安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。
+在第6阶段中、使用升级的系统模块启动node2、并验证升级后的node2安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。
 
-. link:boot_node2_with_a900_controller_and_nvs.html["使用AFF A900或FAS9500控制 器和NVRAM模块启动node2"]
+. link:boot_node2_with_a900_controller_and_nvs.html["使用替代系统模块启动node2"]
 . link:verify_node2_installation.html["验证 node2 安装"]
 . link:restore_key_manager_config_node2.html["还原 node2 上的 key-manager 配置"]
 . link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["将非根聚合和 NAS 数据 LIF 移回 node2"]

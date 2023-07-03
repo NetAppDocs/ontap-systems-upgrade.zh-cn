@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/aggregate_relocation_failures.html 
 keywords: aggregate, relocation, failures, arl, stage 2, stage 3, stage 5 
-summary: 对 AFF A700 升级到 AFF A900 期间可能发生的聚合重新定位故障进行故障排除。 
+summary: 对使用ARL升级同一机箱中的控制器型号时可能发生的聚合重新定位故障进行故障排除。 
 ---
 = 聚合重新定位失败
 :hardbreaks:
@@ -55,7 +55,7 @@ summary: 对 AFF A700 升级到 AFF A900 期间可能发生的聚合重新定位
 +
 要重新定位的某些聚合的主节点为 node1 。例如，此类聚合可以称为 aggr_node_1 。如果 aggr_node_1 的重新定位在第 3 阶段失败，并且无法强制重新定位，则聚合将留在 node2 上。
 
-* 在第4阶段之后、如果将node2更换为AFF A900或FAS9500控制 器和NVRAM模块、
+* 在第4阶段之后、使用新系统模块更换node2。
 +
 更换 node2 后， aggr_node_1 将联机，并将 node1 作为其主节点，而不是 node2 。
 

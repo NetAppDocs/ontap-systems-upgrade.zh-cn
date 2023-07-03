@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: /upgrade-arl-auto-affa900/move_non_root_aggr_and_nas_data_lifs_back_to_node2.html 
 keywords: moving, non-root, aggregates, nas, lif, node1, node2 
-summary: 验证在 AFF A700 升级到 AFF A900 期间， node1 上的 node2 的 NAS 数据 LIF 是否已从 node1 重新定位到 node2 。 
+summary: 验证在使用ARL升级同一机箱中的控制器型号时、node1上node2的NAS数据LIFs是否已从node1重新定位到node2。 
 ---
 = 将非根聚合和 NAS 数据 LIF 移回 node2
 :hardbreaks:
@@ -55,7 +55,7 @@ summary: 验证在 AFF A700 升级到 AFF A900 期间， node1 上的 node2 的 
 
 --
 +
-执行这些检查后、系统会将非根聚合和NAS数据LIF重新定位回node2、而node2目前正在AFF A900或FAS9500控制 器上运行。
+执行这些检查后、系统会将非根聚合和NAS数据RIFs重新定位回node2、而node2现在正在替代控制器上运行。
 
 +
 资源重新定位完成后，控制器更换操作将暂停。

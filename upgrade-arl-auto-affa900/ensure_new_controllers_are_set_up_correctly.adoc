@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/ensure_new_controllers_are_set_up_correctly.html 
 keywords: ensure, controllers, new, setup, ha, pair, node1, node2, lif, cluster, high, availability 
-summary: 在将 AFF A700 升级到 AFF A900 后，验证是否已启用 HA 对，验证 node1 和 node2 存储访问和 LIF ，并确认聚合所有权。 
+summary: 在升级同一机箱中的控制器型号后、验证HA对是否已启用、验证node1和node2存储访问和LIF以及确认聚合所有权。 
 ---
 = 确认新控制器设置正确
 :hardbreaks:
@@ -29,11 +29,11 @@ summary: 在将 AFF A700 升级到 AFF A900 后，验证是否已启用 HA 对�
 [listing]
 ----
 cluster::> storage failover show
-                                Takeover
-Node	         Partner	        Possible	      State Description
--------------  --------------   --------------  ------------------
-node1	         node2            true	           Connected to node2
-node2	         node1            true	           Connected to node1
+                          Takeover
+Node	    Partner       Possible      State Description
+----------  -----------   ------------  ------------------
+node1	    node2         true	        Connected to node2
+node2	    node1         true	        Connected to node1
 ----
 . 使用以下命令并检查输出，验证 node1 和 node2 是否属于同一集群：
 +
@@ -122,7 +122,7 @@ Do you want to continue? {y|n}: y
 +
 您可以将输出与中捕获的输出进行比较 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] 部分。
 
-. 【unset_maxwait】如果在配置中使用自加密驱动器且您已设置 `kmip.init.maxwait` 变量设置为 `off` (例如、在使用AFF A900或FAS9500控制 器和NVRAM模块的_Boot node2中、 link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["第 1 步"])、您必须取消设置变量：
+. 【unset_maxwait】如果在配置中使用自加密驱动器且您已设置 `kmip.init.maxwait` 变量设置为 `off` (例如、在带有替代系统模块的_Boot node2中、 link:boot_node2_with_a900_controller_and_nvs.html#boot_node2_step1["第 1 步"])、您必须取消设置变量：
 +
 `set diag；systemshell -node _node_name_-command sudo kenv -u -p kmip.init.maxwait`
 

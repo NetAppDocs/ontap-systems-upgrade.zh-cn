@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html 
 keywords: restore key-manager, configuration, node1, nve, arl, volume, encryption 
-summary: 如果需要，请在 AFF A700 升级到 AFF A900 期间还原升级后的 node1 上的 key-manager 配置。 
+summary: 如果需要、在使用ARL升级同一机箱中的控制器型号时、还原升级后的节点1上的key-manager配置。 
 ---
 = 在升级后的节点 1 上还原密钥管理器配置
 :hardbreaks:

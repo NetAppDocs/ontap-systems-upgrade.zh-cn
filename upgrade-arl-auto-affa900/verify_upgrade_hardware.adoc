@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/verify_upgrade_hardware.html 
-keywords: preparing, nodes, upgrade 
-summary: 在开始升级之前，请确认您的硬件适用于从 AFF A700 升级到 AFF A900 的过程。 
+keywords: nodes, upgrade, verify, hardware 
+summary: 开始升级之前、请确认您具有正确的硬件来升级同一机箱中的控制器型号。 
 ---
 = 验证升级硬件
 :hardbreaks:
@@ -14,4 +14,23 @@ summary: 在开始升级之前，请确认您的硬件适用于从 AFF A700 升�
 
 
 [role="lead"]
-在开始升级之前、您必须验证您的硬件是否正确、以便将AFF A700升级到AFF A900或将FAS9000升级到FAS9500。对于要升级的每个 HA 对，您必须具有两个系统控制器模块和两个 NVRAM 模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。
+在开始升级之前、您必须验证是否具有适用于升级的正确硬件。根据您的升级、对于要升级的每个HA对、您必须具有两个控制器模块或两个控制器模块和两个NVRAM模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。
+
+[cols="50,50"]
+|===
+| 升级条件 | 您必须拥有... 
+
+
+| AFF A220至AFF A150
+AFF A200至AFF A150
+AFF C190至AFF A150 | 两个控制器模块 
+
+
+| FAS2620或FAS2720到FAS2820 | 两个控制器模块 
+
+
+| AFF A700 到 AFF A900 | 两个控制器和两个NVRAM模块 
+
+
+| FAS9000到FAS9500 | 两个控制器和两个NVRAM模块 
+|===

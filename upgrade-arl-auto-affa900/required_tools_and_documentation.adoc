@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/required_tools_and_documentation.html 
 keywords: required, tools, documentation, install, worksheet, ontap 
-summary: 要执行 AFF A700 到 AFF A900 升级，您必须拥有特定的工具和文档。 
+summary: 要使用ARL升级同一机箱中的控制器型号、您必须具有特定的工具和文档。 
 ---
 = 所需的工具和文档
 :hardbreaks:

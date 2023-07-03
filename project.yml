@@ -27,7 +27,7 @@ homepage:
       url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
   - title: 在运行 ONTAP 9.8 及更高版本的系统上移动聚合以进行升级
     links:
-    - title: 使用 system controller replace 命令（ AFF A700 至 AFF A900 ）
+    - title: 使用system controller Replace命令升级同一机箱中的控制器型号
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
     - title: 使用 system controller replace 命令（大多数系统）
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/

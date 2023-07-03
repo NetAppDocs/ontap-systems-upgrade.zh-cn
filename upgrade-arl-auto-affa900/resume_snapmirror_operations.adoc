@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/resume_snapmirror_operations.html 
 keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete 
-summary: 在 AFF A700 升级到 AFF A900 期间恢复 SnapMirror 传输和关系。 
+summary: 使用ARL升级同一机箱中的控制器型号时、恢复SnapMirror传输和关系。 
 ---
 = 恢复 SnapMirror 操作
 :hardbreaks:

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/verify_node1_installation.html 
-keywords: verifying, verify, node1, install, installation, aff, a900, NVRAM, controller 
-summary: 使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 安装。 
+keywords: verifying, verify, node1, install, installation, NVRAM, controller, module, modules 
+summary: 使用ARL升级同一机箱中的控制器型号时、请验证node1与更换模块的安装。 
 ---
 = 验证 node1 安装
 :hardbreaks:
@@ -14,10 +14,10 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 安装。
 
 
 [role="lead"]
-您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node1的安装。由于物理端口不变、您无需将物理端口从旧节点1映射到替换节点1。
+您必须使用替代系统模块验证node1安装。由于物理端口不变、您无需将物理端口从旧节点1映射到替换节点1。
 
 .关于此任务
-使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。
+使用替代控制器模块启动node1后、您必须验证其是否已正确安装。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。
 
 此时，在操作步骤中，控制器升级操作应已暂停，因为 node1 会自动尝试加入仲裁。
 
@@ -141,7 +141,7 @@ Node1
 
 +
 
-NOTE: 在将AFF A700升级到AFF A900或将FAS9000升级到FAS9500控制器期间、网络端口及其连接不应发生变化。所有端口都应驻留在正确的广播域中，并且网络端口可访问性不应更改。但是，在将 LIF 从 node2 移回 node1 之前，您必须验证网络端口的可访问性和运行状况。
+NOTE: 在升级期间、网络端口及其连接不应更改。所有端口都应驻留在正确的广播域中，并且网络端口可访问性不应更改。但是，在将 LIF 从 node2 移回 node1 之前，您必须验证网络端口的可访问性和运行状况。
 
 . [[restore_node1_step4]] 使用以下命令按以下顺序修复 node1 上每个端口的可访问性状态不是 `ok` 的可访问性：
 +

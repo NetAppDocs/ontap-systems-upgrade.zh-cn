@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html 
-keywords: boot, NVRAM, controller, module, node1, aff, a700, a900 
-summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 。 
+keywords: boot, NVRAM, controller, module, node1, replacement 
+summary: 使用ARL升级同一机箱中的控制器型号时、使用替代控制器模块启动node1。 
 ---
-= 使用AFF A900或FAS9500控制 器和NVRAM模块启动node1
+= 使用替代系统模块启动node1
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,29 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 。
 
 
 [role="lead"]
-具有AFF A900或FAS9500控制 器和NVRAM模块的Node1现在可以启动。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、只需要移动控制台和管理连接即可。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node1所需的步骤。
+包含替代模块的node1现在已准备好启动。本节介绍了在以下升级配置中使用替代模块启动node1所需的步骤：
+
+[cols="35,65"]
+|===
+| 旧的node1控制器 | 更换node1系统模块 
+
+
+| AFF A220
+AFF A200
+AFF C190 | AFF A150控制器模块^1^ 
+
+
+| FAS2620
+FAS2720 | FAS2820控制器模块^1^ 
+
+
+| AFF A700 | AFF A900控制器和NVRAM模块^2^ 
+
+
+| FAS9000 | FAS9500控制器和NVRAM模块^2^ 
+|===
+^1^通过交换控制器模块进行升级涉及将所有连接从旧控制器模块移至更换控制器模块。
+^2^通过交换控制器和NVRAM模块进行升级仅涉及移动控制台和管理连接。
 
 .步骤
 . 如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
@@ -51,7 +73,7 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 +
 `boot_ontap 菜单`
 
-. 输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700 node1磁盘重新分配给AFF A900 node1。
+. 输入"22/7"并选择隐藏选项、将旧的node1磁盘重新分配给替代node1 `boot_after_controller_replacement` 节点停留在启动菜单处。
 +
 经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。
 

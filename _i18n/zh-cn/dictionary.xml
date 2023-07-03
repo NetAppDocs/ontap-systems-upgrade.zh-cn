@@ -189,7 +189,6 @@
   <block id="da160308e3b4b4a80bf1b72b5bdbedb8" category="inline-link-macro">Hardware Universe</block>
   <block id="865e9b4ef52f3b0d3050c8b3c14eb660" category="inline-link-macro">Active IQ Config Advisor</block>
   <block id="83b27b00949218cb0d9ec7e1eb1c92ad" category="doc">准备要升级的节点</block>
-  <block id="f163cd0bda37780c7a24303611dc0185" category="paragraph">您必须执行以下步骤来准备要升级的节点。</block>
   <block id="6510eaf8fd7e9800a5b7d62b06dc6e9c" category="list-text">在 ONTAP 命令行中输入以下命令，开始控制器更换过程：</block>
   <block id="883d9d0a0453675233da0c78e0c1caac" category="admonition">此命令只能在高级权限级别执行： `set -privilege advanced`</block>
   <block id="53d5140b9db74b84bdd8037a6063ec88" category="paragraph">您将看到以下输出：</block>
@@ -233,9 +232,7 @@
   <block id="bd965e38a0c9cf27aa1bde099308e23f" category="section-title">完成后</block>
   <block id="b034884667760545b9597461a985e372" category="paragraph">您必须重新启动控制器更换过程：</block>
   <block id="794df3791a8c800841516007427a2aa3" category="section-title">许可证</block>
-  <block id="edfd39240931c89b8ad19f9eea422658" category="paragraph">设置集群时，设置向导会提示您输入集群基础许可证密钥。但是，某些功能需要额外的许可证，这些许可证以 _packages_ 的形式发布，其中包括一个或多个功能。集群中的每个节点都必须有自己的密钥，才能在集群中使用每个功能。</block>
   <block id="0716a66a70e59256281f4030c078ce04" category="paragraph">如果没有新的许可证密钥，则新控制器可以使用集群中当前已获得许可的功能。但是，在控制器上使用未经许可的功能可能会使您不符合您的许可协议，因此，您应在升级完成后为新控制器安装新的许可证密钥。</block>
-  <block id="eb40310be53032e7e599a9070cfaf20f" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _NetApp 支持站点 _ ，在此可以获取 ONTAP 的新 2 字符许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，您可以联系您的 NetApp 销售代表。</block>
   <block id="556a407c4a4faf57fc56c1b7137d5f36" category="paragraph">有关许可的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到系统管理参考。</block>
   <block id="291e8826d2b19041a0543b448060f314" category="paragraph">如果 node4 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。</block>
   <block id="85f1449ea514e1be4b11527eb6fbce31" category="paragraph">您可能需要完成 <block ref="b22a2e603d310a795a7b59d2bdda39ee" category="inline-xref-macro-rx"></block> 部分 <block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block>或这两个部分。</block>
@@ -919,7 +916,6 @@
   <block id="2e3c23cf91c21a249f56ef996f27a61a" category="list-text">输入以下命令，将所有 LIF 的状态修改为 `up` ，以便 LIF 可以在节点上接受和发送流量：</block>
   <block id="970d4e34765aa0832a9175b5e001ed85" category="list-text">输入以下命令并检查其输出，以验证 LIF 是否已移至正确的端口，以及 LIF 的状态是否为 `up` ，具体方法是在任一节点上输入以下命令并检查输出：</block>
   <block id="8c094e66fbad29785444d71fd6c0dcac" category="paragraph">`network interface show -home-node &lt;node4&gt; -role data`</block>
-  <block id="9b18a03ff7c916731423d488104e8994" category="list-text">如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 up ：</block>
   <block id="086b8cee848b6ff9a25adc1f6ed791c8" category="paragraph">执行这些检查后，系统会将 node1 拥有的非根聚合和 NAS 数据 LIF 重新定位到新控制器 node3 。资源重新定位完成后，系统将暂停。</block>
   <block id="ad7a81d24d4defe671e7bcfbac5dce2c" category="list-text">验证非根聚合和 NAS 数据 LIF 是否已成功重新定位到 node3 。</block>
   <block id="efd16d4be5b2e2f326b572d6729c7b2c" category="paragraph">如果任何聚合无法重新定位或被否决，您必须手动重新定位聚合，或者根据需要覆盖否决或目标检查。请参见 <block ref="f9a42009c629603217595f3693c67911" category="inline-link-macro-rx"></block> 有关详细信息 ...</block>
@@ -2945,7 +2941,6 @@
   <block id="ec258c431af242bb93ebbf0d82a4afd2" category="list-text">node2 是 node2 聚合的主所有者和当前所有者</block>
   <block id="0ac66da022e888300d8ec43f47b716d6" category="list-text">在升级后的节点 1 上还原密钥管理器配置</block>
   <block id="e1275af58e555e9cc3d59dc17d1d1ab1" category="list-text">将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1</block>
-  <block id="fff8cb6f4bd9c58d6037356a96d73247" category="cell">第 4 阶段：从 node2 重新定位资源并停用 node2</block>
   <block id="487b7a723d50ceb8e8e166efb4cef927" category="list-text">将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node1</block>
   <block id="be74d1508b2732e00219890be181ffa6" category="list-text">升级后的 node1 是最初属于 node1 的聚合的主所有者和当前所有者</block>
   <block id="5e4cf46306e58ecb7565589182d4efcf" category="list-text">升级后的 node1 是 node2 聚合的当前所有者</block>
@@ -2969,7 +2964,6 @@
   <block id="8276e73e0912c13126bc9f47a3a0ed73" category="paragraph">在验证 node1 上的网络配置以及将聚合从 node2 重新定位到 node1 之前，您必须验证当前位于 node2 上的 node1 所属的 NAS 数据 LIF 是否已从 node2 重新定位到 node1 。此外，还必须验证 node1 上是否存在 SAN LIF 。</block>
   <block id="6224b74d5b0b8d2ad6d1e4b341f1fa19" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node1 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="0bff73dcb819ba800842aebfbaa1ea03" category="list-text">执行网络可访问性检查：</block>
-  <block id="97ea31dc3aa1f9bc892dfd894fdd9fb5" category="paragraph">`network port reachability -show-detail -node node1`</block>
   <block id="22754bd796837dc212cb05d513ad94cb" category="paragraph">确认所有已连接端口（包括接口组和 VLAN 端口）的状态均显示为 `OK` 。</block>
   <block id="d22abe120efea253d7c808e8381ed917" category="paragraph">执行这些检查后，系统会将 node1 拥有的非根聚合和 NAS 数据 LIF 重新定位到新的 node1 。</block>
   <block id="7d7b11f14dacd1dc55ecbacf79121ab1" category="paragraph">资源重新定位完成后，控制器更换操作将暂停。</block>
@@ -3004,14 +2998,12 @@
   <block id="8ffd93ea6386b629720c74b50bc25c2e" category="list-text">在 node1 上使用以下命令并检查其输出，以验证 node1 上的所有卷是否联机：</block>
   <block id="30c92ab6acc222d81011f6b7ee804f3f" category="paragraph">`volume show -node node1 -state offline`</block>
   <block id="85e5ea53a85c7a28840f38eea6491b3c" category="paragraph">如果 node1 上的任何卷脱机，请在 node1 上使用以下命令将其联机，每个卷一次：</block>
-  <block id="8977859bd55d40dd07f2cd92a82b410d" category="list-text">验证 LIF 是否已移至正确的端口且状态为 `up` 。如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 up ：</block>
   <block id="6e13fc9d1e75c160461788f1b750083d" category="list-text">使用以下命令并检查输出，以验证 node2 上是否没有剩余数据 LIF ：</block>
   <block id="701fa495284f4a753f53b83d9db59d99" category="paragraph">在验证 node2 上的网络配置以及将聚合从 node1 重新定位到 node2 之前，您必须验证当前位于 node1 上的 node2 所属的 NAS 数据 LIF 是否已从 node1 重新定位到 node2 。您还必须验证 node2 上是否存在 SAN LIF 。</block>
   <block id="ee2ce060961db1c7ec1f363acef87d91" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node2 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="b990f6960d7072e815b8e4d805f92035" category="paragraph">如果已替换任何 LIF ，请将主节点还原回 node2 ：</block>
   <block id="61d5cfba7704fb82d2cf6a1ebdf016a2" category="admonition">术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。在操作步骤之后，您必须替换节点的实际名称。</block>
   <block id="51108f40a613018fdc6b3ad89f42122e" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未在其他系统中使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果更换用的控制器硬件先前已用作另一个 ONTAP 集群的一部分或用作独立的单节点系统，则必须联系技术支持。</block>
-  <block id="71a227e766879a981c6aa0fd0ee08687" category="paragraph">在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。您还必须准备通过网络启动新控制器。</block>
   <block id="5077f34346404c6e6b1972588ad2c047" category="list-text">在 ONTAP 命令行的高级权限模式下输入以下命令，开始控制器更换过程：</block>
   <block id="78bcaff6352913ee1a07493a6be91635" category="paragraph">您将看到类似于以下内容的输出：</block>
   <block id="db4336e2ca46622010f5ba0c4094ec50" category="paragraph">在预检查阶段，系统会在后台运行以下检查列表。</block>
@@ -3130,8 +3122,6 @@
   <block id="5042d04c33524bcbd54a634369ce4d6b" category="list-text">列出节点 4 上所有端口的网络端口可访问性：</block>
   <block id="5e997021ee0d4607339bb16384449e18" category="list-text">【第 3 步】列出节点 3 上所有端口的网络端口可访问性：</block>
   <block id="9d84cc48ac59ed03e236e199b8e72aa8" category="paragraph">^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 <block ref="46e0d635bf9a753e435b3e56ea555b72" category="inline-link-macro-rx"></block>或 <block ref="916a396aec2ea8c5191dac1b7e554adf" category="inline-link-macro-rx"></block>。</block>
-  <block id="9bded937f001956ffed1ee6ccceb37db" category="sidebar">使用 system controller replace 命令（ AFF A700 至 AFF A900 ）</block>
-  <block id="7f34c3c52d70c0425b1f8f450d9011fa" category="sidebar">第 4 阶段。重新定位节点 2 中的资源并停用节点 2</block>
   <block id="e58fe7640209496d4d7a887457b3a8c5" category="sidebar">第 7 阶段。完成升级</block>
   <block id="815c0aa063df3c53b17744c860357708" category="paragraph">升级完成后，您可以停用 node2 。请参见 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
   <block id="5980c068f7f0508562e337b63f7ad8d1" category="doc">工作表：在控制器升级之前和期间收集的信息</block>
@@ -3222,7 +3212,6 @@
   <block id="845a94c1ed34fe833c91b960798ffff2" category="paragraph">重新定位操作在此阶段开始时暂停。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。此外，您还必须验证 SAN LIF 是否已成功移至 node3 。</block>
   <block id="2c57b3816ff5f5700ca371be22f428e1" category="cell">介绍如何使用卷， FlexClone 卷，文件和 LUN 高效管理逻辑存储资源， FlexCache 卷，重复数据删除，数据压缩， qtree 和配额。</block>
   <block id="97100ba8af68fa3886b472eaf454f74b" category="cell">介绍如何在计划内维护操作或发生灾难时执行 MetroCluster 切换和切回操作。</block>
-  <block id="29f0de2b0e55e07da57cbc094ee90f18" category="inline-link-macro">使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900</block>
   <block id="9207f0d2f15feec52f0acba2d7786a53" category="paragraph">您必须确保 node1 上的物理端口正确映射到 node3 上的物理端口，从而使 node3 能够在升级后与集群中的其他节点以及网络进行通信。</block>
   <block id="33f0e8a0f6ded5a1669e805f22005635" category="paragraph">原始节点或新节点可能已启用存储加密。在这种情况下，您必须在此操作步骤 中执行其他步骤，以验证是否已正确设置存储加密。</block>
   <block id="604021e164c6285018b6c1a32742b633" category="list-text">【 man_lif_verif_4_Step10]] 完成以下子步骤，确认 SAN LIF 位于 node4 上的正确端口上：</block>
@@ -3405,43 +3394,27 @@
   <block id="c0ff48676f87627f73474db6b1018a88" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，准备通过网络启动 node3 和 node4 。</block>
   <block id="14173ffe47c7c7e4971c06932a3084e2" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，使用 KMIP 服务器管理身份验证密钥。</block>
   <block id="78bd6f667bd547c51374b0e978e9d001" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上支持手动 ARL 升级所需的参考内容和网站。</block>
-  <block id="635d2c71cec041685e4ff0c76bb3a669" category="summary">对 AFF A700 升级到 AFF A900 期间可能发生的聚合重新定位故障进行故障排除。</block>
-  <block id="2fd90d60a25deece3a4d5127856e8967" category="summary">确定是否使用 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。</block>
   <block id="c08f0b6d71108219929095cbd90d111d" category="paragraph">在以下情况下使用此操作步骤 ：</block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。</block>
   <block id="9cc6fc2f026195efe30da793b04e5bd0" category="paragraph">在以下情况下，请勿 * 使用此操作步骤 ：</block>
   <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">您正在使用共享交换机进行集群互连和以太网连接存储。</block>
-  <block id="c79acf75c7bb6af7f11f0d260b4152eb" category="paragraph">有关升级 Fabric MetroCluster 或 MetroCluster IP 配置的信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _RAID MetroCluster 升级和扩展 _ 内容。</block>
-  <block id="4aa5a5226abeed57a9e86a4cdbd74335" category="summary">如果需要，请在 AFF A700 升级到 AFF A900 期间配置存储加密，安装 SSL 证书以及设置密钥管理服务器。</block>
-  <block id="4f3a160a50e4c72a6659dc7b565b7b99" category="summary">在将 AFF A700 升级到 AFF A900 时，系统可能会在不同阶段崩溃，重新启动，崩溃或重新启动。</block>
   <block id="af18adb321560258c2b9a80d2757792a" category="paragraph">在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。</block>
   <block id="c7fc4caaca02af86d84b04f258dfd7e6" category="paragraph">Node2 不会接管，但它仍从所有非根聚合提供数据。</block>
-  <block id="aceac87ad181071fb431ae2fdb715377" category="summary">在将 AFF A700 升级到 AFF A900 期间，将节点 2 的非根聚合重新定位到节点 1 。</block>
-  <block id="295aeb05b88224ae18df0d9c12e9931d" category="summary">在交换相应的 AFF A900 node1 控制器模块和 NVRAM 模块后，您必须通过网络启动 node1 。</block>
   <block id="7e3345ca183a02251269d1034b280331" category="list-text">在 node1 上的 LOADER 提示符处，验证 node1 的 `partner-sysid` ：</block>
-  <block id="042fc0ffc4af15d2e8abcf37fd293475" category="summary">在将 AFF A700 升级到 AFF A900 期间，准备节点并运行一系列预检。</block>
   <block id="8a4f2711fdfcfeea79b7fe0124a6d453" category="list-text">选择 `y` 。您将看到以下输出：</block>
   <block id="eeb3813f1d9a188e4d0a912235894f96" category="cell">检查集群中的所有节点以确认其运行状况良好。</block>
   <block id="f1e3d153ef84dd8b3cbde456e0a2bf74" category="cell">检查要更换的两个节点是否采用高可用性（ HA ）对配置。如果未为控制器启用存储故障转移，则任务将失败。</block>
   <block id="bb4d829c636efdbd9439e118a1e840cb" category="cell">如果未配置 AutoSupport 通知，则任务将失败。在开始更换控制器操作步骤 之前，必须启用 AutoSupport 。</block>
   <block id="48536e8deacb601a8be0bcd336b79e32" category="list-text">在启动控制器更换操作并完成预检后，此操作将暂停，以便收集稍后在控制器升级过程中可能需要的输出信息。</block>
-  <block id="057d1f92125d6fed46d8a437e75f2b3d" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _NetApp 支持站点 _ ，在此可以获取 9.10.1 或更高版本的新 2 字符许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，请联系您的 NetApp 销售代表。</block>
-  <block id="335297ca0968f54cf197ca66bb052387" category="summary">了解 AFF A700 到 AFF A900 ARL 控制器升级操作步骤 的工作原理。</block>
-  <block id="8e588b362fa6e77faa0431bb51b2e5d6" category="summary">使用部分自动化的 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。</block>
-  <block id="5d0e6c628fa55718654de0f71041a32a" category="summary">您可以通过交换控制器模块和 NVS 将 AFF A700 上的控制器硬件升级到 AFF A900 。</block>
   <block id="1c962f08f92ca556b5f958f512421f7b" category="cell">AFF A700 到 AFF A900</block>
   <block id="addb9e70976c2f94b8ccfc3736a31888" category="list-title">重要信息</block>
-  <block id="06e8f251b536b4b0a7af95aa92a37415" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块验证 node2 安装。</block>
   <block id="1ed68b1a1c4717bcf9913f481374e7de" category="admonition">在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node2_ 上的网络配置。</block>
   <block id="550d4b66b2a123c0592e264de6261a21" category="paragraph">在上述示例中， node2 已在更换控制器后启动并加入仲裁。它具有多个不可访问的端口，并且正在等待可访问性扫描。</block>
   <block id="b09281cc619dc5d9e8148aef71038fcd" category="paragraph">对于可访问性状态可能与当前所在广播域的可访问性状态不同的端口，应显示警告消息，如上例所示。根据需要查看端口和问题解答 `y` 或 `n` 的连接。</block>
   <block id="5267f49248b15741904ddac0a8c8a79a" category="list-text">使用以下步骤还原 LIF 主端口，指定需要还原的 Vserver 和 LIF 主端口（如果有）：</block>
-  <block id="e57d7ba8fb9b97ff4cc0b7b8c4a0b876" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块启动 node2 。</block>
   <block id="939b677a0e4df037cd999a739cd94317" category="paragraph">上述示例中显示的系统 ID 是示例 ID 。要升级的节点的实际系统 ID 将不同。</block>
   <block id="5952acedcc143d30a19364d245887b58" category="paragraph">在提示符和登录提示符处输入节点名称之间，节点会重新启动几次以还原环境变量，更新系统中卡上的固件以及进行其他 ONTAP 更新。</block>
-  <block id="4cc41ac3ff89b0e0d88cacedf58eb50d" category="summary">请告知 NetApp ，升级到 AFF A900 后，旧系统不再运行。</block>
-  <block id="8a0b39942bdb20d83fc11a2c0940f45d" category="summary">AFF A900 NVRAM 模块和控制器模块在 ARL 控制器升级操作步骤 期间的安装说明。</block>
   <block id="a7b5ccf02bd0f6b23fc889ebb5354dbc" category="paragraph">如果您尚未接地，请正确接地。</block>
   <block id="3d6ee5006b58007aa6b243ac902837ac" category="list-text">将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。</block>
   <block id="a8ad32b9b5381f0e3f1c5897679ae7eb" category="list-text">将 NVRAM 模块轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVRAM 模块锁定到位。</block>
@@ -3449,24 +3422,10 @@
   <block id="e16c4744183a5e672dc0a8f50d7250d6" category="admonition">由于机箱已启动，因此 Node2 在完全就位后即开始启动。为了避免 node2 启动，建议在将控制器模块完全插入插槽之前，先将控制台和管理缆线连接到 node2 控制器模块。</block>
   <block id="ea842e0d624cb37b7d5b336f29a0aa73" category="admonition">为避免损坏连接器，请勿在将控制器模块滑入机箱时用力过大。</block>
   <block id="d9f54add7d47cd87694cd3f82ac8b56b" category="list-text">中断自动启动后， node2 将停留在 LOADER 提示符处。如果不中断自动启动，而 node2 开始启动，请等待提示符，然后按 * Ctrl-C * 进入启动菜单。在节点停留在启动菜单后，使用选项 `8` 重新启动节点，并在重新启动期间中断自动启动。</block>
-  <block id="1b829ba4059a871e329472e665878ce0" category="summary">在 AFF A700 升级到 AFF A900 期间恢复 SnapMirror 传输和关系。</block>
-  <block id="0a3b7a3d7928584d593ce11f1af70bda" category="summary">验证在 AFF A700 升级到 AFF A900 期间， node1 上的 node2 的 NAS 数据 LIF 是否已从 node1 重新定位到 node2 。</block>
-  <block id="8ab86d38fbb9b5285e479977ebd1e54a" category="summary">在将 AFF A700 升级到 AFF A900 期间， LIF 在第 2 阶段，第 3 阶段或第 5 阶段迁移后不联机。</block>
-  <block id="dcee0f9120fab3d583542a733afb5a2b" category="summary">如果需要，请在 AFF A700 升级到 AFF A900 期间还原升级后的 node1 上的 key-manager 配置。</block>
-  <block id="44890d8a50a99cc721d8e6b9108090d8" category="summary">有关 AFF A700 升级到 AFF A900 期间可能发生的问题的信息。</block>
-  <block id="35a64ad1fda866c93344667a7d6195db" category="summary">对 AFF A700 升级到 AFF A900 期间可能发生的故障进行故障排除。</block>
-  <block id="a49504d8b75dfd4cf79a0dd8adceb34b" category="summary">在 AFF A700 升级到 AFF A900 期间，配置和管理存储加密，管理身份验证密钥并暂停 SnapMirror 关系。</block>
   <block id="2ed045fa4ee3544c7e5a632a26d55b9f" category="paragraph">从 ONTAP 9.10.1 开始，您可以使用密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）服务器管理身份验证密钥。</block>
-  <block id="d6e5bd10c189e61f84f78c2d2c5d7fa3" category="summary">如果需要，请在 AFF A700 升级到 AFF A900 期间还原 node2 上的 key-manager 配置。</block>
-  <block id="b8083dfb29da686812e3bafb3a73f823" category="summary">在将 AFF A700 升级到 AFF A900 期间，关闭 node2 并将其从机架或机箱中卸下。</block>
-  <block id="edb3af1551b6e96be7f9b204f3cec480" category="summary">将 AFF A700 升级到 AFF A900 期间发生故障或被否决的聚合重新定位。</block>
-  <block id="d1f8c09926e8e53bc0799e4043d1af79" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块验证 node1 安装。</block>
   <block id="e373d02f1761d14eafc408b260c8b7da" category="admonition">在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node1_ 上的网络配置。</block>
   <block id="d51b3938c62e269961f6447fa716fc1f" category="paragraph">在上述示例中， node1 在更换控制器后启动。某些端口不具有可访问性，因为没有物理连接。您必须修复状态为 `ok` 以外的可访问性的任何端口。</block>
-  <block id="5e6358f28b34aeff7c31a849cd71090e" category="summary">要执行 AFF A700 到 AFF A900 升级，您必须拥有特定的工具和文档。</block>
   <block id="d72e37445f435123c47c01a1bd03271c" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 可访问此升级所需的参考文档和参考站点列表。</block>
-  <block id="b2d1e6982a7161543252f06b3304ae95" category="summary">在开始升级之前，请确认您的硬件适用于从 AFF A700 升级到 AFF A900 的过程。</block>
-  <block id="b17a59560ebfb087ad44c6322178e9e4" category="summary">在将 AFF A700 升级到 AFF A900 期间，禁用带有 node2 的 HA 对并关闭 node1 。</block>
   <block id="eedd3589e87e21a342b71fbe4c46b471" category="paragraph">在此阶段， node1 已关闭，所有数据均由 node2 提供。由于 node1 和 node2 位于同一机箱中，并由同一组电源供电，因此请勿关闭机箱电源。您必须小心地仅卸下 node1 控制器模块和 node1 NVRAM 模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。</block>
   <block id="0857dbdec564e89c1ed34a571bb8af41" category="list-text">从 node1 的插槽 6 中解锁 NVRAM 模块并将其卸下。</block>
   <block id="646ac9208401ea9c6c2afc14b196cad5" category="paragraph">NVRAM 模块从机箱中分离并移动几英寸。</block>
@@ -3478,15 +3437,9 @@
   <block id="e4d9396571178474bbad7e96ad3d6ebb" category="admonition">由于机箱已启动， node1 将启动 BIOS 初始化，然后在完全就位后立即启动自动启动。要中断 node1 启动，在将控制器模块完全插入插槽之前，建议将串行控制台和管理缆线连接到 node1 控制器模块。</block>
   <block id="a7b2214a170507e43e239d129ff056bd" category="image-alt">Install the controller module</block>
   <block id="79ba196960d086bc934b5c973394f991" category="list-text">中断自动启动后， node1 将停留在 LOADER 提示符处。如果不中断自动启动，而 node1 开始启动，请等待提示符，然后按 * Ctrl-C* 进入启动菜单。在节点停留在启动菜单后，使用选项 `8` 重新启动节点，并在重新启动期间中断自动启动。</block>
-  <block id="5c29a1b28ae2f684e62d4c2276e7e8e6" category="summary">在交换相应的 AFF A900 node2 控制器模块和 NVRAM 模块后，您可能需要通过网络启动它们。</block>
-  <block id="de9f7d5e1d4c04a6ec4f1097d1a1a241" category="summary">了解是否可以使用 ARL 将 AFF A700 升级到 AFF A900 。</block>
   <block id="253fd57a6c2965ca518ebbfc6bf1e7cc" category="paragraph">如果在升级控制器时出现任何问题，请参见 <block ref="8b711d7eff849b62a32d0b2d66f85a6c" category="inline-link-macro-rx"></block> 部分，请参见操作步骤末尾的详细信息和可能的解决方案。</block>
-  <block id="62685a7763bc1abddb93a736f4149d3a" category="summary">在将 AFF A700 升级到 AFF A900 后，验证是否已启用 HA 对，验证 node1 和 node2 存储访问和 LIF ，并确认聚合所有权。</block>
   <block id="30dfb9ed789b89ce66132f0084fdfe74" category="paragraph">要确认设置是否正确，您必须验证是否已启用 HA 对。此外，还必须验证 node1 和 node2 是否可以访问彼此的存储，并且它们都不拥有属于集群上其他节点的数据 LIF 。此外，您还必须验证所有数据聚合是否位于其正确的主节点上，以及两个节点的卷是否联机。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改此适配器的使用。</block>
   <block id="6e7e19ae8357eafafb5df9d5e403d692" category="paragraph">您可以将输出与中捕获的输出进行比较 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block> 部分。</block>
-  <block id="7bd08b5c3a9e3849e82a1fef790d117b" category="summary">使用 AFF A900 控制器模块和 NVRAM 模块启动 node1 。</block>
-  <block id="74d87258605a34730c51b53265d130eb" category="summary">在 AFF A700 升级到 AFF A900 期间，将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 并还原 node1 的资源。</block>
-  <block id="fa5b7598ff79398479188d836810f48d" category="summary">支持从 AFF A700 升级到 AFF A900 控制器所需的参考内容和网站。</block>
   <block id="395efc410823d3328f70ddb736016f0b" category="summary">使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，验证 node4 是否加入仲裁，重新创建 node1 的 VLAN ，接口组和广播域，并还原密钥管理器配置。</block>
   <block id="3a042ad216541ed5571bc523ce7be6e9" category="summary">使用 `ssystem controller replace` 命令对将运行 ONTAP 9.5 的控制器升级到 9.7 时可能发生的聚合重新定位故障进行故障排除。</block>
   <block id="42e450405147e2d982e3ee23f816c41d" category="summary">使用 `ssystem controller replace` 命令确定是否使用 ARL 将运行 ONTAP 9.5 的控制器升级到 9.7 。</block>
@@ -3549,7 +3502,6 @@
   <block id="3485cf38a64932bd6b396eabcf079454" category="summary">使用 system controller replace 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 ，并将 node1 的资源移动到 node3 。</block>
   <block id="767ebec2859c7f997386a7679698edb4" category="summary">使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控制器升级到 9.7 时，准备网络启动 node3 和 node4 。</block>
   <block id="16d19daed45f3be78bc9bea63100bb72" category="summary">使用 `ssystem controller replace` 命令支持将运行 ONTAP 9.5 的控制器升级到 9.7 所需的参考内容和网站。</block>
-  <block id="a75b900055b8766dbb250e1d95a6b610" category="cell"><block ref="a75b900055b8766dbb250e1d95a6b610" category="inline-link-macro-rx"></block></block>
   <block id="054dcc71a9397a2cddfbf9b907aea5ed" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，验证 node4 的安装以及与 node3 的通信。</block>
   <block id="0e472afa239c2cd65ab6d08bdaa80dff" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间恢复 SnapMirror 传输和关系。</block>
   <block id="b4828d73e6a54a557f1d9c688f9afada" category="summary">对运行 ONTAP 9.7 或更早版本的控制器上在手动 ARL 升级期间可能发生的聚合重新定位故障进行故障排除。</block>
@@ -3662,9 +3614,6 @@
   <block id="42b2cb9f9e1a3cf15145887e95d849a8" category="sidebar">工作表：在控制器升级之前和期间收集的信息</block>
   <block id="17f9514d7bcdbd086bef311b63567524" category="admonition">如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。</block>
   <block id="23ec9249d03285a513eaaf182a7bcd49" category="cell">AFF8080</block>
-  <block id="ae201a8621d5678d9f7db2f1543be658" category="inline-link-macro">使用system controller replace命令将AFF A700升级到AFF A900或FAS9000、并将其升级到运行ONTAP 9.10.1或更高版本的FAS9000</block>
-  <block id="df69e9ae0d9f7ac20a24f0c796c5fd93" category="cell"><block ref="df69e9ae0d9f7ac20a24f0c796c5fd93" category="inline-link-macro-rx"></block></block>
-  <block id="88b12ac6a25fc9dcdeff5648aa2d9e8f" category="cell">介绍使用system controller replace命令将AFF A700无中断升级到AFF A900系统或将FAS9000升级到运行ONTAP 9.10.1或更高版本的FAS9000系统所需的聚合重新定位过程。</block>
   <block id="562fafbbb89476d10c038539c7edc691" category="list-text">如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <block ref="cc511b4dbeed99af4a19f83ac3e97f04" category="inline-xref-macro-rx"></block> to <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block> 以解决此问题。</block>
   <block id="f2c15df21143edf73966939dd59ca6fb" category="list-text">如果系统进入重新启动循环并显示消息 `no disks found` ，则表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法看到任何磁盘。要解决此问题，请继续 <block ref="cc511b4dbeed99af4a19f83ac3e97f04" category="inline-xref-macro-rx"></block> to <block ref="8dac798a0974640f6cae187a1dbe2d57" category="inline-xref-macro-rx"></block>或转到第节 <block ref="35ed01fca1dde6c35ca197b89d2bbfc7" category="inline-link-macro-rx"></block>。</block>
   <block id="a21bb6fd42ff6eb59f1b181296f7c703" category="cell">FAS8020^3^、FAS8040^3^、FAS8060、FAS8080</block>
@@ -3690,73 +3639,28 @@
   <block id="8ed24dd5fb292ecefe76fe92a5fc3988" category="cell">FAS8080</block>
   <block id="e2060bf680bf4facfccf3befec69ef04" category="cell">9.8P12或更高版本的修补程序</block>
   <block id="c7f409d27e38c597f7352e5c3444f367" category="list-text">在node3上输入以下命令以检查端口当前的配置方式：</block>
-  <block id="d6c2e2d86e9dabadec600438d0eb1471" category="paragraph">您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node1的安装。由于物理端口不变、您无需将物理端口从旧节点1映射到替换节点1。</block>
-  <block id="bec9a7c0c4bfaaeb806f9f4ddb681c8c" category="paragraph">使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。</block>
-  <block id="8f34775699af0e65cbc1a35c0cb8b84b" category="admonition">在将AFF A700升级到AFF A900或将FAS9000升级到FAS9500控制器期间、网络端口及其连接不应发生变化。所有端口都应驻留在正确的广播域中，并且网络端口可访问性不应更改。但是，在将 LIF 从 node2 移回 node1 之前，您必须验证网络端口的可访问性和运行状况。</block>
-  <block id="6b31a3b30b01ea09ca78efcb226343b9" category="paragraph">在将node2更换为AFF A900或FAS9500控制 器模块和NVRAM模块之前、必须先将node2所拥有的非根聚合重新定位到node1。</block>
-  <block id="ec034682ed62501de72881ae5f23afb0" category="paragraph">在交换相应的AFF A900或FAS9500node2控制器模块和NVRAM后、您可能需要通过网络启动这些模块。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
-  <block id="7d4491ed84bf03aef84c9714a80e7635" category="paragraph">无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
-  <block id="a841a9a6470f2ced16c0b663704b5dfe" category="list-text">等待AFF A900或FAS9500控制 器模块上当前运行的node2启动、并显示启动菜单选项、如以下输出所示：</block>
-  <block id="162c8b4a39fcb111690cbc082fa26537" category="paragraph">要停用 node1 ，请恢复自动操作，以使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从node1机箱中卸下AFF A700或FAS9000控制器和NVRAM模块、然后在node1上安装AFF A900或FAS9500控制 器和NVRAM模块。</block>
-  <block id="f22136c41db26c6022caf6417275b450" category="section-title">卸下AFF A700或FAS9000控制器和NVRAM模块</block>
   <block id="ba579f865c148542656e741f915bc210" category="section-title">卸下AFF A700或FAS9000控制器模块</block>
   <block id="208671d931da81374958ab0bdeb8d0f0" category="paragraph">使用以下操作步骤 删除AFF A700或FAS9000控制器模块。</block>
   <block id="831816e1924f3edb2d170ec4c291d0f3" category="section-title">卸下AFF A700或FAS9000 NVRAM模块</block>
   <block id="fceff39b493e10b2b789e99ad15cc406" category="paragraph">使用以下操作步骤 删除AFF A700或FAS9000 NVRAM模块。</block>
   <block id="3d748e41fa426d2025ff3eb80b369ede" category="admonition">AFF A700或FAS9000 NVRAM模块位于插槽6中、高度是系统中其他模块的两倍。</block>
-  <block id="1f15728c77802915b0186fe3b48a5405" category="section-title">在node1上安装AFF A900或FAS9500NVRAM和控制器模块</block>
   <block id="32820fb65b578170b0fc242eb57ba80e" category="list-text">请勿将核心转储设备从AFF A700 NVRAM模块移至AFF A900 NVRAM模块。</block>
   <block id="d0106eeb656b11c6a07a8e45dcf1b214" category="list-text">将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。</block>
   <block id="c7fecf95820e09d00c74bf86805bc991" category="section-title">安装AFF A900或FAS9500NVRAM模块</block>
   <block id="1a841cb7f620c7f0684b56a8a034fb65" category="paragraph">使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在node1的插槽6中。</block>
   <block id="830a042377d7fdbd36c48ece8669e61c" category="section-title">在node1上安装AFF A900或FAS9500控制 器模块。</block>
   <block id="bb0ced2b785386259d517f7ae7bd88d1" category="paragraph">使用以下操作步骤 在node1中安装AFF A900或FAS9500控制 器模块。</block>
-  <block id="a8785e7ad1cb0d71507bbcb99df9c1f7" category="cell">将AFF A700系统转换为AFF A900系统、保留A700机箱</block>
   <block id="3029eeb5ee6e861b02eb2a1ffd3d3b8e" category="cell">FAS9000到FAS9500</block>
-  <block id="92edbfe3ededa1bb85b931ec295f360d" category="cell">将FAS9000系统转换为FAS9500系统、保留FAS9000机箱。</block>
-  <block id="a5ce3ab443f38c92fc244c3533db25fd" category="paragraph">您可以通过交换控制器和NVRAM模块来无中断升级高可用性(HA)对上的控制器硬件。首先、在旧控制器节点之间迁移非根聚合。安装后、您可以将非根聚合从旧控制器节点迁移到替代控制器节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</block>
-  <block id="3f8470255fba84fd3f339ba171093986" category="paragraph">在此控制器升级操作步骤 期间、您只能将AFF A700或FAS9000系统上每个节点上的两个现场可更换单元(Field Replaceable Unit、FRU)更换为新的FRU。</block>
   <block id="c9df35145886ac45d1457faee2b9dd89" category="admonition">您无需移动，断开或重新连接 I/O 卡，数据缆线，磁盘架和磁盘。</block>
   <block id="4ed758f1326f5379f7dc30fe674ce726" category="inline-link-macro">升级控制器的准则</block>
   <block id="61bb0e064fd915427168b2e72e080eff" category="list-text">此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应阅读并了解 <block ref="937d04c1dac5501bcacf105e8700fe45" category="inline-link-macro-rx"></block> 和 <block ref="57e14e08755134bb6fef9ad899bb58ee" category="inline-link-macro-rx"></block> 开始升级前的章节。</block>
-  <block id="15bb782d54e5e11e2e8ab3b723e7ec55" category="list-text">此操作步骤 仅适用于AFF A700和FAS9000系统。对于需要升级到AFF A900或FAS9500-系统的所有其他控制器型号、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件，以及使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件内容。</block>
   <block id="f57bde3eaa64080d17b3c49dfac5f25f" category="list-text">AFF A900和FAS9500系统仅支持高端电源(200V到240V)。如果您的AFF A700或FAS9000系统使用低端电源(100V到120V)运行、则必须先转换AFF A700或FAS9000输入电源、然后才能使用此操作步骤。</block>
-  <block id="a34fce485aa189385b6d78cd230756d8" category="list-text">如果要在停机的情况下从AFF A700或FAS9000系统升级、您可以通过移动存储来升级控制器硬件、也可以联系技术支持。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
-  <block id="3e6b0398ec9c232118e2d2bc538ec645" category="inline-link-macro">第2阶段：重新定位节点1中的资源并停用AFF A700或FAS9000节点1</block>
-  <block id="f8268b4f2949c257f7e5044e9ac05880" category="inline-link-macro">第3阶段：使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</block>
-  <block id="4440b548c1cae9d923561d0a7fe3a103" category="list-text">使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</block>
-  <block id="3e2a6a2edac30411bac1b47c4ba20774" category="list-text">升级后的AFF A900或FAS9500node1是node1聚合的主所有者和当前所有者</block>
-  <block id="88429116c298b552cf5a2fd1dfd8ac94" category="inline-link-macro">第5阶段：在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
   <block id="dbc99796dd5482cbc7660b57b686c30f" category="list-text">在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
-  <block id="25beb58d3a670fb2c16081f902a5bff2" category="inline-link-macro">第6阶段：使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
-  <block id="d066afecd32f577c431df88c1a421ca4" category="list-text">使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
-  <block id="8c3db477300524bd7d8bcf2bba005da2" category="paragraph">使用ARL将控制器从AFF A700升级到AFF A900或从FAS9000升级到FAS9500、并且支持NVRAM模块的组合。如果您收到的新AFF A900或FAS9500系统是一个完整系统、包括一个新机箱、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。</block>
   <block id="446e34a339be0fda54aae2fe862c868f" category="paragraph">使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在节点2的插槽6中。</block>
   <block id="b5e3968706cd8f4fee9d9a918b1b867f" category="section-title">在节点2中安装AFF A900或FAS9500控制 器模块</block>
   <block id="43d062a38b70447bd532892c53e0817c" category="paragraph">使用以下操作步骤 在node2中安装AFF A900或FAS9500控制 器模块。</block>
-  <block id="7226eae03ab7f26a2dd297f61cf08736" category="paragraph">执行这些检查后、系统会将非根聚合和NAS数据LIF重新定位回node2、而node2目前正在AFF A900或FAS9500控制 器上运行。</block>
-  <block id="1e5f9f2daefe506ea2b48caff7fcf4ae" category="paragraph">在将node1更换为AFF A900或FAS9500控制 器和NVRAM模块之前、必须先将非根聚合和NAS数据LIF从node1移动到node2、然后才能最终将node1的资源恢复回运行在AFF A900或FAS9500系统 上的node1上。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。</block>
-  <block id="3cf8297a666eb50587e23b50dcba8b11" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。在升级期间，您无需移动 SAN LIF 即可实现集群或服务运行状况。在将node1作为AFF A900或FAS9500系统联机后、您必须验证LIF是否运行正常并位于相应的端口上。</block>
-  <block id="8a2c86b63701889cf10547896e555b82" category="list-text">在第4阶段之后、如果将node2更换为AFF A900或FAS9500控制 器和NVRAM模块、</block>
-  <block id="c0bf6385dfa15c204a13d5abb6770653" category="paragraph">在此控制器升级期间、您可以将AFF A700控制器更换为AFF A900控制器、或者将FAS9000控制器更换为FAS9500控制器。此内容介绍了自动化操作步骤 的步骤，该过程使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
-  <block id="2a2d4d28b7b0848fbdd189061adaff52" category="paragraph">此内容介绍如何升级AFF A700 HA对中的存储控制器以及FAS9000 HA对中的新AFF A900控制器或控制器以及新的FAS9500控制器、同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
-  <block id="3d58d6338cfd5f06b224201846bd6759" category="list-text">您已向NetApp销售代表确认、您已收到AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件。</block>
   <block id="b0ce3e25b9ec3a13c13ca9a6fa5323b7" category="list-text">您正在AFF A700或FAS9000系统上使用FlexArray 虚拟化软件。</block>
-  <block id="c72ac68ecc63380b07ba76bc038edf2e" category="paragraph">您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。</block>
-  <block id="fbb88f36cd542fa5f9d7d9b7989c4fa9" category="paragraph">使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。</block>
-  <block id="0b67bd45e44a6983f2e329371f92a85c" category="paragraph">在交换相应的AFF A900或FAS9500node1控制器和NVRAM模块后、您必须通过网络启动node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。</block>
-  <block id="6bc5a701ba593a754b9fc417aacb558c" category="paragraph">无法检查AFF A900或FAS9500控制器模块启动介质上安装的ONTAP 版本、除非该模块安装在机箱中并已启动。AFF A900或FAS9500启动介质上的ONTAP 版本必须与要升级的AFF A700或FAS9000系统上运行的ONTAP 版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过在启动菜单中依次执行 netboot 和 `wipeconfig` 命令来配置映像。如果控制器模块先前已在另一个集群中使用，则 `wipeconfig` 命令将清除启动介质上的任何剩余配置。</block>
   <block id="fed5188660beab0c1ca98ade1cf9e488" category="list-text">等待AFF A900或FAS9500控制器模块上当前运行的node1启动、并显示启动菜单选项、如下所示：</block>
-  <block id="2fef7d8ad2c6da5a6bfc7b0d1cb4d82f" category="doc">使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
-  <block id="85a900d149967784a6d6e1061792097f" category="paragraph">带有AFF A900或FAS9500控制 器和NVRAM模块的Node2现已做好升级准备。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或FAS9000升级到FAS9500时、仅需要移动控制台和管理连接。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node2所需的步骤。</block>
-  <block id="5e1956d6adc0bdab37f993d5b46e373b" category="paragraph">具有AFF A900或FAS9500控制 器和NVRAM模块的Node1现在可以启动。通过交换控制器和NVRAM模块、将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、只需要移动控制台和管理连接即可。本节介绍使用AFF A900或FAS9500控制 器和NVRAM模块启动node1所需的步骤。</block>
-  <block id="5fa38b455ca95ac213888d230b770ee7" category="paragraph">在开始升级之前、您必须验证您的硬件是否正确、以便将AFF A700升级到AFF A900或将FAS9000升级到FAS9500。对于要升级的每个 HA 对，您必须具有两个系统控制器模块和两个 NVRAM 模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。</block>
-  <block id="ba5bb93bf3745b7b90abb302dc84dab9" category="sidebar">使用system controller replace命令将AFF A700升级到AFF A900或FAS9000升级到FAS9500</block>
-  <block id="cec0ad56d161fd372b8f511ac2258e91" category="sidebar">第 2 阶段。重新定位资源并停用AFF A700或FAS9000节点1</block>
-  <block id="3e7ed5dc4e5c354a7d48cc37baefc4ad" category="sidebar">第 3 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node1</block>
-  <block id="1ed45ea6838f5dd96a4433ce598c8050" category="sidebar">第 5 阶段。在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
-  <block id="6c86470db96f676f214aa83001c5a57f" category="sidebar">在节点2上安装AFF A900或FAS9500NVRAM和控制器模块</block>
-  <block id="ae89e936215d96a55c04a947db881581" category="sidebar">第 6 阶段。使用AFF A900或FAS9500控制 器和NVRAM模块启动node2</block>
   <block id="038bf310b30027962de2d4e7d3c544e6" category="paragraph">`ssystem node AutoSupport invoke -node _node_name_-type all -message "MAIN=2h upgrading _node_name_ from _platform_original_to _platform_new_"`</block>
   <block id="10de09f0f92f196f1e5984884c43ba27" category="list-text">`storage failover modify -node _node_name_-enabled false`</block>
   <block id="981b4567a35216af18afaec3c97bc50d" category="paragraph">`ssystem node halt -node _node_name_`</block>
@@ -4144,7 +4048,6 @@
   <block id="17c47d164b7fe13ac454c776902ff45f" category="list-text">从ONTAP 9.8开始、如果在网络端口可访问性修复操作步骤 期间在广播域之间移动了LIF的主端口、则ONTAP 将自动修改LIF的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
   <block id="b4e995bdd78b40e4a973dab2bcf9ed16" category="list-text">从ONTAP 9.8开始、如果在网络端口可访问性修复操作步骤 期间在广播域之间移动了LIF的主端口、则ONTAP 将自动修改LIF的主端口。如果 LIF 的主端口已移至另一个节点或未分配，则该 LIF 将显示为已替换的 LIF 。还原主端口不再存在或已重新定位到另一节点的已替换 LIF 的主端口。</block>
   <block id="b20fa92767a639ebf6c7b69aac21e88f" category="list-text">将节点启动至启动菜单：</block>
-  <block id="50a538d5879b1b2e51ce2921f4a4ee75" category="list-text">输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700 node1磁盘重新分配给AFF A900 node1。</block>
   <block id="c1ff3d9c3e793a92f67d6a17048a954d" category="paragraph">经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。</block>
   <block id="01b22e2b8dff1191395f34f0d45cdd7e" category="paragraph">这些提示可能会被埋在控制台消息中。如果未输入节点名称或输入的名称不正确、系统将提示您重新输入此名称。</block>
   <block id="bca73eff7b855bcc19e7f22f49e2b8a3" category="paragraph">如果` localhost：disk.encryptNoSupport：aler]：检测到FIPS认证的加密驱动器`和、或`、则执行以下步骤：localhost：diskown.errorDuringIO：error]：disk` error 3 (disk failed) on disk error occur、则执行以下步骤：</block>
@@ -4152,7 +4055,6 @@
   <block id="4881f451a26b5944c6775b5342df3dbd" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="370a03845d272602c838e3924a658003" category="inline-xref-macro-rx"></block>。</block>
   <block id="6e44d165d43069030cd99e370aeb5107" category="list-text">在LOADER提示符处、启动：</block>
   <block id="5dd3fadb015da65e82238831e11341c9" category="paragraph">您可以使用以下示例作为参考：</block>
-  <block id="b76a3b855e625194513f3473a25582fd" category="list-text">输入"22/7"并在节点停留在启动菜单时选择隐藏选项`boot_after_controller_replacement`、将AFF A700节点2磁盘重新分配给AFF A900节点2。</block>
   <block id="3dbb60dab5c1891455791640814da2b9" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="025202ee75dff38076e126e76d5042ed" category="inline-xref-macro-rx"></block>。</block>
   <block id="e908e6e2b5df3efafd19fa616b538a72" category="list-text">如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。FAS2520控制器无法转换为驱动器架。</block>
   <block id="e9ddbc0542fbe11aae2eccf01c4e4a89" category="paragraph">在通过移动存储进行升级的工作流中、将FAS255x系统转换为驱动器架是一项可选任务。</block>
@@ -4195,8 +4097,6 @@
   <block id="cf43271b9b370c0f4bddf73ec78aa59f" category="inline-link-macro">如何使用boot_recovery loader命令安装ONTAP 以进行系统初始设置</block>
   <block id="4afbf28a131dcdda5d774d5742ccdf1e" category="admonition">您也可以使用 USB 启动选项执行网络启动。请参见知识库文章 <block ref="184f8f7294797efad8be0da4fb907563" category="inline-link-macro-rx"></block>。</block>
   <block id="083a0c049526537d6b95a268054814fb" category="list-text">您的系统上具有混合聚合。</block>
-  <block id="b99f39b13055b86a7e0146684c21e326" category="list-text">将AFF A700控制器连接到AFF A900系统</block>
-  <block id="9733b2ec9e26adc1936d94dc2a3bb0dd" category="list-text">将FAS9000控制器连接到FAS9000系统</block>
   <block id="a2b13d30d388148b28bbb1a43f3d2d52" category="paragraph">提取的内容<block ref="f466b354adfc3ad817d7c11c037c8797" prefix=" " category="inline-code"></block> 文件到目标目录：</block>
   <block id="a9a690b194b002aca2d632eee1a1a1f2" category="paragraph"><block ref="1dfb54a15c6859407fd4c2e52579269b" prefix="" category="inline-code"></block></block>
   <block id="2483e54ca623f46ca2ae8747a545115d" category="admonition">如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取网络启动映像。</block>
@@ -4258,7 +4158,6 @@
   <block id="14404b4da2811fbc2d79f7bd9ba708f3" category="paragraph">在第4阶段、您需要记录必要的node2信息、以便稍后在操作步骤 中使用、然后停用node2。聚合所有权不会发生任何更改。</block>
   <block id="7e21a9c9d8227ac88401921ab1292b41" category="paragraph">在第5阶段、您将安装并启动node4、将集群和节点管理端口从node2映射到node4、并将属于node2的数据LIF和SAN LIF从node3移动到node4。您还可以将node2聚合从node3重新定位到node4、并将node2拥有的数据LIF和SAN LIF移动到node3。</block>
   <block id="3bd7ed4f2ac8c8bee0e26402197de3f8" category="paragraph">在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则还需要设置存储加密或NetApp卷加密。您还应停用旧节点以恢复SnapMirror操作。</block>
-  <block id="4449fcbdc8779036fe560c92118fa9da" category="paragraph">在阶段1中、您可以运行预检、如果需要、还可以更正聚合所有权。如果您要使用OKM管理存储加密、并且可以选择暂停SnapMirror关系、则必须记录某些信息。</block>
   <block id="a6b2bef9fee39460e6de895c83a49b09" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node3和node4。</block>
   <block id="25616d083b9db29fded5f928a5162633" category="paragraph">在第 3 阶段，您安装并启动 node3 ，检查 node1 中的集群和节点管理端口是否在 node3 上联机，并验证 node3 安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。如果需要、可以在node3上设置FC或UTA/UTA2配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。</block>
   <block id="b782fb0a43ba5a997562172fe5afc493" category="paragraph">在阶段4中、您会将非根聚合和NAS数据LIF从node2重新定位到node3。您还可以记录node2信息、以便在停用node2之前在操作步骤 中稍后使用。</block>
@@ -4272,9 +4171,7 @@
   <block id="9650478f6417a9b0762aac7fdac75148" category="paragraph">在阶段4中、您会将非根聚合和NAS数据LIF从node2重新定位到node3。您必须记录必要的node2信息、以便稍后在操作步骤 中使用、然后停用node2。</block>
   <block id="f8c0ac61744d21aa2bb63045fa011ea5" category="summary">如果需要、请在使用升级运行ONTAP 9.8或更高版本的控制器时为NVE或NAE配置新控制器模块<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令</block>
   <block id="f1ce13c7bdc83a7edc61f28f1b45e2b3" category="paragraph">如果新控制器的已更换控制器或高可用性(HA)配对系统使用NetApp卷加密(NVE)或NetApp聚合加密(NAE)、则必须为NVE或NAE配置新控制器模块。</block>
-  <block id="3e16f680dd8aa44fc4930c55c991d3dd" category="paragraph">*使用板载密钥管理器配置NVE或NAE *</block>
   <block id="f43321e7d3b61cf1c8ba0245edce75e1" category="open-title">外部密钥管理</block>
-  <block id="13e26039ea70e331010a044a7a7923a0" category="paragraph">*使用外部密钥管理配置NVE或NAE *</block>
   <block id="56e327f81566d68ee048f3f881ecfd0e" category="paragraph">此命令需要OKM密码短语</block>
   <block id="313f0cfed2b97e164958a7921166aab8" category="paragraph">在将node2替换为node4之前、必须将node2所拥有的非根聚合和NAS数据LIF重新定位到node3。</block>
   <block id="ddcbcf4d978f7386b809fdfb01266e26" category="list-text">【auto_check_4_step15]]在node4上、转到启动菜单、使用22/7选择隐藏选项<block ref="b4ab52f7185d092e3aa56aaa9905e7e1" prefix=" " category="inline-code"></block>。在提示符处，输入 node2 以将 node2 的磁盘重新分配给 node4 ，如以下示例所示。</block>
@@ -4298,13 +4195,11 @@
   <block id="284796671ad84e43740ae2f599a3a216" category="list-text"><block ref="092016153e5cdfe0f74d15d20e03a91e" prefix="" category="inline-code"></block></block>
   <block id="a0a0ad5020eac42dba5b447fc44dc48b" category="list-text"><block ref="2232629a6b33efd635768e5e55bd1038" prefix="" category="inline-code"></block></block>
   <block id="2da2426897b8d2d9deb39f8f8f957e06" category="list-text"><block ref="555e951feb1c7a290a146a3083826385" prefix="" category="inline-code"></block></block>
-  <block id="d8459e94c81b2ecf3f1ef53ca57f0bfc" category="admonition">如果使用板载密钥管理器(Onboard Key Manager、OKM)的NetApp卷加密(NetApp Volume Encryption、NVE)或NetApp聚合加密(NetApp Aggregate Encryption、NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤 中完成密钥管理器重新同步。</block>
   <block id="e6070f78dc11f71748bff1b9003fccd0" category="paragraph"><block ref="854a4be4b1fce65bf3a90ee74692188e" prefix="" category="inline-code"></block> 是存储系统的IP地址(必填)。<block ref="220b0a4790e2c047ae96a881e506e1fe" prefix=" " category="inline-code"></block> 是存储系统的网络掩码(必需)。<block ref="14fb245f7140583707d1cda241eeeff2" prefix=" " category="inline-code"></block> 是存储系统的网关(必需)。<block ref="573c932508ccab841c5c117fb2cd2186" prefix=" " category="inline-code"></block> 是网络上名称服务器的IP地址(可选)。<block ref="79e5a69f76d034adaafbb5cb6cb8fc45" prefix=" " category="inline-code"></block> 是DNS域名(可选)。</block>
   <block id="5e2c0dc3398b3e8f5619e371fec2269b" category="list-text">在启动加载程序中、设置node4上的配对系统ID：</block>
   <block id="4e01f43abaf0b878dabe329f87d4cee7" category="paragraph">对于node4、<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须为node3的。</block>
   <block id="d1031e1f800c4bd6f924dc58bce65e5e" category="list-text">[[auto_install4_step21]]验证<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 对于node4：</block>
   <block id="47c9d570e26767f6f7f0247b3b0faa44" category="paragraph">如果要使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不还原key-manager、则在使用ARL将node2聚合从node3重新定位到node4时、加密卷将脱机。</block>
-  <block id="1d206ee7a4d4f22dd32a3fb1be52713d" category="paragraph">在阶段1中、您可以运行预检、如果需要、还可以更正聚合所有权。如果您要使用OKM管理存储加密、并且可以选择暂停SnapMirror关系、则必须记录某些信息。</block>
   <block id="33ff5cb99c889e1db4238bdd49969091" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。您必须记录必要的node1信息、以便稍后在操作步骤 中使用、然后停用node1。您也可以稍后在操作步骤 中准备网络启动node3和node4。</block>
   <block id="1ed633e748d17dd08fdb27f349c57667" category="paragraph">在第 3 阶段，您将安装并启动 node3 ，将集群和节点管理端口从 node1 映射到 node3 ，并验证 node3 安装。如果需要、可以在node3上设置FC或UTA/UTA2配置、并确认node3已加入仲裁。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。</block>
   <block id="3023bde0419d9056e2c0a1ff888f6e3a" category="paragraph">在阶段4中、您会将node2非根聚合和非SAN数据LIF重新定位到node3。您还需要记录必要的node2信息、然后停用node2。</block>
@@ -4325,46 +4220,25 @@
   <block id="c0577dde04914d4e86fcd22fc6ad5c48" category="paragraph">重新定位操作在此阶段开始时暂停。此过程大部分是自动完成的；此操作将暂停以使您能够检查其状态。您必须手动恢复此操作。此外、您还必须验证NAS数据LIF是否已成功移至node4。</block>
   <block id="f5b4a0a26551c8147e4d15fe49ec53b5" category="cell">在启动环境提示符处输入以下命令、以手动配置连接：<block ref="08e9ed1febc3e725e8201311cddea860" prefix=" " category="inline-code"></block>
 <block ref="854a4be4b1fce65bf3a90ee74692188e" prefix=" " category="inline-code"></block> 是存储系统的IP地址(必填)。<block ref="220b0a4790e2c047ae96a881e506e1fe" prefix=" " category="inline-code"></block> 是存储系统的网络掩码(必需)。<block ref="14fb245f7140583707d1cda241eeeff2" prefix=" " category="inline-code"></block> 是存储系统的网关(必需)。<block ref="573c932508ccab841c5c117fb2cd2186" prefix=" " category="inline-code"></block> 是网络上名称服务器的IP地址(可选)。<block ref="79e5a69f76d034adaafbb5cb6cb8fc45" prefix=" " category="inline-code"></block> 是域名服务(Domain Name Service、DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。注意：您的接口可能需要其他参数。输入 ...<block ref="0c6877a83224f87093205d2971ef3953" prefix=" " category="inline-code"></block> 有关详细信息、请参见固件提示符。</block>
-  <block id="081bf1b51872055cec49bb711b3078cc" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。您必须记录必要的node1信息以供日后在操作步骤 中使用、然后交换相应的node1控制器和NVRAM模块、停用node1并通过网络启动升级后的node1。</block>
-  <block id="025d9ece9c4ae5853633f15285d23ef8" category="cell"><block ref="025d9ece9c4ae5853633f15285d23ef8" category="inline-link-macro-rx"></block></block>
-  <block id="bc058862588424f3a586e99832b313fc" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node1。</block>
-  <block id="8e08dc923ba10e10b88b04da341f5b14" category="cell"><block ref="8e08dc923ba10e10b88b04da341f5b14" category="inline-link-macro-rx"></block></block>
-  <block id="c039d90be9eb3787189fd57d23f10d92" category="paragraph">在第3阶段、使用升级后的控制器和NVRAM模块启动node1并验证升级后的node1安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node2重新定位到升级后的node1、并验证node1上是否存在SAN LIF。</block>
-  <block id="c56f33239addd639a546a027c679841b" category="cell"><block ref="c56f33239addd639a546a027c679841b" category="inline-link-macro-rx"></block></block>
   <block id="7abfecdf5ad8a80ea0bc5db9607dc350" category="paragraph">在阶段4中、您将非根聚合和NAS数据LIF从node2重新定位到升级后的node1并停用node2。</block>
-  <block id="88aba2d5ba01d267f2bde6142cd97bc6" category="cell"><block ref="88aba2d5ba01d267f2bde6142cd97bc6" category="inline-link-macro-rx"></block></block>
-  <block id="b6c038f99f62e85a8d6cc2fe77ac0568" category="paragraph">在阶段5中、您将安装为升级后的node2和netboot node2收到的新NVRAM和控制器模块。</block>
-  <block id="9412b9d116170ef4dc34da34d0449344" category="cell"><block ref="9412b9d116170ef4dc34da34d0449344" category="inline-link-macro-rx"></block></block>
-  <block id="2c524a09a41084103cfccb89e1e2dd49" category="paragraph">在第6阶段、使用升级后的控制器和NVRAM模块启动node2并验证升级后的node2安装。如果您使用的是NVE、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。</block>
   <block id="2201f8be38de620c7e36cb511d56aa13" category="cell"><block ref="2201f8be38de620c7e36cb511d56aa13" category="inline-link-macro-rx"></block></block>
   <block id="fb13f8b167e25a81b898b43d42165d58" category="paragraph">在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。</block>
-  <block id="98d03c0eb9112cc9024f712528415cd8" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。您必须记录node1信息以供日后在操作步骤 中使用、然后交换相应的node1控制器和NVRAM模块、停用node1并通过网络启动升级后的node1。</block>
-  <block id="ba3ed006f5a9fb6f965da2e3e183b4ad" category="inline-link-macro">网络启动</block>
-  <block id="d7c7c51e5bb760e2570a29b82d44f1bf" category="list-text"><block ref="d7c7c51e5bb760e2570a29b82d44f1bf" category="inline-link-macro-rx"></block></block>
-  <block id="b7bf4ef932e45b6a01a4ef305620f494" category="summary">验证在AFF A700升级到AFF A900期间、node2上的node1 NAS数据LIF是否已从node2重新定位到node1。</block>
-  <block id="a59f35dc95e7e305b48bffa59f6326f2" category="list-text"><block ref="a59f35dc95e7e305b48bffa59f6326f2" category="inline-link-macro-rx"></block></block>
   <block id="35ab088951b060d49693e4d4c692e7a5" category="list-text"><block ref="35ab088951b060d49693e4d4c692e7a5" category="inline-link-macro-rx"></block></block>
   <block id="3fa5ba29343ba59361bba0ce2fdcdb9e" category="list-text"><block ref="3fa5ba29343ba59361bba0ce2fdcdb9e" category="inline-link-macro-rx"></block></block>
   <block id="c9a4b38a782d53b773352b69a5dcb3f0" category="list-text"><block ref="c9a4b38a782d53b773352b69a5dcb3f0" category="inline-link-macro-rx"></block></block>
   <block id="85c9a198877fa7bb35709867c0fb30da" category="paragraph">在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确认在整个升级操作步骤 中至少有一个节点正在从聚合提供数据。在继续操作时，您还可以在集群中的节点之间迁移数据 LIF 。</block>
   <block id="7b26385705fc74d2f47a9aff876bdf41" category="list-text"><block ref="7b26385705fc74d2f47a9aff876bdf41" category="inline-link-macro-rx"></block></block>
   <block id="4716a557a98944472ebf4f49b8aadb3a" category="paragraph">在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。</block>
-  <block id="64dc6def82eca9c49c8fc6cf38327fd0" category="summary">如果需要、请在将AFF A700升级到AFF A900期间为NVE或NAE配置新控制器模块。"</block>
-  <block id="bd7ff3b41e18f2676d912826d206a900" category="list-text"><block ref="bd7ff3b41e18f2676d912826d206a900" category="inline-link-macro-rx"></block></block>
   <block id="9de185adfdd7642791839ee7a21f58be" category="list-text"><block ref="9de185adfdd7642791839ee7a21f58be" category="inline-link-macro-rx"></block></block>
-  <block id="e0e34319efe30ed6573987c64ee73a17" category="paragraph">在第6阶段、使用升级后的控制器和NVRAM模块启动node2并验证升级后的node2安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。</block>
-  <block id="c83448ce7ef0e71f411f194e00ccc8e0" category="list-text"><block ref="c83448ce7ef0e71f411f194e00ccc8e0" category="inline-link-macro-rx"></block></block>
   <block id="1c8b8aeeae02461a9fadc4ceb618fbec" category="list-text"><block ref="1c8b8aeeae02461a9fadc4ceb618fbec" category="inline-link-macro-rx"></block></block>
   <block id="bf403b3f6213aa1d485dc29ba4deebc3" category="list-text"><block ref="bf403b3f6213aa1d485dc29ba4deebc3" category="inline-link-macro-rx"></block></block>
   <block id="0d500821bdc96d479f52180017fd421c" category="list-text"><block ref="0d500821bdc96d479f52180017fd421c" category="inline-link-macro-rx"></block></block>
-  <block id="52d44ddeddf5fcbcf47ca759910fa913" category="paragraph">在第1阶段、您需要验证您的硬件是否正确、以便将AFF A700升级到AFF A900或将FAS9000升级到FAS9500、运行预检、并根据需要更正聚合所有权。如果您要使用OKM管理存储加密、并且可以选择暂停SnapMirror关系、则必须记录某些信息。</block>
   <block id="c164197fcb353dad04f1e8beb0243f33" category="list-text"><block ref="c164197fcb353dad04f1e8beb0243f33" category="inline-link-macro-rx"></block></block>
   <block id="d3cd60bb710f7c46488c2fdcff53e760" category="list-text"><block ref="a322323758cef88dbedb5f26cac8c538" prefix="" category="inline-code"></block></block>
   <block id="fb999a684076a243625bac3fd40af660" category="admonition">如果正在使用使用板载密钥管理器的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤 中完成密钥管理器重新同步。</block>
   <block id="41107aca0599fc501e6800f801aa72b4" category="paragraph">本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。</block>
   <block id="3a8b3757d8c142f770f9d76513eff9ee" category="paragraph">对于node1、为<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须为node2的。您可以从获取node2系统ID<block ref="5b70738f9bc21f7783bca30ce6275d06" prefix=" " category="inline-code"></block> node2上的命令输出。</block>
   <block id="80995018ae45f8a93e75a901e9a9749b" category="list-text">在node2上设置配对系统ID：</block>
-  <block id="1f2698a1fc7b8c4a57f338488e53d435" category="paragraph">对于node2、为<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须是要升级到AFF A900或FAS9500的node1中的节点。</block>
   <block id="92b03f1ecf66a6ee3c76ebd05afbddda" category="list-text">在node2上的LOADER提示符处、验证<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 对于node2：</block>
   <block id="ab59755d5a1df870944890a24affe31a" category="paragraph">通过移动卷进行升级时，在删除原始节点之前，新节点将加入集群。确认集群中的控制器数量在操作步骤 期间不超过支持的最大集群大小。</block>
   <block id="bd7f71fd091a70c3f0b23cb5a356e64c" category="paragraph">安装新节点后、您可能需要通过网络启动来确认新节点运行的ONTAP 版本与原始节点相同。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
@@ -4393,11 +4267,6 @@
   <block id="5db260fa0b5fbfacb2534214a3285812" category="paragraph">如果使用NetApp聚合加密(NAE)或NetApp卷加密(NVE)对要升级的系统上的卷进行加密、则加密配置必须同步到新节点。如果不重新同步key-manager、则在使用ARL将node2聚合从已升级的node1重新定位到已升级的node2时、可能会发生故障、因为node2没有使加密卷和聚合联机所需的加密密钥。</block>
   <block id="593e2ad3d429d61bda399cdc2971b3d5" category="list-text">从node2运行以下命令：</block>
   <block id="2c44030cea2ae320e19712bb71a7d594" category="list-text">在重新定位数据聚合之前、请验证node2上的SVM-KEK密钥是否已还原为"true"：</block>
-  <block id="4cbf24460087ed8ef9a50719247b86e9" category="paragraph">在以下系统配置中使用ARL升级一对运行ONTAP 9.10.1P10、9.11.1P6或更高版本的控制器：</block>
-  <block id="582b7c7a6d50cab8d1a4af4c6741e5a6" category="admonition">此操作步骤 严格按照适用场景 ONTAP 9.10.1P10、9.11.1P6或更高版本对AFF A700至AFF A900或FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。</block>
-  <block id="c440ffbf92eaebdac0e849314781e4be" category="cell">9.10.1P10、9.11.1P6或更高版本</block>
-  <block id="9088ce39ce36bb44cd73f98337e0bfbc" category="list-text">您正在运行ONTAP 9.10.1P10、9.11.1P6或更高版本。</block>
-  <block id="f9f376d9d7830934e869244180e5968a" category="list-text">【unset_maxwait】如果在配置中使用自加密驱动器且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在使用AFF A900或FAS9500控制 器和NVRAM模块的_Boot node2中、 <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
   <block id="ec7ebf7252ffb49093b999d707b7b03f" category="list-text">【unset_maxWait_system_commands】如果正在配置中使用自加密驱动器、并且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在中 <block ref="8eec167848fab5c118476094c3efd320" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
   <block id="d5252796ebf0e69c5d3078a9ac59bb72" category="list-text">【unset_maxWait_manual】如果在配置中使用自加密驱动器且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在中 <block ref="c34adc28d35ee24325c874eba95a8786" category="inline-link-macro-rx"></block> 对于_Install和boot node3_)、您必须取消设置变量：</block>
   <block id="ff8e7d9040b97e4276e06db695236077" category="list-text">在node2的loader&gt;提示符处、设置默认环境变量：</block>
@@ -4625,4 +4494,230 @@
   <block id="a48dffce96c7d2cee50452bbbe3c3149" category="list-text"><block ref="f1c84a71e0779351e0f5be10141fff81" prefix="" category="inline-code"></block></block>
   <block id="1b0afd0b9e1ef791af87236c19a70f16" category="list-text"><block ref="7f5b95324bf0335821a8f979872431c9" prefix="" category="inline-code"></block></block>
   <block id="6dcc62df7a079d79f6374d9c17d2120e" category="list-text"><block ref="169aa9029e0b9363f74914feb183b562" prefix="" category="inline-code"></block></block>
+  <block id="7345831b6bc224c8333a4460721cb07f" category="summary">有关使用ARL升级同一机箱中的控制器型号时可能出现的问题的信息。</block>
+  <block id="d66193c9edc97e7077c88870d9d9ad6c" category="summary">如果需要、请在使用ARL升级同一机箱中的控制器型号时还原node2上的key-manager配置。</block>
+  <block id="9707fefafa207e02950a3cdf70cdbd1b" category="summary">使用ARL升级同一机箱中的控制器型号时、使用替代控制器模块启动node2。</block>
+  <block id="91ff7bbceee45b872acd93e9fe14cf71" category="doc">使用替代系统模块启动node2</block>
+  <block id="9f60fa63e22cca09af9dbc48c0940a53" category="paragraph">包含替代模块的node2现在已准备好启动。通过交换系统模块进行升级只涉及移动控制台和管理连接。本节介绍了在以下升级配置中使用替代模块启动node2所需的步骤：</block>
+  <block id="1bb2ae6581a2169a2cf35ba5eee4f9cc" category="cell">旧的node2控制器</block>
+  <block id="8fe807476a83934f02a511fe79b45ebf" category="cell">更换node2系统模块</block>
+  <block id="2735dd3663daa820735ddd5f17d0bef5" category="cell">AFF A220
+AFF A200
+AFF C190</block>
+  <block id="7178f81de06916595e2b257c4f97f183" category="cell">AFF A150控制器模块</block>
+  <block id="ff769165f8e7dc5f13be39a6af3eba1a" category="cell">FAS2620
+FAS2720</block>
+  <block id="65aa216d78bee75da617910b39b99de0" category="cell">FAS2820控制器模块</block>
+  <block id="56c7968a1d140906ab8313162854322d" category="cell">AFF A700</block>
+  <block id="025fcde2a85d5c2cdda65a0404080525" category="cell">AFF A900控制器和NVRAM模块</block>
+  <block id="ec5c696a4bc57321a5a79c91b886d5ff" category="cell">FAS9000</block>
+  <block id="3927421c07b1f5e6033bbca66c8704bf" category="cell">FAS9500控制器和NVRAM模块</block>
+  <block id="ca7b38e374ffc7a29b0753bcb3ef092f" category="list-text">输入"22/7"并选择隐藏选项、将旧的node2磁盘重新分配给替代node2<block ref="b4ab52f7185d092e3aa56aaa9905e7e1" prefix=" " category="inline-code"></block> 节点停留在启动菜单处。</block>
+  <block id="a40fd127e913949d077070eebd44a757" category="summary">使用ARL升级同一机箱中的控制器型号时、将node2的非根聚合重新定位到node1。</block>
+  <block id="c9e9875d10f94682a65eb69de80acd4b" category="paragraph">在将node2替换为替代系统模块之前、必须先将node2拥有的非根聚合重新定位到node1。</block>
+  <block id="392ca5bb795ad675f458b39141bab372" category="summary">使用ARL升级同一机箱中的控制器型号时、重新定位故障聚合或被否决聚合。</block>
+  <block id="a0bffb104420192ac8c26be5b63b24be" category="summary">使用进行ARL升级的第1阶段流程<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 用于升级同一机箱中的控制器型号的命令。</block>
+  <block id="f435d69757080c1b6c8e0081cb4eb218" category="summary">使用ARL升级同一机箱中的控制器型号时、在阶段2、阶段3或阶段5中迁移后LI未联机。</block>
+  <block id="23f6a04a70ae620e179c4bb34a6520dc" category="summary">在使用ARL升级同一机箱中的控制器型号时、请准备节点并运行一系列预检。</block>
+  <block id="b42d3a44eaf5edd7cdebe56ca2650ddd" category="paragraph">更换控制器的过程从一系列预检开始。此外、您还会收集有关原始节点的信息、以供稍后在操作步骤中使用、并根据需要确定正在使用的自加密驱动器的类型。</block>
+  <block id="9b9f86603d6a389b86c0d8c30e0f7250" category="list-text">列出在旧控制器上运行的服务处理器(SP)或底板管理控制器(BMC)固件版本：</block>
+  <block id="ba04107af7b0bcb92a6bd5b2d882375f" category="paragraph"><block ref="7679804b715af0ea0e56302f79c4f9b8" prefix="" category="inline-code"></block> 命令：</block>
+  <block id="b52dffdca17fbd5fb6154cabb622a6ef" category="paragraph">验证是否具有受支持的SP或BMC固件版本：</block>
+  <block id="3906be0ea919168a85bb4ff43aef9790" category="cell">SP或BMC</block>
+  <block id="0349522c033b4c9e30093a752e19a634" category="cell">最低固件版本</block>
+  <block id="8fd3ca5f66dff5be16e79560dd28171e" category="cell">AFF A220</block>
+  <block id="396262ee936f3d3e26ff0e60bea6cae0" category="cell">BMC</block>
+  <block id="b425ceaeb08cb8e20fa627c93092acbc" category="cell">11.9P1</block>
+  <block id="4fbc8445e0d6cdbbc8011982cd328f69" category="cell">AFF A200</block>
+  <block id="674769e3326f8cf937af4282f2815c02" category="cell">SP</block>
+  <block id="7c620d9660096b78e4177d780ca02b6e" category="cell">5.11P1</block>
+  <block id="b6000f9eed7f8ea9ee4632bd2f77961a" category="cell">AFF C190</block>
+  <block id="489c8707e7f92883a9ec4c6edf2f6a9a" category="cell">FAS2620</block>
+  <block id="16327cd02ebd080bd4ab1439ff960ddc" category="cell">FAS2720</block>
+  <block id="7ddd1afbac1a277de03fa094daad77c5" category="paragraph">集群中的每个节点都必须具有自己的NetApp许可证文件(NLL)。</block>
+  <block id="30dd71524a143fcc15ccb8b0a68ac138" category="paragraph">如果您没有NLG、则集群中当前已获得许可的功能可供新控制器使用。但是、在控制器上使用未经许可的功能可能会使您违反许可协议、因此、您应在升级完成后为新控制器安装NLG。</block>
+  <block id="eea8e10b14d24c73640832e981f14a14" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到可获取NetApp 支持站点 的_NLF_。NLFS位于_Software licenses下的_My Support_部分。如果此站点没有所需的NLFS、请联系您的NetApp销售代表。</block>
+  <block id="60d1099ae1e93eaac7e66c4226617560" category="summary">确定是否使用ARL操作步骤升级同一机箱中的控制器型号。</block>
+  <block id="dac682111bd9fb848c7dd788758b33fc" category="paragraph">此内容介绍如何在保留所有现有数据和磁盘的同时升级HA对中的存储控制器。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
+  <block id="ccfff57cc4a98ba771bad1856bc45eae" category="list-text">您正在执行以下控制器升级之一：</block>
+  <block id="f0177b94ab95be2cd76f5e44e90a94f0" category="cell">AFF A220、AFF A200或AFF C190</block>
+  <block id="8a1d06fd27bf0bfc6535b6a49185e591" category="cell">AFF A150</block>
+  <block id="e1ea632cab9e8d0f0821fea579334839" category="cell">FAS2620或FAS2720</block>
+  <block id="cac76ada4fbfca68ed190eb21810e1af" category="cell">FAS2820</block>
+  <block id="d12ea131bf417fe3ef7b6423e508e706" category="list-text">您已向NetApp销售代表确认收到用于控制器升级的硬件：</block>
+  <block id="8e02c0c89f1b8ab4a56a9c71f0625665" category="list-text">AFF A150控制器</block>
+  <block id="6378cfc8fa57ccbd128875c2ace0b13d" category="list-text">FAS2820控制器</block>
+  <block id="7a91ac5d471b05d929d8adc1accb6f07" category="list-text">AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件。</block>
+  <block id="798f018ee352fb079a57a34119747a3b" category="list-text">您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 <block ref="8294b96e46ba28730c909aaac28da089" category="inline-link-macro-rx"></block>。</block>
+  <block id="1155b04ebff43df03ca1b9ec1d6b56a7" category="paragraph">有关升级AFF A700或FAS9000系统上的光纤MetroCluster或MetroCluster IP配置、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _RAID MetroCluster 升级和扩展 _ 内容。</block>
+  <block id="0ad9e0a8a319618923e172d4571038eb" category="summary">如果需要、在使用ARL升级同一机箱中的控制器型号时、还原升级后的节点1上的key-manager配置。</block>
+  <block id="f41084761f1192d11c824e139538a13d" category="summary">如果需要、在使用ARL升级同一机箱中的控制器型号时、配置存储加密、安装SSL证书并设置密钥管理服务器。</block>
+  <block id="9d5a4ff5c4d356c12c02e3a7f81a2ad1" category="summary">使用进行ARL升级的第2阶段流程<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 用于升级同一机箱中的控制器型号的命令。</block>
+  <block id="ec25ef195bf4ff09739df7d7cfc17862" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。您必须记录node1信息以供稍后在操作步骤中使用、然后交换相应的node1系统模块、停用node1并对升级后的node1进行网络启动。</block>
+  <block id="82896d30ec8a78dd386c091a8c2121e6" category="inline-link-macro">更换node1系统模块</block>
+  <block id="9a7b988f1726c98d374372c643b0f2d6" category="list-text"><block ref="9a7b988f1726c98d374372c643b0f2d6" category="inline-link-macro-rx"></block></block>
+  <block id="5bbb6082cd93a16b76d8e1d7d3ef3684" category="list-text"><block ref="5bbb6082cd93a16b76d8e1d7d3ef3684" category="inline-link-macro-rx"></block></block>
+  <block id="644e220a44e1ff19f9d586b2ec3ee2d5" category="summary">开始升级之前、请确认您具有正确的硬件来升级同一机箱中的控制器型号。</block>
+  <block id="2ebfcb5280229ac52427d59562272f95" category="paragraph">在开始升级之前、您必须验证是否具有适用于升级的正确硬件。根据您的升级、对于要升级的每个HA对、您必须具有两个控制器模块或两个控制器模块和两个NVRAM模块。如果缺少部件，请联系技术支持或 NetApp 销售联系人以获得帮助。</block>
+  <block id="03edb26b26a23464d3e656fd4bb1aa20" category="cell">升级条件</block>
+  <block id="010fb6bd96430e7065ef62ecb9af2e9b" category="cell">您必须拥有...</block>
+  <block id="c44a10256b9f85d5e800b2ed43581a1f" category="cell">AFF A220至AFF A150
+AFF A200至AFF A150
+AFF C190至AFF A150</block>
+  <block id="4e106a6c623eb6811b42be00dbde2ef3" category="cell">两个控制器模块</block>
+  <block id="a96a413dc366d34740f0c82530514332" category="cell">FAS2620或FAS2720到FAS2820</block>
+  <block id="327579b68dffec79f2bcb176142f3d56" category="cell">两个控制器和两个NVRAM模块</block>
+  <block id="99b9437fef3a8474ef15fe95bfd91b50" category="summary">如果需要、请在使用ARL升级同一机箱中的控制器型号时为NVE或NAE配置新控制器模块。"</block>
+  <block id="6422bfca9827bfd67034aad22b0eeb27" category="paragraph">使用板载密钥管理器配置NVE或NAE。</block>
+  <block id="d80988540e7f7055a5ccd5e307e90b01" category="paragraph">使用外部密钥管理配置NVE或NAE。</block>
+  <block id="8332e658a8de67464eaeb430f9bba334" category="paragraph">在第6阶段中、使用升级的系统模块启动node2、并验证升级后的node2安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。</block>
+  <block id="02dd8e7eb909a20590f4030607f7ea3b" category="list-text"><block ref="02dd8e7eb909a20590f4030607f7ea3b" category="inline-link-macro-rx"></block></block>
+  <block id="dc8ac74e6e135f34ace5625adffc8c72" category="summary">在使用ARL升级同一机箱中的控制器型号时、将非根聚合和NAS数据LIFs从node1移至node2并还原node1的资源。</block>
+  <block id="adf6e8c3466e9682231d09f39035c530" category="paragraph">在将node1替换为用于系统升级的替代模块之前、您必须先将非根聚合和NAS数据LUN从node1移动到node2、然后才能最终将node1资源还原回替代系统上运行的node1。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。</block>
+  <block id="2e0d59b44e3ade50ff039c4f5d42cc34" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。在升级期间，您无需移动 SAN LIF 即可实现集群或服务运行状况。在将node1作为替代系统置于联机状态后、您必须验证这些生命周期是否运行正常且位于相应的端口上。</block>
+  <block id="1716fadb95711489f7c9319ba91c90a1" category="summary">使用ARL升级同一机箱中的控制器型号时、配置和管理存储加密、管理身份验证密钥并将SnapMirror关系置于静修状态。</block>
+  <block id="658ce0717b565ad383d87651864b67d1" category="summary">在升级同一机箱中的控制器型号后、验证HA对是否已启用、验证node1和node2存储访问和LIF以及确认聚合所有权。</block>
+  <block id="0af228704da4f749752cb372b85f47ae" category="list-text">【unset_maxwait】如果在配置中使用自加密驱动器且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在带有替代系统模块的_Boot node2中、 <block ref="30eda0c27e5ac7524ed5f5f264f13489" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
+  <block id="19173d17acb08bb0507350eb203779c8" category="summary">了解是否可以在升级配置中使用ARL来保留旧系统机箱和磁盘。</block>
+  <block id="95144cfdd742178c38add09e40185465" category="paragraph">要了解是否可以使用聚合重新定位(ARL)、保留旧系统机箱和磁盘、取决于系统升级配置和ONTAP版本。</block>
+  <block id="af8278e543c162c1ee0f858b0715d01e" category="paragraph">某些系统配置支持控制器升级。要查看支持的系统列表和最低ONTAP版本、请参见 <block ref="8294b96e46ba28730c909aaac28da089" category="inline-link-macro-rx"></block>。</block>
+  <block id="51857285b6ed5d0be3ff51a29b50fb55" category="paragraph">如果您已收到一个完整的全新AFF A150、FAS2820、AFF A900或FAS9500系统(包括新机箱)、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。</block>
+  <block id="5b29cd0b8848fbfc7c43edd22b16cf04" category="section-title">交换机连接的集群</block>
+  <block id="4f071a09d7910b1c963c0cf11fa85985" category="paragraph">如果您要升级连接到集群交换机的集群中的节点、则必须验证升级后交换机上运行的制造商、型号、固件版本、RCIF和ONTAP版本是否与替代控制器上运行的版本相同。如果需要、您必须先执行交换机升级、然后再使用本文档中所述的ARL操作步骤升级控制器。</block>
+  <block id="38622c9aae2baa5dfb1bdeeb2c31c5a3" category="summary">验证在使用ARL升级同一机箱中的控制器型号时、node1上node2的NAS数据LIFs是否已从node1重新定位到node2。</block>
+  <block id="25c0a64ebb3d4dec1d638d209b3b73a2" category="paragraph">执行这些检查后、系统会将非根聚合和NAS数据RIFs重新定位回node2、而node2现在正在替代控制器上运行。</block>
+  <block id="038a1f98f287c3e58631ad2264c784b5" category="summary">在对同一机箱中的控制器型号进行ARL升级期间、在node2上安装替代系统模块。</block>
+  <block id="7339c5b8269b308a3bb75b606b220a40" category="doc">在node2上安装替代系统模块</block>
+  <block id="34fc38d77d703f82e3ea00d22de0aeb3" category="paragraph">在node2上安装您收到的用于升级的替代系统模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
+  <block id="5e7fd8c323cf342aa95dc80800a1fdc6" category="list-text"><block ref="97cf05fba75cf4dbb437038017dd54d4" category="inline-xref-macro-rx"></block></block>
+  <block id="ba64144c5d9737bf50bbe571abc9950d" category="list-text"><block ref="969846cffb9e5ea10d5ad5e6bf7f7cb4" category="inline-xref-macro-rx"></block></block>
+  <block id="6758213905204ffa4f80a34952db5e54" category="section-title">在node2上安装AFF A150或FAS2820控制器模块</block>
+  <block id="7ceecefaf0c99b73e87c1d5f9cf924ab" category="paragraph">在node2上安装您收到的用于升级的AFF A150或FAS2820控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
+  <block id="d1cf73ac3312e046217517b06817c8be" category="list-text">从要卸下的控制器上断开所有缆线、包括控制台、管理、SAS存储和数据网络缆线。</block>
+  <block id="d31ea2ed80c8ed7a812def7ec46c2274" category="admonition">托架B位于机箱底部。</block>
+  <block id="e5c4a336c6c9037915d316eae71744e6" category="admonition">由于机箱已启动，因此 Node2 在完全就位后即开始启动。为避免node2启动、NetApp建议您先将控制台和管理缆线连接到node2控制器模块、然后再将控制器模块完全插入插槽。</block>
+  <block id="d44aaf207a0546e3b20cb2c25c036681" category="list-text">中断自动启动后、node2将停留在加载程序提示符处。如果不中断自动启动，而 node2 开始启动，请等待提示符，然后按 * Ctrl-C * 进入启动菜单。在节点停留在启动菜单处后、使用选项8重新启动节点、并在重新启动期间中断自动启动。</block>
+  <block id="0999b94892b1b34eb0ef08c34b267bc1" category="summary">使用ARL升级同一机箱中的控制器型号时、请使用更换模块验证node2的安装。</block>
+  <block id="0774c7bfeafd6a8db85f6f40e93164c5" category="paragraph">您必须使用替代系统模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。</block>
+  <block id="7fa798807f15947ec3bca62708771bf6" category="paragraph">使用替代系统模块启动node1后、您必须验证是否已正确安装。您必须等待node2加入仲裁、然后恢复控制器更换操作。</block>
+  <block id="16c540fdea11cde8dcdbc04d5a6b8bf4" category="summary">要使用ARL升级同一机箱中的控制器型号、您必须具有特定的工具和文档。</block>
+  <block id="60990f5a7d4c2de72ffce9a721cd665f" category="summary">使用ARL升级同一机箱中的控制器型号时、请验证node1与更换模块的安装。</block>
+  <block id="2b142ba2fa1c8bc16a89b6e0586ac952" category="paragraph">您必须使用替代系统模块验证node1安装。由于物理端口不变、您无需将物理端口从旧节点1映射到替换节点1。</block>
+  <block id="1b8f1925d407c9f4b166646cc9e73c3e" category="paragraph">使用替代控制器模块启动node1后、您必须验证其是否已正确安装。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。</block>
+  <block id="b1a65206ecba20bb5f74f28f81b4f20b" category="admonition">在升级期间、网络端口及其连接不应更改。所有端口都应驻留在正确的广播域中，并且网络端口可访问性不应更改。但是，在将 LIF 从 node2 移回 node1 之前，您必须验证网络端口的可访问性和运行状况。</block>
+  <block id="3a3f289393d9aae4f5403ed3ce658b92" category="paragraph">在第3阶段、使用升级的系统模块启动node1、并验证升级后的node1安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node2重新定位到升级后的node1、并验证node1上是否存在SAN LIF。</block>
+  <block id="64a849a8de630f1ea4ad68009f78a51d" category="inline-link-macro">使用替代系统模块启动node1</block>
+  <block id="f2b1226db11aca0a324fa7f209608175" category="list-text"><block ref="f2b1226db11aca0a324fa7f209608175" category="inline-link-macro-rx"></block></block>
+  <block id="1b3e452c999601877239eefc02aa8eaf" category="summary">对使用ARL升级同一机箱中的控制器型号时可能发生的故障进行故障排除。</block>
+  <block id="787dc86c93b2163933d361ba97fb8b70" category="summary">使用ARL升级同一机箱中的控制器型号时、请更换node1系统模块。</block>
+  <block id="3fca19dca268b33bb2d8b5b9865f4e29" category="paragraph">更换适用于您的升级配置的node1系统模块：</block>
+  <block id="1cf4820f0a2cb46c48512331c3f04acd" category="inline-xref">更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720控制器模块</block>
+  <block id="ca859dc13cd573fdc0df9b1937478c90" category="list-text"><block ref="91d6479e3744cf9cf348a15cfdc40966" category="inline-xref-macro-rx"></block></block>
+  <block id="9519712c4ba6b7ea2b396cfebce143b9" category="list-text"><block ref="4380f90063e50d168f23f781bdd68156" category="inline-xref-macro-rx"></block></block>
+  <block id="6a026e841b097cf406a7660b7c4ed603" category="paragraph">在此阶段， node1 已关闭，所有数据均由 node2 提供。由于 node1 和 node2 位于同一机箱中，并由同一组电源供电，因此请勿关闭机箱电源。您必须小心地仅卸下node1控制器模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。</block>
+  <block id="c5c5d4bed82b3aa15921eef0f13a3aa2" category="section-title">卸下AFF A220、AFF A200、AFF C190、FAS2620或FAS2720控制器模块</block>
+  <block id="63d6811d18004212a8a99f9cbad84f37" category="paragraph">To access components inside the controller, you must first remove the controller module from the system and then remove the cover on the controller module.</block>
+  <block id="359b2f64ed46d9bc640532f2fd8810c0" category="list-text">Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFPs (if needed) from the controller module, keeping track of where the cables were connected.</block>
+  <block id="73ffa1532dd710d7eb1520cb730fb392" category="paragraph">Leave the cables in the cable management device so that when you reinstall the cable management device, the cables are organized.</block>
+  <block id="3e5a02473a086978bae6a6516ad46c5e" category="list-text">Remove and set aside the cable management devices from the left and right sides of the controller module.</block>
+  <block id="cf233c8f355b435b1d8d0eac06c1f98c" category="image-alt">drw 25xx cable management arm</block>
+  <block id="1b96f3aa099b152fc864dedb115af912" category="list-text">Squeeze the latch on the cam handle until it releases, open the cam handle fully to release the controller module from the midplane, and then, using two hands, pull the controller module out of the chassis.</block>
+  <block id="d6daae29261c119313124d1d21a1c267" category="image-alt">drw 2240 x opening cam latch</block>
+  <block id="5fb9af22ffedd74df1492c91f96b8d7a" category="list-text">Turn the controller module over and place it on a flat, stable surface.</block>
+  <block id="d6b285e69842dbc0d924036d7b995d3b" category="section-title">安装AFF A150或FAS2820控制器模块</block>
+  <block id="912a077db1a14ff7e811477241783af6" category="paragraph">使用以下操作步骤在node1中安装AFF A150或FAS2820控制器模块。</block>
+  <block id="0dc0820d363c65f7e12beec6160b793f" category="list-text">Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.</block>
+  <block id="73c39df93369189180566421495bd86b" category="list-text">在凸轮把手处于打开位置的情况下、用力推入控制器模块、直至其与中板接触并完全就位。控制器模块完全就位后，锁定闩锁会上升。将凸轮把手关闭至锁定位置。</block>
+  <block id="3d642aff56195f4217e6874d1165bde1" category="list-text">中断自动启动后， node1 将停留在 LOADER 提示符处。如果不中断自动启动，而 node1 开始启动，请等待提示符，然后按 * Ctrl-C* 进入启动菜单。在节点停留在启动菜单处后、使用选项8重新启动节点、并在重新启动期间中断自动启动。</block>
+  <block id="06fe1e1c3556d47d3a40caee57ba2411" category="section-title">更换AFF A700或FAS9000控制器和NVRAM模块</block>
+  <block id="72066ce06d5938f1862e6c83c33aada4" category="section-title">安装AFF A900或FAS9500 NVRAM和控制器模块</block>
+  <block id="98b9e41d81ea8470149a461f166a4b92" category="summary">升级控制器后、请告知NetApp旧系统不再运行。</block>
+  <block id="fd03f78134ad299c30781abefe876b6e" category="summary">使用ARL升级同一机箱中的控制器型号时、恢复SnapMirror传输和关系。</block>
+  <block id="f941430cfefa788e4cbb0ace9529e703" category="summary">使用进行ARL升级的第1阶段流程<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 升级同一机箱中的控制器型号。</block>
+  <block id="45fc812288b67a741dd0f8684b68a15f" category="paragraph">在第1阶段、您需要验证是否具有用于升级的正确硬件、并运行预检、如果需要、还需要正确的聚合所有权。如果您要使用板载密钥管理器管理存储加密、并且可以选择将SnapMirror关系静置、则必须记录某些信息。</block>
+  <block id="0c266b0ddf80e06776f6545018e3be7b" category="summary">使用ARL升级同一机箱中的控制器型号时、关闭node2并将其从机架或机箱中卸下。</block>
+  <block id="a08203ab52ab6d68a5604711cce7c11e" category="summary">使用ARL升级同一机箱中的控制器型号时、使用替代控制器模块启动node1。</block>
+  <block id="5d0866f4b164fe143b2649dbb697db0a" category="paragraph">包含替代模块的node1现在已准备好启动。本节介绍了在以下升级配置中使用替代模块启动node1所需的步骤：</block>
+  <block id="85ea4cd2d33f91ef83959fa30a2111e3" category="cell">旧的node1控制器</block>
+  <block id="ed07f6ce0425575f59edaf54f2a15e4d" category="cell">更换node1系统模块</block>
+  <block id="431479c194f9a621e786a261b511b5a5" category="cell">AFF A150控制器模块^1^</block>
+  <block id="908914fc995dc89684c0447580cd8d0d" category="cell">FAS2820控制器模块^1^</block>
+  <block id="0265ea8bac1d62ab2acc534a414cfc92" category="cell">AFF A900控制器和NVRAM模块^2^</block>
+  <block id="417d10434cb695e93e3fc6189d102071" category="cell">FAS9500控制器和NVRAM模块^2^</block>
+  <block id="312524c0506d94591bea99fd64c1cf43" category="paragraph">^1^通过交换控制器模块进行升级涉及将所有连接从旧控制器模块移至更换控制器模块。
+^2^通过交换控制器和NVRAM模块进行升级仅涉及移动控制台和管理连接。</block>
+  <block id="c69bd0ba9f1c79a4e93d2294615d5288" category="list-text">输入"22/7"并选择隐藏选项、将旧的node1磁盘重新分配给替代node1<block ref="b4ab52f7185d092e3aa56aaa9905e7e1" prefix=" " category="inline-code"></block> 节点停留在启动菜单处。</block>
+  <block id="d667641e845b5f1c132a905ef22a2ba3" category="summary">在使用ARL升级同一机箱中的控制器型号时、系统可能会在不同阶段崩溃(重新启动、崩溃或经历重新启动)。</block>
+  <block id="f5ef11ad502e748c59323d68be5d0747" category="summary">您可以通过将旧系统转换为替代系统来升级控制器硬件、并保留旧系统机箱和磁盘。</block>
+  <block id="56b0558542c9b34984cbd02e816bd4d8" category="paragraph">本操作步骤介绍如何在以下系统配置中使用聚合重新定位(ARL)无中断升级HA对上的控制器硬件。操作步骤会将旧系统转换为替代系统、以保留旧系统机箱和磁盘。</block>
+  <block id="02fed2c78ff53b2f6e3c9fabf2ebfdcc" category="admonition">此操作步骤严格适用场景以下升级配置。请勿*使用此操作步骤在任何其他系统组合之间执行升级。</block>
+  <block id="3fe507461c708cfe67db6ed39b069266" category="cell">旧系统</block>
+  <block id="9e87e1dea37ce673e27a23a144a4e0ad" category="cell">更换系统</block>
+  <block id="eae7ed824c301543a7e09d88d74d7b19" category="cell">支持的ONTAP版本</block>
+  <block id="c0aa270d19e4484079bd0c1488dd7e54" category="cell">9.10.1P15、9.11.1P11、9.12.1P5及更高版本</block>
+  <block id="faa1e7a6bde5d1d403d386d297d27d7d" category="paragraph">9.10.1P15、9.11.1P11及更高版本(AFF A200和AFF A150)</block>
+  <block id="1b09c77bbb88991cb420df4ea90eb3b8" category="admonition">AFF A200不支持9.11.1之后的ONTAP版本。</block>
+  <block id="d64804559c99c24fbbd319d9bee6abb7" category="paragraph">9.11.1P7及更高版本(FAS2620)</block>
+  <block id="9558d12002264bd41bf4a596c8f8ac1c" category="admonition">FAS2620不支持9.11.1之后的ONTAP版本。</block>
+  <block id="fe8a27b3504b515f0bd7508cfd89776a" category="paragraph">9.13.1及更高版本(FAS2820)</block>
+  <block id="5abae7190ce598d45fe390e44304cde0" category="cell">9.13.1及更高版本</block>
+  <block id="69fd94bb4e9440260d76785fb2e5370b" category="cell">9.10.1P10、9.11.1P6及更高版本</block>
+  <block id="17c022b189bd2857924f4bbe654cb97e" category="paragraph">如果可能、NetApp建议您在旧系统和替代系统上使用相同的ONTAP版本。</block>
+  <block id="9c1e88e5963163799eaba4d977d7d52f" category="paragraph">上表中的最低ONTAP版本为必填项。这些ONTAP版本具有支持在升级期间在机箱内混用不同类型控制器所需的服务处理器或底板管理控制器(BMC)固件版本。</block>
+  <block id="48adbf20fd6c8a4139f6b2da13a4ed5b" category="paragraph">在操作步骤期间、您可以在旧控制器节点之间迁移非根聚合。安装后、您可以将非根聚合从旧控制器节点迁移到替代控制器节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。</block>
+  <block id="f54dd14bfc628011cc99d7a2f7acf3fd" category="paragraph">在此控制器升级操作步骤期间、您可以执行以下过程之一：</block>
+  <block id="a329d0cf2e9de4cf2f5e7d162573f7a5" category="list-text">将AFF A220、AFF A200或AFF C190系统上每个节点上的控制器模块交换为新的AFF A150模块。</block>
+  <block id="cc9c49df693f66fdb8e78aaa496a3ca9" category="list-text">将FAS2620或FAS2720系统上每个节点上的控制器模块更换为新的FAS2820模块。</block>
+  <block id="6617b5d0f699d4c1d9a03a9a07c8eeab" category="list-text">将AFF A700或FAS9000系统上每个节点上的两个控制器和NVRAM模块交换为新的AFF A900或FAS9500模块。</block>
+  <block id="1f08ef6e3750d69789334fc412377b8b" category="list-text">如果您的交换机不受ONTAP版本和要升级到的替代系统支持、请参阅 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _SIL_ Hardware Universe 。</block>
+  <block id="9016b0ff2820f5a72022aceaaea6350a" category="list-text">此操作步骤专用 适用场景 AFF A200、AFF A220、AFF C190、FAS2620、FAS2720、 AFF A700和FAS9000系统。有关需要升级到AFF A150、FAS2820、AFF A900或FAS9500系统的所有其他控制器型号、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到_use "system controller replace"命令以升级运行ONTAP 9.8或更高版本的控制器硬件、以及_using聚合重新定位以手动升级运行ONTAP 9.8或更高版本的控制器硬件内容。</block>
+  <block id="373edaf8d573901bcaba4be302784a3b" category="list-text">如果要从AFF A200、AFF A220、AFF C190、FAS2620、FAS2720升级、 AFF A700或FAS9000系统发生停机时、您可以通过移动存储或联系技术支持来升级控制器硬件。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
+  <block id="fda2fc60b82aa4780f7bb126c428154c" category="paragraph">此操作步骤支持以下控制器升级、并提供了自动化操作步骤的步骤、此过程会使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
+  <block id="c6d40070c0f6f6a69481f2755cd2ca3d" category="summary">支持使用ARL升级同一机箱中的控制器型号所需的参考内容和网站。</block>
+  <block id="61ade0ef1111239ef33a751208b321eb" category="inline-link-macro">使用system controller Replace命令升级同一机箱中的控制器型号</block>
+  <block id="70d1727ffc9c452707805fb17e6a5b52" category="cell"><block ref="70d1727ffc9c452707805fb17e6a5b52" category="inline-link-macro-rx"></block></block>
+  <block id="59c6dc3c9e89001a296ec62019496449" category="cell">介绍无中断升级保留旧系统机箱和磁盘的系统所需的聚合重新定位过程。</block>
+  <block id="654c7caa1182ea592a8682474243e9b1" category="summary">验证在使用ARL升级同一机箱中的控制器型号时、node2上的node1 NAS数据LIFs是否已从node2重新定位到node1。</block>
+  <block id="1fa11ae5ee8ea18f6cb8353961e9a024" category="paragraph">在第5阶段、先安装为升级后的node2收到的新系统模块、然后再安装netboot node2。</block>
+  <block id="474df8367398fad45b2effa9ec6a2b66" category="list-text"><block ref="474df8367398fad45b2effa9ec6a2b66" category="inline-link-macro-rx"></block></block>
+  <block id="de5811c666f3438943e03926d9b216fd" category="summary">了解ARL操作步骤如何升级同一机箱中的控制器型号。</block>
+  <block id="24d8d7f98a89f04d7947553a1d35d0d3" category="inline-link-macro">第2阶段：重新定位资源并停用node1</block>
+  <block id="bf5ddfba4848decf8a35ca037bac6ce0" category="cell"><block ref="bf5ddfba4848decf8a35ca037bac6ce0" category="inline-link-macro-rx"></block></block>
+  <block id="319a21b745009180cde67ee4a1b3a4a9" category="paragraph">在第2阶段、您需要将node1非根聚合和NAS数据生命周期从node1重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node1。</block>
+  <block id="6f3ef0e4028f382323a2ae0f3917bcaf" category="inline-link-macro">第3阶段：使用替代系统模块启动node1</block>
+  <block id="c52b81c74df3d3ff17249ddf0b04ec2e" category="cell"><block ref="c52b81c74df3d3ff17249ddf0b04ec2e" category="inline-link-macro-rx"></block></block>
+  <block id="267d546f79d9773e5dcd8c8c02f5f0dc" category="list-text">升级后的node1是node1聚合的主所有者和当前所有者</block>
+  <block id="663c963d479132d6dd08963c3d3fa6bc" category="inline-link-macro">第4阶段：重新定位资源并停用node2</block>
+  <block id="5445516362de6c528ceb7c8265628fd5" category="cell"><block ref="5445516362de6c528ceb7c8265628fd5" category="inline-link-macro-rx"></block></block>
+  <block id="02f2f9641c85a8db356647e8893d98f5" category="inline-link-macro">第5阶段：在node2上安装替代系统模块</block>
+  <block id="418b136655e1bbf78cd20a48b6d232fc" category="cell"><block ref="418b136655e1bbf78cd20a48b6d232fc" category="inline-link-macro-rx"></block></block>
+  <block id="74b38fc0176f87b24ddc1621aaae7baa" category="inline-link-macro">第6阶段：使用替代系统模块启动node2</block>
+  <block id="be7f213da1e93d1f8fba74e1b959726a" category="cell"><block ref="be7f213da1e93d1f8fba74e1b959726a" category="inline-link-macro-rx"></block></block>
+  <block id="b93e89e00a33c9eaa3657a6d6718aa61" category="paragraph">在第6阶段中、使用升级的系统模块启动node2、并验证升级后的node2安装。如果您使用的是NVE、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。</block>
+  <block id="826466190f8ccac159cbf60cf120c8fd" category="summary">在使用ARL升级同一机箱中的控制器型号时、在交换相应的替代node2系统模块后、您可能需要对其进行网络启动。</block>
+  <block id="1a0105837de12777d1a2a38d387d7a10" category="paragraph">在交换相应的替换node2系统模块后、您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。</block>
+  <block id="deaa83c351cc5f1826b1e1258f3ae346" category="paragraph">除非更换用的控制器模块安装在机箱中并已打开电源、否则无法检查其启动介质上安装的ONTAP版本。替代系统启动介质上的ONTAP版本必须与要升级的旧系统上运行的ONTAP版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过依次执行网络启动和来配置映像<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> 命令。如果此控制器模块之前在另一个集群中使用过、则为<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> 命令将清除启动介质上的任何残留配置。</block>
+  <block id="4900049201a6af77c5ee289d1d927b7f" category="list-text">等待替代控制器模块上正在运行的node2启动、并显示启动菜单选项、如以下输出所示：</block>
+  <block id="794cda372e4a8688a690d92ff5d37486" category="list-text">在node1上、检查系统日期、时间和时区：</block>
+  <block id="a4bac589c9731b4d185716354e684665" category="paragraph">对于node2、为<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须是要升级的节点1的节点。</block>
+  <block id="b2573e3929d9e0e5f247b35cdab987cd" category="summary">在使用ARL升级同一机箱中的控制器型号时、使用node2禁用HA对并关闭node1。</block>
+  <block id="1fc23a3cac200b5edc3562a57d48f3b9" category="paragraph">要停用 node1 ，请恢复自动操作，以使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从node1机箱中卸下旧系统模块、然后在node1上安装替代模块。</block>
+  <block id="5d629f141961a74282ed5faad7d9fd6d" category="summary">如果使用ARL升级同一机箱中的控制器型号、则必须在交换相应的更换用系统模块之后、使用netboot node1。</block>
+  <block id="f755343049d2c609c09bac0fa2053f5c" category="paragraph">在交换相应的更换系统模块后、您必须使用netboot node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本添加到系统可以访问的 Web 服务器上。</block>
+  <block id="9da52f4c338cfa7c6860f998cea8525e" category="paragraph">除非更换用的控制器模块安装在机箱中并已打开电源、否则无法检查其启动介质上安装的ONTAP版本。替代系统启动介质上的ONTAP版本必须与要升级的旧系统上运行的ONTAP版本相同、并且主启动映像和备份启动映像必须匹配。要验证升级支持的最低ONTAP版本、请参见 <block ref="8294b96e46ba28730c909aaac28da089" category="inline-link-macro-rx"></block>。</block>
+  <block id="88af1dd7397a85d0d0a5307af0325f9e" category="paragraph">您可以通过依次执行网络启动和来配置映像<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> 命令。如果此控制器模块之前在另一个集群中使用过、则为<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> 命令将清除启动介质上的任何残留配置。</block>
+  <block id="f4fe41582e347c8727fbdf631e2f1423" category="summary">对使用ARL升级同一机箱中的控制器型号时可能发生的聚合重新定位故障进行故障排除。</block>
+  <block id="c4eeac6e7cbe204225f518d511b60b39" category="list-text">在第4阶段之后、使用新系统模块更换node2。</block>
+  <block id="ba780a1afde1320c3ba0c2aede19709b" category="paragraph">某些功能需要许可证、这些许可证以_packages _的形式发布、其中包含一项或多项功能。集群中的每个节点都必须有自己的密钥，才能在集群中使用每个功能。</block>
+  <block id="b1b0bb8b99a226159195567a43ecbedc" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到NetApp 支持站点ONTAP _、您可以从中获取新的28个字符的许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，您可以联系您的 NetApp 销售代表。</block>
+  <block id="ba4ea899de86ff42db0d400d0abb0e05" category="list-text">还原OKM的身份验证：</block>
+  <block id="9eec05f535630470b7cd5789cfe1dfaf" category="paragraph">在阶段1中、您可以运行预检、如果需要、还可以更正聚合所有权。如果您要使用板载密钥管理器管理存储加密、并且可以选择将SnapMirror关系静置、则必须记录某些信息。</block>
+  <block id="793f40527b8eabb8ea4394a56656fdba" category="admonition">如果正在使用使用板载密钥管理器(OKM)的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤中完成密钥管理器重新同步。</block>
+  <block id="774861c11e6b70d1c821af9621277da8" category="paragraph">本内容介绍如何使用新控制器升级HA对中的存储控制器、同时保留现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
+  <block id="c1aae218bfb2195459b844de9931aaa9" category="paragraph">在阶段1中、您可以运行预检、如果需要、还可以更正聚合所有权。如果您要使用OKM管理存储加密、并且可以选择将SnapMirror关系静用、则必须记录某些信息。</block>
+  <block id="0b24a531934791ccba401c74f7b872ae" category="sidebar">第2阶段。重新定位资源并停用node1</block>
+  <block id="5ceb77f8e2c1e3cdd2daa06e83ac5f9d" category="sidebar">第 3 阶段。使用替代系统模块启动node1</block>
+  <block id="e5985dd18c7bc7d6b7d0f8d0b77dc81a" category="sidebar">第4阶段。重新定位资源并停用node2</block>
+  <block id="5dd6606e32426e4ac475f3467376f846" category="sidebar">第5阶段。在node2上安装替代系统模块</block>
+  <block id="b04ee562ceae44380463be3b60eafa2d" category="sidebar">第6阶段。使用替代系统模块启动node2</block>
 </blocks>

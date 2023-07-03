@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/prepare_nodes_for_upgrade.html 
-keywords: preparing, nodes, upgrade, stage 1, prechecks 
-summary: 在将 AFF A700 升级到 AFF A900 期间，准备节点并运行一系列预检。 
+keywords: preparing, prepare, nodes, upgrade, stage 1, prechecks, old, system, chassis, disk, disks 
+summary: 在使用ARL升级同一机箱中的控制器型号时、请准备节点并运行一系列预检。 
 ---
 = 准备要升级的节点
 :hardbreaks:
@@ -14,9 +14,36 @@ summary: 在将 AFF A700 升级到 AFF A900 期间，准备节点并运行一系
 
 
 [role="lead"]
-在第 1 阶段，您必须准备好节点进行升级并运行一系列预检。您还必须准备通过网络启动新控制器。
+更换控制器的过程从一系列预检开始。此外、您还会收集有关原始节点的信息、以供稍后在操作步骤中使用、并根据需要确定正在使用的自加密驱动器的类型。
 
 .步骤
+. 列出在旧控制器上运行的服务处理器(SP)或底板管理控制器(BMC)固件版本：
++
+`service-processor show` 命令：
+
++
+验证是否具有受支持的SP或BMC固件版本：
+
++
+[cols="30,35,35"]
+|===
+| 旧控制器 | SP或BMC | 最低固件版本 
+
+
+| AFF A220 | BMC | 11.9P1 
+
+
+| AFF A200 | SP | 5.11P1 
+
+
+| AFF C190 | BMC | 11.9P1 
+
+
+| FAS2620 | SP | 5.11P1 
+
+
+| FAS2720 | BMC | 11.9P1 
+|===
 . 在 ONTAP 命令行的高级权限模式下输入以下命令，开始控制器更换过程：
 +
 `set -privilege advanced`
@@ -189,10 +216,10 @@ aggr4       node1      node1       online
 
 == 许可证
 
-设置集群时，设置向导会提示您输入集群基础许可证密钥。但是，某些功能需要额外的许可证，这些许可证以 _packages_ 的形式发布，其中包括一个或多个功能。集群中的每个节点都必须有自己的密钥，才能在集群中使用每个功能。
+集群中的每个节点都必须具有自己的NetApp许可证文件(NLL)。
 
-如果没有新的许可证密钥，则新控制器可以使用集群中当前已获得许可的功能。但是，在控制器上使用未经许可的功能可能会使您不符合您的许可协议，因此，您应在升级完成后为新控制器安装新的许可证密钥。
+如果您没有NLG、则集群中当前已获得许可的功能可供新控制器使用。但是、在控制器上使用未经许可的功能可能会使您违反许可协议、因此、您应在升级完成后为新控制器安装NLG。
 
-请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ ，在此可以获取 9.10.1 或更高版本的新 2 字符许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，请联系您的 NetApp 销售代表。
+请参见 link:other_references.html["参考资料"] 链接到可获取NetApp 支持站点 的_NLF_。NLFS位于_Software licenses下的_My Support_部分。如果此站点没有所需的NLFS、请联系您的NetApp销售代表。
 
 有关许可的详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。

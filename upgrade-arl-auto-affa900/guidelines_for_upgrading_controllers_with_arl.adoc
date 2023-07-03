@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/guidelines_for_upgrading_controllers_with_arl.html 
-keywords: guidelines, upgrade, aff, a900, a700, ontap, controllers 
-summary: 了解是否可以使用 ARL 将 AFF A700 升级到 AFF A900 。 
+keywords: guidelines, upgrade, ontap, controllers, old, system, chassis, disk, disks 
+summary: 了解是否可以在升级配置中使用ARL来保留旧系统机箱和磁盘。 
 ---
 = 升级控制器的准则
 :hardbreaks:
@@ -14,20 +14,15 @@ summary: 了解是否可以使用 ARL 将 AFF A700 升级到 AFF A900 。
 
 
 [role="lead"]
-在以下系统配置中使用ARL升级一对运行ONTAP 9.10.1P10、9.11.1P6或更高版本的控制器：
-
-* 将AFF A700控制器连接到AFF A900系统
-* 将FAS9000控制器连接到FAS9000系统
-
+要了解是否可以使用聚合重新定位(ARL)、保留旧系统机箱和磁盘、取决于系统升级配置和ONTAP版本。
 
 
 
 == 支持 ARL 升级
 
-使用ARL将控制器从AFF A700升级到AFF A900或从FAS9000升级到FAS9500、并且支持NVRAM模块的组合。如果您收到的新AFF A900或FAS9500系统是一个完整系统、包括一个新机箱、请参见 link:other_references.html["参考资料"] 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。
+某些系统配置支持控制器升级。要查看支持的系统列表和最低ONTAP版本、请参见 link:index.html["概述"]。
 
-
-WARNING: 此操作步骤 严格按照适用场景 ONTAP 9.10.1P10、9.11.1P6或更高版本对AFF A700至AFF A900或FAS9000至FAS9500进行升级。请勿使用此操作步骤 在任何其他系统组合之间执行升级。
+如果您已收到一个完整的全新AFF A150、FAS2820、AFF A900或FAS9500系统(包括新机箱)、请参见 link:other_references.html["参考资料"] 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。
 
 配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
 
@@ -36,6 +31,12 @@ WARNING: 此操作步骤 严格按照适用场景 ONTAP 9.10.1P10、9.11.1P6或�
 == 双节点无交换机集群
 
 如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为交换集群。
+
+
+
+== 交换机连接的集群
+
+如果您要升级连接到集群交换机的集群中的节点、则必须验证升级后交换机上运行的制造商、型号、固件版本、RCIF和ONTAP版本是否与替代控制器上运行的版本相同。如果需要、您必须先执行交换机升级、然后再使用本文档中所述的ARL操作步骤升级控制器。
 
 
 

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html 
-keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2, aff, a900, NVRAM, controller 
-summary: 在 AFF A700 升级到 AFF A900 期间，将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2 并还原 node1 的资源。 
+keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2, NVRAM, controller, module, modules 
+summary: 在使用ARL升级同一机箱中的控制器型号时、将非根聚合和NAS数据LIFs从node1移至node2并还原node1的资源。 
 ---
 = 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
 :hardbreaks:
@@ -14,13 +14,13 @@ summary: 在 AFF A700 升级到 AFF A900 期间，将非根聚合和 NAS 数据 
 
 
 [role="lead"]
-在将node1更换为AFF A900或FAS9500控制 器和NVRAM模块之前、必须先将非根聚合和NAS数据LIF从node1移动到node2、然后才能最终将node1的资源恢复回运行在AFF A900或FAS9500系统 上的node1上。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。
+在将node1替换为用于系统升级的替代模块之前、您必须先将非根聚合和NAS数据LUN从node1移动到node2、然后才能最终将node1资源还原回替代系统上运行的node1。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。
 
 .开始之前
 开始任务时，此操作应已暂停；您必须手动恢复此操作。
 
 .关于此任务
-在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。在升级期间，您无需移动 SAN LIF 即可实现集群或服务运行状况。在将node1作为AFF A900或FAS9500系统联机后、您必须验证LIF是否运行正常并位于相应的端口上。
+在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。在升级期间，您无需移动 SAN LIF 即可实现集群或服务运行状况。在将node1作为替代系统置于联机状态后、您必须验证这些生命周期是否运行正常且位于相应的端口上。
 
 
 NOTE: 不会修改聚合和 LIF 的主所有者；只会修改当前所有者。

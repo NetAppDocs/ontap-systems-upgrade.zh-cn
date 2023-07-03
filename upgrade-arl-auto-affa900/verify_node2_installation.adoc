@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/verify_node2_installation.html 
-keywords: verifying, verify, node, install, installation, aff, a900, NVRAM, controller 
-summary: 使用 AFF A900 控制器模块和 NVRAM 模块验证 node2 安装。 
+keywords: verifying, verify, node, install, installation, NVRAM, controller, module, modules 
+summary: 使用ARL升级同一机箱中的控制器型号时、请使用更换模块验证node2的安装。 
 ---
 = 验证 node2 安装
 :hardbreaks:
@@ -14,10 +14,10 @@ summary: 使用 AFF A900 控制器模块和 NVRAM 模块验证 node2 安装。
 
 
 [role="lead"]
-您必须使用AFF A900或FAS9500控制 器和NVRAM模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。
+您必须使用替代系统模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。
 
 .关于此任务
-使用AFF A900或FAS9500控制 器模块启动node1后、您必须验证是否已正确安装它。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。
+使用替代系统模块启动node1后、您必须验证是否已正确安装。您必须等待node2加入仲裁、然后恢复控制器更换操作。
 
 此时，在操作步骤中，操作将暂停，而 node2 加入仲裁。
 

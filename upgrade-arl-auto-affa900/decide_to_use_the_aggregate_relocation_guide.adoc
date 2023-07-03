@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html 
-keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability, aff, a700, a900 
-summary: 确定是否使用 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。 
+keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
+summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型号。 
 ---
 = 确定是否使用聚合重新定位操作步骤
 :hardbreaks:
@@ -14,12 +14,36 @@ summary: 确定是否使用 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。
 
 
 [role="lead"]
-此内容介绍如何升级AFF A700 HA对中的存储控制器以及FAS9000 HA对中的新AFF A900控制器或控制器以及新的FAS9500控制器、同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
+此内容介绍如何在保留所有现有数据和磁盘的同时升级HA对中的存储控制器。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
 
 在以下情况下使用此操作步骤 ：
 
-* 您已向NetApp销售代表确认、您已收到AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件。
-* 您正在运行ONTAP 9.10.1P10、9.11.1P6或更高版本。
+* 您正在执行以下控制器升级之一：
++
+[cols="50,50"]
+|===
+| 旧控制器 | 更换控制器 
+
+
+| AFF A220、AFF A200或AFF C190 | AFF A150 
+
+
+| FAS2620或FAS2720 | FAS2820 
+
+
+| AFF A700 | AFF A900 
+
+
+| FAS9000 | FAS9500 
+|===
+* 您已向NetApp销售代表确认收到用于控制器升级的硬件：
++
+** AFF A150控制器
+** FAS2820控制器
+** AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件。
+
+
+* 您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 link:index.html["概述"]。
 * 您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。
 * 您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。
 
@@ -30,7 +54,7 @@ summary: 确定是否使用 ARL 操作步骤 将 AFF A700 升级到 AFF A900 。
 * 您正在使用共享交换机进行集群互连和以太网连接存储。
 
 
-有关升级 Fabric MetroCluster 或 MetroCluster IP 配置的信息，请参见 link:other_references.html["参考资料"] 链接到 _RAID MetroCluster 升级和扩展 _ 内容。
+有关升级AFF A700或FAS9000系统上的光纤MetroCluster或MetroCluster IP配置、请参见 link:other_references.html["参考资料"] 链接到 _RAID MetroCluster 升级和扩展 _ 内容。
 
 
 NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。

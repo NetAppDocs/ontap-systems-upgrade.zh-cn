@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: /upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html 
 keywords: moving, non-root, aggregates, nas, lif, node1, node2 
-summary: 验证在AFF A700升级到AFF A900期间、node2上的node1 NAS数据LIF是否已从node2重新定位到node1。 
+summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上的node1 NAS数据LIFs是否已从node2重新定位到node1。 
 ---
 = 将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1
 :hardbreaks:
@@ -42,7 +42,7 @@ summary: 验证在AFF A700升级到AFF A900期间、node2上的node1 NAS数据LI
 
 . 执行网络可访问性检查：
 +
-`network port reachability -show-detail -node node1`
+`network port reachability show -node node1`
 
 +
 确认所有已连接端口（包括接口组和 VLAN 端口）的状态均显示为 `OK` 。

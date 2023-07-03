@@ -131,7 +131,7 @@ NOTE: 您必须确认将 SAN LIF 移动到与原始端口具有相同链路速�
 +
 `network interface show -home-node <node4> -role data`
 
-.. 如果任何 LIF 已关闭，请通过为每个 LIF 输入以下命令将 LIF 的管理状态设置为 up ：
+.. 如果任何 LIF 已关闭，请为每个 LIF 输入以下命令，将 LIF 的管理状态设置为 `up` ：
 +
 `network interface modify -vserver _vserver_name_-lif _lif_name_-status-admin up`
 

@@ -106,7 +106,7 @@ summary: 您可以链接到此主题中的其他参考内容和网站。
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^] | 包含有关下载和升级 ONTAP 的说明。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller replace命令将AFF A700升级到AFF A900或FAS9000、并将其升级到运行ONTAP 9.10.1或更高版本的FAS9000"^] | 介绍使用system controller replace命令将AFF A700无中断升级到AFF A900系统或将FAS9000升级到运行ONTAP 9.10.1或更高版本的FAS9000系统所需的聚合重新定位过程。 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] | 介绍无中断升级保留旧系统机箱和磁盘的系统所需的聚合重新定位过程。 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] | 介绍使用 system controller replace 命令无中断升级运行 ONTAP 9.8 的控制器所需的聚合重新定位过程。 

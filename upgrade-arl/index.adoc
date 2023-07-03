@@ -31,7 +31,7 @@ ARL 利用 HA 配置，您可以将非根聚合的所有权从一个节点移动
 | 如果您运行的是此 ONTAP 版本… | 要使用 system 命令进行升级，请使用… 
 
 
-| 9.10.1 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用 system controller replace 命令将 AFF A700 升级到运行 ONTAP 9.10.1 或更高版本的 AFF A900"] 
+| 9.10.1 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] 
 
 
 | 9.8 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"] 
