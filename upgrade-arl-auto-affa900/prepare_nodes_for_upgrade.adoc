@@ -19,7 +19,7 @@ summary: 在使用ARL升级同一机箱中的控制器型号时、请准备节�
 .步骤
 . 列出在旧控制器上运行的服务处理器(SP)或底板管理控制器(BMC)固件版本：
 +
-`service-processor show` 命令：
+`service-processor show`
 
 +
 验证是否具有受支持的SP或BMC固件版本：
@@ -150,7 +150,7 @@ Controller replacement operation has been paused for user intervention.
 
 +
 
-NOTE: 如果正在使用使用板载密钥管理器的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤 中完成密钥管理器重新同步。
+NOTE: 如果正在使用板载密钥管理器进行NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请保留密钥管理器密码短语、以便稍后在操作步骤中完成密钥管理器重新同步。
 
 . 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
 +

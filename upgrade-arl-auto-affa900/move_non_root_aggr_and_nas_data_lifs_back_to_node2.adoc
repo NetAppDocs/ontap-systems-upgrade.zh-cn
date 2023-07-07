@@ -14,7 +14,7 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node1上
 
 
 [role="lead"]
-在验证 node2 上的网络配置以及将聚合从 node1 重新定位到 node2 之前，您必须验证当前位于 node1 上的 node2 所属的 NAS 数据 LIF 是否已从 node1 重新定位到 node2 。您还必须验证 node2 上是否存在 SAN LIF 。
+在验证node2上的网络配置之后、以及在将聚合从node1重新定位到node2之前、您需要验证node1上当前属于node2的NAS数据生命周期是否已从node1重新定位到node2。此外、还必须验证node2上是否存在SAN SIFs。
 
 .关于此任务
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node2 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。

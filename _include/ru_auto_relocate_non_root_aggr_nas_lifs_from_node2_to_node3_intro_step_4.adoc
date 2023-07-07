@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-在将node2替换为node4之前、必须将node2所拥有的非根聚合和NAS数据LIF重新定位到node3。
+在将node2替换为node4之前、您需要将node2所拥有的非根聚合和NAS数据生命周期重新定位到node3。
 
 .开始之前
 上一阶段的后处理检查完成后， node2 的资源释放将自动启动。非根聚合和非 SAN 数据 LIF 将从 node2 迁移到 node3 。

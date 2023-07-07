@@ -14,7 +14,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 
 
 [role="lead"]
-要停用 node1 ，您需要恢复自动操作，以便使用 node2 禁用 HA 对并正确关闭 node1 。您必须稍后从机架或机箱中删除 node1 。
+要停用 node1 ，您需要恢复自动操作，以便使用 node2 禁用 HA 对并正确关闭 node1 。稍后在操作步骤中、您将node1从机架或机箱中卸下。
 
 .步骤
 . 恢复操作：

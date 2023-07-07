@@ -14,7 +14,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 
 [role="lead"]
-在操作步骤中物理装入 node3 和 node4 后，您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。在准备网络启动时，您必须将 ONTAP 9 启动映像的副本放在系统可以访问的 Web 服务器上。
+在操作步骤中物理装入 node3 和 node4 后，您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您会将ONTAP 9启动映像的副本放置到系统可以访问的Web服务器上。
 
 .开始之前
 * 确认您可以使用系统访问 HTTP 服务器。
