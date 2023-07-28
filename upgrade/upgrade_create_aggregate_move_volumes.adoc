@@ -4,27 +4,20 @@ sidebar: sidebar
 keywords: create, aggregate, node, store, volume, original, node, identify, aggregate, individually, create an aggregate and moving volumes to the new nodes 
 summary: 您至少要在每个新节点上创建一个聚合，以存储要从原始节点移动的卷。您必须为每个卷标识一个聚合，并单独移动每个卷。 
 ---
-= 创建聚合并移动卷
+= 创建聚合并将卷移动到新节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-在ONTAP软件升级期间、您可以通过在新节点上创建聚合并移动卷来迁移数据。
-
-如果存储配置包括SAN卷或加密卷、则还必须移动这些卷：
-
-* <<move_san_vols,移动SAN卷>>
-* <<移动启用了加密的卷>>
-
-
-
-
-== 创建聚合并将卷移动到新节点
-
 您至少要在每个新节点上创建一个聚合，以存储要从原始节点移动的卷。您必须为每个卷标识一个聚合，并单独移动每个卷。
 
+[NOTE]
+====
+如果您的存储配置包含SAN卷、请按照中的步骤进行操作 https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html["将 Linux iSCSI 主机从 MetroCluster FC 移动到 MetroCluster IP 节点"^] 将这些卷移动到新节点。
+
+====
 .开始之前
 必须先初始化数据保护镜像关系，然后才能移动卷。
 
@@ -47,7 +40,7 @@ NOTE: 对于每个Storage Virtual Machine (SVM)、NetApp建议先移动集群中
 
 . 验证新聚合现在是否已分配给与原始节点上的聚合相同的 SVM ：
 +
-`vserver show -vserversvm_name`
+`vserver show -vserver _svm_name_`
 
 . 显示要从原始节点移至新节点的卷的信息：
 +
@@ -101,6 +94,10 @@ node12a_aggr4    10.36GB         FCAL
 +
 您不能移动节点根卷（ vol0 ）。可以移动其他卷，包括 SVM 根卷。
 
++
+
+NOTE: 如果您的存储配置包含已启用加密的卷、请按照中的步骤进行操作 https://docs.netapp.com/us-en/ontap/encryption-at-rest/encrypt-existing-volume-task.html["使用 volume move start 命令在现有卷上启用加密"^] 以移动这些卷。
+
 . 显示 `volume move` 操作的结果，以验证卷是否已成功移动：
 +
 `volume move show -vserver _svm_name_ -volume _vol_name_`
@@ -117,15 +114,3 @@ node12a_aggr4    10.36GB         FCAL
 `volume show -vserver _svm_name_`
 
 
-
-
-
-== 移动SAN卷
-
-要移动SAN卷、请按照中的步骤进行操作 https://docs.netapp.com/us-en/ontap-metrocluster/transition/task_move_linux_iscsi_hosts_from_mcc_fc_to_mcc_ip_nodes.html["将 Linux iSCSI 主机从 MetroCluster FC 移动到 MetroCluster IP 节点"^]。此适用场景可在MetroCluster和非MetroCluster配置中移动SAN卷。
-
-
-
-== 移动启用了加密的卷
-
-要移动启用了聚合加密的卷、请按照中的步骤进行操作 https://docs.netapp.com/us-en/ontap/encryption-at-rest/encrypt-existing-volume-task.html["使用 volume move start 命令在现有卷上启用加密"^]。

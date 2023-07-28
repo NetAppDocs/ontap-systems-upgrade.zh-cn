@@ -64,7 +64,7 @@ entries:
     url: "/upgrade/upgrade-prepare-when-moving-volumes.html"
   - title: 安装并加入新节点
     url: "/upgrade/upgrade-install-and-join-new-nodes-move-vols.html"
-  - title: 创建聚合并移动卷
+  - title: 创建聚合并将卷移动到新的ndoes
     url: "/upgrade/upgrade-create-aggregate-move-volumes.html"
   - title: 移动非 SAN 数据 LIF 和集群管理 LIF
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"

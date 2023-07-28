@@ -1225,7 +1225,6 @@
   <block id="fe82c8b7274d1544ce545c5b1bb60481" category="paragraph">`Vserver add-aggregates`</block>
   <block id="39e7eb0e1fd08f1ba6fea6e4df4f0d50" category="paragraph">要从中移动卷的新聚合和旧聚合必须位于同一个 SVM 中。</block>
   <block id="65c0e65d7f3d4f9b7e59695a5beed439" category="list-text">验证新聚合现在是否已分配给与原始节点上的聚合相同的 SVM ：</block>
-  <block id="d144782c7f277a43532b9873909babed" category="paragraph">`vserver show -vserversvm_name`</block>
   <block id="60ffd94dccfc67beb8507929d59460e3" category="list-text">显示要从原始节点移至新节点的卷的信息：</block>
   <block id="045e4ac6df29d2cafc7b15a9d2d9e81e" category="paragraph">您应保留命令输出以供日后参考。</block>
   <block id="291a171e8b949620eda68d899d2e3e06" category="paragraph">以下示例显示了 "VS1" SVM 和 "node0" 节点上的卷：</block>
@@ -4719,12 +4718,6 @@ AFF C190至AFF A150</block>
   <block id="4ca61b6580e69e11b24f59b9ac4072a9" category="list-text">原始节点必须支持与新节点相同的软件版本。</block>
   <block id="36596c0816df78df5e957f4a98189433" category="inline-link">混合版本ONTAP集群</block>
   <block id="85e5b517efa68824f0234d73603eb6a7" category="admonition">有关混合软件版本集群升级的详细信息、请参见<block ref="d823e4718a376dd43333fd0519ed9811" category="inline-link-rx"></block>。</block>
-  <block id="b60ec04bcd2e9c2318176db5554a658d" category="doc">创建聚合并移动卷</block>
-  <block id="963335c836d3a76f0b7a6fe41a21aa10" category="paragraph">在ONTAP软件升级期间、您可以通过在新节点上创建聚合并移动卷来迁移数据。</block>
-  <block id="df6a90d1df953a09f0861a13f5b797ac" category="paragraph">如果存储配置包括SAN卷或加密卷、则还必须移动这些卷：</block>
-  <block id="2b6df1fd9c8637b8e45b452843b61251" category="inline-xref">移动SAN卷</block>
-  <block id="5d3013f3192caf5b6d504d6b74b3c0bd" category="list-text"><block ref="bec3fd5974c2411b73ce484bc58515dc" category="inline-xref-macro-rx"></block></block>
-  <block id="c18328ed9c3f2ac31d9f3c316cc9e737" category="list-text"><block ref="4b487523353dbb4021f9c789f1abd771" category="inline-xref-macro-rx"></block></block>
   <block id="26e45a92e217288c9847a5d2ced10530" category="admonition">对于每个Storage Virtual Machine (SVM)、NetApp建议先移动集群中的所有非根卷、然后再移动根卷、并一次在一个SVM上执行此操作步骤。</block>
   <block id="1c36e2804cb1ec373c2a554d3b816849" category="paragraph"><block ref="5f689443af4fd8e259550080d375f644" prefix="" category="inline-code"></block></block>
   <block id="d2d22984b72e7ba1d65fc825394c313c" category="list-text">将新聚合添加到与要从中移动卷的原始节点上的聚合相同的Storage Virtual Machine (SVM)中：</block>
@@ -4735,9 +4728,10 @@ AFF C190至AFF A150</block>
   <block id="cc3a467b8580d41426d4329faee0f040" category="paragraph"><block ref="f2384b5c154a2111fb6276b4aca913cf" prefix="" category="inline-code"></block></block>
   <block id="bffd5b081e9a5849648039713909f29e" category="paragraph"><block ref="0b16dbbb7b08013a425b1eda1ac6c38b" prefix="" category="inline-code"></block></block>
   <block id="ce294e2d50479fda57c6fd56279415cc" category="paragraph"><block ref="fb8ac527e5a233ade0c11a4584eca81d" prefix="" category="inline-code"></block></block>
-  <block id="ad6b5250334c326be9a638a7f4693ca4" category="inline-link">将 Linux iSCSI 主机从 MetroCluster FC 移动到 MetroCluster IP 节点</block>
-  <block id="0bdc5d6c2eb50e1cec81ff459335b642" category="paragraph">要移动SAN卷、请按照中的步骤进行操作<block ref="5da33795dc988979c1b6bb2285c365f5" category="inline-link-rx"></block>。此适用场景可在MetroCluster和非MetroCluster配置中移动SAN卷。</block>
-  <block id="2729d03a958013cde2327ff523899d85" category="section-title">移动启用了加密的卷</block>
   <block id="c773b38bfd21b7a35d0d8783b04fa05f" category="inline-link">使用 volume move start 命令在现有卷上启用加密</block>
-  <block id="0a770440a8b9e6d0362d3a18060f162d" category="paragraph">要移动启用了聚合加密的卷、请按照中的步骤进行操作<block ref="f72c159bffbf92db3704805be06f351f" category="inline-link-rx"></block>。</block>
+  <block id="7dc9e3aa635e299178bab6d9a48bf453" category="inline-link">将 Linux iSCSI 主机从 MetroCluster FC 移动到 MetroCluster IP 节点</block>
+  <block id="0345ed9888a23976d10ee4dbe39e5b1c" category="paragraph">如果您的存储配置包含SAN卷、请按照中的步骤进行操作<block ref="850d31fae3bf8532793cf4bdf951a1e7" category="inline-link-rx"></block> 将这些卷移动到新节点。</block>
+  <block id="666b05db74464377ceeeff39f469bcde" category="paragraph"><block ref="e31e4085164f9a5d9e1c0ec1ca25fc65" prefix="" category="inline-code"></block></block>
+  <block id="214d6a2680fcbe83e2c825740dae5888" category="admonition">如果您的存储配置包含已启用加密的卷、请按照中的步骤进行操作<block ref="f72c159bffbf92db3704805be06f351f" category="inline-link-rx"></block> 以移动这些卷。</block>
+  <block id="565ead98cf39206ccfb37fb835c84352" category="sidebar">创建聚合并将卷移动到新的ndoes</block>
 </blocks>
