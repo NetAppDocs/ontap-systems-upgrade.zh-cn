@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html 
-keywords: install, NVRAM, node2, controller, module, modules, replacement 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
 summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2上安装替代系统模块。 
 ---
 = 在node2上安装替代系统模块
@@ -16,15 +16,15 @@ summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2
 [role="lead"]
 在node2上安装您收到的用于升级的替代系统模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
 
-* <<在node2上安装AFF A150或FAS2820控制器模块>>
-* <<在节点2上安装AFF A900或FAS9500NVRAM和控制器模块>>
+* <<install_modules_a,在node2上安装ASA A150、AFF A150或FAS2820控制器模块>>
+* <<install_modules_b,在node2上安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块>>
 
 
 
 
-== 在node2上安装AFF A150或FAS2820控制器模块
+== 在node2上安装ASA A150、AFF A150或FAS2820控制器模块
 
-在node2上安装您收到的用于升级的AFF A150或FAS2820控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
+在node2上安装您收到的用于升级的ASA A150、AFF A150或FAS2820控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
 
 .开始之前
 * 如果您尚未接地，请正确接地。
@@ -60,14 +60,14 @@ NOTE: 为避免损坏连接器，请勿在将控制器模块滑入机箱时用�
 
 
 
-== 在节点2上安装AFF A900或FAS9500NVRAM和控制器模块
+== 在node2上安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块
 
-在node2上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
+在node2上安装您收到的用于升级的ASA A900、AFF A900或FAS9500 NVRAM和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
 
 执行安装时、必须注意以下事项：
 
 * 将插槽6-1和6-2中的所有空白填充模块从旧NVRAM模块移至新的NVRAM模块。
-* 请勿将核心转储设备从AFF A700 NVRAM模块移至AFF A900 NVRAM模块。
+* 请勿将核心转储设备从AFF A700 NVRAM模块移至ASA A900或AFF A900 NVRAM模块。
 * 将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。
 
 
@@ -76,9 +76,9 @@ NOTE: 为避免损坏连接器，请勿在将控制器模块滑入机箱时用�
 
 
 
-=== 安装AFF A900或FAS9500NVRAM模块
+=== 安装ASA A900、AFF A900或FAS9500 NVRAM模块
 
-使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在节点2的插槽6中。
+使用以下操作步骤将ASA A900、AFF A900或FAS9500 NVRAM模块安装到node2的插槽6中。
 
 .步骤
 . 将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。
@@ -87,9 +87,9 @@ NOTE: 为避免损坏连接器，请勿在将控制器模块滑入机箱时用�
 
 
 
-=== 在节点2中安装AFF A900或FAS9500控制 器模块
+=== 在node2中安装ASA A900、AFF A900或FAS9500控制器模块
 
-使用以下操作步骤 在node2中安装AFF A900或FAS9500控制 器模块。
+使用以下操作步骤在node2中安装ASA A900、AFF A900或FAS9500控制器模块。
 
 .步骤
 . 将控制器模块的末端与机箱中的托架 B 对齐，然后将控制器模块轻轻推入系统的一半。

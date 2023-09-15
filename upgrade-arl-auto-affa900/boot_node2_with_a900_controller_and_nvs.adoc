@@ -21,6 +21,9 @@ summary: 使用ARL升级同一机箱中的控制器型号时、使用替代控�
 | 旧的node2控制器 | 更换node2系统模块 
 
 
+| 配置为ASA的AFF A220 | ASA A150控制器模块 
+
+
 | AFF A220
 AFF A200
 AFF C190 | AFF A150控制器模块 
@@ -28,6 +31,9 @@ AFF C190 | AFF A150控制器模块
 
 | FAS2620
 FAS2720 | FAS2820控制器模块 
+
+
+| 配置为ASA的AFF A700 | ASA A900控制器和NVRAM模块 
 
 
 | AFF A700 | AFF A900控制器和NVRAM模块 

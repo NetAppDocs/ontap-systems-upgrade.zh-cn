@@ -25,10 +25,16 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 | 旧控制器 | 更换控制器 
 
 
+| 配置为ASA的AFF A220 | ASA A150 
+
+
 | AFF A220、AFF A200或AFF C190 | AFF A150 
 
 
 | FAS2620或FAS2720 | FAS2820 
+
+
+| 配置为ASA的AFF A700 | ASA A900 
 
 
 | AFF A700 | AFF A900 
@@ -38,9 +44,8 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 |===
 * 您已向NetApp销售代表确认收到用于控制器升级的硬件：
 +
-** AFF A150控制器
-** FAS2820控制器
-** AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件。
+** ASA A150、AFF A150或FAS2820控制器
+** ASA A900、AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件
 
 
 * 您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 link:index.html["概述"]。

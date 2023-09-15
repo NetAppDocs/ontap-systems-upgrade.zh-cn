@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/replace_node1_system_modules.html 
-keywords: replace, node1, system, modules 
+keywords: aff, asa, fas, replace, node1, system, modules 
 summary: 使用ARL升级同一机箱中的控制器型号时、请更换node1系统模块。 
 ---
 = 更换node1系统模块
@@ -17,7 +17,15 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换node1系
 更换适用于您的升级配置的node1系统模块：
 
 * <<replace_modules,更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720控制器模块>>
++
+
+NOTE: 您还可以使用此操作步骤更换配置为ASA的AFF A220。
+
 * <<更换AFF A700或FAS9000控制器和NVRAM模块>>
++
+
+NOTE: 您还可以使用此操作步骤替换配置为ASA的AFF A700。
+
 
 
 
@@ -53,9 +61,9 @@ image::../media/drw_2240_x_opening_cam_latch.png[drw 2240 x opening cam latch]
 
 
 
-=== 安装AFF A150或FAS2820控制器模块
+=== 安装ASA A150、AFF A150或FAS2820控制器模块
 
-使用以下操作步骤在node1中安装AFF A150或FAS2820控制器模块。
+使用以下操作步骤在node1中安装ASA A150、AFF A150或FAS2820控制器模块。
 
 .步骤
 . Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
@@ -178,14 +186,14 @@ image::../media/black_circle_two.png[第二]
 
 
 
-=== 安装AFF A900或FAS9500 NVRAM和控制器模块
+=== 安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块
 
-在node1上安装为升级而收到的AFF A900或FAS9500NVRAM和控制器模块。
+在node1上安装为升级而收到的ASA A900、AFF A900或FAS9500 NVRAM和控制器模块。
 
 执行安装时、必须注意以下事项：
 
 * 将插槽6-1和6-2中的所有空白填充模块从旧NVRAM模块移至新的NVRAM模块。
-* 请勿将核心转储设备从AFF A700 NVRAM模块移至AFF A900 NVRAM模块。
+* 请勿将核心转储设备从AFF A700 NVRAM模块移至ASA A900或AFF A900 NVRAM模块。
 * 将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。
 
 
@@ -194,9 +202,9 @@ image::../media/black_circle_two.png[第二]
 
 
 
-==== 安装AFF A900或FAS9500NVRAM模块
+==== 安装ASA A900、AFF A900或FAS9500 NVRAM模块
 
-使用以下操作步骤 将AFF A900或FAS9500NVRAM模块安装在node1的插槽6中。
+使用以下操作步骤将ASA A900、AFF A900或FAS9500 NVRAM模块安装到node1的插槽6中。
 
 .步骤
 . 将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。
@@ -222,9 +230,9 @@ image::../media/black_circle_two.png[第二]
 
 
 
-==== 在node1上安装AFF A900或FAS9500控制 器模块。
+==== 在node1上安装ASA A900、AFF A900或FAS9500控制器模块。
 
-使用以下操作步骤 在node1中安装AFF A900或FAS9500控制 器模块。
+使用以下操作步骤在node1中安装ASA A900、AFA A900或FAS9500控制器模块。
 
 .步骤
 . 将控制器模块的末端与机箱中的开口对齐，然后将控制器模块轻轻推入系统的一半。

@@ -21,12 +21,16 @@ summary: 开始升级之前、请确认您具有正确的硬件来升级同一�
 | 升级条件 | 您必须拥有... 
 
 
-| AFF A220至AFF A150
-AFF A200至AFF A150
-AFF C190至AFF A150 | 两个控制器模块 
+| AFF A220配置为ASA A150的ASA | 两个控制器模块 
+
+
+| AFF A220、AFF A200或AFF C190至AFF A150 | 两个控制器模块 
 
 
 | FAS2620或FAS2720到FAS2820 | 两个控制器模块 
+
+
+| AFF A700配置为ASA A900的ASA | 两个控制器和两个NVRAM模块 
 
 
 | AFF A700 到 AFF A900 | 两个控制器和两个NVRAM模块 
