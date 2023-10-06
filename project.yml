@@ -13,6 +13,8 @@ sidebar:
     url: "/index.html"
   - section: upgrade
   - section: upgrade-arl
+  - title: 法律声明
+    url: "/legal-notices.html"
 homepage:
   tiles:
   - title: 入门
