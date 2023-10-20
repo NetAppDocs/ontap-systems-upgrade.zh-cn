@@ -1,0 +1,70 @@
+---
+permalink: choose_controller_upgrade_procedure.html 
+sidebar: sidebar 
+keywords:  
+summary: '通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过移动聚合或卷存储(无中断过程)或移动存储(中断操作步骤)来进行升级。' 
+---
+= 选择您的控制器硬件升级操作步骤
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过重新定位聚合或移动卷(这两个过程均为无中断过程)或移动存储(一个中断操作步骤)来进行升级。如果在原始节点和新节点上运行的ONTAP版本不同、则可能需要先执行软件升级、然后再开始硬件升级。
+
+[role="tabbed-block"]
+====
+.具有内部驱动器的系统
+--
+为具有内部驱动器的系统选择升级操作步骤、如下所示：
+
+* FAS2620、FAS2650、FAS2720和FAS2750
+* AFF A150、AFF A200、AFF A220、AFF A250、AFF A700s、 和AFF A800
+* AFF C190、AFF C250和AFF C800
+* ASA A150、ASA A250、ASA A800和ASA AFF A220
+
+
+如果未列出您的系统、请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 以检查它是否具有内部驱动器。
+
+image:workflow_internal_drives.png["选择升级操作步骤的决策工作流"]
+
+--
+.仅使用外部驱动器的系统
+--
+为仅具有外部驱动器的系统选择升级操作步骤、如下所示：
+
+* FAS8200、FAS9300、FAS8700、FAS9000和FAS9500
+* AFF A300、AFF A320、AFF A400、AFF A700和AFF A900
+* AFF C400
+* ASA A400、ASA A900和ASA AFF A700
+
+
+如果未列出您的系统、请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 检查它是否仅具有外部驱动器。
+
+image:workflow_external_drives.png["选择升级操作步骤的决策工作流"]
+
+--
+====
+了解控制器硬件升级过程：
+
+* link:upgrade-arl/index.html["使用聚合重新定位进行升级"]
++
+聚合重新定位是一种替代操作步骤。您无需使用新节点扩展和缩减集群、这对于双节点无交换机集群非常有用。与移动卷时跨聚合复制数据相比、通过重新定位聚合移动数据的速度更快。
+
+* link:upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷进行升级"]
+* link:upgrade/upgrade-decide-to-use-this-guide.html["通过移动存储进行升级"]
+
+
+[NOTE]
+====
+*Note1*：新节点必须支持在原始节点上运行的ONTAP版本。如果需要、 link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级ONTAP版本"^] 将原始节点上的版本设置为支持的最大版本。原始节点与新节点之间的版本差异不能大于4。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["了解有关混合版本ONTAP集群的更多信息"^]。
+
+*注2*：无中断升级要求新系统具有自己的存储和磁盘架来存储原始系统中的数据。
+
+*注3*：通过移动卷进行升级时、您需要加入新节点、将卷和Li移动到新节点、然后取消加入要从集群中删除的节点。如果要升级双节点无交换机集群、则在添加新节点之前、应使用一对集群交换机将其转换为有交换机连接集群。
+
+====
+如果要升级MetroCluster配置、请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["升级、刷新或扩展MetroCluster 配置"^]。
+
+如果要更换单个组件、请参见 https://docs.netapp.com/us-en/ontap-systems/index.html["AFF 和 FAS 系统文档中心"^] 并找到该组件的现场可更换单元(FRU)宣传单。

@@ -11,8 +11,10 @@ sidebar:
   entries:
   - title: AFF 和 FAS 系统升级文档
     url: "/index.html"
-  - section: upgrade
+  - title: 选择您的控制器硬件升级操作步骤
+    url: "/choose_controller_upgrade_procedure.html"
   - section: upgrade-arl
+  - section: upgrade
   - title: 法律声明
     url: "/legal-notices.html"
 homepage:
@@ -21,13 +23,9 @@ homepage:
     links:
     - title: "《 ONTAP 发行说明》"
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
-  - title: 通过移动存储或卷（大多数系统）进行升级
-    links:
-    - title: 升级控制器硬件
-      url: "/upgrade/upgrade-decide-to-use-this-guide.html"
-    - title: 通过转换为驱动器架将AFF A250升级到AFF A400
-      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
-  - title: 在运行 ONTAP 9.8 及更高版本的系统上移动聚合以进行升级
+    - title: 选择您的控制器硬件升级操作步骤
+      url: "/choose_controller_upgrade_procedure.html"
+  - title: 通过在运行ONTAP 9.8及更高版本的系统上重新定位聚合进行升级
     links:
     - title: 使用system controller Replace命令升级同一机箱中的控制器型号
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
@@ -35,12 +33,18 @@ homepage:
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
     - title: 使用手动命令
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/
-  - title: 通过在运行 ONTAP 9.7 及更早版本的系统上移动聚合进行升级
+  - title: 通过在运行ONTAP 9.7及更早版本的系统上重新定位聚合进行升级
     links:
     - title: 使用 system controller replace 命令（大多数系统）
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
     - title: 使用手动命令
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/
+  - title: 通过移动一个或多个存储卷进行升级
+    links:
+    - title: 升级控制器硬件
+      url: "/upgrade/upgrade-decide-to-use-this-guide.html"
+    - title: 通过转换为驱动器架将AFF A250升级到AFF A400
+      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
   - title: 升级 MetroCluster 配置中的系统
     links:
     - title: 为您的 MetroCluster 配置选择升级操作步骤

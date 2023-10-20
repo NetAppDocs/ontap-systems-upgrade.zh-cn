@@ -15,6 +15,15 @@ summary: 如果要通过移动存储进行升级，请准备原始节点并设�
 
 image::../upgrade/media/workflow_for_upgrading_by_moving_storage.png[通过移动存储升级控制器硬件的工作流]
 
+[NOTE]
+====
+在通过移动存储升级控制器硬件的步骤中，原始节点称为 node1 和 node2 ，新节点称为 node3 和 node4 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。
+
+image::../upgrade/media/original_to_new_nodes.png[原始节点到新节点]
+
+术语 node1 ， node2 ， node3 和 node4 仅用于区分原始节点和新节点。遵循操作步骤时、必须将其替换为原始节点和新节点的真实名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。
+
+====
 .步骤
 . xref:upgrade-prepare-when-moving-storage.adoc[移动存储时准备升级]
 . xref:upgrade-shutdown-remove-original-nodes.adoc[关闭原始节点]
@@ -26,4 +35,8 @@ image::../upgrade/media/workflow_for_upgrading_by_moving_storage.png[通过移�
 . xref:upgrade-attach-shelves-reassign-disks.adoc[连接存储架并重新分配磁盘所有权]
 . xref:upgrade-restore-root-volume-config.adoc[还原根卷配置]
 . xref:upgrade-complete.adoc[完成升级]
+
+
+.相关信息
+* xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[通过转换为驱动器架将AFF A250升级到AFF A400] (无中断操作步骤)。
 

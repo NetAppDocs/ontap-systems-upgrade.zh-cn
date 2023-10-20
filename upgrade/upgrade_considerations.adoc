@@ -13,52 +13,91 @@ summary: 要规划升级，您应熟悉一般升级注意事项。如有必要�
 [role="lead"]
 要规划升级，您必须熟悉一般升级注意事项。如有必要，请联系技术支持，以获取有关集群配置的建议和指导。
 
-.要求和限制
-* 用于通过移动存储进行升级的操作步骤会造成系统中断。用于通过移动卷进行升级的操作步骤无中断。
-* 原始节点必须支持与新节点相同的软件版本。
+
+
+== 要求和限制
+
+根据您的环境，您需要在开始升级之前考虑某些因素。首先查看下表、了解需要考虑的要求和限制。
+
+
+NOTE: 在开始升级控制器操作步骤之前、您必须查看下表中列出的所有问题。
+
+[cols="30,70"]
+|===
+| 问自己 ... | 如果您的问题解答为yes、请执行此操作。 
+
+
+| 我是否要在一个集群中组合使用不同型号的控制器平台？  a| 
+link:https://hwu.netapp.com["验证您是否遵循存储平台混用规则"^]。
+
+一个HA对中的控制器必须是两个AFF、FAS或ASA型号。
+
+
+
+| 在原始节点和新节点上运行的ONTAP版本是否不同？  a| 
+. https://hwu.netapp.com["检查原始节点和新节点支持的ONTAP版本和修补程序级别"^]。
+. NetApp建议尽可能在原始节点和新节点上运行相同版本的ONTAP。如果无法做到这一点、 link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级ONTAP版本"^] 将原始节点上的版本设置为支持的最大版本、以使原始节点与新节点之间的版本差异不超过四个。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.
 +
-link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^]
+https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["了解有关混合版本ONTAP集群的更多信息"^]。
+
+
+
+
+
+| 我的系统是否包含内部驱动器？我是否正在移动卷？  a| 
+. link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["验证新节点是否具有足够的存储空间来容纳与原始节点关联的存储"^]。
+. 通过移动卷进行升级时，在删除原始节点之前，新节点将加入集群。您必须遵守最大集群大小。
++
+https://hwu.netapp.com["验证操作步骤期间集群中的控制器总数是否未超过支持的最大集群大小"^]。
 
 +
 
-NOTE: 有关混合软件版本集群升级的详细信息、请参见 https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["混合版本ONTAP集群"^]。
+NOTE: 如果要升级为FCP、iSCSI或FCoE等块协议提供服务的八节点集群、请验证新节点是否正确公布了LUN。有关详细信息，请参见 https://docs.netapp.com/us-en/ontap/san-management/index.html["SAN存储管理"^]。
 
-* 您必须遵守最大集群大小。
-+
-通过移动卷进行升级时，在删除原始节点之前，新节点将加入集群。确认集群中的控制器数量在操作步骤 期间不超过支持的最大集群大小。
-
-+
-https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* 在集群中组合使用不同型号的控制器平台时，必须遵循存储平台混用规则。
-+
-https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* 新节点必须具有足够的存储空间来容纳与原始节点关联的存储。
-+
-https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管理磁盘和聚合"^]
-
-* 新系统支持的根聚合大小和磁盘数必须等于或大于原始系统支持的大小和磁盘数。
-+
-有关根聚合大小要求，请参见 https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* HA 对中的控制器必须为两个 AFF 型号或两个 FAS 型号。
-* 如果节点位于同一集群中，则可以通过将卷或物理存储从一个 FAS2xxx 移动到更高的 FAS2xxx 来进行升级。例如，您可以将卷或物理存储从 FAS2552 移动到 FAS2750 。
-* 如果要升级具有多个 HA 对的集群中的 HA 对，则必须将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。
-* 如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["NetApp 知识库文章 SU436 ： CLAMK takeover default configuration changed"^]。从 ONTAP 9.8 开始，默认情况下会启用 `KCS -enable-takeover` 参数。
-* 如果要升级双节点 MetroCluster 配置，请参见： https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["选择升级或刷新方法"^]
+. link:upgrade-by-moving-volumes-parent.html["通过移动卷进行升级"] (无中断操作步骤)。
 
 
-具有内部存储的系统
 
 
-NOTE: 以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、FAS2650、 FAS2720、FAS2750、AFF A150、AFF A200、AFF A220、 AFF A250、AFF A700s、AFF A800、AFF C190、AFF C250、 和AFF C800。
+| 我是移动内部存储还是将系统转换为驱动器架？  a| 
+. https://hwu.netapp.com/["验证新系统支持的根聚合大小和磁盘数是否等于或大于原始系统支持的大小和磁盘数"^]。
+. link:upgrade-by-moving-storage-parent.html["通过移动存储进行升级"] (一个中断操作步骤)。
 
+
+
+
+| 我是否要在包含多个HA对的集群中升级HA对？ | 将Epsilon移动到未进行控制器升级的HA对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。 
+
+
+| 我是否正在运行ONTAP 9.6P11、9.7P8或更高版本？ | NetApp建议您启用连接、运行状况和可用性监控(VANM)接管、以便在发生某些节点故障时将集群恢复为仲裁状态。。 `kernel-service` 命令需要高级权限级别访问权限。有关详细信息、请参见NetApp知识库文章 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["已更改管理接管默认配置"^]。
+
+从ONTAP 9.8开始、 `kcs-enable-takeover` 默认情况下、参数处于启用状态。 
+|===
+
+NOTE: 您可以通过将数据移动到新存储(移动卷)或将现有集成系统转换为磁盘架、然后将其迁移到新系统(移动存储)来升级集成系统。例如、您可以通过将FAS2650控制器机箱转换为DS224C SAS磁盘架并将其连接到FAS9300来将FAS2650升级到FAS9300。无论哪种情况、数据迁移或转换后的磁盘架都会保留在同一个有交换机集群中。
+
+
+
+== 具有内部存储的系统
+
+以下系统具有内部存储：
+
+[cols="4*"]
+|===
+4+| 具有内部驱动器的系统 
+
+
+ a| 
+FAS2620、FAS2650、FAS2720和FAS2750
+ a| 
+AFF A150、AFF A200、AFF A220、AFF A250、AFF A700s、 和AFF A800
+| AFF C190、AFF C250和AFF C800 | ASA A150、ASA A250、ASA A800和ASA AFF A220 
+|===
 * 如果您的系统未在上面列出，请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 以检查它是否具有内部驱动器。
-* 如果您的系统具有内部存储，建议的升级方法是通过移动卷进行升级。
-* 如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。FAS2520控制器无法转换为驱动器架。
+* 如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。
 +
-在通过移动存储进行升级的工作流中、将FAS255x系统转换为驱动器架是一项可选任务。
+
+NOTE: 不能将AFF A700s、AFF A800、AFF C800或ASA A800系统转换为驱动器架。
 
 * 如果您的系统具有内部存储，或者系统中的卷或聚合位于内部 SATA 驱动器或 SSD 上，则可以通过将内部存储传输到连接到同一集群中新节点的驱动器架来进行升级。
 +
@@ -66,31 +105,19 @@ NOTE: 以下系统具有内部存储：FAS2520、FAS2552、FAS2554、FAS2620、F
 
 
 
-可能需要执行其他步骤的情况
-
-* 如果要从AFF A250升级到AFF A400、请参见 xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[通过转换为驱动器架将AFF A250升级到AFF A400]。
-* 如果新系统的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。
-+
-https://hwu.netapp.com["NetApp Hardware Universe"^]
-
-* 如果原始节点或新节点使用 FlexArray 虚拟化软件。
-+
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["NetApp 知识库文章： FlexArray for NetApp 控制器升级和更换涉及哪些具体步骤"^]
-
-* 如果集群具有 SAN 主机，则可能需要采取步骤来解决 LUN 序列号更改问题。
-+
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["如何使用 iSCSI 和 FCP 解决存储控制器主板更换和机头升级期间的问题"^]
-
-* 如果您的系统使用带外 ACP ，则可能需要从带外 ACP 迁移到带内 ACP 。
-+
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["NetApp知识库文章：In-Band ACP Setup and Support"^]
 
 
+== 可能需要执行其他步骤的情况
 
-* 相关信息 *
+* xref:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.adoc[您要从AFF A250升级到AFF A400] (无中断操作步骤)。
+* 如果新系统的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。请参见 https://hwu.netapp.com["NetApp Hardware Universe"^]。
+* 如果原始节点或新节点使用FlexArray虚拟化软件、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["FlexArray for NetApp控制器升级和更换过程中涉及哪些具体步骤"^]。
+* 如果集群具有 SAN 主机，则可能需要采取步骤来解决 LUN 序列号更改问题。请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["如何使用 iSCSI 和 FCP 解决存储控制器主板更换和机头升级期间的问题"^]。
+* 如果您的系统使用带外 ACP ，则可能需要从带外 ACP 迁移到带内 ACP 。请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["带内ACP设置和支持"^]
 
-xref:upgrade-methods.adoc[选择升级控制器硬件的方法]
 
-xref:upgrade-by-moving-storage-parent.adoc[通过移动存储升级控制器硬件]
+.相关信息
+* link:../choose_controller_upgrade_procedure.html["选择升级控制器硬件的方法"]
+* xref:upgrade-by-moving-storage-parent.adoc[通过移动存储升级控制器硬件]
+* xref:upgrade-by-moving-volumes-parent.adoc[通过移动卷升级控制器硬件]
 
-xref:upgrade-by-moving-volumes-parent.adoc[通过移动卷升级控制器硬件]
