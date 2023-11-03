@@ -35,7 +35,7 @@ homepage:
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/
   - title: 通过在运行ONTAP 9.7及更早版本的系统上重新定位聚合进行升级
     links:
-    - title: 使用 system controller replace 命令（大多数系统）
+    - title: 使用system controller Replace命令
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
     - title: 使用手动命令
       url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/

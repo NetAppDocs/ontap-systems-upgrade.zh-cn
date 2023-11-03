@@ -2286,7 +2286,6 @@
   <block id="340477541e5fdc93ffc7488a1377706f" category="paragraph">以下示例显示了集群中节点处于仲裁状态时的输出：</block>
   <block id="4885a30c7d2ead3e5bbc5a7722e06fbc" category="admonition">在本文档中，原始节点称为 _node1_ 和 _node2_ ，新节点称为 _node3_ 和 _node4_ 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。术语 _node1_ ， _node2_ ， _node3_ 和 _node4_ 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。本文档使用术语 _systems with FlexArray Virtualization Software_ 来指属于这些新平台的系统。它使用术语 _V 系列系统 _ 来表示可以连接到存储阵列的不同硬件系统</block>
   <block id="58d2951f9fe54692264bb8d42558291f" category="list-text">此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9 之后发布的 FAS 系统可以连接到存储阵列。ONTAP 9 支持现有 V 系列系统。有关存储阵列和 V 系列型号的信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _V Hardware Universe 系列支持表 _ 并查看 _V 系列支持表 _ 。</block>
-  <block id="e6063d0ab61b368bdfbca64be36dbd64" category="list-text">此操作步骤适用场景 MetroCluster 四节点和八节点配置运行 ONTAP 9.5 及更早版本。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到使用 " 系统控制器更换 " 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7_ 。</block>
   <block id="d5560010a4b579866a98e0b680b5c248" category="paragraph">如果 SnapMirror 关系未处于 `Transferring` 状态，则中止将失败。</block>
   <block id="4799633d9eb6a31235d0102c0d2b1812" category="list-text">验证是否已保存交换机配置。</block>
   <block id="1dd8fdc75f0d1d8e00ce9ec094e07e48" category="list-text">按照您在中创建的布线布局，使用缆线将两个 FC-SAS 网桥连接到 FC 交换机 <block ref="1e3a603a58f58380bbf882725903f11b" category="inline-link-macro-rx"></block>。</block>
@@ -2664,11 +2663,9 @@
   <block id="6af074e0669e408e576b460f5c34b89b" category="cell">要手动升级，请使用…</block>
   <block id="4c41f3a2ec168af1924a7c5a884bdc37" category="cell">9.0 到 9.7</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
-  <block id="ec01d482cf394f212f073921cfd9d5bd" category="sidebar">《 ONTAP 发行说明》</block>
   <block id="6c54fdf57ce13c518f1cc0d9d5f32820" category="sidebar">升级控制器硬件</block>
   <block id="194cc1951d00be469039af6dbda275d0" category="sidebar">使用 system controller replace 命令（大多数系统）</block>
   <block id="b4d25e7f066e6393a7e3a6a7115b4f94" category="sidebar">使用手动命令</block>
-  <block id="5f9c427150012de98abaaa70885c293c" category="sidebar">使用 system controller replace 命令（大多数系统）</block>
   <block id="7d94daad2b6e9d77a6320a64c21fbc4a" category="sidebar">升级 MetroCluster 配置中的系统</block>
   <block id="c6bb96cc8b84319277f00b15adc71d75" category="sidebar">为您的 MetroCluster 配置选择升级操作步骤</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多资源</block>
@@ -4759,7 +4756,6 @@ FAS2720</block>
   <block id="c62a490dc179bcb1d44777cba5eb4845" category="paragraph">在将iSCSI SAN卷移动到新节点之前、您必须创建新的iSCSI连接并重新扫描新节点的iSCSI路径。</block>
   <block id="c19689d06a29f6feeef4510514125400" category="paragraph">如果在升级时不需要通过移动iSCSI SAN卷来移动卷、则可以跳过此操作步骤并转到 <block ref="0187590ed6627836f657d0d4157f4bd9" category="inline-link-macro-rx"></block>。</block>
   <block id="067e2e3846b3b294b518d3f733e2a96b" category="list-text">IPv4接口是在设置新的iSCSI连接时创建的。</block>
-  <block id="53c3dbfeb6f99087434e72b6b5c6d75f" category="list-text">主机命令和示例特定于Linux操作系统。</block>
   <block id="b3b6efa3f6df48fc93b3542c29661f7c" category="inline-xref-macro">将Linux iSCSI主机移至新节点</block>
   <block id="184c3f7752a9e68702c55c35faa973db" category="list-text"><block ref="184c3f7752a9e68702c55c35faa973db" category="inline-xref-macro-rx"></block></block>
   <block id="fef2f3438d6db0111e356d7cf9de46ab" category="paragraph">本内容介绍如何通过移动存储或卷来升级集群中AFF、FAS或ASA系统的控制器硬件。</block>
@@ -4768,7 +4764,6 @@ FAS2720</block>
   <block id="524f05419622851f7f6289320cc91a6e" category="inline-link">升级、刷新或扩展MetroCluster 配置</block>
   <block id="54fbf367f6c88f6a32c90b81e113fdbc" category="paragraph">如果要升级MetroCluster配置、请参见<block ref="ce6e655e9cb4a81012dd5871edda628b" category="inline-link-rx"></block>。</block>
   <block id="30f60d67f457bb040dffde52197a54da" category="list-title">相关信息</block>
-  <block id="06852d9347cc17e2896148f62d8b43e8" category="list-text"><block ref="06852d9347cc17e2896148f62d8b43e8" category="inline-xref-macro-rx"></block></block>
   <block id="ff13d8bc09b612151174d9b83a1e0634" category="paragraph">术语 node1 ， node2 ， node3 和 node4 仅用于区分原始节点和新节点。遵循操作步骤时、必须将其替换为原始节点和新节点的真实名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。</block>
   <block id="6cbbb16b482dd046bc6d845094f114f9" category="list-text"><block ref="16a60590ab4a03950f527e475b265368" category="inline-xref-macro-rx"></block> (无中断操作步骤)。</block>
   <block id="608ce5a5400efa8f95d0e8e4878a465d" category="paragraph">例如、如果您要将系统从AFF A200升级到AFF A220、只需将旧的AFF A200控制器模块更换为新的AFF A220控制器模块、同时保留旧的AFF A200的机箱和磁盘、 您不能按照本节_删除连接到新节点的磁盘的所有权_中所述删除新AFF A220控制器模块的磁盘所有权。</block>
@@ -4856,4 +4851,9 @@ FAS2720</block>
   <block id="c024cf342a69d8b35b142333f2608aa5" category="sidebar">通过在运行ONTAP 9.8及更高版本的系统上重新定位聚合进行升级</block>
   <block id="5d3c4b59db4a991b7c6450c61662dc60" category="sidebar">通过在运行ONTAP 9.7及更早版本的系统上重新定位聚合进行升级</block>
   <block id="d58d42ec84ab0189beb36da55893f387" category="sidebar">通过移动一个或多个存储卷进行升级</block>
+  <block id="ef69680bc1ee7b1fd5e0950d56699d33" category="list-text">此操作步骤适用场景 MetroCluster 四节点和八节点配置运行 ONTAP 9.5 及更早版本。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到_使用system controller Replace命令将运行ONTAP 9.5的控制器硬件升级到ONTAP 9.7_。</block>
+  <block id="187aa569481ce25a564facc34217dda3" category="list-text">主机命令和示例特定于Linux操作系统。</block>
+  <block id="fcbf56c541d4d283030e94ff96a44848" category="paragraph">您也可以使用USB启动选项执行网络启动。请参见知识库文章 <block ref="184f8f7294797efad8be0da4fb907563" category="inline-link-macro-rx"></block>。</block>
+  <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">《 ONTAP 发行说明》</block>
+  <block id="806e982f94b5ab4054aa07ccb047ecdb" category="sidebar">使用system controller Replace命令</block>
 </blocks>

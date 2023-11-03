@@ -42,5 +42,5 @@ NOTE: 在本文档中，原始节点称为 _node1_ 和 _node2_ ，新节点称�
 * 此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9 之后发布的 FAS 系统可以连接到存储阵列。ONTAP 9 支持现有 V 系列系统。有关存储阵列和 V 系列型号的信息，请参见 link:other_references.html["参考资料"] 要链接到 _V Hardware Universe 系列支持表 _ 并查看 _V 系列支持表 _ 。
 
 
-* 此操作步骤适用场景 MetroCluster 四节点和八节点配置运行 ONTAP 9.5 及更早版本。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 link:other_references.html["参考资料"] 链接到使用 " 系统控制器更换 " 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7_ 。
+* 此操作步骤适用场景 MetroCluster 四节点和八节点配置运行 ONTAP 9.5 及更早版本。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 link:other_references.html["参考资料"] 链接到_使用system controller Replace命令将运行ONTAP 9.5的控制器硬件升级到ONTAP 9.7_。
 

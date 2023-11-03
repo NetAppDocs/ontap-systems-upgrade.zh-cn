@@ -16,6 +16,8 @@ During the process of upgrading by moving storage, you power on node3 and node4,
 .开始之前
 如果在新节点上运行的 ONTAP 版本与原始节点上的版本不同，则必须已从 NetApp 支持站点将正确的 ` <ontap_version>_image.tgz` 文件下载到可通过 Web 访问的目录中（请参见 _prepare for the upgrade when moving storage_ ， link:upgrade-prepare-when-moving-storage.html#prepare_move_store_5["第 5 步"]）。要对系统执行网络启动，您需要使用 ` <ontap_version>_image.tgz` 文件。
 
+您也可以使用USB启动选项执行网络启动。请参见知识库文章 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["如何使用boot_recovery loader命令安装ONTAP 以进行系统初始设置"^]。
+
 .步骤
 . 打开 node3 的电源，然后立即在控制台终端上按 Ctrl-C 以访问 LOADER 提示符。
 +
