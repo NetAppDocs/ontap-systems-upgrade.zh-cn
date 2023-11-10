@@ -39,10 +39,20 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 +
 `cluster show`
 
-. 每个集群 LIF 都必须侦听端口 7700 。验证集群 LIF 是否正在侦听端口 7700 ：
+. 根据要升级的HA对上运行的ONTAP版本、执行以下操作之一：
 +
-` ：：： > 网络连接侦听 show -vserver Cluster`
+[cols="30,70"]
+|===
+| 如果您的 ONTAP 版本为 ... | 那么 ... 
 
+
+| 9.8至9.11.1 | 验证集群 LIF 是否正在侦听端口 7700 ：
+
+`::> network connections listening show -vserver Cluster` 
+
+
+| 9.12.1或更高版本 | 跳过此步骤并转到 <<verify_node4_step5,第 5 步>>。 
+|===
 +
 对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：
 
@@ -60,14 +70,14 @@ Cluster          NodeB_clus1:7700               TCP/ctlopcp
 Cluster          NodeB_clus2:7700               TCP/ctlopcp
 4 entries were displayed.
 ----
-. 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
+. 对于未侦听端口700的每个集群LIF、将LIF的管理状态设置为 `down` 然后 `up`：
 +
 `：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
 +
 重复步骤 3 以验证集群 LIF 是否正在侦听端口 7700 。
 
-. 切换到高级权限模式：
+. [[verify_node4_Step5]]切换到高级权限模式：
 +
 `set advanced`
 
@@ -133,6 +143,9 @@ NOTE: 在此操作步骤中， _re-creating VLANs ， ifgrp 和 broadcast domain
 
 .关于此任务
 有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 。
+
+
+NOTE: 如果要更改AFF A800或AFF C800系统上e0a和e1a集群端口的端口速度、则可能会在速度转换后看到接收到格式错误的数据包。请参见 https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp错误在线中的错误ID 1570339"^] 和知识库文章 https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["从40GbE转换到100GbE后、在调整端口配置为36的端口上出现CRC错误"^] 以获得指导。
 
 .步骤
 . 列出已升级的 node2 （称为 node4 ）上的所有物理端口：

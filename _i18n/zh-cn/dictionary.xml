@@ -3069,7 +3069,6 @@
   <block id="2b628f1eeda50351f42204c06da24fe7" category="list-text">如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见<block ref="7c246f3223ef6280d0a553bd56956f52" category="inline-link-rx"></block>。</block>
   <block id="b8dabd137df5202c83400e4fde74838d" category="paragraph">` ：：： &gt; 网络连接侦听 show -vserver Cluster`</block>
   <block id="9c26c389cd17f0bf0da92eb4d2187822" category="paragraph">对于双节点集群，端口 7700 侦听集群端口是预期结果，如以下示例所示：</block>
-  <block id="17a934761f44517e9bcc906e1eb8bfe9" category="list-text">如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：</block>
   <block id="8f6f15e3cd3793ad38c3214c75a0a348" category="paragraph">重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。</block>
   <block id="d1a7512eb8f4b6dc2ebea16def830204" category="paragraph">重复步骤 11 以验证集群 LIF 是否正在侦听端口 7700 。</block>
   <block id="ceb1502357ca7edd7dc13458f9f78895" category="paragraph">重复子步骤（ g ）以验证集群 LIF 是否正在侦听端口 7700 。</block>
@@ -4856,4 +4855,22 @@ FAS2720</block>
   <block id="fcbf56c541d4d283030e94ff96a44848" category="paragraph">您也可以使用USB启动选项执行网络启动。请参见知识库文章 <block ref="184f8f7294797efad8be0da4fb907563" category="inline-link-macro-rx"></block>。</block>
   <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">《 ONTAP 发行说明》</block>
   <block id="806e982f94b5ab4054aa07ccb047ecdb" category="sidebar">使用system controller Replace命令</block>
+  <block id="32d8f219b2e3b24132bd4923c34c4dc6" category="list-text">对于未侦听端口700的每个集群LIF、将LIF的管理状态设置为<block ref="74e8333ad11685ff3bdae589c8f6e34d" prefix=" " category="inline-code"></block> 然后<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>：</block>
+  <block id="0f072cf75dad23e085e6786bbfa15ee3" category="list-text">根据要升级的HA对上运行的ONTAP版本、执行以下操作之一：</block>
+  <block id="3b7bc6da810fcf3db2d0ac3faf0d4699" category="cell">如果您的 ONTAP 版本为 ...</block>
+  <block id="70d79c0ebfb73d5165d2451382cc4332" category="cell">9.8至9.11.1</block>
+  <block id="57d17db025176f211f2601bfb69b294f" category="cell">验证集群 LIF 是否正在侦听端口 7700 ：
+<block ref="478f48a10865c64c029e9fd3cec0523d" prefix=" " category="inline-code"></block></block>
+  <block id="384264f87c50753f2eb17ca87ee9effa" category="cell">9.12.1或更高版本</block>
+  <block id="57e06e6af76d79b8779f5f6d6d293c4b" category="cell">跳过此步骤并转到 <block ref="42e2bf4f4ef15f603bcc30bc206d35c3" category="inline-xref-macro-rx"></block>。</block>
+  <block id="5b14143915836be17fa2618f3eb7806d" category="cell">跳过此步骤并转到 <block ref="908f101af36ad2335dd086df5698bdbf" category="inline-xref-macro-rx"></block>。</block>
+  <block id="99b3cab751e6822e482e17b1680dd183" category="cell">跳过此步骤并转到 <block ref="50ada5c38dd8312cfb2b5108640c8ce7" category="inline-xref-macro-rx"></block>。</block>
+  <block id="931aa0d9454eeac2242bed266d6ccf39" category="list-text">[[verify_node3_STEP_5]]切换到高级权限模式：</block>
+  <block id="bb751320dd480e108cbcc56ecb725c59" category="inline-link">NetApp错误在线中的错误ID 1570339</block>
+  <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">从40GbE转换到100GbE后、在调整端口配置为36的端口上出现CRC错误</block>
+  <block id="282e5b40067cab0a2f099fb840c18705" category="admonition">如果要更改AFF A800或AFF C800系统上e0a和e1a集群端口的端口速度、则可能会在速度转换后看到接收到格式错误的数据包。请参见<block ref="6d2ed5cfb453d16c38a7a5c4ec937198" category="inline-link-rx"></block> 和知识库文章<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> 以获得指导。</block>
+  <block id="4a38eadfc2a9ece3d72590e6313fbd6e" category="admonition">如果您要更改基于以下基于的以太网接口卡或主板端口的端口速度、则可能会在速度转换后看到接收到格式错误的数据包。请参见<block ref="6d2ed5cfb453d16c38a7a5c4ec937198" category="inline-link-rx"></block> 和知识库文章<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> 以获得指导。</block>
+  <block id="403701bd83bf4b3cf916d0207d89b4e6" category="cell">跳过此步骤并转到 <block ref="8837566debd0bf055ddeb89904e2fbbc" category="inline-xref-macro-rx"></block>。</block>
+  <block id="6fdc0880de0e199aedb20bf62f491976" category="list-text">[[verify_node4_Step5]]切换到高级权限模式：</block>
+  <block id="694bd1275df145cf6b146f04be06b773" category="cell">跳过此步骤并转到 <block ref="b6919d088e29a20fea866ec3a396e020" category="inline-xref-macro-rx"></block>。</block>
 </blocks>

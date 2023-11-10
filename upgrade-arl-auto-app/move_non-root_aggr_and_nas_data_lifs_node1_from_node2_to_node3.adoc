@@ -19,6 +19,9 @@ summary: '使用升级运行ONTAP 9.8或更高版本的控制器时、验证node
 .关于此任务
 在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node3 联机后，您将验证 LIF 是否运行正常并位于相应的端口上。
 
+
+NOTE: 如果您要更改基于以下基于的以太网接口卡或主板端口的端口速度、则可能会在速度转换后看到接收到格式错误的数据包。请参见 https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp错误在线中的错误ID 1570339"^] 和知识库文章 https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["从40GbE转换到100GbE后、在调整端口配置为36的端口上出现CRC错误"^] 以获得指导。
+
 .步骤
 . 恢复重新定位操作：
 +

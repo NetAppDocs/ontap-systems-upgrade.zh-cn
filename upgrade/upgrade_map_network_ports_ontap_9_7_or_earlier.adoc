@@ -82,7 +82,7 @@ Cluster          NodeB_clus1:7700               TCP/ctlopcp
 Cluster          NodeB_clus2:7700               TCP/ctlopcp
 4 entries were displayed.
 ----
-.. 如有必要，对于未侦听端口 7700 的每个集群 LIF ，将 LIF 的管理状态设置为 `down` ，然后设置 `up` ：
+.. 对于未侦听端口700的每个集群LIF、将LIF的管理状态设置为 `down` 然后 `up`：
 +
 `：：> net int modify -vserver cluster -lif _cluster-lif_-status-admin down；net int modify -vserver cluster -lif _cluster-lif_-status-admin up`
 
