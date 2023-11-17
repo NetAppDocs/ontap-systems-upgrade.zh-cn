@@ -14,9 +14,12 @@ summary: 您至少要在每个新节点上创建一个聚合，以存储要从�
 您至少要在每个新节点上创建一个聚合，以存储要从原始节点移动的卷。您必须为每个卷标识一个聚合，并单独移动每个卷。
 
 .开始之前
-必须先初始化数据保护镜像关系，然后才能移动卷。
-
+* 必须先初始化数据保护镜像关系，然后才能移动卷。
++
 https://docs.netapp.com/us-en/ontap/data-protection-disaster-recovery/index.html["查找所需的数据保护操作步骤"^]。
+
+* 如果要移动iSCSI SAN卷、请确认已移动 link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["已创建新的iSCSI连接"]。
+
 
 
 NOTE: 对于每个Storage Virtual Machine (SVM)、NetApp建议先移动集群中的所有非根卷、然后再移动根卷、并一次在一个SVM上执行此操作步骤。

@@ -1398,14 +1398,12 @@
   <block id="44e9f0c666ea054f51421040e37dee98" category="summary">从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群管理 LIF 从原始节点迁移到新节点。</block>
   <block id="7d0330f92f5b6340af08f88bf712e687" category="doc">将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点</block>
   <block id="87375b5769d5bc8e37ee39d964c25804" category="paragraph">您不能使用 VMware vStorage APIs for Array Integration （ VAAI ）迁移用于副本卸载操作的 LIF 。</block>
-  <block id="d079690ef04f3c3ab2f4e91b5f28e90b" category="list-text">从托管集群 LIF 的节点中，将非 SAN 数据 LIF 的主端口从原始节点更改为新节点：</block>
   <block id="fc522dd9612f86c0ea7c802be05de893" category="cell">要迁移的对象</block>
   <block id="1d073f20d5a5045e1aa3afacf792bf7c" category="cell">然后输入 ...</block>
   <block id="0a4bc8aea04444e0f2b960facbd686f4" category="paragraph">特定 LIF</block>
   <block id="fb465127c12aa152a3a6787bc1358040" category="paragraph">所有非 SAN 数据 LIF 和集群管理 LIF</block>
   <block id="8d4031ef52b7ff00f19077a56df4c26e" category="paragraph">以下命令会将 SVM"vs0" 上名为 datalif1 的 LIF 迁移到 "node0b" 上的端口 "e0d" ：</block>
   <block id="44807f621f3e0960500d7db205f07c8e" category="paragraph">以下命令将从当前（本地）节点迁移所有数据和集群管理 LIF ：</block>
-  <block id="08784f3476a94c005c9ffbca34e62ce0" category="list-text">检查集群管理 LIF 的主节点是否位于原始节点之一： `network interface show -lif cluster_mgmt -fields home-node`</block>
   <block id="68c8a99bc9172a87f6301c02d55008f8" category="list-text">如果集群管理 LIF 的主节点位于某个原始节点上，请完成以下步骤：</block>
   <block id="a7d2bd92477c7708999d89fc281f2cfb" category="list-text">将集群管理 LIF 的主节点切换到一个新节点：</block>
   <block id="038faacffbd9c39ca68e42dccdbe915f" category="list-text">将集群管理 LIF 迁移到一个新节点：</block>
@@ -3616,10 +3614,6 @@
   <block id="d8a3e002e1fe8c2f25656a36ddbfbeba" category="list-text">显示当前连接到原始节点上SVM的活动启动程序的列表、对于每个旧LIF一次：+`iscsi connection show -vserver _vserver_name_-lif _old_lif_`</block>
   <block id="3b5280aac62d339d908a3019ce691faa" category="paragraph">`lun portset remove -vserver _vserver_name_-portset _portset_name_-port-name _lif_name_`</block>
   <block id="6e2a280fc54f306b51d2674e9eea36fc" category="paragraph">`network interface delete -vserver _vserver_name_-lif _lif_name_`</block>
-  <block id="0c7ec176679cf1c9c562b2bc88ed9472" category="paragraph">`network interface modify -vserver _vserver_name_-lif _lif_name_-home-node _new_node_name_-home-port｛&lt;netport_ifgrp&gt;｝`</block>
-  <block id="24aef972cbe11a33dc4e5cb93310061b" category="paragraph">`network interface migrate-all -node _node_name_`</block>
-  <block id="b84d32c43b649cc6913dcced9685f6db" category="paragraph">`network interface modify -vserver _cluster_name_-lif cluster_mgmt -home-node _new_node_name_-home-port｛&lt;netport_ifgrp&gt;｝`</block>
-  <block id="6e4f5a3bbafa35688ed0eba9be161169" category="paragraph">`network interface migrate -vserver _vserver_name_-lif cluster-mgmt -destination-node _new_node_name_-destination-port｛&lt;netport_ifgrp&gt;｝`</block>
   <block id="019ba4e936e9a1ab59eec2033ea3a6b4" category="paragraph">`ssystem node AutoSupport invoke -node _node_name_-type all -message "upgrading node_name from _platform_original_to _platform_new_"`</block>
   <block id="f29dc737795110e1cc8fbd850515968a" category="paragraph">`network port delete -node _node1_-port _port_name_`</block>
   <block id="525ce0d5109d2abc61cc41e941dec46b" category="paragraph">`network port broadcast-domain show -ports _node_name：port_name_`</block>
@@ -4398,7 +4392,6 @@
   <block id="b2e9444b2e3d3f6bcd5b8053418d9f98" category="paragraph"><block ref="b04273b4623b1fb5400a1445280a00fc" prefix="" category="inline-code"></block></block>
   <block id="9eaa084ea5e1fc23b5bd8f4e4b31ae16" category="list-text">启用存储故障转移自动交还：</block>
   <block id="452b3b4e54b69d07570137489de879c0" category="paragraph"><block ref="06113f79bc639d145a6e40cfdd6b4211" prefix="" category="inline-code"></block></block>
-  <block id="b7fb6eb57cd7c0b92ddce1c6b7f38e07" category="paragraph"><block ref="101c5ced41d107d54620027143ba74f3" prefix="" category="inline-code"></block></block>
   <block id="a48dffce96c7d2cee50452bbbe3c3149" category="list-text"><block ref="f1c84a71e0779351e0f5be10141fff81" prefix="" category="inline-code"></block></block>
   <block id="1b0afd0b9e1ef791af87236c19a70f16" category="list-text"><block ref="7f5b95324bf0335821a8f979872431c9" prefix="" category="inline-code"></block></block>
   <block id="6dcc62df7a079d79f6374d9c17d2120e" category="list-text"><block ref="169aa9029e0b9363f74914feb183b562" prefix="" category="inline-code"></block></block>
@@ -4779,7 +4772,6 @@ FAS2720</block>
   <block id="ca189dbb46d0896b1743f452fe344293" category="inline-link">检查原始节点和新节点支持的ONTAP版本和修补程序级别</block>
   <block id="8870bf8eb809743305db4031987fa36e" category="list-text"><block ref="b3ab3127149837ef7459a9eb97a04a54" category="inline-link-rx"></block>。</block>
   <block id="7d01893ca79a018810882cd8d3394250" category="inline-link-macro">升级ONTAP版本</block>
-  <block id="2268f05309a25f9d6de565ec4364d034" category="list-text">NetApp建议尽可能在原始节点和新节点上运行相同版本的ONTAP。如果无法做到这一点、 <block ref="a6dedec0dd1fe7caeb3c7769e262d6a2" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本、以使原始节点与新节点之间的版本差异不超过四个。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.</block>
   <block id="50250e80343bef6bd18b0a749aecd73b" category="inline-link">了解有关混合版本ONTAP集群的更多信息</block>
   <block id="bb9ba0401316edbefdd465cc73bfbf1c" category="paragraph"><block ref="d732a285dea0d120c69b9115e25ab72f" category="inline-link-rx"></block>。</block>
   <block id="5df011f91a8a4b3c3604963326b854f6" category="cell">我的系统是否包含内部驱动器？我是否正在移动卷？</block>
@@ -4842,7 +4834,6 @@ FAS2720</block>
   <block id="51d3b2a6cd78fb20797c74bb50b689f5" category="paragraph">聚合重新定位是一种替代操作步骤。您无需使用新节点扩展和缩减集群、这对于双节点无交换机集群非常有用。与移动卷时跨聚合复制数据相比、通过重新定位聚合移动数据的速度更快。</block>
   <block id="73d856629c7408ec32b9b5ffa5af9ed6" category="list-text"><block ref="73d856629c7408ec32b9b5ffa5af9ed6" category="inline-link-macro-rx"></block></block>
   <block id="8b9b2634fd898f04166a765851aba8f2" category="list-text"><block ref="8b9b2634fd898f04166a765851aba8f2" category="inline-link-macro-rx"></block></block>
-  <block id="b10988c4185192c8e53d7add421e9720" category="paragraph">*Note1*：新节点必须支持在原始节点上运行的ONTAP版本。如果需要、 <block ref="a6dedec0dd1fe7caeb3c7769e262d6a2" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本。原始节点与新节点之间的版本差异不能大于4。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.<block ref="ce537934e178c1610dae82a1b82553bf" category="inline-link-rx"></block>。</block>
   <block id="441e5e19c045de8820e45a5b22e45056" category="paragraph">*注2*：无中断升级要求新系统具有自己的存储和磁盘架来存储原始系统中的数据。</block>
   <block id="272d55e2adea123757d8811eaaaebd88" category="paragraph">*注3*：通过移动卷进行升级时、您需要加入新节点、将卷和Li移动到新节点、然后取消加入要从集群中删除的节点。如果要升级双节点无交换机集群、则在添加新节点之前、应使用一对集群交换机将其转换为有交换机连接集群。</block>
   <block id="16319414c65274d365d86327a61ef5dc" category="inline-link">AFF 和 FAS 系统文档中心</block>
@@ -4873,4 +4864,12 @@ FAS2720</block>
   <block id="403701bd83bf4b3cf916d0207d89b4e6" category="cell">跳过此步骤并转到 <block ref="8837566debd0bf055ddeb89904e2fbbc" category="inline-xref-macro-rx"></block>。</block>
   <block id="6fdc0880de0e199aedb20bf62f491976" category="list-text">[[verify_node4_Step5]]切换到高级权限模式：</block>
   <block id="694bd1275df145cf6b146f04be06b773" category="cell">跳过此步骤并转到 <block ref="b6919d088e29a20fea866ec3a396e020" category="inline-xref-macro-rx"></block>。</block>
+  <block id="2e23c7e78862e31423e93a8c06fbeebd" category="doc">将非SAN数据LUN和集群管理LUN移动到新节点</block>
+  <block id="0479b56f75b526758f089a2063e31e6c" category="list-text">使用集群管理LIF登录、并列出原始节点上的所有LIF (逗号分隔列表)：</block>
+  <block id="47abbe9b564eba6007fe4489d824eb6e" category="list-text">将非SAN数据lifs的主端口从原始节点更改为新节点：</block>
+  <block id="d0301a3c428aa6200596747434ea62ce" category="list-text">检查集群管理LIF的主节点是否位于原始节点之一上：</block>
+  <block id="f4050efc501652e600f6e7e735cf5616" category="inline-link-macro">已创建新的iSCSI连接</block>
+  <block id="527226c39d06e4e2f6eec2dca988d2ba" category="list-text">如果要移动iSCSI SAN卷、请确认已移动 <block ref="6f18756f17709181fa11fd9271f705fc" category="inline-link-macro-rx"></block>。</block>
+  <block id="5dac5a25730948f28ff49739852d7be9" category="list-text">NetApp建议尽可能在原始节点和新节点上运行相同版本的ONTAP。如果无法做到这一点、 <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本、以使原始节点与新节点之间的版本差异不超过四个。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.</block>
+  <block id="d9bec0f0ae398cfc3abbf7091d735c22" category="paragraph">*Note1*：新节点必须支持在原始节点上运行的ONTAP版本。如果需要、 <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本。原始节点与新节点之间的版本差异不能大于4。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.<block ref="ce537934e178c1610dae82a1b82553bf" category="inline-link-rx"></block>。</block>
 </blocks>

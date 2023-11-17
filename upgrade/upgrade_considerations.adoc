@@ -36,7 +36,7 @@ link:https://hwu.netapp.com["验证您是否遵循存储平台混用规则"^]。
 
 | 在原始节点和新节点上运行的ONTAP版本是否不同？  a| 
 . https://hwu.netapp.com["检查原始节点和新节点支持的ONTAP版本和修补程序级别"^]。
-. NetApp建议尽可能在原始节点和新节点上运行相同版本的ONTAP。如果无法做到这一点、 link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级ONTAP版本"^] 将原始节点上的版本设置为支持的最大版本、以使原始节点与新节点之间的版本差异不超过四个。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.
+. NetApp建议尽可能在原始节点和新节点上运行相同版本的ONTAP。如果无法做到这一点、 link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["升级ONTAP版本"^] 将原始节点上的版本设置为支持的最大版本、以使原始节点与新节点之间的版本差异不超过四个。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.
 +
 https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["了解有关混合版本ONTAP集群的更多信息"^]。
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: move, volume, original, node, migrate, non-san, lif, cluster-management, move non-san data lifs and cluster management lifs to the new nodeas 
 summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群管理 LIF 从原始节点迁移到新节点。 
 ---
-= 将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点
+= 将非SAN数据LUN和集群管理LUN移动到新节点
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,10 +17,18 @@ summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群�
 您不能使用 VMware vStorage APIs for Array Integration （ VAAI ）迁移用于副本卸载操作的 LIF 。
 
 .步骤
-. 从托管集群 LIF 的节点中，将非 SAN 数据 LIF 的主端口从原始节点更改为新节点：
+. 使用集群管理LIF登录、并列出原始节点上的所有LIF (逗号分隔列表)：
 +
-`network interface modify -vserver _vserver_name_-lif _lif_name_-home-node _new_node_name_-home-port｛<netport_ifgrp>｝`
-
+[source, cli]
+----
+network interface show -curr-node <list_of_original_node_names>
+----
+. 将非SAN数据lifs的主端口从原始节点更改为新节点：
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -home-node <new_node_name> -home-port {<netport|ifgrp>}
+----
 . 执行以下操作之一：
 +
 [cols="1,2"]
@@ -31,21 +39,25 @@ summary: 从原始节点移动卷后，您需要将非 SAN 数据 LIF 和集群�
  a| 
 特定 LIF
  a| 
-`network interface migrate -vserver _vserver_name_ -lif _lif_name_ -destination-node _dest_node_name_ -destination-port _dest_port_name_`
-
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif <lif_name> -destination-node <dest_node_name> -destination-port <dest_port_name>
+----
 
 
  a| 
 所有非 SAN 数据 LIF 和集群管理 LIF
  a| 
-`network interface migrate-all -node _node_name_`
-
+[source, cli]
+----
+network interface migrate-all -node <node_name>
+----
 |===
 +
 以下命令会将 SVM"vs0" 上名为 datalif1 的 LIF 迁移到 "node0b" 上的端口 "e0d" ：
 
 +
-[listing]
+[source, cli]
 ----
 cluster::> network interface migrate -vserver vs0 -lif datalif1 -destination-node node0b -destination-port e0d
 ----
@@ -53,21 +65,30 @@ cluster::> network interface migrate -vserver vs0 -lif datalif1 -destination-nod
 以下命令将从当前（本地）节点迁移所有数据和集群管理 LIF ：
 
 +
-[listing]
+[source, cli]
 ----
 cluster::> network interface migrate-all -node local
 ----
-. 检查集群管理 LIF 的主节点是否位于原始节点之一： `network interface show -lif cluster_mgmt -fields home-node`
+. 检查集群管理LIF的主节点是否位于原始节点之一上：
++
+[source, cli]
+----
+network interface show -lif cluster_mgmt -fields home-node
+----
 . 如果集群管理 LIF 的主节点位于某个原始节点上，请完成以下步骤：
 +
 .. 将集群管理 LIF 的主节点切换到一个新节点：
 +
-`network interface modify -vserver _cluster_name_-lif cluster_mgmt -home-node _new_node_name_-home-port｛<netport_ifgrp>｝`
-
+[source, cli]
+----
+network interface modify -vserver <cluster_name> -lif cluster_mgmt -home-node <new_node_name> -home-port {<netport|ifgrp>}
+----
 .. 将集群管理 LIF 迁移到一个新节点：
 +
-`network interface migrate -vserver _vserver_name_-lif cluster-mgmt -destination-node _new_node_name_-destination-port｛<netport_ifgrp>｝`
-
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif cluster-mgmt -destination-node <new_node_name> -destination-port {<netport|ifgrp>}
+----
 
 
 

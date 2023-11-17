@@ -58,7 +58,7 @@ image:workflow_external_drives.png["选择升级操作步骤的决策工作流"]
 
 [NOTE]
 ====
-*Note1*：新节点必须支持在原始节点上运行的ONTAP版本。如果需要、 link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级ONTAP版本"^] 将原始节点上的版本设置为支持的最大版本。原始节点与新节点之间的版本差异不能大于4。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["了解有关混合版本ONTAP集群的更多信息"^]。
+*Note1*：新节点必须支持在原始节点上运行的ONTAP版本。如果需要、 link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["升级ONTAP版本"^] 将原始节点上的版本设置为支持的最大版本。原始节点与新节点之间的版本差异不能大于4。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1. https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["了解有关混合版本ONTAP集群的更多信息"^]。
 
 *注2*：无中断升级要求新系统具有自己的存储和磁盘架来存储原始系统中的数据。
 
