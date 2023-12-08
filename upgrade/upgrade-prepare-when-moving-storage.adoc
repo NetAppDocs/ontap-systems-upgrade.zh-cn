@@ -167,4 +167,4 @@ NOTE: 您不需要提取 `ontap_version_image.tgz` 文件的内容。
 |===
 
 
-您将使用目录中的信息 xref:upgrade-set-up-new-nodes.adoc[设置新节点]。
+您将使用目录中的信息 link:upgrade-set-up-new-nodes.html["设置新节点"]。

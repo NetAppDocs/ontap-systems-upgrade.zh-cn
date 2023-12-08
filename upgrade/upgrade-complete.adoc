@@ -17,6 +17,6 @@ summary: 在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级�
 
 image::../upgrade/media/workflow_completing_upgrade_98_or_97x.png[完成升级]
 
-* xref:upgrade-complete-ontap-9-8.adoc[在ONTAP 9.8或更高版本中完成升级]
-* xref:upgrade-complete-ontap-9-7-or-earlier.adoc[在 ONTAP 9.7 或更早版本中完成升级]
+* link:upgrade-complete-ontap-9-8.html["在ONTAP 9.8或更高版本中完成升级"]
+* link:upgrade-complete-ontap-9-7-or-earlier.html["在 ONTAP 9.7 或更早版本中完成升级"]
 

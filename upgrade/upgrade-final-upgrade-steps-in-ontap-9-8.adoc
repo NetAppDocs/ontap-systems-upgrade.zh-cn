@@ -1,10 +1,10 @@
 ---
-permalink: upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html 
+permalink: upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html 
 sidebar: sidebar 
-keywords: complete, procedure, upgrading, upgrade, moving, move, storage, delete, port, lif, re-enable, service, processor, sp, license, autosupport, fc, cna, por, perform final upgrade steps in ontap 9.7 or earlier 
-summary: 要通过移动存储来完成操作步骤升级，您需要从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器 \ （ SP\ ），安装新许可证并设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。 
+keywords: complete, procedure, upgrading, upgrade, moving, move, storage, delete, unused, port, lif, re-enable, failover, availability, service, processor, sp, autosupport, volume, encryption, fc, cna, perform final upgrade steps in ontap 9.8 
+summary: 要通过移动存储来完成操作步骤升级，您必须从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器 \ （ SP\ ），安装新许可证并设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。 
 ---
-= 在 ONTAP 9.7 或更早版本中执行最终升级步骤
+= 在ONTAP 9.8或更高版本中执行最终升级步骤
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,17 +14,13 @@ summary: 要通过移动存储来完成操作步骤升级，您需要从新节�
 要通过移动存储来完成操作步骤升级，您必须从新节点中删除所有未使用的端口和 LIF ，重新启用存储故障转移或高可用性，配置服务处理器（ SP ），安装新许可证以及设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 CNA 端口。
 
 .开始之前
-这些步骤适用于运行 ONTAP 9.7 或更早版本的系统。如果您运行的是ONTAP 9.8或更高版本、则必须在中使用操作步骤 xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[在ONTAP 9.8或更高版本中执行最终升级步骤]。
+这些步骤适用于运行ONTAP 9.8或更高版本的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 link:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html["在 ONTAP 9.7 或更早版本中执行最终升级步骤"]。
 
 .步骤
-. 如果系统运行的是ONTAP 9.8或更高版本、请使用*停止*。您必须在中使用操作步骤 xref:upgrade-final-upgrade-steps-in-ontap-9-8.adoc[在ONTAP 9.8或更高版本中执行最终升级步骤]。
+. 如果系统运行的是 ONTAP 9.7 或更早版本，请执行 * 停止 * 。您必须在中使用操作步骤 link:upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html["在 ONTAP 9.7 或更早版本中执行最终升级步骤"]。
 . 在存储系统提示符处，显示有关 LIF 的信息：
 +
 `network interface show`
-
-. 从新节点中删除任何未使用的端口（高级权限级别）：
-+
-`网络端口删除`
 
 . 如果您使用的是 SAN 环境，请从端口集中删除未使用的 LIF ，以便可以将其删除：
 +
@@ -49,10 +45,18 @@ summary: 要通过移动存储来完成操作步骤升级，您需要从新节�
 | 如果您有 ... | 那么 ... 
 
 
-| 双节点集群 | 重新启用高可用性： `cluster ha modify -configured true` 
+ a| 
+双节点集群
+ a| 
+重新启用高可用性： `cluster ha modify -configured true`
 
 
-| 包含两个以上节点的集群 | 重新启用存储故障转移： `storage failover modify -node node_name -enabled true` 
+
+ a| 
+包含两个以上节点的集群
+ a| 
+重新启用存储故障转移： `storage failover modify -node node_name -enabled true`
+
 |===
 . 根据需要在新节点上配置 SP ：
 +
@@ -70,7 +74,7 @@ summary: 要通过移动存储来完成操作步骤升级，您需要从新节�
 +
 `ssystem node AutoSupport invoke -node node_name -type all -message "MAINT=end node_name successfully uped" from platform_old to platform_new"`
 
-. 使用中的相应操作步骤还原存储或卷加密功能https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["使用 CLI 管理加密"^] 内容
+. 使用中的相应操作步骤还原存储或卷加密功能 https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["使用 CLI 管理加密"^] 内容
 +
 根据您使用的是板载密钥管理还是外部密钥管理，请执行以下过程之一：
 

@@ -21,7 +21,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 
 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。
 
-但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并已连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回到 _Install and boot node4_ 部分并继续执行 link:install_boot_node4.html#Step9["第 9 步"]。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
+但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并已连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回到 _Install and boot node4_ 部分并继续执行 link:install_boot_node4.html#man_install4_Step9["第 9 步"]。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
 
 .选项
 * <<在节点 4 上配置 FC 端口>>
@@ -168,7 +168,7 @@ NOTE: 需要将FC端口编程为启动程序。
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
 ** 转至 <<检查并配置 node4 上的 UTA/UTA2 端口>> 如果 node4 具有 UTA/ UTA2 卡或 UTA/UTA2 板载端口。
-** 跳过 _Check and configure UTA/UTA2 ports on node4_ 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请返回 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#Step9["第 9 步"]。
+** 跳过 _Check and configure UTA/UTA2 ports on node4_ 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请返回 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#man_install4_Step9["第 9 步"]。
 
 
 |===
@@ -387,6 +387,6 @@ f-a    2b      fc      target    cna      -          online
 | 具有存储磁盘 | 转至 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#Step9["第 9 步"]。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#man_install4_Step9["第 9 步"]。 
 |===
 

@@ -142,7 +142,7 @@ NOTE: 需要将FC端口编程为启动程序。
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
 ** 转至 <<检查并配置 node4 上的 UTA/UTA2 端口>> 如果 node4 具有 UTA/ UTA2 卡或 UTA/UTA2 板载端口。
-** 跳过 _Check and configure UTA/UTA2 ports on node4_ 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请返回 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#Step9["第 9 步"]。
+** 跳过 _Check and configure UTA/UTA2 ports on node4_ 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请返回 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#man_install4_Step9["第 9 步"]。
 
 
 |===

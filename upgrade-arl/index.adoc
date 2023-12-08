@@ -16,7 +16,7 @@ summary: 使用聚合重新定位升级控制器硬件
 [role="lead"]
 此内容介绍了如何使用聚合重新定位（ Aggregate Relocation ， ARL ）在不造成中断的情况下升级控制器硬件。
 
-有关升级控制器硬件的其他方法，请参见 xref:other_references.adoc[参考资料] 通过移动卷或存储链接到 _Upgrade 。
+有关升级控制器硬件的其他方法，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
 通过将非根聚合从原始节点迁移到同一集群中的新节点，您可以无中断地升级一对运行 ONTAP 的节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。
 

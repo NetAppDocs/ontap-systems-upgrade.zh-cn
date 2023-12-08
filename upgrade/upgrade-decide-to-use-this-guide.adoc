@@ -35,7 +35,7 @@ NOTE: ONTAP 9.8 简化了硬件升级过程，引入了自动端口放置功能�
 如果要升级MetroCluster配置、请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["升级、刷新或扩展MetroCluster 配置"^]。
 
 .相关信息
-* xref:upgrade-considerations.adoc[升级控制器硬件的注意事项]
+* link:upgrade-considerations.html["升级控制器硬件的注意事项"]
 * link:../choose_controller_upgrade_procedure.html["选择升级控制器硬件的方法"]
 * https://docs.netapp.com/us-en/ontap-metrocluster/maintain/concept_where_to_find_procedures_for_mcc_maintenance_tasks.html["从何处查找 MetroCluster 维护任务的过程"^]
 * https://hwu.netapp.com["NetApp Hardware Universe"^]

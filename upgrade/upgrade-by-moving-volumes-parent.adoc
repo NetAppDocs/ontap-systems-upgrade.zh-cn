@@ -1,0 +1,46 @@
+---
+permalink: upgrade/upgrade-by-moving-volumes-parent.html 
+sidebar: sidebar 
+keywords: upgrade by moving volumes 
+summary: 如果要通过移动卷进行升级，请准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。 
+---
+= 工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要通过移动卷来升级控制器硬件、则需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:upgrade-prepare-when-moving-volumes.html["移动卷时准备升级"]
+[role="quick-margin-para"]
+在通过移动卷升级控制器硬件之前、您需要执行一些准备步骤。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]link:upgrade-install-and-join-new-nodes-move-vols.html["安装新节点并将其加入集群"]
+[role="quick-margin-para"]
+您可以安装新节点并将其加入集群、以便可以从原始节点移动卷。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["将Linux iSCSI主机移至新节点"]
+[role="quick-margin-para"]
+在将iSCSI SAN卷移动到新节点之前、您需要创建新的iSCSI连接并重新扫描指向新节点的iSCSI路径。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]link:upgrade-create-aggregate-move-volumes.html["创建聚合并将卷移动到新节点"]
+[role="quick-margin-para"]
+您可以在每个新节点上至少创建一个聚合、以存储要从原始节点移动的卷。您必须为每个卷确定一个聚合、并分别移动每个卷
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"]link:upgrade-move-lifs-to-new-nodes.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"]
+[role="quick-margin-para"]
+从原始节点移动卷后、您可以将非SAN数据lifs和集群管理lifs从原始节点迁移到新节点。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"]link:upgrade_move_delete_recreate_san_lifs.html["移动，删除或创建 SAN LIF"]
+[role="quick-margin-para"]
+根据集群内容和集群环境、您可以移动、删除或创建SAN LUN、或者重新创建已删除的SAN LUN。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]link:upgrade-unjoin-original-nodes-move-volumes.html["从集群中取消原始节点的加入"]
+[role="quick-margin-para"]
+将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都会初始化。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["八个"]link:upgrade-complete-move-volumes.html["完成升级"]
+[role="quick-margin-para"]
+要通过移动卷完成升级操作步骤、请配置服务处理器(Service Processor、SP)、安装新许可证并设置AutoSupport。您可能还需要设置存储或卷加密并配置FC或NCA端口。

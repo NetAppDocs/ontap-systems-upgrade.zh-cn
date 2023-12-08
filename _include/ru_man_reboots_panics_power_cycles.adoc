@@ -48,7 +48,7 @@ Node2 不会接管，但它仍在从所有非根聚合提供数据。
 . 启动 node1 。
 . 继续执行节点对升级操作步骤。
 +
-您可能会看到 `storage failover show` 命令的输出发生一些更改，但这是典型的，不会影响操作步骤。请参见故障排除部分 link:issues_multiple_stages_of_procedure.html#Unexpected-storage-failover-show-command-output["意外的 "storage failover show" 命令输出"]。
+您可能会看到的输出发生一些更改 `storage failover show` 命令、但这是典型操作、不会影响操作步骤。请参见故障排除部分 link:issues_multiple_stages_of_procedure.html#storage-failover-command["意外的 "storage failover show" 命令输出"]。
 
 
 
@@ -193,7 +193,7 @@ node3 已将 node2 的部分或全部聚合重新定位到 node4 。Node4 不会
 
 .步骤
 . 启动 node3 。
-. 重复重新定位属于 node2 的其余聚合 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到 link:relocate_node2_non_root_aggr_node3_node4.html#step3["第 3 步"] 在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 一节中。
+. 重复重新定位属于 node2 的其余聚合 link:relocate_node2_non_root_aggr_node3_node4.html#man_relocate_3_4_Step1["第 1 步"] 到 link:relocate_node2_non_root_aggr_node3_node4.html#step3["第 3 步"] 在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 一节中。
 . 继续执行节点对升级操作步骤。
 
 

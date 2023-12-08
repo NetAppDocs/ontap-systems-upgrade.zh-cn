@@ -253,6 +253,6 @@ Adapter  Mode     Type       Mode     Type       Status
 | 具有存储磁盘 | 转至 link:map_ports_node1_node3.html["将端口从 node1 映射到 node3"]。 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install 和 boot node3_ 并在中继续 link:install_boot_node3.html#step7["第 7 步"]。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install 和 boot node3_ 并在中继续 link:install_boot_node3.html#man_install3_step7["第 7 步"]。 
 |===
 

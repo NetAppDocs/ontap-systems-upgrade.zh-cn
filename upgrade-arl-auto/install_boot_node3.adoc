@@ -313,7 +313,7 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 `boot_ontap 菜单`
 
 +
-如果您没有 FC 或 UTA/UTA2 配置，请执行 link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"] 以便 node4 可以识别 node2 的磁盘。
+如果您没有FC或UTA/UTA2配置、请执行 link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"] 以便 node4 可以识别 node2 的磁盘。
 
 . [auto9597_istall3_step29]] 对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，请转至 link:set_fc_or_uta_uta2_config_on_node3.html#auto9597_check_node3_step15["检查并配置 node3 步骤 15 上的 UTA/UTA2 端口"]。
 

@@ -29,7 +29,7 @@ node2
 ----
 +
 
-NOTE: 您的系统可能没有集群间 LIF 。您只能在一个节点对的一个节点上使用集群管理 LIF 。的示例输出显示了集群管理 LIF link:record_node1_information.html#step["第 1 步"] 在 _Record node1 port information_.
+NOTE: 您的系统可能没有集群间 LIF 。您只能在一个节点对的一个节点上使用集群管理 LIF 。集群管理LIF将显示在的示例输出中 link:record_node1_information.html#step1["第 1 步"] 在 _Record node1 port information_.
 
 . 捕获输出中的信息以在部分中使用 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。
 +

@@ -8,7 +8,7 @@ summary: '您可以使用 `ssystem controller replace` 命令重新定位非根�
 :allow-uri-read: 
 
 
-[role="lead lead"]
+[role="lead"]
 此操作步骤 介绍了如何在以下系统配置中使用聚合重新定位（ Aggregate Relocation ， ARL ）升级控制器硬件：
 
 [cols="40,20,40"]

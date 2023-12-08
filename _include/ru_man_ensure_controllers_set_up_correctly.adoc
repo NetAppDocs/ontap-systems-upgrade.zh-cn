@@ -60,7 +60,7 @@ node4          node3          true     Connected to node3
 +
 `volume show -node _node3_-state offline``volume show -node _node4_-state offline`
 
-. 如果任何卷处于脱机状态，请将其与您在中捕获的脱机卷列表进行比较 link:prepare_nodes_for_upgrade.html#step19d["第 19 步（ d ）"] 在 _Prepare the nodes for upgrade" 中，根据需要输入以下命令使任何脱机卷联机，每个卷一次：
+. 如果任何卷处于脱机状态，请将其与您在中捕获的脱机卷列表进行比较  link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step19["第 19 步（ d ）"] 在 _Prepare the nodes for upgrade" 中，根据需要输入以下命令使任何脱机卷联机，每个卷一次：
 +
 `volume online -vserver _vserver_name_-volume _volume_name_`
 
@@ -71,7 +71,7 @@ node4          node3          true     Connected to node3
 +
 license-code 参数接受一个包含 28 个大写字母字符密钥的列表。您可以一次添加一个许可证，也可以一次添加多个许可证，每个许可证密钥用逗号分隔。
 
-. 【unset_maxWait_manual】如果在配置中使用自加密驱动器且您已设置 `kmip.init.maxwait` 变量设置为 `off` (例如、在中 link:install_boot_node3.html#step16["第 16 步"] 对于_Install和boot node3_)、您必须取消设置变量：
+. 【unset_maxWait_manual】如果在配置中使用自加密驱动器且您已设置 `kmip.init.maxwait` 变量设置为 `off` (例如、在中 link:install_boot_node3.html#man_install3_step16["第 16 步"] 对于_Install和boot node3_)、您必须取消设置变量：
 +
 `set diag；systemshell -node _node_name_-command sudo kenv -u -p kmip.init.maxwait`
 
@@ -112,7 +112,7 @@ Do you want to continue? {y|n}: y
 `s系统许可证显示`
 
 +
-您可以将输出与中捕获的输出进行比较 link:prepare_nodes_for_upgrade.html#step30["第 30 步"] 的 _ 准备节点以进行升级 _ 。
+您可以将输出与中捕获的输出进行比较 link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step30["第 30 步"] 的 _ 准备节点以进行升级 _ 。
 
 . 通过在两个节点上执行以下命令来配置 SP ：
 +

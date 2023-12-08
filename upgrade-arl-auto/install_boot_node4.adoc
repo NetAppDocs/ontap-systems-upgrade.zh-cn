@@ -275,7 +275,7 @@ IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP �
 . 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
 
 
-. 如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
+. [[auto_install4_步骤27]]如果安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
 +
 
 NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。
@@ -307,7 +307,7 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 `boot_ontap 菜单`
 
 +
-如果您没有 FC 或 UTA/UTA2 配置，请执行 link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"] 以便 node4 可以识别 node2 的磁盘。
+如果您没有FC或UTA/UTA2配置、请执行 link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"] 以便 node4 可以识别 node2 的磁盘。
 
-. 【第 29 步】有关 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，请转至 link:set_fc_or_uta_uta2_config_node4.html#auto_check_node4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"]。
+. [[step 29]]对于连接到存储阵列的MetroCluster配置、V系列系统和使用FlexArray虚拟化软件的系统、请转到链接：set_fc_or_uta_uta2_config_node4.html# auto_check_4_step 15[检查并配置node4上的UTA/UTA2端口、步骤15]。
 

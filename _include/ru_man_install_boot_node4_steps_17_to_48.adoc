@@ -147,7 +147,7 @@ NOTE: 如果系统上有共享磁盘、混合聚合或这两者、则必须使�
 | 无共享 | `disks disk reassign -s`` node2_sysid_-d _node4_sysid_` 
 |===
 +
-对于 `node2_sysid` 值，请使用中捕获的信息 link:record_node2_information.html#man_node2_info_step10["第 10 步"] 记录 node2 信息 _ 部分的。对于` node4_sysid_`、请使用中捕获的信息 <<man_install4_step23,第 23 步>>。
+。 `<node2_sysid>` 值、请使用中捕获的信息 link:record_node2_information.html#man_record_2_step10["第 10 步"] 记录 node2 信息 _ 部分的。适用于 `_node4_sysid_`，请使用中捕获的信息 <<man_install4_step23,第 23 步>>。
 
 +
 

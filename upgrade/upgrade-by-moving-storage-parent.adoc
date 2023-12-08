@@ -1,0 +1,67 @@
+---
+permalink: upgrade/upgrade-by-moving-storage-parent.html 
+sidebar: sidebar 
+keywords: upgrade 
+summary: 如果要通过移动存储进行升级，请准备原始节点并设置新节点。某些平台型号支持将内部存储传输到新节点。您可以重新分配磁盘并将根卷配置还原到新节点，并配置网络端口。通过移动存储进行升级会造成操作步骤中断。 
+---
+= 工作流
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要通过移动存储来升级控制器硬件、则需要准备原始节点并设置新节点。某些平台型号支持将内部存储传输到新节点。您可以重新分配磁盘并将根卷配置还原到新节点，并配置网络端口。通过移动存储进行升级会造成操作步骤中断。
+
+[NOTE]
+====
+在通过移动存储升级控制器硬件的步骤中，原始节点称为 node1 和 node2 ，新节点称为 node3 和 node4 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。
+
+image::../upgrade/media/original_to_new_nodes.png[将node3和node4替换为node1和node2]
+
+术语 node1 ， node2 ， node3 和 node4 仅用于区分原始节点和新节点。遵循操作步骤时、必须将其替换为原始节点和新节点的真实名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。
+
+====
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:upgrade-prepare-when-moving-storage.html["移动存储时准备升级"]
+[role="quick-margin-para"]
+在通过移动存储进行升级之前、您需要从原始节点收集许可证信息、规划网络配置、记录系统ID并准备网络启动所需的文件。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]link:upgrade-shutdown-remove-original-nodes.html["关闭原始节点"]
+[role="quick-margin-para"]
+关闭并删除原始节点时、您会发送有关升级的AutoSupport消息、销毁邮箱、关闭节点电源并卸下机箱。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]link:upgrade-remove-disk-ownership-new-nodes.html["删除连接到新节点的磁盘的所有权"]
+[role="quick-margin-para"]
+如果新节点已将内部磁盘或附加磁盘架连接到系统，这些磁盘或附加磁盘架可能会干扰控制器升级。  您应删除node3/node4附带的所有新磁盘的所有权。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]link:upgrade-reset-default-configuration-node3-and-node4.html["重置新节点上的默认配置"]
+[role="quick-margin-para"]
+要确认启动介质上的配置信息不会影响控制器升级、请将node3和node4的配置重置为默认配置设置。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"]link:upgrade-install-new-nodes.html["安装新节点"]
+[role="quick-margin-para"]
+通过移动存储进行升级时，首先要安装 node3 和 node4 ，并将电源，控制台和网络连接连接连接到新节点。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"]link:upgrade-set-up-new-nodes.html["设置新节点"]
+[role="quick-margin-para"]
+During the process of upgrading by moving storage, you power on node3 and node4, boot the software image, and configure the nodes.Physical port layout between original and new nodes can be different.Mapping of ports between original and replacement nodes should be done to identify proper layout of ports and connections.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]link:upgrade-optional-move-internal-storage.html["可选：移动内部存储或将系统转换为驱动器架"]
+[role="quick-margin-para"]
+或者、如果原始节点是受支持的型号之一、则可以选择在升级过程中通过移动存储将其内部SATA驱动器、SSD或SAS驱动器移动到连接到新节点的驱动器架。您还可以将系统转换为驱动器架并将其连接到新节点。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["八个"]link:upgrade-attach-shelves-reassign-disks.html["连接存储架并重新分配磁盘所有权"]
+[role="quick-margin-para"]
+您将属于node1和node2的磁盘分别重新分配给node3和node4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-9.png["九"]link:upgrade-restore-root-volume-config.html["还原根卷配置"]
+[role="quick-margin-para"]
+您可以将配置信息从根卷还原到启动设备。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-10.png["十"]link:upgrade-complete.html["完成升级"]
+[role="quick-margin-para"]
+在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级。
+
+.相关信息
+* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["通过转换为驱动器架将AFF A250升级到AFF A400"] (无中断操作步骤)。
+

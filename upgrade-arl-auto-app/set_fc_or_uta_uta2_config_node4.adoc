@@ -121,7 +121,7 @@ NOTE: FC端口必须编程为启动程序。
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
 ** 转至 <<检查并配置 node4 上的 UTA/UTA2 端口>> 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
-** 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过 _Check and configure UTA/UTA2 ports on node4_ 一节，返回 _Install and boot node4_ 一节，然后继续执行 link:install_boot_node4.html#step23["第 23 步"]。
+** 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过 _Check and configure UTA/UTA2 ports on node4_ 一节，返回 _Install and boot node4_ 一节，然后继续执行 link:install_boot_node4.html#auto_install4_step23["第 23 步"]。
 
 
 |===
@@ -291,7 +291,7 @@ f-a   2b       fc             target       cna           -             online
 | 具有存储磁盘 | 转至 link:verify_node4_installation.html["验证 node4 安装"]。 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行 link:install_boot_node4.html#step23["第 23 步"]。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行 link:install_boot_node4.html#auto_install4_step23["第 23 步"]。 
 |===
 . 【 auto_check_4_step13]] 退出维护模式：
 +

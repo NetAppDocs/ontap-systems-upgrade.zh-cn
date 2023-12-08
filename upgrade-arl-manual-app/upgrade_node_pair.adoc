@@ -17,10 +17,10 @@ summary: 您可以通过对运行 ONTAP 9.8 或更高版本的控制器上的原
 要升级节点对，您必须准备原始节点，然后对原始节点和新节点执行一系列步骤。然后，您可以停用原始节点。
 
 .步骤
-. link:stage1_prepare_for_upgrade.html["第 1 阶段：准备升级"]
-. link:stage2_relocate_retire_node1.html["第 2 阶段：重新定位和停用节点 1"]
-. link:stage_3_install_boot_node3.html["第 3 阶段：安装并启动节点 3."]
-. link:stage4_record_info_retire_node2.html["第 4 阶段：记录信息并停用节点 2"]
-. link:stage5_install_boot_node4.html["第 5 阶段：安装并启动节点 4"]
-. link:stage6_complete_upgrade.html["第 6 阶段：完成升级"]
+. link:stage_1_index.html["第 1 阶段：准备升级"]
+. link:stage_2_index.html["第 2 阶段：重新定位和停用节点 1"]
+. link:stage_3_index.html["第 3 阶段：安装并启动节点 3."]
+. link:stage_4_index.html["第 4 阶段：记录信息并停用节点 2"]
+. link:stage_5_index.html["第 5 阶段：安装并启动节点 4"]
+. link:stage_6_index.html["第 6 阶段：完成升级"]
 

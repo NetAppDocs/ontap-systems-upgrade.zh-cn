@@ -215,6 +215,6 @@ f-a    2b      fc      target    cna      -          online
 | 具有存储磁盘 | 转至 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#Step9["第 9 步"]。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#man_install4_Step9["第 9 步"]。 
 |===
 

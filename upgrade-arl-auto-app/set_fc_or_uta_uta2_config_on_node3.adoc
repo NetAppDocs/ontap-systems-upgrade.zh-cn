@@ -23,7 +23,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配器（ CNA ）适配器和端口。但是，命令行界面使用术语 CNA 。
 
 * 如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:verify_node3_installation.html["验证 node3 安装"] 部分。
-* 但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回到 _Install and boot node3_ 部分并继续执行中的部分 link:install_boot_node3.html#step23["第 23 步"]。
+* 但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回到 _Install and boot node3_ 部分并继续执行中的部分 link:install_boot_node3.html#auto_install3_step23["第 23 步"]。
 
 
 .选项
@@ -121,7 +121,7 @@ NOTE: FC端口必须编程为启动程序。
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
 ** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至部分 <<检查并配置 node3 上的 UTA/UTA2 端口>>。
-** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分 <<检查并配置 node3 上的 UTA/UTA2 端口>> 并返回到 _Install and boot node3_ 部分，然后在继续 link:install_boot_node3.html#step23["第 23 步"]。
+** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分 <<检查并配置 node3 上的 UTA/UTA2 端口>> 并返回到 _Install and boot node3_ 部分，然后在继续 link:install_boot_node3.html#auto_install3_step23["第 23 步"]。
 
 
 |===
@@ -306,7 +306,7 @@ Adapter  Mode       Type        Mode     Type        Status
 | 具有存储磁盘 | 转至 link:verify_node3_installation.html["验证 node3 安装"]。 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node3_ 部分，然后继续执行 link:install_boot_node3.html#step23["第 23 步"]。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node3_ 部分，然后继续执行 link:install_boot_node3.html#auto_install3_step23["第 23 步"]。 
 |===
 . 【 auto_check3_step13]] 退出维护模式：
 +
