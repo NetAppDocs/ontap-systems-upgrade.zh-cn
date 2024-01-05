@@ -100,6 +100,22 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140536["迁移到使用 Ci
 +
 https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 NetApp CN1610 集群交换机的双节点交换集群"^]
 
+. 如果需要、请重新创建旧系统上的底板管理控制器(BMC)的非默认用户帐户：
++
+.. 更改或重置BMC管理员用户帐户密码。
++
+BMC管理员用户帐户密码为空(无密码)或与系统管理员用户帐户密码相同。
+
+.. 使用重新创建非默认BMC用户帐户 `security login create` 命令 `application` 设置为"service-processor"、如以下示例所示：
++
+`security login create -user-or-group-name bmcuser -application service-processor -authentication-method password -role admin`
+
++
+
+NOTE: 要在BMC中创建用户帐户、需要管理员权限。
+
+
+
 . 根据需要，通过 NetApp 支持站点停用原始系统，以通知 NetApp 这些系统不再运行，可以从支持数据库中删除：
 +
 .. 登录到 https://mysupport.netapp.com/site/global/dashboard["NetApp 支持"^] 站点

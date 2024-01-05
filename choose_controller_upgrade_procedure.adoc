@@ -67,4 +67,4 @@ image:workflow_external_drives.png["选择升级操作步骤的决策工作流"]
 ====
 如果要升级MetroCluster配置、请参见 https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["升级、刷新或扩展MetroCluster 配置"^]。
 
-如果要更换单个组件、请参见 https://docs.netapp.com/us-en/ontap-systems/index.html["AFF 和 FAS 系统文档中心"^] 并找到该组件的现场可更换单元(FRU)宣传单。
+如果要更换单个组件、请参见 https://docs.netapp.com/us-en/ontap-systems/index.html["ONTAP硬件系统文档"^] 并找到该组件的现场可更换单元(FRU)宣传单。

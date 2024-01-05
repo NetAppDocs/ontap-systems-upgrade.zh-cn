@@ -1,6 +1,6 @@
 ---
 indexpage:
-  lead: 此站点提供了AFF和FAS存储系统的升级过程。为您的存储系统选择适当的升级操作步骤。
+  lead: 本站点提供了AFF、FAS和ASA存储系统的升级过程。为您的存储系统选择适当的升级操作步骤。
   tiles:
   - title: 入门
     links:
@@ -34,7 +34,7 @@ indexpage:
       url: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html
   - title: 更多资源
     links:
-    - title: ONTAP 系统文档
+    - title: ONTAP硬件系统文档
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: ONTAP 交换机文档
       url: https://docs.netapp.com/us-en/ontap-systems-switches/index.html

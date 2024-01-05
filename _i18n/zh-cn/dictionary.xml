@@ -2543,7 +2543,6 @@
   <block id="c526c49b8044ea431a2ad56bde07cd17" category="list-text">【第 2 步】确认 node3 可以与 node2 通信且所有 LIF 均已启动：</block>
   <block id="0ccfa81b1f21bfb5655a443ca59f1146" category="inline-link-macro">将 node1 拥有的 NAS 数据 LIF 从 node2 移动到 node3 并验证 node3 上的 SAN LIF</block>
   <block id="d1e338a03ea3eb1b2592ad7856e6b249" category="list-text">【第 4 步】在其中一个节点上输入以下命令并检查其输出，以验证 node2 和 node3 是否处于仲裁状态：</block>
-  <block id="6af6b76d592516d40ca101051c678be3" category="doc">AFF 和 FAS 系统升级文档</block>
   <block id="c659f2c431be96152886f89fc8d66545" category="list-text">【第 2 步】修改 node1 和 node2 上所有 LIF 的自动还原设置：</block>
   <block id="cbda167ce953729cf8b9be29b0e35ede" category="list-text">【第 3 步】执行以下步骤，迁移节点 1 上接口组和 VLAN 上托管的任何 NAS 数据 LIF ：</block>
   <block id="9ebd90a8ee1baaa50f7229ecbad7e8b4" category="list-text">【 ｛ substepa ｝ 】通过为每个 LIF 输入以下命令，将任何接口组上托管的 LIF 以及 node1 上的 VLAN 迁移到 node2 上能够在与接口组相同的网络上托管 LIF 的端口：</block>
@@ -2615,7 +2614,6 @@
   <block id="7d94daad2b6e9d77a6320a64c21fbc4a" category="sidebar">升级 MetroCluster 配置中的系统</block>
   <block id="c6bb96cc8b84319277f00b15adc71d75" category="sidebar">为您的 MetroCluster 配置选择升级操作步骤</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多资源</block>
-  <block id="aaf23d643347b5921ba9716fa4c13f83" category="sidebar">ONTAP 系统文档</block>
   <block id="743b2bde29eae11996923323c6b89672" category="sidebar">ONTAP 交换机文档</block>
   <block id="dd032435fa83549d8bf3928550409a3e" category="sidebar">ONTAP 软件文档</block>
   <block id="519131237f79eadb2dc6a1e003a087bc" category="sidebar">NetApp Active IQ Config Advisor</block>
@@ -4747,8 +4745,6 @@ FAS2720</block>
   <block id="8b9b2634fd898f04166a765851aba8f2" category="list-text"><block ref="8b9b2634fd898f04166a765851aba8f2" category="inline-link-macro-rx"></block></block>
   <block id="441e5e19c045de8820e45a5b22e45056" category="paragraph">*注2*：无中断升级要求新系统具有自己的存储和磁盘架来存储原始系统中的数据。</block>
   <block id="272d55e2adea123757d8811eaaaebd88" category="paragraph">*注3*：通过移动卷进行升级时、您需要加入新节点、将卷和Li移动到新节点、然后取消加入要从集群中删除的节点。如果要升级双节点无交换机集群、则在添加新节点之前、应使用一对集群交换机将其转换为有交换机连接集群。</block>
-  <block id="16319414c65274d365d86327a61ef5dc" category="inline-link">AFF 和 FAS 系统文档中心</block>
-  <block id="c2238e72fe75968b1d2d41e7beba323b" category="paragraph">如果要更换单个组件、请参见<block ref="9e966fb68ec771eec4870f18e1909b4f" category="inline-link-rx"></block> 并找到该组件的现场可更换单元(FRU)宣传单。</block>
   <block id="c024cf342a69d8b35b142333f2608aa5" category="sidebar">通过在运行ONTAP 9.8及更高版本的系统上重新定位聚合进行升级</block>
   <block id="5d3c4b59db4a991b7c6450c61662dc60" category="sidebar">通过在运行ONTAP 9.7及更早版本的系统上重新定位聚合进行升级</block>
   <block id="d58d42ec84ab0189beb36da55893f387" category="sidebar">通过移动一个或多个存储卷进行升级</block>
@@ -4897,5 +4893,15 @@ FAS2720</block>
   <block id="ac5c825456c3417b5a4af98c4f3e915f" category="paragraph">^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 <block ref="d7767766539bb5c2349ec33972e353b3" category="inline-link-macro-rx"></block>或 <block ref="1ac9d612a445bb1be7d33490e7f7168c" category="inline-link-macro-rx"></block>。</block>
   <block id="e517f479718742d7735088b63cb4b0a6" category="list-text">【第 5 步】执行以下操作之一：</block>
   <block id="1f6c36e4c21adc6fcbbeb1628f0ce398" category="paragraph">有关升级控制器硬件的其他方法，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
-  <block id="a8337c93c769b636588431825fedbc33" category="sidebar">此站点提供了AFF和FAS存储系统的升级过程。为您的存储系统选择适当的升级操作步骤。</block>
+  <block id="ce334042acf5cdb00aa6b0cacc91188d" category="list-text">如果需要、请重新创建旧系统上的底板管理控制器(BMC)的非默认用户帐户：</block>
+  <block id="7cd124c3569d4b8de1ffd3a55e5a0f72" category="list-text">更改或重置BMC管理员用户帐户密码。</block>
+  <block id="f9c20a87fa881cd6931b55ff9caab40b" category="paragraph">BMC管理员用户帐户密码为空(无密码)或与系统管理员用户帐户密码相同。</block>
+  <block id="98295c6ad28170a1a290ca42442cdb79" category="list-text">使用重新创建非默认BMC用户帐户<block ref="5d6b067bb8a979d6b47c787077dfae6f" prefix=" " category="inline-code"></block> 命令<block ref="3676d55f84497cbeadfc614c1b1b62fc" prefix=" " category="inline-code"></block> 设置为"service-processor"、如以下示例所示：</block>
+  <block id="715d318a746fe248ce78ec5e2626f09e" category="paragraph"><block ref="95c8ee682558c9e9a0683d5d70ee2be7" prefix="" category="inline-code"></block></block>
+  <block id="b6025c8f8309b4b8106567e8e60f52ac" category="admonition">要在BMC中创建用户帐户、需要管理员权限。</block>
+  <block id="a64a5798382cc068c2d777ff826bccb5" category="doc">ONTAP硬件升级文档</block>
+  <block id="646d7d5f93b4a6d7bbbc65acf5ac1077" category="inline-link">ONTAP硬件系统文档</block>
+  <block id="c2bb4d5f8818bc80f7aa15d94d57c6e3" category="paragraph">如果要更换单个组件、请参见<block ref="e18a2433f1085adba8dc86307fee18d1" category="inline-link-rx"></block> 并找到该组件的现场可更换单元(FRU)宣传单。</block>
+  <block id="dec452d8e293e5516524ae8a86713211" category="sidebar">本站点提供了AFF、FAS和ASA存储系统的升级过程。为您的存储系统选择适当的升级操作步骤。</block>
+  <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">ONTAP硬件系统文档</block>
 </blocks>
