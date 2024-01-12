@@ -17,7 +17,12 @@ summary: 您必须将属于 node1 和 node2 的磁盘分别重新分配给 node3
 您可以对 node3 和 node4 执行本节中的步骤，依次完成 node3 和 node4 上的每个步骤，然后再继续下一步。
 
 .步骤
-. 将存储架缆线从 node1/node2 连接到 node3/node4 。验证电源和磁盘架的物理连接。
+. 使用存储架缆线从先前连接到node1/node2的磁盘架连接到node3/node4。
++
+
+CAUTION: 在此升级操作步骤期间、不得将新磁盘架连接到node3/node4。完成控制器升级后、您可以无中断地将新磁盘架连接到系统。
+
+. 验证电源和磁盘架的物理连接。
 . 从 node3 LOADER 提示符处，启动到维护模式：
 +
 `boot_ontap maint`

@@ -1257,7 +1257,6 @@
   <block id="e062efd67a70d34c188657c2ffafc80e" category="summary">您必须将属于 node1 和 node2 的磁盘分别重新分配给 node3 和 node4 。</block>
   <block id="43b6e140cee78de5a68c093867c65596" category="doc">连接存储架并重新分配磁盘所有权</block>
   <block id="507efb4e488acd48724d3f1c3d4b184d" category="paragraph">您可以对 node3 和 node4 执行本节中的步骤，依次完成 node3 和 node4 上的每个步骤，然后再继续下一步。</block>
-  <block id="3a1ea4eb792e23021a7c1dcb702a9545" category="list-text">将存储架缆线从 node1/node2 连接到 node3/node4 。验证电源和磁盘架的物理连接。</block>
   <block id="6617e295325d64b4136755492970fe4c" category="list-text">从 node3 LOADER 提示符处，启动到维护模式：</block>
   <block id="533823574e82f810ad592fb31173b543" category="list-text">显示 node3 的系统 ID ：</block>
   <block id="9d0e35f7d62f6d238b5cb5794b6d495c" category="paragraph">`disk show -v`</block>
@@ -2646,7 +2645,6 @@
   <block id="79f3abfd76c996d707b348dbfb91c42b" category="sidebar">在 node4 上设置 FC 或 UTA/UTA2 配置</block>
   <block id="2e546c2ae4e7d18e3a62352f7899f8ad" category="paragraph">按照 node4 平台的 _Installation and Setup Instructions_or the _FlexArray 虚拟化安装要求和参考 _ 中的说明，使用缆线连接以下连接，并参考相应的磁盘架文档和 _High Availability Management_ 。</block>
   <block id="96fc3790ed0f779b648493fc7e4b2e7c" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _High Availability Management_ 和 _FlexArray 虚拟化安装要求和参考。</block>
-  <block id="c83b4e572cf3ae5eb7bac42baed0ac9e" category="summary">您可以链接到此主题中的其他参考内容和网站。</block>
   <block id="82a3300ad94a5e1dcf0a6abbfe1060e2" category="paragraph">在执行此内容中的过程时，您可能需要查看参考内容或访问参考网站。</block>
   <block id="14f94d0b133a9aa34a775e955c95b8bc" category="list-text"><block ref="13e4a2cf4e0a4edbef519c9af2452c86" category="inline-xref-macro-rx"></block></block>
   <block id="ec5873b9b6861954a7c07d183dd486b0" category="section-title">参考内容</block>
@@ -3268,10 +3266,8 @@
   <block id="c0ff48676f87627f73474db6b1018a88" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，准备通过网络启动 node3 和 node4 。</block>
   <block id="14173ffe47c7c7e4971c06932a3084e2" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，使用 KMIP 服务器管理身份验证密钥。</block>
   <block id="78bd6f667bd547c51374b0e978e9d001" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上支持手动 ARL 升级所需的参考内容和网站。</block>
-  <block id="c08f0b6d71108219929095cbd90d111d" category="paragraph">在以下情况下使用此操作步骤 ：</block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。</block>
-  <block id="9cc6fc2f026195efe30da793b04e5bd0" category="paragraph">在以下情况下，请勿 * 使用此操作步骤 ：</block>
   <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">您正在使用共享交换机进行集群互连和以太网连接存储。</block>
   <block id="af18adb321560258c2b9a80d2757792a" category="paragraph">在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。</block>
   <block id="c7fc4caaca02af86d84b04f258dfd7e6" category="paragraph">Node2 不会接管，但它仍从所有非根聚合提供数据。</block>
@@ -4892,7 +4888,6 @@ FAS2720</block>
   <block id="756e1a7c05678e697a7ba0945d87ed6c" category="paragraph">如果您没有 FC 或 UTA/UTA2 配置，请执行 <block ref="cd67767b7b87c1efe6325584571ce48d" category="inline-link-macro-rx"></block> 以便node4可以识别node2的磁盘。</block>
   <block id="ac5c825456c3417b5a4af98c4f3e915f" category="paragraph">^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 <block ref="d7767766539bb5c2349ec33972e353b3" category="inline-link-macro-rx"></block>或 <block ref="1ac9d612a445bb1be7d33490e7f7168c" category="inline-link-macro-rx"></block>。</block>
   <block id="e517f479718742d7735088b63cb4b0a6" category="list-text">【第 5 步】执行以下操作之一：</block>
-  <block id="1f6c36e4c21adc6fcbbeb1628f0ce398" category="paragraph">有关升级控制器硬件的其他方法，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
   <block id="ce334042acf5cdb00aa6b0cacc91188d" category="list-text">如果需要、请重新创建旧系统上的底板管理控制器(BMC)的非默认用户帐户：</block>
   <block id="7cd124c3569d4b8de1ffd3a55e5a0f72" category="list-text">更改或重置BMC管理员用户帐户密码。</block>
   <block id="f9c20a87fa881cd6931b55ff9caab40b" category="paragraph">BMC管理员用户帐户密码为空(无密码)或与系统管理员用户帐户密码相同。</block>
@@ -4904,4 +4899,10 @@ FAS2720</block>
   <block id="c2bb4d5f8818bc80f7aa15d94d57c6e3" category="paragraph">如果要更换单个组件、请参见<block ref="e18a2433f1085adba8dc86307fee18d1" category="inline-link-rx"></block> 并找到该组件的现场可更换单元(FRU)宣传单。</block>
   <block id="dec452d8e293e5516524ae8a86713211" category="sidebar">本站点提供了AFF、FAS和ASA存储系统的升级过程。为您的存储系统选择适当的升级操作步骤。</block>
   <block id="ec6e72d1c4bb7dccdc62b6caf35c95f7" category="sidebar">ONTAP硬件系统文档</block>
+  <block id="1320db1e300a995e122ea5d434b23e9b" category="list-text">使用存储架缆线从先前连接到node1/node2的磁盘架连接到node3/node4。</block>
+  <block id="4e14960b0c5923b866b1398172c14f69" category="admonition">在此升级操作步骤期间、不得将新磁盘架连接到node3/node4。完成控制器升级后、您可以无中断地将新磁盘架连接到系统。</block>
+  <block id="c1f694580637b3e597cbb094a01e4f0b" category="list-text">验证电源和磁盘架的物理连接。</block>
+  <block id="ed55776ebd74bfbd9eb16e468efd309c" category="paragraph">您可以在以下情况下使用此操作步骤：</block>
+  <block id="3767c7624c68d0c29496b5a31369dec4" category="paragraph">在以下情况下、您不能使用此操作步骤：</block>
+  <block id="30fe187542d0301b8cde168dff779374" category="paragraph">有关升级控制器硬件的其他方法、请参见 <block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>。</block>
 </blocks>

@@ -218,4 +218,5 @@ NOTE: 对于 iSCSI LIF ，修改主端口需要以管理员方式关闭 LIF 。
 
 
 
+.完成后
 您已完成物理端口映射。要完成升级，请转至 link:upgrade-final-upgrade-steps-in-ontap-9-8.html["在ONTAP 9.8或更高版本中执行最终升级步骤"]。
