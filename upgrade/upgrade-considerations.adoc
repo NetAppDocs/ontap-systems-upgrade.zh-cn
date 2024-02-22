@@ -60,7 +60,8 @@ NOTE: 如果要升级为FCP、iSCSI或FCoE等块协议提供服务的八节点�
 
 
 | 我是移动内部存储还是将系统转换为驱动器架？  a| 
-. https://hwu.netapp.com/["验证新系统支持的根聚合大小和磁盘数是否等于或大于原始系统支持的大小和磁盘数"^]。
+. https://hwu.netapp.com/["验证当前根聚合大小和根聚合中的磁盘数是否符合或超出新系统的规格"^]。
+. https://hwu.netapp.com/["验证新系统支持的存储磁盘数是否等于或大于原始系统支持的存储磁盘数"^]。
 . link:upgrade-by-moving-storage-parent.html["通过移动存储进行升级"] (一个中断操作步骤)。
 
 

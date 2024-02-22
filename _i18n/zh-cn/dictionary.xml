@@ -4690,8 +4690,6 @@ FAS2720</block>
   <block id="259b1238f7182936d8b9a81032dea1c4" category="admonition">如果要升级为FCP、iSCSI或FCoE等块协议提供服务的八节点集群、请验证新节点是否正确公布了LUN。有关详细信息，请参见<block ref="cfeb6fd7632aa8a3aff6f995423e20e8" category="inline-link-rx"></block>。</block>
   <block id="e8f22bb9bc721e9d507705c0b5091956" category="list-text"><block ref="7825023d8bc8048cc59c9149895b5f54" category="inline-link-macro-rx"></block> (无中断操作步骤)。</block>
   <block id="b1c4279027d78fc21fb097c66f6dfeed" category="cell">我是移动内部存储还是将系统转换为驱动器架？</block>
-  <block id="080ce533b4abf86cd2d7593ae49edcf0" category="inline-link">验证新系统支持的根聚合大小和磁盘数是否等于或大于原始系统支持的大小和磁盘数</block>
-  <block id="ce65f5cbc22308e362b452a86faafd3b" category="list-text"><block ref="ab539adb97afbc3ff903f6aa5c840d77" category="inline-link-rx"></block>。</block>
   <block id="a896b1815f91ec1823a72e8046b7c9a6" category="list-text"><block ref="8df77a1d078de7fe643ceb436b9ddb19" category="inline-link-macro-rx"></block> (一个中断操作步骤)。</block>
   <block id="40963580c922c5349edccc1df1cec10d" category="cell">我是否要在包含多个HA对的集群中升级HA对？</block>
   <block id="589715d2ddec2a6045a52a7acc37f9bb" category="cell">将Epsilon移动到未进行控制器升级的HA对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。</block>
@@ -4905,4 +4903,8 @@ FAS2720</block>
   <block id="ed55776ebd74bfbd9eb16e468efd309c" category="paragraph">您可以在以下情况下使用此操作步骤：</block>
   <block id="3767c7624c68d0c29496b5a31369dec4" category="paragraph">在以下情况下、您不能使用此操作步骤：</block>
   <block id="30fe187542d0301b8cde168dff779374" category="paragraph">有关升级控制器硬件的其他方法、请参见 <block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>。</block>
+  <block id="e6ade1c19be2f8809c4d245c0dd36ffb" category="inline-link">验证当前根聚合大小和根聚合中的磁盘数是否符合或超出新系统的规格</block>
+  <block id="ffcd2799f602c109648b4c27aba568da" category="list-text"><block ref="47a924df16a51eabe41998989d3e0fba" category="inline-link-rx"></block>。</block>
+  <block id="1be12058e46f267981f165919be9807c" category="inline-link">验证新系统支持的存储磁盘数是否等于或大于原始系统支持的存储磁盘数</block>
+  <block id="d754882e684dd040085cc74dc3abd6e4" category="list-text"><block ref="40d68d018a02788fd741d99e7433a2dc" category="inline-link-rx"></block>。</block>
 </blocks>
