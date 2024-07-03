@@ -27,8 +27,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、重新定位故�
 
 . 出现提示时，输入 `y` 。
 . 您可以使用以下方法之一强制重新定位：
-
-
++
 [cols="35,65"]
 |===
 | 选项 | Description 
@@ -39,3 +38,4 @@ summary: 使用ARL升级同一机箱中的控制器型号时、重新定位故�
 
 | 覆盖目标检查 | 使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===
+

@@ -25,6 +25,9 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 | 旧控制器 | 更换控制器 
 
 
+| AFF A800 | AFF A70和AFF A90 
+
+
 | 配置为ASA的AFF A220 | ASA A150 
 
 
@@ -44,6 +47,7 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 |===
 * 您已向NetApp销售代表确认收到用于控制器升级的硬件：
 +
+** 升级所需的两个AFF A90或两个AFF A70控制器以及所有I/O模块。所需的100GbE缆线长度。
 ** ASA A150、AFF A150或FAS2820控制器
 ** ASA A900、AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件
 
@@ -55,11 +59,11 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 
 在以下情况下、您不能使用此操作步骤：
 
-* 您正在AFF A700或FAS9000系统上使用FlexArray 虚拟化软件。
+* 您正在AFF A800、AFF A700或FAS9000系统上使用FlexArray虚拟化软件。
 * 您正在使用共享交换机进行集群互连和以太网连接存储。
 
 
-有关升级AFF A700或FAS9000系统上的光纤MetroCluster或MetroCluster IP配置、请参见 link:other_references.html["参考资料"] 链接到 _RAID MetroCluster 升级和扩展 _ 内容。
+有关在AFF A800、AFF A700或FAS9000系统上升级MetroCluster MetroCluster IP配置的信息、请参见以链接到_FASUpgrade link:other_references.html["参考资料"] and Expandation_内容。
 
 
 NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。

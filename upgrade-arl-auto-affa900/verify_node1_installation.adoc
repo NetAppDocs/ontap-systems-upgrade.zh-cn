@@ -14,10 +14,14 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请验证node1与
 
 
 [role="lead"]
-您必须使用替代系统模块验证node1安装。由于物理端口不变、您无需将物理端口从旧节点1映射到替换节点1。
+使用替代控制器模块启动node1后、请验证其是否已正确安装。
+
+仅对于AFF A800升级、您需要将物理端口从现有节点1映射到替代节点1、因为AFF A800与AFF A90或AFF A70控制器之间的物理端口正在发生更改。
+
+对于所有其他升级、物理端口不会发生更改、因此您无需将物理端口从旧节点1映射到替代节点1。
 
 .关于此任务
-使用替代控制器模块启动node1后、您需要验证其是否已正确安装。您必须等待 node1 加入仲裁，然后恢复控制器更换操作。
+您必须等待node1加入仲裁、然后恢复控制器更换操作。
 
 此时，在操作步骤中，控制器升级操作应已暂停，因为 node1 会自动尝试加入仲裁。
 
@@ -33,6 +37,14 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请验证node1与
 +
 `cluster show`
 
++
+[NOTE]
+====
+如果node1在启动后未加入仲裁、请等待五分钟、然后再次检查。根据集群连接、完成端口可访问性扫描并将LUN移动到其各自的主端口可能需要一段时间。
+
+如果node1在五分钟后仍未处于仲裁状态，请考虑修改新节点的群集端口，方法是使用diagnostic特权命令将其置于“Cluster IP Space”中 `network port modify <port_name> -ipspace Cluster`。
+
+====
 . 切换到高级权限模式：
 +
 `set advanced`
@@ -116,16 +128,14 @@ Node1
           a0a-822  Default:822                          ok
           a0a-823  Default:823                          ok
           e0M      Default:Mgmt                         ok
-          e11a     -                                    no-reachability
-          e11b     -                                    no-reachability
-          e11c     -                                    no-reachability
-          e11d     -                                    no-reachability
+          e1a      Cluster:Cluster                      ok
+          e1b      -                                    no-reachability
+          e2a      -                                    no-reachability
+          e2b      -                                    no-reachability
           e3a      -                                    no-reachability
           e3b      -                                    no-reachability
-          e4a      Cluster:Cluster                      ok
-          e4e      Cluster:Cluster                      ok
-          e5a      -                                    no-reachability
-          e7a      -                                    no-reachability
+          e7a      Cluster:Cluster                      ok
+          e7b      -                                    no-reachability
           e9a      Default:Default                      ok
           e9a-822  Default:822                          ok
           e9a-823  Default:823                          ok
@@ -134,10 +144,10 @@ Node1
           e9b-823  Default:823                          ok
           e9c      Default:Default                      ok
           e9d      Default:Default                      ok
-22 entries were displayed.
+20 entries were displayed.
 ----
 +
-在上述示例中， node1 在更换控制器后启动。某些端口不具有可访问性，因为没有物理连接。您必须修复状态为 `ok` 以外的可访问性的任何端口。
+在上述示例中、node1在更换控制器后启动。显示"不可访问性"的端口没有物理连接。您必须修复可访问状态不是的所有端口 `ok`。
 
 +
 
@@ -160,12 +170,12 @@ NOTE: 在升级期间、网络端口及其连接不应更改。所有端口都�
 +
 [listing]
 ----
-Cluster ::> reachability repair -node node1 -port e11b
+Cluster ::> reachability repair -node node1 -port e1b
 ----
 +
 [listing]
 ----
-Warning: Repairing port "node1:e11b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
+Warning: Repairing port "node1:e1b" may cause it to move into a different broadcast domain, which can cause LIFs to be re-homed away from the port. Are you sure you want to continue? {y|n}:
 ----
 +
 对于可访问性状态可能与当前所在广播域的可访问性状态不同的端口，应显示警告消息，如上例所示。根据需要查看端口和问题解答 `y` 或 `n` 的连接。

@@ -34,13 +34,21 @@ entries:
   - title: 停用 node1
     url: "/upgrade-arl-auto-affa900/retire_node1.html"
   - title: 更换node1系统模块
-    url: "/upgrade-arl-auto-affa900/replace_node1_system_modules.html"
+    entries:
+    - title: 更换AFF A800
+      url: "/upgrade-arl-auto-affa900/replace-node1-affa800.html"
+    - title: 更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720
+      url: "/upgrade-arl-auto-affa900/replace-node1-affa220-affa200-affc190-fas2620-fas2720.html"
+    - title: 更换AFF A700或FAS9000
+      url: "/upgrade-arl-auto-affa900/replace-node1-aff700-fas900.html"
   - title: 网络启动节点 1
     url: "/upgrade-arl-auto-affa900/netboot_node1.html"
 - title: 第 3 阶段。使用替代系统模块启动node1
   entries:
   - title: 概述
     url: "/upgrade-arl-auto-affa900/stage_3_index.html"
+  - title: 用于共享集群HA存储的缆线节点1 (仅限AFF A800升级)
+    url: "/upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html"
   - title: 使用替代系统模块启动node1
     url: "/upgrade-arl-auto-affa900/boot_node1_with_a900_controller_and_nvs.html"
   - title: 验证 node1 安装
@@ -62,7 +70,13 @@ entries:
   - title: 概述
     url: "/upgrade-arl-auto-affa900/stage_5_index.html"
   - title: 在node2上安装替代系统模块
-    url: "/upgrade-arl-auto-affa900/install_replacement_system_modules_on_node2.html"
+    entries:
+    - title: 安装AFF A90或AFF A70
+      url: "/upgrade-arl-auto-affa900/install-affa90-affa70-on-node2.html"
+    - title: 安装ASA A150、AFF A150或FAS2820
+      url: "/upgrade-arl-auto-affa900/install-asaa150-affa150-fas2820-on-node2.html"
+    - title: 安装ASA A900、AFF A900或FAS9500
+      url: "/upgrade-arl-auto-affa900/install-asaa900-affa900-fas9500-on-node2.html"
   - title: 网络启动节点 2.
     url: "/upgrade-arl-auto-affa900/netboot_node2.html"
 - title: 第6阶段。使用替代系统模块启动node2

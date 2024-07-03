@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_4_index.html
 keywords: upgrade, relocate, retire, overview, stage 4 
 summary: '使用进行ARL升级的第4阶段过程顺序 `system controller replace` 用于升级同一机箱中的控制器型号的命令。' 
 ---
-= 概述
+= 第4阶段概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

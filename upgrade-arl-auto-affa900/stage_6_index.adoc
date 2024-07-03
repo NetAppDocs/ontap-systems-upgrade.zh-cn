@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_6_index.html
 keywords: upgrade, boot, node2, verify, restore, overview, stage 1 
 summary: '使用进行ARL升级的第6阶段流程 `system controller replace` 用于升级同一机箱中的控制器型号的命令。' 
 ---
-= 概述
+= 第6阶段概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -98,7 +98,7 @@ NOTE: FC端口必须编程为启动程序。
 +
 `halt`
 
-. 从 LOADER 提示符启动系统：
+. 从加载程序提示符启动系统：
 +
 `boot_ontap 菜单`
 
@@ -315,7 +315,7 @@ Adapter  Mode       Type        Mode     Type        Status
 . 【第 14 步】运行 `boot_ontap menu` 将节点启动到启动菜单。如果要升级到 A800 ，请转至 <<auto_check3_step23,第 23 步>>。
 
 
-. 【auto9597_check_node3_step15]]在node3上、转到启动菜单、使用22/7选择隐藏选项 `boot_after_controller_replacement`。在提示符处，输入 node1 将 node1 的磁盘重新分配给 node3 ，如下例所示。
+. 在node3上，转到启动菜单，然后使用22/7选择隐藏选项 `boot_after_controller_replacement`。在提示符处，输入 node1 以将 node1 的磁盘重新分配给 node3 ，如以下示例所示。
 +
 .展开控制台输出示例
 [%collapsible]
@@ -421,8 +421,8 @@ Login:
 NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。
 
 . 如果系统进入重新启动循环并显示消息 `no disks found` ，则表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法看到任何磁盘。要解决此问题，请继续 <<auto_check3_step17,第 17 步>> to <<auto_check3_step22,第 22 步>>或转到第节 link:verify_node3_installation.html["验证 node3 安装"]。
-. 在自动启动期间按 `Ctrl-C` 在 `LOADER>` 提示符处停止节点。
-. 在 LOADER 提示符处，进入维护模式：
+. [[auto_check3_STEP17]]在自动启动期间按Ctrl-C在loader>提示符处停止节点。
+. [[STEP18]]在加载程序提示符处、进入维护模式：
 +
 `boot_ontap maint`
 
@@ -452,7 +452,7 @@ NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区�
 如果要从支持外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check3_step23,第 23 步>>。
 
 ====
-. 在LOADER提示符处、启动：
+. [[auto_check3_STEP22]]在加载程序提示符处、启动：
 +
 `boot_ontap 菜单`
 
@@ -460,11 +460,17 @@ NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区�
 现在，在启动时，节点可以检测到先前分配给它的所有磁盘，并可按预期启动。
 
 +
-如果要替换的集群节点使用根卷加密、则ONTAP 软件将无法从磁盘读取卷信息。还原根卷的密钥：
+如果要更换的集群节点使用根卷加密、则ONTAP无法从磁盘中读取卷信息。还原根卷的密钥。
+
++
+
+NOTE: 只有当根卷使用NetApp卷加密时、此操作才适用。
 
 +
 .. 返回到特殊的启动菜单：
++
 `LOADER> boot_ontap menu`
+
 +
 [listing]
 ----

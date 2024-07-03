@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/automate_the_controller_upgrade_process.html 
+keywords: automating, controller, upgrade, process, network, port, ha 
+summary: 使用部分自动ARL过程升级运行ONTAP 9.151或更高版本的控制器。 
+---
+= 自动执行控制器升级过程
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在控制器升级期间，此控制器将被替换为另一个运行更新或功能更强大的平台的控制器。本内容介绍了部分自动化过程的步骤、该过程利用自动网络端口可访问性检查进一步简化了控制器升级体验。

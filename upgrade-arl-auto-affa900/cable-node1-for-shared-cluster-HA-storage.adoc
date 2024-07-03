@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html 
+keywords:  
+summary:  
+---
+= 用于共享集群HA和存储的缆线节点1 (仅限AFF A800升级)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+以前连接到AFF A800节点1的所有集群、HA、存储和数据连接现在都应连接到新安装的AFF A90或AFF A70节点1。
+
+下表显示了双节点无交换机集群配置中的交换机端口使用情况。
+
+|===
+| 端口 | AFF A800节点 | AFF A90节点 | AFF A70节点 
+
+
+| 集群 | e0a | e1a | e1a 
+
+
+| 集群 | e1a | e7a (如果没有e7a、请使用e1b) | e1b 
+
+
+| HA | e0b | 请勿连接 | 请勿连接 
+
+
+| HA | e1b | 请勿连接 | 请勿连接 
+
+
+| SAS存储端口(如果存在并使用) | 任何可用端口 | 任何可用端口 | 任何可用端口 
+
+
+| NS224磁盘架的以太网存储端口 | 任何可用端口 | 请参见以太网存储连接映射 | 请参见以太网存储连接映射 
+|===
+对于连接交换机的集群、AFF A90或AFF A70节点上的相同集群端口应位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。通过交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、node2中的e1a连接到SwitchB)、可以防止HA通信失败。

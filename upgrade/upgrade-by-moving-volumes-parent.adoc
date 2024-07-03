@@ -11,7 +11,13 @@ summary: 如果要通过移动卷进行升级，请准备原始节点并将新�
 
 
 [role="lead"]
-如果要通过移动卷来升级控制器硬件、则需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。
+通过移动卷升级控制器硬件是一个无中断过程。开始升级之前、请查看常规升级情形和升级注意事项：
+
+* link:upgrade-decide-to-use-this-guide.html["确定是通过移动卷还是存储进行升级"]
+* link:upgrade-considerations.html["升级控制器硬件的注意事项"]
+
+
+要通过移动卷进行升级、您需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:upgrade-prepare-when-moving-volumes.html["移动卷时准备升级"]
 [role="quick-margin-para"]

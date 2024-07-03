@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/index.html 
+keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
+summary: '您可以使用命令升级运行ONTAP 9.151或更高版本的控制器硬件 `system controller replace` 、从而重新定位非根聚合的所有权。' 
+---
+= 概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+此操作步骤 介绍了如何在以下系统配置中使用聚合重新定位（ Aggregate Relocation ， ARL ）升级控制器硬件：
+
+[cols="40,20,40"]
+|===
+| 方法 | ONTAP 版本 | 支持的系统 
+
+
+| 使用 `ssystem controller replace` 命令 | 9.151或更高版本 | link:decide_to_use_the_aggregate_relocation_guide.html#sys_commands_9151_supported_systems["链接到支持的系统列表"] 
+|===
+
+NOTE: 您不能使用此过程升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 link:other_references.html["参考资料"] 以链接到_ MetroCluster升级和扩展文档_。
+
+在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确认在整个升级操作步骤 中至少有一个节点正在从聚合提供数据。您还可以迁移数据逻辑接口（ LIF ），并在继续操作时将新控制器上的网络端口分配给接口组。
+
+.此信息中使用的术语
+在此信息中，原始节点称为 "node1" 和 "node2" ，新节点称为 "node3" 和 "node4" 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。
+
+术语 "node1" ， "node2" ， "node3" 和 "node4" 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。
+
+.重要信息：
+* 此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还必须阅读并了解 link:guidelines_for_upgrading_controllers_with_arl.html["使用 ARL 升级控制器的准则"] 和 link:overview_of_the_arl_upgrade.html["ARL 升级概述"] 开始升级前的章节。
+* 此操作步骤假定更换用的控制器硬件是新的，尚未使用。此过程不包括使用命令准备使用过的控制器所需的步骤 `wipeconfig` 。如果之前使用了替代控制器硬件、则必须联系技术支持。
+* 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个高可用性（ HA ）对单独执行操作步骤。
+* 升级到ONTAP 9.151中推出的AFF A70、AFF A90或AFF A1K系统时、ONTAP会转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率、并应用利用硬件卸载功能的新存储效率功能。这是一个自动后台进程、不会对系统性能造成明显影响。 https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["了解更多信息。"^](英文)
+

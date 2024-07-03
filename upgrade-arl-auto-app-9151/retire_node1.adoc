@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/retire_node1.html 
+keywords: retiring, node 
+summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、使用node2禁用HA对并关闭node1 `system controller replace` 。' 
+---
+= 停用 node1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要停用 node1 ，您需要恢复自动操作，以便使用 node2 禁用 HA 对并正确关闭 node1 。稍后在操作步骤中、您将node1从机架或机箱中卸下。
+
+.步骤
+. 恢复操作：
++
+`s系统控制器更换恢复`
+
+. 验证 node1 是否已暂停：
++
+`s系统控制器更换 show-details`
+
+
+
+.完成后
+升级完成后，您可以停用 node1 。请参见 link:decommission_old_system.html["停用旧系统"]。

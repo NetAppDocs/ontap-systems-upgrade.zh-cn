@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/retire_node2.html 
+keywords: retire, node2 
+summary: '在升级运行ONTAP 9.151或更高版本的控制器时、使用命令关闭node2并将其从机架或机箱中移除 `system controller replace` 。' 
+---
+= 停用 node2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要停用node2、首先应正确关闭node2、然后将其从机架或机箱中卸下。
+
+.步骤
+. 恢复操作：
++
+`s系统控制器更换恢复`
+
++
+节点会自动暂停。
+
+
+
+.完成后
+升级完成后，您可以停用 node2 。请参见 link:decommission_old_system.html["停用旧系统"]。

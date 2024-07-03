@@ -68,7 +68,7 @@ NOTE: 您无需将互连卡 /FC_VI 卡或互连 /FC_VI 缆线连接从 node2 移
 
 | 与 node3 不同的机箱 | 转至 <<man_install4_Step6,第 6 步>>。 
 |===
-. 【 man_install4_Step6]] 打开 node4 的电源，然后按 `Ctrl-C` 以访问启动环境提示符来中断启动。
+. [[man_install4_step6]]打开node4的电源、然后按Ctrl-C访问启动环境提示符以中断启动。
 +
 
 NOTE: 启动 node4 时，您可能会看到以下消息：
@@ -133,7 +133,7 @@ IMPORTANT: 在V系列系统上启动ONTAP 之前、您必须重新配置FC板载
 +
 系统将显示每个 FC 启动程序端口可见的所有阵列 LUN 。如果阵列 LUN 不可见，则您不能在本节稍后将磁盘从 node2 重新分配到 node4 。
 
-. 按 `Ctrl-C` 以显示启动菜单，然后选择维护模式。
+. 按Ctrl-C显示启动菜单并选择维护模式。
 . 在维护模式提示符处，输入以下命令：
 +
 `halt`

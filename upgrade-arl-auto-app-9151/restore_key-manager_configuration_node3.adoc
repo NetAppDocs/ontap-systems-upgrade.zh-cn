@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/restore_key-manager_configuration_node3.html 
+keywords: restoring, key-manager, configuration, node3, nve, arl, encryption, netapp, volume 
+summary: '如果需要、在升级运行ONTAP 9.151或更高版本的控制器时、使用命令还原node3上的key-manager配置 `system controller replace` 。' 
+---
+= 还原 node3 上的 key-manager 配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果要使用NetApp卷加密(NVE)和NetApp聚合加密(NAE)对要升级的系统上的卷进行加密、则必须将加密配置同步到新节点。如果不同步密钥管理器、则在使用ARL将node1聚合从node2重新定位到node3时、可能会发生故障、因为node3没有使加密卷和聚合联机所需的加密密钥。
+
+.关于此任务
+执行以下步骤，将加密配置同步到新节点：
+
+.步骤
+. 从node3运行以下命令：
++
+`sSecurity key-manager 板载同步`
+
+. 在重新定位数据聚合之前、请验证node3上的SVM-KEK密钥是否已还原为"true"：
++
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+----
++
+.示例
+[listing]
+----
+::> security key-manager key query -node node3 -fields restored -key-type SVM-KEK
+
+node     vserver   key-server   key-id                                  restored
+-------- --------- -----------  --------------------------------------- --------
+node3    svm1      ""           00000000000000000200000000000a008a81976 true
+                                2190178f9350e071fbb90f00000000000000000
+----
+

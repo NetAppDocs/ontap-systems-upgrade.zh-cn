@@ -1,0 +1,64 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/guidelines_for_upgrading_controllers_with_arl.html 
+keywords: guidelines, upgrading, controllers, ARL 
+summary: '了解是否可以使用命令升级运行ONTAP 9.151或更高版本的控制器 `system controller replace` 。' 
+---
+= 使用 ARL 升级控制器的准则
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要了解是否可以使用ARL升级一对运行ONTAP 9.151或更高版本的控制器、具体取决于原始控制器和替代控制器的平台和配置。
+
+
+
+== 支持 ARL 升级
+
+在使用此ARL过程升级一对节点之前、请查看以下要求以确保您的配置受支持：
+
+* 验证是否可以对原始控制器和更换用的控制器执行ARL。
+* 检查所有已定义聚合的大小以及原始系统支持的磁盘数。然后、将聚合大小和支持的磁盘数与新系统支持的聚合大小和磁盘数进行比较。请参阅 link:other_references.html["参考资料"] 以链接至可提供此信息的_ Hardware Universe _。新系统支持的聚合大小和磁盘数必须等于或大于原始系统支持的聚合大小和磁盘数。
+* 在集群混用规则中验证更换原始控制器后、新节点是否可以与现有节点一起加入集群。有关集群混用规则的详细信息、请参见 link:other_references.html["参考资料"] 链接到_Data Hardware Universe _。
+* 如果您的系统(例如AFF 700)具有以下配置、请将集群LUN迁移并重新归位到每个节点的两个集群端口：
+* 每个节点两个以上的集群端口
+* 以分支模式在插槽4中创建集群互连卡、用于创建端口e4a、e4b、e4c和e4D以及端口e4e、 e4f、e4g和e4h
++
+
+NOTE: 如果执行控制器升级时每个节点的集群端口数超过两个、则可能会导致升级后新控制器上的集群丢失。
+
++
+有关详细信息，请参阅知识库文章 link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_delete_unwanted_or_unnecessary_cluster_LIFs["如何删除不需要或不必要的集群LUN"^]。
+
+
+
+配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
+
+
+
+== 双节点无交换机集群
+
+如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为交换集群。
+
+
+
+== ARL 不支持升级
+
+您不能升级不支持连接到原始控制器的磁盘架的替代控制器。
+
+请参见 link:other_references.html["参考资料"] 链接到 _disk_ Hardware Universe 以获取磁盘支持信息。
+
+如果要升级具有内部驱动器的入门级控制器、请参见 link:other_references.html["参考资料"] 链接到_Upgrade by Moving volumes_、然后转到过程_Upgrading a pair of running集群模式Data ONTAP by Moving volumes_。
+
+
+
+== 故障排除
+
+如果在升级控制器时出现任何问题、请参见 link:troubleshoot_index.html["故障排除"] 以了解更多信息和可能的解决方案。
+
+如果您未找到与遇到的问题相关的解决方案 ，请联系技术支持。

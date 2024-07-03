@@ -17,7 +17,7 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.5 �
 如果 node4 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。
 
 .关于此任务
-您可能需要完成 <<在节点 4 上配置 FC 端口>> 部分 <<检查并配置 node4 上的 UTA/UTA2 端口>>或这两个部分。
+您可能需要完成或部分、或者同时完成 <<在节点 4 上配置 FC 端口>> <<检查并配置 node4 上的 UTA/UTA2 端口>> 这两个部分。
 
 
 NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"] 部分。但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并已连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回 _Install and boot node4_ 部分并继续执行 link:install_boot_node4.html#step22["第 22 步"]。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
@@ -98,7 +98,7 @@ NOTE: FC端口必须编程为启动程序。
 +
 `halt`
 
-. 从 LOADER 提示符启动系统：
+. 从加载程序提示符启动系统：
 +
 `boot_ontap 菜单`
 
@@ -386,8 +386,8 @@ Login: ...
 ----
 ====
 . 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <<auto_check_4_step17,第 17 步>> 到 <<auto_check_4_step22,第 22 步>> 以解决此问题。
-. 在自动启动期间按 `Ctrl-C` 在 `LOADER>` 提示符处停止节点。
-. 在 LOADER 提示符处，进入维护模式：
+. [[auto_check_4_步骤17]]在自动启动期间按Ctrl-C在loader>提示符处停止节点。
+. 在加载程序提示符处、进入维护模式：
 +
 `boot_ontap maint`
 
@@ -417,7 +417,7 @@ Login: ...
 如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check_4_step23,第 23 步>>。
 
 ====
-. 在LOADER提示符处、启动：
+. [[auto_check_4_步骤22]]在加载程序提示符处、启动：
 +
 `boot_ontap 菜单`
 
@@ -425,11 +425,13 @@ Login: ...
 现在，在启动时，节点可以检测到先前分配给它的所有磁盘，并可按预期启动。
 
 +
-如果要替换的集群节点使用根卷加密、则ONTAP 软件将无法从磁盘读取卷信息。还原根卷的密钥：
+如果要更换的集群节点使用根卷加密、则ONTAP无法从磁盘中读取卷信息。还原根卷的密钥：
 
 +
 .. 返回到特殊的启动菜单：
++
 `LOADER> boot_ontap menu`
+
 +
 [listing]
 ----
@@ -463,8 +465,6 @@ NOTE: 您必须已在中获取密码短语和备份数据 link:prepare_nodes_for
 +
 
 NOTE: 您可能会在此阶段遇到错误。如果发生错误、请重复中的子步骤 <<auto_check_4_step22,第 22 步>> 直到系统正常启动。
-
-
 
 
 

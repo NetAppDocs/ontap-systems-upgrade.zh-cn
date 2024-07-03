@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/relocate_failed_or_vetoed_aggr.html 
+keywords: relocating, failed, vetoed, aggregates, relocation, operation 
+summary: '在升级运行ONTAP 9.15.1或更高版本的控制器时、使用命令手动重新定位失败的或被否决的聚合 `system controller replace` 。' 
+---
+= 重新定位失败或被否决的聚合
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果任何聚合无法重新定位或被否决，您必须手动重新定位聚合，或者在必要时覆盖否决或目标检查。
+
+.关于此任务
+由于此错误，重新定位操作将暂停。
+
+.步骤
+. 检查事件管理系统（ EMS ）日志以确定聚合无法重新定位或被否决的原因。
+. 重新定位任何出现故障或被否决的聚合：
++
+`s存储聚合重新定位start -node _node1_-destination _node2_-aggregate-list _aggr_name_-no-controller-upgrade true`
+
+. 出现提示时，输入 `y` 。
+. 您可以使用以下方法之一强制重新定位：
++
+[cols="35,65"]
+|===
+| 选项 | Description 
+
+
+| 覆盖否决检查 | 使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true` 
+
+
+| 覆盖目标检查 | 使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true -override-destination-checks true` 
+|===
+

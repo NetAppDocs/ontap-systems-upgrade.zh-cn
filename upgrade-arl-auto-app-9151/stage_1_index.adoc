@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/stage_1_index.html 
+keywords: upgrade, preparing, preparation, prepare, overview, stage 1 
+summary: '在运行ONTAP 9.151或更高版本的控制器上使用命令执行ARL升级的第1阶段过程顺序 `system controller replace` 。' 
+---
+= 第1阶段概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在阶段1中、您可以运行预检、如果需要、还可以更正聚合所有权。如果您要使用板载密钥管理器管理存储加密、并且可以选择将SnapMirror关系静置、则还需要记录某些信息。
+
+.步骤
+. link:prepare_nodes_for_upgrade.html["准备要升级的节点"]
+. link:manage_storage_encryption_using_okm.html["使用板载密钥管理器管理存储加密"]
+

@@ -30,6 +30,9 @@ summary: 在使用ARL升级同一机箱中的控制器型号时、请准备节�
 | 旧控制器 | SP或BMC | 最低固件版本 
 
 
+| AFF A800 | BMC | 10.9 
+
+
 | AFF A220 | BMC | 11.9P1 
 
 
@@ -52,18 +55,20 @@ summary: 在使用ARL升级同一机箱中的控制器型号时、请准备节�
 `ssystem controller replace start -nodes _node_names_`
 
 +
-您将看到类似于以下内容的输出：
+您将看到类似于以下示例的输出。输出将显示集群上运行的ONTAP版本：
 
 +
 ....
 Warning:
-1. Current ONTAP version is 9.x
+1. Current ONTAP version is 9.15.1
 
 2. Verify that NVMEM or NVRAM batteries of the new nodes are charged, and charge them if they are not. You need to physically check the new nodes to see if the NVMEM or NVRAM  batteries are charged. You can check the battery status either by connecting to a serial console or using SSH, logging into the Service Processor (SP) or Baseboard Management Controller (BMC) for your system, and use the system sensors to see if the battery has a sufficient charge.
 
 Attention: Do not try to clear the NVRAM contents. If there is a need to clear the contents of NVRAM, contact NetApp technical support.
 
 3. If a controller was previously part of a different cluster, run wipeconfig before using it as the replacement controller.
+
+4. Note: This is not a MetroCluster configuration. Controller replacement supports only ARL based procedures.
 
 Do you want to continue? {y|n}: y
 ....
@@ -126,7 +131,7 @@ Controller replacement operation has been paused for user intervention.
 . 在启动控制器更换操作并完成预检后，此操作将暂停，以便收集稍后在控制器升级过程中可能需要的输出信息。
 . 按照系统控制台上控制器更换操作步骤的指示运行以下一组命令。
 +
-从连接到每个节点的串行端口中、分别运行并保存以下命令的输出：
+从连接到每个节点的串行端口运行命令、分别运行并保存命令的输出：
 
 +
 ** `vserver services name-service dns show`
@@ -137,6 +142,11 @@ Controller replacement operation has been paused for user intervention.
 ** `network port ifgrp show -node _local_`
 ** `system node show -instance -node _local_`
 ** `run -node _local_ sysconfig`
+** `run -node local sysconfig -ac`
+** `run -node local aggr status -r`
+** `vol show -fields type`
+** `run local aggr options _data_aggregate_name_`
+** `vol show -fields type , space-guarantee`
 ** `storage aggregate show -node _local_`
 ** `volume show -node _local_`
 ** `storage array config show -switch _switch_name_`
@@ -146,11 +156,11 @@ Controller replacement operation has been paused for user intervention.
 ** `security key-manager external show`
 ** `s安全密钥管理器外部 show-status`
 ** `network port reachability show -detail -node _local_`
-
-
 +
 
 NOTE: 如果正在使用板载密钥管理器进行NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请保留密钥管理器密码短语、以便稍后在操作步骤中完成密钥管理器重新同步。
+
+
 
 . 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
 +

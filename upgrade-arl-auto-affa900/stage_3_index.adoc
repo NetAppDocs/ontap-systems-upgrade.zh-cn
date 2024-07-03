@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/stage_3_index.html
 keywords: upgrade, boot, node1, verify, restore, overview, stage 3 
 summary: '使用进行ARL升级的第3阶段流程 `system controller replace` 用于升级同一机箱中的控制器型号的命令。' 
 ---
-= 概述
+= 第3阶段概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,10 @@ summary: '使用进行ARL升级的第3阶段流程 `system controller replace` �
 
 
 [role="lead"]
-在第3阶段、使用升级的系统模块启动node1、并验证升级后的node1安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node2重新定位到升级后的node1、并验证node1上是否存在SAN LIF。
+在第3阶段、您需要为外部磁盘架(如果有)连接共享集群HA和存储连接、并使用升级后的系统模块启动node1、然后验证升级后的node1安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node2重新定位到升级后的node1、并验证node1上是否存在SAN LIF。
 
 .步骤
+. link:cable-node1-for-shared-cluster-HA-storage.html["用于共享集群HA存储的缆线节点1 (仅限AFF A800升级)"]
 . link:boot_node1_with_a900_controller_and_nvs.html["使用替代系统模块启动node1"]
 . link:verify_node1_installation.html["验证 node1 安装"]
 . link:restore_key_manager_config_upgraded_node1.html["在升级后的节点 1 上还原密钥管理器配置"]

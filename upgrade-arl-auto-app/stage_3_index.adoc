@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app/stage_3_index.html
 keywords: installing, booting, node3, install, cluster, stage 3 
 summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem controller replace` 命令进行 ARL 升级的第 3 阶段流程顺序。' 
 ---
-= 概述
+= 第3阶段概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

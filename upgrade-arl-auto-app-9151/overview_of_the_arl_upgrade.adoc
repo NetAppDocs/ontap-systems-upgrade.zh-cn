@@ -1,0 +1,99 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/overview_of_the_arl_upgrade.html 
+keywords: overview, arl, upgrade, owner, controller, hardware 
+summary: '了解使用命令升级运行ONTAP 9.151或更高版本的控制器的过程 `system controller replace` 的工作原理。' 
+---
+= ARL 升级概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在使用 ARL 升级节点之前，您应了解操作步骤的工作原理。在此内容中，操作步骤将分为多个阶段。
+
+
+
+== 升级节点对
+
+要升级节点对，您需要准备原始节点，然后对原始节点和新节点执行一系列步骤。然后，您可以停用原始节点。
+
+
+
+== ARL 升级顺序概述
+
+在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，一次升级一个控制器，从而利用 HA 对配置重新定位非根聚合的所有权。所有非根聚合都必须进行两次重新定位，才能到达其最终目标，即正确的升级节点。
+
+每个聚合都有一个主所有者和当前所有者。主所有者是聚合的实际所有者，当前所有者是临时所有者。
+
+下表介绍了您在每个阶段执行的高级任务以及此阶段结束时的聚合所有权状态。操作步骤稍后将提供详细步骤：
+
+[cols="35,65"]
+|===
+| 阶段 | Description 
+
+
+| link:stage_1_index.html["第 1 阶段。准备升级"]  a| 
+在阶段1中、您可以运行预检、如果需要、还可以更正聚合所有权。如果您要使用OKM管理存储加密、并且可以选择将SnapMirror关系静用、则必须记录某些信息。
+
+阶段 1 结束时的聚合所有权：
+
+* node1 是 node1 聚合的主所有者和当前所有者。
+* node2 是 node2 聚合的主所有者和当前所有者。
+
+
+
+
+| link:stage_2_index.html["第 2 阶段。重新定位和停用节点 1"]  a| 
+在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node3和node4。
+
+阶段 2 结束时的聚合所有权：
+
+* node2 是 node1 聚合的当前所有者。
+* node2 是 node2 聚合的主所有者和当前所有者。
+
+
+
+
+| link:stage_3_index.html["第 3 阶段。安装并启动 node3"]  a| 
+在第 3 阶段，您安装并启动 node3 ，检查 node1 中的集群和节点管理端口是否在 node3 上联机，并验证 node3 安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。
+
+第 3 阶段结束时的聚合所有权：
+
+* node3 是 node1 聚合的主所有者和当前所有者。
+* node2 是 node2 聚合的主所有者和当前所有者。
+
+
+
+
+| link:stage_4_index.html["第 4 阶段。重新定位和停用节点 2"]  a| 
+在阶段4中、您会将非根聚合和NAS数据LIF从node2重新定位到node3。您还可以记录node2信息、以便在停用node2之前在操作步骤 中稍后使用。
+
+第 4 阶段结束时的聚合所有权：
+
+* node3 是最初属于 node1 的聚合的主所有者和当前所有者。
+* node2 是 node2 聚合的主所有者。
+* node3 是 node2 聚合的当前所有者。
+
+
+
+
+| link:stage_5_index.html["第 5 阶段。安装并启动节点 4."]  a| 
+在第 5 阶段，您安装并启动 node4 ，检查 node2 中的集群和节点管理端口是否在 node4 上联机，并验证 node4 安装。如果您使用的是NVE、则需要还原密钥管理器配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
+
+第 5 阶段结束时的聚合所有权：
+
+* node3 是最初属于 node1 的聚合的主所有者和当前所有者。
+* Node4 是最初属于 Node2 的聚合的主所有者和当前所有者。
+
+
+
+
+| link:stage_6_index.html["第 6 阶段。完成升级"]  a| 
+在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。
+
+|===

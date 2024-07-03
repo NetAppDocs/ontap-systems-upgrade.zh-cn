@@ -1,5 +1,8 @@
 ---
 indexpage:
+  title: ONTAP硬件升级文档
+  summary: 通过重新定位聚合、移动卷或移动存储来升级控制器硬件。
+  keywords: aggregate, relocation, moving, manual, upgrade, relocate
   lead: 本站点提供了AFF、FAS和ASA存储系统的升级过程。为您的存储系统选择适当的升级操作步骤。
   tiles:
   - title: 入门
@@ -10,18 +13,20 @@ indexpage:
       url: "/choose_controller_upgrade_procedure.html"
   - title: 通过在运行ONTAP 9.8及更高版本的系统上重新定位聚合进行升级
     links:
+    - title: 使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件
+      url: "/upgrade-arl-auto-app-9151/index.html"
     - title: 使用system controller Replace命令升级同一机箱中的控制器型号
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/
+      url: "/upgrade-arl-auto-affa900/index.html"
     - title: 使用 system controller replace 命令（大多数系统）
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/
+      url: "/upgrade-arl-auto-app/index.html"
     - title: 使用手动命令
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/
+      url: "/upgrade-arl-manual-app/index.html"
   - title: 通过在运行ONTAP 9.7及更早版本的系统上重新定位聚合进行升级
     links:
     - title: 使用system controller Replace命令
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/
+      url: "/upgrade-arl-auto/index.html"
     - title: 使用手动命令
-      url: https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/
+      url: "/upgrade-arl-manual/index.html"
   - title: 通过移动一个或多个存储卷进行升级
     links:
     - title: 升级控制器硬件
@@ -36,7 +41,7 @@ indexpage:
     links:
     - title: ONTAP硬件系统文档
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
-    - title: ONTAP 交换机文档
+    - title: ONTAP硬件系统的交换机文档
       url: https://docs.netapp.com/us-en/ontap-systems-switches/index.html
     - title: ONTAP 软件文档
       url: https://docs.netapp.com/us-en/ontap/index.html

@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/stage_4_index.html 
+keywords: relocate, retire, node2, LIF, node3, non-root aggregates, stage 4 
+summary: '在运行ONTAP 9.151或更高版本的控制器上使用命令执行ARL升级的第4阶段过程顺序 `system controller replace` 。' 
+---
+= 第4阶段概述
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在阶段4中、您会将非根聚合和NAS数据LIF从node2重新定位到node3。此外、您还会记录必要的node2信息、以供稍后在操作步骤中使用、然后停用node2。
+
+.步骤
+. link:relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3"]
+. link:retire_node2.html["停用 node2"]
+

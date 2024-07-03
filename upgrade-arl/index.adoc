@@ -4,7 +4,7 @@ permalink: upgrade-arl/index.html
 keywords: aggregate, relocation, moving, manual, upgrade, relocate, hardware 
 summary: 使用聚合重新定位升级控制器硬件 
 ---
-= 概述
+= 选择ARL升级过程
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -31,9 +31,10 @@ ARL 利用 HA 配置，您可以将非根聚合的所有权从一个节点移动
 | 如果您运行的是此 ONTAP 版本… | 要使用 system 命令进行升级，请使用… 
 
 
-| 9.10.1 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^]
+| 9.151或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件"] 
 
-对于某些型号和ONTAP软件版本、您可以使用此操作步骤将配置为全SAN阵列(ASA)的AFF控制器升级为ASA控制器。 link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["了解更多信息。"]。 
+
+| 9.10.1 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"] 对于某些型号和ONTAP软件版本、您可以使用此过程将配置为全SAN阵列(ASA)的AFF控制器升级为ASA控制器。link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["了解更多信息。"](英文) 
 
 
 | 9.8 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"] 

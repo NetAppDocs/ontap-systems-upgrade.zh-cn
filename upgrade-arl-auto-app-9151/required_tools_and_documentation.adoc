@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-app-9151/required_tools_and_documentation.html 
+keywords: required, tools, documentation, install, worksheet, ontap 
+summary: '要使用命令升级运行ONTAP 9.15.1或更高版本的控制器、您必须准备好某些工具和文档 `system controller replace` 。' 
+---
+= 所需的工具和文档
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+要安装新硬件，您必须使用特定工具，并且在升级过程中需要参考其他文档。
+
+要执行升级，您需要使用以下工具：
+
+* 接地线
+* 2 号十字螺丝刀
+
+
+转至 link:other_references.html["参考资料"] 第节以访问此升级所需的参考文档和参考站点列表

@@ -27,8 +27,7 @@ summary: '在升级运行 ONTAP 9.8 或更高版本的控制器时，使用 `ssy
 
 . 出现提示时，输入 `y` 。
 . 您可以使用以下方法之一强制重新定位：
-
-
++
 [cols="35,65"]
 |===
 | 选项 | Description 
@@ -39,3 +38,4 @@ summary: '在升级运行 ONTAP 9.8 或更高版本的控制器时，使用 `ssy
 
 | 覆盖目标检查 | 使用以下命令：`storage aggregate relocation start -node node1 -destination node2 -aggregate-list _aggr_list_-no-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===
+
