@@ -23,7 +23,7 @@ summary: '通常，控制器硬件的升级方式取决于原始节点的平台�
 * AFF A150、AFF A200、AFF A220、AFF A250、AFF A700s、 和AFF A800
 +
 
-NOTE: 您还可以通过聚合重新定位将AFF A800升级到AFF A70或AFF A90。link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["了解更多信息。"](英文)
+NOTE: 您还可以通过聚合重新定位将AFF A800升级到AFF A70或AFF A90。link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["了解更多信息。"](英文)
 
 * AFF C190、AFF C250和AFF C800
 * ASA A150、ASA A250、ASA A800和ASA AFF A220
