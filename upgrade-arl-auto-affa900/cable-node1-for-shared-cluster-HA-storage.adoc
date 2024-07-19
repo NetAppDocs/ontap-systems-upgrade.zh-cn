@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html 
-keywords:  
-summary:  
+keywords: cluster, ha, aff, a800, shared, storage, data, management 
+summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接连接连接到新安装的AFF A90或AFF A70节点1 
 ---
 = 用于共享集群HA和存储的缆线节点1 (仅限AFF A800升级)
 :hardbreaks:
@@ -14,7 +14,31 @@ summary:
 
 
 [role="lead"]
-以前连接到AFF A800节点1的所有集群、HA、存储和数据连接现在都应连接到新安装的AFF A90或AFF A70节点1。
+将先前连接到AFF A800节点1的集群、HA、存储、数据和管理连接连接连接连接到新安装的AFF A90或AFF A70节点1。
+
+
+
+== 连接e0M和BMC端口
+
+AFF A800具有一个管理端口(e0M)和一个BMC端口。在AFF A90和AFF A70上、e0M和BMC端口组合在一起、并通过"扳手"端口进行访问。在连接到AFF A90或AFF A70之前、必须确保e0M和BMC端口连接到AFF A800上的同一交换机和子网。
+
+[cols="35,65"]
+|===
+| 如果... | 那么 ... 
+
+
+| e0M和BMC IP地址位于同一IP子网上 | 将AFF A800上的e0M或BMC端口连接到AFF A90或AFF A70上的"扳手"端口。 
+
+
+| e0M和BMC IP地址位于不同子网上  a| 
+. 将e0M和BMC IP地址合并到一个IP子网中。
+. 将AFF A800上的e0M或BMC端口连接到AFF A90或AFF A70上的"扳手"端口。
+
+
+|===
+
+
+== 连接到双节点无交换机集群
 
 下表显示了双节点无交换机集群配置中的交换机端口使用情况。
 
@@ -39,4 +63,12 @@ summary:
 
 | NS224磁盘架的以太网存储端口 | 任何可用端口 | 请参见以太网存储连接映射 | 请参见以太网存储连接映射 
 |===
-对于连接交换机的集群、AFF A90或AFF A70节点上的相同集群端口应位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。通过交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、node2中的e1a连接到SwitchB)、可以防止HA通信失败。
+
+
+== 连接到交换机连接的集群
+
+对于交换机连接的集群、请检查是否满足以下要求：
+
+* AFF A90或AFF A70节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。
+* AFF A90和AFF A70节点使用共享集群HA以太网端口。确保使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机。
+
