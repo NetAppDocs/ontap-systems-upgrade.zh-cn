@@ -5205,4 +5205,13 @@ FAS2720</block>
   <block id="642bccb8ea8bf1d5af20ff2b734c1972" category="paragraph">对于交换机连接的集群、请检查是否满足以下要求：</block>
   <block id="0bc65976ff133ee82e86f9a6d1241bd3" category="list-text">AFF A90或AFF A70节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。</block>
   <block id="a8ddcf9ff72eca8d08263b606043e793" category="list-text">AFF A90和AFF A70节点使用共享集群HA以太网端口。确保使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机。</block>
+  <block id="95aecbf4d4598d28238d33836d5f1d39" category="list-text">对于集群和HA连接、AFF A70和AFF A90系统共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
+  <block id="46f6c35d9a23403b9b4475860494f7e1" category="inline-link-macro">如何在AFF A1K、AFF A90或AFF A70上的新集群设置中配置10G或25G集群端口</block>
+  <block id="d5262d5b7c57ddb8a1bce6f64f715cf1" category="list-text"><block ref="d5262d5b7c57ddb8a1bce6f64f715cf1" category="inline-link-macro-rx"></block></block>
+  <block id="ddafb8accea93e408c3e1081312cd023" category="inline-link-macro">如何将AFF A1K、AFF A90或AFF A70上的现有集群端口从10G或25G转换为40G或100G集群端口</block>
+  <block id="441c3294ac36b4f16260ca4b44ff0ca4" category="list-text"><block ref="441c3294ac36b4f16260ca4b44ff0ca4" category="inline-link-macro-rx"></block></block>
+  <block id="ac431d04c49bd36c09bfbc24a8f894f9" category="inline-link-macro">NetApp错误在线中的错误ID COBTP-166978</block>
+  <block id="f24d3bbf01666420670f76d88d0728aa" category="paragraph">如果无法将现有节点上的e0a或e0b集群端口链接到新节点上的集群端口，请参见 <block ref="7be812dd65bbd3f39bbb06fd50caac76" category="inline-link-macro-rx"></block>。</block>
+  <block id="da56dddfadc94faded5adccdf08f341d" category="list-text">AFF A70、AFF A90和AFF A1K系统会为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
+  <block id="9224ff81582fe0027e574d0b62a2ff67" category="list-text">升级到AFF A70、AFF A90或AFF A1K系统时、ONTAP会转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率、并应用新的存储效率功能来利用硬件卸载功能。这是一个自动后台进程、不会对系统性能造成明显影响。<block ref="7746afbac27a580f36b90211e9daf7d0" category="inline-link-rx"></block>(英文)</block>
 </blocks>

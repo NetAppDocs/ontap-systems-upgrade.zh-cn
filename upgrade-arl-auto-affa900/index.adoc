@@ -102,6 +102,17 @@ NOTE: 术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的�
 * 此操作步骤假定更换用的控制器硬件是新的，尚未在其他系统中使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果更换用的控制器硬件先前已用作另一个 ONTAP 集群的一部分或用作独立的单节点系统，则必须联系技术支持。
 * 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个 HA 对单独执行操作步骤。
 * 如果您的交换机不受ONTAP版本和要升级到的替代系统支持、请参阅 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。
+* 对于集群和HA连接、AFF A70和AFF A90系统共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：
++
+--
+** link:https://kb.netapp.com/?title=on-prem%2Fontap%2FOHW%2FOHW-KBs%2FHow_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_A1K%252C_AFF_A90_or_AFF_A70["如何在AFF A1K、AFF A90或AFF A70上的新集群设置中配置10G或25G集群端口"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_A1K_AFF_A90_or_AFF_A70["如何将AFF A1K、AFF A90或AFF A70上的现有集群端口从10G或25G转换为40G或100G集群端口"^]
+
+
+--
++
+如果无法将现有节点上的e0a或e0b集群端口链接到新节点上的集群端口，请参见 link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["NetApp错误在线中的错误ID COBTP-166978"^]。
+
 * 此过程仅适用于AFF A800、AFF A200、AFF A220、AFF C190、FAS2620、 FAS2720、AFF A700和FAS9000系统。对于需要升级到AFF A90、AFF A70、AFF A150、FAS2820、AFF A900的所有其他控制器型号、 或FAS9500系统、请参见 link:other_references.html["参考资料"] 链接到_use "system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_以及_using聚合重新定位手动升级运行ONTAP 9.8或更高版本的控制器硬件_内容。
 * ASA A900、AFF A900和FAS9500系统仅支持高端电源(200V至240V)。如果您的AFF A700或FAS9000系统使用低端电源(100V到120V)运行、则必须先转换AFF A700或FAS9000输入电源、然后才能使用此操作步骤。
 * 如果要从AFF A800、AFF A200、AFF A220、AFF C190、FAS2620升级、 FAS2720、AFF A700或FAS9000系统停机时、您可以通过移动存储来升级控制器硬件、也可以联系技术支持。请参见 link:other_references.html["参考资料"] 链接到_Upgrade by Moving volumes"或"storage"。
