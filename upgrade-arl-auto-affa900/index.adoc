@@ -105,8 +105,8 @@ NOTE: 术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的�
 * 对于集群和HA连接、AFF A70和AFF A90系统共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：
 +
 --
-** link:https://kb.netapp.com/?title=on-prem%2Fontap%2FOHW%2FOHW-KBs%2FHow_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_A1K%252C_AFF_A90_or_AFF_A70["如何在AFF A1K、AFF A90或AFF A70上的新集群设置中配置10G或25G集群端口"^]
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_A1K_AFF_A90_or_AFF_A70["如何将AFF A1K、AFF A90或AFF A70上的现有集群端口从10G或25G转换为40G或100G集群端口"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_ASA_A1K_A90_A70_FAS90_FAS70["如何在FAS/FASA1K、A90、A70、AFF 90、ASA上的新集群设置中配置10G或25G集群端口"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_ASA_A1K_A90_A70_FAS90_FAS70["如何将FAS/FASA1K、A90、A70、AFF 90、ASA上的现有集群端口从10G或25G转换为40G或100G集群端口"^]
 
 
 --

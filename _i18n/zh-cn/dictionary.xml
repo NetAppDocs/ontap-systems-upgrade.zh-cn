@@ -4840,7 +4840,6 @@ FAS2720</block>
   <block id="70df8f2f5459940187f1edf7420f9c6b" category="paragraph">要通过移动存储进行升级、您需要准备原始节点并设置新节点。某些平台型号支持将内部存储传输到新节点。您可以重新分配磁盘并将根卷配置还原到新节点，并配置网络端口。</block>
   <block id="ffaf71c89815c9497697e87f8d77a27d" category="paragraph">通过移动卷升级控制器硬件是一个无中断过程。开始升级之前、请查看常规升级情形和升级注意事项：</block>
   <block id="cf41c84e5298fdad396a8a0dd7eaf0f3" category="paragraph">要通过移动卷进行升级、您需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。</block>
-  <block id="99a62a63bac74233e567cc3137cf29e8" category="paragraph">升级到ONTAP 9.151中推出的AFF A70、AFF A90或AFF A1K系统时、ONTAP会转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率、并应用利用硬件卸载功能的新存储效率功能。这是一个自动后台进程、不会对系统性能造成明显影响。<block ref="7746afbac27a580f36b90211e9daf7d0" category="inline-link-rx"></block>(英文)</block>
   <block id="4b5907b5b5c704438991bdf09784779a" category="list-text">在启动菜单中、输入8以重新启动节点、并在自动启动期间按Ctrl-C在加载程序提示符处停止节点。</block>
   <block id="ee537959cbe6c4957342c94d3801abf7" category="doc">选择ARL升级过程</block>
   <block id="7e077786789216bd7864197dde6da988" category="cell">9.151或更高版本</block>
@@ -5010,9 +5009,6 @@ FAS2720</block>
   <block id="d4b6fe12abba1b6202f6eaf9239109fe" category="list-text">您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到_ MetroCluster升级和扩展文档_。</block>
   <block id="11e69ee085d842ce1112f661ea99ca78" category="paragraph">[[sys_commands_9151_supported_systems]]下表显示了控制器升级支持的型号表。</block>
   <block id="82a01e528bf5bf2b1b7172eddc250977" category="cell">现有控制器</block>
-  <block id="1a2f740f86d5113f5765d0c0064cc805" category="cell">AFF A70、AFF A90和AFF A1K</block>
-  <block id="e6f9eb6f48a1c73f8869c3018d94ce49" category="cell">AFF A90和AFF A1K</block>
-  <block id="21f38ae66a0904e51060023ca6858959" category="paragraph">AFF A70和AFF A90是具有板载磁盘的集成系统。两个控制器和磁盘位于一个机箱中。如果新控制器具有内部驱动器、则无法升级现有系统。</block>
   <block id="4de11ced25f5990c0cc8fa95f739e66c" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器后、告知NetApp旧系统不再运行<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="05182f39754b99e12a705e61572b4051" category="summary">在升级运行ONTAP 9.15.1或更高版本的控制器后、使用命令启用HA对、验证node3和node4存储访问并确认聚合所有权<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="570743d2305de7bd0a4e44c426b2db21" category="paragraph"><block ref="49166cc15e848fc049881c3de5e1d1f8" prefix="" category="inline-code"></block></block>
@@ -5206,12 +5202,26 @@ FAS2720</block>
   <block id="0bc65976ff133ee82e86f9a6d1241bd3" category="list-text">AFF A90或AFF A70节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。</block>
   <block id="a8ddcf9ff72eca8d08263b606043e793" category="list-text">AFF A90和AFF A70节点使用共享集群HA以太网端口。确保使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机。</block>
   <block id="95aecbf4d4598d28238d33836d5f1d39" category="list-text">对于集群和HA连接、AFF A70和AFF A90系统共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
-  <block id="46f6c35d9a23403b9b4475860494f7e1" category="inline-link-macro">如何在AFF A1K、AFF A90或AFF A70上的新集群设置中配置10G或25G集群端口</block>
-  <block id="d5262d5b7c57ddb8a1bce6f64f715cf1" category="list-text"><block ref="d5262d5b7c57ddb8a1bce6f64f715cf1" category="inline-link-macro-rx"></block></block>
-  <block id="ddafb8accea93e408c3e1081312cd023" category="inline-link-macro">如何将AFF A1K、AFF A90或AFF A70上的现有集群端口从10G或25G转换为40G或100G集群端口</block>
-  <block id="441c3294ac36b4f16260ca4b44ff0ca4" category="list-text"><block ref="441c3294ac36b4f16260ca4b44ff0ca4" category="inline-link-macro-rx"></block></block>
   <block id="ac431d04c49bd36c09bfbc24a8f894f9" category="inline-link-macro">NetApp错误在线中的错误ID COBTP-166978</block>
   <block id="f24d3bbf01666420670f76d88d0728aa" category="paragraph">如果无法将现有节点上的e0a或e0b集群端口链接到新节点上的集群端口，请参见 <block ref="7be812dd65bbd3f39bbb06fd50caac76" category="inline-link-macro-rx"></block>。</block>
-  <block id="da56dddfadc94faded5adccdf08f341d" category="list-text">AFF A70、AFF A90和AFF A1K系统会为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
-  <block id="9224ff81582fe0027e574d0b62a2ff67" category="list-text">升级到AFF A70、AFF A90或AFF A1K系统时、ONTAP会转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率、并应用新的存储效率功能来利用硬件卸载功能。这是一个自动后台进程、不会对系统性能造成明显影响。<block ref="7746afbac27a580f36b90211e9daf7d0" category="inline-link-rx"></block>(英文)</block>
+  <block id="894f2e2a32e68afb6c8779c4dd1b6061" category="list-text">升级到ONTAP 9。15.1中引入的系统时、ONTAP会转换现有卷的存储效率、并应用新的存储效率功能来利用硬件卸载功能。这是一个自动后台进程、不会对系统性能造成明显影响。</block>
+  <block id="20a50ea664dd251305adec2bcca06061" category="list-text">对于AFF A70、AFF A90或AFF A1K系统、ONTAP可转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率。</block>
+  <block id="c35161fa14384d510e021a3314063cc1" category="list-text">对于FAS70和FAS90系统、ONTAP仅转换在升级之前已启用存储效率的现有精简配置卷的存储效率。</block>
+  <block id="33bb7bcaf48f0fdda36a26455a40a230" category="inline-link-macro">详细了解存储效率</block>
+  <block id="6d6b534c9b53f9b5663ea4448a9c5c5a" category="paragraph"><block ref="7e7ac2ea54718abbfde88230c884c797" category="inline-link-macro-rx"></block>(英文)</block>
+  <block id="0db06a4e73b14fd8cb249dd2487fa5a3" category="inline-link-macro">如何在FAS/FASA1K、A90、A70、AFF 90、ASA上的新集群设置中配置10G或25G集群端口</block>
+  <block id="4ffac300dc153b14bfe521f43fc61b31" category="list-text"><block ref="4ffac300dc153b14bfe521f43fc61b31" category="inline-link-macro-rx"></block></block>
+  <block id="aceb7b5bd7d7f40aa548f5d1aac76fd5" category="inline-link-macro">如何将FAS/FASA1K、A90、A70、AFF 90、ASA上的现有集群端口从10G或25G转换为40G或100G集群端口</block>
+  <block id="047ca982afd7eda65d342c9845174216" category="list-text"><block ref="047ca982afd7eda65d342c9845174216" category="inline-link-macro-rx"></block></block>
+  <block id="2b05a3de35946226b44f265788b807c9" category="cell">从ONTAP开始支持...</block>
+  <block id="8643f1ec20c68bd9122a5e9c431fe6fe" category="cell">FAS70、FAS90</block>
+  <block id="1a6c927dff2b4164c21b2d570f87ed5c" category="cell">9.15.1P3</block>
+  <block id="649e9f4912bcf4af7efe489c6866eb1d" category="cell">FAS90</block>
+  <block id="f43de3716b79c8e43965aeacd1411a48" category="cell">AFF A300、AFF A400、AFF A700</block>
+  <block id="5fa70989a3e04b27c407da750f3d94fe" category="cell">AFF A70、AFF A90、AFF A1K</block>
+  <block id="ccf78fb30997636f483e58875cad308b" category="cell">AFF A90、AFF A1K</block>
+  <block id="fd63300d56f60b7a5ff6928593e24ff3" category="paragraph">AFF A70和AFF A90是集成系统、在一个机箱中具有两个板载磁盘和两个控制器。</block>
+  <block id="e0acd4a9bc97511cc024bf1c07dc8536" category="list-text">如果要升级到具有内部驱动器的AFF A70或AFF A90、则必须在升级之前删除这些驱动器的所有权。完成升级后、您可以将内部驱动器分配给AFF A70或AFF A90节点、并使用它们创建数据聚合。不必将根聚合或数据聚合迁移到内部驱动器。</block>
+  <block id="9f63491a94b75b12a4f685455f82295c" category="list-text">如果要升级到不带内部驱动器的AFF A70或AFF A90、则在完成升级后无需分配内部驱动器。</block>
+  <block id="1c6b77da3506137a2164e23d95b49133" category="list-text">AFF A70、AFF A90、AFF A1K、FAS70和FAS90系统会为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
 </blocks>
