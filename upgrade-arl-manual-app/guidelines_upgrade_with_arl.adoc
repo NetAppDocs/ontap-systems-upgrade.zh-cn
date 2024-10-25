@@ -10,7 +10,7 @@ summary: 了解是否可以对运行 ONTAP 9.8 或更高版本的控制器使用
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 使用 Config Advisor 工具在运行 ONTAP 9.7 或更早版本的控�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

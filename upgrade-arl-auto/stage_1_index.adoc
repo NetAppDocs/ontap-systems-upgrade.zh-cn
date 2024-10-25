@@ -10,7 +10,7 @@ summary: '在运行 ONTAP 9.5 至 9.7 的控制器上使用 `ssystem controller 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

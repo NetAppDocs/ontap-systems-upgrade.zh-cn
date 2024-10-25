@@ -10,7 +10,7 @@ summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

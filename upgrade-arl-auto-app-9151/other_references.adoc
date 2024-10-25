@@ -10,7 +10,7 @@ summary: '使用命令支持运行ONTAP 9.151或更高版本的控制器升级�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

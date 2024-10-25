@@ -10,7 +10,7 @@ summary: 确定是否使用手动 ARL 操作步骤 将 HA 对中的存储控制�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

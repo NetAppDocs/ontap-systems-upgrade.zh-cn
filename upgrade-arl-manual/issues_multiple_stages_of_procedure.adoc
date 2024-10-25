@@ -10,7 +10,7 @@ summary: 有关在运行 ONTAP 9.7 或更早版本的控制器上手动升级 AR
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: '如果需要、请在使用ARL升级同一机箱中的控制器型号�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

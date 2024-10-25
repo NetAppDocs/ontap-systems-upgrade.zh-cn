@@ -10,7 +10,7 @@ summary: 在以网络方式启动系统之前，请在运行 ONTAP 9.7 或更早
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

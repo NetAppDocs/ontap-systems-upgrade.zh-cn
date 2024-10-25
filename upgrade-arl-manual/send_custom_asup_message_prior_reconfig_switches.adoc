@@ -10,7 +10,7 @@ summary: 通知 NetApp 技术支持，正在对运行 ONTAP 9.7 或更早版本�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

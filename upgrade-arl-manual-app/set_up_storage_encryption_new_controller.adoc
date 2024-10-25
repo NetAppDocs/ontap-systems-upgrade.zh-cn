@@ -10,7 +10,7 @@ summary: 如果需要，请在运行 ONTAP 9.8 或更高版本的控制器上手
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

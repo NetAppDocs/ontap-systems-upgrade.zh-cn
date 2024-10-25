@@ -10,7 +10,7 @@ summary: 在升级同一机箱中的控制器型号后、验证HA对是否已启
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

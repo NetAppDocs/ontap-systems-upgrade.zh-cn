@@ -10,7 +10,7 @@ summary: '要使用命令升级运行ONTAP 9.15.1或更高版本的控制器、�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

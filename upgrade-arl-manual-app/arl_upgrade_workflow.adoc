@@ -10,7 +10,7 @@ summary: 了解运行 ONTAP 9.8 或更高版本的一对控制器的手动 ARL �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

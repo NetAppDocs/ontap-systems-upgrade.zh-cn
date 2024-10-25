@@ -10,7 +10,7 @@ summary: '使用命令确定是否使用ARL升级运行ONTAP 9.151或更高版�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

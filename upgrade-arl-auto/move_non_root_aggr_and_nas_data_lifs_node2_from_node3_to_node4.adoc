@@ -10,7 +10,7 @@ summary: '使用将运行ONTAP 9.5的控制器升级到9.7时、将node3上的no
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

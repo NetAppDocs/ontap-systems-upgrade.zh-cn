@@ -10,7 +10,7 @@ summary: 您可以通过将旧系统转换为替代系统来升级控制器硬�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -23,7 +23,7 @@ summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2
 NOTE: 请勿将控制器模块完全插入机箱，除非稍后在操作步骤 中指示您这样做。
 
 +
-image::../media/drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG[安装AFF A90或AFF A70]
+image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["安装AFF A90或AFF A70"]
 
 . 使用缆线将管理和控制台端口连接到 node1 控制器模块。
 +

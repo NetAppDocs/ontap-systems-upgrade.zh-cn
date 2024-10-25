@@ -10,7 +10,7 @@ summary: 有关使用ARL升级同一机箱中的控制器型号时可能出现�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 对于 ONTAP 9.1 或更高版本，请在运行 ONTAP 9.7 或更早版�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

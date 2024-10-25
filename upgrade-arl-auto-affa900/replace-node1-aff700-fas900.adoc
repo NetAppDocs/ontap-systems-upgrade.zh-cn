@@ -10,7 +10,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A700
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -35,7 +35,7 @@ WARNING: 在处理 node1 时，只需从 node1 中拔下控制台和 e0M 缆线�
 +
 .. Slide the orange button on the cam handle downward until it unlocks.
 +
-image::../media/drw_9500_remove_PCM.png[Remove controller module]
+image:drw_9500_remove_PCM.png["Remove controller module"]
 
 +
 [cols="20,80"]
@@ -43,12 +43,12 @@ image::../media/drw_9500_remove_PCM.png[Remove controller module]
 
 
  a| 
-image::../media/black_circle_one.png[第一]
+image:black_circle_one.png["第一"]
 | Cam handle release button 
 
 
  a| 
-image::../media/black_circle_two.png[第二]
+image:black_circle_two.png["第二"]
 | Cam handle 
 |===
 .. Rotate the cam handle so that it completely disengages the controller module from the chassis, and then slide the controller module out of the chassis.
@@ -81,7 +81,7 @@ NVRAM 模块从机箱中分离并移动几英寸。
 
 .. Remove the NVRAM module from the chassis by pulling on the pull tabs on the sides of the module face.
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[卸下 NVRAM 模块]
+image:drw_a900_move-remove_NVRAM_module.png["卸下 NVRAM 模块"]
 
 +
 [cols="20,80"]
@@ -89,12 +89,12 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[卸下 NVRAM 模块]
 
 
  a| 
-image::../media/black_circle_one.png[第一]
+image:black_circle_one.png["第一"]
 | Lettered and numbered I/O cam latch 
 
 
  a| 
-image::../media/black_circle_two.png[第二]
+image:black_circle_two.png["第二"]
 | I/O latch completely unlocked 
 |===
 
@@ -127,7 +127,7 @@ image::../media/black_circle_two.png[第二]
 . 将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。
 . 将 NVRAM 模块轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVRAM 模块锁定到位。
 +
-image::../media/drw_a900_move-remove_NVRAM_module.png[安装 NVRAM 模块]
+image:drw_a900_move-remove_NVRAM_module.png["安装 NVRAM 模块"]
 
 +
 [cols="20,80"]
@@ -135,12 +135,12 @@ image::../media/drw_a900_move-remove_NVRAM_module.png[安装 NVRAM 模块]
 
 
  a| 
-image::../media/black_circle_one.png[第一]
+image:black_circle_one.png["第一"]
 | Lettered and numbered I/O cam latch 
 
 
  a| 
-image::../media/black_circle_two.png[第二]
+image:black_circle_two.png["第二"]
 | I/O latch completely unlocked 
 |===
 
@@ -171,7 +171,7 @@ NOTE: 由于机箱已通电、node1将启动BIOS初始化、并在完全就位�
 WARNING: 为避免损坏连接器，请勿在将控制器模块滑入机箱时用力过大。
 
 +
-image::../media/drw_9500_remove_PCM.png[Install the controller module]
+image:drw_9500_remove_PCM.png["Install the controller module"]
 
 +
 [cols="20,80"]
@@ -179,12 +179,12 @@ image::../media/drw_9500_remove_PCM.png[Install the controller module]
 
 
  a| 
-image::../media/black_circle_one.png[第一]
+image:black_circle_one.png["第一"]
 | 凸轮把手锁定闩锁 
 
 
  a| 
-image::../media/black_circle_two.png[第二]
+image:black_circle_two.png["第二"]
 | 凸轮把手处于解锁位置 
 |===
 . 一旦模块就位，请立即连接串行控制台，并准备好中断 node1 的自动启动。

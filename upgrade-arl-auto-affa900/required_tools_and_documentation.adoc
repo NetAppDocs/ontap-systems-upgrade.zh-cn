@@ -10,7 +10,7 @@ summary: 要使用ARL升级同一机箱中的控制器型号、您必须具有�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

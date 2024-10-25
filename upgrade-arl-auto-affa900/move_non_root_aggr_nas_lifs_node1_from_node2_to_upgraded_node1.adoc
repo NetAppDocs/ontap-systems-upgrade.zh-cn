@@ -10,7 +10,7 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

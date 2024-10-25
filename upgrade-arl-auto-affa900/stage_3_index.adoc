@@ -10,7 +10,7 @@ summary: '使用进行ARL升级的第3阶段流程 `system controller replace` �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

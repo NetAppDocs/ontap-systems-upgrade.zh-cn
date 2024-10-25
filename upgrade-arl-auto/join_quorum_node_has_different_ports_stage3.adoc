@@ -10,7 +10,7 @@ summary: '在第 3 阶段，使用 `ssystem controller replace` 命令将运行 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

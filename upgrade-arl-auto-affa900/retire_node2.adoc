@@ -10,7 +10,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、关闭node2并将
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

@@ -10,7 +10,7 @@ summary: 通过对原始节点和新节点执行任务，准备要升级的原�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

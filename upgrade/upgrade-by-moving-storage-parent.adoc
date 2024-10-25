@@ -23,7 +23,7 @@ summary: 如果要通过移动存储进行升级，请准备原始节点并设�
 ====
 在通过移动存储升级控制器硬件的步骤中，原始节点称为 node1 和 node2 ，新节点称为 node3 和 node4 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。
 
-image::../upgrade/media/original_to_new_nodes.png[将node3和node4替换为node1和node2]
+image:original_to_new_nodes.png["将node1和node2替换为node3和node4"]
 
 术语 node1 ， node2 ， node3 和 node4 仅用于区分原始节点和新节点。遵循操作步骤时、必须将其替换为原始节点和新节点的真实名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。
 

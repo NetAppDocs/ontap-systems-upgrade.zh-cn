@@ -10,7 +10,7 @@ summary: 使用部分自动ARL过程升级运行ONTAP 9.151或更高版本的控
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

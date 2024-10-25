@@ -10,7 +10,7 @@ summary: 使用手动 ARL 升级操作步骤 升级运行 ONTAP 9.7 或更早版
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

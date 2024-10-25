@@ -7,44 +7,22 @@ indexpage:
   tiles:
   - title: 入门
     links:
-    - title: "《 ONTAP 发行说明》"
-      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
     - title: 选择您的控制器硬件升级操作步骤
       url: "/choose_controller_upgrade_procedure.html"
-  - title: 通过在运行ONTAP 9.8及更高版本的系统上重新定位聚合进行升级
-    links:
-    - title: 使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件
-      url: "/upgrade-arl-auto-app-9151/index.html"
-    - title: 使用system controller Replace命令升级同一机箱中的控制器型号
-      url: "/upgrade-arl-auto-affa900/index.html"
-    - title: 使用 system controller replace 命令（大多数系统）
-      url: "/upgrade-arl-auto-app/index.html"
-    - title: 使用手动命令
-      url: "/upgrade-arl-manual-app/index.html"
-  - title: 通过在运行ONTAP 9.7及更早版本的系统上重新定位聚合进行升级
-    links:
-    - title: 使用system controller Replace命令
-      url: "/upgrade-arl-auto/index.html"
-    - title: 使用手动命令
-      url: "/upgrade-arl-manual/index.html"
-  - title: 通过移动一个或多个存储卷进行升级
-    links:
-    - title: 升级控制器硬件
-      url: "/upgrade/upgrade-decide-to-use-this-guide.html"
-    - title: 通过转换为驱动器架将AFF A250升级到AFF A400
-      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
-  - title: 升级 MetroCluster 配置中的系统
-    links:
-    - title: 为您的 MetroCluster 配置选择升级操作步骤
+    - title: "《 ONTAP 发行说明》"
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
+    - title: 升级 MetroCluster 配置中的系统
       url: https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html
-  - title: 更多资源
+  - title: 了解ONTAP系统和软件
     links:
     - title: ONTAP硬件系统文档
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
-    - title: ONTAP硬件系统的交换机文档
+    - title: ONTAP 交换机文档
       url: https://docs.netapp.com/us-en/ontap-systems-switches/index.html
     - title: ONTAP 软件文档
       url: https://docs.netapp.com/us-en/ontap/index.html
+  - title: 更多资源
+    links:
     - title: NetApp Hardware Universe
       url: https://hwu.netapp.com/
     - title: NetApp Active IQ Config Advisor

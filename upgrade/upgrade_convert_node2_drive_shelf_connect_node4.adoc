@@ -19,7 +19,7 @@ summary: '将节点2 (AFF A250)转换为NS224驱动器架、然后连接到节�
 . 将NVMe磁盘架模块(NSM)插入node2的托架。
 . 通过将node4 100GbE端口e0c连接到NSM B端口e0a、将NSM连接到node4。
 +
-image::../upgrade/media/a400_with_ns224_shelf.PNG[具有一个NS224磁盘架的AFF A400]
+image:a400_with_ns224_shelf.PNG["具有一个NS224磁盘架的AFF A400"]
 
 . 将25 GbE布线从node2端口e0c和e0d连接到node4上的任意两个25 GbE板载端口(e0e、e0f、e0g或e0h)、以创建临时集群连接。
 +

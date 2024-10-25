@@ -10,7 +10,7 @@ summary: '在运行ONTAP 9.151或更高版本的控制器上使用命令执行AR
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

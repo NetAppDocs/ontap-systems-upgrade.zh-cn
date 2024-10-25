@@ -19,7 +19,7 @@ summary: 在将驱动器从node1重新分配到node3之前、将node1物理连�
 . 将NVMe磁盘架模块(NSM)插入node1的托架。
 . 通过将node3 100GbE端口e0c连接到NSM A端口e0a、将NSM连接到node3。
 +
-image::../upgrade/media/a400_with_ns224_shelf.PNG[具有一个NS224磁盘架的AFF A400]
+image:a400_with_ns224_shelf.PNG["具有一个NS224磁盘架的AFF A400"]
 
 . 通过将25GbE布线从node1端口e0c和e0d移至node3上的任意两个25GbE板载端口(e0e、e0f、e0g或e0h)、将临时集群连接移至node3。
 +

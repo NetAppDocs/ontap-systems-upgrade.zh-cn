@@ -10,7 +10,7 @@ summary: 使用部分自动化的 ARL 操作步骤 将运行 ONTAP 9.5 的控制
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

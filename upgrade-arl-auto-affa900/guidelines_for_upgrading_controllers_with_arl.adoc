@@ -10,7 +10,7 @@ summary: 了解是否可以在升级配置中使用ARL来保留旧系统机箱�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

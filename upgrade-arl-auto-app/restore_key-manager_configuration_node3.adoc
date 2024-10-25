@@ -10,7 +10,7 @@ summary: '如果需要，请在使用 `ssystem controller replace` 命令升级�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

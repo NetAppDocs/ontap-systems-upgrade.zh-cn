@@ -2588,19 +2588,10 @@
   <block id="c5c3d54cdf6631e2e290953a91dcd842" category="paragraph">如果所有端口均已正确配置并添加到正确的广播域中，则 `network port reachability show` 命令应将所有已连接端口的可访问性状态报告为 `ok` ，对于无物理连接的端口，此状态报告为 `no-reachability` 。如果任何端口报告的状态不是这两个端口，请按照中所述修复可访问性 <block ref="42e2bf4f4ef15f603bcc30bc206d35c3" category="inline-xref-macro-rx"></block>。</block>
   <block id="fd6616fb43f706cbccb578942fa320ab" category="paragraph">通过将非根聚合从原始节点迁移到同一集群中的新节点，您可以无中断地升级运行 ONTAP 9 的一对节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。</block>
   <block id="60b36970c08352c3c476769f29561cf4" category="paragraph">此操作步骤使用一种称为聚合重新定位（ Aggregate Relocation ， ARL ）的方法，该方法利用 HA 配置，可以将非根聚合的所有权从一个节点移动到另一个节点，前提是它们在同一集群中共享存储。</block>
-  <block id="645b41b640376c487d825f5296fcae9d" category="paragraph">通过将非根聚合从原始节点迁移到同一集群中的新节点，您可以无中断地升级一对运行 ONTAP 的节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。</block>
-  <block id="6e6a93e1bc39df87c56313cbfd41fa2c" category="cell">如果您运行的是此 ONTAP 版本…</block>
-  <block id="c8148f766ec78479f303b8e902e9099b" category="cell">要使用 system 命令进行升级，请使用…</block>
   <block id="041dd7a51404fc5dc5a87c2a0bc90b15" category="cell">9.8 或更高版本</block>
   <block id="b9872d104f5b4706bfb3c12a12c6f3d6" category="cell">9.5 到 9.7</block>
-  <block id="6af074e0669e408e576b460f5c34b89b" category="cell">要手动升级，请使用…</block>
-  <block id="4c41f3a2ec168af1924a7c5a884bdc37" category="cell">9.0 到 9.7</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
-  <block id="6c54fdf57ce13c518f1cc0d9d5f32820" category="sidebar">升级控制器硬件</block>
-  <block id="194cc1951d00be469039af6dbda275d0" category="sidebar">使用 system controller replace 命令（大多数系统）</block>
-  <block id="b4d25e7f066e6393a7e3a6a7115b4f94" category="sidebar">使用手动命令</block>
   <block id="7d94daad2b6e9d77a6320a64c21fbc4a" category="sidebar">升级 MetroCluster 配置中的系统</block>
-  <block id="c6bb96cc8b84319277f00b15adc71d75" category="sidebar">为您的 MetroCluster 配置选择升级操作步骤</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多资源</block>
   <block id="dd032435fa83549d8bf3928550409a3e" category="sidebar">ONTAP 软件文档</block>
   <block id="519131237f79eadb2dc6a1e003a087bc" category="sidebar">NetApp Active IQ Config Advisor</block>
@@ -2750,11 +2741,6 @@
   <block id="2c075b61ab1e5a7bc43a337e5b594a77" category="paragraph">有关 storage aggregate relocation 命令的详细信息，请转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。</block>
   <block id="5f57a66b3e1d6733761d27be10e87b12" category="list-text">有关 MetroCluster IP 配置以及适用于 Fabric MetroCluster 配置的其他升级选项，请转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _RAID MetroCluster 升级和扩展 _ 内容。</block>
   <block id="8ccdb707cd31c1e478505a54dfa90f7a" category="paragraph">此内容介绍如何通过聚合重新定位在不中断的情况下升级控制器硬件。</block>
-  <block id="6e58652b4dc76659a9eeef1a0ccc6daf" category="paragraph">此内容介绍了如何使用聚合重新定位（ Aggregate Relocation ， ARL ）在不造成中断的情况下升级控制器硬件。</block>
-  <block id="f7a0874d2fe18058d08d01fb0120a9d9" category="paragraph">ARL 利用 HA 配置，您可以将非根聚合的所有权从一个节点移动到另一个节点，前提是它们在同一集群中共享存储。</block>
-  <block id="baf4103e3ee1058b17cd4da23c15704b" category="paragraph">您可以通过两种 ARL 方法使用系统命令或执行手动升级来升级控制器硬件。开始之前，您必须确认为控制器硬件升级选择了正确的内容。</block>
-  <block id="757f3d0794e578256e35f77de45e53d1" category="paragraph">如果您要使用 system 命令执行升级，请参见下表：</block>
-  <block id="f205bf1a1b77ff86829c2c9003e57d32" category="paragraph">如果要执行手动升级，请参见下表：</block>
   <block id="55b615d5a5d5462e3f46ce9376778ab0" category="list-text">记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
   <block id="a2e30cff23423051f81bd802a4867e92" category="list-text">如果尚未保存这些 VLAN 和接口组，请记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
   <block id="d5736566f3b38c38d89537f2b1d352ca" category="list-text">如果尚未保存这些 VLAN 和 ifgrp 信息，请记录 VLAN 和 ifgrp 信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和 ifgrp 。</block>
@@ -2797,13 +2783,8 @@
   <block id="c76a89f966d60816d2016df1cbb1b151" category="paragraph">转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 第节以访问此升级所需的参考文档和参考站点列表</block>
   <block id="4c8b55d155015695884299d539ae7e00" category="paragraph">在继续使用操作步骤之前，您必须确认所有 SnapMirror 关系均已暂停。暂停 SnapMirror 关系后，它会在重新启动和故障转移后保持静默状态。</block>
   <block id="d62ce8b165f2d134de4a161b0ce71f49" category="list-text">继续执行节点对升级操作步骤的其余部分。</block>
-  <block id="2275b38e5279b78660b012808a4cb08e" category="cell">9.10.1 或更高版本</block>
-  <block id="9485cc727d9d60c0c782449790411372" category="cell"><block ref="9485cc727d9d60c0c782449790411372" category="inline-link-macro-rx"></block></block>
-  <block id="a80362d8850ea6131db54e8994d7ece8" category="cell"><block ref="a80362d8850ea6131db54e8994d7ece8" category="inline-link-macro-rx"></block></block>
   <block id="987d908c963b953e34ffd0bc33ebfd50" category="inline-link-macro">手动升级运行 ONTAP 9.8 或更高版本的控制器硬件</block>
-  <block id="4a5512afba1f93dd83104eaac4237453" category="cell"><block ref="4a5512afba1f93dd83104eaac4237453" category="inline-link-macro-rx"></block></block>
   <block id="9732e7498adc911676ddbf1eb96c90f1" category="inline-link-macro">手动升级运行 ONTAP 9.7 或更早版本的控制器硬件</block>
-  <block id="c96cad4c802036afa3176e87bcda336b" category="cell"><block ref="c96cad4c802036afa3176e87bcda336b" category="inline-link-macro-rx"></block></block>
   <block id="5967cd2dd5257e032e2c1568e265b057" category="list-text">node1 是 node1 聚合的主所有者和当前所有者</block>
   <block id="a324d0a89d17fcc011978fff16b784da" category="list-text">node2 是 node2 聚合的主所有者和当前所有者</block>
   <block id="70bfac3efc816446939b969cb549c8b8" category="list-text">node2 是 node1 聚合的当前所有者</block>
@@ -4658,14 +4639,10 @@ FAS2720</block>
   <block id="8f9fb90f68730e000102778c18115044" category="list-text"><block ref="8f9fb90f68730e000102778c18115044" category="inline-link-macro-rx"></block></block>
   <block id="441e5e19c045de8820e45a5b22e45056" category="paragraph">*注2*：无中断升级要求新系统具有自己的存储和磁盘架来存储原始系统中的数据。</block>
   <block id="272d55e2adea123757d8811eaaaebd88" category="paragraph">*注3*：通过移动卷进行升级时、您需要加入新节点、将卷和Li移动到新节点、然后取消加入要从集群中删除的节点。如果要升级双节点无交换机集群、则在添加新节点之前、应使用一对集群交换机将其转换为有交换机连接集群。</block>
-  <block id="c024cf342a69d8b35b142333f2608aa5" category="sidebar">通过在运行ONTAP 9.8及更高版本的系统上重新定位聚合进行升级</block>
-  <block id="5d3c4b59db4a991b7c6450c61662dc60" category="sidebar">通过在运行ONTAP 9.7及更早版本的系统上重新定位聚合进行升级</block>
-  <block id="d58d42ec84ab0189beb36da55893f387" category="sidebar">通过移动一个或多个存储卷进行升级</block>
   <block id="ef69680bc1ee7b1fd5e0950d56699d33" category="list-text">此操作步骤适用场景 MetroCluster 四节点和八节点配置运行 ONTAP 9.5 及更早版本。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到_使用system controller Replace命令将运行ONTAP 9.5的控制器硬件升级到ONTAP 9.7_。</block>
   <block id="187aa569481ce25a564facc34217dda3" category="list-text">主机命令和示例特定于Linux操作系统。</block>
   <block id="fcbf56c541d4d283030e94ff96a44848" category="paragraph">您也可以使用USB启动选项执行网络启动。请参见知识库文章 <block ref="184f8f7294797efad8be0da4fb907563" category="inline-link-macro-rx"></block>。</block>
   <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">《 ONTAP 发行说明》</block>
-  <block id="806e982f94b5ab4054aa07ccb047ecdb" category="sidebar">使用system controller Replace命令</block>
   <block id="32d8f219b2e3b24132bd4923c34c4dc6" category="list-text">对于未侦听端口700的每个集群LIF、将LIF的管理状态设置为<block ref="74e8333ad11685ff3bdae589c8f6e34d" prefix=" " category="inline-code"></block> 然后<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>：</block>
   <block id="0f072cf75dad23e085e6786bbfa15ee3" category="list-text">根据要升级的HA对上运行的ONTAP版本、执行以下操作之一：</block>
   <block id="3b7bc6da810fcf3db2d0ac3faf0d4699" category="cell">如果您的 ONTAP 版本为 ...</block>
@@ -4775,7 +4752,6 @@ FAS2720</block>
   <block id="3f22ff9f0de0ae158372929690ccd37d" category="list-text"><block ref="7a22ca21c86b9e16042b418efc302d00" category="inline-link-macro-rx"></block> (无中断操作步骤)。</block>
   <block id="50ae6167d8a0516c8e8cb720a6888cf9" category="list-text"><block ref="50ae6167d8a0516c8e8cb720a6888cf9" category="inline-link-macro-rx"></block></block>
   <block id="54e45682922af9929fbc5d361d7c0b49" category="list-text"><block ref="54e45682922af9929fbc5d361d7c0b49" category="inline-link-macro-rx"></block></block>
-  <block id="1b70cbc4d15cd633d93e8057d460d873" category="image-alt">将node3和node4替换为node1和node2</block>
   <block id="3ca57071250bef466a089a9c6c848bd5" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="964fb2d7d8e53060676c08185881a5ae" category="inline-link-macro-rx"></block></block>
   <block id="413dcaed8881bfe244a4fc03bcf787a2" category="paragraph">在通过移动存储进行升级之前、您需要从原始节点收集许可证信息、规划网络配置、记录系统ID并准备网络启动所需的文件。</block>
   <block id="d108a972a08fb1ea74a0d36841ffcc4e" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="6fb98438a67f401b75e7e2b4323d24af" category="inline-link-macro-rx"></block></block>
@@ -4821,7 +4797,6 @@ FAS2720</block>
   <block id="c1f694580637b3e597cbb094a01e4f0b" category="list-text">验证电源和磁盘架的物理连接。</block>
   <block id="ed55776ebd74bfbd9eb16e468efd309c" category="paragraph">您可以在以下情况下使用此操作步骤：</block>
   <block id="3767c7624c68d0c29496b5a31369dec4" category="paragraph">在以下情况下、您不能使用此操作步骤：</block>
-  <block id="30fe187542d0301b8cde168dff779374" category="paragraph">有关升级控制器硬件的其他方法、请参见 <block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>。</block>
   <block id="e6ade1c19be2f8809c4d245c0dd36ffb" category="inline-link">验证当前根聚合大小和根聚合中的磁盘数是否符合或超出新系统的规格</block>
   <block id="ffcd2799f602c109648b4c27aba568da" category="list-text"><block ref="47a924df16a51eabe41998989d3e0fba" category="inline-link-rx"></block>。</block>
   <block id="1be12058e46f267981f165919be9807c" category="inline-link">验证新系统支持的存储磁盘数是否等于或大于原始系统支持的存储磁盘数</block>
@@ -4844,8 +4819,6 @@ FAS2720</block>
   <block id="ee537959cbe6c4957342c94d3801abf7" category="doc">选择ARL升级过程</block>
   <block id="7e077786789216bd7864197dde6da988" category="cell">9.151或更高版本</block>
   <block id="abf9ebbea401affbe4640962b00393d7" category="inline-link-macro">使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件</block>
-  <block id="a98caac8456398a760c308df55a83cb5" category="cell"><block ref="a98caac8456398a760c308df55a83cb5" category="inline-link-macro-rx"></block></block>
-  <block id="d406be867b5acefe539dcc5fb35b0d2f" category="cell"><block ref="257ce5671d801ab32735a8f227cd7f0b" category="inline-link-macro-rx"></block> 对于某些型号和ONTAP软件版本、您可以使用此过程将配置为全SAN阵列(ASA)的AFF控制器升级为ASA控制器。<block ref="dd8a9320d133fc6bc4cebf159be26035" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="3f050c809f63ade1d8b10bf424bb198a" category="list-text">[[auto_check_4_步骤17]]在自动启动期间按Ctrl-C在loader&gt;提示符处停止节点。</block>
   <block id="e2de59a5a77b66213e7d85b56f1eb224" category="list-text">在加载程序提示符处、进入维护模式：</block>
   <block id="03052ce84c74abac0f8f7b511f002de5" category="list-text">[[auto_check_4_步骤22]]在加载程序提示符处、启动：</block>
@@ -5171,7 +5144,6 @@ FAS2720</block>
   <block id="e047fa40e589357c94de5b0e63b1c469" category="paragraph">以下是将端口 "e10a" 上的已替换 VLAN 还原到 "e10b" 的示例：</block>
   <block id="d652f04b0c47ec3200904bc82c8d5ff7" category="paragraph"><block ref="0f64f457d55e8e27ee821e9df0561d32" prefix="" category="inline-code"></block></block>
   <block id="b0d52e5491c54658a39bbef8e5dd30a6" category="sidebar">通过重新定位聚合、移动卷或移动存储来升级控制器硬件。</block>
-  <block id="6015ba5fcef1f3caa77869608d6c2789" category="sidebar">ONTAP硬件系统的交换机文档</block>
   <block id="0aa489897873ed4f6cacbbccf44589ea" category="sidebar">使用ARL升级</block>
   <block id="37c71c6814f6c6da3ee8d0b203924be7" category="sidebar">更换AFF A800</block>
   <block id="ef62a5865ef10a9f98eab6ed7130657e" category="sidebar">更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720</block>
@@ -5206,7 +5178,6 @@ FAS2720</block>
   <block id="f24d3bbf01666420670f76d88d0728aa" category="paragraph">如果无法将现有节点上的e0a或e0b集群端口链接到新节点上的集群端口，请参见 <block ref="7be812dd65bbd3f39bbb06fd50caac76" category="inline-link-macro-rx"></block>。</block>
   <block id="894f2e2a32e68afb6c8779c4dd1b6061" category="list-text">升级到ONTAP 9。15.1中引入的系统时、ONTAP会转换现有卷的存储效率、并应用新的存储效率功能来利用硬件卸载功能。这是一个自动后台进程、不会对系统性能造成明显影响。</block>
   <block id="20a50ea664dd251305adec2bcca06061" category="list-text">对于AFF A70、AFF A90或AFF A1K系统、ONTAP可转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率。</block>
-  <block id="c35161fa14384d510e021a3314063cc1" category="list-text">对于FAS70和FAS90系统、ONTAP仅转换在升级之前已启用存储效率的现有精简配置卷的存储效率。</block>
   <block id="33bb7bcaf48f0fdda36a26455a40a230" category="inline-link-macro">详细了解存储效率</block>
   <block id="6d6b534c9b53f9b5663ea4448a9c5c5a" category="paragraph"><block ref="7e7ac2ea54718abbfde88230c884c797" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="0db06a4e73b14fd8cb249dd2487fa5a3" category="inline-link-macro">如何在FAS/FASA1K、A90、A70、AFF 90、ASA上的新集群设置中配置10G或25G集群端口</block>
@@ -5224,4 +5195,56 @@ FAS2720</block>
   <block id="e0acd4a9bc97511cc024bf1c07dc8536" category="list-text">如果要升级到具有内部驱动器的AFF A70或AFF A90、则必须在升级之前删除这些驱动器的所有权。完成升级后、您可以将内部驱动器分配给AFF A70或AFF A90节点、并使用它们创建数据聚合。不必将根聚合或数据聚合迁移到内部驱动器。</block>
   <block id="9f63491a94b75b12a4f685455f82295c" category="list-text">如果要升级到不带内部驱动器的AFF A70或AFF A90、则在完成升级后无需分配内部驱动器。</block>
   <block id="1c6b77da3506137a2164e23d95b49133" category="list-text">AFF A70、AFF A90、AFF A1K、FAS70和FAS90系统会为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
+  <block id="6a171bc0a83fdc8cf2cad914f26e60f7" category="inline-image-macro">将node1和node2替换为node3和node4</block>
+  <block id="3aaf8e09b00062e6ef2a6306db035456" category="paragraph"><block ref="3aaf8e09b00062e6ef2a6306db035456" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ab209cb8d12b2f480578b4949df8aaa0" category="paragraph"><block ref="ab209cb8d12b2f480578b4949df8aaa0" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="75b20a9dfdabc84f9f91512eb8cfbda8" category="list-text">对于FAS70和FAS90系统、ONTAP仅转换在升级之前已启用存储效率的现有精简配置卷的存储效率。</block>
+  <block id="062789e6044bfae1e66a58c85ebf5281" category="paragraph"><block ref="062789e6044bfae1e66a58c85ebf5281" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f52cbea23351114ee0b3b28c1c53db00" category="paragraph"><block ref="f52cbea23351114ee0b3b28c1c53db00" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fb53938953a64ed1298a3856f8bb8679" category="doc">从此处开始：选择ARL升级过程</block>
+  <block id="d42c7018dcc284c2db31a4a24d2b3b3c" category="paragraph">您可以使用聚合重新定位(ARL)升级控制器硬件、而不会造成中断。有关升级控制器硬件的其他方法，请参阅<block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>。</block>
+  <block id="52c65abc1d4cdef95969c778420220da" category="paragraph">您可以使用ARL将非根聚合从原始节点迁移到同一集群中的新节点、从而无中断升级一对运行ONTAP的节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。</block>
+  <block id="dc32b0faeda54116d50282dbfa24dda7" category="paragraph">如果非根聚合在同一集群中共享存储、则ARL可以利用HA配置将这些聚合的所有权从一个节点移动到另一个节点。</block>
+  <block id="72e1bba43ca452b38bc94d7f96d04f68" category="paragraph">升级控制器硬件有多种ARL方法。要选择适当的过程、请查看以下信息、了解每个ARL升级选项支持的系统和ONTAP版本。</block>
+  <block id="cd9547b52fda0ee4b09ec2df334b7b51" category="section-title">对ONTAP 9．15．1或更高版本使用system controller Replace命令</block>
+  <block id="788596adaaaec6cd405246037f06d6f8" category="paragraph">如果您的升级情形在以下受支持的系统列表中列出、请转到<block ref="f609a3e8782c2c2c1207c1ab8bc1092e" category="inline-link-macro-rx"></block>开始升级过程。</block>
+  <block id="83606cabd222d0d058cfae8874f35382" category="example-title">显示支持的系统</block>
+  <block id="37b7186b6ae7b3227f80bbe1da693be7" category="section-title">升级同一机箱中的控制器型号</block>
+  <block id="34cc21c16ca659d7ddb97f634ed86150" category="paragraph">如果您的升级情形在以下受支持的系统列表中列出、请转到<block ref="8e6a41e8fa329b194a3382ccde9289cd" category="inline-link-macro-rx"></block>开始升级过程。</block>
+  <block id="3fe507461c708cfe67db6ed39b069266" category="cell">旧系统</block>
+  <block id="7a3b05b130c9ce12ac95ac076b53bfcf" category="cell">AFF A70或AFF A90</block>
+  <block id="3e44bbb802d299056c9839f8bdfc777a" category="cell">9.15.1及更高版本</block>
+  <block id="184f38916b6639f5bdbf7619d90cebc3" category="paragraph">9.10.1P15、9.11.1P11及更高版本</block>
+  <block id="45b09eba6fe8095ae38635150e57152a" category="paragraph">*注意*：AFF A200不支持9.11.1以上的ONTAP版本。</block>
+  <block id="d243c4c373219990c87996aba8af4741" category="paragraph">9.11.1P7 (FAS2620)</block>
+  <block id="26ed1ff6e78b37e572170171b4fabc0f" category="paragraph">*注意*：FAS2620不支持9.11.1以上的ONTAP版本。</block>
+  <block id="074a728bac13ce0b2d079bed92780d8d" category="section-title">对ONTAP 9 8或更高版本使用“system controller Replace”命令</block>
+  <block id="bf2f20b69fe364bf3a76fbb262d9c675" category="paragraph">如果您的升级情形在以下受支持的系统列表中列出、请转到<block ref="f597d5199c2cdfe3f660f286188248d5" category="inline-link-macro-rx"></block>开始升级过程。</block>
+  <block id="1694aa2f0754e25d2950e8f0248979e6" category="cell">FAS8060、FAS8080</block>
+  <block id="36b18d9d2f8a0181d8d87c7486c8a653" category="cell">AFF A300、AFF A400、AFF A700、AFF A800</block>
+  <block id="a8391478850ce78247234468f8498486" category="cell">AFF8060、AFF8080</block>
+  <block id="0ee1a7b779294c0ac023c9c91408c895" category="cell">FAS8300、FAS8700、FAS9000、FAS9500</block>
+  <block id="acacda5e23fb3293e9c45233209f315e" category="cell">AFF A400、AFF A700、AFF A800、AFF A900</block>
+  <block id="03b6470644df0355779fa63281baa419" category="section-title">将“system controller Replace”命令与ONTAP 9 5至9.7结合使用</block>
+  <block id="c1d3524ca04e13df3d78b13f4fa1729f" category="paragraph">如果您的升级情形在以下受支持的系统列表中列出、请转到<block ref="7c59c4699adc4b75b7233df7fb60de9b" category="inline-link-macro-rx"></block>开始升级过程。</block>
+  <block id="33f30bea35826525ddc350a931a3e60e" category="cell">FAS8700、FAS9000、FAS8300</block>
+  <block id="b412f16da28f14611d953df7ec9b215a" category="cell">AFF A700、AFF A800、AFF A400</block>
+  <block id="c57c038bdb2b903ef67865f743dfc52e" category="section-title">使用手动ARL命令</block>
+  <block id="114c547b8e01b5b1d0aff42924c30c8c" category="paragraph">如果您的升级情形不支持使用"系统命令"、则可以使用手动命令执行ARL升级。</block>
+  <block id="f3fc96e9b0f9e7ce8cc79384852e3e25" category="paragraph">选择适用于您的ONTAP版本的过程以开始升级：</block>
+  <block id="a58e3cec27f318019d650117009a9a1c" category="list-text"><block ref="a58e3cec27f318019d650117009a9a1c" category="inline-link-macro-rx"></block></block>
+  <block id="4928666bac61f347373a03116de25bb3" category="list-text"><block ref="4928666bac61f347373a03116de25bb3" category="inline-link-macro-rx"></block></block>
+  <block id="261856aec998b0985aebf71d4d5b7db7" category="paragraph"><block ref="261856aec998b0985aebf71d4d5b7db7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="cbc19247d1bcf806abfae9b8ac144851" category="paragraph"><block ref="cbc19247d1bcf806abfae9b8ac144851" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6589bb9996d43753910401a792dad35f" category="paragraph"><block ref="6589bb9996d43753910401a792dad35f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="105e1829dde2a37d92ad8310c27aeb64" category="paragraph"><block ref="105e1829dde2a37d92ad8310c27aeb64" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fc1e19fb7bebdbd1fe84af4aa27b74b7" category="paragraph"><block ref="fc1e19fb7bebdbd1fe84af4aa27b74b7" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6f066e6d94e620ac8fd90616927ffe5a" category="paragraph"><block ref="6f066e6d94e620ac8fd90616927ffe5a" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d921f56d2d436f5a0c085db02c0735ab" category="paragraph"><block ref="d921f56d2d436f5a0c085db02c0735ab" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d183b68f24aed33d51e0d78492187ce4" category="paragraph"><block ref="d183b68f24aed33d51e0d78492187ce4" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="be14b840c0e67a106966f6782397b832" category="paragraph"><block ref="be14b840c0e67a106966f6782397b832" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2981e1a4efec06a6c78b3734024a96a1" category="paragraph"><block ref="2981e1a4efec06a6c78b3734024a96a1" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a8146cc42b0ac83dacd0c674c2e19baa" category="paragraph"><block ref="a8146cc42b0ac83dacd0c674c2e19baa" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd4a2232b0a4fad7f2f7a5207ee94001" category="sidebar">了解ONTAP系统和软件</block>
+  <block id="743b2bde29eae11996923323c6b89672" category="sidebar">ONTAP 交换机文档</block>
 </blocks>

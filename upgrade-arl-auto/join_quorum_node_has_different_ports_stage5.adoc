@@ -10,7 +10,7 @@ summary: '在第 5 阶段中，使用 `ssystem controller replace` 命令将运�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

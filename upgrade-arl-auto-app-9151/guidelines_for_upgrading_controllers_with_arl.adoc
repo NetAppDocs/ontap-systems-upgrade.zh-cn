@@ -10,7 +10,7 @@ summary: '了解是否可以使用命令升级运行ONTAP 9.151或更高版本�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

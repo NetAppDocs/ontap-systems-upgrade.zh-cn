@@ -10,7 +10,7 @@ summary: 升级控制器后、请告知NetApp旧系统不再运行。
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

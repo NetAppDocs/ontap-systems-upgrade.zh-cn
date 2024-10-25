@@ -10,7 +10,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A800
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -26,7 +26,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A800
 .步骤
 . 在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这样可确保驱动器牢固地固定在机箱中板上。
 +
-image::../media/drw_a800_drive_seated_IEOPS-960.png[推动驱动器、使其紧紧靠在机箱中间板上]
+image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在机箱中间板上"]
 
 . 转至机箱背面。
 
@@ -50,7 +50,7 @@ Leave the cables in the cable management device so that when you reinstall the c
 The controller module moves slightly out of the chassis.
 
 +
-image::../media/a800_cable_management.png[卸下缆线管理ARM]
+image:a800_cable_management.png["卸下缆线管理ARM"]
 
 +
 [cols="20,80"]
@@ -58,12 +58,12 @@ image::../media/a800_cable_management.png[卸下缆线管理ARM]
 
 
  a| 
-image::../media/black_circle_one.png[第一]
+image:black_circle_one.png["第一"]
 | Locking latch 
 
 
  a| 
-image::../media/black_circle_two.png[第二]
+image:black_circle_two.png["第二"]
 | Locking pin 
 |===
 
@@ -81,7 +81,7 @@ image::../media/black_circle_two.png[第二]
 NOTE: 请勿将控制器模块完全插入机箱，除非稍后在操作步骤 中指示您这样做。
 
 +
-image::../media/drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG[安装AFF A90或AFF A70]
+image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["安装AFF A90或AFF A70"]
 
 . 使用缆线将管理和控制台端口连接到 node1 控制器模块。
 +

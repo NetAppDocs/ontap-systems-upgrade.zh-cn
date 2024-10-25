@@ -10,7 +10,7 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

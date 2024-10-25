@@ -10,7 +10,7 @@ summary: 您可以通过对运行 ONTAP 9.8 或更高版本的控制器上的原
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

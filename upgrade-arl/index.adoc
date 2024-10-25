@@ -4,53 +4,177 @@ permalink: upgrade-arl/index.html
 keywords: aggregate, relocation, moving, manual, upgrade, relocate, hardware 
 summary: 使用聚合重新定位升级控制器硬件 
 ---
-= 选择ARL升级过程
+= 从此处开始：选择ARL升级过程
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
-此内容介绍了如何使用聚合重新定位（ Aggregate Relocation ， ARL ）在不造成中断的情况下升级控制器硬件。
+您可以使用聚合重新定位(ARL)升级控制器硬件、而不会造成中断。有关升级控制器硬件的其他方法，请参阅link:../upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"]。
 
-有关升级控制器硬件的其他方法、请参见 link:../upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"]。
+您可以使用ARL将非根聚合从原始节点迁移到同一集群中的新节点、从而无中断升级一对运行ONTAP的节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。
 
-通过将非根聚合从原始节点迁移到同一集群中的新节点，您可以无中断地升级一对运行 ONTAP 的节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。
+如果非根聚合在同一集群中共享存储、则ARL可以利用HA配置将这些聚合的所有权从一个节点移动到另一个节点。
 
-ARL 利用 HA 配置，您可以将非根聚合的所有权从一个节点移动到另一个节点，前提是它们在同一集群中共享存储。
+升级控制器硬件有多种ARL方法。要选择适当的过程、请查看以下信息、了解每个ARL升级选项支持的系统和ONTAP版本。
 
-您可以通过两种 ARL 方法使用系统命令或执行手动升级来升级控制器硬件。开始之前，您必须确认为控制器硬件升级选择了正确的内容。
 
-如果您要使用 system 命令执行升级，请参见下表：
 
-[cols="30,70"]
+== 对ONTAP 9．15．1或更高版本使用system controller Replace命令
+
+如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件"]开始升级过程。
+
+.显示支持的系统
+[%collapsible]
+====
 |===
-| 如果您运行的是此 ONTAP 版本… | 要使用 system 命令进行升级，请使用… 
+| 现有控制器 | 更换控制器 | 从ONTAP开始支持... 
 
 
-| 9.151或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件"] 
+| FAS8200 ， FAS8300 ， FAS8700 ， FAS9000 | FAS70、FAS90 | 9.15.1P3 
 
 
-| 9.10.1 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"] 对于某些型号和ONTAP软件版本、您可以使用此过程将配置为全SAN阵列(ASA)的AFF控制器升级为ASA控制器。link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["了解更多信息。"](英文) 
+| FAS9500 | FAS90 | 9.15.1P3 
 
 
-| 9.8 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"] 
+| AFF A300、AFF A400、AFF A700 | AFF A70、AFF A90、AFF A1K | 9.15.1 
 
 
-| 9.5 到 9.7 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto/index.html["使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 ONTAP 9.7"] 
+| AFF A900 | AFF A90、AFF A1K | 9.15.1 
 |===
-如果要执行手动升级，请参见下表：
+====
 
-[cols="30,70"]
+
+== 升级同一机箱中的控制器型号
+
+如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"]开始升级过程。
+
+.显示支持的系统
+[%collapsible]
+====
+[cols="20,20,40"]
 |===
-| 如果您运行的是此 ONTAP 版本… | 要手动升级，请使用… 
+| 旧系统 | 更换系统 | 支持的ONTAP版本 
 
 
-| 9.8 或更高版本 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 或更高版本的控制器硬件"] 
+| AFF A800 | AFF A70或AFF A90 | 9.15.1及更高版本 
 
 
-| 9.0 到 9.7 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 或更早版本的控制器硬件"] 
+| 配置为全SAN阵列(ASA)的AFF A220 | ASA A150 | 9.13.1P1及更高版本 
+
+
+| AFF A220 | AFF A150 | 9.10.1P15、9.11.1P11、9.12.1P5及更高版本 
+
+
+| AFF A200 | AFF A150  a| 
+9.10.1P15、9.11.1P11及更高版本
+
+*注意*：AFF A200不支持9.11.1以上的ONTAP版本。
+
+
+
+| AFF C190 | AFF A150 | 9.10.1P15、9.11.1P11、9.12.1P5及更高版本 
+
+
+| FAS2620 | FAS2820  a| 
+9.11.1P7 (FAS2620)
+
+*注意*：FAS2620不支持9.11.1以上的ONTAP版本。
+
+9.13.1及更高版本(FAS2820)
+
+
+
+| FAS2720 | FAS2820 | 9.13.1及更高版本 
+
+
+| 配置为ASA的AFF A700 | ASA A900 | 9.13.1P1及更高版本 
+
+
+| AFF A700 | AFF A900 | 9.10.1P10、9.11.1P6及更高版本 
+
+
+| FAS9000 | FAS9500 | 9.10.1P10、9.11.1P6及更高版本 
 |===
+====
+
+
+== 对ONTAP 9 8或更高版本使用“system controller Replace”命令
+
+如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"]开始升级过程。
+
+.显示支持的系统
+[%collapsible]
+====
+|===
+| 旧控制器 | 更换控制器 
+
+
+| FAS8020 ， FAS8040 ， FAS8060 ， FAS8080 | FAS8200 ， FAS8300 ， FAS8700 ， FAS9000 
+
+
+| FAS8060、FAS8080 | FAS9500 
+
+
+| AFF8020 ， AFF8040 ， AFF8060 ， AFF8080 | AFF A300、AFF A400、AFF A700、AFF A800 
+
+
+| AFF8060、AFF8080 | AFF A900 
+
+
+| FAS8200 | FAS8300、FAS8700、FAS9000、FAS9500 
+
+
+| FAS8300、FAS8700、FAS9000 | FAS9500 
+
+
+| AFF A300 | AFF A400、AFF A700、AFF A800、AFF A900 
+
+
+| AFF A320 | AFF A400 
+
+
+| AFF A400 ， AFF A700 | AFF A900 
+|===
+====
+
+
+== 将“system controller Replace”命令与ONTAP 9 5至9.7结合使用
+
+如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto/index.html["使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 9.7"]开始升级过程。
+
+.显示支持的系统
+[%collapsible]
+====
+[cols="50,50"]
+|===
+| 旧控制器 | 更换控制器 
+
+
+| FAS8020 ， FAS8040 ， FAS8060 ， FAS8080 | FAS8200 ， FAS8300 ， FAS8700 ， FAS9000 
+
+
+| AFF8020 ， AFF8040 ， AFF8060 ， AFF8080 | AFF A300、AFF A400、AFF A700、AFF A800 
+
+
+| FAS8200 | FAS8700、FAS9000、FAS8300 
+
+
+| AFF A300 | AFF A700、AFF A800、AFF A400 
+|===
+====
+
+
+== 使用手动ARL命令
+
+如果您的升级情形不支持使用"系统命令"、则可以使用手动命令执行ARL升级。
+
+选择适用于您的ONTAP版本的过程以开始升级：
+
+* link:../upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 或更高版本的控制器硬件"]
+* link:../upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 或更早版本的控制器硬件"]
+

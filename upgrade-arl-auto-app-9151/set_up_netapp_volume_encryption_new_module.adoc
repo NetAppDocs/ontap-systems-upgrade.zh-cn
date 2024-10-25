@@ -10,7 +10,7 @@ summary: '如果需要、在升级运行ONTAP 9.151或更高版本的控制器�
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

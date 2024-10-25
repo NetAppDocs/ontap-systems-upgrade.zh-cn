@@ -10,7 +10,7 @@ summary: '使用 `ssystem controller replace` 命令支持将运行 ONTAP 9.5 �
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
