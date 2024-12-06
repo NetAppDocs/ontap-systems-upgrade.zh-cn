@@ -2622,8 +2622,6 @@
   <block id="cf3329822cb6acbd3f59abba0514d804" category="sidebar">删除 SAN LIF</block>
   <block id="d2e2f3320c4d610d0815b1405859a98b" category="sidebar">取消加入原始节点</block>
   <block id="79f3abfd76c996d707b348dbfb91c42b" category="sidebar">在 node4 上设置 FC 或 UTA/UTA2 配置</block>
-  <block id="2e546c2ae4e7d18e3a62352f7899f8ad" category="paragraph">按照 node4 平台的 _Installation and Setup Instructions_or the _FlexArray 虚拟化安装要求和参考 _ 中的说明，使用缆线连接以下连接，并参考相应的磁盘架文档和 _High Availability Management_ 。</block>
-  <block id="96fc3790ed0f779b648493fc7e4b2e7c" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _High Availability Management_ 和 _FlexArray 虚拟化安装要求和参考。</block>
   <block id="82a3300ad94a5e1dcf0a6abbfe1060e2" category="paragraph">在执行此内容中的过程时，您可能需要查看参考内容或访问参考网站。</block>
   <block id="14f94d0b133a9aa34a775e955c95b8bc" category="list-text"><block ref="13e4a2cf4e0a4edbef519c9af2452c86" category="inline-xref-macro-rx"></block></block>
   <block id="ec5873b9b6861954a7c07d183dd486b0" category="section-title">参考内容</block>
@@ -2638,8 +2636,6 @@
   <block id="d1b75581244e03161b57c29a9ac4bb22" category="inline-link-macro">使用 CLI 管理磁盘和聚合</block>
   <block id="c3aed88c9ee3a48f5d62930613f5710f" category="cell"><block ref="c3aed88c9ee3a48f5d62930613f5710f" category="inline-link-macro-rx"></block></block>
   <block id="083222857448e1fa46a20ea7d228c4a3" category="cell">介绍如何使用命令行界面管理 ONTAP 物理存储。其中介绍了如何创建，扩展和管理聚合，如何使用 Flash Pool 聚合，如何管理磁盘以及如何管理 RAID 策略。</block>
-  <block id="9fc34575910b3b930388b5434f515842" category="inline-link-macro">高可用性管理</block>
-  <block id="8b8cdc632b8dd03afd9af9cf3f0bbb00" category="cell"><block ref="8b8cdc632b8dd03afd9af9cf3f0bbb00" category="inline-link-macro-rx"></block></block>
   <block id="c1a14ef4c1320caf80e81dff4161eb9b" category="inline-link-macro">使用 CLI 进行逻辑存储管理</block>
   <block id="23806251831778e9042b7dc8e04e42d9" category="cell"><block ref="23806251831778e9042b7dc8e04e42d9" category="inline-link-macro-rx"></block></block>
   <block id="9dc1904e0c3ace141704b477cd9b345d" category="inline-link-macro">网络管理</block>
@@ -2662,12 +2658,10 @@
   <block id="4ba8d4701b7c72b570a63797aff938e0" category="list-text">从 ONTAP 9.10.1 开始，基于自动协商切换（ Automated Negotiated switchover ， NSO ）的升级操作步骤是四节点 MetroCluster FC 配置的默认配置。如果要升级四节点 MetroCluster FC 配置，则在执行问题描述 `ssystem controller replace start` 命令时，必须通过将 ` -NSO` 参数设置为 `false` 来防止基于 NSO 的操作步骤启动：</block>
   <block id="b5217a01cec2b264eab0761f085ee2eb" category="list-text">`ssystem controller replace start` 命令只能在高级权限级别执行：</block>
   <block id="45e3f26bb2c9a72d8467afe9a6c33e38" category="cell">检查要更换的节点是否运行相同版本的 ONTAP 。如果 ONTAP 映像版本不同，则此任务将失败。新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则在安装新控制器后，需要通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _Upgrade ONTAP 。</block>
-  <block id="954ad5efed3e43bfb3badad9c505735b" category="cell">如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 使用 cli_ 链接到 _Disk 和聚合管理，使用 cli_ 链接到 _Logical storage management 以及 _High Availability management_ ，为 HA 对配置存储。</block>
   <block id="3f906c041fb469b2794aa7ce7964b2a7" category="list-text">按照系统控制台上控制器更换操作步骤的指示运行以下一组命令。</block>
   <block id="c209ee9c3a703005ec3303b04dddff2f" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _RAID MetroCluster 管理和灾难恢复 _ 内容，并使用所述的协商切换，修复和切回过程。</block>
   <block id="b029dd94e134cfaf963a04051ff43f6d" category="admonition">如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A250 ），但没有内部驱动器，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 并使用 _aggregate relocation 中的操作步骤手动升级适用于您的 ONTAP 版本的控制器 Hardware_ 内容。</block>
   <block id="14fc1fec490b9f5ad23d58c3c55d4441" category="paragraph">如果要使用内部驱动器升级入门级控制器，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。</block>
-  <block id="5ab1ba3aba863ed7175637aaa48e2f73" category="paragraph">使用适用于 node3 平台的 _Installation and Setup Instructions_or the _FlexArray Virtualization Installation Requirements and Refertion_ ，相应的磁盘架文档和 _High Availability Management_ 为以下连接布线。</block>
   <block id="c78fd54aa1461d651da28406676f336f" category="admonition">在此操作步骤中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _restoring network configuration on node4_ 。</block>
   <block id="de1d1723e281ecfbe16611cb895dd237" category="paragraph">有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _Network Management_ 。</block>
   <block id="84b1703925b211a597f4b166b1d80848" category="list-text">对于非 MetroCluster 系统，例如 HA 集群， ARL 升级是唯一受支持的操作步骤。</block>
@@ -2681,7 +2675,6 @@
   <block id="794c7b1870555759c37165eedd11e861" category="admonition">在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains_一 节已重命名为 _Restore node3_ 上的网络配置。</block>
   <block id="2618ba1924760141eb8ebfb30bb1d8a9" category="paragraph">有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请访问 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 并链接到 _Network Management_ 。</block>
   <block id="b838d4fde6c980fa55cf1649eccebfb3" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Network Management_ 或 _ONTAP 9 命令：手册页参考 _ 以了解详细信息。</block>
-  <block id="9b4a7067960efcb28456ef46d4ac8143" category="cell">如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 使用 cli_ 链接到 _Disk 和聚合管理，使用 cli_ 链接到 _Logical storage management 以及 _High Availability management_ ，为 HA 对配置存储。</block>
   <block id="eff04d06fc1c15ba7f721c6eb771ca87" category="list-text">如果要从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。如果您愿意执行卷移动，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
   <block id="9897d9d5a6dc54cd05e35a06df6d54b5" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Network Management_ 或 _LIF_ ONTAP 9 命令：手册页参考 _ 并参见 _Configuring failover settings on a LIF_ 了解详细信息。</block>
   <block id="c27e64cafb401d038cff1543dd15a9f5" category="paragraph">此内容的早期版本包含无中断控制器更新过程的说明，该过程由完全手动的步骤组成。此内容提供了新的自动化操作步骤的步骤。</block>
@@ -2722,13 +2715,9 @@
   <block id="34c3e41105245eedc58a41b84d06a8da" category="list-text">如果需要，请使用中的命令调整任何其他广播域并迁移数据 LIF <block ref="ff47d2d93900744c317edfe39ed00899" category="inline-xref-macro-rx"></block>。</block>
   <block id="da988c28044d8fc8463a4db2336f20f0" category="list-text">node4 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。</block>
   <block id="72860e73833a237fd9811df9152c9a7a" category="list-text">相应的磁盘架操作步骤</block>
-  <block id="b9b51f95b333e31e76a0f718bee344fa" category="list-text">高可用性管理 _ 文档</block>
   <block id="6afaaeefe5c37f69581ad1614c57cff4" category="paragraph">转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Network Management_ 或 _ONTAP 9 命令：手册页参考 _ 以了解详细信息。</block>
   <block id="9f60baa5d0a7e514432de3c5beb88857" category="paragraph">如果要升级内部磁盘驱动器上具有根聚合或数据聚合的控制器，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。</block>
   <block id="ae307041467b0820fea754d90cc7abda" category="admonition">如果要升级集群中节点上的 ONTAP ，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _Upgrade ONTAP 。</block>
-  <block id="986991a93176ee231138e71796e3557e" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _High Availability management_ 并按照 _Best Practices for HA pairs_一 节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。</block>
-  <block id="e1cbc9b64c5a195f57ded4409cfe8fbc" category="paragraph">如果任一节点处于部分交还状态，请使用 `storage failover giveback` 命令执行交还，然后使用 `storage failover show-giveback` 命令确保仍不需要交还聚合。有关命令的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _High Availability management_ 。</block>
-  <block id="f6ad618b685a2a7a446cddb4787d965d" category="paragraph">如果缺少任何磁盘，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 使用 cli_ 链接到 _Disk 和聚合管理，使用 cli_ 链接到 _Logical storage management 以及 _High Availability management_ ，为 HA 对配置存储。</block>
   <block id="26284a568c7e38bb6355694c41ff5f8d" category="paragraph">如果任何磁盘出现故障，请按照 _Disk 和使用 cli_ 进行聚合管理中的说明将其删除。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 使用 cli_ 链接到 _Disk 和聚合管理。）</block>
   <block id="2722bd9e96d97f6dd8c071e92fb500ce" category="list-text">node3 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。</block>
   <block id="025b7f36f1c9c8c4d48374557ce1ad36" category="paragraph">有关存储聚合重新定位命令的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。</block>
@@ -4875,7 +4864,6 @@ FAS2720</block>
   <block id="ef0d9aeefdd01090b7d838fdbc756532" category="cell">AFF A800 ^1^</block>
   <block id="120ae360daecd24b580b71f9f2766bbc" category="cell">9.15.1</block>
   <block id="f60554150b9183af4229445611dee7e7" category="paragraph">9.10.1P15、9.11.1P11及更高版本^2^</block>
-  <block id="b7f5f3e815fc26505623dcbc51f6b401" category="paragraph">9.11.1P7 (FAS2620)^2^μ m</block>
   <block id="de800e8602c1bb83b0bea67e9b57ae7d" category="paragraph">^1^升级到ONTAP 9.151中推出的系统时、ONTAP会转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率、并应用利用硬件卸载功能的新存储效率功能。这是一个自动后台进程、不会对系统性能造成明显影响。<block ref="7746afbac27a580f36b90211e9daf7d0" category="inline-link-rx"></block>(英文)</block>
   <block id="43d7379ace473361bbbcf942aef43f03" category="paragraph">^2^ AFF A200和FAS2620系统不支持9.11.1之后的ONTAP版本。</block>
   <block id="5cfd2d4152e78b9d89cbc6307d966fda" category="cell">现有...</block>
@@ -5215,7 +5203,6 @@ FAS2720</block>
   <block id="3e44bbb802d299056c9839f8bdfc777a" category="cell">9.15.1及更高版本</block>
   <block id="184f38916b6639f5bdbf7619d90cebc3" category="paragraph">9.10.1P15、9.11.1P11及更高版本</block>
   <block id="45b09eba6fe8095ae38635150e57152a" category="paragraph">*注意*：AFF A200不支持9.11.1以上的ONTAP版本。</block>
-  <block id="d243c4c373219990c87996aba8af4741" category="paragraph">9.11.1P7 (FAS2620)</block>
   <block id="26ed1ff6e78b37e572170171b4fabc0f" category="paragraph">*注意*：FAS2620不支持9.11.1以上的ONTAP版本。</block>
   <block id="074a728bac13ce0b2d079bed92780d8d" category="section-title">对ONTAP 9 8或更高版本使用“system controller Replace”命令</block>
   <block id="bf2f20b69fe364bf3a76fbb262d9c675" category="paragraph">如果您的升级情形在以下受支持的系统列表中列出、请转到<block ref="f597d5199c2cdfe3f660f286188248d5" category="inline-link-macro-rx"></block>开始升级过程。</block>
@@ -5247,4 +5234,25 @@ FAS2720</block>
   <block id="fd4a2232b0a4fad7f2f7a5207ee94001" category="sidebar">了解ONTAP系统和软件</block>
   <block id="743b2bde29eae11996923323c6b89672" category="sidebar">ONTAP 交换机文档</block>
   <block id="91c8d030b7d32b838af9bb14f227c952" category="paragraph">AFF A70和AFF A90是集成系统、在HA配置中具有两个控制器、在一个机箱中具有板载磁盘。</block>
+  <block id="664f9c52f93e2fbf6e801148b0f573ad" category="inline-link-macro">HA对管理</block>
+  <block id="fc0b22bb38f11521c03de86c56643d5d" category="cell"><block ref="fc0b22bb38f11521c03de86c56643d5d" category="inline-link-macro-rx"></block></block>
+  <block id="89f76e97cb211d84e00c11992dfadf74" category="paragraph">按照node4平台的_安装和设置说明_或_ FlexArray虚拟化安装要求和参考_中的说明、相应的磁盘架文档和_HA对管理_为以下连接布线。</block>
+  <block id="26c5c260ce25606c1c0bb202b032dfa3" category="paragraph">请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>、以链接到_ FlexArray虚拟化安装要求和参考_和_ HA对管理_。</block>
+  <block id="b082861c64ae79f202957f36b4724f12" category="paragraph">使用node3平台的《_安装和设置说明_》或《_ FlexArray虚拟化安装要求和参考_》、相应的磁盘架文档和_HA对管理_为以下连接布线。</block>
+  <block id="62e8c46614cda642480e223b008f5dfc" category="list-text">HA对管理文档</block>
+  <block id="147e1330d5f2538de36e6ee787c5446d" category="paragraph">请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_HA对管理_、然后按照_ HA对最佳实践_一节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。</block>
+  <block id="270b6acdba0a7f34d4c1dd4dd05525ab" category="paragraph">如果任一节点处于部分交还状态、请使用<block ref="b27ff28f78c71d3027cc2fb76f6fe30c" prefix=" " category="inline-code"></block>命令执行交还、然后使用命令确保不需要交还<block ref="852ce55a153bc728405ba8a2c95bcdf1" prefix=" " category="inline-code"></block>任何聚合。有关命令的详细信息、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_HA对管理_。</block>
+  <block id="395d4fd7f065a92548b412c96dbe1faa" category="paragraph">如果缺少任何磁盘、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_Disk and聚合管理(使用命令行界面_)、逻辑存储管理(使用命令行界面_)和_HA对管理_、以便为HA对配置存储。</block>
+  <block id="7c67b8b9f7d3533c33fb6cecf037204c" category="inline-link-macro">启用从SAN主机到ASA R2存储系统的数据访问</block>
+  <block id="e8a1c12a435b7bb9c68529ddb55c1850" category="admonition">不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2的信息，请参见<block ref="1aa51bb167bf6182c65d56fb25d15ddf" category="inline-link-macro-rx"></block>。</block>
+  <block id="c8d7e0b6f3e69fd12ca1cfc90687f6a8" category="paragraph">9.11.1P7或更高版本的修补程序(FAS2620)</block>
+  <block id="8499179dca2bc3203741083d0d24160c" category="cell">如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_Disk and聚合管理(使用命令行界面_)、逻辑存储管理(使用命令行界面_)和_HA对管理_、以便为HA对配置存储。</block>
+  <block id="96921c9c55ac5491d93180278bb4bc78" category="paragraph">9.11.1P7或更高版本的修补程序版本(FAS2620)^2^</block>
+  <block id="8ac418c9132657ca13947b8d7087efa1" category="cell">如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_Disk and聚合管理(使用命令行界面_)、逻辑存储管理(使用命令行界面_)和_HA对管理_、以便为HA对配置存储。</block>
+  <block id="66691da5eb04d0eba08bba016646849a" category="paragraph">您只能升级到同一系列中的更换系统：</block>
+  <block id="e882986702fe0f326c1fa2d4698be2cd" category="list-text">AFF A系列系统到AFF A系列系统</block>
+  <block id="737115f91c530c4e8ddec392681db510" category="list-text">AFF C系列系统到AFF C系列系统</block>
+  <block id="04a7d3ed17290dfa8c947b7265180931" category="list-text">ASA 系统到 ASA 系统</block>
+  <block id="6cc3f2b4a05b456b1f754eaf8cb03200" category="list-text">ASA A系列系统到ASA A系列系统</block>
+  <block id="af2a1a7e91ed894338bb4bd32c3e13d0" category="list-text">ASA C系列系统到ASA C系列系统</block>
 </blocks>

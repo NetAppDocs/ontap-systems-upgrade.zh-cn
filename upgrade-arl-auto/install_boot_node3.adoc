@@ -38,10 +38,10 @@ NOTE: 如果要升级到两个节点位于同一机箱中的系统，请在机�
 
 . 【 auto_install3_step3]] 为节点 3 布线，将连接从节点 1 移动到节点 3 。
 +
-使用适用于 node3 平台的 _Installation and Setup Instructions_or the _FlexArray Virtualization Installation Requirements and Refertion_ ，相应的磁盘架文档和 _High Availability Management_ 为以下连接布线。
+使用node3平台的《_安装和设置说明_》或《_ FlexArray虚拟化安装要求和参考_》、相应的磁盘架文档和_HA对管理_为以下连接布线。
 
 +
-请参见 link:other_references.html["参考资料"] 链接到 _High Availability Management_ 和 _FlexArray 虚拟化安装要求和参考。
+请参见link:other_references.html["参考资料"]、以链接到_ FlexArray虚拟化安装要求和参考_和_ HA对管理_。
 
 +
 ** 控制台（远程管理端口）

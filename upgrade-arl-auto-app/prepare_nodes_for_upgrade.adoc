@@ -91,7 +91,7 @@ Controller replacement operation has been paused for user intervention.
 | 聚合状态检查 | 如果要更换的节点自身的聚合不是主所有者，则此任务将失败。节点不应拥有任何非本地聚合。 
 
 
-| 磁盘状态检查 | 如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘，请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理，使用 cli_ 链接到 _Logical storage management 以及 _High Availability management_ ，为 HA 对配置存储。 
+| 磁盘状态检查 | 如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘、请参见link:other_references.html["参考资料"]链接到_Disk and聚合管理(使用命令行界面_)、逻辑存储管理(使用命令行界面_)和_HA对管理_、以便为HA对配置存储。 
 
 
 | 数据 LIF 状态检查 | 检查要更换的任何节点是否具有非本地数据 LIF 。节点不应包含其不是主所有者的任何数据 LIF 。如果其中一个节点包含非本地数据 LIF ，则任务将失败。 

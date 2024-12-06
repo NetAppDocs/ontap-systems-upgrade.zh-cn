@@ -25,6 +25,26 @@ summary: 使用手动 ARL 升级操作步骤 升级运行 ONTAP 9.8 或更高版
 * FAS 系统到 FAS 系统
 * 将 FAS 系统连接到使用 FlexArray 虚拟化软件的系统或 V 系列系统
 * AFF 系统到 AFF 系统
++
+您只能升级到同一系列中的更换系统：
+
++
+** AFF A系列系统到AFF A系列系统
+** AFF C系列系统到AFF C系列系统
+
+
+* ASA 系统到 ASA 系统
++
+不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
+
++
+您只能升级到同一系列中的更换系统：
+
++
+** ASA A系列系统到ASA A系列系统
+** ASA C系列系统到ASA C系列系统
+
+
 * 使用 FlexArray 虚拟化软件或 V 系列系统的系统连接到 FAS 系统，前提是使用 FlexArray 虚拟化软件或 V 系列系统的系统没有阵列 LUN 。
 * V 系列系统到使用 FlexArray 虚拟化软件的系统或 V 系列系统
 

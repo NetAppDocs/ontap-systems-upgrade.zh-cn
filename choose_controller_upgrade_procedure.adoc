@@ -27,6 +27,10 @@ NOTE: 您还可以通过聚合重新定位将AFF A800升级到AFF A70或AFF A90�
 
 * AFF C190、AFF C250和AFF C800
 * ASA A150、ASA A250、ASA A800和ASA AFF A220
++
+
+NOTE: 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
+
 
 
 如果未列出您的系统、请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 以检查它是否具有内部驱动器。
@@ -42,6 +46,10 @@ image:workflow_internal_drives.png["选择升级操作步骤的决策工作流"]
 * AFF A300、AFF A320、AFF A400、AFF A700和AFF A900
 * AFF C400
 * ASA A400、ASA A900和ASA AFF A700
++
+
+NOTE: 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
+
 
 
 如果未列出您的系统、请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 检查它是否仅具有外部驱动器。

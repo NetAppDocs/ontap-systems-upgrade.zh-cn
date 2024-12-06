@@ -7,7 +7,7 @@
 .步骤
 . 确认每个原始节点都有足够的资源，可以在接管模式下为这两个节点的工作负载提供充分的支持。
 +
-请参见 link:other_references.html["参考资料"] 链接到 _High Availability management_ 并按照 _Best Practices for HA pairs_一 节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。
+请参见link:other_references.html["参考资料"]链接到_HA对管理_、然后按照_ HA对最佳实践_一节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。
 
 . 完成以下子步骤，为原始节点创建性能基线：
 +
@@ -150,7 +150,7 @@ node1          node2          true     Connected to node2, Partial giveback
 node2          node1          true     Connected to node1
 ....
 +
-如果任一节点处于部分交还状态，请使用 `storage failover giveback` 命令执行交还，然后使用 `storage failover show-giveback` 命令确保仍不需要交还聚合。有关命令的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _High Availability management_ 。
+如果任一节点处于部分交还状态、请使用 `storage failover giveback`命令执行交还、然后使用命令确保不需要交还 `storage failover show-giveback`任何聚合。有关命令的详细信息、请参见link:other_references.html["参考资料"]链接到_HA对管理_。
 
 . 【 man_prepare_nodes_step9]] 确认 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
@@ -239,7 +239,7 @@ node1    None                None
 node2    None                None
 ....
 +
-如果缺少任何磁盘，请参见 link:other_references.html["参考资料"] 使用 cli_ 链接到 _Disk 和聚合管理，使用 cli_ 链接到 _Logical storage management 以及 _High Availability management_ ，为 HA 对配置存储。
+如果缺少任何磁盘、请参见link:other_references.html["参考资料"]链接到_Disk and聚合管理(使用命令行界面_)、逻辑存储管理(使用命令行界面_)和_HA对管理_、以便为HA对配置存储。
 
 . 确认 node1 和 node2 运行状况良好且有资格加入集群：
 +
