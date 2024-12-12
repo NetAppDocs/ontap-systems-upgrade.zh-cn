@@ -55,12 +55,12 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 * 您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 link:index.html["概述"]。
 * 您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。
 * 您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。
+* 您的系统运行的是9.15.1 9.151或更高版本、并且正在使用以太网交换机连接到以太网连接的存储。
 
 
 在以下情况下、您不能使用此操作步骤：
 
 * 您正在AFF A800、AFF A700或FAS9000系统上使用FlexArray虚拟化软件。
-* 您正在使用共享交换机进行集群互连和以太网连接存储。
 
 
 有关在AFF A800、AFF A700或FAS9000系统上升级MetroCluster MetroCluster IP配置的信息、请参见以链接到_FASUpgrade link:other_references.html["参考资料"] and Expandation_内容。

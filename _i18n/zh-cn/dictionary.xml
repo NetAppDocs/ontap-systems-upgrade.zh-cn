@@ -3223,7 +3223,6 @@
   <block id="78bd6f667bd547c51374b0e978e9d001" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上支持手动 ARL 升级所需的参考内容和网站。</block>
   <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。</block>
   <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。</block>
-  <block id="d94e9d7914bbd98510d8cb9e0a6d08b1" category="list-text">您正在使用共享交换机进行集群互连和以太网连接存储。</block>
   <block id="af18adb321560258c2b9a80d2757792a" category="paragraph">在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。</block>
   <block id="c7fc4caaca02af86d84b04f258dfd7e6" category="paragraph">Node2 不会接管，但它仍从所有非根聚合提供数据。</block>
   <block id="7e3345ca183a02251269d1034b280331" category="list-text">在 node1 上的 LOADER 提示符处，验证 node1 的 `partner-sysid` ：</block>
@@ -5255,4 +5254,5 @@ FAS2720</block>
   <block id="04a7d3ed17290dfa8c947b7265180931" category="list-text">ASA 系统到 ASA 系统</block>
   <block id="6cc3f2b4a05b456b1f754eaf8cb03200" category="list-text">ASA A系列系统到ASA A系列系统</block>
   <block id="af2a1a7e91ed894338bb4bd32c3e13d0" category="list-text">ASA C系列系统到ASA C系列系统</block>
+  <block id="bd78dcbf9a0f6c9dff2586a02d89b664" category="list-text">您的系统运行的是9.15.1 9.151或更高版本、并且正在使用以太网交换机连接到以太网连接的存储。</block>
 </blocks>
