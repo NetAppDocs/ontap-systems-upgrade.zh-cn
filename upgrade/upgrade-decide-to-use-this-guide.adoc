@@ -17,10 +17,10 @@ summary: 此内容介绍如何通过移动存储或卷来升级集群中 AFF 系
 
 [NOTE]
 ====
-* 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
-* 升级到ONTAP 9。15.1中引入的系统时、ONTAP会转换现有卷的存储效率、并应用新的存储效率功能来利用硬件卸载功能。这是一个自动后台进程、不会对系统性能造成明显影响。
+* 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2系统的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
+* 升级到9.15.1 9.151或更高版本中推出的系统时、ONTAP会转换现有卷的存储效率、并应用新的存储效率功能来利用硬件卸载功能。这是一个自动后台进程、不会对系统性能造成明显影响。
 +
-** 对于AFF A70、AFF A90或AFF A1K系统、ONTAP可转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率。
+** 对于AFF A20、AFF A30、AFF A50、AFF A70、AFF A90、AFF A1K、AFF C30、AFF C60和AFF C80、ONTAP转换所有现有精简配置卷的存储效率、包括未使用存储效率的卷。
 ** 对于FAS70和FAS90系统、ONTAP仅转换在升级之前已启用存储效率的现有精简配置卷的存储效率。
 +
 link:https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["详细了解存储效率"^](英文)

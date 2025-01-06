@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-affa900/replace-node1-affa800.html 
+permalink: upgrade-arl-auto-affa900/replace-node1-affa250-affc250.html 
 keywords: aff, asa, fas, replace, node1, system, modules 
-summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A800或AFF C800 node1系统模块。 
+summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A250或AFF C250 node1系统模块。 
 ---
-= 更换AFF A800或AFF C800控制器模块
+= 更换AFF A250或AFF C250控制器模块
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -19,30 +19,45 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A800
 
 CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中、并由相同的电源供电。
 
+
+
+== 卸下AFF A250或AFF C250控制器模块
+
+要卸下node1控制器模块、请先卸下缆线管理设备、解锁锁定闩锁、然后从机箱中卸下控制器模块。
+
 .开始之前
 如果您尚未接地，请正确接地。
 
-
-
-== 准备卸下AFF A800或AFF C800控制器模块
-
 .步骤
-. 在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这样可确保驱动器牢固地固定在机箱中板上。
+. Insert your forefinger into the latching mechanism on either side of the controller module, press the lever with your thumb, and gently pull the controller a few inches out of the chassis.
 +
-image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在机箱中间板上"]
 
+NOTE: 如果在卸下控制器模块时遇到困难，请将食指从内部穿过指孔（通过跨越臂）。
+
++
+image:drw_a250_pcm_remove_install.png["推动驱动器、使其紧紧靠在机箱中间板上"]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image:black_circle_one.png["第一"]
+| Lever 
+
+
+ a| 
+image:black_circle_two.png["第二"]
+| Latching mechanism 
+|===
 . 转至机箱背面。
-
-
-
-
-== 卸下AFF A800或AFF C800控制器模块
-
-从现有模块中卸下缆线管理设备、然后将控制器稍微移出机箱。
-
-.步骤
 . 从电源拔下node1控制器模块的电源。
-. Release the power cable retainers, and then unplug the cables from the power supplies.
+. 松开电源线固定器、然后从node1的电源中拔下电缆。
++
+
+CAUTION: node1和node2的电源连接相互连接。请注意、仅拔下node1的缆线。拔下node1和node2的缆线可能会导致HA对中的两个节点断电。
+
 . Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFP and QSFP modules (if needed) from the controller module, keeping track of where the cables were connected.
 +
 Leave the cables in the cable management device so that when you reinstall the cable management device, the cables are organized.
@@ -52,39 +67,23 @@ Leave the cables in the cable management device so that when you reinstall the c
 +
 The controller module moves slightly out of the chassis.
 
+. Using both hands, grasp the controller module sides and gently pull it out of the chassis and set it on a flat, stable surface.
 +
-image:a800_cable_management.png["卸下缆线管理ARM"]
-
-+
-[cols="20,80"]
-|===
-
-
- a| 
-image:black_circle_one.png["第一"]
-| Locking latch 
-
-
- a| 
-image:black_circle_two.png["第二"]
-| Locking pin 
-|===
+将控制器模块滑出机箱时、请确保支撑好控制器模块的重量。
 
 
 
 
-== 安装AFF A90、AFF A70或AFF C80控制器模块
 
-在node1中安装AFF A90、AFF A70或AFF C80控制器模块、并为其布线和连接。
+== 安装AFF A30、AFF A50、AFF C30或AFF C60控制器模块
+
+在node1中安装替代模块并进行布线和连接。
 
 .步骤
 . Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
 +
 
 NOTE: 请勿将控制器模块完全插入机箱中、除非此过程稍后指示您这样做。
-
-+
-image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["安装AFF A90或AFF A70"]
 
 . 使用缆线将管理和控制台端口连接到 node1 控制器模块。
 +

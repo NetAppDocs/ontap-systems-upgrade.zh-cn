@@ -47,7 +47,27 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 +
 确认所有已连接端口（包括接口组和 VLAN 端口）的状态均显示为 `OK` 。
 
-. 要将AFF A800升级到AFF A70或AFF A90、您必须重新分配FCP SAN LUN。对于所有其他系统升级，请继续执行 <<resume_relocation_step4,第 4 步>>：
+. 对于以下升级、您必须重新分配FCP SAN SIFs。
++
+[cols="35,65"]
+|===
+| 现有系统 | 更换系统 
+
+
+| AFF A250 | AFF A30、AFF A50 
+
+
+| AFF C250 | AFF C30、AFF C60 
+
+
+| AFF A800 | AFF A70、AFF A90 
+
+
+| AFF C800 | C80 
+|===
++
+对于所有其他系统升级，请继续执行<<resume_relocation_step4,第 4 步>>。
+
 +
 .. 将用于FCP或FC-NVMe数据访问的FCP SAN SIFs重新分配到正确的主端口：
 +
@@ -58,6 +78,7 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 验证是否已与需要移动FC LIF的FC目标端口建立物理连接：
 
 +
+--
 ... 将 LIF 状态设置为 "down" ：
 +
 `network interface modify -vserver <vserver_name> -lif <lif_name>  -status-admin down`
@@ -72,10 +93,11 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 
 
 
-
-
+--
 +
 对node1上的主FC SAN LIF重复子步骤a和b。
+
+
 
 . [[resume_rLocation _Step4]]恢复重新定位操作：
 +

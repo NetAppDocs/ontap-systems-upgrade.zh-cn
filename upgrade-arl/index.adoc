@@ -26,13 +26,22 @@ summary: 使用聚合重新定位升级控制器硬件
 
 == 对ONTAP 9．15．1或更高版本使用system controller Replace命令
 
-如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件"]开始升级过程。
+如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级9.15.1 9.151及更高版本中引入的控制器硬件"]开始升级过程。
 
 .显示支持的系统
 [%collapsible]
 ====
 |===
 | 现有控制器 | 更换控制器 | 从ONTAP开始支持... 
+
+
+| AFF A400 | AFF A50 | 9.16.1 
+
+
+| AFF A300 | AFF A50 | 9.16.1 
+
+
+| AFF A220、AFF A150 | AFF A20 | 9.16.1 
 
 
 | FAS8200 ， FAS8300 ， FAS8700 ， FAS9000 | FAS70、FAS90 | 9.15.1P3 
@@ -59,6 +68,15 @@ summary: 使用聚合重新定位升级控制器硬件
 [cols="20,20,40"]
 |===
 | 旧系统 | 更换系统 | 支持的ONTAP版本 
+
+
+| AFF C250 | AFF C30、AFF C60 | 9.16.1及更高版本 
+
+
+| AFF A250 | AFF A50、AFF A30 | 9.16.1及更高版本 
+
+
+| AFF C800 | AFF C80 | 9.16.1及更高版本 
 
 
 | AFF A800 | AFF A70或AFF A90 | 9.15.1及更高版本 

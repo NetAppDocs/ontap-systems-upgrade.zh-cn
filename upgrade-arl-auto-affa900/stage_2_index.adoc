@@ -20,6 +20,6 @@ summary: '使用进行ARL升级的第2阶段流程 `system controller replace` �
 . link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2"]
 . link:relocate_failed_or_vetoed_aggr.html["重新定位失败或被否决的聚合"]
 . link:retire_node1.html["停用 node1"]
-. link:replace-node1-affa800.html["更换node1系统模块"]
+. link:replace-node1-affa250-affc250.html["更换node1系统模块"]
 . link:netboot_node1.html["网络启动节点 1"]
 

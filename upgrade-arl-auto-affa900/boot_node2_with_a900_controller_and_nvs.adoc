@@ -14,36 +14,11 @@ summary: 使用ARL升级同一机箱中的控制器型号时、使用替代控�
 
 
 [role="lead"]
-包含替代模块的node2现在可启动。通过交换系统模块进行升级只涉及移动控制台和管理连接。本节介绍了在以下升级配置中使用替代模块启动node2所需的步骤：
-
-[cols="35,65"]
-|===
-| 现有node2控制器 | 更换node2系统模块 
+包含替代模块的node2现在可启动。中列出了支持的更换模块link:index.html#supported-systems,["支持的系统列表"]。
 
 
-| AFF A800 | AFF A90或AFF A70 
+NOTE: 只有在通过交换系统模块进行升级时、才能移动控制台和管理连接。
 
-
-| 配置为ASA的AFF A220 | ASA A150控制器模块 
-
-
-| AFF A220
-AFF A200
-AFF C190 | AFF A150控制器模块 
-
-
-| FAS2620
-FAS2720 | FAS2820控制器模块 
-
-
-| 配置为ASA的AFF A700 | ASA A900控制器和NVRAM模块 
-
-
-| AFF A700 | AFF A900控制器和NVRAM模块 
-
-
-| FAS9000 | FAS9500控制器和NVRAM模块 
-|===
 .步骤
 . [[boot_node2_Step1]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
 +

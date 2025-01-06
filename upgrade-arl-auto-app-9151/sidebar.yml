@@ -1,6 +1,6 @@
 ---
 section: upgrade-arl-auto-app-9151
-title: 使用system controller Replace命令升级ONTAP 9.151中引入的控制器硬件
+title: 使用system controller Replace命令升级9.15.1 9.151及更高版本中引入的控制器硬件
 entries:
 - title: 概述
   url: "/upgrade-arl-auto-app-9151/index.html"

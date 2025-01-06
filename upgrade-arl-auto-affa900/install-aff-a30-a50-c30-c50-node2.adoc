@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-affa900/install-affa90-affa70-on-node2.html 
+permalink: upgrade-arl-auto-affa900/install-aff-a30-a50-c30-c50-node2.html 
 keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
 summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2上安装替代系统模块。 
 ---
-= 在node2上安装AFF A90或AFF A70模块
+= 在node2上安装AFF A30、AFF A50、AFF C30或AFF C60模块
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,16 +14,13 @@ summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2
 
 
 [role="lead"]
-在node2上安装您收到的用于升级的AFF A90或AFF A70控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
+在node2上安装您收到的用于升级的替代控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
 
 .步骤
-. Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
+. 将存储系统置于机柜或电信机架中间的导轨上、然后从底部支撑存储系统并将其滑入到位。
 +
 
 NOTE: 请勿将控制器模块完全插入机箱中、除非此过程稍后指示您这样做。
-
-+
-image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["安装AFF A90或AFF A70"]
 
 . 使用缆线将管理和控制台端口连接到 node1 控制器模块。
 +

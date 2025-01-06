@@ -22,7 +22,7 @@ summary: 了解是否可以在升级配置中使用ARL来保留旧系统机箱�
 
 某些系统配置支持控制器升级。要查看支持的系统列表和最低ONTAP版本、请参见 link:index.html["概述"]。
 
-如果您已收到一个完整的全新AFF A150、FAS2820、AFF A900或FAS9500系统(包括新机箱)、请参见 link:other_references.html["参考资料"] 要链接到 _use "system controller replace " 命令升级运行 ONTAP 9.8 或更高版本内容的控制器硬件。
+如果您已收到完整的全新AFF A30、AFF A150 A50、AFF A900、AFF A90、AFF、AFF A70、AFF C30、AFF C60、AFF C80、FAS2820或FAS9500系统(包括新机箱)、请参阅link:other_references.html["参考资料"]链接到_use "system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_内容。
 
 配置了 SnapLock 企业版和 SnapLock 合规性卷的系统支持使用 ARL 升级控制器。
 

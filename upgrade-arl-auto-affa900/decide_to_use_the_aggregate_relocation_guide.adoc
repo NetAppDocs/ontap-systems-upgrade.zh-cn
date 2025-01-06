@@ -16,40 +16,19 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 [role="lead"]
 此内容介绍如何在保留所有现有数据和磁盘的同时升级HA对中的存储控制器。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
 
+
+
+== 支持ARL升级
+
 您可以在以下情况下使用此操作步骤：
 
-* 您正在执行以下控制器升级之一：
+* 中列出了控制器升级link:index.html#supported-systems,["支持的系统列表"]。
+* 您已向NetApp销售代表确认收到升级控制器所需的硬件：
 +
-[cols="50,50"]
-|===
-| 旧控制器 | 更换控制器 
-
-
-| AFF A800 | AFF A70和AFF A90 
-
-
-| 配置为ASA的AFF A220 | ASA A150 
-
-
-| AFF A220、AFF A200或AFF C190 | AFF A150 
-
-
-| FAS2620或FAS2720 | FAS2820 
-
-
-| 配置为ASA的AFF A700 | ASA A900 
-
-
-| AFF A700 | AFF A900 
-
-
-| FAS9000 | FAS9500 
-|===
-* 您已向NetApp销售代表确认收到用于控制器升级的硬件：
-+
-** 升级所需的两个AFF A90或两个AFF A70控制器以及所有I/O模块。所需的100GbE缆线长度。
+** 两个AFF A90、AFF A70或AFF C80控制器以及所有I/O模块。所需的100GbE缆线长度。
+** 两个AFF A50、AFF A30、AFF C30或AFF C60控制器和I/O模块。所需的缆线。
 ** ASA A150、AFF A150或FAS2820控制器
-** ASA A900、AFF A900或FAS9500控制器和NVRAM模块以及升级所需的部件
+** ASA A900、AFF A900或FAS9500控制器和NVRAM模块及部件
 
 
 * 您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 link:index.html["概述"]。
@@ -58,12 +37,18 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 * 您的系统运行的是9.15.1 9.151或更高版本、并且正在使用以太网交换机连接到以太网连接的存储。
 
 
+
+
+== ARL升级不支持
+
 在以下情况下、您不能使用此操作步骤：
 
-* 您正在AFF A800、AFF A700或FAS9000系统上使用FlexArray虚拟化软件。
+* 您正在升级的现有系统上使用FlexArray虚拟化软件。
+* 您正在升级MetroCluster IP配置。
++
+要升级MetroCluster IP配置、请参见link:other_references.html["参考资料"]以链接到_Upgrade MetroCluster and Expanation_内容。
 
 
-有关在AFF A800、AFF A700或FAS9000系统上升级MetroCluster MetroCluster IP配置的信息、请参见以链接到_FASUpgrade link:other_references.html["参考资料"] and Expandation_内容。
 
 
 NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。

@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.ht
 keywords: cluster, ha, aff, a800, shared, storage, data, management 
 summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接连接连接到新安装的AFF A90或AFF A70节点1 
 ---
-= 用于共享集群HA和存储的缆线节点1 (仅限AFF A800升级)
+= 为共享集群HA和存储连接node1
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,25 +14,41 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 
 
 [role="lead"]
-将先前连接到AFF A800节点1的集群、HA、存储、数据和管理连接连接连接连接到新安装的AFF A90或AFF A70节点1。
+如果要执行以下升级之一、则必须将先前连接到现有系统上的node1的集群、HA、存储、数据和管理连接连接连接连接到替代系统上新安装的node1。
 
+[cols="35,65"]
+|===
+| 现有系统 | 更换系统 
+
+
+| AFF A250 | AFF A30、AFF A50 
+
+
+| AFF C250 | AFF C30、AFF C60 
+
+
+| AFF A800 | AFF A70、AFF A90 
+
+
+| AFF C800 | C80 
+|===
 
 
 == 连接e0M和BMC端口
 
-AFF A800具有一个管理端口(e0M)和一个BMC端口。在AFF A90和AFF A70上、e0M和BMC端口组合在一起、并通过"扳手"端口进行访问。在连接到AFF A90或AFF A70之前、必须确保e0M和BMC端口连接到AFF A800上的同一交换机和子网。
+如果现有系统具有管理端口(e0M)和BMC端口。在更换系统上、e0M和BMC端口组合在一起、并通过"扳手"端口进行访问。在连接到替代系统之前、必须确保e0M和BMC端口已连接到现有系统上的同一交换机和子网。
 
 [cols="35,65"]
 |===
 | 如果... | 那么 ... 
 
 
-| e0M和BMC IP地址位于同一IP子网上 | 将AFF A800上的e0M或BMC端口连接到AFF A90或AFF A70上的"扳手"端口。 
+| e0M和BMC IP地址位于同一IP子网上 | 将现有系统上的e0M或BMC端口连接到更换系统上的"扳手"端口。 
 
 
 | e0M和BMC IP地址位于不同子网上  a| 
 . 将e0M和BMC IP地址合并到一个IP子网中。
-. 将AFF A800上的e0M或BMC端口连接到AFF A90或AFF A70上的"扳手"端口。
+. 将现有系统上的e0M或BMC端口连接到更换系统上的"扳手"端口。
 
 
 |===
@@ -43,7 +59,7 @@ AFF A800具有一个管理端口(e0M)和一个BMC端口。在AFF A90和AFF A70�
 下表显示了双节点无交换机集群配置中的交换机端口使用情况。
 
 |===
-| 端口 | AFF A800节点 | AFF A90节点 | AFF A70节点 
+| 端口 | AFF A800、AFF C800 | AFF A90 | AFF A70、AFF C80 
 
 
 | 集群 | e0a | e1a | e1a 
@@ -63,12 +79,27 @@ AFF A800具有一个管理端口(e0M)和一个BMC端口。在AFF A90和AFF A70�
 
 | NS224磁盘架的以太网存储端口 | 任何可用端口 | 请参见以太网存储连接映射 | 请参见以太网存储连接映射 
 |===
+|===
+| 端口 | AFF A250、AFF C250 | AFF A30、AFF C30、AFF C60 | AFF A50 
+
+
+| 集群和HA | e0c | e4a | e4a 
+
+
+| 集群和HA | e0d | e2a (如果没有e2a、请使用e4b) | e2a (如果没有e2a、请使用e4b) 
+
+
+| 以太网存储端口 | 任何可用端口 | e3a、e3b | e3a、e3b 
+
+
+| SAS存储端口 | 任何可用端口 | 3a、3b | 3a、3b 
+|===
 
 
 == 连接到交换机连接的集群
 
-对于交换机连接的集群、请检查是否满足以下要求：
+对于交换机连接的集群、请检查AFF A30、AFF A50、AFF A70、AFF A90、AFF C30、AFF C60或AFF C80 (替代)节点是否满足以下要求：
 
-* AFF A90或AFF A70节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。
-* AFF A90和AFF A70节点使用共享集群HA以太网端口。确保使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机。
+* 替代节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。
+* 替代节点使用共享的集群HA以太网端口。验证是否已使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机。
 
