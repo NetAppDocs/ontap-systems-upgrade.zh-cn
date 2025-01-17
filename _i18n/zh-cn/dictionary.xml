@@ -625,7 +625,6 @@
   <block id="f999b6b276f2c64e10bfb3630f92f94c" category="list-text">在 node2 上使用以下命令并检查其输出，以验证 node2 上的所有卷是否联机：</block>
   <block id="074f2db71729d7f84803e85e33520125" category="paragraph">如果 node2 上的任何卷脱机，请在 node2 上使用以下命令将其联机，每个卷一次：</block>
   <block id="fa39e98dea804607ace91ae82c9543d7" category="list-text">`步骤 5]] 如果任何 LIF 已关闭，请使用以下命令将 LIF 的管理状态设置为` up ，每个 LIF 一次：</block>
-  <block id="fdf5cd6af4cb356df1504c2897e0d9f2" category="list-text">您运行的是 ONTAP 9.8 或更高版本。</block>
   <block id="5d07aebfbe36ac522f2e416e3efcad81" category="list-text">您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。</block>
   <block id="0218d5b45eb7cfed65f2674d40f1e479" category="list-text">您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。</block>
   <block id="f37bbd4cc778d5861294352bef9c1c7f" category="cell">旧控制器</block>
@@ -2668,8 +2667,6 @@
   <block id="598121171fa3c84a4730985ce38a5809" category="list-text">如果要从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
   <block id="7502f8f780af629ea69a176b286f5472" category="doc">确定是否使用聚合重新定位内容</block>
   <block id="3f798c20b7ed33a5dda01b83754704c2" category="paragraph">此内容介绍如何使用新控制器升级 HA 对中的存储控制器，同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
-  <block id="6068cafb9274839f4dfb371ae190757e" category="list-text">如果要升级 MetroCluster 配置，则此配置为四节点或更高版本的 FC 配置，并且所有节点均运行 ONTAP 9.8 或更高版本。</block>
-  <block id="4c9c9eda5f5430e91b4aed6f35a5e99d" category="paragraph">有关升级 MetroCluster IP 配置的信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _RAID MetroCluster 升级和扩展 _ 内容。</block>
   <block id="10d20d0fff1a2bb0b064f8b1a068b234" category="paragraph">如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 通过移动卷或存储链接到 _Upgrade 。</block>
   <block id="5faf3e9d007712b89cd716c2cbabed9f" category="paragraph">在控制器升级期间，此控制器将被替换为另一个运行更新或功能更强大的平台的控制器。此内容的早期版本包含无中断控制器更新过程的说明，该过程由完全手动的步骤组成。此内容介绍了新的自动化操作步骤的步骤，该 利用自动网络端口可访问性检查进一步简化了控制器升级体验。</block>
   <block id="794c7b1870555759c37165eedd11e861" category="admonition">在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains_一 节已重命名为 _Restore node3_ 上的网络配置。</block>
@@ -2779,7 +2776,6 @@
   <block id="70bfac3efc816446939b969cb549c8b8" category="list-text">node2 是 node1 聚合的当前所有者</block>
   <block id="ec258c431af242bb93ebbf0d82a4afd2" category="list-text">node2 是 node2 聚合的主所有者和当前所有者</block>
   <block id="0ac66da022e888300d8ec43f47b716d6" category="list-text">在升级后的节点 1 上还原密钥管理器配置</block>
-  <block id="e1275af58e555e9cc3d59dc17d1d1ab1" category="list-text">将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1</block>
   <block id="487b7a723d50ceb8e8e166efb4cef927" category="list-text">将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node1</block>
   <block id="be74d1508b2732e00219890be181ffa6" category="list-text">升级后的 node1 是最初属于 node1 的聚合的主所有者和当前所有者</block>
   <block id="5e4cf46306e58ecb7565589182d4efcf" category="list-text">升级后的 node1 是 node2 聚合的当前所有者</block>
@@ -3221,8 +3217,6 @@
   <block id="c0ff48676f87627f73474db6b1018a88" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，准备通过网络启动 node3 和 node4 。</block>
   <block id="14173ffe47c7c7e4971c06932a3084e2" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，使用 KMIP 服务器管理身份验证密钥。</block>
   <block id="78bd6f667bd547c51374b0e978e9d001" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上支持手动 ARL 升级所需的参考内容和网站。</block>
-  <block id="eb51502469d00e14522e17bfff4124ad" category="list-text">您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。</block>
-  <block id="a3bad37bbfc8cbb39ebdfc42ccfa6bec" category="list-text">您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。</block>
   <block id="af18adb321560258c2b9a80d2757792a" category="paragraph">在升级的不同阶段，系统可能会崩溃—重新启动，崩溃或重新启动。</block>
   <block id="c7fc4caaca02af86d84b04f258dfd7e6" category="paragraph">Node2 不会接管，但它仍从所有非根聚合提供数据。</block>
   <block id="7e3345ca183a02251269d1034b280331" category="list-text">在 node1 上的 LOADER 提示符处，验证 node1 的 `partner-sysid` ：</block>
@@ -3231,7 +3225,6 @@
   <block id="f1e3d153ef84dd8b3cbde456e0a2bf74" category="cell">检查要更换的两个节点是否采用高可用性（ HA ）对配置。如果未为控制器启用存储故障转移，则任务将失败。</block>
   <block id="bb4d829c636efdbd9439e118a1e840cb" category="cell">如果未配置 AutoSupport 通知，则任务将失败。在开始更换控制器操作步骤 之前，必须启用 AutoSupport 。</block>
   <block id="48536e8deacb601a8be0bcd336b79e32" category="list-text">在启动控制器更换操作并完成预检后，此操作将暂停，以便收集稍后在控制器升级过程中可能需要的输出信息。</block>
-  <block id="1c962f08f92ca556b5f958f512421f7b" category="cell">AFF A700 到 AFF A900</block>
   <block id="addb9e70976c2f94b8ccfc3736a31888" category="list-title">重要信息</block>
   <block id="1ed68b1a1c4717bcf9913f481374e7de" category="admonition">在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node2_ 上的网络配置。</block>
   <block id="550d4b66b2a123c0592e264de6261a21" category="paragraph">在上述示例中， node2 已在更换控制器后启动并加入仲裁。它具有多个不可访问的端口，并且正在等待可访问性扫描。</block>
@@ -3442,7 +3435,6 @@
   <block id="e02a538b8ab4faf6c7d890fa1fcfa7a7" category="cell">AFF A320^4^</block>
   <block id="540dacfeb5577ce4282c41e9c7518680" category="cell">AFF A400</block>
   <block id="3987c2b3042faa1f0f41d1ec08f2ed7e" category="cell">AFF A400 ， AFF A700</block>
-  <block id="41c1636eb5024bf8b152d1ca09286521" category="paragraph">^2^如果要在双节点无交换机集群配置中从AFF A300升级到AFF A400或FAS8200到FAS8300系统、则必须选择临时集群端口进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。</block>
   <block id="e9dc6fafb0f1f8ce64537ec567468d16" category="paragraph">^3^对于FAS8020、FAS8040、AFF8020和AFF8040系统升级到上表中列出的目标替代控制器、更换控制器必须与旧控制器运行相同的ONTAP 版本。请注意、FAS8020、FAS8040、AFF8020和AFF8040系统不支持ONTAP 9.8之后的ONTAP 版本。</block>
   <block id="a45da96d0bf6575970f2d27af22be28a" category="cell">系统</block>
   <block id="d85bd4eac4ae2ba50be5c03b292af8f8" category="cell">9.9.1或更高版本</block>
@@ -3457,7 +3449,6 @@
   <block id="831816e1924f3edb2d170ec4c291d0f3" category="section-title">卸下AFF A700或FAS9000 NVRAM模块</block>
   <block id="3d748e41fa426d2025ff3eb80b369ede" category="admonition">AFF A700或FAS9000 NVRAM模块位于插槽6中、高度是系统中其他模块的两倍。</block>
   <block id="d0106eeb656b11c6a07a8e45dcf1b214" category="list-text">将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。</block>
-  <block id="3029eeb5ee6e861b02eb2a1ffd3d3b8e" category="cell">FAS9000到FAS9500</block>
   <block id="4ed758f1326f5379f7dc30fe674ce726" category="inline-link-macro">升级控制器的准则</block>
   <block id="61bb0e064fd915427168b2e72e080eff" category="list-text">此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应阅读并了解 <block ref="937d04c1dac5501bcacf105e8700fe45" category="inline-link-macro-rx"></block> 和 <block ref="57e14e08755134bb6fef9ad899bb58ee" category="inline-link-macro-rx"></block> 开始升级前的章节。</block>
   <block id="038bf310b30027962de2d4e7d3c544e6" category="paragraph">`ssystem node AutoSupport invoke -node _node_name_-type all -message "MAIN=2h upgrading _node_name_ from _platform_original_to _platform_new_"`</block>
@@ -3845,9 +3836,7 @@
   <block id="b8e707d2be1c734648eb91b029352369" category="cell">9.10.1到9.12.1.</block>
   <block id="4f0b48e1f65ca4ae15a6720f28d58824" category="cell">9.10.1P3到9.12.1</block>
   <block id="04d01679d16bbccad3f9da82789a187b" category="paragraph">对于上表所示的升级组合：</block>
-  <block id="1c328c36316a518e9532ed77177daa6c" category="list-text">在现有控制器和更换控制器上、不需要使用相同的ONTAP 版本。ONTAP 软件升级是通过控制器升级来执行的。</block>
   <block id="da74cb1ad73d862a786d9f20938d9c7a" category="list-text">升级时、您必须安装具有受支持的ONTAP 版本和修补程序级别的替代控制器。</block>
-  <block id="dee716592bbae6fdba2b32d2854360ba" category="list-text">启动操作步骤 并升级第一个节点后、无法取消或退出控制器升级。</block>
   <block id="d9e40d62315bfc8bad4f1329f7f9b867" category="paragraph">执行安装时、必须注意以下事项：</block>
   <block id="342f3ca2519e4e92f56675a89236fce6" category="list-text">将插槽6-1和6-2中的所有空白填充模块从旧NVRAM模块移至新的NVRAM模块。</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">关于此任务</block>
@@ -3992,7 +3981,6 @@
   <block id="fb13f8b167e25a81b898b43d42165d58" category="paragraph">在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。</block>
   <block id="35ab088951b060d49693e4d4c692e7a5" category="list-text"><block ref="35ab088951b060d49693e4d4c692e7a5" category="inline-link-macro-rx"></block></block>
   <block id="3fa5ba29343ba59361bba0ce2fdcdb9e" category="list-text"><block ref="3fa5ba29343ba59361bba0ce2fdcdb9e" category="inline-link-macro-rx"></block></block>
-  <block id="c9a4b38a782d53b773352b69a5dcb3f0" category="list-text"><block ref="c9a4b38a782d53b773352b69a5dcb3f0" category="inline-link-macro-rx"></block></block>
   <block id="7b26385705fc74d2f47a9aff876bdf41" category="list-text"><block ref="7b26385705fc74d2f47a9aff876bdf41" category="inline-link-macro-rx"></block></block>
   <block id="4716a557a98944472ebf4f49b8aadb3a" category="paragraph">在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。</block>
   <block id="9de185adfdd7642791839ee7a21f58be" category="list-text"><block ref="9de185adfdd7642791839ee7a21f58be" category="inline-link-macro-rx"></block></block>
@@ -4270,7 +4258,6 @@
   <block id="dac682111bd9fb848c7dd788758b33fc" category="paragraph">此内容介绍如何在保留所有现有数据和磁盘的同时升级HA对中的存储控制器。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
   <block id="8a1d06fd27bf0bfc6535b6a49185e591" category="cell">AFF A150</block>
   <block id="cac76ada4fbfca68ed190eb21810e1af" category="cell">FAS2820</block>
-  <block id="798f018ee352fb079a57a34119747a3b" category="list-text">您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 <block ref="8294b96e46ba28730c909aaac28da089" category="inline-link-macro-rx"></block>。</block>
   <block id="0ad9e0a8a319618923e172d4571038eb" category="summary">如果需要、在使用ARL升级同一机箱中的控制器型号时、还原升级后的节点1上的key-manager配置。</block>
   <block id="f41084761f1192d11c824e139538a13d" category="summary">如果需要、在使用ARL升级同一机箱中的控制器型号时、配置存储加密、安装SSL证书并设置密钥管理服务器。</block>
   <block id="9d5a4ff5c4d356c12c02e3a7f81a2ad1" category="summary">使用进行ARL升级的第2阶段流程<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 用于升级同一机箱中的控制器型号的命令。</block>
@@ -4809,7 +4796,6 @@
   <block id="43d7379ace473361bbbcf942aef43f03" category="paragraph">^2^ AFF A200和FAS2620系统不支持9.11.1之后的ONTAP版本。</block>
   <block id="1445b140af84df0e7f83e7c1a538e1ae" category="cell">AFF A220、AFF A200、AFF C190、FAS2620或FAS2720</block>
   <block id="86c15a425269c6a2503b9871021e6df8" category="cell">AFF A700或FAS9000</block>
-  <block id="ffb5803a40f7451a65b383c9c399ec42" category="cell">将旧控制器上每个节点上的控制器和NVRAM模块交换为新模块。^1^</block>
   <block id="7f42c48311ba942f81d7a07c44c47d3b" category="admonition">术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。按照此过程进行操作时、您必须替换节点的实际名称。</block>
   <block id="a06d68e350c79a17b1b36fae9ee9106c" category="doc">在node2上安装AFF A90或AFF A70模块</block>
   <block id="be3affc900cfc23554c8c8d7e7fb9b42" category="paragraph">在node2上安装您收到的用于升级的AFF A90或AFF A70控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
@@ -4883,10 +4869,6 @@
   <block id="03b84140205de4279d7e7c6144f8a93a" category="paragraph">在控制器升级期间，此控制器将被替换为另一个运行更新或功能更强大的平台的控制器。本内容介绍了部分自动化过程的步骤、该过程利用自动网络端口可访问性检查进一步简化了控制器升级体验。</block>
   <block id="274d42025e97a78743f8d189528d662b" category="summary">使用命令确定是否使用ARL升级运行ONTAP 9.151或更高版本的控制器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="e0fe0bc347130dcd6241f7ed20bdb4c9" category="paragraph">此过程介绍如何在保留现有数据和磁盘的同时、使用新控制器升级HA对中的存储控制器。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。</block>
-  <block id="6e1baa539c3af150885ac684b194ac4f" category="list-text">您正在运行 ONTAP 9.15.1 或更高版本。</block>
-  <block id="130b17a7d9d6b885bc86ff009f4db80c" category="list-text">您不希望将新控制器作为新HA对添加到集群中、也不希望使用卷移动过程迁移数据。</block>
-  <block id="acad6a5698df017a2cf573c822c7f7a8" category="list-text">您要升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。</block>
-  <block id="d4b6fe12abba1b6202f6eaf9239109fe" category="list-text">您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到_ MetroCluster升级和扩展文档_。</block>
   <block id="11e69ee085d842ce1112f661ea99ca78" category="paragraph">[[sys_commands_9151_supported_systems]]下表显示了控制器升级支持的型号表。</block>
   <block id="82a01e528bf5bf2b1b7172eddc250977" category="cell">现有控制器</block>
   <block id="4de11ced25f5990c0cc8fa95f739e66c" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器后、告知NetApp旧系统不再运行<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
@@ -5052,7 +5034,6 @@
   <block id="d652f04b0c47ec3200904bc82c8d5ff7" category="paragraph"><block ref="0f64f457d55e8e27ee821e9df0561d32" prefix="" category="inline-code"></block></block>
   <block id="b0d52e5491c54658a39bbef8e5dd30a6" category="sidebar">通过重新定位聚合、移动卷或移动存储来升级控制器硬件。</block>
   <block id="0aa489897873ed4f6cacbbccf44589ea" category="sidebar">使用ARL升级</block>
-  <block id="37c71c6814f6c6da3ee8d0b203924be7" category="sidebar">更换AFF A800</block>
   <block id="ef62a5865ef10a9f98eab6ed7130657e" category="sidebar">更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720</block>
   <block id="e7a797d163f1786c84029862d653fdb1" category="sidebar">更换AFF A700或FAS9000</block>
   <block id="fe6c048ac188825e939c35497493825e" category="sidebar">安装AFF A90或AFF A70</block>
@@ -5077,10 +5058,6 @@
   <block id="f24d3bbf01666420670f76d88d0728aa" category="paragraph">如果无法将现有节点上的e0a或e0b集群端口链接到新节点上的集群端口，请参见 <block ref="7be812dd65bbd3f39bbb06fd50caac76" category="inline-link-macro-rx"></block>。</block>
   <block id="33bb7bcaf48f0fdda36a26455a40a230" category="inline-link-macro">详细了解存储效率</block>
   <block id="6d6b534c9b53f9b5663ea4448a9c5c5a" category="paragraph"><block ref="7e7ac2ea54718abbfde88230c884c797" category="inline-link-macro-rx"></block>(英文)</block>
-  <block id="0db06a4e73b14fd8cb249dd2487fa5a3" category="inline-link-macro">如何在FAS/FASA1K、A90、A70、AFF 90、ASA上的新集群设置中配置10G或25G集群端口</block>
-  <block id="4ffac300dc153b14bfe521f43fc61b31" category="list-text"><block ref="4ffac300dc153b14bfe521f43fc61b31" category="inline-link-macro-rx"></block></block>
-  <block id="aceb7b5bd7d7f40aa548f5d1aac76fd5" category="inline-link-macro">如何将FAS/FASA1K、A90、A70、AFF 90、ASA上的现有集群端口从10G或25G转换为40G或100G集群端口</block>
-  <block id="047ca982afd7eda65d342c9845174216" category="list-text"><block ref="047ca982afd7eda65d342c9845174216" category="inline-link-macro-rx"></block></block>
   <block id="2b05a3de35946226b44f265788b807c9" category="cell">从ONTAP开始支持...</block>
   <block id="8643f1ec20c68bd9122a5e9c431fe6fe" category="cell">FAS70、FAS90</block>
   <block id="1a6c927dff2b4164c21b2d570f87ed5c" category="cell">9.15.1P3</block>
@@ -5191,7 +5168,6 @@
   <block id="ece7ccdab4b9cd808ab8bec964f41023" category="admonition">只有在通过交换系统模块进行升级时、才能移动控制台和管理连接。</block>
   <block id="0f4936acdcce8b5de52c6526de01d25c" category="doc">为共享集群HA和存储连接node1</block>
   <block id="8bb57e3374049ebdebba3212782683e5" category="paragraph">如果要执行以下升级之一、则必须将先前连接到现有系统上的node1的集群、HA、存储、数据和管理连接连接连接连接到替代系统上新安装的node1。</block>
-  <block id="024da3626da12fa995f8d1a3fb07ce08" category="paragraph">如果现有系统具有管理端口(e0M)和BMC端口。在更换系统上、e0M和BMC端口组合在一起、并通过"扳手"端口进行访问。在连接到替代系统之前、必须确保e0M和BMC端口已连接到现有系统上的同一交换机和子网。</block>
   <block id="e7ce52a30e7433f39e30c116e52301e0" category="cell">将现有系统上的e0M或BMC端口连接到更换系统上的"扳手"端口。</block>
   <block id="6969dcd136606aa6e90d53d2c4679e06" category="paragraph">下表显示了双节点无交换机集群配置中的交换机端口使用情况。</block>
   <block id="4aa636d0c8e798111a1395c5cf44abef" category="cell">AFF A800、AFF C800</block>
@@ -5214,17 +5190,10 @@
   <block id="1cc3f304d5e589c069f5fc5ecdc865d1" category="section-title">支持ARL升级</block>
   <block id="26c0488d57efd7721cdf50179d2776e0" category="list-text">中列出了控制器升级<block ref="8badcb7c18eeb5ec98f79dc01581f13d" category="inline-link-macro-rx"></block>。</block>
   <block id="4e793111a4193c7c02d75b240754c4f7" category="list-text">您已向NetApp销售代表确认收到升级控制器所需的硬件：</block>
-  <block id="ecc4562d26dfb82931daa969dc923569" category="list-text">两个AFF A90、AFF A70或AFF C80控制器以及所有I/O模块。所需的100GbE缆线长度。</block>
-  <block id="38310793ef0f75102433fd7dbf9c6ec8" category="list-text">两个AFF A50、AFF A30、AFF C30或AFF C60控制器和I/O模块。所需的缆线。</block>
-  <block id="ea48cdfe157266c76e965b8ff62da5dc" category="list-text">ASA A900、AFF A900或FAS9500控制器和NVRAM模块及部件</block>
   <block id="9b8b036242c93dafa68b08b4105159fb" category="section-title">ARL升级不支持</block>
-  <block id="41e08886386b21a1694179f773ca292b" category="list-text">您正在升级的现有系统上使用FlexArray虚拟化软件。</block>
-  <block id="aa8965ccc6abd19c8d18d676ece688ec" category="list-text">您正在升级MetroCluster IP配置。</block>
   <block id="7207607ea77567d4712946c334eafd47" category="paragraph">要升级MetroCluster IP配置、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>以链接到_Upgrade MetroCluster and Expanation_内容。</block>
-  <block id="3e0cce8ef62a8f5269e20e66d34061a8" category="paragraph">如果您已收到完整的全新AFF A30、AFF A150 A50、AFF A900、AFF A90、AFF、AFF A70、AFF C30、AFF C60、AFF C80、FAS2820或FAS9500系统(包括新机箱)、请参阅<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_use "system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_内容。</block>
   <block id="4bad7c056d5c6e34cee7056db82cb367" category="paragraph">ARL可利用HA配置和集群互连通信。这样、如果非根聚合在同一集群中共享存储、您可以将它们的所有权从一个节点移动到另一个节点。</block>
   <block id="5793b4c06950953efd1e5f1aa3d75745" category="paragraph">下表显示了控制器升级支持的系统列表。</block>
-  <block id="4fb022221f1d6d6d14d2479c2e6d605a" category="admonition">此操作步骤严格适用场景以下升级配置。请勿使用此过程在任何其他系统组合之间执行升级。对于所有其他控制器型号、请参阅<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_use "system controller replace"命令以升级运行ONTAP 9.8或更高版本的控制器硬件、以及_using聚合重新定位以手动升级运行ONTAP 9.8或更高版本的控制器硬件。</block>
   <block id="272a450c6ea3defcd086653ca258b1fa" category="cell">AFF C250 ^1^</block>
   <block id="97e088aeca6a3e2a2bc17350f34b7218" category="cell">AFF A250 ^1^</block>
   <block id="b2814657dfac1dabde77f882a020a961" category="cell">AFF C800 ^1^</block>
@@ -5236,7 +5205,6 @@
   <block id="e66f12f06949cd192730b8331efe6ab3" category="cell">将两个AFF A250或AFF C250控制器交换为新控制器和I/O模块。</block>
   <block id="82b13c0e71f107eb6397178e54be355d" category="cell">将两个AFF A800或AFF C800控制器交换为新控制器和I/O模块。</block>
   <block id="28b77473f12e589523a161e5e0f003ec" category="cell">将旧控制器上每个节点上的控制器模块交换为新模块。</block>
-  <block id="140b18a16cc26655ccc617a3436498fc" category="paragraph">^1^您无需移动、断开或重新连接I/O卡、数据线、磁盘架和磁盘。</block>
   <block id="bbfb6f23ad67b8404ce492f83073f098" category="list-text">AFF A30、AFF A50、AFF A70、AFF A90、AFF A1K、AFF C30、AFF C60、AFF C80、FAS70和FAS90系统会为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
   <block id="819e946ca0f77ece0fff2d25778c1dc0" category="paragraph">如果无法将现有节点上的e0a或e0b集群端口链接到新节点上的集群端口、请参见以下内容以了解详细信息：</block>
   <block id="7be812dd65bbd3f39bbb06fd50caac76" category="list-text"><block ref="7be812dd65bbd3f39bbb06fd50caac76" category="inline-link-macro-rx"></block></block>
@@ -5251,11 +5219,8 @@
   <block id="e25849e5932768f4a8b1b0c21f2be1d8" category="admonition">请勿将控制器模块完全插入机箱中、直到此过程稍后指示您这样做。</block>
   <block id="c56412eac7d334669336f82f2c84ca6d" category="list-text">对于以下升级、您必须重新分配FCP SAN SIFs。</block>
   <block id="4956a46ef6d1b165fac88b0d154c16ed" category="paragraph">对于所有其他系统升级，请继续执行<block ref="e18730a2be2b2c535fc1747e24865aa5" category="inline-xref-macro-rx"></block>。</block>
-  <block id="891b36f6a8139875b415965afe748740" category="list-text">(仅限AFF A250和AFF C250升级)在替代控制器模块的node1启动时、将显示以下警告：</block>
   <block id="3899ab552d14e256c9ae8bd440cc25b5" category="paragraph">回答<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>。</block>
-  <block id="d5a2fcfa584204acc1ab428345100446" category="paragraph">之所以显示此警告、是因为此配置包括现有控制器的node2。在升级node2之前、它会在每次系统启动时显示。这是预期行为。</block>
   <block id="6d25c71e79b9f8280c5a17b473c08b82" category="paragraph">在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下 node1 控制器模块和 node1 NVRAM 模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。</block>
-  <block id="58dc683661359f4c90a5eed5b71479ae" category="admonition">请勿关闭机箱电源、因为node1和node2位于同一机箱中、并由相同的电源供电。</block>
   <block id="accf85406d8f852aec80eff93db683c2" category="paragraph">在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下node1控制器模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。</block>
   <block id="1519b2b4ff3e01880d93809dab9f313f" category="summary">使用ARL升级同一机箱中的控制器型号时、请更换AFF A250或AFF C250 node1系统模块。</block>
   <block id="eab9dfa8a69e88f238fb25a87fa387df" category="doc">更换AFF A250或AFF C250控制器模块</block>
@@ -5275,21 +5240,16 @@
   <block id="9e602ed6376aabcfeb78f35f1ed4b314" category="paragraph">在node1中安装替代模块并进行布线和连接。</block>
   <block id="5577eee5ab487d69261df7fcdd77d00e" category="summary">使用ARL升级同一机箱中的控制器型号时、请更换AFF A800或AFF C800 node1系统模块。</block>
   <block id="e0646aaa208b06f2b9c991f8d1d06277" category="doc">更换AFF A800或AFF C800控制器模块</block>
-  <block id="992f4af947f0d32d70cb8a1e30650913" category="section-title">准备卸下AFF A800或AFF C800控制器模块</block>
   <block id="b9f8db0a3b83103e79c00296ab293002" category="section-title">卸下AFF A800或AFF C800控制器模块</block>
   <block id="84a1bd056cdf96c5313ffeb160884063" category="paragraph">从现有模块中卸下缆线管理设备、然后将控制器稍微移出机箱。</block>
   <block id="9377ce9760d2e42c9e31f172d37994a5" category="section-title">安装AFF A90、AFF A70或AFF C80控制器模块</block>
   <block id="1c11a10891fa20f98660572f553b2716" category="paragraph">在node1中安装AFF A90、AFF A70或AFF C80控制器模块、并为其布线和连接。</block>
   <block id="926ad995a4473bdc3af6ace9d9cbf459" category="list-text"><block ref="926ad995a4473bdc3af6ace9d9cbf459" category="inline-link-macro-rx"></block></block>
   <block id="64bbe6275df69dab7d699c435b8f639d" category="list-text"><block ref="64bbe6275df69dab7d699c435b8f639d" category="inline-link-macro-rx"></block></block>
-  <block id="5be1ed9a23f3f3194bb0f4fca8c6d150" category="paragraph">仅对于AFF A250、AFF C250、AFF A800或AFF C800升级、您可以将物理端口从现有节点1映射到替代节点1、因为物理端口在现有控制器和替代控制器之间发生变化。</block>
-  <block id="7ca3b096a6742fe3032309437338bd49" category="paragraph">对于所有其他升级、您无需将物理端口从现有节点1映射到替代节点1。</block>
   <block id="95699993f4e4282e1516a59b8f8b3a24" category="paragraph">开始升级之前、请确认您的更换系统具有正确的模块。如果缺少部件、请联系技术支持或NetApp销售代表以获得帮助。</block>
-  <block id="42ea76e013b46d58fcaa649767ebd60d" category="cell">升级自...</block>
   <block id="fbe8d8aaa2d545f1170258a5901312fe" category="cell">两个控制器模块和新的IO模块</block>
   <block id="ce648a37807e4da2fbd09030fea537d2" category="list-text">AFF A220、AFF A200、AFF C190</block>
   <block id="d1f22cb8be0e35eaa5bd981b3ed3aff1" category="list-text">FAS2620、FAS2720</block>
-  <block id="d50e0568237bb58766953ee05d6a90f5" category="paragraph">如果要将现有系统转换为存储架、以便将其连接到另一个系统、则替代系统还必须具有两个IO模块。</block>
   <block id="6a0a4cd1600d3367bd718fb6c8be3695" category="paragraph">在以下情况下、您可以升级一对节点：</block>
   <block id="07b9e93852420845af85b9ed0748ad7d" category="cell">AFF A50 ^2^</block>
   <block id="346f76cc112ce09c4367b3884ceb7400" category="cell">AFF 2020 ^2^</block>
@@ -5298,8 +5258,6 @@
   <block id="d095e2073d2e2c221b7b6c3f39407169" category="cell">AFF A90 ^2^、AFF A1K</block>
   <block id="2102d82fe428d3bed4a9ceb68e9e0f82" category="paragraph">^1^要升级到AFF A20、必须先将AFF A150或AFF A220转换为DS224C磁盘架、方法是将控制器模块更换为IOM12模块。请参阅。 <block ref="171f0c02e855777efc31bfbf778d3eb2" category="inline-link-macro-rx"></block></block>
   <block id="db5b0d637083aecc613ebcf8c6de30c8" category="paragraph">^2^ AFF A20、AFF A50、AFF A70和AFF A90是集成系统、在HA配置中具有两个控制器、在一个机箱中具有板载磁盘：</block>
-  <block id="7b447d3c16c08c1b732aadd3713fcc97" category="list-text">如果要升级到具有内部驱动器的AFF 2020、AFF A70或AFF A90、则必须在升级之前删除这些内部驱动器的所有权。完成升级后、您可以将内部驱动器分配给AFF A20、AFF A70或AFF A90节点、并使用它们创建数据聚合。不必将根聚合或数据聚合迁移到内部驱动器。</block>
-  <block id="452c72b0dfe1a06365c19c938224d325" category="list-text">如果要升级到不带内部驱动器的AFF A20、AFF A70或AFF A90、则在完成升级后无需分配内部驱动器。</block>
   <block id="ad98b7b574e0827581ad838156fb45ac" category="paragraph">在以下情况下、您不能使用ARL执行升级：</block>
   <block id="378260d1609d9b96d53d9fcd976221f0" category="list-text">您正在执行以下升级之一：</block>
   <block id="73d4d3fa3405d52da3ec862673be2659" category="paragraph">要执行上表中列出的升级、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>以链接到_use "system controller Replace "命令升级同一机箱中的控制器型号_。</block>
@@ -5309,4 +5267,47 @@
   <block id="1e08e52a85eb1ffb2284468e3498db1d" category="sidebar">更换AFF A250或AFF C250</block>
   <block id="5b69734effb16f16b86998a01f8978c5" category="sidebar">为共享集群HA存储连接node1</block>
   <block id="a6b8e7f67087d00695547f0599a662d0" category="sidebar">安装AFF A30、AFF A50、AFF C30或AFF C60</block>
+  <block id="ec31fc0bcc9399c68ce1eaa960489026" category="cell"><block ref="ec31fc0bcc9399c68ce1eaa960489026" category="inline-link-macro-rx"></block></block>
+  <block id="b107ac189af2e98fbe02dd9c5a1028e3" category="cell">介绍使用system controller Replace命令在9.15.1 9.15.1及更高版本中推出的无中断升级控制器所需的聚合重新定位过程。</block>
+  <block id="f95e2ee7384d545a3847f594109d4a3a" category="paragraph">如果现有系统具有管理端口(e0M)和BMC端口、则e0M和BMC端口会组合在一起、并通过替代系统上的"扳手"端口进行访问。在连接到替代系统之前、必须确保e0M和BMC端口已连接到现有系统上的同一交换机和子网。</block>
+  <block id="dcf5631a58d49795e852d9f64f9e3b18" category="list-text">两个AFF A90、AFF A70或AFF C80控制器以及所有I/O模块。所需的100GbE缆线长度。</block>
+  <block id="cf0d162b5d3ef31459631a2f0f0e0c2b" category="list-text">两个AFF A50、AFF A30、AFF C30或AFF C60控制器和I/O模块以及所需缆线</block>
+  <block id="f14c29a2d4657e0d20bb6c436555ab0a" category="list-text">ASA A900、AFF A900或FAS9500控制器和NVRAM模块及部件</block>
+  <block id="d2b8d7f7268d1f7664d6ffa10314e202" category="list-text">您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 <block ref="8294b96e46ba28730c909aaac28da089" category="inline-link-macro-rx"></block>。</block>
+  <block id="7f3a77f47a750d11ea0b8dcef1b075f0" category="list-text">您在管理ONTAP方面经验丰富、并且可以承受在诊断权限模式下工作的风险。</block>
+  <block id="edc69b05de587e21933630d809693320" category="list-text">您希望将新控制器作为新的HA对添加到集群中、并通过卷移动来迁移数据。</block>
+  <block id="6538e30381f93431fff8cf0335edca69" category="list-text">您正在升级的现有系统上使用FlexArray虚拟化软件。</block>
+  <block id="448247c62e342441af5c3c7e3b49c977" category="list-text">您正在升级MetroCluster IP配置。</block>
+  <block id="8884732b6a8d41b619d86cb386681073" category="paragraph">如果您已收到完整的全新AFF A30、AFF A150 A50、AFF A900、AFF A90、AFF、AFF A70、AFF C30、AFF C60、AFF C80、FAS2820或FAS9500系统(包括新机箱)、请参阅<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接以使用"system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_。</block>
+  <block id="9d6b5ac201fed9ad7c34e292b0ad5101" category="admonition">此操作步骤严格适用场景以下升级配置。请勿使用此过程在任何其他系统组合之间执行升级。对于所有其他控制器型号、请参阅<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接以访问_use "system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_以及使用聚合重新定位手动升级运行ONTAP 9.8或更高版本的控制器硬件_。</block>
+  <block id="36017c45cd868cfcb521c14c63e32456" category="cell">将旧控制器上每个节点上的控制器和NVRAM模块交换为新模块。*注意*：您无需移动、断开或重新连接I/O卡、数据线、磁盘架和磁盘。</block>
+  <block id="2cb43a11f690e5acbdeaa147eab95913" category="inline-link-macro">如何在新的集群设置中配置10G或25G集群端口</block>
+  <block id="49e716d1b1ba5e51779e50fa0e3e3b0d" category="list-text"><block ref="49e716d1b1ba5e51779e50fa0e3e3b0d" category="inline-link-macro-rx"></block></block>
+  <block id="dcf16a92ec6e20773f185de9fcb7077b" category="inline-link-macro">如何将现有10 G或25 G集群端口转换为40 G或100 G集群端口</block>
+  <block id="f85d56c0a23e4e6d4e8044a5a359c05e" category="list-text"><block ref="f85d56c0a23e4e6d4e8044a5a359c05e" category="inline-link-macro-rx"></block></block>
+  <block id="0658e6d0ad9373aea2588eb13988105e" category="doc">将node1非根聚合和NAS数据LUN从node2移动到升级后的node1</block>
+  <block id="692e04ae1166a86924090f14f4f93566" category="list-text">(仅限AFF A250和AFF C250升级)在替代控制器模块的node1启动时、由于此配置包括现有控制器的node2、因此会显示以下警告：</block>
+  <block id="152549dbd6808b54153763cfb3171438" category="paragraph">在升级node2之前、每次启动系统时都会显示此警告。这是预期行为。</block>
+  <block id="a7ab3451afab886103e41daa71b744af" category="admonition">请勿关闭机箱电源、因为node1和node2位于同一机箱中并连接到相同的电源。</block>
+  <block id="4d4099b1bdb89d3aa1931527e516237a" category="list-text">准备卸下控制器模块：</block>
+  <block id="299723a6ef3c5d3a7c311e175240d16e" category="list-text"><block ref="299723a6ef3c5d3a7c311e175240d16e" category="inline-link-macro-rx"></block></block>
+  <block id="2c0bd9fe8fca68ffe959dec538d18418" category="paragraph">仅对于AFF A250、AFF C250、AFF A800或AFF C800升级、您可以将物理端口从现有节点1映射到替代节点1、因为物理端口在现有控制器和替代控制器之间发生变化。此升级过程支持的其他系统的物理端口不会发生更改。</block>
+  <block id="d0c49c66359eda6530916c4391cb9ccc" category="cell">如果您要从...升级</block>
+  <block id="cba6e2dc3c149c3c6f2e38d8209942ad" category="paragraph">如果要将现有系统转换为存储架、以便将其连接到另一个系统、则替代系统还必须具有两个IO模块。</block>
+  <block id="285d50b51b9979a21c3f8ad931e7d4e7" category="list-text">您运行的是ONTAP 9.8或更高版本。</block>
+  <block id="183b0d119d3900a12aa43813123f6c77" category="list-text">您不希望将新控制器作为新的HA对添加到集群中、也不希望通过卷移动来迁移数据。</block>
+  <block id="787ceb738298fbf0c0d9177615135a74" category="list-text">您在管理ONTAP方面经验丰富、并且可以承受在诊断权限模式下工作的风险。</block>
+  <block id="95957bddc80fdaf9d354b8fa848e4541" category="list-text">如果要升级MetroCluster配置、则该配置为四节点或更高FC配置、并且所有节点都运行ONTAP 9.8或更高版本。</block>
+  <block id="335f21471f36b48762884d7fd0ca198d" category="paragraph">有关升级MetroCluster IP配置的信息、请参阅<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接至_ MetroCluster升级和扩展_。</block>
+  <block id="5f108ece5c84070567bbccd585dc8760" category="admonition">如果您的控制器升级型号组合不在上表中、请联系技术支持。</block>
+  <block id="d8c654ee0e2ed22491ccbbe62125fe3b" category="paragraph">^2^如果要在双节点无交换机集群配置中从AFF A300升级到AFF A400或从FAS8200升级到FAS8300系统、则必须选择临时集群端口来进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。</block>
+  <block id="b7ad07bde4916842d48a351371021c38" category="list-text">不要求在现有控制器和替代控制器上使用相同的ONTAP版本。ONTAP 软件升级是通过控制器升级来执行的。</block>
+  <block id="3ce524daf7c7a462720f07ffe80b1e82" category="list-text">在您启动控制器升级过程并升级第一个节点后、无法取消或退出此过程。</block>
+  <block id="ce8932055faee80499a682eed0006014" category="list-text">您运行的是9.15.1 9.151或更高版本。</block>
+  <block id="6c95aebccb5899bde2beeb8d5d4de872" category="list-text">您不希望将新控制器作为新HA对添加到集群中、也不希望使用卷移动过程迁移数据。</block>
+  <block id="7f05849af35fe562fdc67050fdcd14e0" category="list-text">如果您要升级到具有内部驱动器的AFF A20、AFF A70或AFF A90、则必须在升级之前删除这些内部驱动器的所有权。完成升级后、您可以将内部驱动器分配给AFF A20、AFF A70或AFF A90节点、并使用它们创建数据聚合。您不必将根聚合或数据聚合迁移到内部驱动器。</block>
+  <block id="2ee4c5e5378d113fa5c2a1b5e73082ed" category="list-text">如果要升级到不带内部驱动器的AFF A20、AFF A70或AFF A90、则在完成升级后无需分配内部驱动器。</block>
+  <block id="ea168cafe9d6c1f639359b30e7152b3d" category="list-text">您正在升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。</block>
+  <block id="3f0336dfa0e5a25ff8e8c549a2b18cef" category="list-text">您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到_ MetroCluster升级和扩展文档_。</block>
+  <block id="ebf1d57729bed03eb5fd256caca2fe3f" category="sidebar">更换AFF A800或AFF C800</block>
 </blocks>

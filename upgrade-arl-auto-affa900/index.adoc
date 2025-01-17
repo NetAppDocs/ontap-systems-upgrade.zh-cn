@@ -21,7 +21,7 @@ ARL可利用HA配置和集群互连通信。这样、如果非根聚合在同一
 下表显示了控制器升级支持的系统列表。
 
 
-CAUTION: 此操作步骤严格适用场景以下升级配置。请勿使用此过程在任何其他系统组合之间执行升级。对于所有其他控制器型号、请参阅link:other_references.html["参考资料"]链接到_use "system controller replace"命令以升级运行ONTAP 9.8或更高版本的控制器硬件、以及_using聚合重新定位以手动升级运行ONTAP 9.8或更高版本的控制器硬件。
+CAUTION: 此操作步骤严格适用场景以下升级配置。请勿使用此过程在任何其他系统组合之间执行升级。对于所有其他控制器型号、请参阅link:other_references.html["参考资料"]链接以访问_use "system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_以及使用聚合重新定位手动升级运行ONTAP 9.8或更高版本的控制器硬件_。
 
 [cols="20,20,40"]
 |===
@@ -37,7 +37,7 @@ CAUTION: 此操作步骤严格适用场景以下升级配置。请勿使用此�
 | AFF C800 ^1^ | AFF C80 | 9.16.1 
 
 
-| AFF A800 ^1^ | AFF A90或AFF A70 | 9.15.1 
+| AFF A800 ^1^ | AFF A90或AFF A70 | 9.15.1及更高版本 
 
 
 | 配置为全SAN阵列(ASA)的AFF A220 | ASA A150 | 9.13.1P1及更高版本 
@@ -101,10 +101,8 @@ CAUTION: 此操作步骤严格适用场景以下升级配置。请勿使用此�
 | AFF A220、AFF A200、AFF C190、FAS2620或FAS2720 | 将旧控制器上每个节点上的控制器模块交换为新模块。 
 
 
-| AFF A700或FAS9000 | 将旧控制器上每个节点上的控制器和NVRAM模块交换为新模块。^1^ 
+| AFF A700或FAS9000 | 将旧控制器上每个节点上的控制器和NVRAM模块交换为新模块。*注意*：您无需移动、断开或重新连接I/O卡、数据线、磁盘架和磁盘。 
 |===
-^1^您无需移动、断开或重新连接I/O卡、数据线、磁盘架和磁盘。
-
 
 NOTE: 术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。按照此过程进行操作时、您必须替换节点的实际名称。
 
@@ -116,8 +114,8 @@ NOTE: 术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的�
 * AFF A30、AFF A50、AFF A70、AFF A90、AFF A1K、AFF C30、AFF C60、AFF C80、FAS70和FAS90系统会为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：
 +
 --
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup_on_AFF_ASA_A1K_A90_A70_FAS90_FAS70["如何在FAS/FASA1K、A90、A70、AFF 90、ASA上的新集群设置中配置10G或25G集群端口"^]
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_an_existing_cluster_from_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports_on_an_AFF_ASA_A1K_A90_A70_FAS90_FAS70["如何将FAS/FASA1K、A90、A70、AFF 90、ASA上的现有集群端口从10G或25G转换为40G或100G集群端口"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup["如何在新的集群设置中配置10G或25G集群端口"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_existing_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports["如何将现有10 G或25 G集群端口转换为40 G或100 G集群端口"^]
 
 
 --

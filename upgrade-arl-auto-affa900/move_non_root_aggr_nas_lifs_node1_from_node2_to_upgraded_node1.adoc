@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2
 keywords: moving, non-root, aggregates, nas, lif, node1, node2 
 summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上的node1 NAS数据LIFs是否已从node2重新定位到node1。 
 ---
-= 将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1
+= 将node1非根聚合和NAS数据LUN从node2移动到升级后的node1
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

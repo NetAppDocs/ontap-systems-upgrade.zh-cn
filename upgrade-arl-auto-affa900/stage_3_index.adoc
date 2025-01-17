@@ -21,5 +21,5 @@ summary: '使用进行ARL升级的第3阶段流程 `system controller replace` �
 . link:boot_node1_with_a900_controller_and_nvs.html["使用替代系统模块启动node1"]
 . link:verify_node1_installation.html["验证 node1 安装"]
 . link:restore_key_manager_config_upgraded_node1.html["在升级后的节点 1 上还原密钥管理器配置"]
-. link:move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html["将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1"]
+. link:move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html["将node1非根聚合和NAS数据LUN从node2移动到升级后的node1"]
 

@@ -37,7 +37,7 @@ entries:
     entries:
     - title: 更换AFF A250或AFF C250
       url: "/upgrade-arl-auto-affa900/replace-node1-affa250-affc250.html"
-    - title: 更换AFF A800
+    - title: 更换AFF A800或AFF C800
       url: "/upgrade-arl-auto-affa900/replace-node1-affa800.html"
     - title: 更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720
       url: "/upgrade-arl-auto-affa900/replace-node1-affa220-affa200-affc190-fas2620-fas2720.html"
@@ -57,7 +57,7 @@ entries:
     url: "/upgrade-arl-auto-affa900/verify_node1_installation.html"
   - title: 在升级后的节点 1 上还原密钥管理器配置
     url: "/upgrade-arl-auto-affa900/restore_key_manager_config_upgraded_node1.html"
-  - title: 将节点 1 拥有的非根聚合和 NAS 数据 LIF 从节点 2 移动到升级后的节点 1
+  - title: 将node1非根聚合和NAS数据LUN从node2移动到升级后的node1
     url: "/upgrade-arl-auto-affa900/move_non_root_aggr_nas_lifs_node1_from_node2_to_upgraded_node1.html"
 - title: 第4阶段。重新定位资源并停用node2
   entries:

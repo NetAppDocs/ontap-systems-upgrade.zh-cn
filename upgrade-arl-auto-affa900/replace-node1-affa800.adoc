@@ -17,22 +17,10 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A800
 在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下node1控制器模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。
 
 
-CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中、并由相同的电源供电。
+CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并连接到相同的电源。
 
 .开始之前
 如果您尚未接地，请正确接地。
-
-
-
-== 准备卸下AFF A800或AFF C800控制器模块
-
-.步骤
-. 在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这样可确保驱动器牢固地固定在机箱中板上。
-+
-image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在机箱中间板上"]
-
-. 转至机箱背面。
-
 
 
 
@@ -41,6 +29,15 @@ image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在�
 从现有模块中卸下缆线管理设备、然后将控制器稍微移出机箱。
 
 .步骤
+. 准备卸下控制器模块：
++
+.. 在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这样可确保驱动器牢固地固定在机箱中板上。
++
+image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在机箱中间板上"]
+
+.. 转至机箱背面。
+
+
 . 从电源拔下node1控制器模块的电源。
 . Release the power cable retainers, and then unplug the cables from the power supplies.
 . Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFP and QSFP modules (if needed) from the controller module, keeping track of where the cables were connected.
