@@ -5310,4 +5310,8 @@
   <block id="ea168cafe9d6c1f639359b30e7152b3d" category="list-text">您正在升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。</block>
   <block id="3f0336dfa0e5a25ff8e8c549a2b18cef" category="list-text">您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到_ MetroCluster升级和扩展文档_。</block>
   <block id="ebf1d57729bed03eb5fd256caca2fe3f" category="sidebar">更换AFF A800或AFF C800</block>
+  <block id="761e2863e356e8bb23f79549fde56e25" category="cell">FAS8200、FAS8300、FAS9000</block>
+  <block id="5631dfc64a5dfd9535518e48f79b6c93" category="cell">FAS70、FAS90、FAS50</block>
+  <block id="179f979e0b97fa0abce7d9de4a3dcf35" category="cell">9.15.1P3用于FAS70、9.16.1P2用于FAS50</block>
+  <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="cell">FAS8700</block>
 </blocks>
