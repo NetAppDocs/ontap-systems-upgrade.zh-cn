@@ -89,7 +89,7 @@ NOTE: 请参见 link:prepare_for_netboot.html["准备网络启动"]。
 . 【第 6 步】选择以下操作之一，配置网络启动连接。
 +
 
-NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
+NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据LIF IP、否则在执行升级时可能会发生数据中断。
 
 +
 [cols="30,70"]
@@ -254,7 +254,7 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 | 如果您的系统 ... | Description 
 
 
-| 具有磁盘，无后端存储 | 转至 <<auto_install3_step23,第 23 步>> 
+| 具有磁盘，无后端存储 | 转至<<auto_install3_step27,第27步>> 
 
 
 | 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 
@@ -281,6 +281,7 @@ IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP �
 . 【第 26 步】如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
 
 
+[[auto_install3_step27]]
 . 如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
 +
 
@@ -316,7 +317,7 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 `boot_ontap 菜单`
 
 +
-如果您没有 FC 或 UTA/UTA2 配置，请执行 link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"] 以便node4可以识别node2的磁盘。
+如果您没有FC或UTA/UTA2配置、请执行link:reassign-node2-disks-to-node4.html#reassign-node1-node3-app-step1["将node1磁盘重新分配给node3、步骤1"]、以便node3可以识别node1的磁盘。
 
 . 【第 29 步】对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，您必须在 node3 上设置和配置 FC 或 UTA/UTA2 端口，以检测连接到节点的磁盘。要完成此任务，请转至第节 link:set_fc_or_uta_uta2_config_on_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"]。
 

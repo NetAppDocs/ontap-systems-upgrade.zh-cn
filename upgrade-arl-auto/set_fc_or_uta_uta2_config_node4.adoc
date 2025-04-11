@@ -19,14 +19,15 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.5 �
 .关于此任务
 您可能需要完成或部分、或者同时完成 <<在节点 4 上配置 FC 端口>> <<检查并配置 node4 上的 UTA/UTA2 端口>> 这两个部分。
 
+[NOTE]
+====
+如果node4没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]。
 
-NOTE: 如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"] 部分。但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并已连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回 _Install and boot node4_ 部分并继续执行 link:install_boot_node4.html#step22["第 22 步"]。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
+但是，如果您具有V系列系统或FlexArray虚拟化软件并连接到存储阵列，而node4没有板载FC端口、板载UTA/ UTA2端口或UTA/UTA2卡，则必须返回_Install and boot node4_并从继续link:install_boot_node4.html#step22["第 22 步"]。
 
-.选项
-* <<在节点 4 上配置 FC 端口>>
-* <<检查并配置 node4 上的 UTA/UTA2 端口>>
+确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
 
-
+====
 
 
 == 在节点 4 上配置 FC 端口
@@ -114,14 +115,14 @@ NOTE: FC端口必须编程为启动程序。
 
 
 | 具有存储磁盘  a| 
-** 跳过此部分并转到 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"] 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
+** 如果node4没有UTA/UTA2卡或UTA/UTA2板载端口、请跳过此部分并转到link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]。
 
 
 
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
 ** 转至 link:set_fc_or_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["检查并配置 node4 上的 UTA/UTA2 端口"] 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
-** 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过 _Check and configure UTA/UTA2 ports on node4_ 一节，返回 _Install and boot node4_ 一节，然后继续执行 link:install_boot_node4.html#auto_install4_step23["第 23 步"]。
+** 如果node4没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_检查并配置node4_上的UTA/UTA2端口，返回到_Install并启动node4_，然后从继续link:install_boot_node4.html#auto_install4_step23["第 23 步"]。
 
 
 |===
@@ -288,10 +289,10 @@ f-a   2b       fc             target       cna           -             online
 | 如果系统 ... | 那么 ... 
 
 
-| 具有存储磁盘 | 转到部分 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。 
+| 具有存储磁盘 | 转到。 link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"] 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行 link:install_boot_node4.html#auto_install4_step23["第 23 步"]。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到_Install并启动node4_，然后从继续link:install_boot_node4.html#auto_install4_step23["第 23 步"]。 
 |===
 . 【 auto_check_4_step13]] 退出维护模式：
 +
@@ -302,205 +303,6 @@ f-a   2b       fc             target       cna           -             online
 `boot_ontap 菜单`
 
 +
-如果要升级到 A800 ，请转至 <<auto_check_4_step23,第 23 步>>。
-
-. 【 auto_check_4_step15]] 在 node4 上，转到启动菜单，然后使用 22/7 选择隐藏选项 `boot_after_controller_replacement` 。在提示符处，输入 node2 以将 node2 的磁盘重新分配给 node4 ，如以下示例所示。
-+
-.展开控制台输出示例
-[%collapsible]
-====
-[listing]
-----
-LOADER-A> boot_ontap menu ...
-*******************************
-*                             *
-* Press Ctrl-C for Boot Menu. *
-*                             *
-*******************************
-.
-.
-Please choose one of the following:
-
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-Selection (1-9)? 22/7
-.
-.
-(boot_after_controller_replacement) Boot after controller upgrade
-(9a)                                Unpartition all disks and remove their ownership information.
-(9b)                                Clean configuration and initialize node with partitioned disks.
-(9c)                                Clean configuration and initialize node with whole disks.
-(9d)                                Reboot the node.
-(9e)                                Return to main boot menu.
-
-Please choose one of the following:
-
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-Selection (1-9)? boot_after_controller_replacement
-.
-This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: yes
-.
-.
-Controller Replacement: Provide name of the node you would like to replace: <name of the node being replaced>
-.
-.
-Changing sysid of node <node being replaced> disks.
-Fetched sanown old_owner_sysid = 536953334 and calculated old sys id = 536953334
-Partner sysid = 4294967295, owner sysid = 536953334
-.
-.
-.
-Terminated
-<node reboots>
-.
-.
-System rebooting...
-.
-Restoring env file from boot media...
-copy_env_file:scenario = head upgrade
-Successfully restored env file from boot media...
-.
-.
-System rebooting...
-.
-.
-.
-WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
-Override system ID? {y|n} y
-Login: ...
-----
-====
-. 如果系统进入重新启动循环并显示消息 `no disks found` ，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续 <<auto_check_4_step17,第 17 步>> 到 <<auto_check_4_step22,第 22 步>> 以解决此问题。
-. [[auto_check_4_步骤17]]在自动启动期间按Ctrl-C在loader>提示符处停止节点。
-. 在加载程序提示符处、进入维护模式：
-+
-`boot_ontap maint`
-
-. 在维护模式下，显示先前设置的所有启动程序端口，这些端口现在处于目标模式：
-+
-`ucadmin show`
-
-+
-将端口改回启动程序模式：
-
-+
-`ucadmin modify -m fc -t initiator -f _adapter name_`
-
-. 验证端口是否已更改为启动程序模式：
-+
-`ucadmin show`
-
-. 退出维护模式：
-+
-`halt`
-
-+
-[NOTE]
-====
-如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <<auto_check_4_step22,第 22 步>>。
-
-如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check_4_step23,第 23 步>>。
-
-====
-. [[auto_check_4_步骤22]]在加载程序提示符处、启动：
-+
-`boot_ontap 菜单`
-
-+
-现在，在启动时，节点可以检测到先前分配给它的所有磁盘，并可按预期启动。
-
-+
-如果要更换的集群节点使用根卷加密、则ONTAP无法从磁盘中读取卷信息。还原根卷的密钥：
-
-+
-.. 返回到特殊的启动菜单：
-+
-`LOADER> boot_ontap menu`
-
-+
-[listing]
-----
-Please choose one of the following:
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-
-Selection (1-11)? 10
-----
-.. 选择*(10)设置板载密钥管理器恢复密钥*
-.. 输入 ... `y` 在以下提示符处：
-+
-`This option must be used only in disaster recovery procedures. Are you sure? (y or n): y`
-
-.. 在提示符处、输入密钥管理器密码短语。
-.. 出现提示时、输入备份数据。
-+
-
-NOTE: 您必须已在中获取密码短语和备份数据 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] section of this procedure.
-
-.. 系统重新启动到特殊启动菜单后、运行选项*(1) Normal Boot*
-+
-
-NOTE: 您可能会在此阶段遇到错误。如果发生错误、请重复中的子步骤 <<auto_check_4_step22,第 22 步>> 直到系统正常启动。
-
-
-
-. 【auto_check_4_step23]]如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统(例如、AFF A800系统)、请将node2聚合设置为根聚合、以确认node4从node2的根聚合启动。要设置根聚合、请转到启动菜单并选择选项 `5` 以进入维护模式。
-+
-
-WARNING: * 您必须按所示的确切顺序执行以下子步骤；否则可能发生原因会导致中断甚至数据丢失。 *
-
-+
-以下操作步骤会将 node4 设置为从 node2 的根聚合启动：
-
-+
-.. 进入维护模式。
-+
-`boot_ontap maint`
-
-.. 检查 node2 聚合的 RAID ，丛和校验和信息：
-+
-`aggr status -r`
-
-.. 检查 node2 聚合的状态：
-+
-`聚合状态`
-
-.. 如有必要，将 node2 聚合置于联机状态：
-+
-`aggr_online root_aggr_from__node2_`
-
-.. 阻止 node4 从其原始根聚合启动：
-+
-`aggr offline _root_aggr_on_node4_`
-
-.. 将 node2 根聚合设置为 node4 的新根聚合：
-+
-`aggr options aggr_from__node2_ root`
-
-
+如果要升级到A800，请转至link:reassign-node2-disks-to-node4.html#auto_check_4_step9["将node2磁盘重新分配给node4、步骤9"]。
 
 

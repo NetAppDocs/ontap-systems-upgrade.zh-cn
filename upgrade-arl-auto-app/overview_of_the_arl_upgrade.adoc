@@ -60,7 +60,7 @@ summary: '了解使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8
 
 
 | link:stage_3_index.html["第 3 阶段。安装并启动 node3"]  a| 
-在第 3 阶段，您安装并启动 node3 ，检查 node1 中的集群和节点管理端口是否在 node3 上联机，并验证 node3 安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。如果需要、可以在node3上设置FC或UTA/UTA2配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。
+在第3阶段、您需要安装和启动node3、检查node1中的集群和节点管理端口是否在node3上联机、将node1磁盘重新分配给node3、并验证node3的安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。如果需要、可以在node3上设置FC或UTA/UTA2配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。
 
 第 3 阶段结束时的聚合所有权：
 
@@ -83,7 +83,7 @@ summary: '了解使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8
 
 
 | link:stage_5_index.html["第 5 阶段。安装并启动节点 4."]  a| 
-在第 5 阶段，您安装并启动 node4 ，检查 node2 中的集群和节点管理端口是否在 node4 上联机，并验证 node4 安装。如果您使用的是NVE、则需要还原密钥管理器配置。如果需要、可以在node4上设置FC或UTA/UTA2配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
+在第5阶段、您需要安装和启动node4、检查node2中的集群和节点管理端口是否在node4上联机、将node2磁盘重新分配给node4、并验证node4的安装。如果您使用的是NVE、则需要还原密钥管理器配置。如果需要、可以在node4上设置FC或UTA/UTA2配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
 
 第 5 阶段结束时的聚合所有权：
 

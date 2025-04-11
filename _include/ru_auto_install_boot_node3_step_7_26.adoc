@@ -142,7 +142,7 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 | 如果您的系统 ... | Description 
 
 
-| 具有磁盘，无后端存储 | 转至 <<auto_install3_step23,第 23 步>> 
+| 具有磁盘，无后端存储 | 转至<<auto_install3_step27,第27步>> 
 
 
 | 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 

@@ -22,13 +22,8 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 NOTE: NetApp 营销材料可能会使用术语 UTA2 来指代融合网络适配器（ CNA ）适配器和端口。但是，命令行界面使用术语 CNA 。
 
-* 如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 link:verify_node3_installation.html["验证 node3 安装"] 部分。
-* 但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回到 _Install and boot node3_ 部分并继续执行中的部分 link:install_boot_node3.html#auto_install3_step23["第 23 步"]。
-
-
-.选项
-* <<在 node3 上配置 FC 端口>>
-* <<检查并配置 node3 上的 UTA/UTA2 端口>>
+* 如果node3没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至link:reassign-node1-disks-to-node3.html["将node1磁盘重新分配给node3"]。
+* 但是，如果您的V系列系统或安装了FlexArray虚拟化软件和存储阵列的系统，并且node3没有板载FC端口、板载UTA/UTA端口或UTA/UTA2卡，请返回到_Install and boot node3_并继续执行中的过程link:install_boot_node3.html#auto_install3_step23["第 23 步"]。
 
 
 
@@ -113,15 +108,15 @@ NOTE: FC端口必须编程为启动程序。
 
 
 | 具有存储磁盘  a| 
-** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至部分 <<检查并配置 node3 上的 UTA/UTA2 端口>>。
-** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分 <<检查并配置 node3 上的 UTA/UTA2 端口>> 然后转到部分 link:verify_node3_installation.html["验证 node3 安装"]。
+** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至 <<检查并配置 node3 上的 UTA/UTA2 端口>>。
+** 如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_Check并在node3_上配置UTA/UTA2端口，然后转到link:reassign-node1-disks-to-node3.html["将node1磁盘重新分配给node3"]。
 
 
 
 
 | 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
-** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至部分 <<检查并配置 node3 上的 UTA/UTA2 端口>>。
-** 如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过部分 <<检查并配置 node3 上的 UTA/UTA2 端口>> 并返回到 _Install and boot node3_ 部分，然后在继续 link:install_boot_node3.html#auto_install3_step23["第 23 步"]。
+** 如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至 <<检查并配置 node3 上的 UTA/UTA2 端口>>。
+** 如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_Check并在node3_上配置UTA/UTA2端口，然后返回到_Install并启动node3_并继续执行中的过程link:install_boot_node3.html#auto_install3_step23["第 23 步"]。
 
 
 |===
@@ -303,269 +298,14 @@ Adapter  Mode       Type        Mode     Type        Status
 | 如果系统 ... | 然后选择… 
 
 
-| 具有存储磁盘 | 转至 link:verify_node3_installation.html["验证 node3 安装"]。 
+| 具有存储磁盘 | 转到。 link:reassign-node1-disks-to-node3.html["将node1磁盘重新分配给node3"] 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node3_ 部分，然后继续执行 link:install_boot_node3.html#auto_install3_step23["第 23 步"]。 
+| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到_Install并启动node3_，然后继续此过程link:install_boot_node3.html#auto_install3_step23["第 23 步"]。 
 |===
 . 【 auto_check3_step13]] 退出维护模式：
 +
 `halt`
 
-. 【第 14 步】运行 `boot_ontap menu` 将节点启动到启动菜单。如果要升级到 A800 ，请转至 <<auto_check3_step23,第 23 步>>。
-
-
-. 在node3上，转到启动菜单，然后使用22/7选择隐藏选项 `boot_after_controller_replacement`。在提示符处，输入 node1 以将 node1 的磁盘重新分配给 node3 ，如以下示例所示。
-+
-.展开控制台输出示例
-[%collapsible]
-====
-....
-LOADER-A> boot_ontap menu
-.
-<output truncated>
-.
-All rights reserved.
-*******************************
-*                             *
-* Press Ctrl-C for Boot Menu. *
-*                             *
-*******************************
-.
-<output truncated>
-.
-Please choose one of the following:
-(1)  Normal Boot.
-(2)  Boot without /etc/rc.
-(3)  Change password.
-(4)  Clean configuration and initialize all disks.
-(5)  Maintenance mode boot.
-(6)  Update flash from backup config.
-(7)  Install new software first.
-(8)  Reboot node.
-(9)  Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-Selection (1-11)? 22/7
-(22/7) Print this secret List
-(25/6) Force boot with multiple filesystem disks missing.
-(25/7) Boot w/ disk labels forced to clean.
-(29/7) Bypass media errors.
-(44/4a) Zero disks if needed and create new flexible root volume.
-(44/7) Assign all disks, Initialize all disks as SPARE, write DDR labels
-.
-<output truncated>
-.
-(wipeconfig)                        Clean all configuration on boot device
-(boot_after_controller_replacement) Boot after controller upgrade
-(boot_after_mcc_transition)         Boot after MCC transition
-(9a)                                Unpartition all disks and remove their ownership information.
-(9b)                                Clean configuration and initialize node with partitioned disks.
-(9c)                                Clean configuration and initialize node with whole disks.
-(9d)                                Reboot the node.
-(9e)                                Return to main boot menu.
-The boot device has changed. System configuration information could be lost. Use option (6) to restore the system configuration, or option (4) to initialize all disks and setup a new system.
-Normal Boot is prohibited.
-Please choose one of the following:
-(1)  Normal Boot.
-(2)  Boot without /etc/rc.
-(3)  Change password.
-(4)  Clean configuration and initialize all disks.
-(5)  Maintenance mode boot.
-(6)  Update flash from backup config.
-(7)  Install new software first.
-(8)  Reboot node.
-(9)  Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-Selection (1-11)? boot_after_controller_replacement
-This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: yes
-.
-<output truncated>
-.
-Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
-Changing sysid of node node1 disks.
-Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
-Partner sysid = 4294967295, owner sysid = 536940063
-.
-<output truncated>
-.
-varfs_backup_restore: restore using /mroot/etc/varfs.tgz
-varfs_backup_restore: attempting to restore /var/kmip to the boot device
-varfs_backup_restore: failed to restore /var/kmip to the boot device
-varfs_backup_restore: attempting to restore env file to the boot device
-varfs_backup_restore: successfully restored env file to the boot device wrote key file "/tmp/rndc.key"
-varfs_backup_restore: timeout waiting for login
-varfs_backup_restore: Rebooting to load the new varfs
-Terminated
-<node reboots>
-System rebooting...
-.
-Restoring env file from boot media...
-copy_env_file:scenario = head upgrade
-Successfully restored env file from boot media...
-Rebooting to load the restored env file...
-.
-System rebooting...
-.
-<output truncated>
-.
-WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
-Override system ID? {y|n} y
-.
-Login:
-....
-====
-+
-
-NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。
-
-. 如果系统进入重新启动循环并显示消息 `no disks found` ，则表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法看到任何磁盘。要解决此问题，请继续 <<auto_check3_step17,第 17 步>> to <<auto_check3_step22,第 22 步>>或转到第节 link:verify_node3_installation.html["验证 node3 安装"]。
-. [[auto_check3_STEP17]]在自动启动期间按Ctrl-C在loader>提示符处停止节点。
-. [[STEP18]]在加载程序提示符处、进入维护模式：
-+
-`boot_ontap maint`
-
-. 在维护模式下，显示先前设置的所有启动程序端口，这些端口现在均处于目标模式：
-+
-`ucadmin show`
-
-+
-将端口改回启动程序模式：
-
-+
-`ucadmin modify -m fc -t initiator -f _adapter name_`
-
-. 【第 20 步】验证端口是否已更改为启动程序模式：
-+
-`ucadmin show`
-
-. 【第 21 步】退出维护模式：
-+
-`halt`
-
-+
-[NOTE]
-====
-如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统、请转至 <<auto_check3_step22,第 22 步>>。
-
-如果要从支持外部磁盘的系统升级到同时支持内部和外部磁盘的系统、例如AFF A800系统、请转至 <<auto_check3_step23,第 23 步>>。
-
-====
-. [[auto_check3_STEP22]]在加载程序提示符处、启动：
-+
-`boot_ontap 菜单`
-
-+
-现在，在启动时，节点可以检测到先前分配给它的所有磁盘，并可按预期启动。
-
-+
-如果要更换的集群节点使用根卷加密、则ONTAP无法从磁盘中读取卷信息。还原根卷的密钥。
-
-+
-
-NOTE: 只有当根卷使用NetApp卷加密时、此操作才适用。
-
-+
-.. 返回到特殊的启动菜单：
-+
-`LOADER> boot_ontap menu`
-
-+
-[listing]
-----
-Please choose one of the following:
-(1) Normal Boot.
-(2) Boot without /etc/rc.
-(3) Change password.
-(4) Clean configuration and initialize all disks.
-(5) Maintenance mode boot.
-(6) Update flash from backup config.
-(7) Install new software first.
-(8) Reboot node.
-(9) Configure Advanced Drive Partitioning.
-(10) Set Onboard Key Manager recovery secrets.
-(11) Configure node for external key management.
-
-Selection (1-11)? 10
-----
-.. 选择*(10)设置板载密钥管理器恢复密钥*
-.. 输入 ... `y` 在以下提示符处：
-+
-`This option must be used only in disaster recovery procedures. Are you sure? (y or n): y`
-
-.. 在提示符处、输入密钥管理器密码短语。
-.. 出现提示时、输入备份数据。
-+
-
-NOTE: 您必须已在中获取密码短语和备份数据 link:prepare_nodes_for_upgrade.html["准备要升级的节点"] section of this procedure.
-
-.. 系统重新启动到特殊启动菜单后、运行选项*(1) Normal Boot*
-+
-
-NOTE: 您可能会在此阶段遇到错误。如果发生错误、请重复中的子步骤 <<auto_check3_step22,第 22 步>> 直到系统正常启动。
-
-
-
-. 【 ｛ auto_check3_step23]] 如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如， AFF A800 系统），请将 node1 聚合设置为根聚合，以确认 node3 从 node1 的根聚合启动。要设置根聚合，请转到启动菜单并选择选项 `5` 以进入维护模式。
-+
-
-CAUTION: * 您必须按所示的确切顺序执行以下子步骤；否则可能发生原因会导致中断甚至数据丢失。 *
-
-+
-以下操作步骤会将 node3 设置为从 node1 的根聚合启动：
-
-+
-.. 进入维护模式。
-+
-`boot_ontap maint`
-
-.. 检查 node1 聚合的 RAID ，丛和校验和信息：
-+
-`aggr status -r`
-
-.. 检查 node1 聚合的状态：
-+
-`聚合状态`
-
-.. 如有必要，将 node1 聚合置于联机状态：
-+
-`aggr_online root_aggr_from__node1_`
-
-.. 阻止 node3 从其原始根聚合启动：
-+
-`aggr offline _root_aggr_on_node3_`
-
-.. 将 node1 根聚合设置为 node3 的新根聚合：
-+
-`aggr options aggr_from__node1_ root`
-
-.. 验证 node3 的根聚合是否脱机，从 node1 接管的磁盘的根聚合是否联机并设置为 root ：
-+
-`聚合状态`
-
-+
-
-NOTE: 如果不执行上一个子步骤，发生原因 node3 可能会从内部根聚合启动，或者它可能会发生原因系统以假定存在新的集群配置或提示您确定一个集群配置。
-
-+
-下面显示了命令输出的示例：
-
-+
-[listing]
-----
- -----------------------------------------------------------------
- Aggr                 State    Status             Options
-
- aggr0_nst_fas8080_15 online   raid_dp, aggr      root, nosnap=on
-                               fast zeroed
-                               64-bit
-
- aggr0                offline  raid_dp, aggr      diskroot
-                               fast zeroed
-                               64-bit
- -----------------------------------------------------------------
-----
-
-
+. [[STEP14]]通过运行将节点启动到启动菜单 `boot_ontap menu`。如果要升级到A800，请转至link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["将node1磁盘重新分配给node3、步骤9"]。
 

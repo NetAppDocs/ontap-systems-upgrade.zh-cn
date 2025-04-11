@@ -2,10 +2,37 @@
 :allow-uri-read: 
 
 
-在将 node2 替换为 node4 之前，您必须为 node2 发送 AutoSupport 消息，然后将 node2 所拥有的非根聚合重新定位到 node3 。
+要将node2替换为node4、您需要先为node2发送AutoSupport消息、然后将node2拥有的非根聚合重新定位到node3。
 
+[[sysconfig-a-command]]
 .步骤
-. 【第 1 步】向 NetApp 发送 node2 的 AutoSupport 消息：
+. 验证是否已在node2和node3上正确设置配对系统ID：
++
+** `system node run -node _node2_ -command sysconfig -a`
+** `system node run -node _node3_ -command sysconfig -a`
++
+系统将显示类似于以下示例的输出：
+
++
+[listing, subs="+quotes"]
+----
+NetApp Release 9.16.1: Mon Feb 10 07:55:45 EST 2025
+System ID: _system-ID_; *partner ID: _partner-system-ID_*
+System Serial Number: _system-serial-number_
+System Rev: A0
+System Storage Configuration: Mixed-Path HA
+----
++
+如果node2或node3的"配对ID "不正确：
+
++
+... 使用不正确的值重新启动节点。
+... 重新运行中的命令<<sysconfig-a-command,第 1 步>>，并确认“配对系统ID”已更改为正确的值。
+
+
+
+
+. 向NetApp发送node2的AutoSupport消息：
 +
 `ssystem node AutoSupport invoke -node _node2_-type all -message "upgrading _node2_ from _platform_old_ to _platform_new_"`
 
@@ -16,7 +43,7 @@
 +
 字段 " 上次发送主题： " 和 " 上次发送时间： " 包含上次发送消息的消息标题以及消息发送时间。
 
-. 【第 3 步】重新定位非根聚合：
+. 重新定位非根聚合：
 +
 .. 将权限级别设置为高级：
 +
@@ -36,7 +63,7 @@ NOTE: 此命令仅查找非根聚合。
 
 .. 出现提示时，输入 `y` 。
 +
-重新定位在后台进行。重新定位聚合可能需要几秒到几分钟的时间。此时间既包括客户端中断，也包括非中断部分。此命令不会重新定位任何脱机或受限聚合。
+重新定位在后台进行。重新定位聚合可能需要几秒到几分钟的时间。此时间既包括客户端中断，也包括非中断部分。此命令不会重新定位任何脱机聚合或受限聚合。
 
 .. 返回到管理权限级别：
 +
@@ -49,7 +76,7 @@ NOTE: 此命令仅查找非根聚合。
 `storage aggregate relocation show -node _node2_`
 
 +
-重新定位聚合后，输出将显示 "done" 。
+重新定位聚合后、输出将显示该聚合的"Done (完成)"。
 
 +
 
@@ -62,7 +89,7 @@ NOTE: 您必须等待 node2 所拥有的所有聚合都重新定位到 node3 ，
 | 如果重新定位 ... | 那么 ... 
 
 
-| 所有聚合均已成功 | 转至 <<man_relocate_2_3_step6,第 6 步>>。 
+| 所有聚合均已成功 | 转到。 <<man_relocate_2_3_step7,第 7 步>> 
 
 
 | 任何聚合失败或被否决  a| 
@@ -108,7 +135,7 @@ NOTE: `event log show`命令可列出已发生的任何错误。
 有关 storage aggregate relocation 命令的详细信息，请转至 link:other_references.html["参考资料"] 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。
 
 |===
-. 【 man_relocate_2_3_step6]] 验证 node3 上的所有非根聚合是否联机：
+. 【 man_relocate_2_3_step7]] 验证 node3 上的所有非根聚合是否联机：
 +
 `storage aggregate show -node _node3_-state offline -root false`
 
@@ -128,7 +155,7 @@ NOTE: `event log show`命令可列出已发生的任何错误。
 +
 `volume online -vserver _vserver-name_-volume _volume-name_`
 
-. 验证 node2 不拥有任何联机非根聚合：
+. 验证node2是否不拥有任何联机非根聚合：
 +
 `storage aggregate show -owner-name _node2_-ha-policy sfo -state online`
 

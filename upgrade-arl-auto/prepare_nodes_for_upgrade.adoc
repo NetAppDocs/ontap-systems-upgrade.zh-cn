@@ -23,7 +23,8 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 
 +
 
-NOTE: 此命令只能在高级权限级别执行： `set -privilege advanced`
+NOTE: 您只能在高级权限级别执行此命令：
+`set -privilege advanced`
 
 +
 您将看到以下输出：

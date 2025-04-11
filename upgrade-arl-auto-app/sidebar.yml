@@ -51,6 +51,8 @@ entries:
     url: "/upgrade-arl-auto-app/install_boot_node3.html"
   - title: 在 node3 上设置 FC 或 UTA/UTA2 配置
     url: "/upgrade-arl-auto-app/set_fc_or_uta_uta2_config_on_node3.html"
+  - title: 将node1磁盘重新分配给node3
+    url: "/upgrade-arl-auto-app/reassign-node1-disks-to-node3.html"
   - title: 验证 node3 安装
     url: "/upgrade-arl-auto-app/verify_node3_installation.html"
   - title: 还原 node3 上的 key-manager 配置
@@ -75,6 +77,8 @@ entries:
     url: "/upgrade-arl-auto-app/install_boot_node4.html"
   - title: 在 node4 上设置 FC 或 UTA/UTA2 配置
     url: "/upgrade-arl-auto-app/set_fc_or_uta_uta2_config_node4.html"
+  - title: 将node2磁盘重新分配给node4
+    url: "/upgrade-arl-auto-app/reassign-node2-disks-to-node4.html"
   - title: 验证 node4 安装
     url: "/upgrade-arl-auto-app/verify_node4_installation.html"
   - title: 还原 node4 上的 key-manager 配置

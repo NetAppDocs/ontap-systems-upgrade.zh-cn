@@ -60,7 +60,7 @@ summary: '了解操作步骤 如何使用 `ssystem controller replace` 命令将
 
 
 | link:stage_3_index.html["第 3 阶段。安装并启动 node3"]  a| 
-在第 3 阶段，您将安装并启动 node3 ，将集群和节点管理端口从 node1 映射到 node3 ，并验证 node3 安装。如果需要、可以在node3上设置FC或UTA/UTA2配置、并确认node3已加入仲裁。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。
+在第3阶段、您需要安装和启动node3、将集群和节点管理端口从node1映射到node3、将node1磁盘重新分配给node3、并验证node3安装。如果需要、可以在node3上设置FC或UTA/UTA2配置、并确认node3已加入仲裁。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。
 
 第 3 阶段结束时的聚合所有权：
 
@@ -83,7 +83,7 @@ summary: '了解操作步骤 如何使用 `ssystem controller replace` 命令将
 
 
 | link:stage_5_index.html["第 5 阶段。安装并启动节点 4."]  a| 
-在第 5 阶段，您将安装并启动 node4 ，将集群和节点管理端口从 node2 映射到 node4 ，并验证 node4 安装。如果需要、可以在node4上设置FC或UTA/UTA2配置、并确认node4已加入仲裁。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
+在第5阶段、您需要安装和启动node4、将集群和节点管理端口从node2映射到node4、将node2磁盘重新分配给node4、并验证node4安装。如果需要、可以在node4上设置FC或UTA/UTA2配置、并确认node4已加入仲裁。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
 
 第 5 阶段结束时的聚合所有权：
 

@@ -28,7 +28,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 +
 `ssystem controller replace start -nodes _node_names_-NSO false`
 
-** `ssystem controller replace start` 命令只能在高级权限级别执行：
+** 您只能在高级权限级别执行 `system controller replace start`命令：
 +
 `set -privilege advanced`
 

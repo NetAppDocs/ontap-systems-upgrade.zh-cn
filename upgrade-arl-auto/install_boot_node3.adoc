@@ -254,7 +254,7 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 | 如果您的系统 ... | Description 
 
 
-| 具有磁盘，无后端存储 | 转至 <<auto_install3_step23,第 23 步>> 
+| 具有磁盘，无后端存储 | 转至<<auto_install3_step27,第27步>> 
 
 
 | 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 
@@ -281,6 +281,7 @@ IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP �
 . 【第 26 步】如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
 
 
+[[auto_install3_step27]]
 . 如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
 +
 
@@ -313,7 +314,7 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 `boot_ontap 菜单`
 
 +
-如果您没有FC或UTA/UTA2配置、请执行 link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step15["检查并配置 node4 上的 UTA/UTA2 端口，步骤 15"] 以便 node4 可以识别 node2 的磁盘。
+如果您没有FC或UTA/UTA2配置、请执行link:reassign-node1-disks-to-node3.html#reassign-node1-node3-step1["将node1磁盘重新分配给node3、步骤1"]、以便node3可以识别node1的磁盘。
 
-. [auto9597_istall3_step29]] 对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，请转至 link:set_fc_or_uta_uta2_config_on_node3.html#auto9597_check_node3_step15["检查并配置 node3 步骤 15 上的 UTA/UTA2 端口"]。
+. [[auto9597_istall3_stEP29]]对于MetroCluster配置、V系列系统以及使用FlexArray虚拟化软件连接到存储阵列的系统，请转至link:reassign-node1-disks-to-node3.html#reassign-node1-node3-step1["将node1磁盘重新分配给node3、步骤1"]。
 

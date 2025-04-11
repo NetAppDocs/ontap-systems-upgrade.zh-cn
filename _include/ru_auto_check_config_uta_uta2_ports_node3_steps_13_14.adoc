@@ -6,5 +6,5 @@
 +
 `halt`
 
-. 【第 14 步】运行 `boot_ontap menu` 将节点启动到启动菜单。如果要升级到 A800 ，请转至 <<auto_check3_step23,第 23 步>>。
+. [[STEP14]]通过运行将节点启动到启动菜单 `boot_ontap menu`。如果要升级到A800，请转至link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["将node1磁盘重新分配给node3、步骤9"]。
 

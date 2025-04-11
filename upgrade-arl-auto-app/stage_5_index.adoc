@@ -14,11 +14,12 @@ summary: '在运行 ONTAP 9.8 或更高版本的控制器上使用 `ssystem cont
 
 
 [role="lead"]
-在第 5 阶段，您安装并启动 node4 ，检查 node2 中的集群和节点管理端口是否在 node4 上联机，并验证 node4 安装。如果您使用的是NVE、则需要还原密钥管理器配置。如果需要、可以在node4上设置FC或UTA/UTA2配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
+在第5阶段、您需要安装和启动node4、检查node2中的集群和节点管理端口是否在node4上联机、将node2磁盘重新分配给node4、并验证node4的安装。如果您使用的是NVE、则需要还原密钥管理器配置。如果需要、可以在node4上设置FC或UTA/UTA2配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。
 
 .步骤
 . link:install_boot_node4.html["安装并启动节点 4."]
 . link:set_fc_or_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"]
+. link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]
 . link:verify_node4_installation.html["验证 node4 安装"]
 . link:restore_key-manager_config_node4.html["还原 node4 上的 key-manager 配置"]
 . link:move_non_root_aggr_and_nas_data_lifs_node2_from_node3_to_node4.html["将 node2 拥有的非根聚合和 NAS 数据 LIF 从 node3 移动到 node4"]

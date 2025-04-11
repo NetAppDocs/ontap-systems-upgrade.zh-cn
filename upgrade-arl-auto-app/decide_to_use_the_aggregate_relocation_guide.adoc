@@ -65,7 +65,7 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 NOTE: 如果您的控制器升级型号组合不在上表中、请联系技术支持。
 
-^1^有关 AFF A800 系统所需的其他步骤，请转至第节中引用 A800 的步骤 link:set_fc_or_uta_uta2_config_on_node3.html#auto_check3_step23["检查并配置 node3 上的 UTA/UTA2 端口，步骤 23"]或 link:set_fc_or_uta_uta2_config_node4.html#auto_check_4_step23["检查并配置 node4 上的 UTA/UTA2 端口，步骤 23"]。
+^1^有关AFF A800系统所需的其他步骤，请转至第节link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["将node1磁盘重新分配给node3、步骤9"]或中引用A800的步骤link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["将node2磁盘重新分配给node4、步骤9"]。
 
 ^2^如果要在双节点无交换机集群配置中从AFF A300升级到AFF A400或从FAS8200升级到FAS8300系统、则必须选择临时集群端口来进行控制器升级。AFF A400 和 FAS8300 系统采用两种配置：一种是以太网捆绑包，夹层卡端口为以太网类型；另一种是 FC 捆绑包，夹层端口为 FC 类型。
 
