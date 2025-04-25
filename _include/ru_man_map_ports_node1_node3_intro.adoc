@@ -7,7 +7,7 @@
 .开始之前
 您必须已从 _Node_ 获得有关新节点上端口的信息 Hardware Universe 。转至 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe ）。您可以使用本节后面和中的信息 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。
 
-node3 的软件配置必须与 node3 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。
+node3的软件配置必须与node3的物理连接匹配、并且必须先还原网络连接、然后才能继续升级。
 
 .关于此任务
 端口设置可能因节点型号而异。

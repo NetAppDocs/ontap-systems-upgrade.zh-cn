@@ -93,7 +93,6 @@
   <block id="20285adb42be1ddc0c2df8f7a2de7595" category="list-text">修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。</block>
   <block id="a2b95adba38da1a033c4cae3447040cc" category="paragraph">安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。</block>
   <block id="23eacbaf200afc53fbaaaaa3d6705308" category="list-text">如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。</block>
-  <block id="d1cffd7fada9f21315c30db304bb2ca9" category="list-text">启动节点进入启动菜单：</block>
   <block id="a94e69437db24dee798bbd90bce4ee0a" category="paragraph">`boot_ontap 菜单`</block>
   <block id="9f6c1c59e595c7b6b493f92b24930c14" category="inline-link-macro">在 node4 上设置 FC 或 UTA/Ut2 配置</block>
   <block id="cbe290335ddc7c966d9c148980b1ddd5" category="list-text">【第 29 步】对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，您必须在 node4 上设置和配置 FC 或 UTA/UTA2 端口，以检测连接到节点的磁盘。要完成此任务，请转至第节 <block ref="39202fc611c1fcac2f1575fc00cb55d3" category="inline-link-macro-rx"></block>。</block>
@@ -299,7 +298,6 @@
   <block id="b50635aa317c4f94943cbad3bf2ffdf2" category="list-text">为端口布线。</block>
   <block id="8eeb6ccf00d6f27741c5b734b3130459" category="list-text">【第 12 步】执行以下操作之一：</block>
   <block id="4a137bad34f46785824a8100e1c6cba6" category="list-text">【 auto_check_4_step13]] 退出维护模式：</block>
-  <block id="479951d6e509fddf053f700071fd43a4" category="list-text">【第 14 步】启动节点进入启动菜单：</block>
   <block id="204783b1ca658239a7b205df8e2d83dd" category="paragraph">`boot_ontap 菜单`</block>
   <block id="f91809c39c7c5ad59f2475c5ee644448" category="admonition">在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。</block>
   <block id="24655647ccabfd614d439a15f52407aa" category="paragraph">`boot_ontap maint`</block>
@@ -1690,7 +1688,6 @@
   <block id="ba9d984599b9d029b2fc827939de2324" category="cell">节点上的可用端口和广播域 4.</block>
   <block id="9b978a712974278ab5f3f7e894871a48" category="cell">存储系统的私有和公有 SSL 证书以及每个密钥管理服务器的私有 SSL 证书</block>
   <block id="d22f146c49d95d305653bf62234fdbc9" category="paragraph">您必须已从 _Node_ 获得有关新节点上端口的信息 Hardware Universe 。转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _SIL_ Hardware Universe ）。您可以使用本节后面和中的信息 <block ref="fface1ac702bde6d72ceb6e55eb8b2b6" category="inline-link-macro-rx"></block>。</block>
-  <block id="770687a6c0857c42712724895dde4f94" category="paragraph">node3 的软件配置必须与 node3 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。</block>
   <block id="a7e55a2eda4d6d9856ad9438d37fbed0" category="paragraph">因此，如果 node1 上的物理端口不直接映射到 node3 上的物理端口，则需要更改软件配置，才能在启动后还原集群，管理和网络连接。此外，如果 node1 上的集群端口未直接映射到 node3 上的集群端口，则在重新启动时， node3 可能无法自动重新加入仲裁，直到对软件配置进行更改，以便将集群 LIF 托管在正确的物理端口上为止。</block>
   <block id="cbf79efe25579eb8669620f8a705d90c" category="list-text">【第 1 步】将 node1 ，端口，广播域和 IP 空间的所有 node1 布线信息记录在下表中：</block>
   <block id="2a04e456c6cc4811fe58e125c72d102f" category="cell">Node1 广播域</block>
@@ -3503,18 +3500,10 @@
   <block id="5861bf10ae07bb7c0e6218d5663221a4" category="paragraph">`ucadmin modify -m fc|cna -t initiators|target _adapter_name_`</block>
   <block id="c5fabf666636164983c54a60426edaab" category="cell">`network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up`</block>
   <block id="e07e74f9f1df10fa040f36e818e29bd1" category="cell">`FCP config _adapter_name_ up`</block>
-  <block id="d22419a850c185721a903c07372ae503" category="paragraph">`ssystem node AutoSupport invoke -node _node2_-type all -message "upgrading _node2_ from _platform_old_ to _platform_new_"`</block>
-  <block id="0035b3ff85f938e9dcfa6e01d00bacb3" category="paragraph">`ssystem node AutoSupport show -node _node2_-instance`</block>
   <block id="9fb768ad6510fe46b2016783cac8eadb" category="paragraph">`storage aggregate show -owner-name _node2_`</block>
-  <block id="340e64569e9690b05ee5812624d5a313" category="paragraph">`s存储聚合重新定位start -node _node2_-destination _node3_-aggregate-list *-no-controller-upgrade true`</block>
-  <block id="f161887b8a8315e1921bdd784254366b" category="paragraph">`storage aggregate relocation show -node _node2_`</block>
   <block id="cde8cf801e542566f503970c16a89b61" category="admonition">`event log show`命令可列出已发生的任何错误。</block>
-  <block id="9ef5127a85127a11a229ac4b55fc672f" category="paragraph">`s存储聚合重新定位start -node _node2_-destination _node3_-aggregate-list *-no-controllerupgrade true`</block>
-  <block id="841745404f0f5f47ea2e369557646743" category="paragraph">`storage aggregate show -node _node3_-state offline -root false`</block>
   <block id="7a4b65a92ad0461916e64e86d4469810" category="paragraph">`storage aggregate online -aggregate _aggr_name_`</block>
   <block id="9768bc676d49dbda7bf856a2930c4b52" category="paragraph">`volume show -node _node3_-state offline`</block>
-  <block id="091a8eb2e46c040b097f97a81745c527" category="paragraph">`volume online -vserver _vserver-name_-volume _volume-name_`</block>
-  <block id="b69d240b40718da8e6f1771cc452c580" category="paragraph">`storage aggregate show -owner-name _node2_-ha-policy sfo -state online`</block>
   <block id="ffd863d528f6b76a6f398dd53b185d1d" category="cell">`dreassign -s`` node2_sysid_-d _node4_sysid_-p _node3_sysid_`</block>
   <block id="9666e158b6e459758482181fdc5caf71" category="cell">`disks disk reassign -s`` node2_sysid_-d _node4_sysid_`</block>
   <block id="ff573218a71a52e566a9d2cb9c112902" category="paragraph">`d`` reassign`命令将仅重新分配node2_sysid_是当前所有者的磁盘。</block>
@@ -5246,23 +5235,14 @@
   <block id="179f979e0b97fa0abce7d9de4a3dcf35" category="cell">9.15.1P3用于FAS70、9.16.1P2用于FAS50</block>
   <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="cell">FAS8700</block>
   <block id="5ea464078a881a86e75acbaa27ab0f3f" category="inline-link-macro">将node1磁盘重新分配给node3、步骤9</block>
-  <block id="94832ce088252ec835bf30c1c169417f" category="list-text">[[STEP14]]通过运行将节点启动到启动菜单<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>。如果要升级到A800，请转至<block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>。</block>
   <block id="fb5a9693a9865f2503ac1d604da7e6f1" category="cell">转到。 <block ref="9a2314147e61384dcda537891c3f470c" category="inline-xref-macro-rx"></block></block>
   <block id="2fdbbb745e51610452548329a23e078d" category="cell">转至<block ref="cc5cb3430eee3043fed71981b076513b" category="inline-xref-macro-rx"></block></block>
   <block id="c66431825370525b71d1cf42669b4ad1" category="paragraph"><block ref="03d492bafa8bfc48b6d8087b415cb7c8" prefix="" category="inline-code"></block></block>
   <block id="cbf9a76a9a31fb5d20cbab55c42d6eb4" category="paragraph">要将node2替换为node4、您需要先为node2发送AutoSupport消息、然后将node2拥有的非根聚合重新定位到node3。</block>
-  <block id="889a8a9b669ca02a5d0afd548c8a5bc9" category="list-text">验证是否已在node2和node3上正确设置配对系统ID：</block>
-  <block id="04ad9370712a8951b033d3e79d288b91" category="list-text"><block ref="c4d3ac59e356b264f6335ae353d7f8cf" prefix="" category="inline-code"></block></block>
-  <block id="ae719a4d0999ee899d139c043e1dfb31" category="list-text"><block ref="9651ad056b06027f0f8a09826553c095" prefix="" category="inline-code"></block></block>
-  <block id="331474910fd513c32a8b5468be64110b" category="paragraph">如果node2或node3的"配对ID "不正确：</block>
-  <block id="1157ffd8c7e3127247707fa870245090" category="list-text">使用不正确的值重新启动节点。</block>
-  <block id="20f3e479666bab0a0edd9ed3b561912d" category="list-text">重新运行中的命令<block ref="0ddf3aeb918097d937dd4c17e43bb51f" category="inline-xref-macro-rx"></block>，并确认“配对系统ID”已更改为正确的值。</block>
   <block id="a2f8774c7412a03482b475c596da177f" category="list-text">向NetApp发送node2的AutoSupport消息：</block>
   <block id="726243540d365dca09b0baa8a651d18b" category="list-text">重新定位非根聚合：</block>
   <block id="4b183b97df2f1d6ce9c112a7ed3e980c" category="paragraph">重新定位在后台进行。重新定位聚合可能需要几秒到几分钟的时间。此时间既包括客户端中断，也包括非中断部分。此命令不会重新定位任何脱机聚合或受限聚合。</block>
   <block id="ce3a9a61e80721a6fb4afa31a98b6267" category="paragraph">重新定位聚合后、输出将显示该聚合的"Done (完成)"。</block>
-  <block id="85208ba1bad4c7dc925a1c2728862db6" category="cell">转到。 <block ref="08ddf4558683f30c17772ca15a6fb932" category="inline-xref-macro-rx"></block></block>
-  <block id="f626c2e9002d46ebfc63c95da060d00a" category="list-text">【 man_relocate_2_3_step7]] 验证 node3 上的所有非根聚合是否联机：</block>
   <block id="d8a4c81968f4b397fdbe83d1475d852c" category="list-text">验证node2是否不拥有任何联机非根聚合：</block>
   <block id="6eb24316934652e1e079aaa905d2761d" category="inline-link-macro">将node1磁盘重新分配给node3、步骤1</block>
   <block id="694da05c353b1b646b03401140a4677f" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行<block ref="7b43b3c87e448bde55a855b04c4928b3" category="inline-link-macro-rx"></block>、以便node3可以识别node1的磁盘。</block>
@@ -5302,7 +5282,6 @@
   <block id="fc62ebdcdad1c598fd567dcc92127be3" category="cell">转到。 <block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block></block>
   <block id="39ec961403963bac4327f37c3a91e53d" category="cell">返回到_Install并启动node4_，然后从继续<block ref="2365e31070f1c277afd5c68b5793121e" category="inline-link-macro-rx"></block>。</block>
   <block id="328a7a0648a6342a4e5d9762596df977" category="inline-link-macro">将node2磁盘重新分配给node4、步骤9</block>
-  <block id="aa35d8be17402f68d91e5a22894b1a0d" category="paragraph">如果要升级到A800，请转至<block ref="e81929257c1b77de68576a8a37b1e464" category="inline-link-macro-rx"></block>。</block>
   <block id="b08503fa695caa40c403fd4b0a68ee5a" category="list-text">如果node3没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
   <block id="bc6f0afd18b3a2600b507899a377b115" category="list-text">但是，如果您的V系列系统或安装了FlexArray虚拟化软件和存储阵列的系统，并且node3没有板载FC端口、板载UTA/UTA端口或UTA/UTA2卡，请返回到_Install and boot node3_并从继续<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
   <block id="fc1748891fee59e7ee68e749f479c431" category="list-text">如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过<block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>并转到<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
@@ -5312,13 +5291,11 @@
   <block id="eaad59cad2124997123e3f040ef5cb96" category="list-text"><block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block></block>
   <block id="7578581e3a33edeb6b72193b779ff242" category="paragraph">^1^有关AFF A800系统所需的其他步骤，请转至第节<block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>或中引用A800的步骤<block ref="a9b70e5969497a28f737eb804f3061d5" category="inline-link-macro-rx"></block>。</block>
   <block id="ca05d8f8894d6ff273a92135000e282c" category="admonition">您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据LIF IP、否则在执行升级时可能会发生数据中断。</block>
-  <block id="913c3a812733a4774d27054bc2740e5e" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行<block ref="3ca6a7fd02b3e66a513c8eda309bc152" category="inline-link-macro-rx"></block>、以便node3可以识别node1的磁盘。</block>
   <block id="187e2c8014ea1f526c1b4abd904abf74" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行此操作<block ref="197c7e9b993124512db50edc55b3520e" category="inline-link-macro-rx"></block>、以便node4可以识别node2的磁盘。</block>
   <block id="6ce2823803aa2f6a15c6368e9054699b" category="paragraph">在第3阶段、您需要安装和启动node3、检查node1中的集群和节点管理端口是否在node3上联机、将node1磁盘重新分配给node3、并验证node3的安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。如果需要、可以在node3上设置FC或UTA/UTA2配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。</block>
   <block id="9603a3cc81e2986384f6025c38748416" category="paragraph">在第5阶段、您需要安装和启动node4、检查node2中的集群和节点管理端口是否在node4上联机、将node2磁盘重新分配给node4、并验证node4的安装。如果您使用的是NVE、则需要还原密钥管理器配置。如果需要、可以在node4上设置FC或UTA/UTA2配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。</block>
   <block id="11f7f4fd840cd198a2f280c91b7faacb" category="list-text">您只能在高级权限级别执行<block ref="2b4e2bfd3f993678e0b6870d28304a76" prefix=" " category="inline-code"></block>命令：</block>
   <block id="b3936429fa1be4b517a86a16e2b7e505" category="summary">在升级运行ONTAP 9.8或更高版本的控制器时、您需要使用命令将属于node1的磁盘重新分配给node3<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>。</block>
-  <block id="d39e1430bb5637c814347c6472b72c52" category="list-text">转到启动菜单，然后使用22/7选择隐藏选项<block ref="b4ab52f7185d092e3aa56aaa9905e7e1" prefix=" " category="inline-code"></block>。在提示符处，输入 node1 以将 node1 的磁盘重新分配给 node3 ，如以下示例所示。</block>
   <block id="19c333b88ee80d0b1ae8ba1bdf9e539f" category="list-text">如果系统进入重新启动循环并显示消息<block ref="bc1d3ad68c46835686e44d5c5c600a71" prefix=" " category="inline-code"></block>，则表示系统已将FC或UTA/UTA2端口重置回目标模式，因此无法看到任何磁盘。要解决此问题，请继续执行<block ref="8266acaa2ec393b5b0120a81f114e7db" category="inline-xref-macro-rx"></block> <block ref="0faed76141a6cb4a723aa66a5d852e5d" category="inline-xref-macro-rx"></block>，或转到第节<block ref="35ed01fca1dde6c35ca197b89d2bbfc7" category="inline-link-macro-rx"></block>。</block>
   <block id="bb109c63fb1855fdc41065496c4b5cbc" category="list-text">[[reassign-node1-node3-app-Step3]]在自动启动期间按Ctrl-C在Loader &gt;提示符处停止节点。</block>
   <block id="54e3eea9d71b7c4f02d2688c4e6f949e" category="paragraph">如果要从支持外部磁盘的系统升级到也支持外部磁盘的系统，请转至。<block ref="0faed76141a6cb4a723aa66a5d852e5d" category="inline-xref-macro-rx"></block></block>
@@ -5339,10 +5316,41 @@
   <block id="ce329eb9bee0d5646d8763528bd98e7e" category="list-text">如果node4没有UTA/UTA2卡或UTA/UTA2板载端口、请跳过此部分并转到<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
   <block id="ec5c95c32056d74d6a1bcfef9db57ed5" category="list-text">如果node4没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_检查并配置node4_上的UTA/UTA2端口，返回到_Install并启动node4_，然后继续执行中的过程<block ref="2365e31070f1c277afd5c68b5793121e" category="inline-link-macro-rx"></block>。</block>
   <block id="09fd616bd129dbb6b064a8d755638ea6" category="inline-link-macro">将节点2磁盘重新分配给节点4、步骤9</block>
-  <block id="86fee9536c0b4315d9e50668d2a3d7ae" category="paragraph">如果要升级到A800，请转至<block ref="4f039e99f80cf2a7b8236bb5590e739b" category="inline-link-macro-rx"></block>。</block>
   <block id="03cfdc59281567bffdff0dbb6def2026" category="list-text">如果node3没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
   <block id="9444c5a2921797201ef65c5f6bae3196" category="list-text">但是，如果您的V系列系统或安装了FlexArray虚拟化软件和存储阵列的系统，并且node3没有板载FC端口、板载UTA/UTA端口或UTA/UTA2卡，请返回到_Install and boot node3_并继续执行中的过程<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
   <block id="812ad699d52f740e9c44459a956e3f62" category="list-text">如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_Check并在node3_上配置UTA/UTA2端口，然后转到<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
   <block id="bd450dc25cacad31613a3b3330c2ed64" category="list-text">如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_Check并在node3_上配置UTA/UTA2端口，然后返回到_Install并启动node3_并继续执行中的过程<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
   <block id="3a5beba976b4dab80c814dbb93201e2d" category="cell">返回到_Install并启动node3_，然后继续此过程<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
+  <block id="efbbd979af9db0d702ab6a5273480e16" category="paragraph">node3的软件配置必须与node3的物理连接匹配、并且必须先还原网络连接、然后才能继续升级。</block>
+  <block id="0750b6fd70b5c02e0dc63a82e8430e4a" category="admonition">在此过程中、请勿将聚合从node3重新定位到node2。这样做会导致聚合脱机、并导致重新定位的聚合发生数据中断。</block>
+  <block id="569f02d62115823f4fea09e43e09614c" category="list-text">验证是否在node3上正确设置了配对系统ID：</block>
+  <block id="fb0111f9cd842757d08889f0a7863a8b" category="list-text">显示node3上的配对系统ID：</block>
+  <block id="5a17539dbeea2e1642b36b86ee06822c" category="paragraph"><block ref="089ce08d08dd1b75c3f614830a776a5d" prefix="" category="inline-code"></block></block>
+  <block id="6015ee0c3c4dbc37f534783a65239e72" category="example-title">显示示例</block>
+  <block id="48ceab9868a32c98e5a4a3c1c644f968" category="list-text">如果node3的"配对系统ID"不正确：</block>
+  <block id="881c5e320a45f042e678d4b161772fce" category="list-text">暂停node3：</block>
+  <block id="7800007d1254bb704e4ae7dfd07804b7" category="list-text">在Loader提示符处、设置正确的"Partner-sysd"值。</block>
+  <block id="a9de4ba6ab2c96c6e675e4aa27ae5f99" category="paragraph">node3 "Partner-sysid"是node2的系统ID，可在的输出中找到<block ref="02dc63281e3f95993aa2bd3cbf6cbaaa" prefix=" " category="inline-code"></block><block ref="bf7db627e57d537d277701b30eb920fb" category="inline-xref-macro-rx"></block>。</block>
+  <block id="dd3d0d406209c2954b2e2784db94b97b" category="list-text">在Loader提示符处、将node3启动到启动菜单中：</block>
+  <block id="d3ddde6e7673239ed55bc11b0d0eb088" category="list-text">登录到 node3 。</block>
+  <block id="088fc05a96b10d26c3f25411385117f2" category="paragraph"><block ref="25337ccb7c73e802f2aa2e84f9657883" prefix="" category="inline-code"></block></block>
+  <block id="2e7bb8e758be89869c95ab23b96089a8" category="paragraph"><block ref="e8bddc5e75bda9e006a7808627e02c60" prefix="" category="inline-code"></block></block>
+  <block id="ceb3b4f875043e902ad0c2c7df540ac4" category="paragraph"><block ref="5f763a2ed6c527c7a7c8cdb44b2ef9a1" prefix="" category="inline-code"></block></block>
+  <block id="2a2be3ec611dd374f220ea53bd3e0758" category="paragraph"><block ref="17cc86d87f4cf199b09f90bd5a6c15dc" prefix="" category="inline-code"></block></block>
+  <block id="a6f10385b3e5082eca317137f25e29be" category="paragraph"><block ref="5b8fa3cd936d1ea49819298759fb9f1b" prefix="" category="inline-code"></block></block>
+  <block id="38044567d84e20ec724f63db53b11f1e" category="cell">转到。 <block ref="e688aae16bc9e29159c8c5dbe9e1ced4" category="inline-xref-macro-rx"></block></block>
+  <block id="3f8dbc42a73ae9a6487e0757b393d2fb" category="paragraph"><block ref="9156be96f14f90b77022cc089e705729" prefix="" category="inline-code"></block></block>
+  <block id="6c434ec98af520797c570f40db8c4a28" category="list-text">【 man_relocate_2_3_step8]] 验证 node3 上的所有非根聚合是否联机：</block>
+  <block id="ef54d8b76027ced4d5a36092399b0849" category="paragraph"><block ref="3084412280b7ab74d58fde7f7ea5dcb7" prefix="" category="inline-code"></block></block>
+  <block id="8e3deaabd41a6198e56a6285ff5c48bc" category="paragraph"><block ref="6081a3855c6bc35b60d38be817747a5c" prefix="" category="inline-code"></block></block>
+  <block id="7adac7d8af549857f31077a908e21bf4" category="paragraph"><block ref="9d8096e1c24df88a36631f9f43c1b889" prefix="" category="inline-code"></block></block>
+  <block id="dcc422920951416bc8ad4e66178b7556" category="paragraph"><block ref="5262be8683d7b15cd5f469e52a116209" prefix="" category="inline-code"></block></block>
+  <block id="71b6de83a4e8abd455d17a4d6af4374a" category="list-text">将节点启动至启动菜单：</block>
+  <block id="2177cbe7b3a717ce6d53713b3fc10bd9" category="list-text">[[STEP14]]将节点启动至启动菜单：</block>
+  <block id="a4767f09ed98441b185563427dd0a442" category="paragraph">如果要升级到AFF A800系统，请转至<block ref="e81929257c1b77de68576a8a37b1e464" category="inline-link-macro-rx"></block>。</block>
+  <block id="5a7f7aa2acda9d8cf0b886b9d97aa6d5" category="list-text">[[STEP14]]通过运行将节点启动至启动菜单<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>。如果要升级到AFF A800系统，请转至<block ref="13193a83e6d1d3a0ad7f7d39140ab8c7" category="inline-link-macro-rx"></block>。</block>
+  <block id="798d18731b87565ff109b6fed67d6b99" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行<block ref="b7ef417e87a2f1cf82b2e7cf12272083" category="inline-link-macro-rx"></block>、以便node3可以识别node1的磁盘。</block>
+  <block id="c8adb5c5421d34e18d5b9558706c9208" category="list-text">[[reassign-node1-node3-app-步骤1]]转到启动菜单，使用22/7选择隐藏选项。<block ref="b4ab52f7185d092e3aa56aaa9905e7e1" prefix=" " category="inline-code"></block>在提示符处，输入 node1 以将 node1 的磁盘重新分配给 node3 ，如以下示例所示。</block>
+  <block id="4ac432efd1d6ca8f4e73f5783d4f90e6" category="paragraph">如果要升级到AFF A800系统，请转至<block ref="4f039e99f80cf2a7b8236bb5590e739b" category="inline-link-macro-rx"></block>。</block>
+  <block id="8f9ee542e52933f0e31b07c6ca5316b2" category="list-text">[[STEP14]]通过运行将节点启动至启动菜单<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>。如果要升级到AFF A800系统，请转至<block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>。</block>
 </blocks>

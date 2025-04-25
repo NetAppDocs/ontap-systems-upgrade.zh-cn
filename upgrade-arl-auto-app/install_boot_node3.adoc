@@ -312,12 +312,12 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 
 
 
-. 启动节点进入启动菜单：
+. 将节点启动至启动菜单：
 +
 `boot_ontap 菜单`
 
 +
-如果您没有FC或UTA/UTA2配置、请执行link:reassign-node2-disks-to-node4.html#reassign-node1-node3-app-step1["将node1磁盘重新分配给node3、步骤1"]、以便node3可以识别node1的磁盘。
+如果您没有FC或UTA/UTA2配置、请执行link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step1["将node1磁盘重新分配给node3、步骤1"]、以便node3可以识别node1的磁盘。
 
 . 【第 29 步】对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，您必须在 node3 上设置和配置 FC 或 UTA/UTA2 端口，以检测连接到节点的磁盘。要完成此任务，请转至第节 link:set_fc_or_uta_uta2_config_on_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"]。
 

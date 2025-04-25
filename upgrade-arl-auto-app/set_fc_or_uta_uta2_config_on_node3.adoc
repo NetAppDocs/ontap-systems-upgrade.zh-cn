@@ -307,5 +307,5 @@ Adapter  Mode       Type        Mode     Type        Status
 +
 `halt`
 
-. [[STEP14]]通过运行将节点启动到启动菜单 `boot_ontap menu`。如果要升级到A800，请转至link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["将node1磁盘重新分配给node3、步骤9"]。
+. [[STEP14]]通过运行将节点启动至启动菜单 `boot_ontap menu`。如果要升级到AFF A800系统，请转至link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step9["将node1磁盘重新分配给node3、步骤9"]。
 

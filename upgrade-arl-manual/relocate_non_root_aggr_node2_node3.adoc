@@ -16,41 +16,76 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 [role="lead"]
 要将node2替换为node4、您需要先为node2发送AutoSupport消息、然后将node2拥有的非根聚合重新定位到node3。
 
-[[sysconfig-a-command]]
+
+CAUTION: 在此过程中、请勿将聚合从node3重新定位到node2。这样做会导致聚合脱机、并导致重新定位的聚合发生数据中断。
+
+[[verify-partner-sys-id]]
 .步骤
-. 验证是否已在node2和node3上正确设置配对系统ID：
+. 验证是否在node3上正确设置了配对系统ID：
 +
-** `system node run -node _node2_ -command sysconfig -a`
-** `system node run -node _node3_ -command sysconfig -a`
+.. 输入高级权限级别：
++
+`set -privilege advanced`
+
+.. 显示node3上的配对系统ID：
++
+`ha interconnect config show -node <node3-node1>`
+
 +
 系统将显示类似于以下示例的输出：
 
 +
-[listing, subs="+quotes"]
+.显示示例
+[%collapsible]
+====
+[listing]
 ----
-NetApp Release 9.16.1: Mon Feb 10 07:55:45 EST 2025
-System ID: _system-ID_; *partner ID: _partner-system-ID_*
-System Serial Number: _system-serial-number_
-System Rev: A0
-System Storage Configuration: Mixed-Path HA
+cluster::*> ha interconnect config show -node <node>
+  (system ha interconnect config show)
+
+                       Node: node3-node1
+          Interconnect Type: RoCE
+            Local System ID: <node3-system-id>
+          Partner System ID: <node2-system-id>
+       Connection Initiator: local
+                  Interface: external
+
+Port   IP Address
+----   -----------------
+e4a-17   0.0.0.0
+e4b-18   0.0.0.0
 ----
+====
+
+
+. 如果node3的"配对系统ID"不正确：
 +
-如果node2或node3的"配对ID "不正确：
-
+.. 暂停node3：
 +
-... 使用不正确的值重新启动节点。
-... 重新运行中的命令<<sysconfig-a-command,第 1 步>>，并确认“配对系统ID”已更改为正确的值。
+`halt`
 
+.. 在Loader提示符处、设置正确的"Partner-sysd"值。
++
+node3 "Partner-sysid"是node2的系统ID，可在的输出中找到 `ha interconnect config show`<<verify-partner-sys-id,第 1 步>>。
 
+.. 保存设置：
++
+`saveenv`
+
+.. 在Loader提示符处、将node3启动到启动菜单中：
++
+`boot_ontap 菜单`
+
+.. 登录到 node3 。
 
 
 . 向NetApp发送node2的AutoSupport消息：
 +
-`ssystem node AutoSupport invoke -node _node2_-type all -message "upgrading _node2_ from _platform_old_ to _platform_new_"`
+`system node autosupport invoke -node <node2> -type all -message "Upgrading <node2> from <platform_old> to <platform_new>"`
 
 . 验证是否已发送 AutoSupport 消息：
 +
-`ssystem node AutoSupport show -node _node2_-instance`
+`system node autosupport show -node <node2> -instance`
 
 +
 字段 " 上次发送主题： " 和 " 上次发送时间： " 包含上次发送消息的消息标题以及消息发送时间。
@@ -63,11 +98,11 @@ System Storage Configuration: Mixed-Path HA
 
 .. 列出 Node2 所拥有的聚合：
 +
-`storage aggregate show -owner-name _node2_`
+`storage aggregate show -owner-name <node2>`
 
 .. 启动聚合重新定位：
 +
-`s存储聚合重新定位start -node _node2_-destination _node3_-aggregate-list *-no-controller-upgrade true`
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controller-upgrade true`
 
 +
 
@@ -85,7 +120,7 @@ NOTE: 此命令仅查找非根聚合。
 
 . 验证 node2 的重新定位状态：
 +
-`storage aggregate relocation show -node _node2_`
+`storage aggregate relocation show -node <node2>`
 
 +
 重新定位聚合后、输出将显示该聚合的"Done (完成)"。
@@ -101,7 +136,7 @@ NOTE: 您必须等待 node2 所拥有的所有聚合都重新定位到 node3 ，
 | 如果重新定位 ... | 那么 ... 
 
 
-| 所有聚合均已成功 | 转到。 <<man_relocate_2_3_step7,第 7 步>> 
+| 所有聚合均已成功 | 转到。 <<man_relocate_2_3_step8,第 8 步>> 
 
 
 | 任何聚合失败或被否决  a| 
@@ -123,7 +158,7 @@ NOTE: `event log show`命令可列出已发生的任何错误。
 
 .. 重新定位任何出现故障或被否决的聚合：
 +
-`s存储聚合重新定位start -node _node2_-destination _node3_-aggregate-list *-no-controllerupgrade true`
+`storage aggregate relocation start -node <node2> -destination <node3> -aggregate-list * -ndo-controllerupgrade true`
 
 .. 出现提示时，输入 `y` 。
 .. 返回到管理权限级别：
@@ -147,29 +182,29 @@ NOTE: `event log show`命令可列出已发生的任何错误。
 有关 storage aggregate relocation 命令的详细信息，请转至 link:other_references.html["参考资料"] 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。
 
 |===
-. 【 man_relocate_2_3_step7]] 验证 node3 上的所有非根聚合是否联机：
+. 【 man_relocate_2_3_step8]] 验证 node3 上的所有非根聚合是否联机：
 +
-`storage aggregate show -node _node3_-state offline -root false`
+`storage aggregate show -node <node3> -state offline -root false`
 
 +
 如果任何聚合已脱机或变为外部聚合，则必须使其联机，每个聚合一次：
 
 +
-`storage aggregate online -aggregate _aggr_name_`
+`storage aggregate online -aggregate <aggregate_name>`
 
 . 验证 node3 上的所有卷是否均已联机：
 +
-`volume show -node _node3_-state offline`
+`volume show -node <node3> -state offline`
 
 +
 如果 node3 上的任何卷脱机，则必须使其联机，每个卷一次：
 
 +
-`volume online -vserver _vserver-name_-volume _volume-name_`
+`volume online -vserver <Vserver-name> -volume <volume-name>`
 
 . 验证node2是否不拥有任何联机非根聚合：
 +
-`storage aggregate show -owner-name _node2_-ha-policy sfo -state online`
+`storage aggregate show -owner-name <node2> -ha-policy sfo -state online`
 
 +
 命令输出不应显示联机非根聚合，因为所有非根联机聚合都已重新定位到 node3 。

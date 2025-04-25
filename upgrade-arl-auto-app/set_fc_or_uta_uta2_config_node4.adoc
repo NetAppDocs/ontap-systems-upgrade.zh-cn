@@ -298,11 +298,11 @@ f-a   2b       fc             target       cna           -             online
 +
 `halt`
 
-. 【第 14 步】启动节点进入启动菜单：
+. [[STEP14]]将节点启动至启动菜单：
 +
 `boot_ontap 菜单`
 
 +
-如果要升级到A800，请转至link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["将节点2磁盘重新分配给节点4、步骤9"]。
+如果要升级到AFF A800系统，请转至link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["将节点2磁盘重新分配给节点4、步骤9"]。
 
 
