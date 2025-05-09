@@ -101,5 +101,36 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 对于交换机连接的集群、请检查AFF A30、AFF A50、AFF A70、AFF A90、AFF C30、AFF C60或AFF C80 (替代)节点是否满足以下要求：
 
 * 替代节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。
-* 替代节点使用共享的集群HA以太网端口。验证是否已使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机。
+* 替代节点使用共享的集群HA以太网端口。
+* 验证是否已使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机：
++
+.. 删除交换机上的现有配置：
++
+[cols="30,70"]
+|===
+| 交换机型号 | 转至 ... 
+
+
+| Cisco Nexus | 知识库文章link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["如何在保持远程连接的同时清除Cisco互连交换机上的配置"^] 
+
+
+| Broadcom BES-53248 | 知识库文章link:https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["如何在保持远程连接的同时清除Broadcom互连交换机上的配置"^] 
+|===
+.. 配置并验证交换机设置：
++
+[cols="30,70"]
+|===
+| 交换机型号 | 转至 ... 
+
+
+| Cisco Nexus 9336C-x2 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html["升级参考配置文件(RCF)"^] 
+
+
+| Broadcom BES-53248 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/upgrade-rcf.html["升级参考配置文件(RCF)"^] 
+
+
+| NVIDIA SN2100 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html["安装或升级参考配置文件(Reference Configuration File、RCF)脚本"^] 
+|===
+
+
 

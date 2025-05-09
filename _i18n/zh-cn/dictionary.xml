@@ -4216,7 +4216,6 @@
   <block id="95144cfdd742178c38add09e40185465" category="paragraph">要了解是否可以使用聚合重新定位(ARL)、保留旧系统机箱和磁盘、取决于系统升级配置和ONTAP版本。</block>
   <block id="af8278e543c162c1ee0f858b0715d01e" category="paragraph">某些系统配置支持控制器升级。要查看支持的系统列表和最低ONTAP版本、请参见 <block ref="8294b96e46ba28730c909aaac28da089" category="inline-link-macro-rx"></block>。</block>
   <block id="5b29cd0b8848fbfc7c43edd22b16cf04" category="section-title">交换机连接的集群</block>
-  <block id="4f071a09d7910b1c963c0cf11fa85985" category="paragraph">如果您要升级连接到集群交换机的集群中的节点、则必须验证升级后交换机上运行的制造商、型号、固件版本、RCIF和ONTAP版本是否与替代控制器上运行的版本相同。如果需要、您必须先执行交换机升级、然后再使用本文档中所述的ARL操作步骤升级控制器。</block>
   <block id="38622c9aae2baa5dfb1bdeeb2c31c5a3" category="summary">验证在使用ARL升级同一机箱中的控制器型号时、node1上node2的NAS数据LIFs是否已从node1重新定位到node2。</block>
   <block id="25c0a64ebb3d4dec1d638d209b3b73a2" category="paragraph">执行这些检查后、系统会将非根聚合和NAS数据RIFs重新定位回node2、而node2现在正在替代控制器上运行。</block>
   <block id="038a1f98f287c3e58631ad2264c784b5" category="summary">在对同一机箱中的控制器型号进行ARL升级期间、在node2上安装替代系统模块。</block>
@@ -5106,7 +5105,6 @@
   <block id="cdce5e983821273e4c7e3414b8097d4e" category="cell">3a、3b</block>
   <block id="a789c48b3b7fe1b603ce142ae362e5ae" category="paragraph">对于交换机连接的集群、请检查AFF A30、AFF A50、AFF A70、AFF A90、AFF C30、AFF C60或AFF C80 (替代)节点是否满足以下要求：</block>
   <block id="403ccec6840b96b7b18ce39b52e40ae4" category="list-text">替代节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。</block>
-  <block id="b5bcf41de93d90fbeb1ad872fa73f5f9" category="list-text">替代节点使用共享的集群HA以太网端口。验证是否已使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机。</block>
   <block id="1cc3f304d5e589c069f5fc5ecdc865d1" category="section-title">支持ARL升级</block>
   <block id="26c0488d57efd7721cdf50179d2776e0" category="list-text">中列出了控制器升级<block ref="8badcb7c18eeb5ec98f79dc01581f13d" category="inline-link-macro-rx"></block>。</block>
   <block id="4e793111a4193c7c02d75b240754c4f7" category="list-text">您已向NetApp销售代表确认收到升级控制器所需的硬件：</block>
@@ -5353,4 +5351,27 @@
   <block id="c8adb5c5421d34e18d5b9558706c9208" category="list-text">[[reassign-node1-node3-app-步骤1]]转到启动菜单，使用22/7选择隐藏选项。<block ref="b4ab52f7185d092e3aa56aaa9905e7e1" prefix=" " category="inline-code"></block>在提示符处，输入 node1 以将 node1 的磁盘重新分配给 node3 ，如以下示例所示。</block>
   <block id="4ac432efd1d6ca8f4e73f5783d4f90e6" category="paragraph">如果要升级到AFF A800系统，请转至<block ref="4f039e99f80cf2a7b8236bb5590e739b" category="inline-link-macro-rx"></block>。</block>
   <block id="8f9ee542e52933f0e31b07c6ca5316b2" category="list-text">[[STEP14]]通过运行将节点启动至启动菜单<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>。如果要升级到AFF A800系统，请转至<block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>。</block>
+  <block id="007afae70e6899ccd5a02bd1b8e30413" category="list-text">替代节点使用共享的集群HA以太网端口。</block>
+  <block id="96a4f5b30dbe8d55de9aa12c4b2e6602" category="list-text">验证是否已使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机：</block>
+  <block id="1ef8dca5df94c49347909211a3845f3f" category="list-text">删除交换机上的现有配置：</block>
+  <block id="ec959032169391b64e7918c7b1c9a04b" category="cell">交换机型号</block>
+  <block id="ec434af0a2786fa23b468584c5622fe1" category="cell">转至 ...</block>
+  <block id="48def1be7a1b40b720ff1892a761e8c8" category="cell">Cisco Nexus</block>
+  <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link-macro">如何在保持远程连接的同时清除Cisco互连交换机上的配置</block>
+  <block id="f79602808677d4d116b317e4c44a8ee5" category="cell">知识库文章<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block></block>
+  <block id="4dd13a124f96d89e0fd6c36f6d82e131" category="cell">Broadcom BES-53248</block>
+  <block id="3a6a9877fc8c73a9267914b786517ca9" category="inline-link-macro">如何在保持远程连接的同时清除Broadcom互连交换机上的配置</block>
+  <block id="363e3bb9e22f2f2472a215233919dbf7" category="cell">知识库文章<block ref="4eb512d9e9a489effcea6ab616ebb791" category="inline-link-macro-rx"></block></block>
+  <block id="b0a38d8703521c30e6e97aed4cde98e8" category="list-text">配置并验证交换机设置：</block>
+  <block id="5aec304982416461faa5bf9b3a0b2cf3" category="cell">Cisco Nexus 9336C-x2</block>
+  <block id="b0411eb90c7d5ca211940fcb5d8f219a" category="inline-link-macro">升级参考配置文件(RCF)</block>
+  <block id="0b62f732d6ce50a66f369a7af44d4f34" category="cell"><block ref="0b62f732d6ce50a66f369a7af44d4f34" category="inline-link-macro-rx"></block></block>
+  <block id="f14d39745f2925af01d4497aa53d6677" category="inline-link-macro">升级参考配置文件(RCF)</block>
+  <block id="1223d69b197fdd4739792e2757e36426" category="cell"><block ref="1223d69b197fdd4739792e2757e36426" category="inline-link-macro-rx"></block></block>
+  <block id="94f92369bb57ec3cd50af356ac87615d" category="cell">NVIDIA SN2100</block>
+  <block id="ec65012ad6ac37ed9d5b425acfa4cdea" category="inline-link-macro">安装或升级参考配置文件(Reference Configuration File、RCF)脚本</block>
+  <block id="c18748e2481d76fb9941a180443193c9" category="cell"><block ref="c18748e2481d76fb9941a180443193c9" category="inline-link-macro-rx"></block></block>
+  <block id="4cd0d55ba9459c2dab2de91b9c03814c" category="paragraph">如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为有交换机集群。</block>
+  <block id="8582dce1fa70b49f5e69ba957a35fc82" category="paragraph">如果您要升级连接到集群交换机的集群中的节点、则必须验证升级后交换机上运行的制造商、型号、固件版本、RCIF和ONTAP版本是否与替代控制器上运行的版本相同。如果需要、您必须先执行交换机升级、然后再使用ARL升级控制器。</block>
+  <block id="c508e07c7b7e3a7f9abffdab705049ba" category="paragraph">有关详细信息，请参见 <block ref="896b35cb78c99b0406f2809b80c7854f" category="inline-link-macro-rx"></block>。</block>
 </blocks>
