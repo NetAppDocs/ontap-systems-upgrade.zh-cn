@@ -5223,8 +5223,6 @@
   <block id="3ce524daf7c7a462720f07ffe80b1e82" category="list-text">在您启动控制器升级过程并升级第一个节点后、无法取消或退出此过程。</block>
   <block id="ce8932055faee80499a682eed0006014" category="list-text">您运行的是9.15.1 9.151或更高版本。</block>
   <block id="6c95aebccb5899bde2beeb8d5d4de872" category="list-text">您不希望将新控制器作为新HA对添加到集群中、也不希望使用卷移动过程迁移数据。</block>
-  <block id="7f05849af35fe562fdc67050fdcd14e0" category="list-text">如果您要升级到具有内部驱动器的AFF A20、AFF A70或AFF A90、则必须在升级之前删除这些内部驱动器的所有权。完成升级后、您可以将内部驱动器分配给AFF A20、AFF A70或AFF A90节点、并使用它们创建数据聚合。您不必将根聚合或数据聚合迁移到内部驱动器。</block>
-  <block id="2ee4c5e5378d113fa5c2a1b5e73082ed" category="list-text">如果要升级到不带内部驱动器的AFF A20、AFF A70或AFF A90、则在完成升级后无需分配内部驱动器。</block>
   <block id="ea168cafe9d6c1f639359b30e7152b3d" category="list-text">您正在升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。</block>
   <block id="3f0336dfa0e5a25ff8e8c549a2b18cef" category="list-text">您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到_ MetroCluster升级和扩展文档_。</block>
   <block id="ebf1d57729bed03eb5fd256caca2fe3f" category="sidebar">更换AFF A800或AFF C800</block>
@@ -5373,5 +5371,7 @@
   <block id="c18748e2481d76fb9941a180443193c9" category="cell"><block ref="c18748e2481d76fb9941a180443193c9" category="inline-link-macro-rx"></block></block>
   <block id="4cd0d55ba9459c2dab2de91b9c03814c" category="paragraph">如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为有交换机集群。</block>
   <block id="8582dce1fa70b49f5e69ba957a35fc82" category="paragraph">如果您要升级连接到集群交换机的集群中的节点、则必须验证升级后交换机上运行的制造商、型号、固件版本、RCIF和ONTAP版本是否与替代控制器上运行的版本相同。如果需要、您必须先执行交换机升级、然后再使用ARL升级控制器。</block>
-  <block id="c508e07c7b7e3a7f9abffdab705049ba" category="paragraph">有关详细信息，请参见 <block ref="896b35cb78c99b0406f2809b80c7854f" category="inline-link-macro-rx"></block>。</block>
+  <block id="2f89251c5a06d3bb8bdca830855eca15" category="paragraph">有关详细信息，请参见 <block ref="e5c6d05601e4c63290544337ac7eb325" category="inline-link-macro-rx"></block>。</block>
+  <block id="8bb38dc1d7700b6a074ec367f4dc7c3c" category="list-text">如果要升级到具有内部驱动器的AFF A20、AFF A50、AFF A70或AFF A90、则必须在升级之前删除这些内部驱动器的所有权。完成升级后、您可以将内部驱动器分配给AFF A20、AFF A50、AFF A70或AFF A90节点、并使用它们创建数据聚合。您不必将根聚合或数据聚合迁移到内部驱动器。</block>
+  <block id="04c6529852defdb9c41c0abd42af4189" category="list-text">如果要升级到不带内部驱动器的AFF A20、AFF A50、AFF A70或AFF A90、则在完成升级后无需分配内部驱动器。</block>
 </blocks>

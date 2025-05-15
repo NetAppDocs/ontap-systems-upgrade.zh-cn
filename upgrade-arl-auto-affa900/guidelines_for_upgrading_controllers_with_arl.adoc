@@ -38,7 +38,7 @@ summary: 了解是否可以在升级配置中使用ARL来保留旧系统机箱�
 
 如果您要升级连接到集群交换机的集群中的节点、则必须验证升级后交换机上运行的制造商、型号、固件版本、RCIF和ONTAP版本是否与替代控制器上运行的版本相同。如果需要、您必须先执行交换机升级、然后再使用ARL升级控制器。
 
-有关详细信息，请参见 link:upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["连接到交换机连接的集群"]。
+有关详细信息，请参见 link:cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["连接到交换机连接的集群"]。
 
 
 
