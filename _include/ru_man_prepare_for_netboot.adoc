@@ -41,6 +41,6 @@ NOTE: 如果要在 Windows 上提取内容，请使用 7-Zip 或 WinRAR 提取�
 | 所有其他系统 | 您的目录列表应包含以下文件： `<ontap_version>_image.tgz`注意：您不需要提取的内容 `<ontap_version>_image.tgz` 文件 
 |===
 +
-您将使用中目录中的信息 link:stage_3_index.html["第 3 阶段"]。
+您将使用目录中的信息link:install_boot_node3.html["第 3 阶段"] 。
 
 

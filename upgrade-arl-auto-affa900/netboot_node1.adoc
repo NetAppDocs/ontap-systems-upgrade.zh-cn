@@ -16,7 +16,7 @@ summary: 如果使用ARL升级同一机箱中的控制器型号、则必须在�
 [role="lead"]
 在交换相应的更换系统模块后、您必须使用netboot node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您需要将ONTAP 9启动映像的副本添加到系统可以访问的Web服务器上。
 
-除非更换用的控制器模块安装在机箱中并已打开电源、否则无法检查其启动介质上安装的ONTAP版本。替代系统启动介质上的ONTAP版本必须与要升级的旧系统上运行的ONTAP版本相同、并且启动介质上的主启动映像和备份启动映像必须匹配。要验证升级支持的最低ONTAP版本，请参见 link:index.html["概述"]。
+除非将替换控制器模块安装在机箱中并打开电源，否则无法检查其启动介质上安装的 ONTAP 版本。替代系统启动介质上的ONTAP版本必须与要升级的旧系统上运行的ONTAP版本相同、并且启动介质上的主启动映像和备份启动映像必须匹配。要验证升级所需的最低 ONTAP 版本，请参阅link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems,["支持的系统升级组合"] 。
 
 您可以通过依次执行网络启动和来配置映像 `wipeconfig` 命令。如果此控制器模块之前在另一个集群中使用过、则为 `wipeconfig` 命令将清除启动介质上的任何残留配置。
 
@@ -147,8 +147,27 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 
 
-. 在提示符处，运行 `wipeconfig` 命令以清除启动介质上先前的任何配置：
+. 清除启动媒体上的所有先前配置。
 +
+.. 在以下提示符下，运行 `wipeconfig`命令，然后按回车键：
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? wipeconfig
+----
 .. 当您看到以下消息时，问题解答 `yes` ：
 +
 [listing]
@@ -158,6 +177,10 @@ Warning: do not run this option on a HA node that has been taken over.
 Are you sure you want to continue?:
 ----
 .. 节点将重新启动以完成 `wipeconfig` ，然后停留在启动菜单处。
++
+
+NOTE: 等待节点完成启动菜单后停止 `wipeconfig`手术。
+
 
 
 . 从启动菜单中选择选项 `5` 以转到维护模式。问题解答 `yes` 显示提示符，直到节点在维护模式下停止，并且命令提示符为 ` *` 。

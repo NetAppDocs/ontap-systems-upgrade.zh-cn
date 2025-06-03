@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
 summary: 要通过移动卷完成操作步骤升级，您需要配置服务处理器 \ （ SP\ ），安装新许可证并设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 NCA 端口。 
 ---
-= 完成升级
+= 完成移动卷升级
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -38,7 +38,7 @@ summary: 要通过移动卷完成操作步骤升级，您需要配置服务处�
 ** "`还原外部密钥管理加密密钥` "
 
 
-. 如果新节点具有 FC 端口（板载或 FC 适配器上的），板载 CNA 端口或 CNA 卡，请配置 FC 或 CNA 端口，然后在存储系统提示符处输入以下命令：
+. 如果新节点具有 FC 端口（板载或 FC 适配器上）、板载 CNA 端口或 CNA 卡，请通过在存储系统提示符下输入以下命令来配置 FC 或 CNA 端口：
 +
 `ssystem node hardware unified-connect modify -node node-name -adapter adapter-name -mode ｛ fc_CNA ｝ -type ｛ target_initiator ｝`
 

@@ -41,7 +41,7 @@ image:arl_upgrade_manual_image1.PNG["图中显示了 ARL 操作步骤的各个�
 | 阶段 | Description 
 
 
-| link:stage_1_index.html["第 1 阶段：准备升级"]  a| 
+| link:determine_aggregates_on_internal_drives.html["第 1 阶段：准备升级"]  a| 
 在第1阶段、如果需要、您可以确认内部磁盘驱动器不包含根聚合或数据聚合、为节点做好升级准备、并运行一系列预检。如果需要、您可以为磁盘重新设置存储加密密钥、并准备通过网络启动新控制器。
 
 阶段 1 结束时的聚合所有权：
@@ -52,7 +52,7 @@ image:arl_upgrade_manual_image1.PNG["图中显示了 ARL 操作步骤的各个�
 
 
 
-| link:stage_2_index.html["第 2 阶段：停用 node1"]  a| 
+| link:relocate_non_root_aggr_node1_node2.html["第 2 阶段：停用 node1"]  a| 
 在第2阶段、您可以将非根聚合从node1重新定位到node2、并将node1拥有的非SAN数据LIF移动到node2、包括发生故障或被否决的聚合。您需要记录必要的node1信息以供日后在操作步骤 中使用、然后停用node1。
 
 阶段 2 结束时的聚合所有权：
@@ -64,7 +64,7 @@ image:arl_upgrade_manual_image1.PNG["图中显示了 ARL 操作步骤的各个�
 
 
 
-| link:stage_3_index.html["第 3 阶段：安装并启动节点 3."]  a| 
+| link:install_boot_node3.html["第 3 阶段：安装并启动节点 3."]  a| 
 在第 3 阶段，您将安装并启动 node3 ，将集群和节点管理端口从 node1 映射到 node3 ，验证 node3 安装，并将属于 node1 的数据 LIF 和 SAN LIF 从 node2 移动到 node3 。您还可以将所有聚合从node2重新定位到node3、并将node2拥有的数据LIF和SAN LIF移动到node3。
 
 第 3 阶段结束时的聚合所有权：
@@ -76,14 +76,14 @@ image:arl_upgrade_manual_image1.PNG["图中显示了 ARL 操作步骤的各个�
 
 
 
-| link:stage_4_index.html["第 4 阶段：停用 node2"]  a| 
+| link:record_node2_information.html["第 4 阶段：停用 node2"]  a| 
 在第4阶段、您需要记录必要的node2信息、以便稍后在操作步骤 中使用、然后停用node2。
 
 聚合所有权不会发生任何更改。
 
 
 
-| link:stage_5_index.html["第 5 阶段：安装并启动节点 4"]  a| 
+| link:install_boot_node4.html["第 5 阶段：安装并启动节点 4"]  a| 
 在第5阶段、您将安装并启动node4、将集群和节点管理端口从node2映射到node4、验证node4安装、并将属于node2的数据LIF和SAN LIF从node3移动到node4。您还可以将node2聚合从node3重新定位到node4、并将数据node2 NAS LIF从node3移动到node4。
 
 第 5 阶段结束时的聚合所有权：
@@ -94,7 +94,7 @@ image:arl_upgrade_manual_image1.PNG["图中显示了 ARL 操作步骤的各个�
 
 
 
-| link:stage_6_index.html["第 6 阶段：完成升级"]  a| 
+| link:manage_authentication_kmip.html["第 6 阶段：完成升级"]  a| 
 在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则还需要设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。
 
 

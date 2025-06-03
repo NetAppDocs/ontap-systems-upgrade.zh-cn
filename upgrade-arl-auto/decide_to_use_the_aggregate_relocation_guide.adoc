@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto/decide_to_use_the_aggregate_relocation_guide.html
 keywords: aggregate relocation, decide to use, upgrade, model, matrix, replacement, controller 
 summary: '使用 `ssystem controller replace` 命令确定是否使用 ARL 将运行 ONTAP 9.5 的控制器升级到 9.7 。' 
 ---
-= 确定是否使用聚合重新定位操作步骤
+= 决定是否使用此聚合迁移程序
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,20 +14,32 @@ summary: '使用 `ssystem controller replace` 命令确定是否使用 ARL 将�
 
 
 [role="lead"]
-此内容介绍如何使用新控制器升级 HA 对中的存储控制器，同时保留所有现有数据和磁盘。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
+升级控制器硬件有多种聚合重定位 (ARL) 方法。此过程介绍如何在运行 ONTAP 9.7、9.6 或 9.5 的系统上使用“系统控制器替换命令”通过 ARL 升级控制器硬件。只有经验丰富的 ONTAP 管理员才应使用此复杂过程。
 
-在以下情况下使用此内容：
+为了帮助您确定此 ARL 程序是否适合您的控制器硬件升级，您应该检查以下所有情况以了解支持的升级：
 
 * 您正在升级运行 ONTAP 9.5 ， 9.6 或 9.7 的 NetApp 控制器。本文档不适用于升级到 ONTAP 9.8 的情况。
-* 您不希望将新控制器作为新的 HA 对添加到集群中，并使用卷移动来迁移数据。
+* 您不希望将新控制器作为新的HA对添加到集群中、也不希望通过卷移动来迁移数据。
 * 您拥有管理 ONTAP 的经验，并对在诊断权限模式下工作的风险感到满意。
+* 您的硬件升级组合列在<<sys_commands_95_97_supported_systems,支持模型矩阵>> 。
 * 如果要升级 MetroCluster 配置，则此配置为 4 节点或更高版本的 FC 配置，并且所有节点均运行 ONTAP 9.6 或 9.7 。
 
 
+[NOTE]
+====
+* 如果您通过在同一机箱中交换控制器模块（例如 AFF A800 或 AFF C800）来升级系统，NetApp 强烈建议使用升级程序link:../upgrade-arl-auto-affa900/index.html["使用 ARL 升级控制器模型，保留现有的系统机箱和磁盘"] 。此 ARL 过程包括在升级过程中移除和安装控制器时确保内部磁盘在机箱中保持安全的步骤。
++
+link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["了解使用 ARL 支持的系统升级组合，保留现有系统机箱和磁盘"](英文)
 
-NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
+* 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
-[[sys_commands_95_97_supported _systems]] 下表显示了控制器升级支持的型号列表。
+
+====
+
+
+== 支持的系统升级组合
+
+下表显示了使用此 ARL 程序进行控制器升级所支持的型号矩阵。
 
 [cols="50,50"]
 |===
@@ -63,7 +75,13 @@ NOTE: 如果上表不包含您的控制器升级型号组合，请联系技术�
 * 使用临时集群端口完成控制器升级后，您可以无中断地将集群 LIF 迁移到 AFF A400 系统上的 E3a 和 e3b 100GbE 端口以及 FAS8300 系统上的 e0c 和 e0d 100GbE 端口。
 
 
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+
+
+== 选择不同的硬件升级程序
+
+* link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)
+* 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+
 
 .相关信息
-请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。
+参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。

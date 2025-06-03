@@ -57,8 +57,16 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 
 
 
+== MetroCluster FC 配置
+
+在MetroCluster FC配置中、您必须尽快更换灾难恢复/故障转移站点节点。不支持 MetroCluster 中的控制器型号不匹配，因为控制器型号不匹配会使发生原因灾难恢复镜像脱机。在更换第二个站点上的节点时、使用 `-skip-metrocluster-check true` 命令绕过MetroCluster检查。
+
+
+
 == 故障排除
 
-如果在升级控制器时出现任何问题，请参见 link:troubleshoot_index.html["故障排除"] 部分，请参见操作步骤末尾的详细信息和可能的解决方案。
+升级节点对时可能会遇到故障。节点可能会崩溃，聚合可能无法重新定位或 LIF 可能无法迁移。故障的发生原因及其解决方案取决于升级操作步骤期间发生故障的时间。
+
+如果出现任何问题，请参阅link:aggregate_relocation_failures.html["故障排除"]请参阅本过程末尾的部分，了解更多信息和可能的解决方案。有关可能发生的故障的信息按过程的阶段列出在link:overview_of_the_arl_upgrade.html["ARL 升级序列"] 。
 
 如果您未找到与遇到的问题相关的解决方案 ，请联系技术支持。

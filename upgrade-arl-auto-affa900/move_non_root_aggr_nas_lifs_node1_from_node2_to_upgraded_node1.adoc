@@ -63,7 +63,7 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 | AFF A800 | AFF A70、AFF A90 
 
 
-| AFF C800 | C80 
+| AFF C800 | AFF C80 
 |===
 +
 对于所有其他系统升级，请继续执行<<resume_relocation_step4,第 4 步>>。

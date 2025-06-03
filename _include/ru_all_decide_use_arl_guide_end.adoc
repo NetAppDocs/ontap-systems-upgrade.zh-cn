@@ -1,0 +1,14 @@
+= 选择不同的硬件升级程序
+:allow-uri-read: 
+
+
+
+
+== 选择不同的硬件升级程序
+
+* link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)
+* 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+
+
+.相关信息
+参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。

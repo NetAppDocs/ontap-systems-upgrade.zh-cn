@@ -79,6 +79,9 @@ The controller module moves slightly out of the chassis.
 
 在node1中安装替代模块并进行布线和连接。
 
+.开始之前
+确认节点 1 上的插槽 1 中已安装 X60132A 4 端口 10/25 GbE 卡。升级期间，双节点无交换机集群配置中的集群互连需要 X60132A 卡。
+
 .步骤
 . Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
 +

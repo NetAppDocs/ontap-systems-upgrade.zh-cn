@@ -2,9 +2,9 @@
 permalink: upgrade/upgrade-complete.html 
 sidebar: sidebar 
 keywords: complete, upgrade, ontap, complete the upgrade 
-summary: 在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级。 
+summary: 在 ONTAP 9.8 或更高版本，或者 ONTAP 9.7 或更早版本中完成移动存储升级。 
 ---
-= 概述
+= 完成移动存储升级工作流程
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,6 +17,6 @@ summary: 在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级�
 
 image:workflow_completing_upgrade_98_or_97x.png["完成升级"]
 
-* link:upgrade-complete-ontap-9-8.html["在ONTAP 9.8或更高版本中完成升级"]
-* link:upgrade-complete-ontap-9-7-or-earlier.html["在 ONTAP 9.7 或更早版本中完成升级"]
+* link:upgrade-map-network-ports-ontap-9-8.html["在ONTAP 9.8或更高版本中完成升级"]
+* link:upgrade-map-network-ports-ontap-9-7-or-earlier.html["在 ONTAP 9.7 或更早版本中完成升级"]
 

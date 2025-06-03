@@ -2,9 +2,16 @@
 :allow-uri-read: 
 
 
+[NOTE]
+====
+* 如果您通过在同一机箱中交换控制器模块（例如 AFF A800 或 AFF C800）来升级系统，NetApp 强烈建议使用升级程序link:../upgrade-arl-auto-affa900/index.html["使用 ARL 升级控制器模型，保留现有的系统机箱和磁盘"] 。此 ARL 过程包括在升级过程中移除和安装控制器时确保内部磁盘在机箱中保持安全的步骤。
++
+link:../upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["了解使用 ARL 支持的系统升级组合，保留现有系统机箱和磁盘"](英文)
 
-NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
+* 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
+
+====
 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
 请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。

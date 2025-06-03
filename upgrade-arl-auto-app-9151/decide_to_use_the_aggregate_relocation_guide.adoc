@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-app-9151/decide_to_use_the_aggregate_relocation_guid
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
 summary: '使用命令确定是否使用ARL升级运行ONTAP 9.151或更高版本的控制器 `system controller replace` 。' 
 ---
-= 确定是否使用聚合重新定位操作步骤
+= 决定是否使用此聚合迁移程序
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,23 +14,60 @@ summary: '使用命令确定是否使用ARL升级运行ONTAP 9.151或更高版�
 
 
 [role="lead"]
-此过程介绍如何在保留现有数据和磁盘的同时、使用新控制器升级HA对中的存储控制器。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
+升级控制器硬件有多种聚合重定位 (ARL) 方法。此 ARL 过程介绍如何在保留现有数据和磁盘的情况下，将 ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 存储系统中的 HA 控制器对升级到新控制器。此过程比较复杂，仅应由经验丰富的 ONTAP 管理员使用。
+
+为了帮助您确定此 ARL 程序是否适合您的控制器硬件升级，您应该检查以下所有支持和不支持升级的情况。
 
 
 
-== 支持 ARL 升级
+== 此 ARL 程序支持的升级
 
-在以下情况下、您可以升级一对节点：
+在以下情况下，您可以使用此 ARL 过程升级一对节点：
 
 * 您运行的是9.15.1 9.151或更高版本。
 * 您不希望将新控制器作为新HA对添加到集群中、也不希望使用卷移动过程迁移数据。
 * 您在管理ONTAP方面经验丰富、并且可以承受在诊断权限模式下工作的风险。
+* 您的硬件升级组合列在<<sys_commands_9151_supported_systems,支持模型矩阵>> 。
 
 
 
 NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加密(NVE)和NetApp聚合加密(NAE)。
 
-[[sys_commands_9151_supported_systems]]下表显示了控制器升级支持的型号表。
+
+
+== 此 ARL 程序不支持升级
+
+在以下情况下，您不能使用此 ARL 过程来升级一对节点：
+
+* 您正在执行以下升级之一：
++
+|===
+| 现有控制器 | 更换控制器 
+
+
+| AFF A250 | AFF A50、AFF A30 
+
+
+| AFF A800 | AFF A70、AFF A90 
+
+
+| AFF C250 | AFF C30、AFF C60 
+
+
+| AFF C800 | AFF C80 
+|===
++
+要执行上表中列出的升级、请参见link:other_references.html["参考资料"]以链接到_use "system controller Replace "命令升级同一机箱中的控制器型号_。
+
+* 您正在升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。
+* 您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 link:other_references.html["参考资料"] 以链接到_ MetroCluster升级和扩展文档_。
+
+
+
+
+== 支持的系统升级组合
+
+下表显示了 ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 系统使用 ARL 支持的控制器升级组合。如果您的控制器升级组合未列出，请联系技术支持。
 
 |===
 | 现有控制器 | 更换控制器 | 从ONTAP开始支持... 
@@ -67,39 +104,13 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 * 如果要升级到不带内部驱动器的AFF A20、AFF A50、AFF A70或AFF A90、则在完成升级后无需分配内部驱动器。
 
 
-如果上表不包含您的控制器升级型号组合，请联系技术支持。
 
 
+== 选择不同的硬件升级程序
 
-== ARL 不支持升级
+* link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)
+* 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
-在以下情况下、您不能使用ARL执行升级：
-
-* 您正在执行以下升级之一：
-+
-|===
-| 现有控制器 | 更换控制器 
-
-
-| AFF A250 | AFF A50、AFF A30 
-
-
-| AFF A800 | AFF A70、AFF A90 
-
-
-| AFF C250 | AFF C30、AFF C60 
-
-
-| AFF C800 | AFF C80 
-|===
-+
-要执行上表中列出的升级、请参见link:other_references.html["参考资料"]以链接到_use "system controller Replace "命令升级同一机箱中的控制器型号_。
-
-* 您正在升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。
-* 您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 link:other_references.html["参考资料"] 以链接到_ MetroCluster升级和扩展文档_。
-
-
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
 .相关信息
-请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。
+参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。

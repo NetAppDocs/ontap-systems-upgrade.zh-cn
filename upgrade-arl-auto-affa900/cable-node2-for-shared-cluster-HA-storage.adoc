@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-affa900/cable-node1-for-shared-cluster-HA-storage.html 
+permalink: upgrade-arl-auto-affa900/cable-node2-for-shared-cluster-HA-storage.html 
 keywords: cluster, ha, aff, a800, shared, storage, data, management 
-summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接连接连接到新安装的AFF A90或AFF A70节点1 
+summary: 将之前连接到 AFF A800 节点 2 的集群、HA、存储和数据连接连接到新安装的 AFF A90 或 AFF A70 节点 1 
 ---
-= 为共享集群HA和存储连接node1
+= 为共享集群HA和存储连接node2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 
 
 [role="lead"]
-如果要执行以下升级之一、则必须将先前连接到现有系统上的node1的集群、HA、存储、数据和管理连接连接连接连接到替代系统上新安装的node1。
+如果您正在执行以下升级之一，则需要将先前连接到现有系统上的 node2 的集群、HA、存储、数据和管理连接连接到替换系统上新安装的 node2。
 
 [cols="35,65"]
 |===
@@ -80,7 +80,7 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 | NS224磁盘架的以太网存储端口 | 任何可用端口 | 请参见以太网存储连接映射 | 请参见以太网存储连接映射 
 |===
 |===
-| 端口 | AFF A250、AFF C250 | AFF A30、AFF C30、AFF C60 | AFF A50 
+| 端口类型 | AFF A250、AFF C250 | AFF A30、AFF C60 | AFF A50 
 
 
 | 集群 | e0c | e1a（使用 e1a 进行临时集群互连） | e1a（使用 e1a 进行临时集群互连） 
@@ -89,7 +89,10 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 | 集群 | e0d | e1b（使用 e1b 进行临时集群互连） | e1b（使用 e1b 进行临时集群互连） 
 
 
-| HA | 不需要 | node1 升级不需要 HA 端口 | node1 升级不需要 HA 端口 
+| HA | e0c HA 端口与 Cluster 端口共享 | 节点 1 上的 e4a 使用 100 GbE 电缆直接连接到节点 2 上的 e4a | 节点 1 上的 e4a 使用 100 GbE 电缆直接连接到节点 2 上的 e4a 
+
+
+| HA | e0d HA 端口与 Cluster 端口共享 | 节点 1 上的 e2a 使用 100 GbE 电缆直接连接到节点 2 上的 e2a 如果 e2a 不存在或不支持 100 GbE，则使用 100 GbE 电缆直接将节点 1 上的 e4b 连接到节点 2 上的 e4b。 | 节点 1 上的 e2a 使用 100 GbE 电缆直接连接到节点 2 上的 e2a 如果 e2a 不存在或不支持 100 GbE，则使用 100 GbE 电缆直接将节点 1 上的 e4b 连接到节点 2 上的 e4b。 
 
 
 | 以太网存储端口 | 任何可用端口 | e3a、e3b | e3a、e3b 

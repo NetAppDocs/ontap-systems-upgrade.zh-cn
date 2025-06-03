@@ -2,11 +2,11 @@
 section: upgrade-arl-auto-app
 title: 使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件
 entries:
-- title: 概述
+- title: 了解此 ARL 程序
   url: "/upgrade-arl-auto-app/index.html"
 - title: 自动执行控制器升级过程
   url: "/upgrade-arl-auto-app/automate_the_controller_upgrade_process.html"
-- title: 确定是否使用聚合重新定位内容
+- title: 决定是否使用此 ARL 程序
   url: "/upgrade-arl-auto-app/decide_to_use_the_aggregate_relocation_guide.html"
 - title: 所需的工具和文档
   url: "/upgrade-arl-auto-app/required_tools_and_documentation.html"
@@ -18,13 +18,11 @@ entries:
   url: "/upgrade-arl-auto-app/check_for_metrocluster_config_errors.html"
 - title: 验证切换，修复和切回
   url: "/upgrade-arl-auto-app/verify_switchover_healing_switchback.html"
-- title: ARL 升级概述
+- title: 了解 ARL 升级顺序
   url: "/upgrade-arl-auto-app/overview_of_the_arl_upgrade.html"
 - title: 第 1 阶段。准备升级
   pdf-filename: 第 1 阶段。‘s升级(在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:
-  - title: 概述
-    url: "/upgrade-arl-auto-app/stage_1_index.html"
   - title: 准备要升级的节点
     url: "/upgrade-arl-auto-app/prepare_nodes_for_upgrade.html"
   - title: 使用板载密钥管理器管理存储加密
@@ -32,8 +30,6 @@ entries:
 - title: 第 2 阶段。重新定位和停用节点 1
   pdf-filename: 第 2 阶段。重新定位并停用node1 (‘s在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:
-  - title: 概述
-    url: "/upgrade-arl-auto-app/stage_2_index.html"
   - title: 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
     url: "/upgrade-arl-auto-app/relocate_non_root_aggr_nas_data_lifs_node1_node2.html"
   - title: 重新定位失败或被否决的聚合
@@ -45,8 +41,6 @@ entries:
 - title: 第 3 阶段。安装并启动 node3
   pdf-filename: 第 3 阶段。‘s和启动node3 (在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:
-  - title: 概述
-    url: "/upgrade-arl-auto-app/stage_3_index.html"
   - title: 安装并启动 node3
     url: "/upgrade-arl-auto-app/install_boot_node3.html"
   - title: 在 node3 上设置 FC 或 UTA/UTA2 配置
@@ -62,8 +56,6 @@ entries:
 - title: 第 4 阶段。重新定位和停用节点 2
   pdf-filename: 第 4 阶段。重新定位和停用node2 (‘s在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:
-  - title: 概述
-    url: "/upgrade-arl-auto-app/stage_4_index.html"
   - title: 将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3
     url: "/upgrade-arl-auto-app/relocate_non_root_aggr_nas_lifs_from_node2_to_node3.html"
   - title: 停用 node2
@@ -71,8 +63,6 @@ entries:
 - title: 第 5 阶段。安装并启动节点 4.
   pdf-filename: 第 5 阶段。‘s和启动node4 (在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:
-  - title: 概述
-    url: "/upgrade-arl-auto-app/stage_5_index.html"
   - title: 安装并启动节点 4.
     url: "/upgrade-arl-auto-app/install_boot_node4.html"
   - title: 在 node4 上设置 FC 或 UTA/UTA2 配置
@@ -88,8 +78,6 @@ entries:
 - title: 第 6 阶段。完成升级
   pdf-filename: 第 6 阶段。完成‘s(在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:
-  - title: 概述
-    url: "/upgrade-arl-auto-app/stage_6_index.html"
   - title: 使用 KMIP 服务器管理身份验证
     url: "/upgrade-arl-auto-app/manage-authentication-using-kmip-servers.html"
   - title: 确认新控制器设置正确
@@ -105,8 +93,6 @@ entries:
 - title: 故障排除
   pdf-filename: 故障排除(在‘sONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:
-  - title: 概述
-    url: "/upgrade-arl-auto-app/troubleshoot_index.html"
   - title: 聚合重新定位失败
     url: "/upgrade-arl-auto-app/aggregate_relocation_failures.html"
   - title: 重新启动，崩溃或重新启动

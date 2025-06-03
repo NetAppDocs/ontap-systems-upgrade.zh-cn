@@ -29,7 +29,36 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请使用更换�
 +
 `health` 字段的输出应为 `true` 。
 
-. 确认 node2 与 node1 属于同一集群，并且运行状况良好：
+. 此步骤适用于以下升级配置。对于所有其他系统升级，请跳过此步骤并转至<<verify-node2-step3,第 3 步>> ：
++
+** 双节点无交换机集群
+** 将连接的 AFF A250 或 AFF C250 系统升级到 AFF A50、AFF A30、AFF C30 或 AFF C60 系统。
+
+
++
+--
+如果 node2 没有自动加入仲裁：
+
+.. 检查端口 e1a 和 e1b 的 IP 空间：
++
+`network port show`
+
+.. 如果 IP 空间不是“集群”，请在 e1a 和 e1b 上将 IP 空间更改为“集群”：
++
+`network port modify -node <node_name> -port <port> -ipspace Cluster`
+
+.. 验证端口 e1a 和 e1b 的 IP 空间是否为“集群”：
++
+`network port show`
+
+.. 将节点 2 集群 LIF 迁移到 e1a 和 e1b：
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node2_name> -destination-port <port_name`
+
+
+
+--
+. [[verify-node2-step3]]验证 node2 和 node1 是否属于同一个集群，以及该集群是否健康：
 +
 `cluster show`
 
@@ -37,7 +66,46 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请使用更换�
 +
 `set advanced`
 
-. 检查控制器更换操作的状态，并验证其是否处于暂停状态以及在 node2 暂停之前的状态，以便执行安装新控制器和移动缆线的物理任务：
+. 此步骤仅适用于从 AFF A250 或 AFF C250 升级到 AFF A50、AFF A30、AFF C60 或 AFF C30 的双节点无交换机配置升级。对于所有其他系统升级，请跳过此步骤并转至<<verify-node2-step6,第 6 步>> ：
++
+验证 e4a、e2a、e1a、e1b 端口或 e4a、e4b、e1a、e1b 端口是否为“集群”广播域中的集群端口。
+
++
+AFF A50、AFF A30、AFF C30 和 AFF C60 系统共享集群和 HA 端口。您可以安全地将所有集群 LIF 迁移到节点 1 和节点 2 上的 e4a、e4b 或 e4a、e2a：
+
++
+.. 列出所有集群 LIF 的主端口和当前端口：
++
+`network interface show -role Cluster -fields home-port,curr-port`
+
+.. [[migrate-cluster-lif-step-4b]]在节点 1 和节点 2 上，将使用 e1a 作为主端口的集群 LIF 迁移到 e4a：
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node> -destination-port e4a`
+
+.. 在节点 1 和节点 2 上，修改迁移到的集群 LIF <<migrate-cluster-lif-step-4b,子步骤 b>>使用 e4a 作为主端口：
++
+`network  interface modify -vserver Cluster -lif <cluster_lif> -home-port e4a`
+
+.. 验证群集是否符合仲裁：
++
+`cluster show`
+
+.. 重复<<migrate-cluster-lif-step-4b,子步骤 b 和子步骤 c>>将每个节点上的第二个集群 LIF 迁移并修改为 e2a 或 e4b：
++
+如果存在 e2a 且其为 100GbE 网络端口，则这是默认的第二个集群端口。如果 e2a 不是 100GbE 网络端口，则 ONTAP 使用 e4b 作为第二个集群和 HA 端口。
+
+.. 从“集群”广播域中删除 e1a 和 e1b：
++
+`broadcast-domain remove-ports -broadcast-domain Cluster -ipspace Cluster -ports <node_name>:e1a`
+
+.. 验证只有集群端口 e4a、e2a 或 e4a、e4b 位于“集群”广播域中
++
+`broadcast domain show`
+
+.. 移除 e1a 节点 1 和 e1a 节点 2 以及 e1b 节点 1 和 e1b 节点 2 之间的电缆连接，以确保仅使用有效的集群 HA 连接并且没有冗余连接。
+
+
+. [[verify-node2-step6]]检查控制器更换操作的状态，并验证它处于暂停状态，并且与 node2 暂停执行安装新控制器和移动电缆的物理任务之前的状态相同：
 +
 `ssystem controller replace show`
 

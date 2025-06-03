@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/overview_of_the_arl_upgrade.html
 keywords: overview, arl, upgrade, owner, controller, hardware, old, system, chassis, disk, disks 
 summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。 
 ---
-= ARL 升级概述
+= 了解 ARL 升级顺序
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -37,7 +37,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 | 阶段 | 步骤 
 
 
-| link:stage_1_index.html["第 1 阶段：准备升级"]  a| 
+| link:verify_upgrade_hardware.html["第 1 阶段：准备升级"]  a| 
 在第1阶段、您需要验证是否具有用于升级的正确硬件、并运行预检、如果需要、还需要正确的聚合所有权。如果您要使用板载密钥管理器管理存储加密、并且可以选择将SnapMirror关系静置、则必须记录某些信息。
 
 阶段 1 结束时的聚合所有权：
@@ -48,7 +48,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:stage_2_index.html["第2阶段：重新定位资源并停用node1"]  a| 
+| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["第2阶段：重新定位资源并停用node1"]  a| 
 在第2阶段、您需要将node1非根聚合和NAS数据生命周期从node1重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node1。
 
 阶段 2 结束时的聚合所有权：
@@ -59,7 +59,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:stage_3_index.html["第3阶段：使用替代系统模块启动node1"]  a| 
+| link:cable-node1-for-shared-cluster-HA-storage.html["第3阶段：使用替代系统模块启动node1"]  a| 
 在第3阶段、使用升级的系统模块启动node1、并验证升级后的node1安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node2重新定位到升级后的node1、并验证node1上是否存在SAN LIF。
 
 第 3 阶段结束时的聚合所有权：
@@ -70,7 +70,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:stage_4_index.html["第4阶段：重新定位资源并停用node2"]  a| 
+| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["第4阶段：重新定位资源并停用node2"]  a| 
 在阶段4中、您将非根聚合和NAS数据LIF从node2重新定位到升级后的node1并停用node2。
 
 第 4 阶段结束时的聚合所有权：
@@ -81,7 +81,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:stage_5_index.html["第5阶段：在node2上安装替代系统模块"]  a| 
+| link:install-aff-a30-a50-c30-c50-node2.html["第5阶段：在node2上安装替代系统模块"]  a| 
 在第5阶段、先安装为升级后的node2收到的新系统模块、然后再安装netboot node2。
 
 第 5 阶段结束时的聚合所有权：
@@ -92,12 +92,12 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:stage_6_index.html["第6阶段：使用替代系统模块启动node2"]  a| 
+| link:boot_node2_with_a900_controller_and_nvs.html["第6阶段：使用替代系统模块启动node2"]  a| 
 在第6阶段中、使用升级的系统模块启动node2、并验证升级后的node2安装。如果您使用的是NVE、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node1重新定位到升级后的node2、并验证node2上是否存在SAN LIF。
 
 
 
-| link:stage_7_index.html["第 7 阶段：完成升级"]  a| 
+| link:manage-authentication-using-kmip-servers.html["第 7 阶段：完成升级"]  a| 
 在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。
 
 |===

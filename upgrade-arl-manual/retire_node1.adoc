@@ -89,7 +89,7 @@ WARNING: 如果不禁用存储故障转移、则可能发生控制器升级失�
 `network interface show -role data -curr-node _node2_-home-node _node1_`
 
 +
-查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果有任何 LIF 发生故障，请参见 link:troubleshoot_index.html["故障排除"] 部分。
+查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果任何 LIF 出现故障，请咨询link:aggregate_relocation_failures.html["故障排除"]部分。
 
 . 执行以下操作之一：
 +
@@ -134,7 +134,7 @@ High Availability Configured: false
 ====
 如果您使用的是四节点集群，则 Epsilon 可能位于集群中不同 HA 对中的节点上。
 
-如果要升级具有多个 HA 对的集群中的 HA 对，则必须将 epsilon 移至未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。
+如果要升级具有多个 HA 对的集群中的 HA 对，则必须将 epsilon 移动到未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。
 
 ====
 +

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade 
 summary: 如果要通过移动存储进行升级，请准备原始节点并设置新节点。某些平台型号支持将内部存储传输到新节点。您可以重新分配磁盘并将根卷配置还原到新节点，并配置网络端口。通过移动存储进行升级会造成操作步骤中断。 
 ---
-= 工作流
+= 通过移动存储工作流程进行升级
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

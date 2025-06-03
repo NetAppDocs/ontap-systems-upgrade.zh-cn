@@ -375,7 +375,7 @@ Login:
 
 NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。
 
-. 如果系统进入重新启动循环并显示消息 `no disks found`，则表示磁盘重新分配出现问题。要解决此问题、请参见 link:troubleshoot_index.html["故障排除"] 。
+. 如果系统进入重新启动循环并显示消息 `no disks found`，则表示磁盘重新分配出现问题。要解决此问题、请参见 link:aggregate_relocation_failures.html["故障排除"] 。
 . 在自动启动期间、按 `Ctrl-C` 以在提示符处停止节点 `LOADER>` 。
 . 在加载程序提示符处、进入维护模式：
 +

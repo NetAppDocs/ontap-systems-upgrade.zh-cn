@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: plan, upgrade, consideration, contact, technical, support, recommendation, guidance, cluster, considerations for upgrading controller hardware 
 summary: 要规划升级，您应熟悉一般升级注意事项。如有必要，请联系技术支持，以获取有关集群配置的建议和指导。 
 ---
-= 升级控制器硬件的注意事项
+= 通过移动卷或存储升级控制器硬件的注意事项
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -30,7 +30,7 @@ NOTE: 在开始升级控制器操作步骤之前、您必须查看下表中列�
 | 我是否要在一个集群中组合使用不同型号的控制器平台？  a| 
 link:https://hwu.netapp.com["验证您是否遵循存储平台混用规则"^]。
 
-一个HA对中的控制器必须是两个AFF、FAS或ASA型号。
+HA 对中的控制器必须是两个 AFF、FAS 或 ASA 型号。
 
 
 
@@ -67,7 +67,7 @@ NOTE: 如果要升级为FCP、iSCSI或FCoE等块协议提供服务的八节点�
 
 
 
-| 我是否要在包含多个HA对的集群中升级HA对？ | 将Epsilon移动到未进行控制器升级的HA对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。 
+| 我是否要升级具有多个 HA 对的集群中的 HA 对？ | 将 epsilon 移动到未进行控制器升级的 HA 对的节点。例如，如果要在 HA 对配置 nodeA/nodeB 和 nodeC/noded 的集群中升级 nodeA/nodeB ，则必须将 epsilon 移至 nodeC 或 noded 。 
 
 
 | 我是否正在运行ONTAP 9.6P11、9.7P8或更高版本？ | NetApp建议您启用连接、运行状况和可用性监控(VANM)接管、以便在发生某些节点故障时将集群恢复为仲裁状态。。 `kernel-service` 命令需要高级权限级别访问权限。有关详细信息、请参见NetApp知识库文章 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["已更改管理接管默认配置"^]。

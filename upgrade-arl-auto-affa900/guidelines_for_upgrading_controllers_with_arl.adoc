@@ -20,7 +20,7 @@ summary: 了解是否可以在升级配置中使用ARL来保留旧系统机箱�
 
 == 支持 ARL 升级
 
-某些系统配置支持控制器升级。要查看支持的系统列表和最低ONTAP版本、请参见 link:index.html["概述"]。
+某些系统配置支持控制器升级。请参阅link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems["支持的系统升级组合"]以获取受支持的系统和最低 ONTAP 版本的列表。
 
 如果您已收到完整的全新AFF A30、AFF A150 A50、AFF A900、AFF A90、AFF、AFF A70、AFF C30、AFF C60、AFF C80、FAS2820或FAS9500系统(包括新机箱)、请参阅link:other_references.html["参考资料"]链接以使用"system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_。
 
@@ -44,6 +44,8 @@ summary: 了解是否可以在升级配置中使用ARL来保留旧系统机箱�
 
 == 故障排除
 
-如果在升级控制器时出现任何问题，请参见 link:troubleshoot_index.html["故障排除"] 部分，请参见操作步骤末尾的详细信息和可能的解决方案。
+升级节点对时可能会遇到故障。节点可能会崩溃，聚合可能无法重新定位或 LIF 可能无法迁移。故障的发生原因及其解决方案取决于升级操作步骤期间发生故障的时间。
 
-如果您未找到与遇到的问题相关的解决方案 ，请联系技术支持。
+如果出现任何问题，请参阅link:aggregate_relocation_failures.html["故障排除"]请参阅本过程末尾的部分，了解更多信息和可能的解决方案。有关可能发生的故障的信息按过程的阶段列出在link:overview_of_the_arl_upgrade.html["ARL 升级序列"] 。
+
+如果您没有找到所遇到问题的解决方案，请联系技术支持。

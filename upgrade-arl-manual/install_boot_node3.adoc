@@ -17,15 +17,16 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 您必须在机架中安装 node3 ，将 node1 的连接传输到 node3 ，启动 node3 并安装 ONTAP 。此外，您还必须重新分配 node1 的任何备用磁盘，属于根卷的任何磁盘以及先前未重新定位到 node2 的任何非根聚合。
 
 .关于此任务
-如果 node3 与 node1 上安装的 ONTAP 9 版本不同，则必须对其执行网络启动。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。请参见 link:prepare_for_netboot.html["准备网络启动"]。
+如果 node3 上没有安装与 node1 上相同版本的 ONTAP 9，则必须通过网络启动 node3。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。请参阅。 link:prepare_for_netboot.html["准备网络启动"]
 
-但是，如果 node3 安装的 ONTAP 9 版本与 node1 相同或更高，则不需要对其执行网络启动。
+但是，如果 node3 上安装的 ONTAP 9 与 node1 上安装的 ONTAP 9 相同或更高版本，则无需通过网络启动 node3。
 
 [IMPORTANT]
 ====
-如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则必须完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。
+* 对于 AFF A800 或 AFF C800 控制器升级，在移除节点 1 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参见 link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
+* 如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则必须完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。
+* 如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后转到link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"]和link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"] ，在集群提示符下输入命令。
 
-但是、如果您要升级具有存储磁盘的系统、则必须完成整个部分、然后转到 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"]，在集群提示符处输入命令。
 
 ====
 .步骤

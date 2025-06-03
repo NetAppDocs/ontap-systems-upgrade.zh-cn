@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-affa900/decide_to_use_the_aggregate_relocation_guide
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
 summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型号。 
 ---
-= 确定是否使用聚合重新定位操作步骤
+= 决定是否使用此聚合迁移程序
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,15 +14,17 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 
 
 [role="lead"]
-此内容介绍如何在保留所有现有数据和磁盘的同时升级HA对中的存储控制器。这是一个复杂的操作步骤，只能由经验丰富的管理员使用。
+升级控制器硬件有多种聚合重定位 (ARL) 方法。本内容介绍如何通过将现有系统转换为替换系统（保留现有系统机箱和磁盘）来升级 HA 对中的存储控制器。只有经验丰富的 ONTAP 管理员才应使用此复杂过程。
+
+为了帮助您确定此 ARL 程序是否适合您的控制器硬件升级，您应该检查以下所有支持和不支持升级的情况。
 
 
 
-== 支持ARL升级
+== 支持此 ARL 升级
 
-您可以在以下情况下使用此操作步骤：
+您可以在以下情况下使用此 ARL 程序：
 
-* 中列出了控制器升级link:index.html#supported-systems,["支持的系统列表"]。
+* 您的控制器升级列在<<supported-systems,支持的系统列表>> 。
 * 您已向NetApp销售代表确认收到升级控制器所需的硬件：
 +
 ** 两个AFF A90、AFF A70或AFF C80控制器以及所有I/O模块。所需的100GbE缆线长度。
@@ -31,7 +33,7 @@ summary: 确定是否使用ARL操作步骤升级同一机箱中的控制器型�
 ** ASA A900、AFF A900或FAS9500控制器和NVRAM模块及部件
 
 
-* 您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参见 link:index.html["概述"]。
+* 您正在运行适用于升级的最低ONTAP版本。有关详细信息，请参阅<<supported-systems,支持的系统升级组合>>。
 * 您在管理ONTAP方面经验丰富、并且可以承受在诊断权限模式下工作的风险。
 * 您的系统运行的是9.15.1 9.151或更高版本、并且正在使用以太网交换机连接到以太网连接的存储。
 
@@ -41,9 +43,9 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 
 
-== ARL升级不支持
+== 不支持此 ARL 升级
 
-在以下情况下、您不能使用此操作步骤：
+您不能在以下情况下使用此 ARL 程序：
 
 * 您希望将新控制器作为新的HA对添加到集群中、并通过卷移动来迁移数据。
 * 您正在升级的现有系统上使用FlexArray虚拟化软件。
@@ -53,6 +55,82 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 
 
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
-请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。
+
+== 支持的系统升级组合
+
+下表显示了通过将现有系统转换为替换系统并保留现有系统机箱和磁盘来执行控制器升级所支持的系统矩阵。
+
+
+CAUTION: 此操作步骤严格适用场景以下升级配置。请勿使用此过程在任何其他系统组合之间执行升级。对于所有其他控制器型号、请参阅link:other_references.html["参考资料"]链接以访问_use "system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_以及使用聚合重新定位手动升级运行ONTAP 9.8或更高版本的控制器硬件_。
+
+[cols="20,20,40"]
+|===
+| 现有系统 | 更换系统 | 支持的ONTAP版本 
+
+
+| AFF C250 ^1^ | AFF C30、AFF C60 | 9.16.1 
+
+
+| AFF A250 ^1^ | AFF A30、AFF A50 | 9.16.1 
+
+
+| AFF C800 ^1^ | AFF C80 | 9.16.1 
+
+
+| AFF A800 ^1^ | AFF A90或AFF A70 | 9.15.1及更高版本 
+
+
+| 配置为全SAN阵列(ASA)的AFF A220 | ASA A150 | 9.13.1P1及更高版本 
+
+
+| AFF A220 | AFF A150 | 9.10.1P15、9.11.1P11、9.12.1P5及更高版本 
+
+
+| AFF A200 | AFF A150  a| 
+9.10.1P15、9.11.1P11及更高版本^2^
+
+
+
+| AFF C190 | AFF A150 | 9.10.1P15、9.11.1P11、9.12.1P5及更高版本 
+
+
+| FAS2620 | FAS2820  a| 
+9.11.1P7或更高版本的修补程序版本(FAS2620)^2^
+
+9.13.1及更高版本(FAS2820)
+
+
+
+| FAS2720 | FAS2820 | 9.13.1及更高版本 
+
+
+| 配置为ASA的AFF A700 | ASA A900 | 9.13.1P1及更高版本 
+
+
+| AFF A700 | AFF A900 | 9.10.1P10、9.11.1P6及更高版本 
+
+
+| FAS9000 | FAS9500 | 9.10.1P10、9.11.1P6及更高版本 
+|===
+^1^升级到9.15.1 9.151或更高版本中推出的系统时、ONTAP会转换所有现有精简配置卷(包括未使用存储效率的卷)的存储效率、并应用利用硬件卸载功能的新存储效率功能。这是一个自动后台进程、不会对系统性能造成明显影响。 https://docs.netapp.com/us-en/ontap/concepts/builtin-storage-efficiency-concept.html["了解更多信息。"^](英文)
+
+^2^ AFF A200 和 FAS2620 系统不支持高于 9.11.1 的 ONTAP 版本。
+
+[NOTE]
+====
+如果可能、NetApp强烈建议您在旧系统和替代系统上使用相同的ONTAP版本。
+
+上表中的最低ONTAP版本为必填项。这些ONTAP版本具有支持在升级期间在机箱内混用不同类型控制器所需的服务处理器或底板管理控制器(BMC)固件版本。
+
+====
+
+
+== 选择不同的硬件升级程序
+
+* link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)
+* 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+
+
+.相关信息
+参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。

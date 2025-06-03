@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ndu, nondisruptive, upgrade, AFF, FAS, systems, entry, level 
 summary: 无需购买额外的存储和集群交换机、即可对入门级NetApp AFF 和FAS 系统执行NDU。 
 ---
-= 工作流
+= 通过转换为驱动器架工作流程将 AFF A250 升级到 AFF A400
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

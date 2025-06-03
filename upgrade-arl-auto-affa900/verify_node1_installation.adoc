@@ -31,7 +31,36 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请验证node1与
 +
 `health` 字段的输出应为 `true` 。
 
-. 验证 node1 是否与 node2 属于同一集群，并且其运行状况是否良好：
+. 此步骤适用于以下升级配置。对于所有其他系统升级，请跳过此步骤并转至<<verify-node1-step3,第 3 步>> ：
++
+** 双节点无交换机集群
+** 将连接的 AFF A250 或 AFF C250 系统升级到 AFF A50、AFF A30、AFF C30 或 AFF C60 系统
+
+
++
+--
+如果 node1 没有自动加入仲裁：
+
+.. 检查端口 e1a 和 e1b 的 IP 空间：
++
+`network port show`
+
+.. 如果 IP 空间不是“集群”，请在 e1a 和 e1b 上将 IP 空间更改为“集群”：
++
+`network port modify -node <node_name> -port <port> -ipspace Cluster`
+
+.. 验证端口 e1a 和 e1b 的 IP 空间是否为“集群”：
++
+`network port show`
+
+.. 将节点 1 集群 LIF 迁移到 e1a 和 e1b：
++
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node1_name> -destination-port <port_name>`
+
+
+
+--
+. [[verify-node1-step3]]验证 node1 和 node2 是否属于同一个集群，以及该集群是否健康：
 +
 `cluster show`
 

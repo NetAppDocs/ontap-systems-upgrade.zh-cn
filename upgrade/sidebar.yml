@@ -2,7 +2,7 @@
 section: upgrade
 title: 通过移动卷或存储进行升级
 entries:
-- title: 概述
+- title: 决定通过移动卷或存储进行升级
   url: "/upgrade/upgrade-decide-to-use-this-guide.html"
 - title: 注意事项
   url: "/upgrade/upgrade-considerations.html"
@@ -24,8 +24,6 @@ entries:
     url: "/upgrade/upgrade-set-up-new-nodes.html"
   - title: 可选—移动内部存储或转换为驱动器架
     entries:
-    - title: 概述
-      url: "/upgrade/upgrade-optional-move-internal-storage.html"
     - title: 移动内部驱动器
       url: "/upgrade/upgrade-move-internal-drives.html"
     - title: 将节点转换为驱动器架
@@ -36,20 +34,16 @@ entries:
     url: "/upgrade/upgrade-restore-root-volume-config.html"
   - title: 完成升级
     entries:
-    - title: 概述
+    - title: 工作流
       url: "/upgrade/upgrade-complete.html"
     - title: 在ONTAP 9.8或更高版本中完成
       entries:
-      - title: 概述
-        url: "/upgrade/upgrade-complete-ontap-9-8.html"
       - title: 使用 ONTAP 9.8 映射网络端口
         url: "/upgrade/upgrade-map-network-ports-ontap-9-8.html"
       - title: 在 ONTAP 9.8 中执行最终步骤
         url: "/upgrade/upgrade-final-upgrade-steps-in-ontap-9-8.html"
     - title: 在 ONTAP 9.7 或更早版本中完成
       entries:
-      - title: 概述
-        url: "/upgrade/upgrade-complete-ontap-9-7-or-earlier.html"
       - title: 使用 ONTAP 9.7 或更早版本映射网络端口
         url: "/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html"
       - title: 在 ONTAP 9.7 或更早版本中执行最终步骤
@@ -69,15 +63,7 @@ entries:
   - title: 移动非 SAN 数据 LIF 和集群管理 LIF
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
   - title: 移动，删除或创建 SAN LIF
-    entries:
-    - title: 概述
-      url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
-    - title: 移动 SAN LIF 的注意事项
-      url: "/upgrade/upgrade_considerations_move_san_lifs.html"
-    - title: 删除 SAN LIF
-      url: "/upgrade/upgrade-delete-san-lifs.html"
-    - title: 创建新的 SAN LIF 或重新创建已删除的 SAN LIF
-      url: "/upgrade/upgrade_create_recreate_san_lifs.html"
+    url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
   - title: 取消加入原始节点
     url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
   - title: 完成升级

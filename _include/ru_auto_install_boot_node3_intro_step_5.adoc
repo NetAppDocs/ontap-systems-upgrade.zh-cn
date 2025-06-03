@@ -9,11 +9,14 @@
 
 如果 node3 与 node1 上安装的 ONTAP 9 版本不同，则需要对其进行网络启动。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以按照中的说明将正确的文件下载到启动介质设备，以供后续系统启动 link:prepare_for_netboot.html["准备网络启动"]。
 
-.重要
+[IMPORTANT]
+====
+* 对于 AFF A800 或 AFF C800 控制器升级，在移除节点 1 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参见 link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
 * 如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则需要完成升级 <<auto_install3_step1,第 1 步>> 到 <<auto_install3_step21,第 21 步>>，然后退出本节并按照中的说明进行操作 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要输入相应部分，在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<auto_install3_step23,第 23 步>>。
 * 如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 部分，在集群提示符处输入命令。
 
 
+====
 .步骤
 . 【 auto_install3_step1]] 请确保为 node3 预留机架空间。
 +
@@ -22,7 +25,7 @@
 . 【 auto_install3_step2]] 按照适用于您的节点型号的 _Installation and Setup Instructions_ 在机架中安装 node3 。
 +
 
-NOTE: 如果要升级到两个节点位于同一机箱中的系统，请在机箱中安装 node4 以及 node3 。否则，在启动 node3 时，该节点的行为将如同处于双机箱配置中，而在启动 node4 时，节点之间的互连将不会启动。
+NOTE: 如果要升级到两个节点位于同一机箱中的系统，请在机箱中安装 node4 以及 node3 。如果不这样做，当您启动 node3 时，该节点的行为将如同处于双底盘配置中，而当您启动 node4 时，节点之间的互连将不会出现。
 
 . 【 auto_install3_step3]] 为节点 3 布线，将连接从节点 1 移动到节点 3 。
 +

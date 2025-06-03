@@ -21,21 +21,16 @@ summary: '通常，控制器硬件的升级方式取决于原始节点的平台�
 
 * FAS2620、FAS2650、FAS2720和FAS2750
 * AFF A150、AFF A200、AFF A220、AFF A250、AFF A700s、 和AFF A800
-+
-
-NOTE: 您还可以通过聚合重新定位将AFF A800升级到AFF A70或AFF A90。link:upgrade-arl-auto-affa900/index.html["了解更多信息。"](英文)
-
 * AFF C190、AFF C250和AFF C800
-+
-
-NOTE: 您还可以使用聚合重新定位来升级AFF A250和AFF C250。link:upgrade-arl-auto-affa900/index.html["了解更多信息。"](英文)
-
 * ASA A150、ASA A250、ASA A800和ASA AFF A220
 +
 
 NOTE: 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2系统的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
 
 
+
+
+NOTE: 对于某些控制器升级，您可以使用聚合重定位来升级具有内部驱动器的系统。link:upgrade-arl/index.html["了解更多信息。"](英文)
 
 如果未列出您的系统、请参见 https://hwu.netapp.com["NetApp Hardware Universe"^] 以检查它是否具有内部驱动器。
 

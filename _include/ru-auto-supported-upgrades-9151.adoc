@@ -16,5 +16,5 @@
 | AFF A800 | AFF A70、AFF A90 
 
 
-| AFF C800 | C80 
+| AFF C800 | AFF C80 
 |===
