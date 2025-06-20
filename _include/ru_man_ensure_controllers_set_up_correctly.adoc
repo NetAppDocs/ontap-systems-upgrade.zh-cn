@@ -7,7 +7,7 @@
 .步骤
 . 在其中一个节点上输入以下命令，以启用存储故障转移：
 +
-`storage failover modify -enabled true -node _node3_`
+`storage failover modify -enabled true -node <node3>`
 
 . 验证是否已启用存储故障转移：
 +
@@ -54,19 +54,21 @@ node4          node3          true     Connected to node3
 
 . 确认 node3 拥有 node1 中的聚合，而 node4 拥有 node2 中的聚合：
 +
-`storage aggregate show -owner-name _node3_``storage aggregate show -owner-name _node4_`
+`storage aggregate show -owner-name <node3>`
+`storage aggregate show -owner-name <node4>`
 
 . 确定是否有任何卷脱机：
 +
-`volume show -node _node3_-state offline``volume show -node _node4_-state offline`
+`volume show -node <node3> -state offline`
+`volume show -node <node4> -state offline`
 
 . 如果任何卷处于脱机状态，请将其与您在中捕获的脱机卷列表进行比较  link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step19["第 19 步（ d ）"] 在 _Prepare the nodes for upgrade" 中，根据需要输入以下命令使任何脱机卷联机，每个卷一次：
 +
-`volume online -vserver _vserver_name_-volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . 通过为每个节点输入以下命令，为新节点安装新许可证：
 +
-`ssystem license add -license-code _license_code、license_code、license_code..._`
+`system license add -license-code <license_code,license_code,license_code...>`
 
 +
 license-code 参数接受一个包含 28 个大写字母字符密钥的列表。您可以一次添加一个许可证，也可以一次添加多个许可证，每个许可证密钥用逗号分隔。
@@ -77,7 +79,8 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 
 . 要从原始节点中删除所有旧许可证，请输入以下命令之一：
 +
-`ssystem license clean-up -unused -expired``ssystem license delete -serial number _node_serial number_-package _licensable_package_`
+`system license clean-up -unused -expired`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 ** 要删除所有已过期的许可证，请输入：
@@ -90,7 +93,8 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 
 ** 要从集群中删除特定许可证，请在节点上输入以下命令：
 +
-`ssystem license delete -serial -number _node1_serial _number_-package *``ssystem license delete -serial -number _node2_serial _number_-package *`
+`system license delete -serial-number <node1_serial_number> -package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 +
 此时将显示以下输出：
@@ -116,7 +120,7 @@ Do you want to continue? {y|n}: y
 
 . 通过在两个节点上执行以下命令来配置 SP ：
 +
-`ssystem service-processor network modify -node _node_name_`
+`system service-processor network modify -node <node_name>`
 
 +
 转至 link:other_references.html["参考资料"] 链接到系统管理参考 _ 以了解 SP 的相关信息，以及 _System 9 ONTAP 命令：手册页参考 _ 以了解有关 `ssystem service-processor network modify` 命令的详细信息。

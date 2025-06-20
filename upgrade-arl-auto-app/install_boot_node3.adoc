@@ -285,7 +285,7 @@ IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP �
 
 
 [[auto_install3_step27]]
-. 如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
+. 如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：
 +
 
 NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。

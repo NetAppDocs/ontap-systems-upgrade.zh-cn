@@ -29,13 +29,10 @@ summary: 要通过移动卷完成操作步骤升级，您需要配置服务处�
 +
 `ssystem node AutoSupport invoke -node node_name -type all -message "node_name successfully up级 从 platform_old 升级到 platform_new"`
 
-. 使用中的相应操作步骤还原存储或卷加密功能https://docs.netapp.com/us-en/ontap/encryption-at-rest/index.html["使用 CLI 管理加密"^] 内容
+. 根据您使用的是板载密钥管理还是外部密钥管理，使用以下任一过程恢复存储或卷加密功能：
 +
-根据您使用的是板载密钥管理还是外部密钥管理，请执行以下过程之一：
-
-+
-** "`还原板载密钥管理加密密钥` "
-** "`还原外部密钥管理加密密钥` "
+** link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-onboard-key-management-encryption-keys-task.html["还原板载密钥管理加密密钥"^]
+** link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/restore-external-encryption-keys-93-later-task.html["还原外部密钥管理加密密钥"^]
 
 
 . 如果新节点具有 FC 端口（板载或 FC 适配器上）、板载 CNA 端口或 CNA 卡，请通过在存储系统提示符下输入以下命令来配置 FC 或 CNA 端口：

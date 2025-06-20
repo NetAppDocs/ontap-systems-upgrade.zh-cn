@@ -630,7 +630,6 @@
   <block id="01a72c63e79e1fcc9b3e0cac4fb2bf75" category="list-text">将上一步中列出的密钥管理服务器添加到新控制器的密钥管理服务器列表中：</block>
   <block id="3cdf420c4abece4e0eba648610592dde" category="cell">`security key-manager external restore` 此命令需要 OKM 密码短语</block>
   <block id="a9849e92b148965a7bbb6c14d0afbcd0" category="cell">板载密钥管理器（ OKM ）</block>
-  <block id="f52de228b93a6f965c1879aa97b007d6" category="paragraph">检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用 `volume online` 命令将这些卷恢复联机。</block>
   <block id="7bd5452d2f3a1c07fc54d3a08cc82d64" category="paragraph">如果 node3 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。</block>
   <block id="d897564a1ca4a58b7f422ba34b232ab7" category="paragraph">您可能需要完成此部分 <block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block>，部分 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>或这两个部分。</block>
   <block id="a1a2d377f686ce4835b9ee342fd6089b" category="list-text"><block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block></block>
@@ -1105,9 +1104,6 @@
   <block id="844ad6e55c95a4328e37b5e065b5ff4a" category="paragraph">`s系统节点 AutoSupport modify`</block>
   <block id="e31a23cd4ecc24fce8358862c8b9bae7" category="list-text">从每个新节点上，向技术支持发送升级后 AutoSupport 消息：</block>
   <block id="39f6fe42807470e793eabaa7b4decf63" category="paragraph">`ssystem node AutoSupport invoke -node node_name -type all -message "MAINT=end node_name successfully uped" from platform_old to platform_new"`</block>
-  <block id="e68c8836280fba147b04a2b14b196600" category="paragraph">根据您使用的是板载密钥管理还是外部密钥管理，请执行以下过程之一：</block>
-  <block id="0ba3cc03b09a456d5100379e45dfaaba" category="list-text">"`还原板载密钥管理加密密钥` "</block>
-  <block id="a96d0d7d353c649cc2f1612f3100f861" category="list-text">"`还原外部密钥管理加密密钥` "</block>
   <block id="ef613ca6be844d20a9465aad12778acf" category="list-text">如果新节点具有 FC 端口（板载或 FC 适配器上的），板载 CNA 端口或 CNA 卡，请在存储系统提示符处输入以下命令来配置 FC 或 CNA 端口：</block>
   <block id="7334dc04c7292582343d824254e622ce" category="paragraph">`ssystem node hardware unified-connect modify -node node-name -adapter adapter-name -mode ｛ fc_CNA ｝ -type ｛ target_initiator ｝`</block>
   <block id="b50a05f2d30350b2ea8e112696c796d0" category="paragraph">只有当 CNA 适配器脱机时，才能修改 CNA 配置。</block>
@@ -1615,7 +1611,6 @@
   <block id="7cfd4d042bb6ab02bc385b9c06501763" category="cell">第 3 阶段： _Install and boot node3_ 第 5 阶段： _Install and boot node4_</block>
   <block id="72a91a015e8c747a5a63794308310840" category="cell">SP 的 IP 地址</block>
   <block id="e3d8433cfe5569460492707086339074" category="cell">许可证密钥</block>
-  <block id="bb2a59fbd20fec79ac114c7a9f22ead2" category="cell">外部密钥管理服务器的 IP 地址</block>
   <block id="234cfc2e3636ba2a3e5d47da84d5bd32" category="cell">第 1 阶段： _Rekey disks for Storage Encryption"</block>
   <block id="a6bab46fa807f06174c4873c5331a9b2" category="cell">第 6 阶段： _set up Storage Encryption on the new nodes_</block>
   <block id="09c90f884edd2efc00874f9fc863daeb" category="cell">可通过 Web 访问的目录的名称和路径，您可以在此目录中下载文件以通过网络启动节点</block>
@@ -2567,8 +2562,6 @@
   <block id="0fe674cba26a6125717793de11bb3096" category="inline-link">集群扩展管理</block>
   <block id="ba4c26e136f2c434b8b6af81213365cf" category="paragraph"><block ref="ba4c26e136f2c434b8b6af81213365cf" category="inline-link-rx"></block></block>
   <block id="9d9192129e1b9a1e59bd50fc144f8867" category="paragraph"><block ref="9d9192129e1b9a1e59bd50fc144f8867" category="inline-link-rx"></block></block>
-  <block id="579f7a458ea3f243e9743154fab94bfb" category="inline-link">使用 CLI 管理加密</block>
-  <block id="6aee45ea83745bd29b2b86870d2afe83" category="list-text">使用中的相应操作步骤还原存储或卷加密功能<block ref="713156fa56254a04d458a101e174aa50" category="inline-link-rx"></block> 内容</block>
   <block id="086420e81e05bfb84cdecaa4b231e80e" category="paragraph"><block ref="086420e81e05bfb84cdecaa4b231e80e" category="inline-link-rx"></block></block>
   <block id="fbe34624578a760349ae68127c704b12" category="paragraph"><block ref="fbe34624578a760349ae68127c704b12" category="inline-link-rx"></block></block>
   <block id="22e61f778fcc138303ee1a3352b40770" category="list-text">登录到<block ref="9a6f401ca1e7e89d8a0c29fb0cbe81b7" category="inline-link-rx"></block> 站点</block>
@@ -2582,7 +2575,6 @@
   <block id="cfd2431baff6fc4122f2c8fed540c128" category="paragraph">During the process of upgrading by moving storage, you power on node3 and node4, boot the software image, and configure the nodes.Physical port layout between original and new nodes can be different.Mapping of ports between original and replacement nodes should be done to identify proper layout of ports and connections.</block>
   <block id="a57aac48a821a53a307169a496e18118" category="inline-link-macro">第 5 步</block>
   <block id="2b74e29dce2257a68211617c402f9061" category="paragraph">如果在新节点上运行的 ONTAP 版本与原始节点上的版本不同，则必须已从 NetApp 支持站点将正确的 ` &lt;ontap_version&gt;_image.tgz` 文件下载到可通过 Web 访问的目录中（请参见 _prepare for the upgrade when moving storage_ ， <block ref="a49c2511b21eba354c03ca701f675aae" category="inline-link-macro-rx"></block>）。要对系统执行网络启动，您需要使用 ` &lt;ontap_version&gt;_image.tgz` 文件。</block>
-  <block id="fb466db54f62bed3a97d8ba7d3ed2c8e" category="list-text">使用中的相应操作步骤还原存储或卷加密功能<block ref="9dcdd70dc160b50ece72ebdfa01ae45b" category="inline-link-rx"></block> 内容</block>
   <block id="ac8600b2addf6ed639b9f65bda812bde" category="list-text">获取有关要升级到的每个新节点的默认集群端口，数据端口和节点管理端口的信息：<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block></block>
   <block id="2c6817284baf4051a1411668b9c30fcb" category="list-text">【预备 _move_store_5]] 下载并准备用于执行网络启动的文件。</block>
   <block id="f18720a1eb7d7bace925c2a97a20075f" category="list-text">访问<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block> 下载用于执行系统网络启动的文件。</block>
@@ -3347,10 +3339,8 @@
   <block id="5861bf10ae07bb7c0e6218d5663221a4" category="paragraph">`ucadmin modify -m fc|cna -t initiators|target _adapter_name_`</block>
   <block id="c5fabf666636164983c54a60426edaab" category="cell">`network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up`</block>
   <block id="e07e74f9f1df10fa040f36e818e29bd1" category="cell">`FCP config _adapter_name_ up`</block>
-  <block id="9fb768ad6510fe46b2016783cac8eadb" category="paragraph">`storage aggregate show -owner-name _node2_`</block>
   <block id="cde8cf801e542566f503970c16a89b61" category="admonition">`event log show`命令可列出已发生的任何错误。</block>
   <block id="7a4b65a92ad0461916e64e86d4469810" category="paragraph">`storage aggregate online -aggregate _aggr_name_`</block>
-  <block id="9768bc676d49dbda7bf856a2930c4b52" category="paragraph">`volume show -node _node3_-state offline`</block>
   <block id="ffd863d528f6b76a6f398dd53b185d1d" category="cell">`dreassign -s`` node2_sysid_-d _node4_sysid_-p _node3_sysid_`</block>
   <block id="9666e158b6e459758482181fdc5caf71" category="cell">`disks disk reassign -s`` node2_sysid_-d _node4_sysid_`</block>
   <block id="ff573218a71a52e566a9d2cb9c112902" category="paragraph">`d`` reassign`命令将仅重新分配node2_sysid_是当前所有者的磁盘。</block>
@@ -3383,13 +3373,6 @@
   <block id="06c8bee57dd2167bbb1dbfa5749c956a" category="paragraph">`cluster modify -node _node2_-epsilon true`</block>
   <block id="0814e17724c439ef0cd37ea13167d663" category="paragraph">`ssystem node halt -node _node1_`</block>
   <block id="15a27fbf1719df235581c1df85f4770c" category="paragraph">`network interface show -curr-node _node4_`</block>
-  <block id="7ad7509ea03580dbba4ac42f8a0e9061" category="paragraph">`storage failover modify -enabled true -node _node3_`</block>
-  <block id="f95d062b8f3dd313f851677720fd47c0" category="paragraph">`storage aggregate show -owner-name _node3_``storage aggregate show -owner-name _node4_`</block>
-  <block id="68c05b65b923848aa186ea69ee9487d7" category="paragraph">`volume show -node _node3_-state offline``volume show -node _node4_-state offline`</block>
-  <block id="113d7e75ab71ebd9bcdd1155228482fc" category="paragraph">`volume online -vserver _vserver_name_-volume _volume_name_`</block>
-  <block id="d5538e0d48b9561003d2506ab100c330" category="paragraph">`ssystem license add -license-code _license_code、license_code、license_code..._`</block>
-  <block id="f8bb98c031da24e788f5f02332ac5bb8" category="paragraph">`ssystem license clean-up -unused -expired``ssystem license delete -serial number _node_serial number_-package _licensable_package_`</block>
-  <block id="e4c31b5f2905d746c57c1b1f1e038eac" category="paragraph">`ssystem license delete -serial -number _node1_serial _number_-package *``ssystem license delete -serial -number _node2_serial _number_-package *`</block>
   <block id="bb445430e4b0638bdd79f943cd99a597" category="paragraph">`ssystem service-processor network modify -node _node_name_`</block>
   <block id="676d4cfadd30ded5fabdceb082fde10a" category="paragraph">`network interface show -curr-node _node1_-role cluster、intercluster、node-mgmt、cluster-mgmt`</block>
   <block id="bbbfa87c5efa2321ddc7c2656baf791f" category="paragraph">`network port show -node _node1_-type physical`</block>
@@ -3452,17 +3435,8 @@
   <block id="8909b365f802b24a2d37f4d90ed96920" category="paragraph">`network port ifgrp remove-port -node _node_name_-ifgrp _ifgrp_name_-port _port_name_`</block>
   <block id="173bdd18bf4da14689baa4b97bbd0911" category="paragraph">`ucadmin modify -m fc -t target _adapter_`</block>
   <block id="e963df8c33a142fa50363ce5f3bbcbb9" category="paragraph">`ucadmin modify -m fc -t initiator _adapter_`</block>
-  <block id="b552b2e6a2a24270da2f85599d5289a0" category="paragraph">`storage aggregate show -node _node3_-state online -root false`</block>
-  <block id="592033840c276a690ab8f96c3c733525" category="paragraph">要与此命令结合使用的` vserver_name_`可在上一个`volume show`命令的输出中找到。</block>
-  <block id="5ae519d56c0326f582652e283c3ea809" category="paragraph">`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _node_name_-status-admin up`</block>
   <block id="2d5c970ee87c5df0e21b3a8b9ed88ccb" category="paragraph">`security key-manager external add-servers -key-servers _key_management_server_ip_address_`</block>
   <block id="cf1e3ade592584c451b16fefa9ffaf61" category="paragraph">`storage failover show -fields local-missing-disks、partner-missing-disks`</block>
-  <block id="0d12a6e9cec4647b5d9b5253b4073e2b" category="paragraph">`storage aggregate show -owner-name _node3_`</block>
-  <block id="0e71c4af1c9d433ba1aca904b40b449e" category="paragraph">`storage aggregate show -owner-name _node4_`</block>
-  <block id="6041278c5d25ed9c37ecc9a4ba73306b" category="paragraph">`ssystem license add -license-code _license_code、license_code、license_code…_`</block>
-  <block id="ee58b8665fc7b6cbed254e1253d5deb9" category="paragraph">`ssystem license delete -serial -number _node_serial _number_-package _licensable_package_`</block>
-  <block id="bcacb0089032ec901277a70c73c0ec1b" category="paragraph">`ssystem license delete -serial -number _node1_serial _number_-package *`</block>
-  <block id="4a472f5ad7101a303b004c96117957a1" category="paragraph">`ssystem license delete -serial -number _node2_serial _number_-package *`</block>
   <block id="0a06fcfc5f0fe34a7f9397c4cfc05b2a" category="paragraph">`set diag；systemshell -node _node_name_-command sudo kenv -u -p kmip.init.maxwait`</block>
   <block id="3bc434e6b7496efb94a7be3c795bee4a" category="paragraph">`s存储聚合重新定位start -node _source_node_-destination _destination-node_-aggregate-list *`</block>
   <block id="8723a951ee1fe15da772afbecba7e9cc" category="paragraph">`ssystem controller replace start -nodes _node_names_`</block>
@@ -3508,8 +3482,6 @@
   <block id="6ffba319a9343d4d7079cd092fc1731f" category="paragraph">`network interface migrate -vserver cluster -lif _lif_name_-source-node node4 destination-node node4 -destination-port _port_name_`</block>
   <block id="6f6feb1d5079ae856c3e038f36cf5511" category="paragraph">`network interface modify -vserver _vserver_-lif _lif_name_–home-port _port_name_`</block>
   <block id="714116d25588d456eb2625b3a4e3438f" category="paragraph">`storage aggregate relocation start -node _node1_-destination _node2_ aggregate-list *-ndocontroller-upgrade true`</block>
-  <block id="c2acdfddae4bd8e19301f3c9da97795f" category="paragraph">`storage aggregate show -owner-name _node1_`</block>
-  <block id="782650bc65c7f77fc89c4076c7b6450d" category="paragraph">`volume show -node _node1_-state offline`</block>
   <block id="d87163e47ee27f2782fe148edbe3ed57" category="paragraph">`network port reachability repair -node _node_name_-port _port_name_`</block>
   <block id="ec14d769131d094d612c9fca445d8baa" category="paragraph">`displaced interface restore-home-node -node _node_name_-vserver _vserver_name_-lif-name _LIF_name_`</block>
   <block id="5062794872bed9f85f36826d260cf264" category="paragraph">`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _nodename_- status-admin up`</block>
@@ -3780,7 +3752,6 @@
   <block id="93cbc4495a566db3a58548f326fa221c" category="paragraph">在通过网络启动系统之前、您必须确认所有SnapMirror关系均已静用。暂停 SnapMirror 关系后，它会在重新启动和故障转移后保持静默状态。</block>
   <block id="1cf6b38ccce07c615f777e8d49040349" category="inline-link">如何从ONTAP 启动菜单还原外部密钥管理器服务器配置</block>
   <block id="a9021e1b94f8e36032c1a900148d17bf" category="paragraph">有关详细信息、请参见知识库文章<block ref="d55f681383ef8cdbd5ac64000ea6e309" category="inline-link-rx"></block>。</block>
-  <block id="3e735cdc84f6fab485c4ddb66b026489" category="paragraph">检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用将这些卷恢复联机<block ref="fcc46ad208d53e4021ecddc4ee333dc3" prefix=" " category="inline-code"></block> 命令：</block>
   <block id="595e785894184e8832420129093393c7" category="summary">在运行ONTAP 9.8或更高版本的控制器上手动升级ARL期间、使用板载密钥管理器管理身份验证密钥。</block>
   <block id="7de07b30845475194f5305d135dd504b" category="paragraph">您可以使用板载密钥管理器(OKM)管理身份验证密钥。如果您已设置OKM、则必须先记录密码短语和备份材料、然后再开始升级。</block>
   <block id="b57235dcd9249f0e9bf6001eecd99ce5" category="list-text">记录集群范围的密码短语。</block>
@@ -3788,7 +3759,6 @@
   <block id="8cada82213a4eb50c1f0cba46389bd44" category="list-text">运行以备份密钥管理器信息<block ref="32ba7af89b7557f6e3e6d80a922080ce" prefix=" " category="inline-code"></block> 命令：</block>
   <block id="219d5a10054a3daaa60cc6dc3881a506" category="paragraph">如果 node1 和 node2 位于不同的机箱中，则可以将 node3 与 node1 放在同一机架位置。但是、如果node1与node2位于同一机箱中、则必须将node3放入其自身的机架空间、最好靠近node1的位置。</block>
   <block id="7abb4d22dfb96ceb2a52ebfc5cef2026" category="admonition">您可能不需要将互连卡或集群互连缆线连接从 node1 移至 node3 ，因为大多数平台型号都具有唯一的互连卡型号。对于MetroCluster 配置、必须将FC-VI缆线连接从node1移至node3。如果新主机没有 FC-VI 卡，则可能需要移动 FC-VI 卡。</block>
-  <block id="215bdc272bd2e7402000e545b699610b" category="list-text">[[man_install3_STEP16]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。</block>
   <block id="28fabaf13c83a39f567169d484c2bdb7" category="admonition">如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章<block ref="99bc6507ac71bae6bc6755b2bf68f73a" category="inline-link-rx"></block> 确定正在使用的自加密驱动器的类型。</block>
   <block id="c31ef72d8e3bd3a09ff6ce8b371d8d63" category="list-text">设置<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> to<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 或<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>：</block>
   <block id="f0b1dfc1f82eec89fa61235553e2e4d0" category="cell">符合FIPS 140-2 2级自加密要求的NSE驱动器</block>
@@ -3910,7 +3880,6 @@
   <block id="eedfdc7d9365a1f9e29964c35c82e348" category="paragraph"><block ref="8cf81755f02bee986a80060b929f2335" prefix="" category="inline-code"></block></block>
   <block id="c8e281db9c8a31e8da74e7ff6bc12115" category="summary">在运行ONTAP 9.7或更早版本的控制器上手动升级ARL期间、使用OKM管理身份验证密钥。</block>
   <block id="20c4be209ec6c65b4221fa6f09f2df42" category="inline-link-macro">使用板载密钥管理器管理存储加密</block>
-  <block id="73d106cd4da3fdbd0b8a8317db146c37" category="list-text">[[boot_node2_Step1]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。</block>
   <block id="04f24e11b658105f38ef40a82c24839e" category="paragraph">* 注意： * 首次配置存储系统时，默认情况下会启用 AutoSupport 。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。</block>
   <block id="cb6bc72e3e387b19e4fbc2f28ecc2940" category="list-text">设置<block ref="e0224203ce4fa326049e3e770300ce8f" prefix=" " category="inline-code"></block> to<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> 或<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>。</block>
   <block id="e147253c0010bdd5968cb9b4b9ddf7dc" category="cell">外部密钥管理器</block>
@@ -4318,11 +4287,9 @@
   <block id="5dac5a25730948f28ff49739852d7be9" category="list-text">NetApp建议尽可能在原始节点和新节点上运行相同版本的ONTAP。如果无法做到这一点、 <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本、以使原始节点与新节点之间的版本差异不超过四个。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.</block>
   <block id="d9bec0f0ae398cfc3abbf7091d735c22" category="paragraph">*Note1*：新节点必须支持在原始节点上运行的ONTAP版本。如果需要、 <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本。原始节点与新节点之间的版本差异不能大于4。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.<block ref="ce537934e178c1610dae82a1b82553bf" category="inline-link-rx"></block>。</block>
   <block id="ebf27722a719cbdcb3983568ea50ef42" category="cell">返回到 _Install and boot node3_ 并继续中的部分 <block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
-  <block id="06497c4478fee55f8a0ff3319fb722a8" category="list-text">[[auto_install4_步骤27]]如果安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。</block>
   <block id="1e4625a567102c02db411f8ac4403956" category="list-text">【unset_maxWait_system_commands】如果正在配置中使用自加密驱动器、并且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在中 <block ref="e646557bd849df21a23243b7031e90bc" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
   <block id="b0da566a6b16767a9a4f6a9815cc8a8c" category="image-alt">卸下缆线管理ARM</block>
   <block id="df4c49d6d7d92d1a3dd7d374cec6fe02" category="image-alt">打开凸轮把手</block>
-  <block id="ab8dc73b82108799ac3b6894e5efe57e" category="list-text">[[A900_boot_node1]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。</block>
   <block id="401ec6649ed8fe314eef631a190858b3" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="d1353daad078803f11ba1627582281b9" category="inline-xref-macro-rx"></block>。</block>
   <block id="e807a193ac5d601655295b7da3f1b093" category="paragraph">但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并已连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回到 _Install and boot node4_ 部分并继续执行 <block ref="dc87380ee6757ad7d02cae49ae9cdab7" category="inline-link-macro-rx"></block>。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。</block>
   <block id="1e46f02c6c16752b68ae9ed5650557a7" category="list-text">跳过 _Check and configure UTA/UTA2 ports on node4_ 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请返回 _Install and boot node4_ 部分，然后继续执行中的部分 <block ref="dc87380ee6757ad7d02cae49ae9cdab7" category="inline-link-macro-rx"></block>。</block>
@@ -5294,4 +5261,30 @@
   <block id="8f7d8cd660c3a1288b48778ea72e58a5" category="sidebar">决定是否使用此 ARL 程序</block>
   <block id="8f921903953b3b6717329ab7de1391c1" category="sidebar">为共享集群HA存储连接node2</block>
   <block id="76751896989d28875a4eeddf2995da8d" category="sidebar">准备重新配置交换机布局</block>
+  <block id="9c328071e0321bfbe1d164cac2c22ebd" category="paragraph"><block ref="e6b811afaa94951aac008a53e383ff23" prefix="" category="inline-code"></block></block>
+  <block id="b3b5d42abc670ac795f4b90cfc221655" category="paragraph"><block ref="cb38fc2887221a0ca6581f1d73b29ec5" prefix="" category="inline-code"></block></block>
+  <block id="028c6aaad70991eeba5c4bb66ea88329" category="paragraph">这<block ref="d6d2e75e827fff3babc66bc7cd4d2c4b" prefix=" " category="inline-code"></block>使用此命令的方法可以在上一个命令的输出中找到<block ref="0c5606ed319753bb2d86a485f23c8f6d" prefix=" " category="inline-code"></block>命令。</block>
+  <block id="7edece7677f8bef06093b6be08879c67" category="paragraph"><block ref="b79a4da2e325c3015ed2f7afe206a96b" prefix="" category="inline-code"></block></block>
+  <block id="a29df3ccd4c80ed70466ab7e616060db" category="paragraph"><block ref="c1415a35d798d0e1bc89dfc239e96300" prefix="" category="inline-code"></block> &lt; <block ref="d6d2e75e827fff3babc66bc7cd4d2c4b" prefix=" " category="inline-code"></block>使用此命令的方法可以在上一个命令的输出中找到<block ref="0c5606ed319753bb2d86a485f23c8f6d" prefix=" " category="inline-code"></block>命令。</block>
+  <block id="316bb78c78d8c5d743c44432528cc2c4" category="paragraph"><block ref="4221e144bb878e9d4c97a49eaf2eb814" prefix="" category="inline-code"></block></block>
+  <block id="4d090b6b4178c6d326829a98b05a4cd7" category="paragraph"><block ref="534a01a4ca515955efe8376e84615e84" prefix="" category="inline-code"></block></block>
+  <block id="b7836a7a1972d5f8803e2f44bd3cb658" category="paragraph"><block ref="49166cc15e848fc049881c3de5e1d1f8" prefix="" category="inline-code"></block><block ref="6d203e2c19155492a108b65377909131" prefix=" " category="inline-code"></block></block>
+  <block id="4655a1857691d25ac0c12a710dad5454" category="paragraph"><block ref="365695b1d723adf070447422d9e8d907" prefix="" category="inline-code"></block><block ref="5db9f9801ff1015f8f0ec287f1a37e08" prefix=" " category="inline-code"></block></block>
+  <block id="8502756d136a7fbd63f0576ce096751b" category="paragraph"><block ref="e0dd455af4d681c74ccfc9dc72ac81da" prefix="" category="inline-code"></block></block>
+  <block id="a0cc12382dcdc36e42046d83b6c7e109" category="paragraph"><block ref="2599180db5e07a38b13f33bacd678ed0" prefix="" category="inline-code"></block><block ref="cad104e67eebc6460f05ee5386343340" prefix=" " category="inline-code"></block></block>
+  <block id="29d22afc321b012279dd6e65d63787dd" category="paragraph"><block ref="c1691ae4960273f7d983ed570ccc250a" prefix="" category="inline-code"></block><block ref="66730ced80aced888a1e584b32aac885" prefix=" " category="inline-code"></block></block>
+  <block id="dce88c7c89a608000baa31d7f41aafe5" category="cell">外部密钥管理服务器的 IP 地址</block>
+  <block id="f861760a9e4b91d9c15f4ed6899c8a67" category="list-text">根据您使用的是板载密钥管理还是外部密钥管理，使用以下任一过程恢复存储或卷加密功能：</block>
+  <block id="7b5b637cc082477a9dd4c129c225152e" category="inline-link-macro">还原板载密钥管理加密密钥</block>
+  <block id="43a39f2ab9e3339214d6fda05936d597" category="list-text"><block ref="43a39f2ab9e3339214d6fda05936d597" category="inline-link-macro-rx"></block></block>
+  <block id="1ee623098df2f7856a034824be882999" category="inline-link-macro">还原外部密钥管理加密密钥</block>
+  <block id="116698f9b98f4e456ff27e95e38fccf3" category="list-text"><block ref="116698f9b98f4e456ff27e95e38fccf3" category="inline-link-macro-rx"></block></block>
+  <block id="18b86b85ac7e74bdaf460ba1e2f65f0e" category="list-text">[[auto_install4_step27]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
+  <block id="bdac4e49f25f09fd22688c1a0aaf704a" category="paragraph">检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用<block ref="fcc46ad208d53e4021ecddc4ee333dc3" prefix=" " category="inline-code"></block>命令。</block>
+  <block id="0095109d5b66e24afe910457a637e763" category="list-text">[[A900_boot_node1]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
+  <block id="c79e58170822a59a6dd931336ca868ed" category="list-text">[[boot_node2_step1]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
+  <block id="78afe52f3d782a64e711de589b4df3d3" category="paragraph"><block ref="346db28706192c9274da330f004e695a" prefix="" category="inline-code"></block></block>
+  <block id="ee003f27b169d76d97322f42ff3b1684" category="paragraph"><block ref="fa9973ef8cb7c81f6e65cb1c4e0c12f2" prefix="" category="inline-code"></block></block>
+  <block id="4dfbd3112f049daa92b3b9620a0a23b4" category="list-text">如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
+  <block id="780d3ce82c06a7096f3d7b6381f35cf4" category="list-text">[[man_install3_step16]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
 </blocks>

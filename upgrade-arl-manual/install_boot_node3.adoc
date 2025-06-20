@@ -167,7 +167,7 @@ NOTE: 在启动环境提示符处保留node4；您将返回到中的node4 link:i
 +
 `set-defaults`
 
-. [[man_install3_STEP16]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。
+. [[man_install3_step16]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：
 +
 
 NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。

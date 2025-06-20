@@ -42,25 +42,25 @@ node4    node3    true       Connected to node3
 
 . 确认 node3 拥有 node1 中的聚合，而 node4 拥有 node2 中的聚合：
 +
-`storage aggregate show -owner-name _node3_`
+`storage aggregate show -owner-name <node3>`
 
 +
-`storage aggregate show -owner-name _node4_`
+`storage aggregate show -owner-name <node4>`
 
 . 确定是否有任何卷脱机：
 +
-`volume show -node _node3_-state offline`
+`volume show -node <node3> -state offline`
 
 +
-`volume show -node _node4_-state offline`
+`volume show -node <node4> -state offline`
 
 . 如果任何卷处于脱机状态，请将其与您在部分中捕获的脱机卷列表进行比较 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]，并根据需要使用以下命令使每个卷的任何脱机卷联机一次：
 +
-`volume online -vserver _vserver_name_-volume _volume_name_`
+`volume online -vserver <vserver_name> -volume <volume_name>`
 
 . 对每个节点使用以下命令，为新节点安装新许可证：
 +
-`ssystem license add -license-code _license_code、license_code、license_code…_`
+`system license add -license-code <license_code,license_code,license_code…>`
 
 +
 license-code 参数接受一个包含 28 个大写字母字符密钥的列表。您可以一次添加一个许可证，也可以一次添加多个许可证，并以逗号分隔每个许可证密钥。
@@ -70,7 +70,7 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 `ssystem license clean-up -unused -expired`
 
 +
-`ssystem license delete -serial -number _node_serial _number_-package _licensable_package_`
+`system license delete -serial-number <node_serial_number> -package <licensable_package>`
 
 +
 --
@@ -84,10 +84,10 @@ license-code 参数接受一个包含 28 个大写字母字符密钥的列表。
 
 ** 在节点上使用以下命令从集群中删除特定许可证：
 +
-`ssystem license delete -serial -number _node1_serial _number_-package *`
+`system license delete -serial-number <node1_serial_number> -package *`
 
 +
-`ssystem license delete -serial -number _node2_serial _number_-package *`
+`system license delete -serial-number <node2_serial_number> -package *`
 
 
 
