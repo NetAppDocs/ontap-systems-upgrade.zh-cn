@@ -14,7 +14,7 @@ summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、�
 
 
 [role="lead"]
-要停用 node1 ，您需要恢复自动操作，以便使用 node2 禁用 HA 对并正确关闭 node1 。稍后在操作步骤中、您将node1从机架或机箱中卸下。
+要退出节点 1，您可以恢复自动操作以禁用与节点 2 的 HA 对并正确关闭节点 1。在此过程的稍后部分，您将从机架或机箱中移除节点 1。
 
 .步骤
 . 恢复操作：
@@ -28,4 +28,4 @@ summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、�
 
 
 .完成后
-升级完成后，您可以停用 node1 。请参见 link:decommission_old_system.html["停用旧系统"]。
+退出节点 1 后，确认其已关闭电源并且未连接到网络。将 node1 的旧硬件保留在此状态，直到完成 node1 和 node2 的升级。然后，您可以在以下情况下停用 node1：link:manage-authentication-using-kmip-servers.html["第 6 阶段。完成升级"] 。

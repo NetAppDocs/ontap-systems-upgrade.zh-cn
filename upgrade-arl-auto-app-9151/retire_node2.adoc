@@ -14,7 +14,7 @@ summary: '在升级运行ONTAP 9.151或更高版本的控制器时、使用命�
 
 
 [role="lead"]
-要停用node2、首先应正确关闭node2、然后将其从机架或机箱中卸下。
+要淘汰 node2，请正确关闭 node2，然后将其从机架或机箱中移除。
 
 .步骤
 . 恢复操作：
@@ -27,4 +27,4 @@ summary: '在升级运行ONTAP 9.151或更高版本的控制器时、使用命�
 
 
 .完成后
-升级完成后，您可以停用 node2 。请参见 link:decommission_old_system.html["停用旧系统"]。
+退出节点 2 后，确认其已关闭电源并且未连接到网络。将 node2 的旧硬件保持此状态，直到完成 node1 和 node2 的升级。然后，您可以在以下情况下停用 node2link:manage-authentication-using-kmip-servers.html["第 6 阶段。完成升级"] 。
