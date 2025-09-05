@@ -4445,7 +4445,6 @@
   <block id="86c15a425269c6a2503b9871021e6df8" category="cell">AFF A700或FAS9000</block>
   <block id="7f42c48311ba942f81d7a07c44c47d3b" category="admonition">术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。按照此过程进行操作时、您必须替换节点的实际名称。</block>
   <block id="a06d68e350c79a17b1b36fae9ee9106c" category="doc">在node2上安装AFF A90或AFF A70模块</block>
-  <block id="be3affc900cfc23554c8c8d7e7fb9b42" category="paragraph">在node2上安装您收到的用于升级的AFF A90或AFF A70控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
   <block id="011359cc38c137752e931fd997e519a7" category="image-alt">安装AFF A90或AFF A70</block>
   <block id="b360374fb1c72b27ec9072588d678096" category="admonition">由于机箱已通电、node1将启动BIOS初始化、并在完全就位后立即自动启动。要中断 node1 启动，在将控制器模块完全插入插槽之前，建议将串行控制台和管理缆线连接到 node1 控制器模块。</block>
   <block id="da7cf8ace467e07feef604bd9a07fa23" category="list-text">中断自动启动后、node1将停留在加载程序提示符处。如果未按时中断自动启动、而node1开始启动、请等待提示符、然后按Ctrl-C进入启动菜单。在节点停留在启动菜单处后、使用option<block ref="c9f0f895fb98ab9159f51fd0297e236d" prefix=" " category="inline-code"></block> 重新启动节点、并在重新启动期间中断自动启动。</block>
@@ -4481,7 +4480,6 @@
   <block id="9e0a1039504ca0408797903c8f8ca02d" category="summary">在使用ARL升级同一机箱中的控制器型号时、更换节点1 AFF A220、AFF A200、AFF C190、FAS2620或FAS2720系统模块。</block>
   <block id="1bea5ea0e73e228055c8e231e1075879" category="paragraph">要拆装控制器内部的组件、请从系统中卸下控制器模块、然后卸下控制器模块的护盖。</block>
   <block id="3b59a6e4feb61a49bd8e07d1dc5ed44d" category="paragraph">在node1中安装ASA A150、AFF A150或FAS2820控制器模块并为其布线和连接。</block>
-  <block id="3cf0b39ddc0b0c6fbe705a62aacc7d3c" category="list-text">在机箱正面、用拇指用力推入每个驱动器、直到您感觉到有一定的停机。这样可确保驱动器牢固地固定在机箱中板上。</block>
   <block id="73ee2bd7f33c26664f94c379c6ab36d2" category="image-alt">推动驱动器、使其紧紧靠在机箱中间板上</block>
   <block id="9bedcc9650ba1fe86ed7720eb975429e" category="list-text">转至机箱背面。</block>
   <block id="f138b6c2f3e77b4a7b2b9693f7102662" category="list-text">从电源拔下node1控制器模块的电源。</block>
@@ -5306,4 +5304,10 @@
   <block id="48b45c4448ac737e7cd5110c5c5ab986" category="paragraph">要退出节点 1，您可以恢复自动操作以禁用与节点 2 的 HA 对并正确关闭节点 1。在此过程的稍后部分，您将从机架或机箱中移除节点 1。</block>
   <block id="fdece49a53b4d22867330bbf853edcbb" category="paragraph">退出节点 1 后，确认其已关闭电源并且未连接到网络。将 node1 的旧硬件保留在此状态，直到完成 node1 和 node2 的升级。然后，您可以在以下情况下停用 node1：<block ref="0f82d37b39d321fc9b25cdd372b37e32" category="inline-link-macro-rx"></block> 。</block>
   <block id="9385d14007f76e744745739d94bc306a" category="paragraph">退出节点 2 后，确认其已关闭电源并且未连接到网络。将 node2 的旧硬件保持此状态，直到完成 node1 和 node2 的升级。然后，您可以在以下情况下停用 node2<block ref="0f82d37b39d321fc9b25cdd372b37e32" category="inline-link-macro-rx"></block> 。</block>
+  <block id="3df2e25dd62a653c7cb81686296e66ad" category="admonition">由于机箱已通电，因此节点 2 在完全就位后立即启动 BIOS 初始化，然后启动 AUTOBOOT。要中断 node2 启动，建议在将控制器模块完全插入插槽之前将串行控制台和管理电缆连接到 node2 控制器模块。</block>
+  <block id="0c1a4b73743825276f6a94f00753ae1c" category="list-text">模块就位后立即连接串行控制台并准备中断节点 2 的 AUTOBOOT。</block>
+  <block id="b83800b3bdc2a5eef7a8fe97664b1121" category="paragraph">在节点 2 上安装您收到的用于升级的AFF A90或AFF A70控制器模块。从系统后部看控制器时，节点 2 是位于机箱下部托架的控制器 B。</block>
+  <block id="4e0d7c1abfb8de7fd56ae6e56c1b7b4b" category="list-text">在机箱的前面，用拇指将每个驱动器牢牢推入顶部和底部磁盘托架，直到感觉到完全停止。这可确保驱动器牢固地固定在机箱中板上。</block>
+  <block id="a3fa441608c8038d19e72ef43c8108bc" category="section-title">恢复系统控制器更换操作</block>
+  <block id="20d8255eb490088576c2cdeea2fb6e2a" category="list-text">从源头拔下节点 2 控制器模块电源。</block>
 </blocks>

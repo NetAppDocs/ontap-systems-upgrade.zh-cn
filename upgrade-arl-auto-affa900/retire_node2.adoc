@@ -16,6 +16,10 @@ summary: 使用ARL升级同一机箱中的控制器型号时、关闭node2并将
 [role="lead"]
 要淘汰 node2，请正确关闭 node2，然后将其从机架或机箱中移除。
 
+
+
+== 恢复系统控制器更换操作
+
 .步骤
 . 恢复操作：
 +
@@ -23,6 +27,38 @@ summary: 使用ARL升级同一机箱中的控制器型号时、关闭node2并将
 
 +
 节点会自动暂停。
+
+
+
+
+
+== 卸下AFF A800或AFF C800控制器模块
+
+从现有模块中卸下缆线管理设备、然后将控制器稍微移出机箱。
+
+.开始之前
+如果您尚未接地，请正确接地。
+
+.步骤
+. 准备卸下控制器模块：
++
+.. 在机箱的前面，用拇指将每个驱动器牢牢推入顶部和底部磁盘托架，直到感觉到完全停止。这可确保驱动器牢固地固定在机箱中板上。
++
+image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在机箱中间板上"]
+
+.. 转至机箱背面。
+
+
+. 从源头拔下节点 2 控制器模块电源。
+. Release the power cable retainers, and then unplug the cables from the power supplies.
+. Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFP and QSFP modules (if needed) from the controller module, keeping track of where the cables were connected.
++
+Leave the cables in the cable management device so that when you reinstall the cable management device, the cables are organized.
+
+. Remove the cable management device from the controller module and set it aside.
+. Press down on both of the locking latches, and then rotate both latches downward at the same time.
++
+The controller module moves slightly out of the chassis.
 
 
 
