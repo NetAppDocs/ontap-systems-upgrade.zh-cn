@@ -16,11 +16,17 @@ summary: '在升级运行ONTAP 9.8或更高版本的控制器时、您需要使�
 [role="lead"]
 在验证node3安装之前、您需要将属于node1的磁盘重新分配给node3。
 
-.关于此任务
-您可以对node3执行本节中的步骤。
-
 .步骤
-. [[reassign-node1-node3-app-步骤1]]转到启动菜单，使用22/7选择隐藏选项。 `boot_after_controller_replacement`在提示符处，输入 node1 以将 node1 的磁盘重新分配给 node3 ，如以下示例所示。
+. [[reassign-node1-node3-app-step1]]验证 node1 是否已在启动菜单处停止。将node1的磁盘重新分配给node3：
++
+`boot_after_controller_replacement`
+
++
+经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。
+
++
+这些提示可能会被埋在控制台消息中。如果未输入节点名称或输入的名称不正确、系统将提示您重新输入此名称。
+
 +
 .展开控制台输出示例
 [%collapsible]
@@ -89,6 +95,7 @@ This will replace all flash-based configuration with the last backup to disks. A
 <output truncated>
 .
 Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node node1 disks.
 Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
 Partner sysid = 4294967295, owner sysid = 536940063
@@ -125,7 +132,12 @@ Login:
 
 NOTE: 在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。
 
-. 如果系统进入重新启动循环并显示消息 `no disks found`，则表示系统已将FC或UTA/UTA2端口重置回目标模式，因此无法看到任何磁盘。要解决此问题，请继续执行<<reassign-node1-node3-app-step3,第 3 步>> <<reassign-node1-node3-app-step8,第 8 步>>，或转到第节link:verify_node3_installation.html["验证 node3 安装"]。
+. 如果系统进入重启循环并显示以下消息 `no disks found`，表示系统已将 FC 或 UTA/UTA2 端口重置回目标模式，因此无法看到任何磁盘。选择以下任务之一来解决此问题：
++
+** 履行<<reassign-node1-node3-app-step3,第 3 步>>到<<reassign-node1-node3-app-step8,第 8 步>>在节点3上
+** 前往章节link:verify_node3_installation.html["验证 node3 安装"]
+
+
 . [[reassign-node1-node3-app-Step3]]在自动启动期间按Ctrl-C在Loader >提示符处停止节点。
 . 在加载程序提示符处、进入维护模式：
 +

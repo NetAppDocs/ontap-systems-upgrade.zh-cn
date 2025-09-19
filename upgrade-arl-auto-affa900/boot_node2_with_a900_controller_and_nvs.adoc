@@ -54,7 +54,10 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 +
 `boot_ontap 菜单`
 
-. 输入"22/7"并选择隐藏选项、将旧的node2磁盘重新分配给替代node2 `boot_after_controller_replacement` 节点停留在启动菜单处。
+. 当节点在启动菜单处停止时，通过在 node2 上运行以下命令将旧的 node2 磁盘重新分配给替换 node2：
++
+`boot_after_controller_replacement`
+
 +
 经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。
 
@@ -161,6 +164,7 @@ This will replace all flash-based configuration with the last backup to disks. A
 .
 .
 Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node node1 disks.
 Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
 Partner sysid = 4294967295, owner sysid = 536940063

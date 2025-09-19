@@ -16,11 +16,17 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.5 �
 [role="lead"]
 在验证node3安装之前、您需要将属于node1的磁盘重新分配给node3。
 
-.关于此任务
-您可以对node3执行本节中的步骤。
-
 .步骤
-. [[reassign-node1-node3-STEP1]]转到启动菜单并使用22/7并选择隐藏选项 `boot_after_controller_replacement`。在提示符处，输入 node1 以将 node1 的磁盘重新分配给 node3 ，如以下示例所示。
+. [[reassign-node1-node3-step1]]验证node1已经停止在启动菜单，并将node1的磁盘重新分配给node3：
++
+`boot_after_controller_replacement`
+
++
+经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。
+
++
+这些提示可能会被埋在控制台消息中。如果未输入节点名称或输入的名称不正确、系统将提示您重新输入此名称。
+
 +
 .展开控制台输出示例
 [%collapsible]
@@ -74,8 +80,7 @@ disks. Are you sure you want to continue?: yes
 .
 .
 Controller Replacement: Provide name of the node you would like to replace: <name of the node being replaced>
-.
-.
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
 Changing sysid of node <node being replaced> disks.
 Fetched sanown old_owner_sysid = 536953334 and calculated old sys id = 536953334
 Partner sysid = 4294967295, owner sysid = 536953334
@@ -103,7 +108,7 @@ Login:
 ...
 ----
 ====
-. 如果系统进入重新启动循环并显示消息 `no disks found`，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。继续执行<<auto_check3_step3,第 3 步>> <<auto_check3_step8,第 8 步>>以解决此问题。
+. 如果系统进入重启循环并显示以下消息 `no disks found`，这是因为它已将端口重置回目标模式，因此无法看到任何磁盘。履行<<auto_check3_step3,第 3 步>>到<<auto_check3_step8,第 8 步>>在 node3 上解决此问题。
 . [[auto_check3_STEP3]]在自动启动期间按Ctrl-C在Loader提示符处停止节点。
 . [[STEP18]]在加载程序提示符处、进入维护模式：
 +
@@ -186,7 +191,7 @@ NOTE: 您可能会在此阶段遇到错误。如果出现错误、请重复中�
 
 
 
-. 【auto_check3_step9]]如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统(例如、AFF A800系统)、请将node1聚合设置为根聚合、以确认node3从node1的根聚合启动。要设置根聚合、请转到启动菜单并选择相应选项 `5`以进入维护模式。
+. [[auto_check3_step9]]如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如AFF A800系统），请将节点 1 聚合设置为根聚合，以确认节点 3 从节点 1 的根聚合启动。要设置根聚合，请转到 node3 上的启动菜单并选择选项 `5`进入维护模式。
 +
 
 CAUTION: * 您必须按所示的确切顺序执行以下子步骤；否则可能发生原因会导致中断甚至数据丢失。 *

@@ -194,8 +194,53 @@ summary: 使用聚合重新定位升级控制器硬件
 
 如果您的升级情形不支持使用"系统命令"、则可以使用手动命令执行ARL升级。
 
-选择适用于您的ONTAP版本的过程以开始升级：
+.显示支持的系统
+[%collapsible]
+====
+[role="tabbed-block"]
+=====
+.ONTAP 9.8 或更高版本
+--
+以下运行ONTAP 9.8 及更高版本的系统支持手动 ARL 升级：
 
-* link:../upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 或更高版本的控制器硬件"]
-* link:../upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 或更早版本的控制器硬件"]
+* FAS 系统到 FAS 系统
+* AFF 系统到 AFF 系统
++
+您只能升级到同一系列中的更换系统：
 
++
+** AFF A系列系统到AFF A系列系统
+** AFF C系列系统到AFF C系列系统
+
+
+* ASA 系统到 ASA 系统
++
+
+NOTE: 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
+
++
+您只能升级到同一系列中的更换系统：
+
++
+** ASA A系列系统到ASA A系列系统
+** ASA C系列系统到ASA C系列系统
+
+
+
+
+link:../upgrade-arl-manual-app/index.html["手动升级运行 ONTAP 9.8 或更高版本的控制器硬件"]
+
+--
+.ONTAP 9.7 或更早版本
+--
+以下运行ONTAP 9.7 及更早版本的系统支持手动 ARL 升级：
+
+* FAS 系统到 FAS 系统
+* AFF 系统到 AFF 系统
+
+
+link:../upgrade-arl-manual/index.html["手动升级运行 ONTAP 9.7 或更早版本的控制器硬件"]
+
+--
+=====
+====
