@@ -69,5 +69,6 @@ During the process of upgrading by moving storage, you power on node3 and node4,
 在ONTAP 9.8或更高版本、ONTAP 9.7或更早版本中完成升级。
 
 .相关信息
-* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["通过转换为驱动器架将AFF A250升级到AFF A400"] (无中断操作步骤)。
+* link:upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html["通过转换为驱动器架将AFF A250升级到AFF A400"]（非破坏性程序）
+* link:convert-fas2820-to-drive-shelf.html["通过转换为驱动器架从FAS2820进行升级"]（非破坏性程序）
 

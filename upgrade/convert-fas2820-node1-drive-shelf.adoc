@@ -1,0 +1,29 @@
+---
+permalink: upgrade/convert-fas2820-node1-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas2820, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: 将FAS2820节点 1 转换为 DS212C 驱动器架，然后连接到节点 3，再将驱动器从节点 1 重新分配到节点 3。 
+---
+= 将FAS2820节点 1 转换为驱动器架并连接到节点 3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将FAS2820节点 1 转换为 DS212C 驱动器架。在将驱动器从节点 1 重新分配到节点 3 之前连接到节点 3。
+
+.步骤
+. 从node1断开所有网络缆线。
+. 从FAS2820机箱中移除节点 1。
+. 将 IOM12 或 IOM12B 模块插入节点 1 的托架。
+. 将节点 3 SAS 端口连接到 IOM12 或 IOM12B 模块上的可用端口。查看link:https://hwu.netapp.com["Hardware Universe"^]验证系统的 SAS 端口。查看link:https://hwu.netapp.com["Hardware Universe"^]验证系统的 SAS 端口。
+. 通过将 node4 集群端口连接到 node3 上的任何集群端口来创建临时集群连接。
++
+
+NOTE: 如果节点 3 仅支持 10GbE 集群连接，则必须使用 10GbE 电缆来创建临时集群连接。
+
+
+
+.下一步是什么？
+link:reassign-fas2820-node1-drives.html["将驱动器从node1重新分配给node3"]

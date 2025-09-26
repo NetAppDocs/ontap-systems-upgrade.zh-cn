@@ -1,0 +1,87 @@
+---
+permalink: upgrade/reassign-fas2820-node2-drives.html 
+sidebar: sidebar 
+keywords: fas2820, ndu, nondisruptive, upgrade, node2, node4, reassign, drives 
+summary: 将FAS2820节点 2 转换为 DS212C 驱动器架并连接到节点 4 后，将之前属于节点 2 的驱动器重新分配给节点 4。 
+---
+= 将驱动器从FAS2820节点 2 重新分配到节点 4
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将之前属于FAS2820节点 2 的驱动器重新分配给节点 4。
+
+.开始之前
+在加载程序提示符处确认node3和node4均处于备用状态。
+
+.关于此任务
+在node4上执行以下步骤。
+
+.步骤
+. 在加载程序提示符处、将node4启动至维护模式：
++
+[source, cli]
+----
+boot_ontap maint
+----
++
+出现维护模式提示。
+
+. 显示所有连接的驱动器：
++
+[source, cli]
+----
+disk show -v
+----
+. 记录本地系统ID值；这是node4的系统ID。另外、请记录"owner"列中node1和node2的系统ID。
+. 将所有驱动器从节点 2 重新分配到节点 4。
++
+[role="tabbed-block"]
+====
+.如果您使用整个磁盘
+--
+运行以下命令：
+
+[source, cli]
+----
+disk reassign -s <node2_system_ID> -d <node4_system_ID>
+----
+--
+.如果您使用分区磁盘
+--
+运行以下命令：
+
+[source, cli]
+----
+disk reassign -s <node2_system_ID> -d <node4_system_ID> -p <node1_system_ID>
+----
+--
+====
+. 验证所有重新分配的驱动器是否可供新系统ID查看：
++
+[source, cli]
+----
+disk show -s <node4_System_ID>
+----
++
+
+CAUTION: 如果看不到驱动器，请*停止*并联系技术支持寻求帮助。
+
+. 验证输出中是否报告了node2的根聚合、并且此聚合是否处于联机状态：
++
+[source, cli]
+----
+aggr status
+----
+. 退出维护模式：
++
+[source, cli]
+----
+halt
+----
+
+
+.下一步是什么？
+link:migrate-fas2820-aggregates-epsilon-lifs.html["将node1上的数据聚合、eps龙 和生命周期管理迁移到node4"]

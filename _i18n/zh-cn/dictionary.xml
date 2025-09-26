@@ -4218,7 +4218,6 @@
   <block id="9ae5a6f4cdea37ce0343ce6fe870ca8d" category="list-text">如果您的系统具有内部存储，则可以将系统转换为驱动器架并将其连接到同一集群中的新节点。</block>
   <block id="caaabddaf0ae26915d0c67052254e13f" category="admonition">不能将AFF A700s、AFF A800、AFF C800或ASA A800系统转换为驱动器架。</block>
   <block id="e83ec3e9b2b468e112627883187c2fd0" category="section-title">可能需要执行其他步骤的情况</block>
-  <block id="d79f8da307382ba028e64d108c30f593" category="inline-xref-macro">您要从AFF A250升级到AFF A400</block>
   <block id="e6dd5543cbcf668267e622e1c4af270f" category="list-text">如果新系统的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。请参见<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block>。</block>
   <block id="cb1a8b9d3abd4e33bdd8ea771ae95f90" category="inline-link">FlexArray for NetApp控制器升级和更换过程中涉及哪些具体步骤</block>
   <block id="719139d3840fec9d3f2eb2a98eeabf46" category="list-text">如果原始节点或新节点使用FlexArray虚拟化软件、请参见知识库文章<block ref="aa5f5c779b9d140822ad13dbd4dfcaef" category="inline-link-rx"></block>。</block>
@@ -4343,7 +4342,6 @@
   <block id="24c234c0d0c43e69b12af6b120695505" category="list-text">[[MAP_98_5]] 修改托管数据 LIF 的物理端口的广播域成员资格。您可以手动执行此操作，如中所示 <block ref="2d50e52fa53ee066c1e23dfcd4b5dae8" category="inline-link-macro-rx"></block>。NetApp建议使用ONTAP 9.8中引入的增强型网络可访问性扫描和修复操作步骤、如以下步骤5的子步骤(a)到(g)所示。</block>
   <block id="3a2b68bdec4a67d63868881c41adfd33" category="paragraph">您已完成物理端口映射。要完成升级，请转至 <block ref="479694184a7596b8d654b4519a939fb4" category="inline-link-macro-rx"></block>。</block>
   <block id="3548781d8fe3c65e8421c7698ed973f9" category="list-text"><block ref="3548781d8fe3c65e8421c7698ed973f9" category="inline-link-macro-rx"></block></block>
-  <block id="3f22ff9f0de0ae158372929690ccd37d" category="list-text"><block ref="7a22ca21c86b9e16042b418efc302d00" category="inline-link-macro-rx"></block> (无中断操作步骤)。</block>
   <block id="50ae6167d8a0516c8e8cb720a6888cf9" category="list-text"><block ref="50ae6167d8a0516c8e8cb720a6888cf9" category="inline-link-macro-rx"></block></block>
   <block id="54e45682922af9929fbc5d361d7c0b49" category="list-text"><block ref="54e45682922af9929fbc5d361d7c0b49" category="inline-link-macro-rx"></block></block>
   <block id="3ca57071250bef466a089a9c6c848bd5" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="964fb2d7d8e53060676c08185881a5ae" category="inline-link-macro-rx"></block></block>
@@ -4365,7 +4363,6 @@
   <block id="d1d6580288f1472dbd1db17b372d51d7" category="paragraph">您可以将配置信息从根卷还原到启动设备。</block>
   <block id="a185c3c138dca5ef46afc33288a67d1f" category="inline-image-macro">十</block>
   <block id="7cdc9e64dfc551099556d0123c5bb981" category="paragraph-title"><block ref="6097494f0af631df68e3dcb7a6da8d2a" category="inline-image-macro-rx" type="image"></block><block ref="d38ccbe9c555caadedf9e9523ed99b16" category="inline-link-macro-rx"></block></block>
-  <block id="c9dc32dde68fdd77f0e2c8f513e472f8" category="list-text"><block ref="1aa042908822fc17e30db57dc8f3c350" category="inline-link-macro-rx"></block> (无中断操作步骤)。</block>
   <block id="d0820066ba6f14dca2420f2960ea8c42" category="paragraph">这些步骤适用于运行ONTAP 9.8或更高版本的系统。如果您运行的是 ONTAP 9.7 或更早版本，则必须在中使用操作步骤 <block ref="05d6674d1c6e0d48e8203d8e927e45b4" category="inline-link-macro-rx"></block>。</block>
   <block id="5e79c247ab4077723eed9dcb39fcfe47" category="list-text">如果系统运行的是 ONTAP 9.7 或更早版本，请执行 * 停止 * 。您必须在中使用操作步骤 <block ref="05d6674d1c6e0d48e8203d8e927e45b4" category="inline-link-macro-rx"></block>。</block>
   <block id="31f3762a2a2ed806ac8dc72ae0dc1eb5" category="admonition">如果您要将控制器原位升级到使用端口"e0a"和"e0b"作为高可用性(HA)互连端口的系统、例如FAS8300、AFF A400或FAS8700、 验证您是否已安装 <block ref="7c3698c6a5737cb69d525ebacf49b908" category="inline-link-macro-rx"></block> 在开始升级操作步骤 之前、在原始系统的端口"e0a"和"e0b"上配置。</block>
@@ -5084,7 +5081,6 @@
   <block id="8babcf5a4f3ceb219fe532ed80e3feb0" category="inline-link-macro">您还可以选择将系统转换为驱动器架并将其连接到新节点</block>
   <block id="e41a07bd97897d75f6b22fcde3750258" category="admonition"><block ref="eb314f9c9756831ec72feb5f63dc05b9" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="158d9483f2a61460306dea524e285d17" category="paragraph">您只能在同一个集群内移动驱动器。</block>
-  <block id="627b519764bbfa6f3e4d2ae785e58059" category="doc">通过转换为驱动器架工作流程将 AFF A250 升级到 AFF A400</block>
   <block id="2f8d5ddddff80d2511453ce886eee1eb" category="doc">移动、删除或创建 SAN LIF</block>
   <block id="ff4f01f0da7a9c33d69bb129757afc29" category="section-title">删除不再需要的 SAN LIF</block>
   <block id="58b02b1a4790c291e537964eb5ec39dd" category="doc">决定是否使用此聚合迁移程序</block>
@@ -5329,4 +5325,106 @@
   <block id="41982d264a2a2a5af9a67f777e02916a" category="list-text">[[auto_check_4_step11]]当 node4 停止在启动菜单时，通过在 node4 上运行以下命令将 node2 磁盘重新分配给 node4：</block>
   <block id="1e1ddf24bfeddc76d571c4800f2d82ad" category="summary">使用以下命令升级运行ONTAP 9.15.1 或更高版本的控制器时，手动将失败或被否决的聚合重新定位到节点 2<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令。</block>
   <block id="3129d56ef5cc88b17f6e15c1da3476f1" category="summary">使用以下命令升级运行ONTAP 9.15.1 或更高版本的控制器时，手动将失败或被否决的聚合重新定位到节点 3<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令。</block>
+  <block id="39bb0497bdbb1e04586599bcfb4c0318" category="summary">将FAS2820节点 1 转换为 DS212C 驱动器架，然后连接到节点 3，再将驱动器从节点 1 重新分配到节点 3。</block>
+  <block id="6d8572f1d7fdac9c27f62e363921947c" category="doc">将FAS2820节点 1 转换为驱动器架并连接到节点 3</block>
+  <block id="663fdf50ecba63371090c62811c866ac" category="paragraph">将FAS2820节点 1 转换为 DS212C 驱动器架。在将驱动器从节点 1 重新分配到节点 3 之前连接到节点 3。</block>
+  <block id="8fe56965007c8482ebfb12c197c02d7e" category="list-text">从FAS2820机箱中移除节点 1。</block>
+  <block id="a315276c33006971edc828b2d5f48c91" category="list-text">将 IOM12 或 IOM12B 模块插入节点 1 的托架。</block>
+  <block id="fcef638e0d5cb441f69abe1851a71025" category="list-text">将节点 3 SAS 端口连接到 IOM12 或 IOM12B 模块上的可用端口。查看<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>验证系统的 SAS 端口。查看<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>验证系统的 SAS 端口。</block>
+  <block id="9aa378ddd116d4c0628d0af695d9cc17" category="list-text">通过将 node4 集群端口连接到 node3 上的任何集群端口来创建临时集群连接。</block>
+  <block id="3936d65ca4d32956127070b6e56b2e64" category="admonition">如果节点 3 仅支持 10GbE 集群连接，则必须使用 10GbE 电缆来创建临时集群连接。</block>
+  <block id="a369db1a615acf5202411aa57b6b0a3d" category="paragraph"><block ref="a369db1a615acf5202411aa57b6b0a3d" category="inline-link-macro-rx"></block></block>
+  <block id="2ad020d481d0a25e01559a9e966da553" category="summary">将节点 2（FAS2820）转换为 DS212C 驱动器架，然后连接到节点 4。</block>
+  <block id="d1257ec65502e0686c1e2a24a928f8f4" category="doc">将FAS2820节点 2 转换为驱动器架并连接到节点 4</block>
+  <block id="e5478c453b4e355829aeee75f0775944" category="paragraph">将FAS2820节点 2 转换为 DS212C 驱动器架。在将驱动器从节点 2 重新分配到节点 4 之前，连接到节点 4。  Node1 和 node2 是 DS212C 架内的控制器。</block>
+  <block id="64f46bf8cb3f756ca2a4b5e8380b0b81" category="list-text">从FAS2820机箱中移除节点 2。</block>
+  <block id="ea390a7342e757edb35e4cfe75d8ecdb" category="list-text">将 IOM12 或 IOM12B 模块插入节点 2 的托架。</block>
+  <block id="1a7776196607803ade98b6e8e9df8344" category="list-text">将节点 4 串行连接 SCSI (SAS) 端口连接到 IOM12 或 IOM12B 模块上的可用端口。查看<block ref="9c839fcdfb8699a63c787254d7b1ae03" category="inline-link-macro-rx"></block>验证系统的 SAS 端口。</block>
+  <block id="725e2ebaa93fe8f09185c00e43898f5f" category="list-text">通过将节点 1 端口 e0a 和 e0b 连接到节点 4 上的任意两个 25GbE 端口来创建临时集群连接。</block>
+  <block id="86f6785d45d16c2b0ff31a1179934c9f" category="admonition">如果 node4 仅支持 10GbE 集群连接，则必须有 10GbE 电缆来创建临时集群连接。</block>
+  <block id="bb7601ffb9123f9786cdac8af94211f0" category="paragraph"><block ref="bb7601ffb9123f9786cdac8af94211f0" category="inline-link-macro-rx"></block></block>
+  <block id="1e74494f5772c735812d575a898596c1" category="summary">通过将每个节点转换为 DS212C 驱动器架，然后连接到替换节点，对FAS2820执行无中断升级。</block>
+  <block id="ab73d8c2e94481a6ff48a7c91868d2c2" category="doc">通过转换为 DS212C 驱动器架从FAS2820升级</block>
+  <block id="b013bc2ad201f8e021040fd0a4c8d714" category="paragraph">您可以通过将每个节点转换为 DS212C 驱动器架，然后将其连接到替换节点，对NetApp FAS2820进行无中断升级。</block>
+  <block id="9b4eafb4e3bcfaad97fc5e7af7aa1955" category="paragraph">在此过程中， FAS2820高可用性 (HA) 对控制器称为节点 1 和节点 2，替换 HA 对控制器称为节点 3 和节点 4。</block>
+  <block id="d1d868e382ab4b08e3be5f07e03e038d" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="91744e9af34171046ee51e4df1cdf2ab" category="inline-xref-macro-rx"></block></block>
+  <block id="8313cf9b12eae77b602124631070e7c4" category="paragraph">在将FAS2820节点 2 转换为驱动器架之前，您需要将节点 2 上的逻辑接口 (LIF) 和数据聚合迁移到节点 1。</block>
+  <block id="58169b6641f5811fe5a42525bb985f58" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="9ad99f16aefbb0da0c8192358055567b" category="inline-xref-macro-rx"></block></block>
+  <block id="34e12f96079e8f2641f0bc5f76a14f3b" category="paragraph">将 FAS8280 节点 2 转换为 DS212C 驱动器架，然后连接到节点 4，再将驱动器从节点 2 重新分配到节点 4。</block>
+  <block id="0054cc808f512bbb3f118ca4abd076c2" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="d3f3d357ab78b548fc1601824fb28e41" category="inline-xref-macro-rx"></block></block>
+  <block id="5a6af6abdd490940dc1f9df9cde04966" category="paragraph">将FAS2820节点 2 转换为 DS212C 驱动器架并连接到节点 4 后，将之前属于节点 2 的驱动器重新分配给节点 4。</block>
+  <block id="48f978643e148ed2cc94db905b383041" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="02b623c9dbb2d160132ae446a4c7a0c7" category="inline-xref-macro-rx"></block></block>
+  <block id="009ec9a2eb4000ba1aeab38e275d3dd4" category="paragraph">在将FAS2820节点 1 转换为驱动器架之前，您需要将节点 1 上的数据聚合、epsilon 和 LIF 迁移到节点 4。</block>
+  <block id="26def2138cc961c62254cd174c55a771" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="9c43bd8b004df1da7b21ce814f6eafc2" category="inline-xref-macro-rx"></block></block>
+  <block id="fc0b4fd01b008060b7a81ca3f154ea4b" category="paragraph">将FAS2820节点 1 转换为 DS212C 驱动器架并连接到节点 3，然后将驱动器从节点 1 重新分配到节点 3。</block>
+  <block id="a382921dc03bfcb77c9d970e45fe1495" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="9773b7b5ae1a3a9b51916da2f5695c60" category="inline-xref-macro-rx"></block></block>
+  <block id="d794a00a08edf3e003b5895b03494ddf" category="paragraph">将FAS2820节点 1 转换为 DS212C 驱动器并连接到节点 3 后，将之前属于节点 1 的驱动器重新分配给节点 3。</block>
+  <block id="850e71b118b51db23f5fa234e21d6eef" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="c1ca954fc21d09fcd7cbc3b5808e040e" category="inline-xref-macro-rx"></block></block>
+  <block id="3ac3cdc91bfaa2a43c0fca9946253b03" category="summary">将节点 1 上的数据聚合、epsilon 和逻辑接口 (LIF) 迁移到节点 4。</block>
+  <block id="39e528beab0388f2308ca06481682fe6" category="doc">将FAS2820节点 1 上的数据聚合、epsilon 和 LIF 迁移到节点 4</block>
+  <block id="ec407094615b8064b7141eebdc4faf0a" category="paragraph">将FAS2820节点 1 上的数据聚合、epsilon 和逻辑接口 (LIF) 迁移到节点 4。</block>
+  <block id="70431d2a3b3171dc183ad62c2cdf164e" category="paragraph">在node4上执行以下步骤。</block>
+  <block id="29ef9d409bfc5bf6a0af1a52e7e295a9" category="list-text">在 node4 的 LOADER 提示符下，设置合作伙伴系统 ID：</block>
+  <block id="9732d4a7f425483bed6ea088b429c321" category="list-text">检查合作伙伴系统ID：</block>
+  <block id="48aa8461c43c6d434c042a1f7cd26163" category="list-text">保存更改：</block>
+  <block id="58ce42757edc7d65f7aa335facfe4c55" category="list-text">在启动菜单中，选择选项<block ref="1fbad292f1d0674d5769c555d41b2d77" prefix=" " category="inline-code"></block>将 /var 文件系统恢复到 node4。</block>
+  <block id="877e27c2d322a599ffdd08c891c17100" category="paragraph">如果将FAS2820升级到替换控制器时系统集群端口不相似，则可能必须暂时将节点 4 上的接口更改为集群端口：</block>
+  <block id="5d7325b4306827947502da22033698f9" category="list-text">等待集群达到法定人数，然后验证集群节点是否健康：</block>
+  <block id="fce12fccf3a26cbb691acedd9868fc28" category="list-text">仅当您要升级的FAS2820集群上使用接口组和数据 VLAN 时才完成此步骤。否则，转到<block ref="5a1eec99d6beb6e9faa992f0e22335e5" category="inline-xref-macro-rx"></block>。</block>
+  <block id="16a9d0a644dc77426403978271fa8238" category="paragraph">更换控制器上的物理网络端口名称与FAS2820上的不同。这可能会导致节点 4 上的 VLAN 移位和接口组配置不正确。</block>
+  <block id="c3e7a5e32bd2e11679ed6235b2adbd21" category="list-text">显示已置换的 VLAN：</block>
+  <block id="577eb353d2dda6749c18595dad185a0e" category="list-text">恢复被取代的 VLAN：</block>
+  <block id="04b8389fdd361eb809430c42f4624631" category="list-text">修复错误配置的接口组。 FAS2820和您正在升级的控制器之间的端口名称可能不同。使用正确的成员端口更新接口组：</block>
+  <block id="5c884dd6b97d69df3e1af4a24ee863bc" category="list-text">显示数据聚合状态：</block>
+  <block id="01392697d52d1d375332f041d834fead" category="list-text">通过将 epsilon 从节点 1 移除并将其移动到节点 4 来迁移 epsilon。</block>
+  <block id="118cd161d4f37abbb3a8c4baec04ed48" category="list-text">显示集群状态以验证 epsilon 变化：</block>
+  <block id="9ad3f03c93e9dcbdf6be7194a18902d9" category="list-text">如果任何 LIF 处于关闭状态，则将其管理状态设置为<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>为每个 LIF 输入一次以下命令：</block>
+  <block id="df891edbd6b0f00d98d3d2376a067122" category="paragraph"><block ref="df891edbd6b0f00d98d3d2376a067122" category="inline-link-macro-rx"></block></block>
+  <block id="e0a957b08ecb5a9fd1e825f68f0e64dc" category="summary">将FAS2820节点 2 上的逻辑接口 (LIF) 和数据聚合迁移到节点 1，然后再将节点 2 转换为驱动器架。</block>
+  <block id="601722b4c9c69820b9d720c8c940f724" category="doc">将FAS2820节点 2 上的 LIF 和数据聚合迁移到节点 1</block>
+  <block id="7d37ff2d3a9b0f3b21eda882f20eaae5" category="list-text">如果可能， FAS2820和替换控制器具有相同的ONTAP版本和补丁版本。请参阅<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block>适用于受支持的ONTAP版本。</block>
+  <block id="80cd304d38e2aed4d842aa1630bc0dad" category="list-text">您需要通过网络启动在 node3 和 node4 上安装ONTAP版本，以匹配FAS2820系统上的ONTAP版本。  Node3 和 node4 是替换控制器。</block>
+  <block id="80c7e88957d9462b8f6fac12ec261b8d" category="list-text">node3 和 node4 控制器的主启动映像和备份启动映像必须具有相同的ONTAP版本。</block>
+  <block id="adc2a6d6f08e30b20353435634048f79" category="list-text">您需要执行以下操作来清除节点 3 和节点 4 上的任何残留集群配置<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block>从启动菜单。</block>
+  <block id="da1ea0ee367c83a05341c10eb92921b5" category="list-text">两个替换控制器均在 LOADER 提示符下处于待命状态。</block>
+  <block id="9cdda3ac4f8a5af7408c9611f78f7bf9" category="list-text">所有需要的电缆均已配备。</block>
+  <block id="4465c00fc828473105f269a899d79c21" category="paragraph">以下步骤在FAS2820节点 1 上执行。</block>
+  <block id="5965c3c2057d5bfeb9e7cd6aa1da843d" category="list-text">禁用集群 ha：</block>
+  <block id="2e82d870a2b26cff3089793672f0342d" category="paragraph"><block ref="2e82d870a2b26cff3089793672f0342d" category="inline-link-macro-rx"></block></block>
+  <block id="70213ce8df6f326c8c858906eda1740c" category="summary">要完成升级，您需要将 FAS2820node3 连接到 node4，然后将 node4 上的数据逻辑接口 (LIF) 和数据聚合迁移到 node3。</block>
+  <block id="ac03f0a9aed6d7cc8cc2f9aa06ab5c2f" category="doc">将FAS2820节点 4 上的 LIF 和数据聚合迁移到节点 3</block>
+  <block id="798b92db311a432e12d579940612d93b" category="paragraph">要完成升级，您需要将FAS2820节点 3 连接到节点 4，然后将节点 4 上的数据逻辑接口 (LIF) 和数据聚合迁移到节点 3。</block>
+  <block id="546ad9f8a047416e6263ed28b1b6a61c" category="paragraph">在node3上执行以下步骤。</block>
+  <block id="a76e7f8c364a7e27930ee7ff49df6e37" category="list-text">验证集群和 HA 端口是否在节点 3 和节点 4 之间连接。</block>
+  <block id="6052d7b32607b02e8d7092b4374824ed" category="list-text">显示节点3和节点4上的集群和HA端口：</block>
+  <block id="32710cda7c5dad348e2b2e03cf81d971" category="list-text">将两个节点上的所有集群网络 LIF 迁移到其计划的主端口：</block>
+  <block id="6ac170d19dd75b39a772cfb2159effe2" category="list-text">配置集群网络 LIF 的主端口：</block>
+  <block id="8bd5f2b46faa7afe1f8b5fde87fe58a7" category="list-text">将用于 node3 的所有数据 LIF 迁移回 node3：</block>
+  <block id="d4ea258ab4e2dcf20e7e9f102a6ce502" category="list-text">为所有数据 LIF 配置主节点和主端口。如果任何 LIF 处于关闭状态，则将其管理状态设置为<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>为每个 LIF 输入一次以下命令：</block>
+  <block id="ab72b255e3349ae141f76089ccc6a9bd" category="list-text">在双节点集群中启用集群高可用性：</block>
+  <block id="98ec39406efb767f83dc79971d983c15" category="list-text">启用并验证 node3 和 node4 的存储故障转移：</block>
+  <block id="a04136bb695577e89cb64bd8d566305d" category="list-text">迁移由 node4 拥有但本应由 node3 拥有的数据聚合：</block>
+  <block id="7ff9c5727fd29deb9cd8032b2551cd2b" category="admonition">在集群报告输出中，一个节点可能错误地拥有属于另一个节点的聚合。如果发生这种情况，请从集群的两侧执行接管和交还。</block>
+  <block id="b7ed6d2578c289a342dff3870c0458e4" category="doc">将驱动器从FAS2820节点 1 重新分配给节点 3</block>
+  <block id="67242858a5a960ad59c4112deff89a57" category="paragraph">将先前分配给FAS2820节点 1 的驱动器重新分配给节点 3。</block>
+  <block id="2cc2671439ba3e907dc353e6fa9e2f82" category="paragraph">出现维护模式提示。</block>
+  <block id="50ef837b20ef82f8d6c3ad3818c7e3b9" category="list-text">记录本地系统 ID 值；这是节点 3 的系统 ID。还从“OWNER”列中记录节点 1 和节点 4 的系统 ID。</block>
+  <block id="fc626981b1ece2c6c05c047f46bbfcbf" category="open-title">如果您使用整个磁盘</block>
+  <block id="337d79852891a37d41285c9101c3fff4" category="paragraph">运行以下命令：</block>
+  <block id="17c26bafe75c18b3bcd768f9147f1213" category="open-title">如果您使用分区磁盘</block>
+  <block id="7a276578eb1d5f5ba51a40f9a3c06c94" category="admonition">如果看不到驱动器，请*停止*并联系技术支持寻求帮助。</block>
+  <block id="f2301c41e07cf933742b943a7d3ecb4e" category="paragraph"><block ref="f2301c41e07cf933742b943a7d3ecb4e" category="inline-link-macro-rx"></block></block>
+  <block id="c76f454b1b8b44e22cf7a34d06691591" category="doc">将驱动器从FAS2820节点 2 重新分配到节点 4</block>
+  <block id="52ce99ed56c027ff91b3e909018de81d" category="paragraph">将之前属于FAS2820节点 2 的驱动器重新分配给节点 4。</block>
+  <block id="e5549cfce8a8e0264f304166398e83fb" category="list-text">将所有驱动器从节点 2 重新分配到节点 4。</block>
+  <block id="08ca03a8874a1a38c5541456cb7a250f" category="paragraph"><block ref="08ca03a8874a1a38c5541456cb7a250f" category="inline-link-macro-rx"></block></block>
+  <block id="c2dd662463f4b0b3f6efeb80332e50d6" category="list-text"><block ref="1aa042908822fc17e30db57dc8f3c350" category="inline-link-macro-rx"></block>（非破坏性程序）</block>
+  <block id="d81919377c1c1774d8ca7b45cc02103c" category="inline-link-macro">通过转换为驱动器架从FAS2820进行升级</block>
+  <block id="8b2e9677889c0f0b26cd5e5a2e524532" category="list-text"><block ref="f9bfe9dff8f74d561bd9015eaa95aca7" category="inline-link-macro-rx"></block>（非破坏性程序）</block>
+  <block id="ed58851cec153c1db74f982f7968d38c" category="inline-link-macro">将AFF A250转换为驱动器架并升级到AFF A400</block>
+  <block id="a0d4e0637e12b87691937ec2f86fe18e" category="list-text"><block ref="182a6b47297b5fcc5de9721f7f6d6e2c" category="inline-link-macro-rx"></block>（非破坏性程序）</block>
+  <block id="af72e67cdd4847ff8df836082e1ecd28" category="sidebar">将AFF A250升级到AFF A400</block>
+  <block id="6a6bad6107988979a4c7bb4f9b6e3f47" category="sidebar">了解如何将AFF A250升级到AFF A400</block>
+  <block id="1c89ca7629177ffaec440b31de61e887" category="sidebar">从FAS2820升级</block>
+  <block id="10952bb20745dcf0f30d5dd264d03924" category="sidebar">了解如何从FAS2820升级</block>
 </blocks>

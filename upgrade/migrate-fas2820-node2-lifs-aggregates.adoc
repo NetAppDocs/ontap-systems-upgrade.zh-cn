@@ -1,0 +1,147 @@
+---
+permalink: upgrade/migrate-fas2820-node2-lifs-aggregates.html 
+sidebar: sidebar 
+keywords: fas2820, ndu, nondisruptive, upgrade, node1, node2, migrate, aggregates, lifs 
+summary: '将FAS2820节点 2 上的逻辑接口 (LIF) 和数据聚合迁移到节点 1，然后再将节点 2 转换为驱动器架。' 
+---
+= 将FAS2820节点 2 上的 LIF 和数据聚合迁移到节点 1
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+将FAS2820节点 2 上的逻辑接口 (LIF) 和数据聚合迁移到节点 1，然后再将节点 2 转换为驱动器架。
+
+.开始之前
+验证是否满足以下要求：
+
+* 如果可能， FAS2820和替换控制器具有相同的ONTAP版本和补丁版本。请参阅 https://hwu.netapp.com["NetApp Hardware Universe"^]适用于受支持的ONTAP版本。
+
+
+[NOTE]
+====
+* 您需要通过网络启动在 node3 和 node4 上安装ONTAP版本，以匹配FAS2820系统上的ONTAP版本。  Node3 和 node4 是替换控制器。
+* node3 和 node4 控制器的主启动映像和备份启动映像必须具有相同的ONTAP版本。
+* 您需要执行以下操作来清除节点 3 和节点 4 上的任何残留集群配置 `wipeconfig`从启动菜单。
+
+
+====
+* 两个替换控制器均在 LOADER 提示符下处于待命状态。
+* 所有需要的电缆均已配备。
+
+
+.关于此任务
+以下步骤在FAS2820节点 1 上执行。
+
+.步骤
+. 访问高级权限级别：
++
+[source, cli]
+----
+set -privilege advanced
+----
+. 禁用存储故障转移自动交还：
++
+[source, cli]
+----
+storage failover modify -node node1 -auto-giveback false
+----
+. 在HA对的两个节点上禁用自动还原此两个节点上的生命周期：
++
+[source, cli]
+----
+network interface modify -lif * -auto-revert false
+----
+. 显示所有数据网络LUN的状态：
++
+[source, cli]
+----
+network interface show -role data
+----
+. 显示集群管理LUN的状态：
++
+[source, cli]
+----
+network interface show -role cluster-mgmt
+----
+. 从node2上托管的Storage Virtual Machine迁移所有数据SVM：
++
+[source, cli]
+----
+network interface migrate -vserver <vserver_name> -lif <lif_name> -destination-node <node1> -destination-port <port_name>
+----
++
+
+NOTE: 此命令仅会迁移非SAN SIFs。您不能使用它来迁移iSCSI和FCP LUN。
+
+. 显示集群中所有数据LUN的状态：
++
+[source, cli]
+----
+network interface show -role data
+----
+. 如果任何 LIF 处于关闭状态，则将其管理状态设置为 `up`为每个 LIF 输入一次以下命令：
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> -status-admin up
+----
+. 显示集群中所有数据聚合的状态：
++
+[source, cli]
+----
+storage aggregate show
+----
+. 显示故障转移资格：
++
+[source, cli]
+----
+storage failover show
+----
+. 将node2上的数据聚合迁移到node1：
++
+[source, cli]
+----
+storage aggregate relocation start -aggregate <aggregate_name> -node <node2> -destination <node1>
+----
+. 显示集群中所有数据聚合的状态：
++
+[source, cli]
+----
+storage aggregate show
+----
+. 显示集群中所有数据卷的状态：
++
+[source, cli]
+----
+volume show
+----
+. 显示 `ha` Epsilon的状态和所有权：
++
+[source, cli]
+----
+cluster show
+----
+. 禁用集群 ha：
++
+[source, cli]
+----
+cluster ha modify -configured false
+----
+. 显示 `ha` Epsilon的状态和所有权：
++
+[source, cli]
+----
+cluster show
+----
+. 暂停节点 2 ：
++
+[source, cli]
+----
+halt -node <node2> -inhibit-takeover true -ignore-quorum-warnings true
+----
+
+
+.下一步是什么？
+link:convert-fas2820-node2-drive-shelf.html["将node2转换为驱动器架并连接到node4"]

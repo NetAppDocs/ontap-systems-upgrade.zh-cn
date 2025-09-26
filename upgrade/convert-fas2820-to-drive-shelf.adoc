@@ -1,0 +1,45 @@
+---
+permalink: upgrade/convert-fas2820-to-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas2820,  ndu, nondisruptive, upgrade, FAS, systems, entry, level 
+summary: 通过将每个节点转换为 DS212C 驱动器架，然后连接到替换节点，对FAS2820执行无中断升级。 
+---
+= 通过转换为 DS212C 驱动器架从FAS2820升级
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以通过将每个节点转换为 DS212C 驱动器架，然后将其连接到替换节点，对NetApp FAS2820进行无中断升级。
+
+.关于此任务
+在此过程中， FAS2820高可用性 (HA) 对控制器称为节点 1 和节点 2，替换 HA 对控制器称为节点 3 和节点 4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]xref:migrate-fas2820-node2-lifs-aggregates.adoc[将node2上的生命周期管理器和数据聚合迁移到node1]
+[role="quick-margin-para"]
+在将FAS2820节点 2 转换为驱动器架之前，您需要将节点 2 上的逻辑接口 (LIF) 和数据聚合迁移到节点 1。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]xref:convert-fas2820-node2-drive-shelf.adoc[将node2转换为驱动器架并连接到node4]
+[role="quick-margin-para"]
+将 FAS8280 节点 2 转换为 DS212C 驱动器架，然后连接到节点 4，再将驱动器从节点 2 重新分配到节点 4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]xref:reassign-fas2820-node2-drives.adoc[将驱动器从node2重新分配给node4]
+[role="quick-margin-para"]
+将FAS2820节点 2 转换为 DS212C 驱动器架并连接到节点 4 后，将之前属于节点 2 的驱动器重新分配给节点 4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]xref:migrate-fas2820-aggregates-epsilon-lifs.adoc[将node1上的数据聚合、eps龙 和生命周期管理迁移到node4]
+[role="quick-margin-para"]
+在将FAS2820节点 1 转换为驱动器架之前，您需要将节点 1 上的数据聚合、epsilon 和 LIF 迁移到节点 4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"]xref:convert-fas2820-node1-drive-shelf.html[将node1转换为驱动器架并连接到node3]
+[role="quick-margin-para"]
+将FAS2820节点 1 转换为 DS212C 驱动器架并连接到节点 3，然后将驱动器从节点 1 重新分配到节点 3。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"]xref:reassign-fas2820-node1-drives.adoc[将驱动器从node1重新分配给node3]
+[role="quick-margin-para"]
+将FAS2820节点 1 转换为 DS212C 驱动器并连接到节点 3 后，将之前属于节点 1 的驱动器重新分配给节点 3。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]xref:migrate-fas2820-node4-lIfs-aggregates.adoc[将node4上的生命周期管理器和数据聚合迁移到node3]
+[role="quick-margin-para"]
+要完成升级、请将node3连接到node4、然后将node4上的数据生命周期和数据聚合迁移到node3。
