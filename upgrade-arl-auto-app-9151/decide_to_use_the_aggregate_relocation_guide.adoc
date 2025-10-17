@@ -59,7 +59,6 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 +
 要执行上表中列出的升级、请参见link:other_references.html["参考资料"]以链接到_use "system controller Replace "命令升级同一机箱中的控制器型号_。
 
-* 您正在升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。
 * 您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 link:other_references.html["参考资料"] 以链接到_ MetroCluster升级和扩展文档_。
 
 

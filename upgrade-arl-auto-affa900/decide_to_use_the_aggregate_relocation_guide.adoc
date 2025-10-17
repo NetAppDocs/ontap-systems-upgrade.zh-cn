@@ -48,7 +48,6 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 您不能在以下情况下使用此 ARL 程序：
 
 * 您希望将新控制器作为新的HA对添加到集群中、并通过卷移动来迁移数据。
-* 您正在升级的现有系统上使用FlexArray虚拟化软件。
 * 您正在升级MetroCluster IP配置。
 +
 要升级MetroCluster IP配置、请参见link:other_references.html["参考资料"]以链接到_Upgrade MetroCluster and Expanation_内容。

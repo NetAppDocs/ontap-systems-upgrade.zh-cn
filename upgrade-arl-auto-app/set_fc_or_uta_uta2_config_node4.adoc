@@ -17,13 +17,11 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 如果 node4 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。
 
 .关于此任务
-您可能需要完成或部分、或者同时完成 <<在节点 4 上配置 FC 端口>> <<检查并配置 node4 上的 UTA/UTA2 端口>> 这两个部分。
+您可能需要完成<<在节点 4 上配置 FC 端口>>或者<<检查并配置 node4 上的 UTA/UTA2 端口>>或两个部分。
 
 [NOTE]
 ====
-如果node4没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]。
-
-但是，如果您使用V系列系统或FlexArray虚拟化软件并连接到存储阵列，而node4没有板载FC端口、板载UTA/ UTA2端口或UTA/UTA2卡，则必须返回_Install and boot node4_并在中恢复此过程link:install_boot_node4.html#step22["第 22 步"]。
+如果 node4 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，从ONTAP 9.15.1 开始引入的AFF和FAS系统），并且您正在升级带有存储磁盘的系统，则可以跳至link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]。
 
 确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。
 
@@ -32,7 +30,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 == 在节点 4 上配置 FC 端口
 
-如果 node4 具有板载或 FC 适配器上的 FC 端口，则必须先在节点上设置端口配置，然后再将其投入使用，因为这些端口未经过预配置。如果未配置端口，则可能会发生服务中断。
+如果节点 4 具有 FC 端口（无论是板载的还是附加 FC 适配器上的），则必须在节点投入使用之前设置其端口配置，因为系统出厂时未预先配置端口。如果您没有按要求配置端口，则可能会遇到服务中断。
 
 .开始之前
 您必须具有在部分中保存的 node2 中的 FC 端口设置值 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。
@@ -41,61 +39,36 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置 <<检查并配置 node4 上的 UTA/UTA2 端口>>。
 
 
-IMPORTANT: 如果您的系统具有存储磁盘、则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。
+IMPORTANT: 在维护模式 shell 提示符下输入本节中的命令。
 
 .步骤
-. 执行以下操作之一：
+. 显示系统上所有 FC 和融合网络适配器的信息：
 +
-[cols="30,70"]
-|===
-| 如果要升级的系统 ... | 然后选择… 
-
-
-| 具有存储磁盘 | `ssystem node hardware unified-connect show` 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `ucadmin show` 
-|===
-+
-系统将显示有关系统上所有 FC 和融合网络适配器的信息。
+`ssystem node hardware unified-connect show`
 
 . 将 node4 上的 FC 设置与先前从 node1 中捕获的设置进行比较。
-. 执行以下操作之一：
+. 根据需要修改 node4 上的 FC 端口：
 +
-[cols="30,70"]
-|===
-| 如果要升级的系统 ... | 然后选择… 
-
-
-| 具有存储磁盘  a| 
-根据需要修改 node4 上的 FC 端口：
-
-** 要对目标端口进行编程：
+** 要作为目标端口进行编程：
 +
 `ucadmin modify -m fc -t target _adapter_`
+
++
+例如： `ucadmin modify -m fc -t target 2a`
 
 ** 要对启动程序端口进行编程：
 +
 `ucadmin modify -m fc -t initiator _adapter_`
 
-
-
++
 ` -t` 是 FC4 类型： target 或 initiator 。
 
++
+例如： `ucadmin modify -m fc -t initator 2b`
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
-根据需要修改 node4 上的 FC 端口：
 
-`ucadmin modify -m fc -t initiator -f _adapter_port_name_`
-
-`-t` 是FC4类型、目标或启动程序。
-
-
-NOTE: FC端口必须编程为启动程序。
-
-|===
-. 退出维护模式：
+. 暂停节点：
 +
 `halt`
 
@@ -109,23 +82,10 @@ NOTE: FC端口必须编程为启动程序。
 
 . 【第 8 步】执行以下操作之一：
 +
-[cols="30,70"]
-|===
-| 如果要升级的系统 ... | 然后选择… 
-
-
-| 具有存储磁盘  a| 
-** 如果node4没有UTA/UTA2卡或UTA/UTA2板载端口、请跳过此部分并转到link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]。
-
-
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
 ** 转至 <<检查并配置 node4 上的 UTA/UTA2 端口>> 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
-** 如果node4没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_检查并配置node4_上的UTA/UTA2端口，返回到_Install并启动node4_，然后继续执行中的过程link:install_boot_node4.html#auto_install4_step23["第 23 步"]。
+** 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过“检查并配置 node4 上的 UTA/UTA2 端口”并转到link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]。
 
 
-|===
 
 
 
@@ -153,21 +113,13 @@ UTA/UTA2 端口可能位于具有以下配置的适配器或控制器上：
 但是，您应检查 node4 上的 UTA/UTA2 端口的配置，并根据需要进行更改。
 
 
-WARNING: * 注意 * ：如果您的系统具有存储磁盘，除非指示您进入维护模式，否则您可以在集群提示符处输入本节中的命令。如果您的 MetroCluster FC 系统， V 系列系统或安装了 FlexArray 虚拟化软件的系统连接到存储阵列，则必须处于维护模式才能配置 UTA/UTA2 端口。
+WARNING: 在维护模式 shell 提示符下输入本节中的命令。
 
 .步骤
-. 在 node4 上使用以下命令之一检查端口的当前配置方式：
+. 检查 node4 上端口的当前配置情况：
 +
-[cols="30,70"]
-|===
-| 如果系统 ... | 然后选择… 
+`ssystem node hardware unified-connect show`
 
-
-| 具有存储磁盘 | `ssystem node hardware unified-connect show` 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `ucadmin show` 
-|===
 +
 系统将显示类似于以下示例的输出：
 
@@ -191,67 +143,13 @@ f-a    0h       cna      target     -          -        online
 +
 请联系您的 NetApp 代表以获取正确的 SFP+ 模块。
 
-. 检查 `ucadmin show` 命令的输出，并确定 UTA/UTA2 端口是否具有所需的个性化设置。
-. 执行以下操作之一：
-+
-[cols="30,70"]
-|===
-| 如果 CNA 端口 ... | 然后选择… 
-
-
-| 没有所需的个性化设置 | 转至 <<auto_check_4_step5,第 5 步>>。 
-
-
-| 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 <<auto_check_4_step13,第 13 步>>。 
-|===
-. 【 auto_check_4_step5]] 执行以下操作之一：
-+
-[cols="30,70"]
-|===
-| 如果要配置 | 然后选择… 
-
-
-| UTA/UTA2 卡上的端口 | 转至 <<auto_check_4_step7,第 7 步>> 
-
-
-| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 <<auto_check_4_step8,第 8 步>>。 
-|===
-. 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
-+
-`storage disable adapter _adapter_name_`
-
-+
-目标模式下的适配器会在维护模式下自动脱机。
-
-. 【 auto_check_4_step7]] 如果当前配置与所需用途不匹配，请根据需要更改配置：
-+
-`ucadmin modify -m fc|cna -t initiators|target _adapter_name_`
-
-+
-** ` -m` 是个性化模式， FC 或 10GbE UTA 。
-** ` -t` 是 FC4 类型， `target` 或 `initiator` 。
-+
-
-NOTE: 您必须对磁带驱动器， FlexArray 虚拟化系统和 MetroCluster 配置使用 FC 启动程序。您必须对 SAN 客户端使用 FC 目标。
-
-
-
-. 【 auto_check_4_step8]] 使用以下命令并检查其输出，以验证设置：
+. 验证设置：
 +
 `ucadmin show`
 
-. 验证设置：
 +
-[cols="40,60"]
-|===
-| 如果系统 ... | 然后选择… 
+检查 `ucadmin show` 命令的输出，并确定 UTA/UTA2 端口是否具有所需的个性化设置。
 
-
-| 具有存储磁盘 | `ucadmin show` 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `ucadmin show` 
-|===
 +
 以下示例中的输出显示， FC4 类型的适配器 "1b" 更改为 `initiator` ，适配器 "2a" 和 "2b" 的模式更改为 `CNA` ：
 
@@ -267,34 +165,58 @@ f-a   2b       fc             target       cna           -             online
 4 entries were displayed.
 *>
 ....
-. 输入以下命令之一，使所有目标端口联机，每个端口输入一次：
+. 执行以下操作之一：
 +
 [cols="30,70"]
 |===
-| 如果系统 ... | 然后选择… 
+| 如果 CNA 端口 ... | 然后选择… 
 
 
-| 具有存储磁盘 | `network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up` 
+| 没有所需的个性化设置 | 转至 <<auto_check_4_step5,第 5 步>>。 
 
 
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP config _adapter_name_ up` 
+| 拥有所需的个性化特性 | 跳过步骤 5 至步骤 9，然后转到<<auto_check_4_step10,第 10 步>>。 
 |===
+. 【 auto_check_4_step5]] 执行以下操作之一：
++
+[cols="30,70"]
+|===
+| 如果要配置 | 然后选择… 
+
+
+| UTA/UTA2 卡上的端口 | 前往<<auto_check_4_step6,第 6 步>> 
+
+
+| 板载 UTA/UTA2 端口 | 跳过第 6 步并转到<<auto_check_4_step7,第 7 步>>。 
+|===
+. [[auto_check_4_step6]]如果适配器处于启动器模式，并且 UTA/UTA2 端口处于在线状态，则将 UTA/UTA2 端口脱机：
++
+`storage disable adapter _adapter_name_`
+
++
+目标模式下的适配器会在维护模式下自动脱机。
+
+. 【 auto_check_4_step7]] 如果当前配置与所需用途不匹配，请根据需要更改配置：
++
+`ucadmin modify -m fc|cna -t initiator|target <adapter_name>`
+
++
+** ` -m` 是个性化模式， FC 或 10GbE UTA 。
+** ` -t` 是 FC4 类型， `target` 或 `initiator` 。
++
+
+NOTE: 您必须对磁带驱动器和MetroCluster配置使用 FC 启动器。您必须对 SAN 客户端使用 FC 目标。
+
+
+
+. 输入以下命令（每个端口一次），使任何目标端口联机：
++
+`storage enable adapter <adapter_name>`
+
 . 为端口布线。
 
 
-. 【第 12 步】执行以下操作之一：
-+
-[cols="30,70"]
-|===
-| 如果系统 ... | 然后选择… 
-
-
-| 具有存储磁盘 | 转到。 link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"] 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到_Install并启动node4_，然后从继续link:install_boot_node4.html#auto_install4_step23["第 23 步"]。 
-|===
-. 【 auto_check_4_step13]] 退出维护模式：
+. [[auto_check_4_step10]]退出维护模式：
 +
 `halt`
 
@@ -302,7 +224,9 @@ f-a   2b       fc             target       cna           -             online
 +
 `boot_ontap 菜单`
 
-+
-如果要升级到AFF A800系统，请转至link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["将节点2磁盘重新分配给节点4、步骤9"]。
 
+
+.下一步是什么？
+* 如果要升级到AFF A800系统，请转至link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step9["将节点2磁盘重新分配给节点4、步骤9"]。
+* 对于所有其他系统升级，请访问link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4、步骤1"]。
 

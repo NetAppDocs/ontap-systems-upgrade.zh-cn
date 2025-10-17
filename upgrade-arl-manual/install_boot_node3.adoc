@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-manual/install_boot_node3.html 
-keywords: install, boot, node3, rack, transfer connections, v-series, flexarray, storage disks 
+keywords: install, boot, node3, rack, transfer connections, v-series, storage disks 
 summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期间，安装和启动 node3 并安装 ONTAP 软件。 
 ---
 = 安装并启动 node3
@@ -24,7 +24,6 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 [IMPORTANT]
 ====
 * 对于 AFF A800 或 AFF C800 控制器升级，在移除节点 1 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参见 link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
-* 如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则必须完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。
 * 如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后转到link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"]和link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"] ，在集群提示符下输入命令。
 
 
@@ -44,7 +43,7 @@ NOTE: 如果要升级到两个节点位于同一机箱中的系统，请在机�
 以下参考资料可帮助您正确进行缆线连接。转至 link:other_references.html["参考资料"] 以链接到它们。
 
 +
-** node3 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。
+** node3 平台的_安装和设置说明_
 ** 相应的磁盘架操作步骤
 ** HA对管理文档
 
@@ -86,65 +85,25 @@ To override this delay, press 'c' followed by 'Enter'
 .. 让电池充电并完成启动过程。
 +
 
-NOTE: * 注意 * ：请勿覆盖此延迟；如果不允许电池充电，可能会导致数据丢失。
+WARNING: *请勿超越延迟；如果电池无法充电，可能会导致数据丢失。*
 
 
 
-. 【 man_install3_step6]] 执行以下操作之一：
-+
-[cols="35,65"]
-|===
-| 如果您的系统 ... | 那么 ... 
-
-
-| 具有磁盘，无后端存储 | 跳过第 7 步到第 12 步，然后转到 <<man_install3_step13,第 13 步>>。 
-
-
-| 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 
-.. 转至 link:set_fc_uta_uta2_config_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"] 并完成各小节 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"]，根据您的系统情况而定。
-.. 返回到此部分，完成从开始的其余步骤 <<man_install3_step7,第 7 步>>。
-
-
-
-IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP 之前、必须重新配置FC板载端口、CNA板载端口和CNA卡。
-
-|===
-. 【 man_install3_step7]] 将新节点的 FC 启动程序端口添加到交换机分区。
-+
-如果您的系统具有磁带 SAN ，则需要对启动程序进行分区。有关说明，请参见存储阵列和分区文档。
-
-. 【 man_install3_step8]] 将 FC 启动程序端口作为新主机添加到存储阵列，将阵列 LUN 映射到新主机。
-+
-有关说明，请参见存储阵列和分区文档。
-
-. [[man_install3_step9]] 修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。
-+
-安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
-
-. 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-. [[man_install3_step11]] 验证阵列 LUN 现在是否对 node3 可见：
-+
-`ssysconfig -v`
-
-+
-系统将显示每个 FC 启动程序端口可见的所有阵列 LUN 。如果阵列 LUN 不可见，您将无法在本节稍后将磁盘从 node1 重新分配到 node3 。
-
-. 【 man_install3_step12]] 按 Ctrl-C 显示启动菜单并选择维护模式。
-. 在维护模式提示符处，输入以下命令：
+. 在维护模式提示符下，输入以下命令：
 +
 `halt`
 
 +
 系统将在启动环境提示符处停止。
 
-. 【 man_install3_step14]] 执行以下操作之一：
+. 执行以下操作之一：
 +
 [cols="35,65"]
 |===
 | 如果要升级到的系统位于 ... | 那么 ... 
 
 
-| 双机箱配置（控制器位于不同机箱中） | 转至 <<man_install3_step15,第 15 步>>。 
+| 双机箱配置（控制器位于不同机箱中） | 前往<<man_install3_step8,第 8 步>>。 
 
 
 | 单机箱配置（控制器位于同一机箱中）  a| 
@@ -159,11 +118,11 @@ NOTE: 在启动环境提示符处保留node4；您将返回到中的node4 link:i
 
 .. 如果您在中看到警告消息，请执行此操作 <<man_install3_step4,第 4 步>>，按照中的说明进行操作 <<man_install3_step5,第 5 步>>
 .. 将控制台缆线从 node4 切回到 node3 。
-.. 转至 <<man_install3_step15,第 15 步>>。
+.. 前往<<man_install3_step8,第 8 步>>。
 
 
 |===
-. 【 man_install3_step15]] 为 ONTAP 配置 node3 ：
+. [[man_install3_step8]]为ONTAP配置 node3：
 +
 `set-defaults`
 
@@ -204,7 +163,7 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 
 WARNING: 如果此新节点曾在任何其他集群或HA对中使用过、则必须运行 `wipeconfig` 然后继续。否则可能会导致服务中断或数据丢失。如果先前使用了替代控制器，请联系技术支持，尤其是在这些控制器运行的是在 7- 模式下运行的 ONTAP 时。
 
-. 【 man_install3_step18]] 按 CTRL-C 显示启动菜单。
+. 按 CTRL-C 显示启动菜单。
 . [[man_install3_step19]] 执行以下操作之一：
 +
 [cols="35,65"]
@@ -212,12 +171,12 @@ WARNING: 如果此新节点曾在任何其他集群或HA对中使用过、则必
 | 如果要升级的系统 ... | 那么 ... 
 
 
-| node3 上的 ONTAP 版本是否正确或最新 | 转至 <<man_install3_step20,第 20 步>>。 
+| node3 上的 ONTAP 版本是否正确或最新 | 前往<<man_install3_step13,第 13 步>>。 
 
 
-| node3 上的 ONTAP 版本正确或最新 | 转至 <<man_install3_step25,第 25 步>>。 
+| node3 上的 ONTAP 版本正确或最新 | 前往<<man_install3_step18,第 18 步>>。 
 |===
-. 【 man_install3_step20]] 通过选择以下操作之一来配置网络启动连接。
+. [[man_install3_step13]]通过选择以下操作之一来配置网络启动连接。
 +
 
 NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
@@ -245,7 +204,7 @@ NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用�
 NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
 
 |===
-. 【 man_install3_step21]] 对 node3 执行网络启动：
+. 在节点 3 上执行网络启动：
 +
 [cols="35,65"]
 |===
@@ -264,7 +223,7 @@ NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件�
 
 NOTE: 请勿中断启动。
 
-. 在启动菜单中，选择选项 * （ 7 ）首先安装新软件 * 。
+. 从启动菜单中，首先选择选项*(7) 安装新软件*。
 +
 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。
 
@@ -281,11 +240,11 @@ NOTE: 请勿中断启动。
 
 NOTE: 请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景是 ONTAP 的所有版本。netboot操作步骤 与选项结合使用 `(7) Install new software` 擦除启动介质并将相同的ONTAP 版本ONTAP 放置在两个映像分区上。
 
-. 如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时输入以下 URL ：
+. 如果提示您继续该过程，请输入 `y`，当提示输入包时，输入以下 URL：
 +
 ` http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`
 
-. [[man_install3_step24]] 完成以下子步骤：
+. 完成以下子步骤：
 +
 .. 出现以下提示时，输入 `n` 以跳过备份恢复：
 +
@@ -304,12 +263,12 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 
 
-. 【 man_install3_step25]] 输入 `5` 以选择 * （ 5 ）维护模式启动 * ，然后在系统提示您继续启动时输入 `y` 。
+. [[man_install3_step18]]通过输入选择 *(5) 维护模式启动* `5` ，然后输入 `y`当提示继续启动时。
 . 【 man_install3_step26]] 继续操作前，请转到 link:set_fc_uta_uta2_config_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"] 对节点上的 FC 或 UTA/UTA2 端口进行任何必要的更改。
 +
 按照这些部分中的建议进行更改，重新启动节点并进入维护模式。
 
-. 【 man_install3_step27]] 找到 node3 的系统 ID ：
+. 查找节点3的系统ID：
 +
 `d` 展示 -A
 
@@ -335,7 +294,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 NOTE: 输入命令后，您可能会看到消息 `disk show ： no disks match option -a` 。此消息不是错误消息，因此您可以继续使用操作步骤。
 
-. 【 man_install3_step28]] 重新分配 node1 的备用磁盘，属于根的所有磁盘以及先前未重新定位到 node2 的任何非根聚合 link:relocate_non_root_aggr_node1_node2.html["将非根聚合从 node1 重新定位到 node2"]。
+. [[man_install3_step21]]重新分配节点 1 的备用磁盘、属于根的任何磁盘以及之前未重新定位到节点 2 的任何非根聚合link:relocate_non_root_aggr_node1_node2.html["将非根聚合从 node1 重新定位到 node2"]。
 +
 根据您的系统是否具有共享磁盘，输入 `disk reassign` 命令的适当格式：
 
@@ -523,7 +482,7 @@ Destroying mailboxes forces a node to create new empty mailboxes, which clears a
 +
 `set time _hh：mm：ss_`
 
-. 【 man_install3_step42]] 验证配对系统 ID 是否设置正确，如中所述 <<man_install3_step28,第 28 步>> 在 -p 开关下：
+. [[man_install3_step42]]验证合作伙伴系统 ID 是否按照<<man_install3_step21,第 21 步>>在 -p 开关下：
 +
 `printenv partner-sysid`
 

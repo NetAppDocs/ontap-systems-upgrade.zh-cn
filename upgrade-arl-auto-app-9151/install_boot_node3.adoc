@@ -65,7 +65,7 @@ To override this delay, press 'c' followed by 'Enter'
 .. 让电池充电并完成启动过程。
 +
 
-WARNING: * 注意：请勿覆盖延迟；如果不允许电池充电，可能会导致数据丢失。 *
+WARNING: *请勿超越延迟；如果电池无法充电，可能会导致数据丢失。*
 
 +
 

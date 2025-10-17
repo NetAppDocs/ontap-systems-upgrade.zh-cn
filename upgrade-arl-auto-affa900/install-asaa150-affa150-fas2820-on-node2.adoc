@@ -25,7 +25,7 @@ summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2
 . 将控制器模块的末端与机箱中的托架 B 对齐，然后将控制器模块轻轻推入系统的一半。
 +
 
-TIP: 托架B位于机箱底部。
+TIP: 托架 B 位于底盘的右侧。
 
 +
 
@@ -34,7 +34,7 @@ WARNING: 请勿将控制器模块完全插入机箱中、直到此过程稍后�
 . 使用缆线将管理和控制台端口连接到 node2 控制器模块。
 +
 
-NOTE: 由于机箱已启动，因此 Node2 在完全就位后即开始启动。为避免node2启动、NetApp建议您先将控制台和管理缆线连接到node2控制器模块、然后再将控制器模块完全插入插槽。
+NOTE: 由于机箱已通电，因此节点 2 在完全就位后立即开始启动。为防止节点 2 启动，请在完全插入控制器模块之前连接控制台和管理电缆。
 
 . Firmly push the controller module into the chassis until it meets the midplane and is fully seated.
 +

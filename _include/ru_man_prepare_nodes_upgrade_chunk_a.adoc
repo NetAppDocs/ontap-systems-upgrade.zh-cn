@@ -37,7 +37,7 @@
 
 +
 
-WARNING: * 注意 * 请勿尝试清除 NVRAM 内容。如果需要清除 NVRAM 的内容，请联系 NetApp 技术支持。
+WARNING: 不要尝试清除NVRAM内容。如果需要清除NVRAM的内容，请联系NetApp技术支持。
 
 . 检查 node3 和 node4 上的 ONTAP 版本。
 +

@@ -16,7 +16,7 @@ NOTE: 您将使用此信息重新分配磁盘并停用原始节点。
 
 +
 
-NOTE: 您可以使用此信息确定可能要传输到 node3 或 node4 的部件或配件。如果您不知道节点是 V 系列系统还是具有 FlexArray 虚拟化软件，也可以从输出中了解到这一点。
+NOTE: 您可以使用该信息来识别您可能想要传输到节点 3 或节点 4 的零件或配件。
 
 . 在 node1 和 node2 上输入以下命令，并记录两个节点上处于联机状态的聚合：
 +
@@ -246,32 +246,7 @@ node2   0d      fc      initiator -       -         online
 +
 您可以在升级后使用此信息设置新节点上的 FC 端口配置。
 
-.. 如果要升级 V 系列系统或安装了 FlexArray 虚拟化软件的系统，请输入以下命令并记录输出，以捕获有关原始节点拓扑的信息：
-+
-`storage array config show -switch`
-
-+
-系统将显示拓扑信息，如以下示例所示：
-
-+
-....
-cluster::> storage array config show -switch
-
-      LUN LUN                                  Target Side Initiator Side Initi-
-Node  Grp Cnt Array Name    Array Target Port  Switch Port Switch Port    ator
------ --- --- ------------- ------------------ ----------- -------------- ------
-node1 0   50  I_1818FAStT_1
-                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:3  0d
-                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:4  2b
-                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:1  0c
-node2 0   50  I_1818FAStT_1
-                            205700a0b84772da   vgbr6510a:5  vgbr6510s164:1  0d
-                            206700a0b84772da   vgbr6510a:6  vgbr6510s164:2  2b
-                            207600a0b84772da   vgbr6510b:6  vgbr6510s163:3  0c
-                            208600a0b84772da   vgbr6510b:5  vgbr6510s163:4  2a
-7 entries were displayed.
-....
-.. [man_prepare_nodes_step29]] 完成以下子步骤：
+.. [[man_prepare_nodes_step28]]完成以下子步骤：
 
 
 . 在一个原始节点上输入以下命令并记录输出：
@@ -288,7 +263,7 @@ node2 0   50  I_1818FAStT_1
 您可能希望在新节点上重复使用原始系统中远程管理设备（此处为 SP ）的网络参数。有关 SP 的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。
 
 +
-.. 【 man_prepare_nodes_step30]] 如果希望新节点与原始节点具有相同的许可功能，请输入以下命令以查看原始系统上的集群许可证：
+.. [[man_prepare_nodes_step29]]如果您希望新节点具有与原始节点相同的许可功能，请输入以下命令查看原始系统上的集群许可证：
 +
 `ssystem license show -owner *`
 

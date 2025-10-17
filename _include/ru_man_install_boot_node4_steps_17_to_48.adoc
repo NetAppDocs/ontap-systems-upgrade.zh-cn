@@ -13,12 +13,12 @@
 | 如果要升级的系统 ... | 那么 ... 
 
 
-| node4 上的 ONTAP 版本不正确或当前不正确 | 转至 <<man_install4_Step20,第 20 步>>。 
+| node4 上的 ONTAP 版本不正确或当前不正确 | 前往<<man_install4_Step13,第 13 步>>。 
 
 
-| node4 上的 ONTAP 版本正确或最新 | 转至 <<man_install4_Step25,第 25 步>>。 
+| node4 上的 ONTAP 版本正确或最新 | 前往<<man_install4_Step18,第 18 步>>。 
 |===
-. 【 man_install4_Step20]] 通过选择以下操作之一来配置网络启动连接。
+. [[man_install4_Step13]]通过选择以下操作之一来配置网络启动连接。
 +
 
 NOTE: 您必须使用管理端口和 IP 地址作为网络启动连接。请勿使用数据 LIF IP 地址，否则在执行升级期间可能会发生数据中断。
@@ -107,8 +107,8 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 
 
-. 【 man_install4_Step25]] 从启动菜单中选择维护模式 `5` ，并在系统提示您继续启动时输入 `y` 。
-. 在继续操作之前，请转到 link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"] 对节点上的 FC 或 UTA/UTA2 端口进行任何必要的更改。执行这些部分中建议的更改，重新启动节点并进入维护模式。
+. [[man_install4_Step18]]选择维护模式 `5`从启动菜单并输入 `y`当提示您继续启动时。
+. [[man_install4_Step19]]继续之前，请转到link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"]对节点上的 FC 或 UTA/UTA2 端口进行任何必要的更改。按照这些部分中建议的进行更改，重新启动节点，然后进入维护模式。
 . 输入以下命令并检查输出以查找 node4 的系统 ID ：
 +
 `d` 展示 -A
@@ -290,7 +290,7 @@ WARNING: * 警告：必须按所示的确切顺序执行以下子步骤；否则
 +
 `set time _hh：mm：ss_`
 
-. 验证配对系统 ID 是否设置正确，如中所述 <<man_install4_Step26,第 26 步>> 在选项下。
+. 验证合作伙伴系统 ID 是否按照<<man_install4_Step19,第 19 步>>在选项下。
 +
 `printenv partner-sysid`
 

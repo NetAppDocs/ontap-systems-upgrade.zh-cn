@@ -40,49 +40,46 @@ summary: '使用命令支持运行ONTAP 9.151或更高版本的控制器升级�
 | link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管理磁盘和聚合"^] | 介绍如何使用命令行界面管理 ONTAP 物理存储。其中介绍了如何创建，扩展和管理聚合，如何使用 Flash Pool 聚合，如何管理磁盘以及如何管理 RAID 策略。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["《 FlexArray 虚拟化安装要求和参考》"^] | 包含 FlexArray 虚拟化系统的布线说明和其他信息。 
+| 链接： https://docs.netapp.com/us-en/ontap-/install/index.html | link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA对管理"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA对管理"^] | 介绍如何安装和管理高可用性集群配置，包括存储故障转移和接管 / 交还。 
+| 介绍如何安装和管理高可用性集群配置，包括存储故障转移和接管 / 交还。 | link:https://docs.netapp.com/us-en/ontap/volumes/index.html["使用 CLI 进行逻辑存储管理"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap/volumes/index.html["使用 CLI 进行逻辑存储管理"^] | 介绍如何使用卷， FlexClone 卷，文件和 LUN 高效管理逻辑存储资源， FlexCache 卷，重复数据删除，数据压缩， qtree 和配额。 
+| 介绍如何使用卷， FlexClone 卷，文件和 LUN 高效管理逻辑存储资源， FlexCache 卷，重复数据删除，数据压缩， qtree 和配额。 | link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级和扩展"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/upgrade/concept_choosing_an_upgrade_method_mcc.html["MetroCluster 升级和扩展"^] | 介绍升级 MetroCluster 配置中的控制器和存储型号，从 MetroCluster FC 过渡到 MetroCluster IP 配置以及通过添加更多节点扩展 MetroCluster 配置的过程。 
+| 介绍升级 MetroCluster 配置中的控制器和存储型号，从 MetroCluster FC 过渡到 MetroCluster IP 配置以及通过添加更多节点扩展 MetroCluster 配置的过程。 | link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络管理"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络管理"^] | 介绍如何在集群中配置和管理物理和虚拟网络端口（ VLAN 和接口组）， LIF ，路由和主机解析服务；如何通过负载平衡优化网络流量；以及如何使用 SNMP 监控集群。 
+| 介绍如何在集群中配置和管理物理和虚拟网络端口（ VLAN 和接口组）， LIF ，路由和主机解析服务；如何通过负载平衡优化网络流量；以及如何使用 SNMP 监控集群。 | link:https://docs.netapp.com/us-en/ontap-cli-9131/index.html["《 ONTAP 9.13.1 命令：手册页参考》"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap-cli-9131/index.html["《 ONTAP 9.13.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.13.1 命令的语法和用法。 
+| 介绍支持的 ONTAP 9.13.1 命令的语法和用法。 | link:https://docs.netapp.com/us-en/ontap-cli-9141/index.html["《 ONTAP 9.14.1 命令：手册页参考》"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap-cli-9141/index.html["《 ONTAP 9.14.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.14.1 命令的语法和用法。 
+| 介绍支持的 ONTAP 9.14.1 命令的语法和用法。 | link:https://docs.netapp.com/us-en/ontap-cli/index.html["《 ONTAP 9.15.1 命令：手册页参考》"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap-cli/index.html["《 ONTAP 9.15.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.15.1 命令的语法和用法。 
+| 介绍支持的 ONTAP 9.15.1 命令的语法和用法。 | link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行 SAN 管理"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行 SAN 管理"^] | 介绍如何使用 iSCSI 和 FC 协议配置和管理 LUN ， igroup 和目标，以及使用 NVMe/FC 协议的命名空间和子系统。 
+| 介绍如何使用 iSCSI 和 FC 协议配置和管理 LUN ， igroup 和目标，以及使用 NVMe/FC 协议的命名空间和子系统。 | link:https://docs.netapp.com/us-en/ontap/san-config/index.html["SAN 配置参考"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap/san-config/index.html["SAN 配置参考"^] | 包含有关 FC 和 iSCSI 拓扑和布线方案的信息。 
+| 包含有关 FC 和 iSCSI 拓扑和布线方案的信息。 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"^] | 介绍如何通过移动存储或卷快速升级集群中的控制器硬件。还介绍如何将受支持的型号转换为磁盘架。 
+| 介绍如何通过移动存储或卷快速升级集群中的控制器硬件。还介绍如何将受支持的型号转换为磁盘架。 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^] | 包含有关下载和升级 ONTAP 的说明。 
+| 包含有关下载和升级 ONTAP 的说明。 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] | 介绍无中断升级系统(保留旧系统机箱和磁盘)所需的聚合重新定位过程。 
+| 介绍无中断升级系统(保留旧系统机箱和磁盘)所需的聚合重新定位过程。 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] | 介绍使用 system controller replace 命令无中断升级运行 ONTAP 9.8 的控制器所需的聚合重新定位过程。 
-
-
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] | 介绍运行 ONTAP 9.8 或更高版本时执行手动无中断控制器升级所需的聚合重新定位过程。 
+| 介绍使用 system controller replace 命令无中断升级运行 ONTAP 9.8 的控制器所需的聚合重新定位过程。 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-manual-app/index.html["使用聚合重新定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] 
 |===
 
 

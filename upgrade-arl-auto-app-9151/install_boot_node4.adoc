@@ -29,10 +29,10 @@ summary: '在使用命令升级运行ONTAP 9.151或更高版本的控制器时�
 . 按照节点型号的 _Installation and Setup Instructions_中 的说明，在机架中安装 node4 。
 . 为节点 4 布线，将连接从节点 2 移至节点 4 。
 +
-按照node4平台的_安装和设置说明_或_ FlexArray虚拟化安装要求和参考_中的说明、相应的磁盘架文档和_HA对管理_为以下连接布线。
+按照 node4 平台的《安装和设置说明》、相应的磁盘架文档和《HA 对管理》中的说明，连接以下连接线。
 
 +
-请参见link:other_references.html["参考资料"]、以链接到_ FlexArray虚拟化安装要求和参考_和_ HA对管理_。
+参考link:other_references.html["参考资料"]链接到_HA 对管理_。
 
 +
 ** 控制台（远程管理端口）
@@ -71,7 +71,7 @@ WARNING: The battery is unfit to retain data during a power outage. This is like
 .. 让电池充电并完成启动过程。
 +
 
-WARNING: * 注意：请勿覆盖延迟；如果不允许电池充电，可能会导致数据丢失。 *
+WARNING: *请勿超越延迟；如果电池无法充电，可能会导致数据丢失。*
 
 +
 

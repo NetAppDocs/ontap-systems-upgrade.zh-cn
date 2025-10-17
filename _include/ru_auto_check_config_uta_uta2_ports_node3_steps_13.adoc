@@ -2,7 +2,7 @@
 :allow-uri-read: 
 
 
-. 【 auto_check3_step13]] 退出维护模式：
+. 退出维护模式：
 +
 `halt`
 

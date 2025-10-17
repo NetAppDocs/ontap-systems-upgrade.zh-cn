@@ -24,7 +24,6 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 [IMPORTANT]
 ====
 * 对于 AFF A800 或 AFF C800 控制器升级，在移除节点 1 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参见 link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
-* 如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则需要完成升级 <<auto_install3_step1,第 1 步>> 到 <<auto_install3_step21,第 21 步>>，然后退出本节并按照中的说明进行操作 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要输入相应部分，在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<auto_install3_step23,第 23 步>>。
 * 如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 部分，在集群提示符处输入命令。
 
 
@@ -41,10 +40,10 @@ NOTE: 如果要升级到两个节点位于同一机箱中的系统，请在机�
 
 . 【 auto_install3_step3]] 为节点 3 布线，将连接从节点 1 移动到节点 3 。
 +
-使用node3平台的《_安装和设置说明_》或《_ FlexArray虚拟化安装要求和参考_》、相应的磁盘架文档和_HA对管理_为以下连接布线。
+使用 node3 平台的《安装和设置说明》、相应的磁盘架文档和《HA 对管理》文档连接以下连接。
 
 +
-请参见link:other_references.html["参考资料"]、以链接到_ FlexArray虚拟化安装要求和参考_和_ HA对管理_。
+参考link:other_references.html["参考资料"]链接到_HA 对管理_。
 
 +
 ** 控制台（远程管理端口）
@@ -79,7 +78,7 @@ To override this delay, press 'c' followed by 'Enter'
 .. 让电池充电并完成启动过程。
 +
 
-WARNING: * 注意：请勿覆盖延迟；如果不允许电池充电，可能会导致数据丢失。 *
+WARNING: *请勿超越延迟；如果电池无法充电，可能会导致数据丢失。*
 
 +
 
@@ -250,41 +249,9 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 +
 `printenv partner-sysid`
 
-. 【第 22 步】执行以下操作之一：
-+
-[cols="30,70"]
-|===
-| 如果您的系统 ... | Description 
 
 
-| 具有磁盘，无后端存储 | 转至<<auto_install3_step27,第27步>> 
-
-
-| 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 
-.. 转至第节 link:set_fc_or_uta_uta2_config_on_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"] 并完成本节中的各小节。
-.. 返回到此部分，完成从开始的其余步骤 <<auto_install3_step23,第 23 步>>。
-
-
-
-IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP 之前、必须重新配置FC板载端口、CNA板载端口和CNA卡。
-
-|===
-. 【 auto_install3_step23]] 将新节点的 FC 启动程序端口添加到交换机分区。
-+
-如果您的系统具有磁带 SAN ，则需要对启动程序进行分区。如果需要，请参考将板载端口修改为启动程序 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在节点 3 上配置 FC 端口"]。有关分区的详细说明，请参见存储阵列和分区文档。
-
-. 【第 24 步】将 FC 启动程序端口作为新主机添加到存储阵列，将阵列 LUN 映射到新主机。
-+
-有关说明，请参见存储阵列和分区文档。
-
-. 【第 25 步】修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。
-+
-安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
-
-. 【第 26 步】如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-
-
-[[auto_install3_step27]]
+[[auto_install3_step22]]
 . 如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：
 +
 
@@ -319,8 +286,10 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 +
 `boot_ontap 菜单`
 
-+
-如果您没有FC或UTA/UTA2配置、请执行link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step1["将node1磁盘重新分配给node3、步骤1"]、以便node3可以识别node1的磁盘。
 
-. 【第 29 步】对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，您必须在 node3 上设置和配置 FC 或 UTA/UTA2 端口，以检测连接到节点的磁盘。要完成此任务，请转至第节 link:set_fc_or_uta_uta2_config_on_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"]。
+
+.下一步是什么？
+* 如果您的系统具有 FC 或 UTA/UTA2 配置，link:set_fc_or_uta_uta2_config_on_node3.html["设置并配置节点 3 上的 FC 或 UTA/UTA2 端口"] 。
+* 如果您没有 FC 或 UTA/UTA2 配置，link:reassign-node1-disks-to-node3.html#reassign-node1-node3-app-step1["将 node1 磁盘重新分配给 node3，步骤 1"]这样node3就可以识别node1的磁盘。
+* 如果您有MetroCluster配置，link:set_fc_or_uta_uta2_config_on_node3.html["设置并配置节点 3 上的 FC 或 UTA/UTA2 端口"]检测连接到节点的磁盘。
 

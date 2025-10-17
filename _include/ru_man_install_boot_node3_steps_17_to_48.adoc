@@ -10,7 +10,7 @@
 
 WARNING: 如果此新节点曾在任何其他集群或HA对中使用过、则必须运行 `wipeconfig` 然后继续。否则可能会导致服务中断或数据丢失。如果先前使用了替代控制器，请联系技术支持，尤其是在这些控制器运行的是在 7- 模式下运行的 ONTAP 时。
 
-. 【 man_install3_step18]] 按 CTRL-C 显示启动菜单。
+. 按 CTRL-C 显示启动菜单。
 . [[man_install3_step19]] 执行以下操作之一：
 +
 [cols="35,65"]
@@ -18,12 +18,12 @@ WARNING: 如果此新节点曾在任何其他集群或HA对中使用过、则必
 | 如果要升级的系统 ... | 那么 ... 
 
 
-| node3 上的 ONTAP 版本是否正确或最新 | 转至 <<man_install3_step20,第 20 步>>。 
+| node3 上的 ONTAP 版本是否正确或最新 | 前往<<man_install3_step13,第 13 步>>。 
 
 
-| node3 上的 ONTAP 版本正确或最新 | 转至 <<man_install3_step25,第 25 步>>。 
+| node3 上的 ONTAP 版本正确或最新 | 前往<<man_install3_step18,第 18 步>>。 
 |===
-. 【 man_install3_step20]] 通过选择以下操作之一来配置网络启动连接。
+. [[man_install3_step13]]通过选择以下操作之一来配置网络启动连接。
 +
 
 NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
@@ -51,7 +51,7 @@ NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用�
 NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
 
 |===
-. 【 man_install3_step21]] 对 node3 执行网络启动：
+. 在节点 3 上执行网络启动：
 +
 [cols="35,65"]
 |===
@@ -70,7 +70,7 @@ NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件�
 
 NOTE: 请勿中断启动。
 
-. 在启动菜单中，选择选项 * （ 7 ）首先安装新软件 * 。
+. 从启动菜单中，首先选择选项*(7) 安装新软件*。
 +
 此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。
 
@@ -87,11 +87,11 @@ NOTE: 请勿中断启动。
 
 NOTE: 请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景是 ONTAP 的所有版本。netboot操作步骤 与选项结合使用 `(7) Install new software` 擦除启动介质并将相同的ONTAP 版本ONTAP 放置在两个映像分区上。
 
-. 如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时输入以下 URL ：
+. 如果提示您继续该过程，请输入 `y`，当提示输入包时，输入以下 URL：
 +
 ` http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`
 
-. [[man_install3_step24]] 完成以下子步骤：
+. 完成以下子步骤：
 +
 .. 出现以下提示时，输入 `n` 以跳过备份恢复：
 +
@@ -110,12 +110,12 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 
 
-. 【 man_install3_step25]] 输入 `5` 以选择 * （ 5 ）维护模式启动 * ，然后在系统提示您继续启动时输入 `y` 。
+. [[man_install3_step18]]通过输入选择 *(5) 维护模式启动* `5` ，然后输入 `y`当提示继续启动时。
 . 【 man_install3_step26]] 继续操作前，请转到 link:set_fc_uta_uta2_config_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"] 对节点上的 FC 或 UTA/UTA2 端口进行任何必要的更改。
 +
 按照这些部分中的建议进行更改，重新启动节点并进入维护模式。
 
-. 【 man_install3_step27]] 找到 node3 的系统 ID ：
+. 查找节点3的系统ID：
 +
 `d` 展示 -A
 
@@ -141,7 +141,7 @@ The node must be rebooted to start using the newly installed software. Do you wa
 
 NOTE: 输入命令后，您可能会看到消息 `disk show ： no disks match option -a` 。此消息不是错误消息，因此您可以继续使用操作步骤。
 
-. 【 man_install3_step28]] 重新分配 node1 的备用磁盘，属于根的所有磁盘以及先前未重新定位到 node2 的任何非根聚合 link:relocate_non_root_aggr_node1_node2.html["将非根聚合从 node1 重新定位到 node2"]。
+. [[man_install3_step21]]重新分配节点 1 的备用磁盘、属于根的任何磁盘以及之前未重新定位到节点 2 的任何非根聚合link:relocate_non_root_aggr_node1_node2.html["将非根聚合从 node1 重新定位到 node2"]。
 +
 根据您的系统是否具有共享磁盘，输入 `disk reassign` 命令的适当格式：
 
@@ -329,7 +329,7 @@ Destroying mailboxes forces a node to create new empty mailboxes, which clears a
 +
 `set time _hh：mm：ss_`
 
-. 【 man_install3_step42]] 验证配对系统 ID 是否设置正确，如中所述 <<man_install3_step28,第 28 步>> 在 -p 开关下：
+. [[man_install3_step42]]验证合作伙伴系统 ID 是否按照<<man_install3_step21,第 21 步>>在 -p 开关下：
 +
 `printenv partner-sysid`
 

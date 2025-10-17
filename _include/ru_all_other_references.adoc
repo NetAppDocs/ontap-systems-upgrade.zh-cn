@@ -28,12 +28,6 @@
 | link:https://docs.netapp.com/us-en/ontap/disks-aggregates/index.html["使用 CLI 管理磁盘和聚合"^] | 介绍如何使用命令行界面管理 ONTAP 物理存储。其中介绍了如何创建，扩展和管理聚合，如何使用 Flash Pool 聚合，如何管理磁盘以及如何管理 RAID 策略。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-metrocluster/install-fc/index.html["光纤连接的 MetroCluster 安装和配置"^] | 介绍如何在网络结构配置中安装和配置 MetroCluster 硬件和软件组件。 
-
-
-| link:https://docs.netapp.com/us-en/ontap-flexarray/install/index.html["《 FlexArray 虚拟化安装要求和参考》"^] | 包含 FlexArray 虚拟化系统的布线说明和其他信息。 
-
-
 | link:https://docs.netapp.com/us-en/ontap/high-availability/index.html["HA对管理"^] | 介绍如何安装和管理高可用性集群配置，包括存储故障转移和接管 / 交还。 
 
 

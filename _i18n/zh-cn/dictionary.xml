@@ -9,7 +9,6 @@
   <block id="6f4a225b29c0975663d0e4b9e1f4547f" category="inline-xref">第 1 步</block>
   <block id="2f5ad93b7f0dd7bdcdf63542c05e8ebe" category="inline-xref">第 21 步</block>
   <block id="f775037aa1f7a8a52b5159236f7449e7" category="inline-xref">第 23 步</block>
-  <block id="09702fca7923997e0da2187b92badbd9" category="list-text">如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则必须完成升级 <block ref="72a284a0ab19d0d6976ab9f3aa1bfc65" category="inline-xref-macro-rx"></block> 到 <block ref="e953da376eb12d20ff3d04f195189ba7" category="inline-xref-macro-rx"></block>，然后退出本节并按照说明进行操作 <block ref="1d789633b45165b05bf13f9838060fe6" category="inline-link-macro-rx"></block> 和到 <block ref="15e1611f6cc2b64b7163cc152446c8c0" category="inline-link-macro-rx"></block>，在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <block ref="7d33d698028361a6b46f35be2a3ff5a2" category="inline-xref-macro-rx"></block>。</block>
   <block id="df5267f8e4bbfa9add1dd732e6b68e41" category="inline-link-macro">在 node4 上设置 FC 或 UTA/UTA2 配置</block>
   <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">步骤</block>
   <block id="c7009662ac7e20dc02b0e7d7e2ed8804" category="list-text">【 auto_install4_step1]] 确保 node4 具有足够的机架空间。</block>
@@ -29,7 +28,6 @@
   <block id="d728df788701a4dbee2b7991f0468dad" category="list-text">如果您在步骤 4 中看到警告消息，请执行以下操作：</block>
   <block id="3e1ef1763b3680d2c8fbf0a8ea19db9b" category="list-text">检查是否存在任何可能指示 NVRAM 电池电量低以外问题的控制台消息，如有必要，请采取任何必要的更正措施。</block>
   <block id="d73910b693432e337843357586f3e39f" category="list-text">让电池充电并完成启动过程。</block>
-  <block id="5d043d33743f66f7467bf67aa5653705" category="admonition">* 注意：请勿覆盖延迟；如果不允许电池充电，可能会导致数据丢失。 *</block>
   <block id="b1e6d70b6a993d323936c87bff29461b" category="admonition">请参见 <block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block>。</block>
   <block id="d583a56b378186283bc180e8dfcdad82" category="list-text">【第 6 步】选择以下操作之一，配置网络启动连接。</block>
   <block id="3a325cd28eedfb6e2a8828a9cc5043a2" category="cell">动态主机配置协议（ DHCP ）</block>
@@ -77,23 +75,8 @@
   <block id="55f472f17ae9bd54337956b780332fff" category="list-text">如有必要，请在 node4 上设置配对系统 ID ：</block>
   <block id="e02ed2f754f906507b04045b6d64c6a8" category="list-text">保存设置：</block>
   <block id="4efce637d6ec3bc2a69f403fd39b9b41" category="paragraph">`saveenv`</block>
-  <block id="62ac7cf3796c3e4bbe3285d1976b1c2c" category="list-text">【第 22 步】执行以下操作之一：</block>
-  <block id="a566a7773caad8e1452ad7591dace303" category="cell">如果您的系统 ...</block>
-  <block id="b0d05d370a8e827d5c1d1e92258a25b2" category="cell">具有磁盘，无后端存储</block>
-  <block id="c9d3e45a02f36166b1f2d250fefe0e40" category="cell">是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="doc"></block>
-  <block id="6c87f26ede26b8a4600cd3be3a5c4a39" category="list-text">转至第节 <block ref="a6d322e902b744ff3a11f02b5c6d9496" category="inline-link-macro-rx"></block> 并完成本节中的各小节。</block>
-  <block id="d4bf40b038a0294c5a0c9cfeacb6b991" category="list-text">返回到此部分，完成从开始的其余步骤 <block ref="7d33d698028361a6b46f35be2a3ff5a2" category="inline-xref-macro-rx"></block>。</block>
-  <block id="f1f401fda84803d54fb9ed083d0ebefa" category="list-text">【 auto_install4_step23]] 将新节点的 FC 启动程序端口添加到交换机分区。</block>
-  <block id="2a1ffcfd9b3fe851dbeca2f509c1f7a3" category="paragraph">如果您的系统具有磁带 SAN ，则需要对启动程序进行分区。如果需要，请参考将板载端口修改为启动程序 <block ref="1d789633b45165b05bf13f9838060fe6" category="inline-link-macro-rx"></block>。有关分区的详细说明，请参见存储阵列和分区文档。</block>
-  <block id="626097c557d64952b56d6d6e63d3ad8e" category="list-text">将 FC 启动程序端口作为新主机添加到存储阵列，从而将阵列 LUN 映射到新主机。</block>
-  <block id="c90869b8dd8fd41fd210932364a2caf7" category="paragraph">有关说明，请参见存储阵列和分区文档。</block>
-  <block id="20285adb42be1ddc0c2df8f7a2de7595" category="list-text">修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。</block>
-  <block id="a2b95adba38da1a033c4cae3447040cc" category="paragraph">安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。</block>
-  <block id="23eacbaf200afc53fbaaaaa3d6705308" category="list-text">如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。</block>
   <block id="a94e69437db24dee798bbd90bce4ee0a" category="paragraph">`boot_ontap 菜单`</block>
-  <block id="9f6c1c59e595c7b6b493f92b24930c14" category="inline-link-macro">在 node4 上设置 FC 或 UTA/Ut2 配置</block>
-  <block id="cbe290335ddc7c966d9c148980b1ddd5" category="list-text">【第 29 步】对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，您必须在 node4 上设置和配置 FC 或 UTA/UTA2 端口，以检测连接到节点的磁盘。要完成此任务，请转至第节 <block ref="39202fc611c1fcac2f1575fc00cb55d3" category="inline-link-macro-rx"></block>。</block>
   <block id="32d978cffec9875e4d92dc55b84df69b" category="doc">将 node2 拥有的非根聚合和 NAS 数据 LIF 从 node3 移动到 node4</block>
   <block id="33b455f1b5d98f0ba5db998a78bbbbe3" category="paragraph">在验证 node4 上的网络配置以及将聚合从 node3 重新定位到 node4 之前，您必须验证当前位于 node3 上的 node2 所属的 NAS 数据 LIF 是否已从 node3 重新定位到 node4 。您还必须验证 node4 上是否存在 SAN LIF 。</block>
   <block id="d2f28697e2bc23acb2a0a646043ffac0" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node4 联机后，您将验证 LIF 是否运行正常并位于相应的端口上。</block>
@@ -129,9 +112,6 @@
   <block id="ac616410952c35e808a3c7ce4ea5b4a7" category="inline-link-macro">停用旧系统</block>
   <block id="b39850fa882a12596e03ef7779fcfebc" category="list-text"><block ref="5e1bb6d16e6bc7a1d750ae669f510747" category="inline-xref-macro-rx"></block></block>
   <block id="2061ab494eae73f1e7251b76a58b27d3" category="cell">介绍如何通过移动存储或卷快速升级集群中的控制器硬件。还介绍如何将受支持的型号转换为磁盘架。</block>
-  <block id="5d1afe326f483a14ce8cd69456db1384" category="cell">介绍如何在网络结构配置中安装和配置 MetroCluster 硬件和软件组件。</block>
-  <block id="e5c39acdb0f682a22a7b242d48ac3ce5" category="inline-link-macro">《 FlexArray 虚拟化安装要求和参考》</block>
-  <block id="d1d13e1cdd7f75473f7902868b6ba3d7" category="cell">包含 FlexArray 虚拟化系统的布线说明和其他信息。</block>
   <block id="595e15ec8af10c3d959522d0d1eab769" category="cell">介绍升级 MetroCluster 配置中的控制器和存储型号，从 MetroCluster FC 过渡到 MetroCluster IP 配置以及通过添加更多节点扩展 MetroCluster 配置的过程。</block>
   <block id="b42a2144e64bfdf4eecf966f7bb495c5" category="inline-link-macro">《 ONTAP 9.0 命令：手册页参考》</block>
   <block id="a4117daa2ff8204dba8b79ed1da09e5b" category="cell"><block ref="a4117daa2ff8204dba8b79ed1da09e5b" category="inline-link-macro-rx"></block></block>
@@ -230,20 +210,13 @@
   <block id="291e8826d2b19041a0543b448060f314" category="paragraph">如果 node4 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。</block>
   <block id="405ab80b96586360ea83735c37305935" category="inline-link-macro">验证 node4 安装</block>
   <block id="e5d8ce1e4e0f9c50b3cbdf452d60972e" category="inline-link-macro">第 22 步</block>
-  <block id="6ef697f11922be2e4de0971f7d70997f" category="list-title">选项</block>
-  <block id="32681c366792ff09536e44772a3bddf2" category="list-text"><block ref="b22a2e603d310a795a7b59d2bdda39ee" category="inline-xref-macro-rx"></block></block>
-  <block id="17889f6fb09adc44188f6076a9e7852a" category="list-text"><block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block></block>
   <block id="cd7dd5075be56af4a3298feff04bb98a" category="paragraph">如果 node4 具有板载或 FC 适配器上的 FC 端口，则必须先在节点上设置端口配置，然后再将其投入使用，因为这些端口未经过预配置。如果未配置端口，则可能会发生服务中断。</block>
   <block id="3bb2def349bd01a4e09f553241c547bb" category="paragraph">您必须具有在部分中保存的 node2 中的 FC 端口设置值 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block>。</block>
   <block id="8651f71cd1a76b7df1a83cae390627a8" category="paragraph">如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 适配器，则可以在中对其进行配置 <block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block>。</block>
   <block id="4d65ef8cf84d37cbb99560183afc8431" category="list-text">执行以下操作之一：</block>
-  <block id="78f6ac180c7bb87b8aee79da36246598" category="cell">如果要升级的系统 ...</block>
   <block id="a7a589b8e6e6d3aac1d1459d66a748a0" category="cell">然后选择…</block>
-  <block id="61bc24f9f2f24029ba7b04d76f768598" category="cell">具有存储磁盘</block>
   <block id="e1a8971092776bc2e25be6babad152ab" category="cell">`ssystem node hardware unified-connect show`</block>
-  <block id="58b0fc39873b9fe983d6b57e06585d6f" category="cell">是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列</block>
   <block id="5344ecb990fb0b0e60a7b979eeca26cd" category="cell">`ucadmin show`</block>
-  <block id="c5c0e497c3f1186f3d1cfecfc658c546" category="paragraph">系统将显示有关系统上所有 FC 和融合网络适配器的信息。</block>
   <block id="ede48791c6a4d48413c294cc39314600" category="list-text">将 node4 上的 FC 设置与先前从 node1 中捕获的设置进行比较。</block>
   <block id="bf5ce713a37cfb1c7cddb2ef1662c419" category="paragraph">根据需要修改 node4 上的 FC 端口：</block>
   <block id="2c28eea077fe0201e484901f94587d87" category="list-text">要对目标端口进行编程：</block>
@@ -262,9 +235,6 @@
   <block id="494d18d03e7c6fb4b46866273ca75c34" category="list-text">与控制器分开订购的 UTA/UTA2 卡附带了默认的 FC 目标特性。</block>
   <block id="9fca14a117603ee6762ebe968e8cedec" category="list-text">新控制器上的板载 UTA/UTA2 端口（发货前）已配置为具有您请求的个性化设置。</block>
   <block id="898667c4cb95b7e44aafe17e4edf0567" category="paragraph">但是，您应检查 node4 上的 UTA/UTA2 端口的配置，并根据需要进行更改。</block>
-  <block id="504b32f9515b15fa8407335de4be00e7" category="admonition">* 注意 * ：如果您的系统具有存储磁盘，除非指示您进入维护模式，否则您可以在集群提示符处输入本节中的命令。如果您的 MetroCluster FC 系统， V 系列系统或安装了 FlexArray 虚拟化软件的系统连接到存储阵列，则必须处于维护模式才能配置 UTA/UTA2 端口。</block>
-  <block id="5113998ac3c679e0d1220f045f54831f" category="list-text">在 node4 上使用以下命令之一检查端口的当前配置方式：</block>
-  <block id="8eae44e92f7155cef20bea12cd5a16c8" category="cell">如果系统 ...</block>
   <block id="fd894a783c8c8400a3021bd2ad147cba" category="paragraph">系统将显示类似于以下示例的输出：</block>
   <block id="64da799aef6205bb6034c61f1f25c391" category="list-text">如果当前 SFP+ 模块与所需用途不匹配，请将其更换为正确的 SFP+ 模块。</block>
   <block id="d72066c585919f0b5faa9807de695bf8" category="paragraph">请联系您的 NetApp 代表以获取正确的 SFP+ 模块。</block>
@@ -275,28 +245,19 @@
   <block id="feb4c7d35f5c6972a78c24ac4caebf00" category="cell">转至 <block ref="7ffb05d2232c9c60f695127651bcf871" category="inline-xref-macro-rx"></block>。</block>
   <block id="3fa4c0ba2b210d02bdf49ea3e2812989" category="cell">拥有所需的个性化特性</block>
   <block id="c0f1d3db2a584ee59498c0abaa47adf7" category="inline-xref">第 13 步</block>
-  <block id="a06e3550b827dbbc3fa903ada41f165b" category="cell">跳过步骤 5 到步骤 12 ，然后转到 <block ref="8c1d75fc2023dc4e109b4251bd0229b1" category="inline-xref-macro-rx"></block>。</block>
   <block id="1228ef3c4a262a3a23b05009801f9d74" category="list-text">【 auto_check_4_step5]] 执行以下操作之一：</block>
   <block id="bb8715eb9d3c8fc0a643a55fc3e9ed29" category="cell">如果要配置</block>
   <block id="c4c1b40245719a0e56eb453401560e8e" category="cell">UTA/UTA2 卡上的端口</block>
   <block id="805e47ec7b4ef2165b02c8ff12688343" category="inline-xref">第 7 步</block>
-  <block id="5ab10acc3f713db2883e41aeefc0a947" category="cell">转至 <block ref="8fa9bd2d3aca152bc08859144a7af8fa" category="inline-xref-macro-rx"></block></block>
   <block id="a7f2071dd0b7eee34d97c156132a3210" category="cell">板载 UTA/UTA2 端口</block>
   <block id="d60d761a93da31e724112577c571c923" category="inline-xref">第 8 步</block>
-  <block id="5014f056b226c4802b8e30f5800a2ea3" category="cell">跳过第 7 步，转到 <block ref="3d86a68aa8fb2ef1661a4814f02f3b64" category="inline-xref-macro-rx"></block>。</block>
-  <block id="ef0770e5329716a78bdc700afc4541c1" category="list-text">如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：</block>
   <block id="fff4e24de6543fad49dbe48a7b01e1d1" category="paragraph">目标模式下的适配器会在维护模式下自动脱机。</block>
   <block id="d8f98bdc807ae3903ae80ea0b78fbd6e" category="list-text">【 auto_check_4_step7]] 如果当前配置与所需用途不匹配，请根据需要更改配置：</block>
   <block id="2e23b3b6b4b04a1d678f35eda127d4d6" category="list-text">` -t` 是 FC4 类型， `target` 或 `initiator` 。</block>
-  <block id="3f0869d2c33ab7caf7185458236590fe" category="admonition">您必须对磁带驱动器， FlexArray 虚拟化系统和 MetroCluster 配置使用 FC 启动程序。您必须对 SAN 客户端使用 FC 目标。</block>
-  <block id="7e0be6e2a6d4c241d66e582ce0ecbcea" category="list-text">【 auto_check_4_step8]] 使用以下命令并检查其输出，以验证设置：</block>
   <block id="fe040552b4fc83efe2ba593498969954" category="list-text">验证设置：</block>
   <block id="38827adabf48650b74e5fe794b8f2413" category="paragraph">以下示例中的输出显示， FC4 类型的适配器 "1b" 更改为 `initiator` ，适配器 "2a" 和 "2b" 的模式更改为 `CNA` ：</block>
   <block id="4cf4d3bfbda859f7fbe3247599afeba5" category="list-text">输入以下命令之一，使所有目标端口联机，每个端口输入一次：</block>
   <block id="b50635aa317c4f94943cbad3bf2ffdf2" category="list-text">为端口布线。</block>
-  <block id="8eeb6ccf00d6f27741c5b734b3130459" category="list-text">【第 12 步】执行以下操作之一：</block>
-  <block id="4a137bad34f46785824a8100e1c6cba6" category="list-text">【 auto_check_4_step13]] 退出维护模式：</block>
-  <block id="204783b1ca658239a7b205df8e2d83dd" category="paragraph">`boot_ontap 菜单`</block>
   <block id="f91809c39c7c5ad59f2475c5ee644448" category="admonition">在上述控制台输出示例中，如果系统使用高级磁盘分区（ ADP ）磁盘， ONTAP 将提示您输入配对节点名称。</block>
   <block id="24655647ccabfd614d439a15f52407aa" category="paragraph">`boot_ontap maint`</block>
   <block id="82b61383829ad9f7c791ca9adcbe4b1f" category="list-text">在维护模式下，显示先前设置的所有启动程序端口，这些端口现在处于目标模式：</block>
@@ -396,7 +357,6 @@
   <block id="31ccaad020ad8995655b8785712ac7b9" category="paragraph">如果 node3 与 node1 上安装的 ONTAP 9 版本不同，则需要对其进行网络启动。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以按照中的说明将正确的文件下载到启动介质设备，以供后续系统启动 <block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block>。</block>
   <block id="2ad1e670b60bb257ae5313d5009813a5" category="inline-link-macro">在 node3 上配置 FC 端口</block>
   <block id="b6f436f6398306a921de09279a6a8256" category="inline-link-macro">检查并配置 node3 上的 UTA/UTA2 端口</block>
-  <block id="9a1df33637b4fc5aa325b169d3a7aa84" category="list-text">如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则需要完成升级 <block ref="7c8db700ba9d62850f8b66020ea3d4b9" category="inline-xref-macro-rx"></block> 到 <block ref="d133a54ce8997c6b3c1ffdd4bfb32c84" category="inline-xref-macro-rx"></block>，然后退出本节并按照中的说明进行操作 <block ref="b8be2332e6727dc6b48478780a30df1b" category="inline-link-macro-rx"></block> 和 <block ref="e1881302722b07e924682c0aeef752a5" category="inline-link-macro-rx"></block> 根据需要输入相应部分，在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <block ref="d602dbbaca50060142dad0af29921558" category="inline-xref-macro-rx"></block>。</block>
   <block id="80f025cc78499a80da49bd37c9bde220" category="list-text">如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 <block ref="b8be2332e6727dc6b48478780a30df1b" category="inline-link-macro-rx"></block> 和 <block ref="e1881302722b07e924682c0aeef752a5" category="inline-link-macro-rx"></block> 部分，在集群提示符处输入命令。</block>
   <block id="56fd5e5051297f55fa1e22d93c8d71b8" category="list-text">【 auto_install3_step1]] 请确保为 node3 预留机架空间。</block>
   <block id="2c6541bc32b15b7aae8bab68f0ca5874" category="paragraph">如果 node1 和 node2 位于不同的机箱中，则可以将 node3 与 node1 放在同一机架位置。但是，如果 node1 与 node2 位于同一机箱中，则需要将 node3 置于其自身的机架空间中，最好靠近 node1 的位置。</block>
@@ -429,17 +389,7 @@
   <block id="a35c7561d833fab42eb0820cd7256987" category="list-text">在 node3 上，在启动环境提示符处使用以下命令检查时间：</block>
   <block id="8fa05814ac535bc4cac5dc313de56abe" category="list-text">【第 19 步】如有必要，请在 node3 上设置时间：</block>
   <block id="b7b77c4a8d173f38e98b19b6fa156359" category="paragraph">`printenv partner-sysid`</block>
-  <block id="74c497c4741babe01069b2689c6f6d96" category="inline-link-macro">在 node3 上设置 FC 或 UTA/UTA2 配置</block>
-  <block id="2987901eef48d33908a5fe3bc58101db" category="list-text">转至第节 <block ref="9cb2fecd70723749806307bb1e7fc101" category="inline-link-macro-rx"></block> 并完成本节中的各小节。</block>
-  <block id="824a922c708e37c4e38da69123f1f712" category="list-text">返回到此部分，完成从开始的其余步骤 <block ref="d602dbbaca50060142dad0af29921558" category="inline-xref-macro-rx"></block>。</block>
-  <block id="d2382bf853b3c31a2584de4ebbcb20f5" category="list-text">【 auto_install3_step23]] 将新节点的 FC 启动程序端口添加到交换机分区。</block>
-  <block id="72797da0a6dd02827100892ec56ff0f7" category="inline-link-macro">在节点 3 上配置 FC 端口</block>
-  <block id="33b34c9b4b9fcbf19dc61172941a60f7" category="paragraph">如果您的系统具有磁带 SAN ，则需要对启动程序进行分区。如果需要，请参考将板载端口修改为启动程序 <block ref="587d3c60b98ebe686bf65e1387fc811f" category="inline-link-macro-rx"></block>。有关分区的详细说明，请参见存储阵列和分区文档。</block>
-  <block id="c72fdddc98e37cd5e62f25b9974065fc" category="list-text">【第 24 步】将 FC 启动程序端口作为新主机添加到存储阵列，将阵列 LUN 映射到新主机。</block>
-  <block id="3ba1b014c973048d41b40e37b1cfeb69" category="list-text">【第 25 步】修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。</block>
-  <block id="be6df649a349785ed8ec2a552e7c8903" category="list-text">【第 26 步】如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。</block>
   <block id="bc26b5e5559721e19875fb91dce22cec" category="inline-link-macro">在 node3 上设置 FC 或 UTA/UTA2 配置</block>
-  <block id="8ba547e72776f098f3b70a6614639f73" category="list-text">【第 29 步】对于 MetroCluster 配置， V 系列系统以及将 FlexArray 虚拟化软件连接到存储阵列的系统，您必须在 node3 上设置和配置 FC 或 UTA/UTA2 端口，以检测连接到节点的磁盘。要完成此任务，请转至第节 <block ref="c73225f56714e22dffa9ff7369895ce1" category="inline-link-macro-rx"></block>。</block>
   <block id="ca710412a883d1570696f0510733c7a0" category="list-text">在对 node2 执行后检之后，将为 node2 集群启用存储故障转移和集群 HA 对。操作完成后，两个节点均显示为已完成，系统将执行一些清理操作。</block>
   <block id="9d070d121ee26abdb5d314d6fff4c15c" category="list-text">验证是否已启用存储故障转移：</block>
   <block id="751035e5db88d172e881299c202d9b13" category="paragraph">`s存储故障转移显示`</block>
@@ -477,8 +427,6 @@
   <block id="27af4227ca8acc558df96e2723ec9b37" category="inline-link-macro">在新控制器模块上设置存储加密</block>
   <block id="a1e79be82a0d3f4b4c3568d0f3e32af4" category="paragraph">如果在 node3 和 node4 上启用了存储加密，请完成此部分 <block ref="18c90c300c0b71334b8b427eaf4f38a3" category="inline-link-macro-rx"></block>。否则，请完成部分 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
   <block id="8fb4b518ce39a0704f920c9d4f2f7b77" category="doc">使用聚合重新定位升级控制器硬件</block>
-  <block id="2b8ce2a5a31645114136f0f0bb138e41" category="paragraph">在此信息中，原始节点称为 "node1" 和 "node2" ，新节点称为 "node3" 和 "node4" 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。术语 "node1" ， "node2" ， "node3" 和 "node4" 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。</block>
-  <block id="997df92b20e351845274e553840f1763" category="paragraph">在整个信息中，术语 " 使用 FlexArray 虚拟化软件的系统 " 是指属于这些新平台的系统。术语 "V 系列系统 " 是指可以连接到存储阵列的单独硬件系统。</block>
   <block id="bc0c3600d83329affdb0d85df2aeac56" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果先前使用的是替代控制器硬件，则必须联系技术支持，尤其是在控制器以 7- 模式运行 Data ONTAP 时。</block>
   <block id="8d7b68591c9cb3f00554e8b1dd0cc34a" category="list-text">您可以使用 ARL 无中断地将控制器升级到运行的 ONTAP 版本高于要升级的集群上运行的版本的新控制器。新旧控制器的 ONTAP 版本组合取决于 ONTAP 软件版本 NDU 的节奏模型。例如，如果您的控制器运行的是 ONTAP 9.8 ，而该控制器最后支持的版本是 ONTAP 9.8 ，则可以升级到运行 ONTAP 9.8 之后版本的新控制器。</block>
   <block id="3f765691a1037f4fcf966c679a3f3a4a" category="doc">第 3 阶段。安装并启动 node3</block>
@@ -564,7 +512,6 @@
   <block id="61d1def7733487d4ddcc1c11e4c26d34" category="paragraph">如果已替换任何 LIF ，请将主节点还原回 node3 ：</block>
   <block id="32cbc0f35ce50a85e5c8c6b2f7b35d1f" category="paragraph">此升级操作步骤主要是适用场景升级情形，其中您要更换的控制器型号不支持更高的 ONTAP 版本，而新控制器不支持更早的 ONTAP 版本。</block>
   <block id="3f95c69711726ab20c6ad2092e62e13d" category="list-text">您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个高可用性（ HA ）对单独执行操作步骤。</block>
-  <block id="b63bac0d0a2ee7a43a0c82d9d71a631a" category="list-text">此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9.5 之后发布的 FAS 系统可以连接到存储阵列。有关存储阵列和 V 系列型号的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _V Hardware Universe 系列支持表，请访问 V 系列支持表。</block>
   <block id="9ac92b97b9314fe7c9c80b03c2f61746" category="list-text">此操作步骤适用场景系统运行 4 节点 NetApp MetroCluster 配置或更高版本。由于 MetroCluster 配置站点可以位于两个物理上不同的位置，因此对于 HA 对，必须在每个 MetroCluster 站点上单独执行控制器自动升级。</block>
   <block id="71dd89b192a133f8ccfd6e18f0397ebc" category="paragraph">如果更换的控制器或新控制器的 HA 配对项使用存储加密，则必须为新控制器模块配置存储加密，包括安装 SSL 证书和设置密钥管理服务器。</block>
   <block id="1bf6f98fb62d5ca413d6cce101954a5f" category="paragraph">此操作步骤包含对新控制器模块执行的步骤。您必须在正确的节点上输入命令。</block>
@@ -630,18 +577,10 @@
   <block id="a9849e92b148965a7bbb6c14d0afbcd0" category="cell">板载密钥管理器（ OKM ）</block>
   <block id="7bd5452d2f3a1c07fc54d3a08cc82d64" category="paragraph">如果 node3 具有板载 FC 端口，板载统一目标适配器（ UTA/UTA2 ）端口或 UTA/UTA2 卡，则必须先配置这些设置，然后才能完成其余操作步骤。</block>
   <block id="d897564a1ca4a58b7f422ba34b232ab7" category="paragraph">您可能需要完成此部分 <block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block>，部分 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>或这两个部分。</block>
-  <block id="a1a2d377f686ce4835b9ee342fd6089b" category="list-text"><block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block></block>
-  <block id="3088a544c36eafa56a0950901fa93b6a" category="list-text"><block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block></block>
-  <block id="8992459eb47b3dc5036bd8be4d821db3" category="paragraph">如果 node3 具有板载或 FC 适配器上的 FC 端口，则必须先在节点上设置端口配置，然后再将其投入使用，因为这些端口未经过预配置。如果未配置端口，则可能会发生服务中断。</block>
   <block id="7551ace690fab9fce9d0a9cad21a0ae7" category="paragraph">您必须具有在部分中保存的 node1 中的 FC 端口设置值 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block>。</block>
   <block id="dfec8ed00cbb51821de82d335a0ba98b" category="paragraph">如果您的系统没有 FC 配置，则可以跳过此部分。如果您的系统具有板载 UTA/UTA2 端口或 UTA/UTA2 卡，则可以在中对其进行配置 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>。</block>
-  <block id="bc56374912cd801964f37da82292340c" category="list-text">【第 1 步】将 node3 上的 FC 设置与先前从 node1 中捕获的设置进行比较。</block>
   <block id="831368d2ac042989f939504faf6cdf51" category="list-text">【第 2 步】执行以下操作之一：</block>
-  <block id="9e7870f5e5208d6877c9cc3acc6453c0" category="paragraph">在维护模式（启动菜单中的选项 5 ）下，根据需要修改 node3 上的 FC 端口：</block>
   <block id="7e6f8de582e2388fb39a5c5c26caa64f" category="list-text">【第 3 步】执行以下操作之一：</block>
-  <block id="6ee9ff94b07628e8d936112db18664d2" category="cell">使用以下命令并检查输出，以验证新设置： `ucadmin show`</block>
-  <block id="bc53092d23cdf154996298ad69f4e7f0" category="list-text">【第 4 步】退出维护模式：</block>
-  <block id="25c2f630f05e1a3933f0c056165ae65b" category="list-text">【第 6 步】输入命令后，请等待系统在启动环境提示符处停止。</block>
   <block id="d2dce3cff13fd2c8259fdef7c637226e" category="list-text">【 auto_check3_step8]] 执行以下操作之一：</block>
   <block id="d190fd34bae28aff670090c55eb7e24b" category="paragraph">如果 node3 具有板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须检查这些端口的配置，并可能对其进行重新配置，具体取决于您希望如何使用升级后的系统。</block>
   <block id="7cda71007d207ef48448dffed511abb8" category="paragraph">如果要对 FC 使用统一目标适配器（ UTA/UTA2 ）端口，则必须先验证此端口的配置方式。</block>
@@ -649,27 +588,10 @@
   <block id="7561dbd16073c82eda6418543cdd93ec" category="paragraph">UTA/UTA2 端口可能位于适配器或控制器上，并且具有以下配置，但您应检查 node3 上的 UTA/UTA2 端口的配置，并根据需要进行更改：</block>
   <block id="7107b4a109094877db55716e76bb317a" category="list-text">订购控制器时订购的 UTA/UTA2 卡会在发货前配置为具有您请求的个性化设置。</block>
   <block id="ac077d6a8af47d3f6459bdc75d20144c" category="list-text">新控制器上的板载 UTA/UTA2 端口会在发货前配置为具有您请求的个性化设置。</block>
-  <block id="1acb31a5b3534092750f6ee560e0995c" category="admonition">* 注意 * ：如果您的系统具有存储磁盘，除非指示您进入维护模式，否则您可以在集群提示符处输入本节中的命令。如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并连接到存储阵列，则可以在维护模式提示符处在此部分中输入命令。要配置 UTA/UTA2 端口，您必须处于维护模式。</block>
-  <block id="acb716cb88324392697eb22eddc7c3a3" category="list-text">【第 1 步】在 node3 上输入以下命令，以检查端口当前的配置方式：</block>
-  <block id="e8eedad0c370be864050462beebc8141" category="cell">无需执行任何操作。</block>
   <block id="b9372fe4eb2e1f51dc5ecc63ef944026" category="list-text">【第 2 步】如果当前 SFP+ 模块与所需用途不匹配，请将其更换为正确的 SFP+ 模块。</block>
-  <block id="cf64c78b7d463ed3f7aa4e4a9d43ca20" category="list-text">`步骤 3]] 查看` ucadmin show 命令的输出，并确定 UTA/UTA2 端口是否具有所需的个性化设置。</block>
   <block id="37ba28d857fa9f472bd54799a71b4d1f" category="list-text">【第 4 步】执行以下操作之一：</block>
   <block id="2c59ff8f0f110684a1947a7be9c33989" category="cell">如果 UTA/UTA2 端口 ...</block>
-  <block id="a74e65d44694577cd6490a79583dff8a" category="cell">转至 <block ref="e33bb2c935af60d67309f774bd9b33e2" category="inline-xref-macro-rx"></block>。</block>
-  <block id="eb97cddf7fc62845fc1e4eea9c2d99cd" category="cell">跳过步骤 5 到步骤 12 ，然后转到 <block ref="1b9dfae277e309ab4a6eabe371e415ad" category="inline-xref-macro-rx"></block>。</block>
-  <block id="c38c7f4981b1e1041fde50ff14eac24d" category="list-text">【 auto_check3_step5]] 执行以下操作之一：</block>
-  <block id="19971734faa0d5692ce82090e92c08e4" category="cell">转至 <block ref="8636550629e708c32b80412fc9a4bd9f" category="inline-xref-macro-rx"></block></block>
-  <block id="23cdc9078cbdc89882a254d05d67d976" category="cell">跳过第 7 步，转到 <block ref="c9ad15d95077080d869d1e4c8360803a" category="inline-xref-macro-rx"></block>。</block>
-  <block id="da0cddf6f2fcc9355331e1d32bd6c782" category="list-text">【第 6 步】如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：</block>
-  <block id="8538924568e2fc8f0f2a3823de803c1a" category="list-text">【 auto_check3_step7]] 如果当前配置与所需用途不匹配，请根据需要更改配置：</block>
   <block id="68393ca2b7b9884fdd9f7eea661220e1" category="list-text">` -m` 是特性模式， `fc` 或 `CNA` 。</block>
-  <block id="47677c5f320a3d7c211f1c3bf5ad457b" category="list-text">【 auto_check3_step8]] 验证设置：</block>
-  <block id="315e31e9f839439e107a11b7ff7facb6" category="list-text">【第 9 步】验证设置：</block>
-  <block id="b72b45050e36429103ef8a4d16d411be" category="list-text">【第 10 步】输入以下命令之一，使所有目标端口联机，每个端口输入一次：</block>
-  <block id="b479e4a9e97e157251ef3d2064ea4380" category="list-text">【第 11 步】为端口布线。</block>
-  <block id="3f9068a407bdbb378e93f4d5d6b9abe6" category="list-text">[[auto_check3_step12]] 执行以下操作之一：</block>
-  <block id="56b97cceb683f15e6179871d3991edcc" category="list-text">【 auto_check3_step13]] 退出维护模式：</block>
   <block id="8e26679b9fca64c8419387ed5ddbd066" category="list-text">在维护模式下，显示先前设置的所有启动程序端口，这些端口现在均处于目标模式：</block>
   <block id="4306b082c2e67956b1918aaea01dbeec" category="list-text">【第 20 步】验证端口是否已更改为启动程序模式：</block>
   <block id="4c830d7f040ff17fe7d01c1e6f446b3f" category="list-text">【第 21 步】退出维护模式：</block>
@@ -834,7 +756,6 @@
   <block id="bf3f92b1cc4c69581f2185ebf4603ed4" category="list-text">使用以下步骤还原 LIF 主端口，指定需要还原的 Vserver 和 LIF 主端口（如果有）：</block>
   <block id="5103bf442db985e287322952e9087bad" category="list-text">还原 LIF 主节点和主端口：</block>
   <block id="4a8c92edcf5608186b4e424977f98a73" category="cell">在启动环境提示符处输入以下命令，以自动配置连接： `ifconfig e0M -auto`</block>
-  <block id="732b920f8c31e81584bfe00d62cf46b6" category="paragraph">如果需要，请参考将板载端口修改为启动程序 <block ref="1d789633b45165b05bf13f9838060fe6" category="inline-link-macro-rx"></block>。有关分区的详细说明，请参见存储阵列和分区文档。</block>
   <block id="b24179e00e90966dedcd7ebbac3c3c96" category="list-text">手动验证是否已正确配置网络以及所有 VLAN ，接口组和广播域。</block>
   <block id="35c143d9885250e0128441d72be169dd" category="list-text">输入 `y` 以继续。</block>
   <block id="0fe1ab232beb36c111a482c1e5418bbf" category="paragraph">执行这些检查后，系统会将 node2 拥有的非根聚合和 NAS 数据 LIF 重新定位到新控制器 node4 。资源重新定位完成后，系统将暂停。</block>
@@ -942,7 +863,6 @@
   <block id="0fcf2ee62acd9eae83b609a0e7ecaa72" category="cell">ONTAP 9.5</block>
   <block id="3554bd6dca965e0e8bcb314a54ef655c" category="list-text">输入板载密钥管理器的集群范围密码短语。</block>
   <block id="04e69ed9c039a8d1bc156ec97e69f0d2" category="inline-link-macro">将端口从 node2 映射到 node4</block>
-  <block id="8791ac28601fdc37abff08e6c499f508" category="list-text">转至 <block ref="15e1611f6cc2b64b7163cc152446c8c0" category="inline-link-macro-rx"></block> 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。</block>
   <block id="38c5d8cbf396fa8049b864a52905989e" category="inline-link-macro">当节点具有一组不同的网络端口时加入仲裁</block>
   <block id="9645dac7a86b8b52dafb1d2bce8d2cbc" category="paragraph">在 ONTAP 9.5 到 9.7 中，您可以使用密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）服务器管理身份验证密钥。</block>
   <block id="40f491be1da04740c193fe7b8e4df207" category="paragraph">要了解是否可以使用聚合重新定位（ Aggregate Relocation ， ARL ）将一对运行 ONTAP 9.5 的控制器升级到 ONTAP 9.7 ，取决于原始控制器和更换控制器的平台和配置。</block>
@@ -958,12 +878,10 @@
   <block id="87955a4e69dc9556a2a78cd5f057d2f3" category="paragraph">术语 "node1" ， "node2" ， "node3" 和 "node4" 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改： "node3" 与 "node1" 同名， "node4" 与 "node2" 同名。升级控制器硬件后， "node4" 与 "node2" 同名。</block>
   <block id="48d957729e77cbd1ec1cf772f951270a" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果先前使用的是替代控制器硬件，则必须联系技术支持，尤其是在控制器以 7- 模式运行 Data ONTAP 时。</block>
   <block id="e5e0e33438e3e93b68faec10a86b2f1c" category="list-text">您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个 HA 对单独执行操作步骤。</block>
-  <block id="8aa258d7d2576cff89b65debb971736d" category="list-text">此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9.5 之后发布的 FAS 系统可以连接到存储阵列。ONTAP 9.5 支持现有 V 系列系统。有关存储阵列和 V 系列型号的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _V Hardware Universe 系列支持表，请访问 V 系列支持表。</block>
   <block id="5606085c29237d873046f0814d8b70b0" category="list-text">输入以下命令，验证 node4 是否与 node3 属于同一集群且运行状况良好：</block>
   <block id="7f1799dcf19180943a8e7e660bf6a3dd" category="list-text">检查操作状态，并验证 node4 的配置信息是否与 node2 相同：</block>
   <block id="a10c88f3a400c8c2aa654ddd4a616518" category="paragraph">如果 node4 的配置不同，则稍后可能会在操作步骤中发生系统中断。</block>
   <block id="838d8de52d85e0b64e9643b598ef2b7e" category="list-text">检查更换的控制器是否已正确配置 MetroCluster 配置，而不是处于切换模式。</block>
-  <block id="c7bfe1826ae50dfa18e857462ed5be48" category="admonition">* 注意： * 在此阶段， MetroCluster 配置将不会处于正常状态，您可能会遇到需要解决的错误。请参见 <block ref="14c0e32a98a31f9fd4a16b635b2f7ebd" category="inline-link-macro-rx"></block>。</block>
   <block id="d214189b511a4dddc29ca037a9c05cc4" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。使 node3 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="b003ff957beed57b873253f1e4cd0441" category="list-text">【第 5 步】如果新硬件上不存在当前托管数据 LIF 的端口，请将其从广播域中删除：</block>
   <block id="45560e4a070877091866d34d12016154" category="list-text">如果配置了接口组或 VLAN ，请完成以下子步骤：</block>
@@ -997,7 +915,6 @@
   <block id="74c90316d25b4cdc5c8e524af066a5a0" category="paragraph">`s安全密钥管理器外部还原`</block>
   <block id="eed577fe70cdcd6a422d81d49e0f94ca" category="paragraph">此命令需要板载密钥管理器（ OKM ）密码短语。</block>
   <block id="57bd5edad2e4a85125aa9528f6fa4cea" category="list-text">还原 OKM 的身份验证：</block>
-  <block id="5bb1d2d89905f521825083d671817bcb" category="cell">是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列</block>
   <block id="fb2ae3407dbb65ffe5f8f2ab09ba07d0" category="list-text">输入以下命令并检查其输出，以验证新集群端口是否位于集群广播域中：</block>
   <block id="3cb8659a043650dc7ac58ea24d685632" category="paragraph">`network port show -node -port port -fields broadcast-domain`</block>
   <block id="31ee4113a91e33fbefc812b660a4b1ed" category="paragraph">以下示例显示端口 "e1a" 位于 node3 上的集群域中：</block>
@@ -1484,30 +1401,13 @@
   <block id="6904f97422da010c9982167637cc6d56" category="list-text">【 ｛ man_install4_Step7]] 如果您在步骤 6 中看到警告消息，请执行以下操作：</block>
   <block id="abb5e8621f032d746c9aa9b35f472595" category="list-text">检查是否存在任何可能指示 NVRAM 电池电量低以外问题的控制台消息，如有必要，请采取任何必要的更正措施。</block>
   <block id="8ece0169cd074b513037985b1656b1cd" category="list-text">让电池充电并完成启动过程。</block>
-  <block id="30567eb6dc573926907b3bb63db7137a" category="admonition">* 警告：不要覆盖此延迟。如果不允许电池充电，可能会导致数据丢失。 *</block>
-  <block id="945c73c9ea193c92dd8b512126669f13" category="list-text">[[man_install4_Step8]] 执行以下操作之一：</block>
   <block id="fb89a7ef586904dc37e09f10f3f0ec64" category="inline-xref">第 15 步</block>
-  <block id="a2a7998a5450e891bb5464c1204815d8" category="cell">跳过第 9 步到第 14 步，然后转到 <block ref="5c1f19cc6cb716956fba505fb903a21f" category="inline-xref-macro-rx"></block>。</block>
-  <block id="0366496afb0bd008f8fb19b74f53ec71" category="inline-link-macro">在节点 4 上配置 FC 端口</block>
-  <block id="7973536954a566dd7a59dc4fa1580481" category="list-text">转至 _set the FC or UTA/UTA2 configuration on node4_ 一节并完成各节 <block ref="5dc4a26bdcd4279b0919835bab13d0db" category="inline-link-macro-rx"></block> 和 <block ref="b0f6547feb9924da912bf4fa3357e2fc" category="inline-link-macro-rx"></block>，根据您的系统情况而定。</block>
-  <block id="f01b0d07fd3bcdce42fd5cf6a8f46551" category="list-text">返回到此部分，完成从开始的其余步骤 <block ref="9b924d5c1ba14dd46bf7c40da5a15e7c" category="inline-xref-macro-rx"></block>。</block>
-  <block id="562a6369849944020611b8a9540b9c5c" category="list-text">【 man_install4_Step9]] 将新节点的 FC 启动程序端口添加到交换机分区。</block>
-  <block id="a68de9b3c6fcb14f9c96b6e558ca71f8" category="list-text">修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。</block>
-  <block id="1ad5461b16a79391d48cbca2383e0c9e" category="list-text">输入以下命令并检查其输出，以验证阵列 LUN 现在是否对 node4 可见：</block>
-  <block id="6b3585cc5d8743bbae5204f3097641c4" category="paragraph">`ssysconfig -v`</block>
-  <block id="134f75a624b82855271656ebc0cf2d5f" category="paragraph">系统将显示每个 FC 启动程序端口可见的所有阵列 LUN 。如果阵列 LUN 不可见，则您不能在本节稍后将磁盘从 node2 重新分配到 node4 。</block>
-  <block id="a2835e58397213dc9bedb9afe05d29d2" category="list-text">在维护模式提示符处，输入以下命令：</block>
   <block id="2f31b93de57cc6e92ee38aaed9b49765" category="paragraph">系统将在启动环境提示符处停止。</block>
   <block id="9b30a77b62fcc76d557f789dd6ce3167" category="list-text">为 ONTAP 配置 node4 ：</block>
   <block id="c769624c49a19cf249ae2dabe50fafd5" category="list-text">如果 node4 上安装的 ONTAP 版本与 node2 上安装的 ONTAP 9 版本相同或更高，请输入以下命令：</block>
   <block id="648ad8a1b1818127b7b933420429d236" category="cell">如果要升级的系统 ...</block>
   <block id="bd525e59dc1c481092f22bdaeff4a9cb" category="cell">node4 上的 ONTAP 版本不正确或当前不正确</block>
-  <block id="d4d1f4ca7806007366aa98184f062124" category="inline-xref">第 20 步</block>
-  <block id="642ae729bd75051692412fd6ebaf2526" category="cell">转至 <block ref="1fde564298826640b3bacb4260e3eaea" category="inline-xref-macro-rx"></block>。</block>
   <block id="9b66895c756fece1df6c42e12763649b" category="cell">node4 上的 ONTAP 版本正确或最新</block>
-  <block id="7769822edfc550f3ba37429715882554" category="inline-xref">第 25 步</block>
-  <block id="107c908e64ebe1cdac15562994203122" category="cell">转至 <block ref="aadd3e12a76cc16c765ef6c4ab9ed890" category="inline-xref-macro-rx"></block>。</block>
-  <block id="76b2a354a862c0069407c912fb51ee50" category="list-text">【 man_install4_Step20]] 通过选择以下操作之一来配置网络启动连接。</block>
   <block id="a1e9c2458084c8aed432506005e0789e" category="cell">`netboot \http://web_server_ip/path_to_webaccessible_directory/netboot/kernel`</block>
   <block id="7e0c898eb7a2157f9a4fe767ff353ea1" category="cell">`netboot \http://web_server_ip/path_to_webaccessible_directory/ontap_version_image.tgz`</block>
   <block id="feed6e71880a4cdb6f484b72b59ad1c7" category="paragraph">`path_to_the_web-accessible_directory` 应指向下载 `ontap_version_image.tgz` 的位置 <block ref="d7ca8bd1bdacba48998a89c59527e756" category="inline-link-macro-rx"></block> 在 _prepare for netboot_ 一节中。</block>
@@ -1519,8 +1419,6 @@
   <block id="ad4f522a516d9a5742a3b1abdd5d7e77" category="paragraph">` http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`</block>
   <block id="3678fe02acf5ec3ff8f4fbebc3fd7a4d" category="list-text">完成以下子步骤：</block>
   <block id="037fcad07615e2da823be3a48a35cfb8" category="paragraph">控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，需要还原配置数据。</block>
-  <block id="212239c0a7a5196ffbd8cc3895cfce05" category="list-text">【 man_install4_Step25]] 从启动菜单中选择维护模式 `5` ，并在系统提示您继续启动时输入 `y` 。</block>
-  <block id="88dd4b794782fce5edb7683e13199311" category="list-text">在继续操作之前，请转到 <block ref="488c6e462745f03d8c1dfb3ba61f7258" category="inline-link-macro-rx"></block> 对节点上的 FC 或 UTA/UTA2 端口进行任何必要的更改。执行这些部分中建议的更改，重新启动节点并进入维护模式。</block>
   <block id="7e3544f15733cd05bc2830419b4be7f9" category="list-text">输入以下命令并检查输出以查找 node4 的系统 ID ：</block>
   <block id="4e974a66c77c6d900d32abc8f0338440" category="paragraph">系统将显示节点的系统 ID 及其磁盘信息，如以下示例所示：</block>
   <block id="fae986fa29654ebe6966932d05eb132d" category="inline-link-macro">将非根聚合从 node2 重新定位到 node3</block>
@@ -1548,7 +1446,6 @@
   <block id="e3f03a007dc36d2b8067017bfe222275" category="list-text">在 node4 上，在启动环境提示符处检查日期：</block>
   <block id="02bb70865b20c57eb319b73c84b5fd7f" category="list-text">在 node4 上，在启动环境提示符处检查时间：</block>
   <block id="6f690bd73c9853fafd7c1e4456ccea21" category="inline-xref">第 26 步</block>
-  <block id="c73ed66a3414025099d74b00d7536036" category="list-text">验证配对系统 ID 是否设置正确，如中所述 <block ref="6f4b83e10b4758eab71105c01c130b34" category="inline-xref-macro-rx"></block> 在选项下。</block>
   <block id="0f463f9540d67b2794aa78893f83b8aa" category="list-text">在启动环境提示符处输入启动菜单：</block>
   <block id="ca0b24352c36c0cc73393a18e38ead22" category="list-text">在启动菜单中，在提示符处输入 `6` ，选择选项 * （ 6 ） Update flash from backup config* 。</block>
   <block id="23fc33b520f7242c5f2fb610689e9e8c" category="list-text">在提示符处输入 `y` 。</block>
@@ -1605,8 +1502,6 @@
   <block id="6df8f51a4f207a8aec19520cbafdafd9" category="cell">第 3 阶段： _Map ports from node1 to node3_ 第 5 阶段： _Map ports from node2 to node4_</block>
   <block id="0cefe51dc41d2718e2eb5823909bbc12" category="cell">（仅限 SAN 环境） FC 端口的默认配置</block>
   <block id="f7a78d2e3df99d48acd611b5ebd92bff" category="cell">在新节点上配置 FC 端口时</block>
-  <block id="98577d60c614df3fef5fca33b637ac23" category="cell">（仅限使用 FlexArray 虚拟化软件的 V 系列系统或系统）适用于使用 FlexArray 虚拟化软件的 V 系列系统或系统的拓扑</block>
-  <block id="7cfd4d042bb6ab02bc385b9c06501763" category="cell">第 3 阶段： _Install and boot node3_ 第 5 阶段： _Install and boot node4_</block>
   <block id="72a91a015e8c747a5a63794308310840" category="cell">SP 的 IP 地址</block>
   <block id="e3d8433cfe5569460492707086339074" category="cell">许可证密钥</block>
   <block id="234cfc2e3636ba2a3e5d47da84d5bd32" category="cell">第 1 阶段： _Rekey disks for Storage Encryption"</block>
@@ -1699,9 +1594,7 @@
   <block id="aa4444dc8b6bab3b2f6234aeca290090" category="section-title">假设和术语</block>
   <block id="c77e53bb71e6f82e9c063dc5e5174b70" category="paragraph">本文档的编写假设如下：</block>
   <block id="3eb93a8b34b97361565e1e43b5172c6c" category="list-text">替代控制器硬件是新的，尚未使用。</block>
-  <block id="2c1539b425b852831dfd3949e3fa3f6e" category="admonition">* 注意 * ：由于此操作步骤假定更换用的控制器硬件是新的，尚未使用，因此使用 `wipeconfig` 命令准备已用控制器所需的步骤不会包含在此操作步骤中。如果先前使用的是替代控制器硬件，则必须联系技术支持，尤其是在控制器以 7- 模式运行 Data ONTAP 时。</block>
   <block id="813522154d0016da078c804c8b48926e" category="list-text">您已阅读并了解升级节点对的准则。</block>
-  <block id="31536b7b125b53b91a4202e748df16c7" category="admonition">* 注意 * 请勿尝试清除 NVRAM 内容。如果需要清除 NVRAM 的内容，请联系 NetApp 技术支持。</block>
   <block id="4e2f57efeba52fa3484b04fa5b7501f6" category="list-text">您正在执行 `m修改` 命令前后的相应命令，并比较两个 `show` 命令的输出以验证 `m修改` 命令是否成功。</block>
   <block id="418bba28a84b33a46f081045deea4425" category="list-text">如果您具有 SAN 配置，则 HA 对上的每个 Storage Virtual Machine （ SVM ）都具有本地和配对 LIF 。如果每个 SVM 没有本地和配对 LIF ，则应在开始升级之前在该 SVM 的远程和本地节点上添加 SAN 数据 LIF 。</block>
   <block id="4deee541ccbe8bdf4518c19cd687519b" category="list-text">如果 SAN 配置中有端口集，则必须已验证每个绑定端口集是否至少包含 HA 对中每个节点的一个 LIF 。</block>
@@ -1720,7 +1613,6 @@
   <block id="7fcb92cfc1dea17cbdc84eda52cfac2b" category="list-text">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _NetApp 支持站点 _ 并在 NetApp 支持站点上创建支持案例。</block>
   <block id="38fd59ef0181a70014c49f0cfdd6ed5d" category="paragraph">您可以使用案例报告升级期间可能出现的任何问题。</block>
   <block id="e7b328a01b5a6b8fffc172cfd9f564c0" category="list-text">验证 node3 和 node4 的 NVMEM 或 NVRAM 电池是否已充电，如果未充电，请为其充电。</block>
-  <block id="6ab3181b33a0075c13f2de4c0920deff" category="admonition">* 注意 * 请勿尝试清除 NVRAM 内容。如果需要清除 NVRAM 的内容，请联系 NetApp 技术支持。</block>
   <block id="051d9c31ffa2621a5e49ba9e6d76c916" category="list-text">检查 node3 和 node4 上的 ONTAP 版本。</block>
   <block id="53e359796554176ecef5639c8ed3ed05" category="paragraph">有关 node3 和 node4 上的 ONTAP 版本的信息应包含在装运箱中。节点启动时会显示 ONTAP 版本，您也可以将节点启动至维护模式并运行命令：</block>
   <block id="7877022c956918624cc0373ff564cad4" category="paragraph">`ve版本`</block>
@@ -1762,7 +1654,6 @@
   <block id="86bd7b7efad49e1892e19e0073d55fb5" category="list-text">记录两个节点的型号，系统 ID 和序列号：</block>
   <block id="dfb5c700fcc3e30efac3db32160fbcf2" category="admonition">您将使用此信息重新分配磁盘并停用原始节点。</block>
   <block id="e09e773592434045763d0f91877696a1" category="list-text">在 node1 和 node2 上输入以下命令，并记录输出中有关磁盘架，每个磁盘架中的磁盘数，闪存存储详细信息，内存， NVRAM 和网卡的信息：</block>
-  <block id="4f52adca7234907fc88d3196c013afca" category="admonition">您可以使用此信息确定可能要传输到 node3 或 node4 的部件或配件。如果您不知道节点是 V 系列系统还是具有 FlexArray 虚拟化软件，也可以从输出中了解到这一点。</block>
   <block id="183d8f9cbafac0e6a6d6ea1ecdc927af" category="list-text">在 node1 和 node2 上输入以下命令，并记录两个节点上处于联机状态的聚合：</block>
   <block id="8e812627c78a44fd6a82255d855942ae" category="admonition">您可以使用此信息以及以下子步骤中的信息来验证聚合和卷在整个操作步骤中是否保持联机，但在重新定位期间处于脱机状态的短暂时间除外。</block>
   <block id="75cf5ffcfa777a87d0faf388944df0a1" category="list-text">【 man_prepare_nodes_step19]] 在 node1 和 node2 上输入以下命令，并记录两个节点上脱机的卷：</block>
@@ -1808,16 +1699,11 @@
   <block id="ff03f81e3805469dd3ca43d2811a614d" category="list-text">输入以下命令并记录系统的输出，以捕获原始节点上任何 FC 端口的默认配置：</block>
   <block id="3e2b2bdb70af85f67ec523ee76a4f03b" category="paragraph">命令显示集群中所有 FC 端口的相关信息，如以下示例所示：</block>
   <block id="b0465c9d2f8edb4e2978de4f3bb93497" category="paragraph">您可以在升级后使用此信息设置新节点上的 FC 端口配置。</block>
-  <block id="1c805b4cc00ee084b0e3a5a9c212e9a2" category="list-text">如果要升级 V 系列系统或安装了 FlexArray 虚拟化软件的系统，请输入以下命令并记录输出，以捕获有关原始节点拓扑的信息：</block>
-  <block id="1f21d3af1ebfd92fe19ca32d07d90016" category="paragraph">`storage array config show -switch`</block>
-  <block id="c83875af1cfc44dcf937e003fd6ad9bf" category="paragraph">系统将显示拓扑信息，如以下示例所示：</block>
-  <block id="1bd4ed27f87546af3edbba37df0590cf" category="list-text">[man_prepare_nodes_step29]] 完成以下子步骤：</block>
   <block id="fd24198d12e02d20f511f9c35f66ebb1" category="list-text">在一个原始节点上输入以下命令并记录输出：</block>
   <block id="7321ac6691d90f67ea8ea42f26847df8" category="paragraph">`sservice-processor show -node * -instance`</block>
   <block id="72dfb8d3e52e5d9045db9ad00960535b" category="paragraph">系统会显示两个节点上的 SP 的详细信息。</block>
   <block id="7f4649d278edc769a0ec529585086778" category="list-text">记录 IP 地址和有关 SP 的其他信息。</block>
   <block id="2874b759bc0f9d6f832a84f482485f96" category="paragraph">您可能希望在新节点上重复使用原始系统中远程管理设备（此处为 SP ）的网络参数。有关 SP 的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。</block>
-  <block id="73e2f3b9e6d19fe1e2189067c752d909" category="list-text">【 man_prepare_nodes_step30]] 如果希望新节点与原始节点具有相同的许可功能，请输入以下命令以查看原始系统上的集群许可证：</block>
   <block id="57fb8c1782e77bfa17ea95c66f54a6dd" category="paragraph">`ssystem license show -owner *`</block>
   <block id="4f8f7baa705fb90b9c5bec95668e59f5" category="paragraph">以下示例显示了 cluster1 的站点许可证：</block>
   <block id="b83718d5186db84761322d32f4ea05ac" category="list-text">在 _NetApp 支持站点 _ 为新节点获取新许可证密钥。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _NetApp 支持站点 _ 。</block>
@@ -1838,63 +1724,19 @@
   <block id="4086f5138ec309c4999cbff0dc76073d" category="admonition">此时，请勿向 NetApp 发送 node2 的 AutoSupport 消息；稍后可在操作步骤中执行此操作。</block>
   <block id="37fdb57fc31ec512b7d4dde37a7ab8d7" category="list-text">【 man_prepare_nodes_step36 ，步骤 36]] 输入以下命令并检查其输出，以验证是否已发送 AutoSupport 消息：</block>
   <block id="28dd44ad0b0bcceee8ca8498734facba" category="paragraph">字段 `Last Subject Sent ：` 和 `Last Time Sent ：` 包含上次发送消息的消息标题以及消息发送时间。</block>
-  <block id="fdeff716288a3bd8ca18c4ffee31f259" category="paragraph">您可能需要完成 <block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block>或 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>或这两个部分。</block>
   <block id="5e8f88089134f38f7cf630a3a4ce36ff" category="admonition">NetApp 营销材料可能会使用术语 UTA2 来指代 CNA 适配器和端口。但是，命令行界面使用术语 "CNA" 。</block>
-  <block id="0f7670789359a9e1e91e25e19d469dad" category="list-text">如果 node3 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 <block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block>。</block>
   <block id="218c1c22487e3cea0e94aedcabb843e2" category="paragraph">您必须具有保存在中的 node1 中的 FC 端口设置值 <block ref="cd8ad1809865824065fe011b80800cd6" category="inline-link-macro-rx"></block>。</block>
-  <block id="fb0e67401f3473ee656312bb98935878" category="cell">转至 <block ref="4e8d6367d01e7a88b5b6b591ecf5d6db" category="inline-xref-macro-rx"></block></block>
-  <block id="32781b45218385923d91bc21b08c6b68" category="cell">转至 <block ref="79ba4e2202506d0f17b14ab90d196879" category="inline-xref-macro-rx"></block></block>
-  <block id="838b228ad3b40461ad1dc100f5671807" category="list-text">【 man_config_3_step2]] 启动 node3 和访问维护模式：</block>
-  <block id="534ca774217e84be533a1aad9cf31936" category="cell">输入以下命令： `ssystem node hardware unified-connect show`</block>
-  <block id="fe780061729afd0c0f2800209c7c7bf6" category="cell">是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列。</block>
-  <block id="b7911a4b9aaa4584cf3072f4df9d0033" category="cell">输入以下命令 `ucadmin show`</block>
-  <block id="d0f2b99979906267ea4c720be3fdf8c1" category="list-text">【第 4 步】将 node3 的 FC 设置与先前从 node1 捕获的设置进行比较。</block>
-  <block id="befe3449c034cb6f4631649c7a4ed066" category="list-text">[[man_config_3_step5]] 执行以下操作之一：</block>
   <block id="7f3a5152afa49c8421359b8761a9a8ad" category="cell">新节点上的默认 FC 设置</block>
   <block id="cb4a7a262c1057120daeee2df7839247" category="cell">与您在 node1 上捕获的相同</block>
-  <block id="2b56e7490fdbb3cfe1904501429274b7" category="cell">转至 <block ref="c6c9a381b48f60f002c0199635146c23" category="inline-xref-macro-rx"></block>。</block>
   <block id="2cc211fd01662dba325fa6afb2cb24dc" category="cell">与您在 node1 上捕获的不同</block>
-  <block id="3a3387d05eb4dc59724516e63ce89fe1" category="cell">转至 <block ref="cb1e6c315615cb7630d3b8a437827bc2" category="inline-xref-macro-rx"></block>。</block>
-  <block id="8858cbf1016a885e6783f73cde18ddf4" category="list-text">【 man_config_3_step6]] 执行以下操作之一：</block>
-  <block id="eef9069309a77ac006f5011dca4b9f9a" category="paragraph">根据需要输入以下命令之一，修改 node3 上的 FC 端口：</block>
-  <block id="0f46f9b9f7235f322cd04b338ecda49c" category="list-text">【第 7 步】执行以下操作之一：</block>
-  <block id="85a79ca9227090c23bb3d6d14dbbe0af" category="cell">输入以下命令并检查输出，以验证新设置： `ssystem node hardware unified-connect show`</block>
-  <block id="ae1a6eb25c428a13de7c805301540516" category="cell">输入以下命令并检查输出，以验证新设置： `ucadmin show`</block>
-  <block id="2c6e937b15ebe6468c586dd1b4eb466a" category="list-text">【第 8 步】输入以下命令退出维护模式：</block>
-  <block id="b3a919f35f16fa3a39c85eac5d885d2f" category="list-text">【第 9 步】输入命令后，请等待系统在启动环境提示符处停止。</block>
-  <block id="c62d6d151dbb06716a8276f4f8bb89e0" category="list-text">【第 10 步】执行以下操作之一：</block>
-  <block id="8e49fbf8016e97e15077debef6c06b54" category="cell">是 V 系列系统或具有运行集群模式 Data ONTAP 8.3 的 FlexArray 虚拟化软件</block>
-  <block id="51ae224ccdb747cc08ff98ed97fed51f" category="cell">在启动环境提示符处启动 node3 并访问维护： `boot_ontap maint`</block>
-  <block id="8cf0032370f0f9233266234c2a7feab7" category="cell">不是 V 系列系统或没有 FlexArray 虚拟化软件</block>
-  <block id="7e422d66a2b07e1e654868dee6aae687" category="cell">在启动环境提示符处启动 node3 ： `boot_ontap`</block>
-  <block id="1509937ac092a7690a93d056a0c33d58" category="list-text">【 man_config_3_step11]] 执行以下操作之一：</block>
   <block id="3e5bf76136102b434c2a000604dc77c1" category="list-text">如果 node3 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请转至 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>。</block>
   <block id="306e854e226a650b7acec40ba5a0e249" category="list-text">如果 node3 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block> 然后转到 <block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block>。</block>
-  <block id="6c804c4adac8740743dd6f41da471795" category="list-text">如果 node3 具有卡或板载端口，请转至 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>。</block>
-  <block id="1f81aa18292065e5242ce30775d96e2c" category="paragraph">系统将显示类似于以下示例的输出：</block>
   <block id="581e0d52eede5c7a9002197a5955188f" category="list-text">`s步骤 3]] 查看` system node hardware unified-connect show `或` ucadmin show 命令的输出，以确定 UTA/UTA2 端口是否具有所需的个性化设置。</block>
   <block id="39e1a687c8a1a3bb49c730ad7b98a3d5" category="cell">转至 <block ref="2fc3b3e515184c116c95342a9ca8cb9f" category="inline-xref-macro-rx"></block>。</block>
-  <block id="aeeda50cd3cc8fa0b7819c50d25802cc" category="cell">跳过步骤 5 到步骤 12 ，然后转到 <block ref="e8dc02ba0ba84dfdb12d2955f04811ca" category="inline-xref-macro-rx"></block>。</block>
-  <block id="8c1235ea1bd5309fe2724d440119a7bf" category="list-text">[[man_check_3_step5]] 执行以下操作之一：</block>
-  <block id="702b58a3a2c0f7ca9c1ff79304cc3846" category="cell">具有存储磁盘，并且正在运行集群模式 Data ONTAP 8.3</block>
-  <block id="177fe53a2ca3ad4477bf20631953c74e" category="cell">启动 node3 并进入维护模式： `boot_ontap maint`</block>
-  <block id="9bc874604b7939971f9993fe8c042cc5" category="cell">转至 <block ref="f6d13a5ff9438ee0d4458e3f2ffb2fd3" category="inline-xref-macro-rx"></block>。您应已处于维护模式。</block>
-  <block id="3b9a8502a8d7047daccb7dc1e076d1db" category="list-text">【 man_check_3_step6]] 执行以下操作之一：</block>
-  <block id="1f14f34deb68e1ccfd51fd969391f85b" category="cell">转至 <block ref="e0afe2f8b687f2b937ad04447e0f4504" category="inline-xref-macro-rx"></block>。</block>
-  <block id="fe13e7c4af341791013b658ec3446e14" category="cell">跳过第 7 步，转到 <block ref="21867c7d0c2b8bc3921bf40e9edec561" category="inline-xref-macro-rx"></block>。</block>
-  <block id="5d8cdb858d03ccbaab4933257301ad1f" category="list-text">[[man_check_3_step7]] 如果适配器处于启动程序模式，并且 UTA/UTA2 端口联机，请使 UTA/UTA2 端口脱机：</block>
   <block id="de2f29988a1562cff5aece8243895ec3" category="paragraph">目标模式下的适配器会在维护模式下自动脱机。</block>
-  <block id="f5127a07c0da9806f59a276c6a53e07b" category="list-text">[[man_check_3_step8]] 如果当前配置与所需用途不匹配，请根据需要更改配置：</block>
-  <block id="20a6fed477bc68dded7a110a5998c20e" category="admonition">您需要对磁带驱动器， FlexArray 虚拟化系统和 MetroCluster 配置使用 FC 启动程序。您需要对 SAN 客户端使用 FC 目标。</block>
   <block id="87f04db4bf78b3f620b7363444f3162e" category="list-text">停止系统：</block>
-  <block id="42a282655a6bcf78e540d618abe8f39f" category="cell">重新启动至维护模式： `boot_netapp maint`</block>
   <block id="4ccd0b13a5d5d3be43ff2600a91655cc" category="list-text">【第 11 步】验证设置：</block>
-  <block id="f2cc2cb82b7d41d7e5604b8610c271a3" category="cell">是 V 系列或具有 FlexArray 虚拟化软件并连接到存储阵列</block>
   <block id="52b727613ccb81e1e924ffec991b2e74" category="paragraph">以下示例中的输出显示， FC4 类型的适配器 "1b" 更改为 `initiator` ，适配器 "2a" 和 "2b" 的模式更改为 `CNA` ：</block>
-  <block id="fa05264b5c812e55c8ce27a16e3cb341" category="list-text">【第 12a 步】输入以下命令之一，使所有目标端口联机，每个端口输入一次：</block>
-  <block id="7bf32aee58782ae16c1d768b4bf38822" category="list-text">【 man_check_3_step13]] 为端口布线。</block>
-  <block id="ed79a6f393f23524ed190af7b250c69b" category="list-text">【第 14 步】执行以下操作之一：</block>
-  <block id="eb62d15c59e51a7bf19844fae4092453" category="cell">转至 <block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block>。</block>
   <block id="a96ea627b3d5d65e112aacf5d7b2c1e1" category="inline-link-macro">将 node2 拥有的 NAS 数据 LIF 从 node3 移动到 node4 并验证 node4 上的 SAN LIF</block>
   <block id="1d92796a70af1d22c31d2b64c9064278" category="inline-link-macro">将 node2 的非根聚合从 node3 重新定位到 node4</block>
   <block id="8a934a6945c2524f52729212e6e676c1" category="doc">将 Node2 拥有的 NAS 数据 LIF 移动到 Node3</block>
@@ -1973,52 +1815,25 @@
   <block id="5528857f98fded77afccd9d97a9a0711" category="list-text">【第 3 步】为节点 3 布线，将节点 1 的连接移至节点 3 。</block>
   <block id="63cc66bd900313017fb0834b1cbbbc81" category="list-text">【 man_install3_step4]] 打开 node3 的电源，然后在控制台终端上按 Ctrl-C 以访问启动环境提示符，从而中断启动过程。</block>
   <block id="6c2cb2a49908831d5791f25bb5371a3d" category="list-text">如果您在中看到警告消息，则需要执行以下操作 <block ref="189d751c0d059b7e2fcaef080c81111f" category="inline-xref-macro-rx"></block>，执行以下操作：</block>
-  <block id="7efd430adfeaf9ea4f3e48e21d2c4f96" category="admonition">* 注意 * ：请勿覆盖此延迟；如果不允许电池充电，可能会导致数据丢失。</block>
-  <block id="5b8c681411bac96a813b6b62eba17d9c" category="list-text">【 man_install3_step6]] 执行以下操作之一：</block>
-  <block id="ad9768b53d0a33cd1368bd0b1d373a3b" category="cell">跳过第 7 步到第 12 步，然后转到 <block ref="85131af613f0169831e213f11ca11041" category="inline-xref-macro-rx"></block>。</block>
-  <block id="66b6cfbf89b613b9a80d84ec1d7b5fa0" category="list-text">返回到此部分，完成从开始的其余步骤 <block ref="239474d202713b3a406727408fd68f72" category="inline-xref-macro-rx"></block>。</block>
-  <block id="120d825f771126cb963c76c2ff005e6d" category="list-text">【 man_install3_step7]] 将新节点的 FC 启动程序端口添加到交换机分区。</block>
-  <block id="12aae7624013a12c0ade8f6f2e309d62" category="paragraph">如果您的系统具有磁带 SAN ，则需要对启动程序进行分区。有关说明，请参见存储阵列和分区文档。</block>
-  <block id="0dd10d8b45274d5c198af78bfab2e446" category="list-text">【 man_install3_step8]] 将 FC 启动程序端口作为新主机添加到存储阵列，将阵列 LUN 映射到新主机。</block>
-  <block id="5cca5c853f000ca16ba17533a6116cd7" category="list-text">[[man_install3_step9]] 修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。</block>
-  <block id="6a81c1ece5ddd721a1ff7521454f87c9" category="list-text">如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。</block>
-  <block id="fa1040cb978ca2065cad32e28e6d9d58" category="list-text">[[man_install3_step11]] 验证阵列 LUN 现在是否对 node3 可见：</block>
-  <block id="d8096974edc78f9fe2db726869876695" category="paragraph">系统将显示每个 FC 启动程序端口可见的所有阵列 LUN 。如果阵列 LUN 不可见，您将无法在本节稍后将磁盘从 node1 重新分配到 node3 。</block>
-  <block id="b69192040391e08f61402b09c27822b8" category="list-text">【 man_install3_step12]] 按 Ctrl-C 显示启动菜单并选择维护模式。</block>
-  <block id="fe85761838c7d215174afe4ace6c66f0" category="list-text">在维护模式提示符处，输入以下命令：</block>
-  <block id="907c22891918b5b80e66731ae6eed77e" category="list-text">【 man_install3_step14]] 执行以下操作之一：</block>
   <block id="8b2f23f3c3f7445164b524932e61d65b" category="cell">如果要升级到的系统位于 ...</block>
   <block id="1f00007c6687ede4ed2d2b6e91ce451d" category="cell">双机箱配置（控制器位于不同机箱中）</block>
-  <block id="1ec921c80439dda2ee883653fa1acb7b" category="cell">转至 <block ref="4332c8cc4c85f33bda2a347fe16e2dc6" category="inline-xref-macro-rx"></block>。</block>
   <block id="0471a95f16e566048e66f2d81f432967" category="cell">单机箱配置（控制器位于同一机箱中）</block>
   <block id="0aaa18e158b2b22ed630223549710480" category="list-text">将控制台缆线从 node3 切换到 node4 。</block>
   <block id="ffb09ffc35bea252e4e21d97d6400ddf" category="list-text">打开 node4 的电源，然后在控制台终端按 Ctrl-C 以访问启动环境提示符，从而中断启动过程。</block>
   <block id="85418bdb866bf209cc89fc9250fd0f04" category="paragraph">如果两个控制器位于同一机箱中，则应已打开电源。</block>
   <block id="620bed07fd84663ccd35004111b0a13c" category="list-text">如果您在中看到警告消息，请执行此操作 <block ref="189d751c0d059b7e2fcaef080c81111f" category="inline-xref-macro-rx"></block>，按照中的说明进行操作 <block ref="593996bb06ec10671cada9089fb35dd4" category="inline-xref-macro-rx"></block></block>
   <block id="a70d58ca96ede2bc6122de5eaba9afaf" category="list-text">将控制台缆线从 node4 切回到 node3 。</block>
-  <block id="7c0d2cf152b2cde561a140a996176952" category="list-text">【 man_install3_step15]] 为 ONTAP 配置 node3 ：</block>
   <block id="0546806bd19b344e7d0ca13460d96992" category="list-text">【 ｛ man_install3_step17]] 如果 node3 上安装的 ONTAP 版本与 node1 上安装的 ONTAP 9 版本相同或更高，请列出磁盘并将其重新分配给新的 node3 ：</block>
-  <block id="b04b66d312941ba2b1d5910ec5f5fb36" category="list-text">【 man_install3_step18]] 按 CTRL-C 显示启动菜单。</block>
   <block id="7be8c6136747afe24ab6f25f931c2451" category="list-text">[[man_install3_step19]] 执行以下操作之一：</block>
   <block id="b65dee077de24058e64aa96e60e2a56a" category="cell">node3 上的 ONTAP 版本是否正确或最新</block>
-  <block id="a17dd4e0d7995e108ec012fad7f027d2" category="cell">转至 <block ref="f66707bf1ec53e37a427dd9510962619" category="inline-xref-macro-rx"></block>。</block>
   <block id="de22fad1fba6c28f624ef4e272674d1c" category="cell">node3 上的 ONTAP 版本正确或最新</block>
-  <block id="46f709b9c191a3a487187b13c2365dfb" category="cell">转至 <block ref="c27981c94d7a26c42c925c89e96e7aa2" category="inline-xref-macro-rx"></block>。</block>
-  <block id="fd96d8e5cccd1d83cf17d6327a03d1c6" category="list-text">【 man_install3_step20]] 通过选择以下操作之一来配置网络启动连接。</block>
-  <block id="c6515be7805d880dbdafbd44b289b127" category="list-text">【 man_install3_step21]] 对 node3 执行网络启动：</block>
   <block id="060bac7551430a178937e2648b5887ad" category="cell">`netboot \http://web_server_ip/path_to_webaccessible_directory/netboot/kernel`</block>
   <block id="00b4984c2d25fdcefc8d29921eef1f1e" category="cell">`netboot \http://web_server_ip/path_to_webaccessible_directory/ontap_version_image.tgz`</block>
-  <block id="2fb52103bc9daf7b4aede017a96951c9" category="list-text">在启动菜单中，选择选项 * （ 7 ）首先安装新软件 * 。</block>
   <block id="69a0e067620a40fba4263752d3fe4568" category="paragraph">注意适用场景可无中断升级 ONTAP ，而不是升级控制器。</block>
-  <block id="04099f33ed449c6b9e9de3b50608f5b9" category="list-text">如果系统提示您继续运行操作步骤，请输入 `y` ，并在系统提示您输入软件包时输入以下 URL ：</block>
   <block id="3c0f763f2bc1dd7e6fadcfba8981f852" category="paragraph">` http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`</block>
-  <block id="2c7541d49584476284eeeb476f886996" category="list-text">[[man_install3_step24]] 完成以下子步骤：</block>
-  <block id="f5344ffb10f5a3797c46c51d263a2247" category="list-text">【 man_install3_step25]] 输入 `5` 以选择 * （ 5 ）维护模式启动 * ，然后在系统提示您继续启动时输入 `y` 。</block>
   <block id="785f077ce03eca259bde1ebc98236191" category="list-text">【 man_install3_step26]] 继续操作前，请转到 <block ref="fae618cfa140cbca52d057afef5df1da" category="inline-link-macro-rx"></block> 对节点上的 FC 或 UTA/UTA2 端口进行任何必要的更改。</block>
   <block id="28d8bed0b221acc406520dd121da3607" category="paragraph">按照这些部分中的建议进行更改，重新启动节点并进入维护模式。</block>
-  <block id="3c2b28e2fbf2a2223e837ab88d03f849" category="list-text">【 man_install3_step27]] 找到 node3 的系统 ID ：</block>
   <block id="11856588314d0c959b2b916a938edde8" category="inline-link-macro">将非根聚合从 node1 重新定位到 node2</block>
-  <block id="5193fe09e1ceefb41d5d867b112b9d76" category="list-text">【 man_install3_step28]] 重新分配 node1 的备用磁盘，属于根的所有磁盘以及先前未重新定位到 node2 的任何非根聚合 <block ref="b90d8347ded957c31748eee44116abad" category="inline-link-macro-rx"></block>。</block>
   <block id="e58f70cf5e99e435b7646dac5761bf14" category="paragraph">根据您的系统是否具有共享磁盘，输入 `disk reassign` 命令的适当格式：</block>
   <block id="b7e4748ce69e686648ca756a108c4b9a" category="cell">磁盘类型</block>
   <block id="7dcd3c42056665a1fe2861837141a4ef" category="cell">然后运行命令 ...</block>
@@ -2040,8 +1855,6 @@
   <block id="0c06e4208a8e928e9b4bef1d6977045b" category="list-text">【 man_install3_step39]] 如有必要，请在 node3 上设置日期：</block>
   <block id="837e654f683f43c3c5fa5a8cbc3e1758" category="list-text">在 node3 上，在启动环境提示符处检查时间：</block>
   <block id="eddc7836dd13de8cd3248be302e5a1a2" category="list-text">【 man_install3_step41]] 如有必要，请在 node3 上设置时间：</block>
-  <block id="39556538db3e5f05fbb53219f4983f96" category="inline-xref">第 28 步</block>
-  <block id="7485a5597807044bfa9f5d885f51e65e" category="list-text">【 man_install3_step42]] 验证配对系统 ID 是否设置正确，如中所述 <block ref="a332b57e87c8a775e38e07b999240874" category="inline-xref-macro-rx"></block> 在 -p 开关下：</block>
   <block id="ec135f98d38764e511e3c524db87080e" category="list-text">如果需要，请在 node3 上设置配对系统 ID ：</block>
   <block id="7cab439150d9019f1bfd1705f608418d" category="list-text">【 man_install3_step44]] 在启动环境提示符处访问启动菜单：</block>
   <block id="09022876876a6198264f6a07698a4d4c" category="list-text">在启动菜单中，输入 `6` 以选择选项 * （ 6 ） Update flash from backup config* 。</block>
@@ -2132,8 +1945,6 @@
   <block id="2e5d45b5b4c7ee72c9442a1c00ef4881" category="list-text">【第 6 步】在其中一个节点上输入以下命令，验证 node3 和 node4 是否都处于仲裁状态：</block>
   <block id="07794a041dac9632db557c4f4b050f28" category="paragraph">`event log show -messagename scsiblade.*`</block>
   <block id="340477541e5fdc93ffc7488a1377706f" category="paragraph">以下示例显示了集群中节点处于仲裁状态时的输出：</block>
-  <block id="4885a30c7d2ead3e5bbc5a7722e06fbc" category="admonition">在本文档中，原始节点称为 _node1_ 和 _node2_ ，新节点称为 _node3_ 和 _node4_ 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。术语 _node1_ ， _node2_ ， _node3_ 和 _node4_ 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。本文档使用术语 _systems with FlexArray Virtualization Software_ 来指属于这些新平台的系统。它使用术语 _V 系列系统 _ 来表示可以连接到存储阵列的不同硬件系统</block>
-  <block id="58d2951f9fe54692264bb8d42558291f" category="list-text">此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9 之后发布的 FAS 系统可以连接到存储阵列。ONTAP 9 支持现有 V 系列系统。有关存储阵列和 V 系列型号的信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _V Hardware Universe 系列支持表 _ 并查看 _V 系列支持表 _ 。</block>
   <block id="d5560010a4b579866a98e0b680b5c248" category="paragraph">如果 SnapMirror 关系未处于 `Transferring` 状态，则中止将失败。</block>
   <block id="4799633d9eb6a31235d0102c0d2b1812" category="list-text">验证是否已保存交换机配置。</block>
   <block id="1dd8fdc75f0d1d8e00ce9ec094e07e48" category="list-text">按照您在中创建的布线布局，使用缆线将两个 FC-SAS 网桥连接到 FC 交换机 <block ref="1e3a603a58f58380bbf882725903f11b" category="inline-link-macro-rx"></block>。</block>
@@ -2166,51 +1977,22 @@
   <block id="866ca6e46d7456a7c276afd3eb54db5d" category="list-text">【 man_record_node1_step11]] 在任一控制器上输入以下命令：</block>
   <block id="9bcd562ef44a8e11e5fd0e0492ebe6c4" category="paragraph">系统将显示 node1 的相关信息，如以下示例所示：</block>
   <block id="5b9519c4c2b57166c18827dfa9f50f7c" category="list-text">[[man_record_node1_step12]] 记录要在部分中使用的 NVRAM 系统 ID 编号 <block ref="b27daeccf5fbd8a2e88a3636ee615b74" category="inline-link-macro-rx"></block>。</block>
-  <block id="a5eaebf8eb363498d59b7e808ae14a67" category="paragraph">您可能需要完成 <block ref="b22a2e603d310a795a7b59d2bdda39ee" category="inline-xref-macro-rx"></block>， <block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block>或这两个部分。</block>
   <block id="d3724945a8761461ffee756c3d88b5f7" category="paragraph">如果 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您要升级具有存储磁盘的系统，则可以跳至 <block ref="fface1ac702bde6d72ceb6e55eb8b2b6" category="inline-link-macro-rx"></block>。</block>
-  <block id="3b2aededaf9eb7fa977a61a8bd235fc8" category="cell">转至 <block ref="6df4b9385815488582550ff3bec853dc" category="inline-xref-macro-rx"></block>。</block>
-  <block id="d0eda6a9db5e17455c4a85cb11800962" category="cell">转至 <block ref="9afe493afbfd571f8e15cdbbaa7d8361" category="inline-xref-macro-rx"></block>。</block>
-  <block id="52b26cd7e65738a95d72c027a1b843c2" category="list-text">【 man_config_4_Step2]] 访问维护模式：</block>
   <block id="bdb2780eb5f1795b94cdb7892cd5237b" category="list-text">将新节点上的 FC 设置与先前从原始节点捕获的设置进行比较。</block>
-  <block id="605ac6e16f1de07910babd12f8cb0f9e" category="list-text">[[man_config_4_Step5]] 执行以下操作之一：</block>
   <block id="348795cf2ff362808ef4789bfce998c1" category="paragraph">` 类型` 是 FC4 类型，目标或启动程序。</block>
-  <block id="aa056114701909ed085099828ff012a9" category="cell">输入以下命令并检查输出，以验证新设置： `ssystem node unified-connect show`</block>
   <block id="e7df8bff382bf85b07ece9703c2f6808" category="cell">与在原始节点上捕获的相同</block>
-  <block id="222214d2643fdfb746a901984df3eaaa" category="cell">转至 <block ref="313690309739126de0c32c721924102b" category="inline-xref-macro-rx"></block>。</block>
   <block id="7327bd79e6072c9ccdc2b478d3afacfb" category="cell">与您在原始节点上捕获的不同</block>
-  <block id="2fe2c4e80b1376975584751f41c867c9" category="inline-xref">第 8 步</block>
-  <block id="ebe743318b7324b4ebeb99a0a3c72423" category="cell">转至 <block ref="60c689da671dfc85fbc244a8ddc19d6a" category="inline-xref-macro-rx"></block>。</block>
-  <block id="98570637b82059e5ffc8aa3289c7a48b" category="list-text">【 man_config_4_Step8]] 退出维护模式：</block>
-  <block id="f93d9d44ef64b7bd548bb1548837f7c9" category="cell">是 V 系列系统或具有运行 Data ONTAP 8.3.0 或更高版本的 FlexArray 虚拟化软件</block>
-  <block id="ae67b2e6adc83ff617429f7470e3fcf2" category="cell">在启动环境提示符处输入以下命令以访问维护模式： `boot_ontap maint`</block>
-  <block id="a2aebe9559cbe6e73c0a0bf0d1bb9ef4" category="cell">不是 V 系列系统，也没有 FlexArray 虚拟化软件</block>
-  <block id="1747e775d1492fb4a122964eb0ce6abd" category="cell">在启动环境提示符处输入以下命令，以启动 node4 ： `boot_ontap`</block>
-  <block id="be71806e78200788394953879d8e5b6a" category="list-text">[[man_config_4_Step11]] 执行以下操作之一：</block>
   <block id="5f05ecbc9bc4d038e9ed396780511251" category="list-text">转至 <block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block> 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。</block>
   <block id="1e7bd254c963a338c489202373c4ab17" category="list-text">跳过此部分，然后转到 <block ref="fface1ac702bde6d72ceb6e55eb8b2b6" category="inline-link-macro-rx"></block> 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口。</block>
-  <block id="08b25b9ad88e79131839ab732517a679" category="list-text">转至 <block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block> 如果 node4 具有 UTA/ UTA2 卡或 UTA/UTA2 板载端口。</block>
   <block id="fe3a7dc1b68f02ec33d1b3d2d4f9bc56" category="list-text">检查 `ssystem node hardware unified-connect show` 或 `ucadmin show` 命令的输出，并确定 UTA/UTA2 端口是否具有所需的特性。</block>
   <block id="e48bdf2afbb963c9c495bf4f571895e3" category="cell">转至 <block ref="ffd96dfebf67595a1e4a6d625bee7496" category="inline-xref-macro-rx"></block>。</block>
   <block id="fa74cc012fef0feff6e924f8039749e1" category="cell">跳过步骤 5 到步骤 12 ，然后转到 <block ref="ff1d63240cee2bdc1933860b7f07a8df" category="inline-xref-macro-rx"></block>。</block>
-  <block id="e6d6e537e4b0f2bf8e825c2e64f00645" category="list-text">[[man_check_4_Step5]] 执行以下操作之一：</block>
-  <block id="37633c05750191dfa133d84e3b55c00e" category="cell">具有存储磁盘，并且正在运行 Data ONTAP 8.3</block>
-  <block id="8445b1a045f75f905d430fc7d5f5e71c" category="cell">启动 node4 并进入维护模式： `boot_ontap maint`</block>
-  <block id="6769a0fd294ca78345db234c229b8959" category="cell">转至 <block ref="2c3bbf8d53e9379a42c94980adfa90a7" category="inline-xref-macro-rx"></block>。您应已处于维护模式。</block>
-  <block id="c61e8c3c627841f886b0a3031439d4ce" category="list-text">[[man_check_4_Step6]] 执行以下操作之一：</block>
   <block id="6515c49355bf1419526d1fd9c737ec8c" category="cell">UTA/UTA2 卡上的端口</block>
-  <block id="eaff3678ecd6d545f7ac3a0842914aa5" category="cell">转至 <block ref="f4d4591f64bb8abe68f0b67355d1fe59" category="inline-xref-macro-rx"></block>。</block>
-  <block id="4cb16c5207497dcfcaffd56afa4f1814" category="cell">跳过第 7 步，转到 <block ref="d63e67436ac7351debc07c052c32757d" category="inline-xref-macro-rx"></block>。</block>
-  <block id="117986e3a34af461f5f6e6bb88045f84" category="list-text">【 man_check_4_Step7]] 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：</block>
-  <block id="286e43e6e6a24f0c4b7567121cef9f66" category="list-text">[[man_check_4_Step8]] 如果当前配置与所需用途不匹配，请输入以下命令根据需要更改配置：</block>
   <block id="36408e09de8feb146f54fe1e158d953d" category="list-text">` -m` 是特性模式： FC 或 10GbE UTA 。</block>
   <block id="0e0addb82f30f2aa03c68b146f054849" category="list-text">输入以下命令并检查其输出，以验证设置：</block>
   <block id="315359e3c6323d4eda359054319c0815" category="list-text">执行以下操作之一：</block>
-  <block id="893a166b79c7215fddb938b9ba769f94" category="cell">是 V 系列系统或具有 FlexArray 虚拟化软件，并连接到存储阵列且运行 Data ONTAP 8.3</block>
-  <block id="5ac574a53621b9436797f566cbab7941" category="cell">重新启动到维护模式： `boot_ontap maint`</block>
-  <block id="5dd9d9d622ac506af56607785cc61574" category="cell">输入以下命令： `ucadmin show`</block>
   <block id="9b035cae403b89af2a989a976daad295" category="paragraph">以下示例中的输出显示， FC4 类型的适配器 "1b" 更改为 `initiator` ，适配器 "2a" 和 "2b" 的模式更改为 `CNA` 。</block>
   <block id="f8cd2564c015235fc797e229583e1023" category="list-text">【 man_check_4_Step13]] 连接端口。</block>
-  <block id="439c508e4033b6c215e1a9262db35444" category="cell">转至 <block ref="fface1ac702bde6d72ceb6e55eb8b2b6" category="inline-link-macro-rx"></block>。</block>
   <block id="4cd072d48be3e3705aa89a6c546ddb3c" category="paragraph">对于 ONTAP 9.5 及更高版本，您可以使用密钥管理互操作性协议（ KMIP ）服务器管理身份验证密钥。</block>
   <block id="0d687993b6b67e20ff0472f32d9693b0" category="paragraph">您必须确定新控制器模块和任何新磁盘架到现有 FC 交换机的布线。</block>
   <block id="6485f9afbf9c5f34e988054e67e3b142" category="paragraph">必须在每个 MetroCluster 站点上执行此任务。</block>
@@ -2260,7 +2042,6 @@
   <block id="0e3cd42cd6320745185eaab80053ad4a" category="paragraph">node2 的 epsilon 现在应为 true ， node1 的 epsilon 现在应为 false 。</block>
   <block id="f11c9613319f6e81aa0fa42fd830a1cb" category="list-text">验证设置是否为双节点无交换机集群：</block>
   <block id="f72b72c0926d6dd4d51ae53a658c3ab1" category="list-text">从 node1 提示符处暂停 node1 ：</block>
-  <block id="7d63f771d73dc7f75f06e358cd9a7510" category="admonition">* 注意 * ：如果 node1 与 node2 位于同一机箱中，请勿使用电源开关或拔下电源线来关闭机箱。如果这样做，正在提供数据的 node2 将关闭。</block>
   <block id="ecd3525fa194c253a8cabf432a4a5041" category="list-text">当系统提示您确认是否要暂停系统时，输入 `y` 。</block>
   <block id="4554f5f9818af46c131a159c2ec43887" category="paragraph">节点将停留在启动环境提示符处。</block>
   <block id="839c9527e6867357b4949b3cb19bd5a6" category="list-text">当 node1 显示启动环境提示符时，将其从机箱或机架中取出。</block>
@@ -2512,9 +2293,6 @@
   <block id="bc6bec578fabd4f81f97a21373822230" category="paragraph">下表列出了此升级的特定内容。</block>
   <block id="f15c1cae7882448b3fb0404682e17e61" category="cell">内容</block>
   <block id="e2ea913994dd610f57aa9df505badbaa" category="cell"><block ref="e2ea913994dd610f57aa9df505badbaa" category="inline-link-macro-rx"></block></block>
-  <block id="5837907b0451e478a454e8fc87e92342" category="inline-link-macro">光纤连接的 MetroCluster 安装和配置</block>
-  <block id="a3b8dcbb945865e5ef0e1c83b68c8824" category="cell"><block ref="a3b8dcbb945865e5ef0e1c83b68c8824" category="inline-link-macro-rx"></block></block>
-  <block id="2894d35f6fa87d4eee09a10919737e2f" category="cell"><block ref="2894d35f6fa87d4eee09a10919737e2f" category="inline-link-macro-rx"></block></block>
   <block id="07ae19817dfc58c8d1b72b612a233da3" category="inline-link-macro">MetroCluster 管理和灾难恢复</block>
   <block id="c750cfcf9c6045b6e0b4b0d6de2212f3" category="inline-link-macro">MetroCluster 升级和扩展</block>
   <block id="d1b75581244e03161b57c29a9ac4bb22" category="inline-link-macro">使用 CLI 管理磁盘和聚合</block>
@@ -2589,13 +2367,11 @@
   <block id="f7099f8383ed0316e1e0935c4d6ccef1" category="list-text">[[map_97_7]] 调整节点管理广播域，并根据需要迁移节点管理和集群管理 LIF ：</block>
   <block id="273df14d79796f9686588da9d3449080" category="list-text">如有必要，请使用中的命令调整集群间广播域并迁移集群间 LIF <block ref="ff47d2d93900744c317edfe39ed00899" category="inline-xref-macro-rx"></block>。</block>
   <block id="34c3e41105245eedc58a41b84d06a8da" category="list-text">如果需要，请使用中的命令调整任何其他广播域并迁移数据 LIF <block ref="ff47d2d93900744c317edfe39ed00899" category="inline-xref-macro-rx"></block>。</block>
-  <block id="da988c28044d8fc8463a4db2336f20f0" category="list-text">node4 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。</block>
   <block id="72860e73833a237fd9811df9152c9a7a" category="list-text">相应的磁盘架操作步骤</block>
   <block id="6afaaeefe5c37f69581ad1614c57cff4" category="paragraph">转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Network Management_ 或 _ONTAP 9 命令：手册页参考 _ 以了解详细信息。</block>
   <block id="9f60baa5d0a7e514432de3c5beb88857" category="paragraph">如果要升级内部磁盘驱动器上具有根聚合或数据聚合的控制器，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。</block>
   <block id="ae307041467b0820fea754d90cc7abda" category="admonition">如果要升级集群中节点上的 ONTAP ，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _Upgrade ONTAP 。</block>
   <block id="26284a568c7e38bb6355694c41ff5f8d" category="paragraph">如果任何磁盘出现故障，请按照 _Disk 和使用 cli_ 进行聚合管理中的说明将其删除。请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 使用 cli_ 链接到 _Disk 和聚合管理。）</block>
-  <block id="2722bd9e96d97f6dd8c071e92fb500ce" category="list-text">node3 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。</block>
   <block id="025b7f36f1c9c8c4d48374557ce1ad36" category="paragraph">有关存储聚合重新定位命令的详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。</block>
   <block id="30e26e7bc72201dff893ca95a6a239d8" category="paragraph">请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到包含 cli_ 内容 ONTAP 的 _Disk 和聚合管理以及 _storage 9 命令：手册页参考 _ ，请了解有关存储聚合重新定位命令的详细信息。</block>
   <block id="b146e8621e721a92c4b9d852f016cd74" category="paragraph">FC 交换机端口使用情况必须与 _Fabric-Attached MetroCluster 安装和配置 _ 内容中所述的使用情况匹配，才能使用这些 RCF 。转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到 _Fabric-Attached MetroCluster 安装和配置 _ 内容。</block>
@@ -2879,7 +2655,6 @@
   <block id="823095cde7c39355f11b0bd61e896495" category="paragraph">如果没有新的许可证密钥，则新控制器可以使用集群中当前已获得许可的功能，这些功能将继续正常工作。但是，在控制器上使用未经许可的功能可能会使您不符合您的许可协议，因此，您必须在升级完成后为新控制器安装新的许可证密钥。</block>
   <block id="4244f87afdd4c8b0ebf9ac5e3301a435" category="list-text">选择 * 执行！ *</block>
   <block id="de418d0eb742cb1027dedde84846a1a0" category="paragraph">UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式支持并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。</block>
-  <block id="a286b63bee5a5b535ee4aacbaf102732" category="admonition">* 注意 * ：如果您的系统具有存储磁盘，则必须在集群提示符处输入本节中的命令，除非系统指示您进入维护模式。如果您使用的是 Vseries 系统或 FlexArray 虚拟化软件并连接到存储阵列，则必须在维护模式提示符处在此部分中输入命令。要配置 UTA/UTA2 端口，您必须处于维护模式。</block>
   <block id="76c7e3320831285f65d8e81c92ccd88a" category="paragraph">在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确认在整个升级操作步骤 中至少有一个节点正在从聚合提供数据。您还可以迁移数据逻辑接口（ LIF ），并在继续操作时将新控制器上的网络端口分配给接口组。</block>
   <block id="c95c6a92ffa35efbbd76f2afcad3663c" category="list-title">重要信息：</block>
   <block id="90b3509f7da0bd37fd6636cace1d2404" category="paragraph">要确认设置正确，必须启用 HA 对。此外，还必须验证 node3 和 node4 是否可以访问彼此的存储，并且它们都不拥有属于集群上其他节点的数据 LIF 。此外，您还必须确认 node3 拥有 node1 的聚合， node4 拥有 node2 的聚合，并且两个节点的卷均联机。</block>
@@ -2913,13 +2688,9 @@
   <block id="9e8e7bf29c653d52cfbdfb677b4fb6bf" category="list-text">【 man_lif_verif_3_step8]] 确认 SAN LIF 位于 node3 上的正确端口上：</block>
   <block id="78216d3d261872be404d0ef7c21408bf" category="paragraph">UTA/UTA2 端口可以配置为原生 FC 模式或 UTA/UTA2 模式。FC 模式支持 FC 启动程序和 FC 目标； UTA/UTA2 模式可使并发 NIC 和 FCoE 流量共享相同的 10GbE SFP+ 接口并支持 FC 目标。</block>
   <block id="916e7815c3f105e14fd158f1ffbeb91d" category="paragraph">但是，您可以检查 node4 上的 UTA/UTA2 端口的配置，并根据需要进行更改。</block>
-  <block id="1dbdfcd87542afd818176aeea97fb3be" category="admonition">您必须对磁带驱动器和 FlexArray 虚拟化系统使用 FC 启动程序。您必须对 SAN 客户端使用 FC 目标。</block>
   <block id="85f1db26fc36597793844fca03a7f854" category="paragraph">您必须在机架中安装 node4 ，将 node2 连接传输到 node4 以及启动 node4 。此外，还必须重新分配任何 node2 备用磁盘，属于 root 的任何磁盘以及先前未重新定位到 node3 的任何非根聚合。</block>
   <block id="a5ac04d57c5af778b5a6063c21c23be1" category="admonition">您必须使用管理端口和 IP 地址作为网络启动连接。请勿使用数据 LIF IP 地址，否则在执行升级期间可能会发生数据中断。</block>
   <block id="080d5dc3ee89ba9cabba1525988c4bea" category="list-text">如果要从具有外部磁盘的系统升级到支持内部和外部磁盘的系统（例如， A800 系统），请将 node4 设置为 root ，以确认它从 node2 的根聚合启动。</block>
-  <block id="71f2b118caea9cbcfebf7ac7442b9368" category="list-text">将 FAS 系统连接到使用 FlexArray 虚拟化软件的系统或 V 系列系统。</block>
-  <block id="d5c14f42965c8b82b46e75794e25ffe5" category="list-text">将安装了 FlexArray 虚拟化软件或 V 系列系统的系统连接到 FAS 系统，前提是安装了 FlexArray 虚拟化软件或 V 系列系统的系统没有阵列 LUN 。</block>
-  <block id="3db88a2cbbf154448bdd1843909d0e67" category="list-text">V 系列系统到使用 FlexArray 虚拟化软件的系统或 V 系列系统。</block>
   <block id="59af70dd915dcdb0e4027b17846b1638" category="paragraph">如果您未找到与遇到的问题相关的解决方案 ，请联系技术支持。</block>
   <block id="ca96ef2d79771ffe95064c2ba8f795ee" category="paragraph">在关闭并停用 node2 之前，您必须记录有关其集群网络，管理和 FC 端口以及 NVRAM 系统 ID 的信息。稍后将 node2 映射到 node4 并重新分配磁盘时，您需要在操作步骤中提供此信息。</block>
   <block id="0e1dd14206fc60d11a3acb5ef31b4193" category="paragraph">在更换原始节点之前，您必须确认它们位于 HA 对中，没有缺失或故障磁盘，可以访问彼此的存储，并且不拥有分配给集群中其他节点的数据 LIF 。此外，您还必须收集有关原始节点的信息，如果集群位于 SAN 环境中，请确认集群中的所有节点都处于仲裁状态。</block>
@@ -2933,7 +2704,6 @@
   <block id="37522abc5c58d8935eb7c6c44799dd5d" category="list-text">【 ｛ man_prepare_nodes_step15]] 确认 node1 和 node2 运行的是相同的 ONTAP 版本：</block>
   <block id="c685ef92ee54cacdd0c225fa2bb12fbe" category="cell">第 6 阶段： _Confirm that the new controllers are set up correctly _</block>
   <block id="0ec2ad7eda30b3cde303c205b91073e8" category="paragraph">要停用 node1 ，您必须禁用 node2 的 HA 对，正确关闭 node1 并将其从机架或机箱中卸下。</block>
-  <block id="d3f49e44800c8ff8556d915b88782e44" category="list-title">选项：</block>
   <block id="ab329064c02455ccdd701ac2ba43fd04" category="admonition">不会修改聚合和 LIF 的主所有者；只会修改当前所有者。</block>
   <block id="a237d7c8e8a8ae58e2aad1d8f40bc092" category="paragraph">此操作将暂停，以便验证是否已将所有 node1 非根聚合和非 SAN 数据 LIF 迁移到 node2 。</block>
   <block id="4aacc9aec1f66da10a6f4c09d02fe381" category="paragraph">在关闭并停用 node1 之前，您必须记录有关其集群网络，管理和 FC 端口以及 NVRAM 系统 ID 的信息。稍后将 node1 映射到 node3 并重新分配磁盘时，您需要在操作步骤中提供此信息。</block>
@@ -3004,10 +2774,7 @@
   <block id="afe5b70a93730d0b136c0f9de3376f9e" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，记录有关 node2 集群网络，管理， FC 端口和 NVRAM 系统 ID 的信息。</block>
   <block id="ad7dc11f39fb32e1f4ba6e7e9644fdd2" category="summary">使用手动 ARL 升级操作步骤 升级运行 ONTAP 9.8 或更高版本的控制器硬件，重新定位非根聚合的所有权。</block>
   <block id="1124fb2cf4d1e4ab29aa545667f1d946" category="list-text">FAS 系统到 FAS 系统</block>
-  <block id="e083e9919602f31d35ef93e48f70d9cd" category="list-text">将 FAS 系统连接到使用 FlexArray 虚拟化软件的系统或 V 系列系统</block>
   <block id="0c3fa4233df158763903bac5cebd18a9" category="list-text">AFF 系统到 AFF 系统</block>
-  <block id="2880fc0b9a65eb57f0e8bad72d95374b" category="list-text">使用 FlexArray 虚拟化软件或 V 系列系统的系统连接到 FAS 系统，前提是使用 FlexArray 虚拟化软件或 V 系列系统的系统没有阵列 LUN 。</block>
-  <block id="b6397dbdbee8f2b8989612e223d68e93" category="list-text">V 系列系统到使用 FlexArray 虚拟化软件的系统或 V 系列系统</block>
   <block id="a08819cb67238a1ec917f745d4de58c8" category="summary">要对运行 ONTAP 9.8 或更高版本的控制器执行手动 ARL 升级，您必须拥有特定的工具和文档。</block>
   <block id="555d9e461a574dac83e9908b06022e17" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期间，配置 Node3 板载 FC 端口， UTA/UTA2 端口或 UTA/UTA2 卡。</block>
   <block id="0623848243436b0f8821316dbca47636" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上完成手动 ARL 升级后，请告知 NetApp 旧系统不再运行。</block>
@@ -3236,7 +3003,6 @@
   <block id="edbeb952c4054f67ce1836afbda00903" category="cell">FAS8060</block>
   <block id="8ed24dd5fb292ecefe76fe92a5fc3988" category="cell">FAS8080</block>
   <block id="e2060bf680bf4facfccf3befec69ef04" category="cell">9.8P12或更高版本的修补程序</block>
-  <block id="c7f409d27e38c597f7352e5c3444f367" category="list-text">在node3上输入以下命令以检查端口当前的配置方式：</block>
   <block id="ba579f865c148542656e741f915bc210" category="section-title">卸下AFF A700或FAS9000控制器模块</block>
   <block id="831816e1924f3edb2d170ec4c291d0f3" category="section-title">卸下AFF A700或FAS9000 NVRAM模块</block>
   <block id="3d748e41fa426d2025ff3eb80b369ede" category="admonition">AFF A700或FAS9000 NVRAM模块位于插槽6中、高度是系统中其他模块的两倍。</block>
@@ -3330,12 +3096,9 @@
   <block id="b7c4bc0233b5c046a49d8389a2f3bd41" category="paragraph">`s存储聚合重新定位start -node _node4_-aggr _aggr_node_1_-destination _node3_`</block>
   <block id="9259024b4056dbe3033dcf92fea0fbe0" category="paragraph">`storage aggregate show -aggregate _aggr1、aggr2、aggr3..._-fields home-name`</block>
   <block id="edb6746a53c95d308002222717f4a589" category="paragraph">`_aggr1、aggr2、aggr3..._`是将node1作为原始主所有者的聚合列表。</block>
-  <block id="df2e7d9f4faae89420497850debf6ccc" category="paragraph">`ssystem node hardware unified-connect modify -type |-t target -adapter _port_name_`</block>
-  <block id="097ea61069dbe7cfc4b8a4c5d2e39926" category="paragraph">`ssystem node unified-connect modify type |-t initiator -adapter _port_name_`</block>
   <block id="c693fda729d6e359f8eb8a8fbc88eee8" category="paragraph">`storage disable adapter _adapter_name_`</block>
   <block id="5861bf10ae07bb7c0e6218d5663221a4" category="paragraph">`ucadmin modify -m fc|cna -t initiators|target _adapter_name_`</block>
   <block id="c5fabf666636164983c54a60426edaab" category="cell">`network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up`</block>
-  <block id="e07e74f9f1df10fa040f36e818e29bd1" category="cell">`FCP config _adapter_name_ up`</block>
   <block id="cde8cf801e542566f503970c16a89b61" category="admonition">`event log show`命令可列出已发生的任何错误。</block>
   <block id="7a4b65a92ad0461916e64e86d4469810" category="paragraph">`storage aggregate online -aggregate _aggr_name_`</block>
   <block id="ffd863d528f6b76a6f398dd53b185d1d" category="cell">`dreassign -s`` node2_sysid_-d _node4_sysid_-p _node3_sysid_`</block>
@@ -3375,8 +3138,6 @@
   <block id="bbbfa87c5efa2321ddc7c2656baf791f" category="paragraph">`network port show -node _node1_-type physical`</block>
   <block id="842f84c9ecff4442b192c3b8a383847f" category="paragraph">`network fcp adapter show -node _node1_`</block>
   <block id="f9e6ffe449370be951e5dee9a5e83028" category="paragraph">`ssystem node show -instance -node _node1_`</block>
-  <block id="a49d3e4ab576cd5b3c708cbd85a5f926" category="list-text">要对目标端口进行编程：`ssystem node hardware unified-connect modify -type |-t target -adapter _port_name_`</block>
-  <block id="b14f7ec84bbc0ee6e43f8a43e7e8b239" category="list-text">要对启动程序端口进行编程：`ssystem node hardware unified-connect modify -type |-t initiator -adapter _port_name_`</block>
   <block id="3145572f78011e126938a030752352da" category="paragraph">`s存储聚合重新定位start -node _node1_-destination _node2_-aggregate-list *-no-controller-upgrade true`</block>
   <block id="89f25b06955b673d3b572700377e5520" category="paragraph">`storage aggregate relocation show -node _node1_`</block>
   <block id="1f57e30e6554ed05fdfab4749db897a5" category="list-text">重新定位任何出现故障或被否决的聚合：`s存储聚合重新定位开始-node _node1_- destination _node2_-aggregate-list *-no-controller-upgrade true`</block>
@@ -3613,10 +3374,6 @@
   <block id="647b6fb99516f69a9148d30b911dd4fd" category="cell">您的目录列表应包含以下文件：<block ref="f466b354adfc3ad817d7c11c037c8797" prefix=" " category="inline-code"></block>注意：您不需要提取的内容<block ref="f466b354adfc3ad817d7c11c037c8797" prefix=" " category="inline-code"></block> 文件</block>
   <block id="289138dc47ec0ab93b89cbb18e8d1de4" category="paragraph"><block ref="9cc92842c7e6e65d356004300ce50ecb" prefix="" category="inline-code"></block></block>
   <block id="090f49148634c0de3dbfc9d8f505c5ec" category="summary">在运行ONTAP 9.7或更早版本的控制器上手动升级ARL期间、将node2上的node1 NAS数据LIF从node2移动到node3。</block>
-  <block id="63c4659c472d1e3272c7a9dbd54f652c" category="admonition">如果您的系统具有存储磁盘、则必须在集群提示符处输入本节中的命令。如果您的 V 系列系统或系统已将 FlexArray 虚拟化软件连接到存储阵列，则可以在维护模式下在此部分中输入命令。</block>
-  <block id="32993181f2c2c45f225637e1dd8b41fe" category="paragraph"><block ref="dd3b9ee4e31d5ea407eb0e6f5ec37627" prefix="" category="inline-code"></block></block>
-  <block id="e95e1d787e7711325a726a908ab4f7d0" category="paragraph"><block ref="b7cc4b6b2b8c0f37377b5cc259385de0" prefix="" category="inline-code"></block> 是FC4类型、目标或启动程序。</block>
-  <block id="895f00a95ca4fe2726b1bd5a099d3a1b" category="admonition">需要将FC端口编程为启动程序。</block>
   <block id="996083c6bbb6dbd6baa714a3a92b8e3d" category="paragraph">在第 3 阶段，您将安装并启动 node3 ，将集群和节点管理端口从 node1 映射到 node3 ，验证 node3 安装，并将属于 node1 的数据 LIF 和 SAN LIF 从 node2 移动到 node3 。您还可以将所有聚合从node2重新定位到node3、并将node2拥有的数据LIF和SAN LIF移动到node3。</block>
   <block id="be8545a85af27afe951a6085f68cae22" category="summary">在运行ONTAP 9.7或更早版本的控制器上手动升级ARL期间、如果您使用的是双节点集群、请将node1 NAS数据LIF移动到node2；如果集群具有两个以上的节点、则移动到第三个节点。</block>
   <block id="9341d89128ab2b3446ee084ac02aab48" category="list-text">【 man_map_2_step5]] 调整托管集群 LIF 和节点管理 / 集群管理 LIF 的广播域。确认每个广播域包含正确的端口。如果某个端口托管 LIF 或位于 LIF 的主目录中，则无法在广播域之间移动该端口，因此您可能需要迁移和修改 LIF ，如以下步骤所示：</block>
@@ -3633,15 +3390,11 @@
   <block id="88a0eec75ccbf727881e52be21050e3c" category="paragraph">在第5阶段、您将安装并启动node4、将集群和节点管理端口从node2映射到node4、验证node4安装、并将属于node2的数据LIF和SAN LIF从node3移动到node4。您还可以将node2聚合从node3重新定位到node4、并将数据node2 NAS LIF从node3移动到node4。</block>
   <block id="17713187c4e0912bc419e03d9496d3ae" category="paragraph">在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则还需要设置存储加密或NetApp卷加密。您还应停用旧节点并恢复SnapMirror操作。</block>
   <block id="ecd942205bedf95694f574a1e603a6d3" category="admonition">根据分配的计划、Storage Virtual Machine (SVM)灾难恢复更新不会中断。</block>
-  <block id="e5ade921515245eca4eff93f56ae42b3" category="admonition">在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP 之前、必须重新配置FC板载端口、CNA板载端口和CNA卡。</block>
   <block id="0fa2804ab676b4c1ef9de6071a2f7c81" category="admonition">在启动环境提示符处保留node4；您将返回到中的node4 <block ref="f326c815b47f4f2909494bae5cd735d5" category="inline-link-macro-rx"></block>。</block>
   <block id="0be88c4bca37291303f8b31b2c15960b" category="paragraph">在启动环境提示符处输入以下命令、以手动配置连接：<block ref="08e9ed1febc3e725e8201311cddea860" prefix=" " category="inline-code"></block></block>
   <block id="9217255664b7bb463d1293cee7c132b2" category="paragraph"><block ref="854a4be4b1fce65bf3a90ee74692188e" prefix="" category="inline-code"></block> 是存储系统的IP地址(必填)。<block ref="220b0a4790e2c047ae96a881e506e1fe" prefix=" " category="inline-code"></block> 是存储系统的网络掩码(必需)。<block ref="14fb245f7140583707d1cda241eeeff2" prefix=" " category="inline-code"></block> 是存储系统的网关(必需)。<block ref="573c932508ccab841c5c117fb2cd2186" prefix=" " category="inline-code"></block> 是网络上名称服务器的IP地址(可选)。<block ref="79e5a69f76d034adaafbb5cb6cb8fc45" prefix=" " category="inline-code"></block> 是域名服务(Domain Name Service、DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。</block>
   <block id="e06e3f1d2982c656928c1758ea5cd5d2" category="paragraph"><block ref="d289f6fdbc3a8ef953e4ecbc75c5e367" prefix="" category="inline-code"></block></block>
   <block id="c3bf4c58440a787e2baab726de5e13a2" category="admonition">请始终使用 netboot 将新节点更新为所需映像。如果使用其他方法在新控制器上安装映像，则可能安装了错误的映像。此问题描述适用场景是 ONTAP 的所有版本。netboot操作步骤 与选项结合使用<block ref="164ab89f87a6d8b32c239f7ca0be1f74" prefix=" " category="inline-code"></block> 擦除启动介质并将相同的ONTAP 版本ONTAP 放置在两个映像分区上。</block>
-  <block id="02c22536183e30deed7894475787f7d5" category="admonition">如果您的系统具有存储磁盘、请在集群提示符处输入本节中的命令。如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并连接到存储阵列，请在维护模式下在此部分中输入命令。</block>
-  <block id="d9aba1a0e78e20e5794df9e5fcc38cae" category="paragraph">根据需要输入以下命令、修改node3上的FC端口：</block>
-  <block id="f4ab9bf62bf77a4a6d6e3123e634bc11" category="admonition">FC端口必须编程为启动程序。</block>
   <block id="59b90ab4d9f5cec87646c2acefb98a3b" category="paragraph">诊断用户帐户仅用于低级别诊断、只能在技术支持的指导下使用。</block>
   <block id="9e2835c14d1a15176d9244c6778b33fd" category="paragraph">有关解锁用户帐户的信息、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到系统管理参考。</block>
   <block id="b2b2df04bed57a6afc9f9e93074818b6" category="paragraph">在启动环境提示符处输入以下命令、以手动配置连接：<block ref="8bea5c8cfd4cc82c9ee736493781c9a2" prefix=" " category="inline-code"></block></block>
@@ -3661,7 +3414,6 @@
   <block id="b782fb0a43ba5a997562172fe5afc493" category="paragraph">在阶段4中、您会将非根聚合和NAS数据LIF从node2重新定位到node3。您还可以记录node2信息、以便在停用node2之前在操作步骤 中稍后使用。</block>
   <block id="ee70b93b550a5730542d0185fb89b3ce" category="paragraph">在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。</block>
   <block id="acd5b1c4fce9ef3151224f03792cb99f" category="paragraph">您的目录列表应包含以下文件：<block ref="f466b354adfc3ad817d7c11c037c8797" prefix=" " category="inline-code"></block></block>
-  <block id="93e8beec297b8781a36255a18449c4be" category="admonition">如果您的系统具有存储磁盘、请在集群提示符处输入本节中的命令。如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并连接到存储阵列，请在维护模式下在此部分中输入命令。</block>
   <block id="d64291323d18992b3445302961a6c6cb" category="paragraph"><block ref="5f228d2a3233663cd573460dd92ad9ce" prefix="" category="inline-code"></block></block>
   <block id="f8c0ac61744d21aa2bb63045fa011ea5" category="summary">如果需要、请在使用升级运行ONTAP 9.8或更高版本的控制器时为NVE或NAE配置新控制器模块<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令</block>
   <block id="f1ce13c7bdc83a7edc61f28f1b45e2b3" category="paragraph">如果新控制器的已更换控制器或高可用性(HA)配对系统使用NetApp卷加密(NVE)或NetApp聚合加密(NAE)、则必须为NVE或NAE配置新控制器模块。</block>
@@ -3758,7 +3510,6 @@
   <block id="f0b1dfc1f82eec89fa61235553e2e4d0" category="cell">符合FIPS 140-2 2级自加密要求的NSE驱动器</block>
   <block id="6187854879f5d4cd0a5fb4b97e2fc7a8" category="list-text">转到专用启动菜单并选择选项<block ref="9181412f3c9d818fd261b168a3f00b5d" prefix=" " category="inline-code"></block>。</block>
   <block id="37c1d52cd8ef96c03d235ed6413794e2" category="paragraph">输入先前记录的操作步骤 密码短语和备份信息。请参见 <block ref="67f80d13cf548292184bc05f4b74227a" category="inline-link-macro-rx"></block>。</block>
-  <block id="d3a8c316a5ba12124362fe019c4475b7" category="admonition">在V系列系统上启动ONTAP 之前、您必须重新配置FC板载端口、UTA/UTA2板载端口和UTA/UTA2卡。</block>
   <block id="6250ffa8b605242265415231c2c23025" category="list-text">如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。</block>
   <block id="28556bd95def05fed56f5833d7b0b25b" category="inline-link-macro">使用板载密钥管理器管理存储加密</block>
   <block id="2f3067e385c13bed8c91d99a529e1f6c" category="paragraph">您可以使用板载密钥管理器(OKM)管理加密密钥。如果您已设置OKM、则必须先记录密码短语和备份材料、然后再开始升级。</block>
@@ -3985,8 +3736,6 @@
   <block id="038a1f98f287c3e58631ad2264c784b5" category="summary">在对同一机箱中的控制器型号进行ARL升级期间、在node2上安装替代系统模块。</block>
   <block id="7339c5b8269b308a3bb75b606b220a40" category="doc">在node2上安装替代系统模块</block>
   <block id="d1cf73ac3312e046217517b06817c8be" category="list-text">从要卸下的控制器上断开所有缆线、包括控制台、管理、SAS存储和数据网络缆线。</block>
-  <block id="d31ea2ed80c8ed7a812def7ec46c2274" category="admonition">托架B位于机箱底部。</block>
-  <block id="e5c4a336c6c9037915d316eae71744e6" category="admonition">由于机箱已启动，因此 Node2 在完全就位后即开始启动。为避免node2启动、NetApp建议您先将控制台和管理缆线连接到node2控制器模块、然后再将控制器模块完全插入插槽。</block>
   <block id="0999b94892b1b34eb0ef08c34b267bc1" category="summary">使用ARL升级同一机箱中的控制器型号时、请使用更换模块验证node2的安装。</block>
   <block id="0774c7bfeafd6a8db85f6f40e93164c5" category="paragraph">您必须使用替代系统模块验证node2安装。由于物理端口不变、您无需将物理端口从旧节点2映射到替换节点2。</block>
   <block id="16c540fdea11cde8dcdbc04d5a6b8bf4" category="summary">要使用ARL升级同一机箱中的控制器型号、您必须具有特定的工具和文档。</block>
@@ -4219,8 +3968,6 @@
   <block id="caaabddaf0ae26915d0c67052254e13f" category="admonition">不能将AFF A700s、AFF A800、AFF C800或ASA A800系统转换为驱动器架。</block>
   <block id="e83ec3e9b2b468e112627883187c2fd0" category="section-title">可能需要执行其他步骤的情况</block>
   <block id="e6dd5543cbcf668267e622e1c4af270f" category="list-text">如果新系统的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。请参见<block ref="f73c85a53b5d65cc9c35da0b9e0d2f09" category="inline-link-rx"></block>。</block>
-  <block id="cb1a8b9d3abd4e33bdd8ea771ae95f90" category="inline-link">FlexArray for NetApp控制器升级和更换过程中涉及哪些具体步骤</block>
-  <block id="719139d3840fec9d3f2eb2a98eeabf46" category="list-text">如果原始节点或新节点使用FlexArray虚拟化软件、请参见知识库文章<block ref="aa5f5c779b9d140822ad13dbd4dfcaef" category="inline-link-rx"></block>。</block>
   <block id="68792e096612147f50fb8d94652f05d8" category="list-text">如果集群具有 SAN 主机，则可能需要采取步骤来解决 LUN 序列号更改问题。请参见知识库文章<block ref="569d16567e50864529bd25223ae78934" category="inline-link-rx"></block>。</block>
   <block id="553f010b7f82ef72c54ff1aa7c24fbf4" category="inline-link">带内ACP设置和支持</block>
   <block id="2b9392a1d0dffc02bd7ad128f6e559e1" category="list-text">如果您的系统使用带外 ACP ，则可能需要从带外 ACP 迁移到带内 ACP 。请参见知识库文章<block ref="2fbb58c4060c5b42a116b319c000325d" category="inline-link-rx"></block></block>
@@ -4274,19 +4021,12 @@
   <block id="527226c39d06e4e2f6eec2dca988d2ba" category="list-text">如果要移动iSCSI SAN卷、请确认已移动 <block ref="6f18756f17709181fa11fd9271f705fc" category="inline-link-macro-rx"></block>。</block>
   <block id="5dac5a25730948f28ff49739852d7be9" category="list-text">NetApp建议尽可能在原始节点和新节点上运行相同版本的ONTAP。如果无法做到这一点、 <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本、以使原始节点与新节点之间的版本差异不超过四个。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.</block>
   <block id="d9bec0f0ae398cfc3abbf7091d735c22" category="paragraph">*Note1*：新节点必须支持在原始节点上运行的ONTAP版本。如果需要、 <block ref="9fa2b66114da266713b82d418ec229cf" category="inline-link-macro-rx"></block> 将原始节点上的版本设置为支持的最大版本。原始节点与新节点之间的版本差异不能大于4。例如、支持ONTAP 9.8和9.12.1；但不支持ONTAP 9.8和9.13.1.<block ref="ce537934e178c1610dae82a1b82553bf" category="inline-link-rx"></block>。</block>
-  <block id="ebf27722a719cbdcb3983568ea50ef42" category="cell">返回到 _Install and boot node3_ 并继续中的部分 <block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
   <block id="1e4625a567102c02db411f8ac4403956" category="list-text">【unset_maxWait_system_commands】如果正在配置中使用自加密驱动器、并且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在中 <block ref="e646557bd849df21a23243b7031e90bc" category="inline-link-macro-rx"></block>)、您必须取消设置变量：</block>
   <block id="b0da566a6b16767a9a4f6a9815cc8a8c" category="image-alt">卸下缆线管理ARM</block>
   <block id="df4c49d6d7d92d1a3dd7d374cec6fe02" category="image-alt">打开凸轮把手</block>
   <block id="401ec6649ed8fe314eef631a190858b3" category="list-text">检查并重置中所述的存储加密启动目标 <block ref="d1353daad078803f11ba1627582281b9" category="inline-xref-macro-rx"></block>。</block>
   <block id="e807a193ac5d601655295b7da3f1b093" category="paragraph">但是，如果您使用的是 V 系列系统或 FlexArray 虚拟化软件并已连接到存储阵列，并且 node4 没有板载 FC 端口，板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须返回到 _Install and boot node4_ 部分并继续执行 <block ref="dc87380ee6757ad7d02cae49ae9cdab7" category="inline-link-macro-rx"></block>。确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。</block>
-  <block id="1e46f02c6c16752b68ae9ed5650557a7" category="list-text">跳过 _Check and configure UTA/UTA2 ports on node4_ 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请返回 _Install and boot node4_ 部分，然后继续执行中的部分 <block ref="dc87380ee6757ad7d02cae49ae9cdab7" category="inline-link-macro-rx"></block>。</block>
-  <block id="deee248d6405c9db93b26d1add330e26" category="cell">返回到 _Install and boot node4_ 部分，然后继续执行中的部分 <block ref="dc87380ee6757ad7d02cae49ae9cdab7" category="inline-link-macro-rx"></block>。</block>
   <block id="6b9fac60e06c90ccfa462d0bed7926e6" category="list-text">但是，如果您使用的是 V 系列系统或安装了 FlexArray 虚拟化软件和存储阵列的系统，并且 node3 没有板载 FC 端口，板载 UTA/UTA 端口或 UTA/UTA2 卡，请返回 _Install and boot node3_ 并在中继续 <block ref="69768913474e5068248c1757dc80b632" category="inline-link-macro-rx"></block>。</block>
-  <block id="83432b93e47408926e2f9d1271b103a1" category="list-text">如果 node3 没有卡或板载端口，请跳过 <block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>，并返回到 _Install 和 boot node3_ ，然后在继续 <block ref="481a145f420f6aa5236e7c999fd1b8de" category="inline-link-macro-rx"></block>。</block>
-  <block id="8175f9681530613457de61e5da0e90c4" category="cell">返回到 _Install 和 boot node3_ 并在中继续 <block ref="481a145f420f6aa5236e7c999fd1b8de" category="inline-link-macro-rx"></block>。</block>
-  <block id="3e2666421648278a5df2289ddcbcf930" category="paragraph">如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则必须完成升级 <block ref="533e5b5383ee7eeec7355f568e8aaf6b" category="inline-xref-macro-rx"></block> 到 <block ref="593996bb06ec10671cada9089fb35dd4" category="inline-xref-macro-rx"></block>，请将此部分保留在 <block ref="72140e6a9de023ebc205559b767779ea" category="inline-xref-macro-rx"></block> 并按照中的说明进行操作 <block ref="b874d68563e926f19d0f15015f15f190" category="inline-link-macro-rx"></block> 和 <block ref="65c0a9634aad86b4a452ae0da56bfb85" category="inline-link-macro-rx"></block> 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <block ref="239474d202713b3a406727408fd68f72" category="inline-xref-macro-rx"></block>。</block>
-  <block id="2e2fd13bfb2c4fbd1d4fc09aab6cf4ed" category="list-text">转至 <block ref="fae618cfa140cbca52d057afef5df1da" category="inline-link-macro-rx"></block> 并完成各小节 <block ref="b874d68563e926f19d0f15015f15f190" category="inline-link-macro-rx"></block> 和 <block ref="65c0a9634aad86b4a452ae0da56bfb85" category="inline-link-macro-rx"></block>，根据您的系统情况而定。</block>
   <block id="f21399d0ef733f2bac07631b61733da2" category="list-text">如果任何卷处于脱机状态，请将其与您在中捕获的脱机卷列表进行比较  <block ref="f8559d826afe76e8a44f3ff6b2b551c5" category="inline-link-macro-rx"></block> 在 _Prepare the nodes for upgrade" 中，根据需要输入以下命令使任何脱机卷联机，每个卷一次：</block>
   <block id="3bc4849f9b157d49c1711e6e16889370" category="list-text">【unset_maxWait_manual】如果在配置中使用自加密驱动器且您已设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 变量设置为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如、在中 <block ref="90030e72e0588538d4fa2173f000cf21" category="inline-link-macro-rx"></block> 对于_Install和boot node3_)、您必须取消设置变量：</block>
   <block id="53658d8e911ed99b785059dfe4444ff6" category="paragraph">您可以将输出与中捕获的输出进行比较 <block ref="9931aed421ff2a2523e8089d4d074996" category="inline-link-macro-rx"></block> 的 _ 准备节点以进行升级 _ 。</block>
@@ -4387,11 +4127,9 @@
   <block id="d754882e684dd040085cc74dc3abd6e4" category="list-text"><block ref="40d68d018a02788fd741d99e7433a2dc" category="inline-link-rx"></block>。</block>
   <block id="07538505561069fd5bcb91c73862236d" category="list-text">从加载程序提示符启动系统：</block>
   <block id="11aad7411698d9a2a766f840bc4edcc3" category="paragraph">在启动环境提示符处按Ctrl-C中断自动启动。</block>
-  <block id="0d4005176e5e7e1fa879701f01da7baf" category="paragraph">您可能需要完成或部分、或者同时完成 <block ref="b22a2e603d310a795a7b59d2bdda39ee" category="inline-xref-macro-rx"></block> <block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block> 这两个部分。</block>
   <block id="7ed92f84948f4fe94d9e740b0e479a4e" category="paragraph-title">MetroCluster FC 配置</block>
   <block id="5ffd3baa415444f7f3227edef43b10d9" category="paragraph">在MetroCluster FC配置中、您必须尽快更换灾难恢复/故障转移站点节点。不支持 MetroCluster 中的控制器型号不匹配，因为控制器型号不匹配会使发生原因灾难恢复镜像脱机。在更换第二个站点上的节点时、使用<block ref="bf0b9d28548e0e53fb793faa9566bdc3" prefix=" " category="inline-code"></block> 命令绕过MetroCluster检查。</block>
   <block id="df3d0238913361ab2420c20a053ba0d8" category="list-text">[[man_install4_step6]]打开node4的电源、然后按Ctrl-C访问启动环境提示符以中断启动。</block>
-  <block id="5109ad8944e00ebd941b9f7cfd563728" category="list-text">按Ctrl-C显示启动菜单并选择维护模式。</block>
   <block id="24a28632436fc3dd7e0e4fbde05fdf59" category="paragraph">聚合重新定位是一种替代操作步骤。您无需使用新节点扩展和缩减集群、这对于双节点无交换机集群非常有用。与移动卷时跨聚合复制数据相比、通过重新定位聚合移动数据的速度更快。</block>
   <block id="21e5a4b07b3d917519fb1f0a2c21d347" category="list-text"><block ref="21e5a4b07b3d917519fb1f0a2c21d347" category="inline-link-macro-rx"></block></block>
   <block id="2c4564f93114738d1a23cefcb9f1a209" category="paragraph">通过移动存储升级控制器硬件会造成系统中断。开始升级之前、请查看常规升级情形和升级注意事项：</block>
@@ -4729,9 +4467,6 @@
   <block id="743b2bde29eae11996923323c6b89672" category="sidebar">ONTAP 交换机文档</block>
   <block id="664f9c52f93e2fbf6e801148b0f573ad" category="inline-link-macro">HA对管理</block>
   <block id="fc0b22bb38f11521c03de86c56643d5d" category="cell"><block ref="fc0b22bb38f11521c03de86c56643d5d" category="inline-link-macro-rx"></block></block>
-  <block id="89f76e97cb211d84e00c11992dfadf74" category="paragraph">按照node4平台的_安装和设置说明_或_ FlexArray虚拟化安装要求和参考_中的说明、相应的磁盘架文档和_HA对管理_为以下连接布线。</block>
-  <block id="26c5c260ce25606c1c0bb202b032dfa3" category="paragraph">请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>、以链接到_ FlexArray虚拟化安装要求和参考_和_ HA对管理_。</block>
-  <block id="b082861c64ae79f202957f36b4724f12" category="paragraph">使用node3平台的《_安装和设置说明_》或《_ FlexArray虚拟化安装要求和参考_》、相应的磁盘架文档和_HA对管理_为以下连接布线。</block>
   <block id="62e8c46614cda642480e223b008f5dfc" category="list-text">HA对管理文档</block>
   <block id="147e1330d5f2538de36e6ee787c5446d" category="paragraph">请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_HA对管理_、然后按照_ HA对最佳实践_一节进行操作。原始节点均不应以 50% 以上的利用率运行；如果某个节点以低于 50% 的利用率运行，则它可以在控制器升级期间处理这两个节点的负载。</block>
   <block id="270b6acdba0a7f34d4c1dd4dd05525ab" category="paragraph">如果任一节点处于部分交还状态、请使用<block ref="b27ff28f78c71d3027cc2fb76f6fe30c" prefix=" " category="inline-code"></block>命令执行交还、然后使用命令确保不需要交还<block ref="852ce55a153bc728405ba8a2c95bcdf1" prefix=" " category="inline-code"></block>任何聚合。有关命令的详细信息、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_HA对管理_。</block>
@@ -4869,7 +4604,6 @@
   <block id="f14c29a2d4657e0d20bb6c436555ab0a" category="list-text">ASA A900、AFF A900或FAS9500控制器和NVRAM模块及部件</block>
   <block id="7f3a77f47a750d11ea0b8dcef1b075f0" category="list-text">您在管理ONTAP方面经验丰富、并且可以承受在诊断权限模式下工作的风险。</block>
   <block id="edc69b05de587e21933630d809693320" category="list-text">您希望将新控制器作为新的HA对添加到集群中、并通过卷移动来迁移数据。</block>
-  <block id="6538e30381f93431fff8cf0335edca69" category="list-text">您正在升级的现有系统上使用FlexArray虚拟化软件。</block>
   <block id="448247c62e342441af5c3c7e3b49c977" category="list-text">您正在升级MetroCluster IP配置。</block>
   <block id="8884732b6a8d41b619d86cb386681073" category="paragraph">如果您已收到完整的全新AFF A30、AFF A150 A50、AFF A900、AFF A90、AFF、AFF A70、AFF C30、AFF C60、AFF C80、FAS2820或FAS9500系统(包括新机箱)、请参阅<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接以使用"system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_。</block>
   <block id="9d6b5ac201fed9ad7c34e292b0ad5101" category="admonition">此操作步骤严格适用场景以下升级配置。请勿使用此过程在任何其他系统组合之间执行升级。对于所有其他控制器型号、请参阅<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接以访问_use "system controller replace"命令升级运行ONTAP 9.8或更高版本的控制器硬件_以及使用聚合重新定位手动升级运行ONTAP 9.8或更高版本的控制器硬件_。</block>
@@ -4897,7 +4631,6 @@
   <block id="3ce524daf7c7a462720f07ffe80b1e82" category="list-text">在您启动控制器升级过程并升级第一个节点后、无法取消或退出此过程。</block>
   <block id="ce8932055faee80499a682eed0006014" category="list-text">您运行的是9.15.1 9.151或更高版本。</block>
   <block id="6c95aebccb5899bde2beeb8d5d4de872" category="list-text">您不希望将新控制器作为新HA对添加到集群中、也不希望使用卷移动过程迁移数据。</block>
-  <block id="ea168cafe9d6c1f639359b30e7152b3d" category="list-text">您正在升级使用外部阵列作为后端存储的V系列系统或FlexArray虚拟化存储系统。有关V系列或FlexArray系统的升级选项、请联系技术支持。</block>
   <block id="3f0336dfa0e5a25ff8e8c549a2b18cef" category="list-text">您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到_ MetroCluster升级和扩展文档_。</block>
   <block id="ebf1d57729bed03eb5fd256caca2fe3f" category="sidebar">更换AFF A800或AFF C800</block>
   <block id="761e2863e356e8bb23f79549fde56e25" category="cell">FAS8200、FAS8300、FAS9000</block>
@@ -4905,8 +4638,6 @@
   <block id="179f979e0b97fa0abce7d9de4a3dcf35" category="cell">9.15.1P3用于FAS70、9.16.1P2用于FAS50</block>
   <block id="0588c4f1b58eac9f5062dc1da6e8435a" category="cell">FAS8700</block>
   <block id="5ea464078a881a86e75acbaa27ab0f3f" category="inline-link-macro">将node1磁盘重新分配给node3、步骤9</block>
-  <block id="fb5a9693a9865f2503ac1d604da7e6f1" category="cell">转到。 <block ref="9a2314147e61384dcda537891c3f470c" category="inline-xref-macro-rx"></block></block>
-  <block id="2fdbbb745e51610452548329a23e078d" category="cell">转至<block ref="cc5cb3430eee3043fed71981b076513b" category="inline-xref-macro-rx"></block></block>
   <block id="c66431825370525b71d1cf42669b4ad1" category="paragraph"><block ref="03d492bafa8bfc48b6d8087b415cb7c8" prefix="" category="inline-code"></block></block>
   <block id="cbf9a76a9a31fb5d20cbab55c42d6eb4" category="paragraph">要将node2替换为node4、您需要先为node2发送AutoSupport消息、然后将node2拥有的非根聚合重新定位到node3。</block>
   <block id="a2f8774c7412a03482b475c596da177f" category="list-text">向NetApp发送node2的AutoSupport消息：</block>
@@ -4915,11 +4646,7 @@
   <block id="ce3a9a61e80721a6fb4afa31a98b6267" category="paragraph">重新定位聚合后、输出将显示该聚合的"Done (完成)"。</block>
   <block id="d8a4c81968f4b397fdbe83d1475d852c" category="list-text">验证node2是否不拥有任何联机非根聚合：</block>
   <block id="6eb24316934652e1e079aaa905d2761d" category="inline-link-macro">将node1磁盘重新分配给node3、步骤1</block>
-  <block id="694da05c353b1b646b03401140a4677f" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行<block ref="7b43b3c87e448bde55a855b04c4928b3" category="inline-link-macro-rx"></block>、以便node3可以识别node1的磁盘。</block>
-  <block id="75875e8575c0484970422ed4463fb855" category="list-text">[[auto9597_istall3_stEP29]]对于MetroCluster配置、V系列系统以及使用FlexArray虚拟化软件连接到存储阵列的系统，请转至<block ref="7b43b3c87e448bde55a855b04c4928b3" category="inline-link-macro-rx"></block>。</block>
   <block id="395e67264cbfd126e7e619c2e945ea24" category="inline-link-macro">将node2磁盘重新分配给node4、步骤1</block>
-  <block id="8ed0087f4c418464709f5b7126cdb5d9" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行<block ref="ace03be593207203d3866989bca07afe" category="inline-link-macro-rx"></block>、以便node4可以识别node2的磁盘。</block>
-  <block id="aa1438615d0eb30e62032b75a79e3ea7" category="list-text">[[Step29]]对于MetroCluster配置、V系列系统以及使用FlexArray虚拟化软件连接到存储阵列的系统，请转至<block ref="ace03be593207203d3866989bca07afe" category="inline-link-macro-rx"></block>。</block>
   <block id="1b32b5e4ec6b1b018326446e0609b810" category="paragraph">在第3阶段、您需要安装和启动node3、将集群和节点管理端口从node1映射到node3、将node1磁盘重新分配给node3、并验证node3安装。如果需要、可以在node3上设置FC或UTA/UTA2配置、并确认node3已加入仲裁。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。</block>
   <block id="712f0ba3d50de0cb380baae0e79744aa" category="paragraph">在第5阶段、您需要安装和启动node4、将集群和节点管理端口从node2映射到node4、将node2磁盘重新分配给node4、并验证node4安装。如果需要、可以在node4上设置FC或UTA/UTA2配置、并确认node4已加入仲裁。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。</block>
   <block id="9ca791f14c256e2e8b46018369acf7a1" category="admonition">您只能在高级权限级别执行此命令：<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block></block>
@@ -4937,21 +4664,12 @@
   <block id="d4e6d4af7a18f0230aee51bbefe6a070" category="paragraph">如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统，例如AFF A800系统，请转至<block ref="8c0d0b39d1dbad6b09344e6b9dfb08e2" category="inline-xref-macro-rx"></block>。</block>
   <block id="63b1972a97912f5fcb68bfc394d5e9c3" category="list-text">[[auto_check_4_步骤8]]在Loader提示符处、启动：</block>
   <block id="31f48890b5f492311b0370002ee80c45" category="paragraph">如果node4没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
-  <block id="4039a8202bf701ee008da1c534871be6" category="paragraph">但是，如果您具有V系列系统或FlexArray虚拟化软件并连接到存储阵列，而node4没有板载FC端口、板载UTA/ UTA2端口或UTA/UTA2卡，则必须返回_Install and boot node4_并从继续<block ref="1a99f6ce933cd745b2b02e54c9272506" category="inline-link-macro-rx"></block>。</block>
   <block id="0557ba2404e82e19ae1f9975c3ce6b5f" category="paragraph">确保 node4 具有足够的机架空间。如果 node4 与 node2 位于不同的机箱中，则可以将 node4 与 node3 放在同一位置。如果 node2 和 node4 位于同一机箱中，则 node4 已位于其相应的机架位置。</block>
-  <block id="d341955a87fd28709fd423c2f61dc066" category="list-text">如果node4没有UTA/UTA2卡或UTA/UTA2板载端口、请跳过此部分并转到<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
-  <block id="fdfa8108573164295f74a4a44e8b43c2" category="list-text">如果node4没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_检查并配置node4_上的UTA/UTA2端口，返回到_Install并启动node4_，然后从继续<block ref="2365e31070f1c277afd5c68b5793121e" category="inline-link-macro-rx"></block>。</block>
-  <block id="fc62ebdcdad1c598fd567dcc92127be3" category="cell">转到。 <block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block></block>
-  <block id="39ec961403963bac4327f37c3a91e53d" category="cell">返回到_Install并启动node4_，然后从继续<block ref="2365e31070f1c277afd5c68b5793121e" category="inline-link-macro-rx"></block>。</block>
   <block id="328a7a0648a6342a4e5d9762596df977" category="inline-link-macro">将node2磁盘重新分配给node4、步骤9</block>
   <block id="b08503fa695caa40c403fd4b0a68ee5a" category="list-text">如果node3没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
-  <block id="bc6f0afd18b3a2600b507899a377b115" category="list-text">但是，如果您的V系列系统或安装了FlexArray虚拟化软件和存储阵列的系统，并且node3没有板载FC端口、板载UTA/UTA端口或UTA/UTA2卡，请返回到_Install and boot node3_并从继续<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
   <block id="fc1748891fee59e7ee68e749f479c431" category="list-text">如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过<block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>并转到<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
-  <block id="b27b356ae2a147d00190cd72af494265" category="list-text">如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过<block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>并返回到_Install并在以下位置的继续处启动node3_<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
-  <block id="9d99141c043979e1bfbe43acb03250c2" category="cell">转到。 <block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block></block>
   <block id="7578581e3a33edeb6b72193b779ff242" category="paragraph">^1^有关AFF A800系统所需的其他步骤，请转至第节<block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>或中引用A800的步骤<block ref="a9b70e5969497a28f737eb804f3061d5" category="inline-link-macro-rx"></block>。</block>
   <block id="ca05d8f8894d6ff273a92135000e282c" category="admonition">您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据LIF IP、否则在执行升级时可能会发生数据中断。</block>
-  <block id="187e2c8014ea1f526c1b4abd904abf74" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行此操作<block ref="197c7e9b993124512db50edc55b3520e" category="inline-link-macro-rx"></block>、以便node4可以识别node2的磁盘。</block>
   <block id="6ce2823803aa2f6a15c6368e9054699b" category="paragraph">在第3阶段、您需要安装和启动node3、检查node1中的集群和节点管理端口是否在node3上联机、将node1磁盘重新分配给node3、并验证node3的安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。如果需要、可以在node3上设置FC或UTA/UTA2配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。</block>
   <block id="9603a3cc81e2986384f6025c38748416" category="paragraph">在第5阶段、您需要安装和启动node4、检查node2中的集群和节点管理端口是否在node4上联机、将node2磁盘重新分配给node4、并验证node4的安装。如果您使用的是NVE、则需要还原密钥管理器配置。如果需要、可以在node4上设置FC或UTA/UTA2配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。</block>
   <block id="11f7f4fd840cd198a2f280c91b7faacb" category="list-text">您只能在高级权限级别执行<block ref="2b4e2bfd3f993678e0b6870d28304a76" prefix=" " category="inline-code"></block>命令：</block>
@@ -4967,16 +4685,7 @@
   <block id="21dfc0371365c18907d7dbc160a0c2c4" category="paragraph">如果要从使用外部磁盘的系统升级到同时支持内部和外部磁盘的系统，例如AFF A800系统，请转至<block ref="ba3fb5e9a0164ee5baf520c4c38cd787" category="inline-xref-macro-rx"></block>。</block>
   <block id="b76881a9f4b6f1230f9720635fa52f19" category="list-text">[[reassign-node2-node4-app-步骤8]]在Loader提示符处、启动：</block>
   <block id="dc6402eb152631527f95b84d9f3ce723" category="admonition">您可能会在此阶段遇到错误。如果出现错误、请重复中的子步骤、 <block ref="79bd087280897d4f7e3333262b04aa6c" category="inline-xref-macro-rx"></block> 直到系统正常启动为止。</block>
-  <block id="1ffa309b87ea47e57a243a8856ad001d" category="paragraph">如果node4没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
-  <block id="188f0556290d62cea45959405efb3bd0" category="paragraph">但是，如果您使用V系列系统或FlexArray虚拟化软件并连接到存储阵列，而node4没有板载FC端口、板载UTA/ UTA2端口或UTA/UTA2卡，则必须返回_Install and boot node4_并在中恢复此过程<block ref="1a99f6ce933cd745b2b02e54c9272506" category="inline-link-macro-rx"></block>。</block>
-  <block id="ce329eb9bee0d5646d8763528bd98e7e" category="list-text">如果node4没有UTA/UTA2卡或UTA/UTA2板载端口、请跳过此部分并转到<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
-  <block id="ec5c95c32056d74d6a1bcfef9db57ed5" category="list-text">如果node4没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_检查并配置node4_上的UTA/UTA2端口，返回到_Install并启动node4_，然后继续执行中的过程<block ref="2365e31070f1c277afd5c68b5793121e" category="inline-link-macro-rx"></block>。</block>
   <block id="09fd616bd129dbb6b064a8d755638ea6" category="inline-link-macro">将节点2磁盘重新分配给节点4、步骤9</block>
-  <block id="03cfdc59281567bffdff0dbb6def2026" category="list-text">如果node3没有板载FC端口、板载UTA/UTA2端口或UTA/UTA2卡，并且您要升级具有存储磁盘的系统，则可以跳至<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
-  <block id="9444c5a2921797201ef65c5f6bae3196" category="list-text">但是，如果您的V系列系统或安装了FlexArray虚拟化软件和存储阵列的系统，并且node3没有板载FC端口、板载UTA/UTA端口或UTA/UTA2卡，请返回到_Install and boot node3_并继续执行中的过程<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
-  <block id="812ad699d52f740e9c44459a956e3f62" category="list-text">如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_Check并在node3_上配置UTA/UTA2端口，然后转到<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
-  <block id="bd450dc25cacad31613a3b3330c2ed64" category="list-text">如果node3没有UTA/UTA2卡或UTA/UTA2板载端口，请跳过_Check并在node3_上配置UTA/UTA2端口，然后返回到_Install并启动node3_并继续执行中的过程<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
-  <block id="3a5beba976b4dab80c814dbb93201e2d" category="cell">返回到_Install并启动node3_，然后继续此过程<block ref="e2938de9a840861d594c77a1743d45f5" category="inline-link-macro-rx"></block>。</block>
   <block id="efbbd979af9db0d702ab6a5273480e16" category="paragraph">node3的软件配置必须与node3的物理连接匹配、并且必须先还原网络连接、然后才能继续升级。</block>
   <block id="0750b6fd70b5c02e0dc63a82e8430e4a" category="admonition">在此过程中、请勿将聚合从node3重新定位到node2。这样做会导致聚合脱机、并导致重新定位的聚合发生数据中断。</block>
   <block id="569f02d62115823f4fea09e43e09614c" category="list-text">验证是否在node3上正确设置了配对系统ID：</block>
@@ -5004,10 +4713,7 @@
   <block id="71b6de83a4e8abd455d17a4d6af4374a" category="list-text">将节点启动至启动菜单：</block>
   <block id="2177cbe7b3a717ce6d53713b3fc10bd9" category="list-text">[[STEP14]]将节点启动至启动菜单：</block>
   <block id="a4767f09ed98441b185563427dd0a442" category="paragraph">如果要升级到AFF A800系统，请转至<block ref="e81929257c1b77de68576a8a37b1e464" category="inline-link-macro-rx"></block>。</block>
-  <block id="5a7f7aa2acda9d8cf0b886b9d97aa6d5" category="list-text">[[STEP14]]通过运行将节点启动至启动菜单<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>。如果要升级到AFF A800系统，请转至<block ref="13193a83e6d1d3a0ad7f7d39140ab8c7" category="inline-link-macro-rx"></block>。</block>
-  <block id="798d18731b87565ff109b6fed67d6b99" category="paragraph">如果您没有FC或UTA/UTA2配置、请执行<block ref="b7ef417e87a2f1cf82b2e7cf12272083" category="inline-link-macro-rx"></block>、以便node3可以识别node1的磁盘。</block>
   <block id="4ac432efd1d6ca8f4e73f5783d4f90e6" category="paragraph">如果要升级到AFF A800系统，请转至<block ref="4f039e99f80cf2a7b8236bb5590e739b" category="inline-link-macro-rx"></block>。</block>
-  <block id="8f9ee542e52933f0e31b07c6ca5316b2" category="list-text">[[STEP14]]通过运行将节点启动至启动菜单<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>。如果要升级到AFF A800系统，请转至<block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>。</block>
   <block id="007afae70e6899ccd5a02bd1b8e30413" category="list-text">替代节点使用共享的集群HA以太网端口。</block>
   <block id="96a4f5b30dbe8d55de9aa12c4b2e6602" category="list-text">验证是否已使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机：</block>
   <block id="1ef8dca5df94c49347909211a3845f3f" category="list-text">删除交换机上的现有配置：</block>
@@ -5053,7 +4759,6 @@
   <block id="e9e731a9f4962a1d8b683234f1b71e92" category="list-text">如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后转到<block ref="b874d68563e926f19d0f15015f15f190" category="inline-link-macro-rx"></block>和<block ref="65c0a9634aad86b4a452ae0da56bfb85" category="inline-link-macro-rx"></block> ，在集群提示符下输入命令。</block>
   <block id="077a3792f816c368d84f9a714136be02" category="paragraph">如果节点 4 上安装的 ONTAP 9 版本与节点 2 上安装的 ONTAP 9 版本不同，则必须安装 node4 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。通过网络启动节点 4。然后，您可以按照<block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block> 。</block>
   <block id="b4f090990739dcde90138932f4f42a92" category="paragraph">但是，如果 node4 上安装的 ONTAP 9 与 node2 上安装的相同或更高版本，则无需通过网络启动 node4。</block>
-  <block id="53f8565734b5f44ba5955cb44c379a8e" category="list-text">如果您要升级 V 系列系统或连接到存储阵列的带有 FlexArray 虚拟化软件的系统，则需要完成<block ref="a48f24f7fd083b3ec1c1fb7f5bee1e25" category="inline-xref-macro-rx"></block>通过<block ref="23a128901edc6abd74721071977e73e9" category="inline-xref-macro-rx"></block> ，请将此部分保留在<block ref="4b3dcb4f5ad67f2f001c91135169a837" category="inline-xref-macro-rx"></block>并按照<block ref="488c6e462745f03d8c1dfb3ba61f7258" category="inline-link-macro-rx"></block>根据需要，在维护模式下输入命令。然后，您必须返回本节并继续执行<block ref="9b924d5c1ba14dd46bf7c40da5a15e7c" category="inline-xref-macro-rx"></block> 。</block>
   <block id="92909e480346a929ed3538f8fb727042" category="list-text">如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后继续执行下一节<block ref="488c6e462745f03d8c1dfb3ba61f7258" category="inline-link-macro-rx"></block> ，在集群提示符下输入命令。</block>
   <block id="13f6606372b0497bd7d8f495e2c93873" category="paragraph">您将使用目录中的信息<block ref="ab6acaf1648b65fe7eff652317a95a17" category="inline-link-macro-rx"></block> 。</block>
   <block id="ab58313074490a46c5f45119c9303e60" category="paragraph">查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果任何 LIF 出现故障，请咨询<block ref="103588ef7fbd849a8c4b92e24d1fe01e" category="inline-link-macro-rx"></block>部分。</block>
@@ -5244,7 +4949,6 @@
   <block id="43a39f2ab9e3339214d6fda05936d597" category="list-text"><block ref="43a39f2ab9e3339214d6fda05936d597" category="inline-link-macro-rx"></block></block>
   <block id="1ee623098df2f7856a034824be882999" category="inline-link-macro">还原外部密钥管理加密密钥</block>
   <block id="116698f9b98f4e456ff27e95e38fccf3" category="list-text"><block ref="116698f9b98f4e456ff27e95e38fccf3" category="inline-link-macro-rx"></block></block>
-  <block id="18b86b85ac7e74bdaf460ba1e2f65f0e" category="list-text">[[auto_install4_step27]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
   <block id="bdac4e49f25f09fd22688c1a0aaf704a" category="paragraph">检查是否有任何卷因身份验证密钥不可用或无法访问外部密钥管理服务器而脱机。使用<block ref="fcc46ad208d53e4021ecddc4ee333dc3" prefix=" " category="inline-code"></block>命令。</block>
   <block id="0095109d5b66e24afe910457a637e763" category="list-text">[[A900_boot_node1]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
   <block id="c79e58170822a59a6dd931336ca868ed" category="list-text">[[boot_node2_step1]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：</block>
@@ -5427,4 +5131,163 @@
   <block id="6a6bad6107988979a4c7bb4f9b6e3f47" category="sidebar">了解如何将AFF A250升级到AFF A400</block>
   <block id="1c89ca7629177ffaec440b31de61e887" category="sidebar">从FAS2820升级</block>
   <block id="10952bb20745dcf0f30d5dd264d03924" category="sidebar">了解如何从FAS2820升级</block>
+  <block id="220b7076a9e851bf1e13056c1e583d05" category="paragraph">您可以使用<block ref="773b5d44fd1b5ae080ff3a379be13169" prefix=" " category="inline-code"></block>命令查看或验证当前端口配置，如以下示例输出所示：</block>
+  <block id="2a73f4871f45ffc6a9f01730de436222" category="paragraph">UTA/UTA2 端口可能位于附加适配器或控制器主板上，并具有以下配置，但您应该检查节点 3 上的 UTA/UTA2 端口的配置并在必要时进行更改：</block>
+  <block id="c594ac60ecfaa8945df018f2ca32a141" category="admonition">您必须处于维护模式才能配置 UTA/UTA2 端口。在维护模式 shell 提示符下输入本节中的命令。</block>
+  <block id="d5f0cabb5a163f2af827009890866160" category="list-text">验证 UTA/UTA2 端口设置：</block>
+  <block id="beaeb1b2c5fc204b2484aafd9e9f6f0d" category="paragraph">检查输出并确定 UTA/UTA2 端口是否具有您想要的个性。</block>
+  <block id="5962a796ca572c6b0011450c60d621d4" category="paragraph">以下示例中的输出显示适配器“1b”的类型正在更改为启动器，并且适配器“2a”和“2b”的模式正在更改为“cna”。  CNA 模式允许您将该卡用作网络适配器。</block>
+  <block id="053506df2d6bd471d3a1f3825e80a99b" category="cell">前往<block ref="a777e0610e99ffeb84340abf2e20d6b9" category="inline-xref-macro-rx"></block>。</block>
+  <block id="9101e07b7198a3b70bd0f52befdab323" category="cell">跳过步骤 4 至步骤 8，然后转到<block ref="507f599b2e258f18809a90b59e54fc15" category="inline-xref-macro-rx"></block>。</block>
+  <block id="cb67be816cb33ec83c5f54600baa76d7" category="list-text">[[auto_check3_step4]]请执行以下操作之一：</block>
+  <block id="e212342c243be552531d1bb84b0017d2" category="cell">前往<block ref="e33bb2c935af60d67309f774bd9b33e2" category="inline-xref-macro-rx"></block></block>
+  <block id="57a2cdf3b3dc9766dd15cf3fc167ebba" category="cell">跳过步骤 5 并转到<block ref="56fda18004a1ae4a50f11b5c9c8283e3" category="inline-xref-macro-rx"></block>。</block>
+  <block id="3c9564edf2bf79805b158e68dcccf2de" category="list-text">[[auto_check3_step5]]如果适配器处于启动器模式，并且 UTA/UTA2 端口处于在线状态，则将 UTA/UTA2 端口脱机：</block>
+  <block id="b3c0d59f1fa098e490810b0e947e6307" category="paragraph"><block ref="1bc3d7ab80a4d1e7b06ad3035b0dad16" prefix="" category="inline-code"></block></block>
+  <block id="419db2f6cae0f1c733c2fedf632cbe6b" category="list-text">[[auto_check3_step6]]如果当前配置与所需用途不匹配，请根据需要更改配置：</block>
+  <block id="749cabc3295eb5c2617db20882147797" category="paragraph"><block ref="b519f271b77c8d1348414ff37a36f0bb" prefix="" category="inline-code"></block></block>
+  <block id="39931503dd9a7b610d4d262d2c2b6e27" category="admonition">您必须对磁带驱动器和MetroCluster配置使用 FC 启动器。您必须对 SAN 客户端使用 FC 目标。</block>
+  <block id="a8becce9de15555e0f918cf4cf2a3586" category="list-text">通过为每个端口输入以下命令，将所有目标端口置于联机状态：</block>
+  <block id="3b9ed7a46b0f268f34eda95a2e6e7155" category="paragraph"><block ref="568cfe4bc2866fbf3035079380589631" prefix="" category="inline-code"></block></block>
+  <block id="a9fa10cd960a90339e9537639288e8d5" category="admonition">在维护模式 shell 提示符下输入本节中的命令。</block>
+  <block id="e903689bf069822cbaebac637c25da42" category="list-text">检查 node4 上端口的当前配置情况：</block>
+  <block id="e0da692c52eefbb9374f562f5c4d1167" category="cell">跳过步骤 5 至步骤 9，然后转到<block ref="3dac065a0ae79c18e762b88c6c0915e9" category="inline-xref-macro-rx"></block>。</block>
+  <block id="ffa1a4006ff690c1fe619664539ec2cf" category="cell">前往<block ref="e3d5822abe2a01f4d8a1736b1307364c" category="inline-xref-macro-rx"></block></block>
+  <block id="f7ca9c3e3c996fb164af633649679b6b" category="cell">跳过第 6 步并转到<block ref="8fa9bd2d3aca152bc08859144a7af8fa" category="inline-xref-macro-rx"></block>。</block>
+  <block id="a76b2c102215e9321521e6154e1cd5ee" category="list-text">[[auto_check_4_step6]]如果适配器处于启动器模式，并且 UTA/UTA2 端口处于在线状态，则将 UTA/UTA2 端口脱机：</block>
+  <block id="81ca7960b6cf21700302678cb2053a77" category="list-text">输入以下命令（每个端口一次），使任何目标端口联机：</block>
+  <block id="9c90dd8c87a40e63c84acec5736c1290" category="paragraph">如果节点 3 具有 FC 端口（无论是板载的还是附加 FC 适配器上的），则必须在节点投入使用之前设置其端口配置，因为系统出厂时未预先配置端口。如果您不配置端口，则可能会遇到服务中断。</block>
+  <block id="5cb12b259721a136cc774cadc7c074c9" category="list-text">将节点 3 上的 FC 设置与您之前从节点 1 捕获的设置进行比较。</block>
+  <block id="44d823d11b37a4e72218ebe9865f38b4" category="list-text">根据需要执行以下操作之一来修改节点 3 上的 FC 端口：</block>
+  <block id="026a4424da277a7d743c4bc846f17290" category="paragraph">在维护模式下（启动菜单中的选项 5）：</block>
+  <block id="28076ede4cc9f21832c85190c6641187" category="list-text">要作为目标端口进行编程：</block>
+  <block id="0782d8d4c61a7cd89e1abafbe5ea5255" category="paragraph"><block ref="2f3fb83fbfeaa6dcc145c9439a60e023" prefix="" category="inline-code"></block></block>
+  <block id="9ffe34631932030e10674c15e5213255" category="paragraph">例如：<block ref="4e577f3e00b1b52e4b863618794a0722" prefix=" " category="inline-code"></block></block>
+  <block id="713274c6cee4384b9c2c819d3adb4dd8" category="paragraph"><block ref="723b7d909caa5ed8fb8b4fb5ddc6bf17" prefix="" category="inline-code"></block></block>
+  <block id="0dda9a087e4138dae07efa04e54ed27b" category="paragraph">例如：<block ref="9965a7cb08ecefbc1f4975409538e128" prefix=" " category="inline-code"></block></block>
+  <block id="81c599f2e39a1b5800a3e53397bc8f88" category="list-text">使用以下命令并检查输出来验证新设置：</block>
+  <block id="0968f508b9ca398ddaefa4b831996c2c" category="paragraph">如果节点 4 具有 FC 端口（无论是板载的还是附加 FC 适配器上的），则必须在节点投入使用之前设置其端口配置，因为系统出厂时未预先配置端口。如果您没有按要求配置端口，则可能会遇到服务中断。</block>
+  <block id="9e2ce1b17e529e39148b31409085100b" category="list-text">显示系统上所有 FC 和融合网络适配器的信息：</block>
+  <block id="a9e60974603befa4a60deaa890cc9cb2" category="paragraph">使用 node4 平台的《安装和设置说明》、相应的磁盘架文档和《HA 对管理》文档连接以下连接。</block>
+  <block id="dd6436446d7d688a029171fa10354c40" category="paragraph">参考<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_HA 对管理_。</block>
+  <block id="8762049cc66fa921ae6bcffe8755d4e6" category="admonition">*请勿超越延迟；如果电池无法充电，可能会导致数据丢失。*</block>
+  <block id="3b4a6d51e129532942e72a2637a3248a" category="paragraph">使用 node3 平台的《安装和设置说明》、相应的磁盘架文档和《HA 对管理》文档连接以下连接。</block>
+  <block id="621db0217765431b65fd2df9431bc8c1" category="paragraph">您可能需要完成<block ref="b22a2e603d310a795a7b59d2bdda39ee" category="inline-xref-macro-rx"></block>或者<block ref="5752cac0a470e06ffceef40fba1931c1" category="inline-xref-macro-rx"></block>或两个部分。</block>
+  <block id="bc7c7cb879348cd44e26c92f94f95bf6" category="admonition">由于此过程假设更换的控制器硬件是新的且未使用过，因此准备使用过的控制器所需的步骤与<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block>命令不包含在此过程中。如果之前使用过替换控制器硬件，则必须联系技术支持，尤其是当控制器在 7 模式下运行Data ONTAP时。</block>
+  <block id="4bd95100dfdd41a46154bae000c5b050" category="admonition">不要尝试清除NVRAM内容。如果需要清除NVRAM的内容，请联系NetApp技术支持。</block>
+  <block id="dbe7ddc508cb8ca92b05d2610724662c" category="admonition">除非指示进入维护模式，否则请在集群提示符下输入本节中的命令。如果您有MetroCluster FC 系统，则必须处于维护模式才能配置 UTA/UTA2 端口。</block>
+  <block id="0e98bb417c519b40ee1d3347c345b891" category="list-text">[[man_check_4_Step5]]如果系统有存储磁盘并且正在运行Data ONTAP 8.3，则启动 node4 并进入维护模式：</block>
+  <block id="e86a9012a5d4ad0636d87c7796bb7d1b" category="cell">前往<block ref="d63e67436ac7351debc07c052c32757d" category="inline-xref-macro-rx"></block>。</block>
+  <block id="fb702fd1f687697c34ccfb84155cb694" category="cell">跳过第 8 步并转到<block ref="a1e1d631f88d089f1ee9acd195dec0d6" category="inline-xref-macro-rx"></block>。</block>
+  <block id="c3149530803c8516fe41237a78a3dd5b" category="list-text">[[man_check_4_Step8]]如果适配器处于启动器模式，并且 UTA/UTA2 端口处于在线状态，则将 UTA/UTA2 端口脱机：</block>
+  <block id="4bf18c040a9afd064df8863c218a3eec" category="list-text">[[man_check_4_Step9]]如果当前配置与所需用途不匹配，请输入以下命令根据需要更改配置：</block>
+  <block id="97af051b1347b43f64a2dd75db18e91a" category="admonition">您必须对磁带驱动器使用 FC 启动器，对 SAN 客户端使用 FC 目标。</block>
+  <block id="856a11ba995fa1cbf53c4a85a43d0980" category="list-text">如果系统有存储磁盘，请输入以下命令：</block>
+  <block id="a35f563649b182d8977f02ecb7f20b3a" category="admonition">除非指示进入维护模式，否则请在集群提示符下输入本节中的命令。</block>
+  <block id="4040bda75e60fc0b567141a275aad366" category="list-text">通过在 node3 上输入以下命令来检查当前端口配置：</block>
+  <block id="4ecde66f03240143dac0d90d096f6780" category="cell">跳过步骤 5 至步骤 13，然后转到<block ref="4428c1fc0f08dec3d9acadc30523cad8" category="inline-xref-macro-rx"></block>。</block>
+  <block id="4233f37c2cb0b60e70d554b36bb33363" category="list-text">[[man_check_3_step5]]如果系统有存储磁盘并且正在运行集群模式Data ONTAP 8.3，则启动节点 3 并进入维护模式：</block>
+  <block id="8244a2cadfeaafc752ee234621d096f6" category="cell">前往<block ref="21867c7d0c2b8bc3921bf40e9edec561" category="inline-xref-macro-rx"></block>。</block>
+  <block id="362c8977dd18b22b881396c98e231639" category="cell">跳过第 8 步并转到<block ref="7673ca413989375816bebedf63a95837" category="inline-xref-macro-rx"></block>。</block>
+  <block id="ff01dd932491a7d15acd63376b61eb99" category="list-text">[[man_check_3_step8]]如果适配器处于启动器模式，并且 UTA/UTA2 端口处于在线状态，则将 UTA/UTA2 端口脱机：</block>
+  <block id="b132fdfbd29d789bf36881e164c565c2" category="list-text">[[man_check_3_step9]]如果当前配置与所需用途不匹配，请根据需要更改配置：</block>
+  <block id="60a6a8d5e976d6384be5d506c66c6141" category="admonition">您必须对磁带驱动器和MetroCluster配置使用 FC 启动器。您必须对 SAN 客户端使用 FC 目标。</block>
+  <block id="791c7a5bc5fb0f4369c531ce796c42ae" category="list-text">[[step12a]]通过对每个端口输入以下命令，将所有目标端口置于联机状态：</block>
+  <block id="2cfd520b3625da2bfe9f292ecfb505bb" category="list-text">[[man_check_3_step14]]连接端口。</block>
+  <block id="4525bdcac0945de44b388c01b79ae542" category="admonition">在集群提示符下输入本节中的命令。</block>
+  <block id="40006608fc0851f42cd30b2d3e226efa" category="list-text">显示有关系统上所有 FC 和融合网络适配器的信息。</block>
+  <block id="13ca7c6b28be117550eab0e903fe7042" category="list-text">将节点 3 的 FC 设置与您之前从节点 1 捕获的设置进行比较。</block>
+  <block id="46c1d2d2ab0409405da04b960b56f8de" category="list-text">[[man_config_3_step3]]执行以下操作之一：</block>
+  <block id="860b5f3398c4c1ac377f75a86c1e4600" category="cell">前往<block ref="0a519386d36c411c6e59b5652ee1904f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="ffd972a1e4dacd5cdc292817e7c737c1" category="cell">前往<block ref="a8e030c5a102b1fbda5775e36f0a3aae" category="inline-xref-macro-rx"></block>。</block>
+  <block id="9bf0ee2cd9be64a7f34f45028aa43cd2" category="list-text">[[man_config_3_step4]]根据需要，通过输入以下命令之一修改 node3 上的 FC 端口：</block>
+  <block id="ae7f13b8bbb7c9fd51dda562a16b36c8" category="paragraph"><block ref="8857bb6c0bb9926ea77bdcc5d45b1108" prefix="" category="inline-code"></block></block>
+  <block id="9ad3055e0dfd10e8b8535d0eb1ec2c52" category="paragraph"><block ref="cbe131c5c17c1fd0759ff1501f01be67" prefix="" category="inline-code"></block></block>
+  <block id="c004940bc59ffe780370727ce9c08711" category="list-text">通过输入以下命令并检查输出来验证新设置：</block>
+  <block id="0a49b83d5ed667f66c92da05a2d65f2c" category="list-text">在启动环境提示符下启动 node3：</block>
+  <block id="194cac65f4711838b5222d0a41b5b28b" category="list-text">[[man_config_3_step9]]执行以下操作之一：</block>
+  <block id="0ae92264480b0c931bbdea5d1d57a92c" category="paragraph"><block ref="4b631d03a77b2a6d951be9d9a540756e" prefix="" category="inline-code"></block></block>
+  <block id="431202ecef1ca91c6f3605e2e81d51ff" category="paragraph"><block ref="a11184dcc096f5133e1c0f8ac45f1c93" prefix="" category="inline-code"></block></block>
+  <block id="ae855446dba335efeaa8a4d44a6480e2" category="cell">前往<block ref="a919aec136b010962e2696a7b07f4e92" category="inline-xref-macro-rx"></block>。</block>
+  <block id="0ad004d090a4ba2bc694d75d245c3231" category="inline-xref">Step6</block>
+  <block id="d7513ce41e00d6137be0cf8419a5ad77" category="cell">前往<block ref="35d93f5d48cef40ae4085e0163170098" category="inline-xref-macro-rx"></block>。</block>
+  <block id="257ce8d832995e33306fc7bb744f1ebe" category="list-text">[[man_config_4_Step6]]退出维护模式：</block>
+  <block id="7573f254272d2c6220e77b150551b633" category="list-text">在启动环境提示符下输入以下命令来启动 node4：</block>
+  <block id="e30b112573a3cee86acf023252d05a4b" category="list-text">[[man_config_4_Step9]]执行以下操作之一：</block>
+  <block id="3b9ace6b56c3470111592188ef786b68" category="list-text">node3 平台的_安装和设置说明_</block>
+  <block id="49e85d2cb5dc17786beece61ce67579b" category="list-text">在维护模式提示符下，输入以下命令：</block>
+  <block id="defaf387837a5ac57c453e436af7ffe6" category="cell">前往<block ref="57e0c5137c5e4ee9559e4abc3701552f" category="inline-xref-macro-rx"></block>。</block>
+  <block id="b543203df1cba169912b116fd99674ff" category="list-text">[[man_install3_step8]]为ONTAP配置 node3：</block>
+  <block id="b6894d5bdf50a826cb6b87d0ca6a44d3" category="list-text">按 CTRL-C 显示启动菜单。</block>
+  <block id="28e28932e1038b7cc2979611172e5f48" category="cell">前往<block ref="85131af613f0169831e213f11ca11041" category="inline-xref-macro-rx"></block>。</block>
+  <block id="b9da98e99c8057fc3b9a54d9d19ff501" category="inline-xref">第 18 步</block>
+  <block id="7c524e8842cf8de298e4c6e1291bb583" category="cell">前往<block ref="f5b2f21e8ce0ab7d4e5603147e143520" category="inline-xref-macro-rx"></block>。</block>
+  <block id="9956c97018b98e6a80cd00a916ddd524" category="list-text">[[man_install3_step13]]通过选择以下操作之一来配置网络启动连接。</block>
+  <block id="0ba73a93969c15a375ed35ee1a41b1a9" category="list-text">在节点 3 上执行网络启动：</block>
+  <block id="6c04fe5c456662eaf6717c6408fbf87e" category="list-text">从启动菜单中，首先选择选项*(7) 安装新软件*。</block>
+  <block id="39ee6091b18246476c0e6651a7fd4f12" category="list-text">如果提示您继续该过程，请输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>，当提示输入包时，输入以下 URL：</block>
+  <block id="f01be43ac6c987e6640f5f08edb5f11b" category="list-text">[[man_install3_step18]]通过输入选择 *(5) 维护模式启动*<block ref="e4da3b7fbbce2345d7772b0674a318d5" prefix=" " category="inline-code"></block> ，然后输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>当提示继续启动时。</block>
+  <block id="d31abf3785333c7ae6bdd20bb76938b0" category="list-text">查找节点3的系统ID：</block>
+  <block id="b198ad033208091ab84e492d02bfce14" category="list-text">[[man_install3_step21]]重新分配节点 1 的备用磁盘、属于根的任何磁盘以及之前未重新定位到节点 2 的任何非根聚合<block ref="b90d8347ded957c31748eee44116abad" category="inline-link-macro-rx"></block>。</block>
+  <block id="ba96a003ae21abcf0849770cd88fb7e8" category="list-text">[[man_install3_step42]]验证合作伙伴系统 ID 是否按照<block ref="aa83c5880412a41ab5941be2fb5cf080" category="inline-xref-macro-rx"></block>在 -p 开关下：</block>
+  <block id="491969df085a332f2dc58e6126ce8248" category="list-text">node4 平台的_安装和设置说明_</block>
+  <block id="41a45c7516e3accdf36922b3be4f91a5" category="admonition">*不要覆盖延迟。如果电池无法充电，可能会导致数据丢失。*</block>
+  <block id="718011d4445365a925a4826e5010d02d" category="list-text">[[man_install4_Step8]]在维护模式提示符下，输入以下命令：</block>
+  <block id="555274cce9ccea93856f2174d70c44ff" category="cell">前往<block ref="d6a59fffa5883ae870f11e0e2cadcd2d" category="inline-xref-macro-rx"></block>。</block>
+  <block id="4d613f78d648e0daee8012c631b3bbdd" category="cell">前往<block ref="d121c2002749495f5b774cb63902ead8" category="inline-xref-macro-rx"></block>。</block>
+  <block id="34ef85ee99bf02077fc9c9aa28a2c37c" category="list-text">[[man_install4_Step13]]通过选择以下操作之一来配置网络启动连接。</block>
+  <block id="e5f32c16ba5e3145cb5ae201de5c31a6" category="list-text">[[man_install4_Step18]]选择维护模式<block ref="e4da3b7fbbce2345d7772b0674a318d5" prefix=" " category="inline-code"></block>从启动菜单并输入<block ref="415290769594460e2e485922904f345d" prefix=" " category="inline-code"></block>当提示您继续启动时。</block>
+  <block id="d6a004498c167875d1bd15d43aaf2600" category="list-text">[[man_install4_Step19]]继续之前，请转到<block ref="488c6e462745f03d8c1dfb3ba61f7258" category="inline-link-macro-rx"></block>对节点上的 FC 或 UTA/UTA2 端口进行任何必要的更改。按照这些部分中建议的进行更改，重新启动节点，然后进入维护模式。</block>
+  <block id="287bc804244a679c73d0cac4cb0c0b2c" category="inline-xref">第 19 步</block>
+  <block id="0886208fefc0d1222bb49b4f36ef5c2a" category="list-text">验证合作伙伴系统 ID 是否按照<block ref="ce69cce3220d739038c7a73754bd5bab" category="inline-xref-macro-rx"></block>在选项下。</block>
+  <block id="05b5d63be92fcd8a68e0fda7b3a1f065" category="admonition">不要尝试清除NVRAM内容。如果需要清除NVRAM的内容，请联系NetApp技术支持。</block>
+  <block id="2cf91c502117e7873efab1893f5a510c" category="admonition">您可以使用该信息来识别您可能想要传输到节点 3 或节点 4 的零件或配件。</block>
+  <block id="6d30bf3ea0165e7000975bb05a8c4504" category="list-text">[[man_prepare_nodes_step28]]完成以下子步骤：</block>
+  <block id="79c5ad6ed190de6f4df05537c544794f" category="list-text">[[man_prepare_nodes_step29]]如果您希望新节点具有与原始节点相同的许可功能，请输入以下命令查看原始系统上的集群许可证：</block>
+  <block id="f8e6361ef8eb617e90fcace7cda2e6e5" category="admonition">如果节点 1 与节点 2 位于同一机箱中，请勿使用电源开关或拉电源线关闭机箱。如果这样做，提供数据的节点 2 将会瘫痪。</block>
+  <block id="d6e4db81e9067d45ffa53a5fa5494e1a" category="admonition">在本文档中，原有节点称为_node1_和_node2_，新节点称为_node3_和_node4_。在所述过程中，节点 1 被节点 3 替换，节点 2 被节点 4 替换。术语 _node1_、_node2_、_node3_ 和 _node4_ 仅用于区分原始节点和新节点。按照该过程操作时，您必须替换原始节点和新节点的真实名称。但实际上，节点的名称并没有改变：在控制器硬件升级后，node3 的名称为 node1，node4 的名称为 node2。</block>
+  <block id="86365511dddf1ee8bef313eb726711e8" category="list-text">此程序适用于FAS系统和AFF系统。</block>
+  <block id="3b8041789e9cd5e417af3d65ef7a2e1b" category="inline-link-macro">在节点 3 上设置 FC 或 UTA/UTA2 配置</block>
+  <block id="e2b66b348c7594fa3e3649551d2d03bb" category="list-text">如果您的系统具有 FC 或 UTA/UTA2 配置，<block ref="0f65c4eac03b5c41bcd2baef6caa94a0" category="inline-link-macro-rx"></block> 。</block>
+  <block id="26e2328a3e5846745002b5222faffd73" category="inline-link-macro">将节点 1 的磁盘重新分配给节点 3</block>
+  <block id="9ea71500e3c5fa7d1f03e9c76e619439" category="list-text">如果您没有 FC 或 UTA/UTA2 配置，<block ref="731ce5d7564b7c32e4081aed35d74ddf" category="inline-link-macro-rx"></block>这样node3就可以识别node1的磁盘。</block>
+  <block id="9c6cfb181f34c77d766f4b64b947b0be" category="list-text">如果您有MetroCluster配置，<block ref="731ce5d7564b7c32e4081aed35d74ddf" category="inline-link-macro-rx"></block> 。</block>
+  <block id="5850374394963dcf609f49933e6ae097" category="list-text">[[auto_install4_step22]]如果您安装了NetApp存储加密 (NSE) 驱动器，请执行以下步骤：</block>
+  <block id="f95c3d6692e56fe33212589fc58ee4ae" category="inline-link-macro">在节点 4 上设置 FC 或 UTA/UTA2 配置</block>
+  <block id="b03f4dc28a467dbdb927171247a0b5b9" category="list-text">如果您的系统具有 FC 或 UTA/UTA2 配置，<block ref="a5fd50e267aa742edfb254af48aa31df" category="inline-link-macro-rx"></block> 。</block>
+  <block id="84778c2e84fe5df40eb6e09940c8e6da" category="inline-link-macro">将 node2 磁盘重新分配给 node4，步骤 1</block>
+  <block id="cb0e98223d1b689567ca884a4ed62d2f" category="list-text">如果您没有 FC 或 UTA/UTA2 配置，<block ref="77bda7bfb356817385991b20570adf55" category="inline-link-macro-rx"></block>这样node4就可以识别node2的磁盘。</block>
+  <block id="d043c2da61f7d367f9629fa3d167d15a" category="list-text">[[step8]]跳过此部分并转到<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口。</block>
+  <block id="187112eef07fb14778dfdc513543ea21" category="list-text">[[auto_check_4_step10]]退出维护模式：</block>
+  <block id="5407697632a0e9289cbc1571bb74a606" category="list-text">对于所有其他系统升级，请访问<block ref="344c6df46b49421d4efd3ea3dc243233" category="inline-link-macro-rx"></block>。</block>
+  <block id="532277e802a820c7b240fc524a2dec1d" category="list-text">通过运行以下命令将节点启动到启动菜单<block ref="d20d8416248acf69156e4b7875cc4868" prefix=" " category="inline-code"></block>。</block>
+  <block id="9e5cb50e1c577a8bbe485a517d02859d" category="list-text">如果您要升级到AFF A800系统，请转至<block ref="13193a83e6d1d3a0ad7f7d39140ab8c7" category="inline-link-macro-rx"></block>。</block>
+  <block id="90d15882071659f5c278c3188642dcdd" category="list-text">对于所有其他系统升级，请访问<block ref="85de4eaf81abb5e5b335f49a296af5f4" category="inline-link-macro-rx"></block>。</block>
+  <block id="1f3fcdf9022a6aa0f67562f35de18fd5" category="admonition">在此阶段， MetroCluster配置不会处于正常状态，您可能需要解决错误。看<block ref="14c0e32a98a31f9fd4a16b635b2f7ebd" category="inline-link-macro-rx"></block>。</block>
+  <block id="eae0d196e9a099a5039af7d8b6c1eb85" category="admonition">托架 B 位于底盘的右侧。</block>
+  <block id="36e28ccc6b6e4a11682d10de117d21e0" category="admonition">由于机箱已通电，因此节点 2 在完全就位后立即开始启动。为防止节点 2 启动，请在完全插入控制器模块之前连接控制台和管理电缆。</block>
+  <block id="851d3d8a0258ed7660584e68159aae4e" category="inline-link-macro">设置并配置节点 3 上的 FC 或 UTA/UTA2 端口</block>
+  <block id="9066510c72210c33ee0037190ab1e1ff" category="list-text">如果您的系统具有 FC 或 UTA/UTA2 配置，<block ref="a2860b8490ec5aaef9fa8fc42929bb0a" category="inline-link-macro-rx"></block> 。</block>
+  <block id="f6195d58e46fb7461b72fc0f7cfb9d9e" category="inline-link-macro">将 node1 磁盘重新分配给 node3，步骤 1</block>
+  <block id="058639902ce677f10cb736388c7e4acb" category="list-text">如果您没有 FC 或 UTA/UTA2 配置，<block ref="e90905ab01074cf314222ce3c67aed26" category="inline-link-macro-rx"></block>这样node3就可以识别node1的磁盘。</block>
+  <block id="b145ed74f423471704ac13c05f313b4d" category="list-text">如果您有MetroCluster配置，<block ref="a2860b8490ec5aaef9fa8fc42929bb0a" category="inline-link-macro-rx"></block>检测连接到节点的磁盘。</block>
+  <block id="4a38f566dc08a2281060f30394eff9f6" category="inline-link-macro">设置并配置节点 4 上的 FC 或 UTA/UTA2 端口</block>
+  <block id="bacbfc77fc4e2d757322081c15c52a00" category="list-text">如果您有 FC 或 UTA/UTA2 配置，<block ref="ad45ffc801f32cf9fa6b670aff5c067c" category="inline-link-macro-rx"></block> 。</block>
+  <block id="c52fd43175a81b4010edafc888294155" category="list-text">如果您没有 FC 或 UTA/UTA2 配置，<block ref="e4d2a56d6aa2b01471a43eefb927dea7" category="inline-link-macro-rx"></block>这样node4就可以识别node2的磁盘。</block>
+  <block id="625f5185360b3cd291dbecb432926ddf" category="list-text">如果您有MetroCluster配置，<block ref="ad45ffc801f32cf9fa6b670aff5c067c" category="inline-link-macro-rx"></block>检测连接到节点的磁盘。</block>
+  <block id="e82b74d07826c2bc6650aa170acd2745" category="paragraph">如果 node4 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，从ONTAP 9.15.1 开始引入的AFF和FAS系统），并且您正在升级带有存储磁盘的系统，则可以跳至<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
+  <block id="20f32956fc865957eac4865ba888e9ba" category="list-text">如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过“检查并配置 node4 上的 UTA/UTA2 端口”并转到<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
+  <block id="e5330a3f067b20c0bc653c95754f0003" category="paragraph">如果节点 3 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，从ONTAP 9.15.1 开始引入的AFF和FAS系统），并且您正在升级带有存储磁盘的系统，则可以跳至<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
+  <block id="5ec3ea1c092d9baccac3f18b114cbb19" category="cell">如果节点 3...</block>
+  <block id="43b887bce260431997df1d009b1f86d3" category="cell">具有 UTA/UTA2 卡或 UTA/UTA2 板载端口</block>
+  <block id="b218cf02d86731be6eb24c55f95238d6" category="cell">前往<block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block></block>
+  <block id="c1d0c27818786bcecaad04b77cee8c31" category="cell">没有 UTA/UTA2 卡或 UTA/UTA2 板载端口</block>
+  <block id="cb46a1722edd0d184e8f5160da79aef5" category="cell">跳过_检查并配置节点 3 上的 UTA/UTA2 端口_并转到<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
+  <block id="2466a7dc80883b138ff2ff9dd6381cb2" category="list-text">如果您要升级到AFF A800系统，请转至<block ref="c6817bbcae6fe5893644f9e570310aab" category="inline-link-macro-rx"></block>。</block>
+  <block id="72bb382f624988c585ab0960bd64853a" category="paragraph">按照 node4 平台的《安装和设置说明》、相应的磁盘架文档和《HA 对管理》中的说明，连接以下连接线。</block>
+  <block id="52c7a636e7de8a73f74cbbbbba1d2bf1" category="cell">链接： https://docs.netapp.com/us-en/ontap-/install/index.html</block>
+  <block id="8ea9f47b485e9358783b1f1f3bd0f67e" category="paragraph">您可能需要完成<block ref="750d6dbe3bf1312d0d97a8f03a0d2304" category="inline-xref-macro-rx"></block>或者<block ref="574c49ad3466f1bed21aff7050a30e36" category="inline-xref-macro-rx"></block>或两个部分。</block>
+  <block id="138a022be246afc5755a650cb07e42bf" category="list-text">如果 node3 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡，并且您正在升级带有存储磁盘的系统，则可以跳至<block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block>。</block>
+  <block id="ed601239c6d656a1963ef5d273a4656e" category="list-text">如果节点 3 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，从ONTAP 9.15.1 开始引入的AFF和FAS系统），并且您正在升级带有存储磁盘的系统，则可以跳至<block ref="3b6c063a8efbc88c969c7838f0611434" category="inline-link-macro-rx"></block>。</block>
+  <block id="e2711d5d01384ccd88b7e7edd60ba51f" category="paragraph">如果 node4 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，从ONTAP 9.15.1 开始引入的AFF和FAS系统），并且您正在升级带有存储磁盘的系统，则可以跳至<block ref="fface1ac702bde6d72ceb6e55eb8b2b6" category="inline-link-macro-rx"></block>。</block>
 </blocks>

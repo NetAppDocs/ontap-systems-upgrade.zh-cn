@@ -111,7 +111,6 @@ NOTE: 不能将AFF A700s、AFF A800、AFF C800或ASA A800系统转换为驱动�
 == 可能需要执行其他步骤的情况
 
 * 如果新系统的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。请参见 https://hwu.netapp.com["NetApp Hardware Universe"^]。
-* 如果原始节点或新节点使用FlexArray虚拟化软件、请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/V_Series/What_are_the_specific_steps_involved_in_FlexArray_for_NetApp_controller_upgrades%2F%2Freplacements%3F["FlexArray for NetApp控制器升级和更换过程中涉及哪些具体步骤"^]。
 * 如果集群具有 SAN 主机，则可能需要采取步骤来解决 LUN 序列号更改问题。请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FlexPod_with_Infrastructure_Automation/resolve_issues_during_storage_controller_motherboard_replacement_and_head_upgrades_with_iSCSI_and_FCP["如何使用 iSCSI 和 FCP 解决存储控制器主板更换和机头升级期间的问题"^]。
 * 如果您的系统使用带外 ACP ，则可能需要从带外 ACP 迁移到带内 ACP 。请参见知识库文章 https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/In-Band_ACP_Setup_and_Support["带内ACP设置和支持"^]
 

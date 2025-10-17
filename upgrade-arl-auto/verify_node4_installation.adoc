@@ -38,7 +38,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 . 检查更换的控制器是否已正确配置 MetroCluster 配置，而不是处于切换模式。
 +
 
-CAUTION: * 注意： * 在此阶段， MetroCluster 配置将不会处于正常状态，您可能会遇到需要解决的错误。请参见 link:verify_health_of_metrocluster_config.html["验证 MetroCluster 配置的运行状况。"]。
+CAUTION: 在此阶段， MetroCluster配置不会处于正常状态，您可能需要解决错误。看link:verify_health_of_metrocluster_config.html["验证 MetroCluster 配置的运行状况。"]。
 
 
 

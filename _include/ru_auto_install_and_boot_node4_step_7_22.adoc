@@ -136,23 +136,4 @@ NOTE: 系统会在 PROM 中记录它们是采用 HA 对还是独立配置。独�
 +
 `printenv partner-sysid`
 
-. 【第 22 步】执行以下操作之一：
-+
-[cols="30,70"]
-|===
-| 如果您的系统 ... | 那么 ... 
-
-
-| 具有磁盘，无后端存储 | 转到。 <<auto_install4_step27,第27步>> 
-
-
-| 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 
-.. 转至第节 link:set_fc_or_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"] 并完成本节中的各小节。
-.. 返回到此部分，完成从开始的其余步骤 <<auto_install4_step23,第 23 步>>。
-
-
-
-IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP 之前、必须重新配置FC板载端口、CNA板载端口和CNA卡。
-
-|===
 

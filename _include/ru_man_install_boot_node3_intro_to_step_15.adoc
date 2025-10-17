@@ -12,7 +12,6 @@
 [IMPORTANT]
 ====
 * 对于 AFF A800 或 AFF C800 控制器升级，在移除节点 1 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参见 link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
-* 如果要升级连接到存储阵列的 V 系列系统或安装了 FlexArray 虚拟化软件并连接到存储阵列的系统，则必须完成升级 <<man_install3_step1,第 1 步>> 到 <<man_install3_step5,第 5 步>>，请将此部分保留在 <<man_install3_step6,第 6 步>> 并按照中的说明进行操作 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 根据需要在维护模式下输入命令。然后，您必须返回到此部分并继续使用 <<man_install3_step7,第 7 步>>。
 * 如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后转到link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"]和link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"] ，在集群提示符下输入命令。
 
 
@@ -32,7 +31,7 @@ NOTE: 如果要升级到两个节点位于同一机箱中的系统，请在机�
 以下参考资料可帮助您正确进行缆线连接。转至 link:other_references.html["参考资料"] 以链接到它们。
 
 +
-** node3 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。
+** node3 平台的_安装和设置说明_
 ** 相应的磁盘架操作步骤
 ** HA对管理文档
 
@@ -74,65 +73,25 @@ To override this delay, press 'c' followed by 'Enter'
 .. 让电池充电并完成启动过程。
 +
 
-NOTE: * 注意 * ：请勿覆盖此延迟；如果不允许电池充电，可能会导致数据丢失。
+WARNING: *请勿超越延迟；如果电池无法充电，可能会导致数据丢失。*
 
 
 
-. 【 man_install3_step6]] 执行以下操作之一：
-+
-[cols="35,65"]
-|===
-| 如果您的系统 ... | 那么 ... 
-
-
-| 具有磁盘，无后端存储 | 跳过第 7 步到第 12 步，然后转到 <<man_install3_step13,第 13 步>>。 
-
-
-| 是 V 系列系统或已将 FlexArray 虚拟化软件连接到存储阵列的系统  a| 
-.. 转至 link:set_fc_uta_uta2_config_node3.html["在 node3 上设置 FC 或 UTA/UTA2 配置"] 并完成各小节 link:set_fc_uta_uta2_config_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node3.html#uta-ports-node3["检查并配置 node3 上的 UTA/UTA2 端口"]，根据您的系统情况而定。
-.. 返回到此部分，完成从开始的其余步骤 <<man_install3_step7,第 7 步>>。
-
-
-
-IMPORTANT: 在使用FlexArray 虚拟化软件的V系列或系统上启动ONTAP 之前、必须重新配置FC板载端口、CNA板载端口和CNA卡。
-
-|===
-. 【 man_install3_step7]] 将新节点的 FC 启动程序端口添加到交换机分区。
-+
-如果您的系统具有磁带 SAN ，则需要对启动程序进行分区。有关说明，请参见存储阵列和分区文档。
-
-. 【 man_install3_step8]] 将 FC 启动程序端口作为新主机添加到存储阵列，将阵列 LUN 映射到新主机。
-+
-有关说明，请参见存储阵列和分区文档。
-
-. [[man_install3_step9]] 修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。
-+
-安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
-
-. 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-. [[man_install3_step11]] 验证阵列 LUN 现在是否对 node3 可见：
-+
-`ssysconfig -v`
-
-+
-系统将显示每个 FC 启动程序端口可见的所有阵列 LUN 。如果阵列 LUN 不可见，您将无法在本节稍后将磁盘从 node1 重新分配到 node3 。
-
-. 【 man_install3_step12]] 按 Ctrl-C 显示启动菜单并选择维护模式。
-. 在维护模式提示符处，输入以下命令：
+. 在维护模式提示符下，输入以下命令：
 +
 `halt`
 
 +
 系统将在启动环境提示符处停止。
 
-. 【 man_install3_step14]] 执行以下操作之一：
+. 执行以下操作之一：
 +
 [cols="35,65"]
 |===
 | 如果要升级到的系统位于 ... | 那么 ... 
 
 
-| 双机箱配置（控制器位于不同机箱中） | 转至 <<man_install3_step15,第 15 步>>。 
+| 双机箱配置（控制器位于不同机箱中） | 前往<<man_install3_step8,第 8 步>>。 
 
 
 | 单机箱配置（控制器位于同一机箱中）  a| 
@@ -147,11 +106,11 @@ NOTE: 在启动环境提示符处保留node4；您将返回到中的node4 link:i
 
 .. 如果您在中看到警告消息，请执行此操作 <<man_install3_step4,第 4 步>>，按照中的说明进行操作 <<man_install3_step5,第 5 步>>
 .. 将控制台缆线从 node4 切回到 node3 。
-.. 转至 <<man_install3_step15,第 15 步>>。
+.. 前往<<man_install3_step8,第 8 步>>。
 
 
 |===
-. 【 man_install3_step15]] 为 ONTAP 配置 node3 ：
+. [[man_install3_step8]]为ONTAP配置 node3：
 +
 `set-defaults`
 

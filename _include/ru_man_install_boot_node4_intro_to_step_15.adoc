@@ -12,7 +12,6 @@
 [IMPORTANT]
 ====
 * 对于 AFF A800 或 AFF C800 控制器升级，在移除节点 2 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参见 link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
-* 如果您要升级 V 系列系统或连接到存储阵列的带有 FlexArray 虚拟化软件的系统，则需要完成<<man_install4_Step1,第 1 步>>通过<<man_install4_Step7,第 7 步>> ，请将此部分保留在<<man_install4_Step8,第 8 步>>并按照link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"]根据需要，在维护模式下输入命令。然后，您必须返回本节并继续执行<<man_install4_Step9,第 9 步>> 。
 * 如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后继续执行下一节link:set_fc_uta_uta2_config_node4.html["在 node4 上设置 FC 或 UTA/UTA2 配置"] ，在集群提示符下输入命令。
 
 
@@ -40,7 +39,7 @@
 以下参考资料可帮助您正确进行缆线连接。转至 link:other_references.html["参考资料"] 以链接到它们。
 
 +
-** node4 平台的 _Installation and Setup Instructions_or _FlexArray 虚拟化安装要求和参考 _ 。
+** node4 平台的_安装和设置说明_
 ** 相应的磁盘架操作步骤
 ** HA对管理文档
 +
@@ -92,51 +91,11 @@ WARNING: The battery is unfit to retain data during a power
 .. 让电池充电并完成启动过程。
 +
 
-WARNING: * 警告：不要覆盖此延迟。如果不允许电池充电，可能会导致数据丢失。 *
+WARNING: *不要覆盖延迟。如果电池无法充电，可能会导致数据丢失。*
 
 
 
-. [[man_install4_Step8]] 执行以下操作之一：
-+
-[cols="35,65"]
-|===
-| 如果您的系统 ... | 那么 ... 
-
-
-| 具有磁盘，无后端存储 | 跳过第 9 步到第 14 步，然后转到 <<man_install4_Step15,第 15 步>>。 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列  a| 
-.. 转至 _set the FC or UTA/UTA2 configuration on node4_ 一节并完成各节 link:set_fc_uta_uta2_config_node4.html#configure-fc-ports-on-node4["在节点 4 上配置 FC 端口"] 和 link:set_fc_uta_uta2_config_node4.html#check-and-configure-utauta2-ports-on-node4["检查并配置 node4 上的 UTA/UTA2 端口"]，根据您的系统情况而定。
-.. 返回到此部分，完成从开始的其余步骤 <<man_install4_Step9,第 9 步>>。
-
-
-
-IMPORTANT: 在V系列系统上启动ONTAP 之前、您必须重新配置FC板载端口、UTA/UTA2板载端口和UTA/UTA2卡。
-
-|===
-. 【 man_install4_Step9]] 将新节点的 FC 启动程序端口添加到交换机分区。
-+
-有关说明，请参见存储阵列和分区文档。
-
-. 将 FC 启动程序端口作为新主机添加到存储阵列，从而将阵列 LUN 映射到新主机。
-+
-有关说明，请参见存储阵列和分区文档。
-
-. 修改与存储阵列上的阵列 LUN 关联的主机或卷组中的全球通用端口名称（ WWPN ）值。
-+
-安装新控制器模块会更改与每个板载 FC 端口关联的 WWPN 值。
-
-. 如果您的配置使用基于交换机的分区，请调整分区以反映新的 WWPN 值。
-. 输入以下命令并检查其输出，以验证阵列 LUN 现在是否对 node4 可见：
-+
-`ssysconfig -v`
-
-+
-系统将显示每个 FC 启动程序端口可见的所有阵列 LUN 。如果阵列 LUN 不可见，则您不能在本节稍后将磁盘从 node2 重新分配到 node4 。
-
-. 按Ctrl-C显示启动菜单并选择维护模式。
-. 在维护模式提示符处，输入以下命令：
+. [[man_install4_Step8]]在维护模式提示符下，输入以下命令：
 +
 `halt`
 

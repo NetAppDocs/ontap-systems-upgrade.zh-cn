@@ -26,40 +26,14 @@ UTA/UTA2 端口可能位于具有以下配置的适配器或控制器上：
 
 但是，您可以检查 node4 上的 UTA/UTA2 端口的配置，并根据需要进行更改。
 
-* 注意 * ：如果您的系统具有存储磁盘，除非指示您进入维护模式，否则您可以在集群提示符处输入本节中的命令。如果您的 MetroCluster FC 系统， V 系列系统或安装了 FlexArray 虚拟化软件的系统连接到存储阵列，则必须处于维护模式才能配置 UTA/UTA2 端口。
+
+WARNING: 除非指示进入维护模式，否则请在集群提示符下输入本节中的命令。如果您有MetroCluster FC 系统，则必须处于维护模式才能配置 UTA/UTA2 端口。
 
 .步骤
-. 在 node4 上使用以下命令之一检查端口的当前配置方式：
+. 检查 node4 上端口的当前配置情况：
 +
-[cols="35,65"]
-|===
-| 如果系统 ... | 然后选择… 
+`ssystem node hardware unified-connect show`
 
-
-| 具有存储磁盘 | `ssystem node hardware unified-connect show` 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `ucadmin show` 
-|===
-+
-系统将显示类似于以下示例的输出：
-
-+
-....
-*> ucadmin show
-                Current  Current    Pending   Pending   Admin
-Node   Adapter  Mode     Type       Mode      Type      Status
-----   -------  ---      ---------  -------   --------  -------
-f-a    0e       fc       initiator  -          -        online
-f-a    0f       fc       initiator  -          -        online
-f-a    0g       cna      target     -          -        online
-f-a    0h       cna      target     -          -        online
-f-a    0e       fc       initiator  -          -        online
-f-a    0f       fc       initiator  -          -        online
-f-a    0g       cna      target     -          -        online
-f-a    0h       cna      target     -          -        online
-*>
-....
 . 如果当前 SFP+ 模块与所需用途不匹配，请将其更换为正确的 SFP+ 模块。
 +
 请联系您的 NetApp 代表以获取正确的 SFP+ 模块。
@@ -77,38 +51,34 @@ f-a    0h       cna      target     -          -        online
 
 | 拥有所需的个性化特性 | 跳过步骤 5 到步骤 12 ，然后转到 <<man_check_4_Step13,第 13 步>>。 
 |===
-. [[man_check_4_Step5]] 执行以下操作之一：
+. [[man_check_4_Step5]]如果系统有存储磁盘并且正在运行Data ONTAP 8.3，则启动 node4 并进入维护模式：
 +
-[cols="35,65"]
-|===
-| 如果系统 ... | 那么 ... 
+`boot_ontap maint`
 
+. 输入以下命令并检查其输出，以验证设置：
++
+`ucadmin show`
 
-| 具有存储磁盘，并且正在运行 Data ONTAP 8.3 | 启动 node4 并进入维护模式： `boot_ontap maint` 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 转至 <<man_check_4_Step6,第 6 步>>。您应已处于维护模式。 
-|===
-. [[man_check_4_Step6]] 执行以下操作之一：
+. 执行以下操作之一：
 +
 [cols="35,65"]
 |===
 | 如果要配置 | 那么 ... 
 
 
-| UTA/UTA2 卡上的端口 | 转至 <<man_check_4_Step7,第 7 步>>。 
+| UTA/UTA2 卡上的端口 | 前往<<man_check_4_Step8,第 8 步>>。 
 
 
-| 板载 UTA/UTA2 端口 | 跳过第 7 步，转到 <<man_check_4_Step8,第 8 步>>。 
+| 板载 UTA/UTA2 端口 | 跳过第 8 步并转到<<man_check_4_Step9,第 9 步>>。 
 |===
-. 【 man_check_4_Step7]] 如果适配器处于启动程序模式，并且 UTA/UTA2 端口处于联机状态，请使 UTA/UTA2 端口脱机：
+. [[man_check_4_Step8]]如果适配器处于启动器模式，并且 UTA/UTA2 端口处于在线状态，则将 UTA/UTA2 端口脱机：
 +
 `storage disable adapter _adapter_name_`
 
 +
 目标模式下的适配器会在维护模式下自动脱机。
 
-. [[man_check_4_Step8]] 如果当前配置与所需用途不匹配，请输入以下命令根据需要更改配置：
+. [[man_check_4_Step9]]如果当前配置与所需用途不匹配，请输入以下命令根据需要更改配置：
 +
 `ucadmin modify -m fc|cna -t initiators|target _adapter_name_`
 
@@ -119,49 +89,26 @@ f-a    0h       cna      target     -          -        online
 
 +
 
-NOTE: 您必须对磁带驱动器和 FlexArray 虚拟化系统使用 FC 启动程序。您必须对 SAN 客户端使用 FC 目标。
+NOTE: 您必须对磁带驱动器使用 FC 启动器，对 SAN 客户端使用 FC 目标。
 
-. 输入以下命令并检查其输出，以验证设置：
-+
-`ucadmin show`
-
-. 执行以下操作之一：
-+
-[cols="35,65"]
-|===
-| 如果系统 ... | 那么 ... 
-
-
-| 具有存储磁盘  a| 
-.. 输入以下命令：
+. 如果系统有存储磁盘，请输入以下命令：
 +
 `halt`
 
 +
 系统将在启动环境提示符处停止。
 
++
 .. 输入以下命令：
 +
 `boot_ontap`
 
 
 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件，并连接到存储阵列且运行 Data ONTAP 8.3 | 重新启动到维护模式： `boot_ontap maint` 
-|===
-. 验证设置：
+. 如果系统有存储磁盘，请输入以下命令：
 +
-[cols="35,65"]
-|===
-| 如果系统 ... | 那么 ... 
+`ssystem node hardware unified-connect show`
 
-
-| 具有存储磁盘 | 输入以下命令： `ssystem node hardware unified-connect show` 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 输入以下命令： `ucadmin show` 
-|===
 +
 以下示例中的输出显示， FC4 类型的适配器 "1b" 更改为 `initiator` ，适配器 "2a" 和 "2b" 的模式更改为 `CNA` 。
 
@@ -178,43 +125,9 @@ f-a    2a      fc       target    cna      -          online
 f-a    2b      fc       target    cna      -          online
 4 entries were displayed.
 ----
-+
-[listing]
-----
-*> ucadmin show
-               Current Current   Pending  Pending    Admin
-Node  Adapter  Mode    Type      Mode     Type       Status
-----  -------  ------- --------- -------  -------    -----
-f-a    1a      fc      initiator -        -          online
-f-a    1b      fc      target    -        initiator  online
-f-a    2a      fc      target    cna      -          online
-f-a    2b      fc      target    cna      -          online
-4 entries were displayed.
-*>
-----
 . 输入以下命令之一，使所有目标端口联机，每个端口输入一次：
 +
-[cols="35,65"]
-|===
-| 如果系统 ... | 那么 ... 
+`network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up`
 
-
-| 具有存储磁盘 | `network fcp adapter modify -node _node_name_-adapter _adapter_name_-state up` 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | `FCP config _adapter_name_ up` 
-|===
 . 【 man_check_4_Step13]] 连接端口。
-. 执行以下操作之一：
-+
-[cols="35,65"]
-|===
-| 如果系统 ... | 那么 ... 
-
-
-| 具有存储磁盘 | 转至 link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。 
-
-
-| 是 V 系列系统或具有 FlexArray 虚拟化软件并连接到存储阵列 | 返回到 _Install and boot node4_ 部分，然后继续执行中的部分 link:install_boot_node4.html#man_install4_Step9["第 9 步"]。 
-|===
 

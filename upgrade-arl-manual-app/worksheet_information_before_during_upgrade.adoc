@@ -37,9 +37,6 @@ summary: 在对运行 ONTAP 9.8 或更高版本的控制器执行手动 ARL 升�
 | （仅限 SAN 环境） FC 端口的默认配置 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 在新节点上配置 FC 端口时 |  
 
 
-| （仅限使用 FlexArray 虚拟化软件的 V 系列系统或系统）适用于使用 FlexArray 虚拟化软件的 V 系列系统或系统的拓扑 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 3 阶段： _Install and boot node3_ 第 5 阶段： _Install and boot node4_ |  
-
-
 | SP 的 IP 地址 | 第 1 阶段： _Prepare the nodes for the upgrad_ | 第 6 阶段： _Confirm that the new controllers are set up correctly _ |  
 
 

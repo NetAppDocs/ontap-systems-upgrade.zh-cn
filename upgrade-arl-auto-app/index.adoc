@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app/index.html 
-keywords: aggregate, relocation, controller, hardware, aggregates, flexarray, metrocluster, terminology 
+keywords: aggregate, relocation, controller, hardware, aggregates, metrocluster, terminology 
 summary: '您可以使用 `ssystem controller replace` 命令重新定位非根聚合的所有权，从而升级运行 ONTAP 9.8 或更高版本的控制器硬件。' 
 ---
 = 了解 ARL 升级程序
@@ -19,9 +19,9 @@ summary: '您可以使用 `ssystem controller replace` 命令重新定位非根�
 在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确认在整个升级操作步骤 中至少有一个节点正在从聚合提供数据。您还可以迁移数据逻辑接口（ LIF ），并在继续操作时将新控制器上的网络端口分配给接口组。
 
 .此信息中使用的术语
-在此信息中，原始节点称为 "node1" 和 "node2" ，新节点称为 "node3" 和 "node4" 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。术语 "node1" ， "node2" ， "node3" 和 "node4" 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。
+在此信息中，原始节点称为 "node1" 和 "node2" ，新节点称为 "node3" 和 "node4" 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。
 
-在整个信息中，术语 " 使用 FlexArray 虚拟化软件的系统 " 是指属于这些新平台的系统。术语 "V 系列系统 " 是指可以连接到存储阵列的单独硬件系统。
+术语 "node1" ， "node2" ， "node3" 和 "node4" 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。
 
 .重要信息：
 * 此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还必须阅读并理解link:guidelines_for_upgrading_controllers_with_arl.html["使用 ARL 升级控制器的指南"]和link:overview_of_the_arl_upgrade.html["ARL 升级序列"]在开始升级之前。
@@ -31,7 +31,7 @@ summary: '您可以使用 `ssystem controller replace` 命令重新定位非根�
 此升级操作步骤主要是适用场景升级情形，其中您要更换的控制器型号不支持更高的 ONTAP 版本，而新控制器不支持更早的 ONTAP 版本。
 
 * 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个高可用性（ HA ）对单独执行操作步骤。
-* 此操作步骤适用场景 FAS 系统， V 系列系统， AFF 系统以及安装了 FlexArray 虚拟化软件的系统。如果安装了所需的许可证，则在 ONTAP 9.5 之后发布的 FAS 系统可以连接到存储阵列。有关存储阵列和 V 系列型号的详细信息，请参见 link:other_references.html["参考资料"] 要链接到 _V Hardware Universe 系列支持表，请访问 V 系列支持表。
+* 此程序适用于FAS系统和AFF系统。
 * 此操作步骤适用场景系统运行 4 节点 NetApp MetroCluster 配置或更高版本。由于 MetroCluster 配置站点可以位于两个物理上不同的位置，因此对于 HA 对，必须在每个 MetroCluster 站点上单独执行控制器自动升级。
 * 对于非 MetroCluster 系统，例如 HA 集群， ARL 升级是唯一受支持的操作步骤。
 * 如果要从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
