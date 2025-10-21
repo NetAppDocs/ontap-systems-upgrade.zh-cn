@@ -1,0 +1,86 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html 
+keywords: relocating, non-root, aggregates, nas, data, lif, node1, node2, NVRAM, controller, module, modules 
+summary: 在使用ARL升级同一机箱中的控制器型号时、将非根聚合和NAS数据LIFs从node1移至node2并还原node1的资源。 
+---
+= 将节点 1 拥有的非根聚合和 NAS 数据 LIF 重新定位到节点 2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将node1替换为用于系统升级的替代模块之前、您必须先将非根聚合和NAS数据LUN从node1移动到node2、然后才能最终将node1资源还原回替代系统上运行的node1。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。
+
+.开始之前
+开始任务时，此操作应已暂停；您必须手动恢复此操作。
+
+.关于此任务
+在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。在升级期间，您无需移动 SAN LIF 即可实现集群或服务运行状况。在将node1作为替代系统置于联机状态后、您必须验证这些生命周期是否运行正常且位于相应的端口上。
+
+
+NOTE: 不会修改聚合和 LIF 的主所有者；只会修改当前所有者。
+
+.步骤
+. 恢复聚合重新定位和 NAS 数据 LIF 移动操作：
++
+`s系统控制器更换恢复`
+
++
+所有非根聚合和 NAS 数据 LIF 都会从 node1 迁移到 node2 。
+
++
+此操作将暂停，以便验证是否已将所有 node1 非根聚合和非 SAN 数据 LIF 迁移到 node2 。
+
+. 检查聚合重新定位和 NAS 数据 LIF 移动操作的状态：
++
+`s系统控制器更换 show-details`
+
+. 在操作仍处于暂停状态的情况下，验证所有非根聚合在 node2 上的状态是否均处于联机状态：
++
+`storage aggregate show -node <node2> -state online -root false`
+
++
+以下示例显示 node2 上的非根聚合处于联机状态：
+
++
+[listing]
+----
+cluster::> storage aggregate show -node node2 -state online -root false
+
+Aggregate  Size     Available  Used%  State  #Vols  Nodes  RAID Status
+---------  -------  ---------  -----  ------ -----  ------ --------------
+aggr_1     744.9GB  744.8GB    0%     online     5  node2  raid_dp,normal
+aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
+2 entries were displayed.
+----
++
+如果 node2 上的聚合脱机或变为外部聚合，请在 node2 上使用以下命令将其联机，每个聚合一次：
+
++
+`storage aggregate online -aggregate <aggregate_name>`
+
+. 在 node2 上使用以下命令并检查其输出，以验证 node2 上的所有卷是否联机：
++
+`volume show -node <node2> -state offline`
+
++
+如果 node2 上的任何卷脱机，请在 node2 上使用以下命令将其联机，每个卷一次：
+
++
+`volume online -vserver <vserver_name> -volume <volume_name>`
+
++
+这 `vserver_name`使用此命令的方法可以在上一个命令的输出中找到 `volume show`命令。
+
+
+
+. `步骤 5]] 如果任何 LIF 已关闭，请使用以下命令将 LIF 的管理状态设置为` up ，每个 LIF 一次：
++
+`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _nodename_-status-admin up`
+
+

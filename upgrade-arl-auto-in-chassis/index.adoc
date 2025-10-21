@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/index.html 
+keywords: aggregate, relocation, controller, hardware, aggregates, metrocluster, terminology, old, system, chassis, disk, disks 
+summary: 您可以通过将旧系统转换为替代系统来升级控制器硬件、并保留旧系统机箱和磁盘。 
+---
+= 了解 ARL 升级程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+升级控制器硬件有多种聚合重定位 (ARL) 方法。此过程介绍如何通过将现有系统转换为替换系统（保留现有系统机箱和磁盘）来升级 HA 对中的存储控制器。
+
+ARL可利用HA配置和集群互连通信。这样、如果非根聚合在同一集群中共享存储、您可以将它们的所有权从一个节点移动到另一个节点。
+
+在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在旧控制器节点之间迁移非根聚合。安装替代节点后、您可以将非根聚合从旧控制器节点迁移到替代控制器节点。在升级操作步骤期间，您可以访问要升级的节点上托管的数据。在继续操作时，您还可以在集群中的节点之间迁移数据 LIF 。
+
+更换的控制器硬件取决于现有系统型号类型：
+
+[cols="30,70"]
+|===
+| 现有系统 | 那么 ... 
+
+
+| AFF A250、AFF C250 | 将两个AFF A250或AFF C250控制器交换为新控制器和I/O模块。 
+
+
+| AFF A800、AFF C800 | 将两个AFF A800或AFF C800控制器交换为新控制器和I/O模块。 
+
+
+| AFF A220、AFF A200、AFF C190、FAS2620或FAS2720 | 将旧控制器上每个节点上的控制器模块交换为新模块。 
+
+
+| AFF A700或FAS9000 | 将旧控制器上每个节点上的控制器和NVRAM模块交换为新模块。*注意*：您无需移动、断开或重新连接I/O卡、数据线、磁盘架和磁盘。 
+|===
+
+NOTE: 术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。按照此过程进行操作时、您必须替换节点的实际名称。
+
+
+
+== 要求和限制
+
+在开始升级过程之前，您需要考虑一些重要因素。
+
+
+NOTE: 在开始升级过程之前，您必须查看以下所有重要信息。
+
+* 此操作步骤非常复杂，假定您具备高级 ONTAP 管理技能。您还应该阅读并理解link:guidelines_for_upgrading_controllers_with_arl.html["控制器升级指南"]和link:overview_of_the_arl_upgrade.html["ARL 升级序列"]在开始升级之前。
+* 此操作步骤假定更换用的控制器硬件是新的，尚未在其他系统中使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果更换用的控制器硬件先前已用作另一个 ONTAP 集群的一部分或用作独立的单节点系统，则必须联系技术支持。
+* 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个 HA 对单独执行操作步骤。
+* 如果您的交换机不受ONTAP版本和要升级到的替代系统支持、请参阅 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。
+* AFF A250 和 AFF C250 系统使用 10/25 GbE 板载端口进行集群互连。要将 AFF A250 或 AFF C250 系统的双节点无交换机集群升级到 AFF A50、AFF A30、AFF C60 或 AFF C30 系统，必须在两个节点的插槽 1 中使用 X60132A 4 端口 10/25 GbE 卡。这为集群 LIF 提供了与目标平台上临时端口的集群互连。
+* AFF A30、AFF A50、AFF A70、AFF A90、AFF A1K、AFF C30、AFF C60、AFF C80、FAS70和FAS90系统会为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：
++
+--
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_configure_10G_or_25G_cluster_ports_on_a_new_cluster_setup["如何在新的集群设置中配置10G或25G集群端口"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/How_to_convert_existing_10G_or_25G_cluster_ports_to_40G_or_100G_cluster_ports["如何将现有10 G或25 G集群端口转换为40 G或100 G集群端口"^]
+
+
+--
++
+如果无法将现有节点上的e0a或e0b集群端口链接到新节点上的集群端口、请参见以下内容以了解详细信息：
+
++
+** link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/JiraNgage/CONTAP-166978["NetApp错误在线中的错误ID COBTP-166978"^]
+** https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1127315["NetApp错误在线中的错误ID 1127315"^]
+
+
+* ASA A900、AFF A900和FAS9500系统仅支持高端电源(200V至240V)。如果您的AFF A700或FAS9000系统使用低端电源(100V到120V)运行、则必须先转换AFF A700或FAS9000输入电源、然后才能使用此操作步骤。
+* 如果要从中包含停机时间的现有系统升级<<supported-systems-in-chassis,支持的系统列表>>，则可以通过移动存储来升级控制器硬件，或者与技术支持联系。请参见 link:other_references.html["参考资料"] 链接到_Upgrade by Moving volumes"或"storage"。
+
+
+
+
+== 自动执行控制器升级过程
+
+此操作步骤提供了自动化操作步骤的步骤、该步骤使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。

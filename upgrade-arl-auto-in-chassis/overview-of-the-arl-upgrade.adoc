@@ -1,0 +1,103 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/overview-of-the-arl-upgrade.html 
+keywords: overview, arl, upgrade, owner, controller, hardware, old, system, chassis, disk, disks 
+summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。 
+---
+= 了解 ARL 升级顺序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在使用 ARL 升级节点之前，您应了解操作步骤的工作原理。在此内容中，操作步骤将分为多个阶段。
+
+
+
+== 升级节点对
+
+要升级节点对，您需要准备原始节点，然后对原始节点和新节点执行一系列步骤。然后，您可以停用原始节点。
+
+
+
+== ARL 升级顺序概述
+
+在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，一次升级一个控制器，从而利用 HA 对配置重新定位非根聚合的所有权。所有非根聚合都必须进行两次重新定位，才能到达其最终目标，即正确的升级节点。
+
+每个聚合都有一个主所有者和当前所有者。主所有者是聚合的实际所有者，当前所有者是临时所有者。
+
+下表介绍了您在每个阶段执行的高级任务以及此阶段结束时的聚合所有权状态。操作步骤稍后将提供详细步骤：
+
+[cols="35,65"]
+|===
+| 阶段 | 步骤 
+
+
+| link:verify_upgrade_hardware.html["第 1 阶段：准备升级"]  a| 
+在第1阶段、您需要验证是否具有用于升级的正确硬件、并运行预检、如果需要、还需要正确的聚合所有权。如果您要使用板载密钥管理器管理存储加密、并且可以选择将SnapMirror关系静置、则必须记录某些信息。
+
+阶段 1 结束时的聚合所有权：
+
+* node1 是 node1 聚合的主所有者和当前所有者
+* node2 是 node2 聚合的主所有者和当前所有者
+
+
+
+
+| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["第2阶段：重新定位资源并停用node1"]  a| 
+在第2阶段、您需要将node1非根聚合和NAS数据生命周期从node1重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node1。
+
+阶段 2 结束时的聚合所有权：
+
+* node2 是 node1 聚合的当前所有者
+* node2 是 node2 聚合的主所有者和当前所有者
+
+
+
+
+| link:cable-node1-for-shared-cluster-HA-storage.html["第3阶段：使用替代系统模块启动node1"]  a| 
+在第3阶段、使用升级的系统模块启动node1、并验证升级后的node1安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node2重新定位到升级后的node1、并验证node1上是否存在SAN LIF。
+
+第 3 阶段结束时的聚合所有权：
+
+* 升级后的node1是node1聚合的主所有者和当前所有者
+* node2 是 node2 聚合的主所有者和当前所有者
+
+
+
+
+| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["第4阶段：重新定位资源并停用node2"]  a| 
+在阶段4中、您将非根聚合和NAS数据LIF从node2重新定位到升级后的node1并停用node2。
+
+第 4 阶段结束时的聚合所有权：
+
+* 升级后的 node1 是最初属于 node1 的聚合的主所有者和当前所有者
+* 升级后的 node1 是 node2 聚合的当前所有者
+
+
+
+
+| link:install-aff-a30-a50-c30-c50-node2.html["第5阶段：在node2上安装替代系统模块"]  a| 
+在第5阶段、先安装为升级后的node2收到的新系统模块、然后再安装netboot node2。
+
+第 5 阶段结束时的聚合所有权：
+
+* 升级后的node1是最初属于node1的聚合的主所有者和当前所有者。
+* 升级后的 node2 是最初属于 node2 的聚合的主所有者和当前所有者。
+
+
+
+
+| link:boot_node2_with_a900_controller_and_nvs.html["第6阶段：使用替代系统模块启动node2"]  a| 
+在第 6 阶段，您使用升级的系统模块启动 node2 并验证升级后的 node2 安装。如果您正在使用 NVE，您可以恢复密钥管理器配置。对于交换机连接集群升级，您需要验证集群交换机参考配置文件 (RCF) 是否支持共享集群/HA 端口。您还将节点 1 的非根聚合和 NAS 数据 LIF 从节点 1 重新定位到升级后的节点 2，并验证 SAN LIF 是否存在于节点 2 上。
+
+
+
+| link:manage-authentication-using-kmip-servers.html["第 7 阶段：完成升级"]  a| 
+在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。
+
+|===

@@ -63,7 +63,7 @@ summary: 使用聚合重新定位升级控制器硬件
 
 == 升级同一机箱中的控制器型号
 
-如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"]开始升级过程。
+如果您的升级方案列在以下受支持系统矩阵中，请转到link:../upgrade-arl-auto-in-chassis/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"]开始升级过程。
 
 .显示支持的系统
 [%collapsible]

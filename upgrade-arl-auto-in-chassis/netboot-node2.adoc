@@ -1,0 +1,241 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/netboot-node2.html 
+keywords: preparing, prepare, netboot, ontap, node2 
+summary: 在使用ARL升级同一机箱中的控制器型号时、在交换相应的替代node2系统模块后、您可能需要对其进行网络启动。 
+---
+= 网络启动节点 2.
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在交换相应的替换node2系统模块后、您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您会将ONTAP 9启动映像的副本放置到系统可以访问的Web服务器上。
+
+除非将替换控制器模块安装在机箱中并打开电源，否则无法检查其启动介质上安装的 ONTAP 版本。替代系统启动介质上的ONTAP版本必须与要升级的旧系统上运行的ONTAP版本相同、并且主启动映像和备份启动映像必须匹配。您可以通过执行网络启动，然后执行 `wipeconfig`命令。如果控制器模块之前已在其他集群中使用，则 `wipeconfig`命令清除启动媒体上的任何残留配置。
+
+您也可以使用 USB 启动选项执行网络启动。请参见知识库文章 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["如何使用boot_recovery loader命令安装ONTAP 以进行系统初始设置"^]。
+
+.开始之前
+* 确认您可以使用系统访问 HTTP 服务器。
+* 从 _NetApp 支持站点 _ 下载适用于您的系统和正确版本的 ONTAP 所需的系统文件。请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 。
+
+
+.关于此任务
+如果新控制器上安装的 ONTAP 9 版本与原始控制器上安装的版本不同，则必须通过网络启动这些控制器。安装每个新控制器后，您可以从 Web 服务器上存储的 ONTAP 9 映像启动系统。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。
+
+.步骤
+. 请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 以下载用于执行系统网络启动的文件。
+. 【 netboot_node2_step2]] 从 NetApp 支持站点的软件下载部分下载相应的 ONTAP 软件，并将 `ontap_version_image.tgz` 文件存储在可通过 Web 访问的目录中。
+. 切换到可通过 Web 访问的目录，并验证所需文件是否可用。
+. 您的目录列表应包含 `ontap_version_image.tgz` 。
+. 通过选择以下操作之一来配置网络启动连接。
++
+
+NOTE: 您必须使用管理端口和 IP 作为网络启动连接。请勿使用数据 LIF IP ，否则在执行升级期间可能会发生数据中断。
+
++
+[cols="35,65"]
+|===
+| 动态主机配置协议（ DHCP ） | 那么 ... 
+
+
+| 正在运行 | 在启动环境提示符处使用以下命令自动配置连接： `ifconfig e0M -auto` 
+
+
+| 未运行  a| 
+在启动环境提示符处使用以下命令手动配置连接：
+`ifconfig e0M -addr=_filer_addr_ -mask=_netmask_ -gw=_gateway_ -dns=_dns_addr_ -domain=_dns_domain_`
+
+`_filer_addr_` 是存储系统的IP地址(必填)。
+`_netmask_` 是存储系统的网络掩码(必需)。
+`_gateway_` 是存储系统的网关(必需)。
+`_dns_addr_` 是网络上名称服务器的IP地址(可选)。
+`_dns_domain_` 是域名服务(DNS)域名(可选)。
+
+
+NOTE: 您的接口可能需要其他参数。有关详细信息，请在固件提示符处输入 `help ifconfig` 。
+
+|===
+. 对 node2 执行网络启动：
++
+`netboot \http://web_server_ip/path_to_web_accessible_directory/netboot/kernel`
+
++
+
+NOTE: 请勿中断启动。
+
+. 等待替代控制器模块上正在运行的node2启动、并显示启动菜单选项、如以下输出所示：
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)?
+----
+. 从启动菜单中，选择选项 ` （ 7 ） Install new software first` 。
++
+此菜单选项可下载新的 ONTAP 映像并将其安装到启动设备中。
+
++
+请忽略以下消息：
+
++
+`This procedure is not supported for Non-Disruptive Upgrade on an HA pair`
+
++
+本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。
+
++
+
+NOTE: 请始终使用 netboot 将新节点更新为所需映像。如果您使用其他方法在新控制器上安装映像，则可能会安装不正确的映像。此问题描述适用场景所有 ONTAP 版本。netboot操作步骤 与选项结合使用 `(7) Install new software` 擦除启动介质并将相同的ONTAP 版本放置在两个映像分区上。
+
+. 如果系统提示您继续运行操作步骤，请输入 `y` ，然后在系统提示您输入软件包时，输入 URL ： ` \http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`
++
+`path_to_the_web-accessible_directory` 应指向下载 `ontap_version_image.tgz` 的位置 <<netboot_node2_step2,第 2 步>>。
+
+. 完成以下子步骤以重新启动控制器模块：
++
+.. 出现以下提示时，输入 `n` 以跳过备份恢复：
++
+[listing]
+----
+Do you want to restore the backup configuration now? {y|n}
+----
+.. 出现以下提示时，输入 `y` 以重新启动：
++
+[listing]
+----
+The node must be rebooted to start using the newly installed software. Do you want to reboot now? {y|n}
+----
++
+控制器模块重新启动，但停留在启动菜单处，因为启动设备已重新格式化，并且必须还原配置数据。
+
+
+
+. 清除启动媒体上的所有先前配置。
++
+.. 在以下提示符下，运行 `wipeconfig`命令，然后按回车键：
++
+[listing]
+----
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? wipeconfig
+----
+.. 当您看到以下消息时，问题解答 `yes` ：
++
+[listing]
+----
+This will delete critical system configuration, including cluster membership.
+Warning: do not run this option on a HA node that has been taken over.
+Are you sure you want to continue?:
+----
+.. 节点将重新启动以完成 `wipeconfig` ，然后停留在启动菜单处。
++
+
+NOTE: 等待节点完成启动菜单后停止 `wipeconfig`手术。
+
+
+
+. 从启动菜单中选择维护模式 `5` ，并在系统提示您继续启动时输入 `y` 。
+. 验证控制器和机箱是否配置为 `ha` ：
++
+`ha-config show`
+
++
+以下示例显示了 `ha-config show` 命令的输出：
+
++
+[listing]
+----
+Chassis HA configuration: ha
+Controller HA configuration: ha
+----
+. 如果控制器和机箱未配置为 `ha` ，请使用以下命令更正配置：
++
+`ha-config modify controller ha`
+
++
+`ha-config modify chassis ha`
+
+. 暂停节点 2 ：
++
+`halt`
+
++
+node2 应在 LOADER 提示符处停止。
+
+. 在node1上、检查系统日期、时间和时区：
++
+`dATE`
+
+. 在 node2 上，在启动环境提示符处使用以下命令检查日期：
++
+`s如何选择日期`
+
+. 如有必要，请在 node2 上设置日期：
++
+`set date _MM/dd/yyy_`
+
++
+
+NOTE: 在 node2 上设置相应的 UTC 日期。
+
+. 在 node2 上，在启动环境提示符处使用以下命令检查时间：
++
+`s时间`
+
+. 如有必要，请在 node2 上设置时间：
++
+`set time _hh：mm：ss_`
+
++
+
+NOTE: 在 node2 上设置相应的 UTC 时间。
+
+. 在node2上设置配对系统ID：
++
+`setenv partner-sysid _node1_sysid_`
+
++
+对于node2、为 `partner-sysid` 必须是要升级的节点1的节点。
+
++
+.. 保存设置：
++
+`saveenv`
+
+
+
+. 在node2上的LOADER提示符处、验证 `partner-sysid` 对于node2：
++
+`printenv partner-sysid`
+
+

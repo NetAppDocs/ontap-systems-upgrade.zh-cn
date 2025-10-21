@@ -1,0 +1,256 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/boot-node1-with-a900-controller-and-nvs.html 
+keywords: boot, NVRAM, controller, module, node1, replacement 
+summary: 使用ARL升级同一机箱中的控制器型号时、使用替代控制器模块启动node1。 
+---
+= 使用替代系统模块启动node1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+包含替代模块的node1现在可启动。中列出了支持的更换模块link:index.html#supported-systems,["支持的系统列表"]。
+
+[NOTE]
+====
+更换控制器模块时、请将所有连接从旧的移至更换的控制器模块。
+
+更换控制器和NVRAM模块时、请仅移动控制台和管理连接。
+
+====
+.步骤
+. (仅限AFF A250、AFF C250、AFF A800或AFF C800升级)在Loader提示符处、进入维护模式：
++
+`boot_ontap maint`
+
++
+.. 回答 `y`到混合平台确认提示。
+.. 回答 `yes` 确认提示。
+.. 显示100GbE接口的状态：
++
+`storage port show`(英文)
+
++
+连接到NS224磁盘架或存储交换机的所有100GbE端口均应报告为 `storage` 端口、如以下示例输出所示。
+
++
+[listing]
+----
+*> storage port show
+Port Type Mode    Speed(Gb/s) State    Status  VLAN ID
+---- ---- ------- ----------- -------- ------- -------
+e8a  ENET storage 100 Gb/s    enabled  online  30
+e8b  ENET storage 100 Gb/s    enabled  online  30
+e11a ENET storage 100 Gb/s    enabled  online  30
+e11b ENET storage 100 Gb/s    enabled  online  30
+----
+.. 退出维护模式：
++
+`halt`
+
+
+
+. [[A900_boot_node1]]如果您安装了 NetApp 存储加密 (NSE) 驱动器，请执行以下步骤：
++
+
+NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定正在使用的自加密驱动器的类型。
+
++
+.. 设置 `bootarg.storageencryption.support` to `true` 或 `false`：
++
+[cols="35,65"]
+|===
+| 如果正在使用以下驱动器、请使用… | 然后选择… 
+
+
+| 符合FIPS 140-2 2级自加密要求的NSE驱动器 | `setenv bootarg.storageencryption.support *true*` 
+
+
+| NetApp非FIPS SED | `setenv bootarg.storageencryption.support *false*` 
+|===
++
+[NOTE]
+====
+不能在同一节点或HA对上混用FIPS驱动器和其他类型的驱动器。您可以在同一节点或HA对上混用SED和非加密驱动器。
+
+====
+.. 转到专用启动菜单并选择选项 `(10) Set Onboard Key Manager recovery secrets`。
++
+输入先前记录的操作步骤 密码短语和备份信息。请参见 link:manage_storage_encryption_using_okm.html["使用板载密钥管理器管理存储加密"]。
+
+
+
+. 将节点启动至启动菜单：
++
+`boot_ontap 菜单`
+
+. 当节点在启动菜单处停止时，通过在 node1 上运行以下命令将旧的 node1 磁盘重新分配给替换 node1：
++
+`boot_after_controller_replacement`
+
++
+经过短暂延迟后、系统将提示您输入要替换的节点的名称。如果存在共享磁盘(也称为高级磁盘分区(Advanced Disk Partitioning、ADP)或分区磁盘)、系统将提示您输入HA配对节点的节点名称。
+
++
+这些提示可能会被埋在控制台消息中。如果未输入节点名称或输入的名称不正确、系统将提示您重新输入此名称。
+
++
+[NOTE]
+====
+如果` localhost：disk.encryptNoSupport：aler]：检测到FIPS认证的加密驱动器`和、或`、则执行以下步骤：localhost：diskown.errorDuringIO：error]：disk` error 3 (disk failed) on disk error occur、则执行以下步骤：
+
+.. 在LOADER提示符处暂停节点。
+.. 检查并重置中所述的存储加密启动器 <<A900_boot_node1,第 2 步>>。
+.. 在加载程序提示符处、启动：
++
+`boot_ontap`
+
+
+
+====
++
+您可以使用以下示例作为参考：
+
++
+.展开控制台输出示例
+[%collapsible]
+====
+[listing]
+----
+LOADER-A> boot_ontap menu
+.
+.
+<output truncated>
+.
+All rights reserved.
+*******************************
+*                             *
+* Press Ctrl-C for Boot Menu. *
+*                             *
+*******************************
+.
+<output truncated>
+.
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? 22/7
+
+(22/7)                          Print this secret List
+(25/6)                          Force boot with multiple filesystem disks missing.
+(25/7)                          Boot w/ disk labels forced to clean.
+(29/7)                          Bypass media errors.
+(44/4a)                         Zero disks if needed and create new flexible root volume.
+(44/7)                          Assign all disks, Initialize all disks as SPARE, write DDR labels
+.
+.
+<output truncated>
+.
+.
+(wipeconfig)                        Clean all configuration on boot device
+(boot_after_controller_replacement) Boot after controller upgrade
+(boot_after_mcc_transition)         Boot after MCC transition
+(9a)                                Unpartition all disks and remove their ownership information.
+(9b)                                Clean configuration and initialize node with partitioned disks.
+(9c)                                Clean configuration and initialize node with whole disks.
+(9d)                                Reboot the node.
+(9e)                                Return to main boot menu.
+
+
+
+The boot device has changed. System configuration information could be lost. Use option (6) to restore the system configuration, or option (4) to initialize all disks and setup a new system.
+Normal Boot is prohibited.
+
+Please choose one of the following:
+
+(1)  Normal Boot.
+(2)  Boot without /etc/rc.
+(3)  Change password.
+(4)  Clean configuration and initialize all disks.
+(5)  Maintenance mode boot.
+(6)  Update flash from backup config.
+(7)  Install new software first.
+(8)  Reboot node.
+(9)  Configure Advanced Drive Partitioning.
+(10) Set Onboard Key Manager recovery secrets.
+(11) Configure node for external key management.
+Selection (1-11)? boot_after_controller_replacement
+
+This will replace all flash-based configuration with the last backup to disks. Are you sure you want to continue?: yes
+
+.
+.
+<output truncated>
+.
+.
+Controller Replacement: Provide name of the node you would like to replace:<nodename of the node being replaced>
+Controller Replacement: Provide High Availability partner of node1: <nodename of the partner of the node being replaced>
+Changing sysid of node node1 disks.
+Fetched sanown old_owner_sysid = 536940063 and calculated old sys id = 536940063
+Partner sysid = 4294967295, owner sysid = 536940063
+.
+.
+<output truncated>
+.
+.
+varfs_backup_restore: restore using /mroot/etc/varfs.tgz
+varfs_backup_restore: attempting to restore /var/kmip to the boot device
+varfs_backup_restore: failed to restore /var/kmip to the boot device
+varfs_backup_restore: attempting to restore env file to the boot device
+varfs_backup_restore: successfully restored env file to the boot device wrote key file "/tmp/rndc.key"
+varfs_backup_restore: timeout waiting for login
+varfs_backup_restore: Rebooting to load the new varfs
+Terminated
+<node reboots>
+
+System rebooting...
+
+.
+.
+Restoring env file from boot media...
+copy_env_file:scenario = head upgrade
+Successfully restored env file from boot media...
+Rebooting to load the restored env file...
+.
+System rebooting...
+.
+.
+.
+<output truncated>
+.
+.
+.
+.
+WARNING: System ID mismatch. This usually occurs when replacing a boot device or NVRAM cards!
+Override system ID? {y|n} y
+.
+.
+.
+.
+Login:
+----
+====
++
+[NOTE]
+====
+上述示例中显示的系统 ID 是示例 ID 。要升级的节点的实际系统 ID 将不同。
+
+在提示符和登录提示符处输入节点名称之间，节点会重新启动几次以还原环境变量，更新系统中卡上的固件以及进行其他 ONTAP 更新。
+
+====
+

@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/verify-rcf-configuration.html 
+keywords: aggregate, relocation, cluster, switch, rcf, shared 
+summary: 验证集群交换机 RCF 是否支持用于交换机连接集群升级的新控制器的共享集群/HA 端口。 
+---
+= 验证集群交换机上的 RCF 配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在升级过程的这个阶段，所有数据聚合都应位于节点 1 上。如果您要升级具有交换机连接集群的配置，则需要验证集群交换机参考配置文件 (RCF) 是否支持新控制器的共享集群/HA 端口。
+
+如果您要升级到双节点无交换机集群配置，则可以跳过本节并转至link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["将非根聚合和 NAS 数据 LIF 移回 node2"]。
+
+.步骤
+. 切换到高级权限模式：
++
+`set advanced`
+
+. 检查“IC RDMA”的状态：
++
+`ha interconnect status show`
+
++
+在输出中，“IC RDMA 连接”应具有状态 `Up`。
+
++
+[cols="50,50"]
+|===
+| 如果“IC RDMA 连接”状态为... | 然后选择… 
+
+
+| `Up` | 前往link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["将非根聚合和 NAS 数据 LIF 移回 node2"]。 
+
+
+| `Down` | 前往<<verify-rcf-step3,第 3 步>>。 
+|===
+. 检查集群端口和交换机 RCF。
++
+有关详细信息，请参见 link:cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["连接到交换机连接的集群"]。
+
+. 验证“IC RDMA 连接”状态是否已更改为 `Up`：
++
+`ha interconnect status show`
+
+
+
+.下一步
+link:move_non_root_aggr_and_nas_data_lifs_back_to_node2.html["将非根聚合和 NAS 数据 LIF 移回 node2"]

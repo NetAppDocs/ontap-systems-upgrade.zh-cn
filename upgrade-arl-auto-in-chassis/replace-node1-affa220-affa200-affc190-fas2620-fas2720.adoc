@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/replace-node1-affa220-affa200-affc190-fas2620-fas2720.html 
+keywords: aff, asa, fas, replace, node1, system, modules 
+summary: 在使用ARL升级同一机箱中的控制器型号时、更换节点1 AFF A220、AFF A200、AFF C190、FAS2620或FAS2720系统模块。 
+---
+= 更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720控制器模块
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下node1控制器模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。
+
+
+CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并连接到相同的电源。
+
+.开始之前
+如果您尚未接地，请正确接地。
+
+
+
+== 卸下AFF A220、AFF A200、AFF C190、FAS2620或FAS2720控制器模块
+
+要拆装控制器内部的组件、请从系统中卸下控制器模块、然后卸下控制器模块的护盖。
+
+.步骤
+. Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFPs (if needed) from the controller module, keeping track of where the cables were connected.
++
+Leave the cables in the cable management device so that when you reinstall the cable management device, the cables are organized.
+
+. Remove and set aside the cable management devices from the left and right sides of the controller module.
++
+image:drw_25xx_cable_management_arm.png["卸下缆线管理ARM"]
+
+. Squeeze the latch on the cam handle until it releases, open the cam handle fully to release the controller module from the midplane, and then, using two hands, pull the controller module out of the chassis.
++
+image:drw_2240_x_opening_cam_latch.png["打开凸轮把手"]
+
+. Turn the controller module over and place it on a flat, stable surface.
+
+
+
+
+== 安装ASA A150、AFF A150或FAS2820控制器模块
+
+在node1中安装ASA A150、AFF A150或FAS2820控制器模块并为其布线和连接。
+
+.步骤
+. Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
++
+
+NOTE: 请勿将控制器模块完全插入机箱中、除非此过程稍后指示您这样做。
+
+. 使用缆线将管理和控制台端口连接到 node1 控制器模块。
++
+
+NOTE: 由于机箱已通电、node1将启动BIOS初始化、并在完全就位后立即自动启动。要中断 node1 启动，在将控制器模块完全插入插槽之前，建议将串行控制台和管理缆线连接到 node1 控制器模块。
+
+. 在凸轮把手处于打开位置的情况下、用力推入控制器模块、直至其与中板接触并完全就位。控制器模块完全就位后，锁定闩锁会上升。将凸轮把手关闭至锁定位置。
++
+
+NOTE: 为避免损坏连接器、将控制器模块滑入机箱时不要用力过大。
+
+. 一旦模块就位，请立即连接串行控制台，并准备好中断 node1 的自动启动。
+. 中断自动启动后、node1将停留在加载程序提示符处。如果未按时中断自动启动、而node1开始启动、请等待提示符、然后按Ctrl-C进入启动菜单。在节点停留在启动菜单处后、使用option `8` 重新启动节点、并在重新启动期间中断自动启动。
+. 在 LOADER 提示符 node1 处，设置默认环境变量：
++
+`set-defaults`
+
+. 保存默认环境变量设置：
++
+`saveenv`
+
+

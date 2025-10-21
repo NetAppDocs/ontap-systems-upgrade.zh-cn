@@ -91,7 +91,7 @@
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级9.15.1 9.151及更高版本中引入的控制器硬件"^] | 介绍使用system controller Replace命令在9.15.1 9.15.1及更高版本中推出的无中断升级控制器所需的聚合重新定位过程。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] | 介绍无中断升级系统(保留旧系统机箱和磁盘)所需的聚合重新定位过程。 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-in-chassis/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] | 介绍无中断升级系统(保留旧系统机箱和磁盘)所需的聚合重新定位过程。 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] | 介绍使用 system controller replace 命令无中断升级运行 ONTAP 9.8 的控制器所需的聚合重新定位过程。 

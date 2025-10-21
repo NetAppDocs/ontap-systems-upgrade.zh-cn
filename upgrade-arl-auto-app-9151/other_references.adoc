@@ -73,7 +73,7 @@ summary: '使用命令支持运行ONTAP 9.151或更高版本的控制器升级�
 | 介绍如何通过移动存储或卷快速升级集群中的控制器硬件。还介绍如何将受支持的型号转换为磁盘架。 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^] 
 
 
-| 包含有关下载和升级 ONTAP 的说明。 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-affa900/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] 
+| 包含有关下载和升级 ONTAP 的说明。 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-in-chassis/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] 
 
 
 | 介绍无中断升级系统(保留旧系统机箱和磁盘)所需的聚合重新定位过程。 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"^] 

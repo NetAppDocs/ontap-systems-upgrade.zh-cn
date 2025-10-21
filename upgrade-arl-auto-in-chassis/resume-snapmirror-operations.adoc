@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/resume-snapmirror-operations.html 
+keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete 
+summary: 使用ARL升级同一机箱中的控制器型号时、恢复SnapMirror传输和关系。 
+---
+= 恢复 SnapMirror 操作
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+您可以恢复升级前暂停的 SnapMirror 传输，并恢复 SnapMirror 关系。升级完成后，更新将按计划进行。
+
+.步骤
+. 验证目标上的 SnapMirror 状态：
++
+`snapmirror show`
+
+. 恢复 SnapMirror 关系：
++
+`snapmirror resume -destination–vserver _vserver_name_`
+
+

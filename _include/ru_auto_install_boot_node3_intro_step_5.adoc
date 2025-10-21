@@ -11,7 +11,7 @@
 
 [IMPORTANT]
 ====
-* 对于 AFF A800 或 AFF C800 控制器升级，在移除节点 1 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参见 link:../upgrade-arl-auto-affa900/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
+* 对于AFF A800或AFF C800控制器升级，在移除节点 1 之前，必须确保机箱中的所有驱动器都牢固地固定在中板上。有关详细信息，请参阅 link:../upgrade-arl-auto-in-chassis/replace-node1-affa800.html["更换AFF A800或AFF C800控制器模块"]。
 * 如果要升级具有存储磁盘的系统，则需要完成整个部分，然后转到 link:set_fc_or_uta_uta2_config_on_node3.html#configure-fc-ports-on-node3["在 node3 上配置 FC 端口"] 和 link:set_fc_or_uta_uta2_config_on_node3.html#check-and-configure-utauta2-ports-on-node3["检查并配置 node3 上的 UTA/UTA2 端口"] 部分，在集群提示符处输入命令。
 
 

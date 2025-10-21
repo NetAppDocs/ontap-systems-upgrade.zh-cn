@@ -1,0 +1,142 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/cable-node1-for-shared-cluster-HA-storage.html 
+keywords: cluster, ha, aff, a800, shared, storage, data, management 
+summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接连接连接到新安装的AFF A90或AFF A70节点1 
+---
+= 为共享集群HA和存储连接node1
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+如果要执行以下升级之一、则必须将先前连接到现有系统上的node1的集群、HA、存储、数据和管理连接连接连接连接到替代系统上新安装的node1。
+
+[cols="35,65"]
+|===
+| 现有系统 | 更换系统 
+
+
+| AFF A250 | AFF A30、AFF A50 
+
+
+| AFF C250 | AFF C30、AFF C60 
+
+
+| AFF A800 | AFF A70、AFF A90 
+
+
+| AFF C800 | AFF C80 
+|===
+
+
+== 连接e0M和BMC端口
+
+如果现有系统具有管理端口(e0M)和BMC端口、则e0M和BMC端口会组合在一起、并通过替代系统上的"扳手"端口进行访问。在连接到替代系统之前、必须确保e0M和BMC端口已连接到现有系统上的同一交换机和子网。
+
+[cols="35,65"]
+|===
+| 如果... | 那么 ... 
+
+
+| e0M和BMC IP地址位于同一IP子网上 | 将现有系统上的e0M或BMC端口连接到更换系统上的"扳手"端口。 
+
+
+| e0M和BMC IP地址位于不同子网上  a| 
+. 将e0M和BMC IP地址合并到一个IP子网中。
+. 将现有系统上的e0M或BMC端口连接到更换系统上的"扳手"端口。
+
+
+|===
+
+
+== 连接到双节点无交换机集群
+
+下表显示了双节点无交换机集群配置中的交换机端口使用情况。
+
+|===
+| 端口类型 | AFF A800、AFF C800 | AFF A90 | AFF A70、AFF C80 
+
+
+| 集群 | e0a | e1a | e1a 
+
+
+| 集群 | e1a | e7a (如果没有e7a、请使用e1b) | e1b 
+
+
+| HA | e0b | 不连接 | 不连接 
+
+
+| HA | e1b | 不连接 | 不连接 
+
+
+| SAS存储端口(如果存在并使用) | 任何可用端口 | 任何可用端口 | 任何可用端口 
+
+
+| NS224磁盘架的以太网存储端口 | 任何可用端口 | 请参见以太网存储连接映射 | 请参见以太网存储连接映射 
+|===
+|===
+| 端口 | AFF A250、AFF C250 | AFF A30、AFF C30、AFF C60 | AFF A50 
+
+
+| 集群 | e0c | e1a（使用 e1a 进行临时集群互连） | e1a（使用 e1a 进行临时集群互连） 
+
+
+| 集群 | e0d | e1b（使用 e1b 进行临时集群互连） | e1b（使用 e1b 进行临时集群互连） 
+
+
+| HA | 不需要 | node1 升级不需要 HA 端口 | node1 升级不需要 HA 端口 
+
+
+| 以太网存储端口 | 任何可用端口 | e3a、e3b | e3a、e3b 
+
+
+| SAS存储端口 | 任何可用端口 | 3a、3b | 3a、3b 
+|===
+
+
+== 连接到交换机连接的集群
+
+对于交换机连接的集群、请检查AFF A30、AFF A50、AFF A70、AFF A90、AFF C30、AFF C60或AFF C80 (替代)节点是否满足以下要求：
+
+* 替代节点上的相同集群端口位于同一交换机上。例如、升级完成后、应将node1上的e1a和node2上的e1a连接到一个集群交换机。同样、两个节点的第二个集群端口应连接到第二个集群交换机。如果交叉连接共享集群HA端口(其中、node1中的e1a连接到SwitchA、而node2中的e1a连接到SwitchB)、则会导致HA通信失败。
+* 替代节点使用共享的集群HA以太网端口。
+* 验证是否已使用支持共享集群HA端口的参考配置文件(RCF)安装集群交换机：
++
+.. 删除交换机上的现有配置：
++
+[cols="30,70"]
+|===
+| 交换机型号 | 转至 ... 
+
+
+| Cisco Nexus | 知识库文章link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["如何在保持远程连接的同时清除Cisco互连交换机上的配置"^] 
+
+
+| Broadcom BES-53248 | 知识库文章link:https://kb.netapp.com/on-prem/Switches/Broadcom-KBs/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["如何在保持远程连接的同时清除Broadcom互连交换机上的配置"^] 
+|===
+.. 配置并验证交换机设置：
++
+[cols="30,70"]
+|===
+| 交换机型号 | 转至 ... 
+
+
+| Cisco Nexus 9336C-x2 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html["升级参考配置文件(RCF)"^] 
+
+
+| Broadcom BES-53248 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-bes-53248/upgrade-rcf.html["升级参考配置文件(RCF)"^] 
+
+
+| NVIDIA SN2100 | link:https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html["安装或升级参考配置文件(Reference Configuration File、RCF)脚本"^] 
+|===
+
+
+
+
+
+NOTE: 如果集群交换机仅支持 10/25 GbE 速度，则必须在替换系统的插槽 1 或插槽 2 中使用 X60130A、4 端口 10/25GbE 卡进行集群互连。
