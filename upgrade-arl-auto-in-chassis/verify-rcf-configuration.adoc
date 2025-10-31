@@ -41,7 +41,7 @@ summary: 验证集群交换机 RCF 是否支持用于交换机连接集群升级
 
 | `Down` | 前往<<verify-rcf-step3,第 3 步>>。 
 |===
-. 检查集群端口和交换机 RCF。
+. [[verify-rcf-step3]]检查集群端口并切换 RCF。
 +
 有关详细信息，请参见 link:cable-node1-for-shared-cluster-HA-storage.html#connect-switch-attached-cluster["连接到交换机连接的集群"]。
 

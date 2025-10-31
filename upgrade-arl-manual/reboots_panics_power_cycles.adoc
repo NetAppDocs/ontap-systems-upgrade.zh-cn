@@ -46,7 +46,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上执行手动 ARL 升�
 重新定位的聚合的所有权与因主所有者未发生更改而被接管的非根聚合的所有权相同。当 node1 进入 `Waiting for giveback state` 时， node2 将交还所有 node1 非根聚合。
 
 .步骤
-. 完成 link:relocate_non_root_aggr_node1_node2.html#step1["第 1 步"] 在 _relocate non-root aggregates from node1 to node2_ 一节中，再次将非根聚合从 node1 重新定位到 node2_ 。
+. 完全的link:relocate_non_root_aggr_node1_node2.html#relocate-step1["第 1 步"]在“将非根聚合从节点 1 迁移到节点 2”部分再次执行。
 . 继续执行节点对升级操作步骤。
 
 
@@ -74,7 +74,7 @@ node1 已将其部分或全部聚合重新定位到 node2 。已启用 HA 。
 node1 将接管 node2 的所有聚合以及它已重新定位到 node2 的任何自身聚合。当 node2 进入 `Waiting for Giveback` 状态时， node1 将交还 node2 的所有聚合。
 
 .步骤
-. 完成 link:relocate_non_root_aggr_node1_node2.html#step1["第 1 步"] 在 _relocate non-root aggregates from node1 to node2_ 一节中，再次将非根聚合从 node1 重新定位到 node2_ 。
+. 完全的link:relocate_non_root_aggr_node1_node2.html#relocate-step1["第 1 步"]在“将非根聚合从节点 1 迁移到节点 2”部分再次执行。
 . 继续执行节点对升级操作步骤。
 
 
@@ -123,7 +123,7 @@ node2 已将其部分或全部聚合重新定位到 node3 ，而 node3 将从重
 
 .步骤
 . 启动 node2 。
-. 完成后重新定位其余聚合 link:relocate_non_root_aggr_node2_node3.html#step1["第 1 步"] 到 link:relocate_non_root_aggr_node2_node3.html#step3["第 3 步"] 在 _relocate non-root aggregates from node2 to node3_ 一节中。
+. 通过完成以下操作来重新安置剩余的骨料link:relocate_non_root_aggr_node2_node3.html#verify-partner-sys-id["第 1 步"]通过link:relocate_non_root_aggr_node2_node3.html#relocate-step5["第 5 步"]在“将非根聚合从节点 2 迁移到节点 3”部分中。
 . 继续执行节点对升级操作步骤。
 
 
@@ -149,7 +149,7 @@ Node2 将继续为其余聚合提供服务，但已重新定位到 Node3 的聚�
 
 .步骤
 . 启动 node3 。
-. 完成 link:relocate_non_root_aggr_node2_node3.html#step3["第 3 步"] 再次在 _relocate non-root aggregates from node2 to node3_ 一节中。
+. 完全的link:relocate_non_root_aggr_node2_node3.html#relocate-step5["第 5 步"]再次在“将非根聚合从节点 2 迁移到节点 3”部分中。
 . 继续执行节点对升级操作步骤。
 
 
@@ -220,6 +220,6 @@ node3 已将 node2 的部分或全部聚合重新定位到 node4 。node3 不会
 
 .步骤
 . 启动 node4 。
-. 重新完成属于 node2 的其余聚合的重新定位 link:relocate_node2_non_root_aggr_node3_node4.html#Step1["第 1 步"] 到 link:relocate_node2_non_root_aggr_node3_node4.html#step3["第 3 步"] 在 _relocate node2 的非根聚合从 node3 重新定位到 node4_ 中。
+. 通过再次完成操作，重新定位属于节点 2 的剩余聚合。link:relocate_node2_non_root_aggr_node3_node4.html#man_relocate_3_4_Step1["第 1 步"]通过link:relocate_node2_non_root_aggr_node3_node4.html#step3["第 3 步"]将节点 2 的非根聚合从节点 3 迁移到节点 4。
 . 继续执行节点对升级操作步骤。
 

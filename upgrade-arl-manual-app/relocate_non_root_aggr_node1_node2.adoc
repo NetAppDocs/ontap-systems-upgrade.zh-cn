@@ -17,7 +17,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 在将 node1 替换为 node3 之前，必须使用 storage aggregate relocation 命令将非根聚合从 node1 移动到 node2 ，然后验证重新定位。
 
 .步骤
-. 【第 1 步】通过完成以下子步骤重新定位非根聚合：
+. [[relocate-step1]]通过完成以下子步骤来重新定位非根聚合：
 +
 .. 将权限级别设置为高级：
 +

@@ -34,7 +34,7 @@ WARNING: 请勿将控制器模块完全插入机箱中、直到此过程稍后�
 . 使用缆线将管理和控制台端口连接到 node2 控制器模块。
 +
 
-NOTE: 由于机箱已通电，因此节点 2 在完全就位后立即开始启动。为防止节点 2 启动，请在完全插入控制器模块之前连接控制台和管理电缆。
+NOTE: 由于机箱已经通电，节点 2 一旦完全就位就会立即启动。为防止节点 2 启动，请在完全插入控制器模块之前连接控制台和管理电缆。
 
 . Firmly push the controller module into the chassis until it meets the midplane and is fully seated.
 +

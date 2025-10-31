@@ -111,7 +111,7 @@ Do you want to continue? {y|n}: y
 +
 您可以将输出与在部分中捕获的输出进行比较 link:prepare_nodes_for_upgrade.html["准备要升级的节点"]。
 
-. 【unset_maxWait_system_commands】如果正在配置中使用自加密驱动器、并且您已设置 `kmip.init.maxwait` 变量设置为 `off` (例如、在中 link:install_boot_node4.html#auto_install4_step27["安装并启动 node4 步骤 27"])、您必须取消设置变量：
+. [[unset_maxwait_system_commands]]如果在配置中使用自加密驱动器并且您已设置 `kmip.init.maxwait`变量 `off`（例如，在link:install_boot_node4.html#auto_install4_step22["安装并启动 node4，步骤 22"]），您必须取消设置该变量：
 +
 `set diag；systemshell -node _node_name_-command sudo kenv -u -p kmip.init.maxwait`
 

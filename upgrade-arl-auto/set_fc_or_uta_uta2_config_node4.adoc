@@ -80,7 +80,12 @@ IMPORTANT: 在维护模式 shell 提示符下输入本节中的命令。
 . 从维护模式的启动菜单中选择选项 `5` 。
 
 
-. [[step8]]跳过此部分并转到link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
+. 【第 8 步】执行以下操作之一：
++
+** 转至 <<检查并配置 node4 上的 UTA/UTA2 端口>> 如果 node4 具有 UTA/UTA2 卡或 UTA/UTA2 板载端口。
+** 如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过“检查并配置 node4 上的 UTA/UTA2 端口”并转到link:reassign-node2-disks-to-node4.html["将node2磁盘重新分配给node4"]。
+
+
 
 
 

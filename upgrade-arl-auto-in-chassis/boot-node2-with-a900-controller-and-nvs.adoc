@@ -14,7 +14,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、使用替代控�
 
 
 [role="lead"]
-包含替代模块的node2现在可启动。中列出了支持的更换模块link:index.html#supported-systems,["支持的系统列表"]。
+安装了替换模块的 Node2 现在可以启动了。支持的替换模块列表如下：link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["支持的系统列表"] 。
 
 
 NOTE: 只有在通过交换系统模块进行升级时、才能移动控制台和管理连接。

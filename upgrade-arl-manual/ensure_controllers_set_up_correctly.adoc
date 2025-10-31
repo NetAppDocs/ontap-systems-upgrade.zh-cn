@@ -128,7 +128,7 @@ Do you want to continue? {y|n}: y
 `s系统许可证显示`
 
 +
-您可以将输出与中捕获的输出进行比较 link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step30["第 30 步"] 的 _ 准备节点以进行升级 _ 。
+您可以将输出与您捕获的输出进行比较。link:prepare_nodes_for_upgrade.html#man_prepare_nodes_step29["第 29 步"]准备节点进行升级。
 
 . 通过在两个节点上执行以下命令来配置 SP ：
 +

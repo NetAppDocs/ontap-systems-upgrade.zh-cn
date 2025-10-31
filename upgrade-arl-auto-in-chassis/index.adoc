@@ -72,7 +72,7 @@ NOTE: 在开始升级过程之前，您必须查看以下所有重要信息。
 
 
 * ASA A900、AFF A900和FAS9500系统仅支持高端电源(200V至240V)。如果您的AFF A700或FAS9000系统使用低端电源(100V到120V)运行、则必须先转换AFF A700或FAS9000输入电源、然后才能使用此操作步骤。
-* 如果要从中包含停机时间的现有系统升级<<supported-systems-in-chassis,支持的系统列表>>，则可以通过移动存储来升级控制器硬件，或者与技术支持联系。请参见 link:other_references.html["参考资料"] 链接到_Upgrade by Moving volumes"或"storage"。
+* 如果您是从现有系统升级，并且停机时间包含在内，link:decide_to_use_the_aggregate_relocation_guide.html#supported-systems-in-chassis["支持的系统列表"]您可以通过移动存储设备或联系技术支持来升级控制器硬件。请参阅link:other_references.html["参考资料"]链接到 _通过移动卷或存储进行升级_。
 
 
 

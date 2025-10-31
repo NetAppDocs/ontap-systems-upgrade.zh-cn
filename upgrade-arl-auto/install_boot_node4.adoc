@@ -279,5 +279,5 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 .下一步是什么？
 * 如果您的系统具有 FC 或 UTA/UTA2 配置，link:set_fc_or_uta_uta2_config_node4.html["在节点 4 上设置 FC 或 UTA/UTA2 配置"] 。
 * 如果您没有 FC 或 UTA/UTA2 配置，link:reassign-node2-disks-to-node4.html#reassign-node2-node4-step1["将 node2 磁盘重新分配给 node4，步骤 1"]这样node4就可以识别node2的磁盘。
-* 如果您有MetroCluster配置，link:reassign-node1-disks-to-node3.html#reassign-node1-node3-step1["将节点 1 的磁盘重新分配给节点 3"] 。
+* 如果您有MetroCluster配置，link:set_fc_or_uta_uta2_config_node4.html["在节点 4 上设置 FC 或 UTA/UTA2 配置"]检测连接到节点的磁盘。
 
