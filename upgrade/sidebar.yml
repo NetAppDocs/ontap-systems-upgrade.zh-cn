@@ -64,8 +64,8 @@ entries:
     url: "/upgrade/upgrade-move-lifs-to-new-nodes.html"
   - title: 移动，删除或创建 SAN LIF
     url: "/upgrade/upgrade_move_delete_recreate_san_lifs.html"
-  - title: 取消加入原始节点
-    url: "/upgrade/upgrade-unjoin-original-nodes-move-volumes.html"
+  - title: 移除原始节点
+    url: "/upgrade/upgrade-remove-original-nodes.html"
   - title: 完成升级
     url: "/upgrade/upgrade-complete-move-volumes.html"
 - title: 将AFF A250升级到AFF A400

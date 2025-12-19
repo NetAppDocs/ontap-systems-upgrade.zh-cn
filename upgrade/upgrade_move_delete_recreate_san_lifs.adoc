@@ -35,7 +35,7 @@ summary: 根据集群内容和集群环境的不同，您需要移动，删除�
 
 == 删除不再需要的 SAN LIF
 
-如果集群位于 SAN 环境中，则必须先从原始节点中删除不再需要的任何 SAN LIF ，然后才能从集群中取消原始节点的连接。
+如果集群位于 SAN 环境中，则必须先从原始节点中删除不再需要的任何 SAN LIF，然后才能将原始节点从集群中移除。
 
 .步骤
 . 如果您有 iSCSI 启动程序，请完成以下步骤：
@@ -91,3 +91,6 @@ js11      ps0          mixed    LIF1,                   igroup1
 == 创建新的 SAN LIF 或重新创建已删除的 SAN LIF
 
 根据集群环境要求，您可以决定创建新的 SAN LIF 或重新创建先前在此操作步骤中删除的 SAN LIF 。您可以使用创建或重新创建 SAN LIF https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html["创建网络接口"^] 使用 OnCommand ® System Manager_ 文档进行集群管理中的操作步骤。
+
+.下一步是什么？
+link:upgrade-remove-original-nodes.html["从集群中移除原始节点。"]

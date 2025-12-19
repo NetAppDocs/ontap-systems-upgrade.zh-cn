@@ -112,3 +112,6 @@ NOTE: 如果您的存储配置包含已启用加密的卷、请按照中的步�
 `volume show -vserver _svm_name_`
 
 
+
+.下一步是什么？
+link:upgrade-move-lifs-to-new-nodes.html["将非SAN数据LUN和集群管理LUN移动到新节点"]

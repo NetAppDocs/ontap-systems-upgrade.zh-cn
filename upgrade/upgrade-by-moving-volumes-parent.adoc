@@ -17,7 +17,7 @@ summary: 如果要通过移动卷进行升级，请准备原始节点并将新�
 * link:upgrade-considerations.html["升级控制器硬件的注意事项"]
 
 
-要通过移动卷进行升级、您需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。
+要通过移动卷进行升级，您需要准备好原始节点并将新节点加入集群。您将卷迁移到新节点，配置 LIF，然后从集群中删除原始节点。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]link:upgrade-prepare-when-moving-volumes.html["移动卷时准备升级"]
 [role="quick-margin-para"]
@@ -43,9 +43,9 @@ summary: 如果要通过移动卷进行升级，请准备原始节点并将新�
 [role="quick-margin-para"]
 根据集群内容和集群环境、您可以移动、删除或创建SAN LUN、或者重新创建已删除的SAN LUN。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]link:upgrade-unjoin-original-nodes-move-volumes.html["从集群中取消原始节点的加入"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]link:upgrade-remove-original-nodes.html["从集群中移除原始节点。"]
 [role="quick-margin-para"]
-将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都会初始化。
+将卷迁移到新节点后，从集群中删除原始节点。删除节点时，节点的配置将被擦除，所有磁盘将被初始化。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["八个"]link:upgrade-complete-move-volumes.html["完成升级"]
 [role="quick-margin-para"]

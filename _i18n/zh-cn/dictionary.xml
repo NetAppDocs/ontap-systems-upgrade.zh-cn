@@ -1263,7 +1263,6 @@
   <block id="56089842bd614396cfba7cdf9bb6601f" category="list-text">您计划将受支持型号的节点转换为磁盘架，然后将其连接到新节点。</block>
   <block id="3d9010fa119828bc81f438c75af15b63" category="paragraph">在通过移动存储升级控制器硬件的步骤中，原始节点称为 node1 和 node2 ，新节点称为 node3 和 node4 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。</block>
   <block id="5b3de670b2de55fec257c6f89ab421bc" category="summary">如果要通过移动卷进行升级，请准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。通过移动卷进行升级是一种无中断的操作步骤。</block>
-  <block id="cf9dafa4aad7081e3241e5bc4acb350f" category="inline-xref-macro">从集群中取消原始节点的加入</block>
   <block id="f5b49dd631a7fa0c45fc2aea8bcfa384" category="paragraph">您必须对您的 ONTAP 版本使用操作步骤。</block>
   <block id="51bea01f527b8a0a7714408789058c6b" category="summary">关闭并删除原始节点时，您必须发送有关升级的 AutoSupport 消息，销毁邮箱，关闭节点电源并卸下机箱。</block>
   <block id="0b5874c3f69c1393f6461a11d78dfa9c" category="list-text">从 node1 和 node2 发送 AutoSupport 消息，以通知技术支持升级：</block>
@@ -1301,16 +1300,9 @@
   <block id="b14047e1956c68f095842760b1beaea2" category="paragraph">以下屏幕将显示启动菜单提示符：</block>
   <block id="d4041bfba261eda3180ae9fbf6285d95" category="list-text">当您看到类似以下内容的提示时，输入 `yes` ：</block>
   <block id="8b8e41e588d3f28837be58712aeec25a" category="paragraph">系统将启动 `wipeconfig` 操作步骤并重新启动。操作步骤完成后，系统将返回到启动菜单。</block>
-  <block id="be560856af220999f45b0e64a842465a" category="summary">将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都将初始化。</block>
-  <block id="f61d9690213fcb44fc551adab505eb85" category="paragraph">将卷移至新节点后，您将从集群中取消原始节点的加入。取消加入某个节点后，该节点的配置将被擦除，并且所有磁盘都会初始化。</block>
   <block id="72992cc1c16f1dbbbcb7cc77a55977d9" category="list-text">访问高级权限级别：</block>
   <block id="dc4a67b269dfaba9479198e3f11a2a68" category="list-text">确定具有 epsilon 的节点：</block>
   <block id="9f964a34bab4b3112781e0b28258f5bb" category="paragraph">在以下示例中， "node0" 当前持有 epsilon ：</block>
-  <block id="c66d0d8c1fe1605513edaaeec7a73d16" category="list-text">如果原始节点之一持有 epsilon ，请将 epsilon 移动到其他节点：</block>
-  <block id="91ab806eca55f1234d360a9bf96615a0" category="list-text">从将保留在集群中的节点中，取消每个原始节点与集群的连接（高级权限级别）：</block>
-  <block id="a38cfcfcdebdf9c05a1cd632c11918b8" category="paragraph">未加入的节点将自动重新启动并停留在启动菜单处。</block>
-  <block id="7ab0d0bb58501cb25dab62cdcffddfb5" category="list-text">从未加入的节点的启动菜单中，选择选项 * （ 4 ） Clean configuration and initialize all disks* 以擦除节点的配置并初始化所有磁盘。</block>
-  <block id="35c0226d4e8a9cad1a873c648504d626" category="list-text">在两个提示符处输入 `y` 。</block>
   <block id="7f1e916ec0aa6a4296149be58ba61a1b" category="list-text">如果集群只剩下两个节点，请为双节点集群配置高可用性：</block>
   <block id="c1f192f6d626bc5f27fc74b0848a1250" category="paragraph">`cluster ha modify -configured true`</block>
   <block id="3f1179e7186b307a8709f115c39b6447" category="summary">在将替代节点恢复使用之前，您应验证 LIF 是否位于其主端口上，如果启用了 AutoSupport ，则注册替代节点的序列号，并重置自动交还。</block>
@@ -2273,7 +2265,6 @@
   <block id="51e0a0afc4d011a307d3419bfe742eba" category="sidebar">通过移动卷进行升级</block>
   <block id="ff56b4f5944c3419d2cbe4a5a19eb150" category="sidebar">安装并加入新节点</block>
   <block id="f86f16f11e093ddd1a9acafc8ee58e6f" category="sidebar">移动非 SAN 数据 LIF 和集群管理 LIF</block>
-  <block id="d2e2f3320c4d610d0815b1405859a98b" category="sidebar">取消加入原始节点</block>
   <block id="79f3abfd76c996d707b348dbfb91c42b" category="sidebar">在 node4 上设置 FC 或 UTA/UTA2 配置</block>
   <block id="82a3300ad94a5e1dcf0a6abbfe1060e2" category="paragraph">在执行此内容中的过程时，您可能需要查看参考内容或访问参考网站。</block>
   <block id="ec5873b9b6861954a7c07d183dd486b0" category="section-title">参考内容</block>
@@ -2372,7 +2363,6 @@
   <block id="55b615d5a5d5462e3f46ce9376778ab0" category="list-text">记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
   <block id="a2e30cff23423051f81bd802a4867e92" category="list-text">如果尚未保存这些 VLAN 和接口组，请记录 VLAN 和接口组信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和接口组。</block>
   <block id="d5736566f3b38c38d89537f2b1d352ca" category="list-text">如果尚未保存这些 VLAN 和 ifgrp 信息，请记录 VLAN 和 ifgrp 信息，以便在启动 node3 后在 node3 上重新创建 VLAN 和 ifgrp 。</block>
-  <block id="94e9d0bee98aefbd97c04b1401f6c790" category="paragraph">如果集群位于 SAN 环境中，则必须先从原始节点中删除不再需要的任何 SAN LIF ，然后才能从集群中取消原始节点的连接。</block>
   <block id="2b3144340f2db340218f76914a6af256" category="doc">创建新的 SAN LIF 或重新创建已删除的 SAN LIF</block>
   <block id="051662f99e538a90d87104fddd664c40" category="inline-link">创建网络接口</block>
   <block id="0b3461f9ff1cc0e9748c51914f12d1ac" category="paragraph">根据集群环境要求，您可以决定创建新的 SAN LIF 或重新创建先前在此操作步骤中删除的 SAN LIF 。您可以使用创建或重新创建 SAN LIF<block ref="307c1988750a87c4014551385f0a3aa7" category="inline-link-rx"></block> 使用 OnCommand ® System Manager_ 文档进行集群管理中的操作步骤。</block>
@@ -2998,10 +2988,6 @@
   <block id="038bf310b30027962de2d4e7d3c544e6" category="paragraph">`ssystem node AutoSupport invoke -node _node_name_-type all -message "MAIN=2h upgrading _node_name_ from _platform_original_to _platform_new_"`</block>
   <block id="10de09f0f92f196f1e5984884c43ba27" category="list-text">`storage failover modify -node _node_name_-enabled false`</block>
   <block id="981b4567a35216af18afaec3c97bc50d" category="paragraph">`ssystem node halt -node _node_name_`</block>
-  <block id="59e7cb89beb0d9c0f35ba87b5c4549e3" category="list-text">在原始节点上禁用高可用性配置：`storage failover modify -node _original_node_name_-enabled false`</block>
-  <block id="787149e64a0bc37710b15cd205977d92" category="list-text">从原始节点中删除epsilon：+`cluster modify -node _original_node_name_-epsilon false`</block>
-  <block id="cbb7de31a52f2a91eb5415ac80ca9da6" category="list-text">将epsilon分配给其他节点：+`cluster modify -node _new_node_name_-epsilon true`</block>
-  <block id="01d317947cf0fa7c03a1243dac797c57" category="paragraph">`cluster unjoin -node _original_node_name_`</block>
   <block id="57160bbb15f3acc82c1eac8e82c87937" category="paragraph">`network port modify -node _node_name_-port _port_name_-mtu 9000 -ipspace Cluster`</block>
   <block id="1db9d300a7d27735fb49e694ad616a9e" category="paragraph">`network interface migrate -vserver _vserver_name_-lif _lif_name_-source-node node1 -destination-node node1 -destination-port _port_name_`</block>
   <block id="cf8f2405fecce8ee1f21a7233d89115d" category="paragraph">`network interface modify -vserver cluster -lif _lif_name_–home-port _port_name_`</block>
@@ -4018,7 +4004,6 @@
   <block id="66686106038dcdf0e7037a2679e6be2b" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="a931a68d44bca92701e3cc2575cb8e58" category="inline-link-macro-rx"></block></block>
   <block id="2431d8b533362d8472db79a8849836be" category="paragraph">根据集群内容和集群环境、您可以移动、删除或创建SAN LUN、或者重新创建已删除的SAN LUN。</block>
   <block id="12e67aac3e7f9227cc35f8f047d7dc74" category="inline-image-macro">七个</block>
-  <block id="3c49f3e0113334d7428d508b5d1dba98" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="a6976dfe70e597796c77b019f33f6b95" category="inline-link-macro-rx"></block></block>
   <block id="baca0ca6729684fd54206793ae4b5bd5" category="inline-image-macro">八个</block>
   <block id="266c2a634fcfab43713325017c0d1fc1" category="paragraph-title"><block ref="430057c670c01688e904ed2ba129a0b5" category="inline-image-macro-rx" type="image"></block><block ref="25f018c3ca0d5083cf0a96e5a5daf8b3" category="inline-link-macro-rx"></block></block>
   <block id="55388932978c50267bc31e99b8d1d4d9" category="paragraph">要通过移动卷完成升级操作步骤、请配置服务处理器(Service Processor、SP)、安装新许可证并设置AutoSupport。您可能还需要设置存储或卷加密并配置FC或NCA端口。</block>
@@ -4098,7 +4083,6 @@
   <block id="7679a865afb03bdbcc1cbd8757f79d09" category="list-text"><block ref="7679a865afb03bdbcc1cbd8757f79d09" category="inline-link-macro-rx"></block></block>
   <block id="70df8f2f5459940187f1edf7420f9c6b" category="paragraph">要通过移动存储进行升级、您需要准备原始节点并设置新节点。某些平台型号支持将内部存储传输到新节点。您可以重新分配磁盘并将根卷配置还原到新节点，并配置网络端口。</block>
   <block id="ffaf71c89815c9497697e87f8d77a27d" category="paragraph">通过移动卷升级控制器硬件是一个无中断过程。开始升级之前、请查看常规升级情形和升级注意事项：</block>
-  <block id="cf41c84e5298fdad396a8a0dd7eaf0f3" category="paragraph">要通过移动卷进行升级、您需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF 并将原始节点从集群中取消加入。</block>
   <block id="4b5907b5b5c704438991bdf09784779a" category="list-text">在启动菜单中、输入8以重新启动节点、并在自动启动期间按Ctrl-C在加载程序提示符处停止节点。</block>
   <block id="ee537959cbe6c4957342c94d3801abf7" category="doc">选择ARL升级过程</block>
   <block id="e2de59a5a77b66213e7d85b56f1eb224" category="list-text">在加载程序提示符处、进入维护模式：</block>
@@ -5263,7 +5247,6 @@
   <block id="2f5546c2bb23945783cbdb6d6e128cdf" category="paragraph">请使用以下方法之一进行升级：</block>
   <block id="0678555704a75d8c6ba937ca89e44347" category="inline-link-macro">成交量</block>
   <block id="7a5d9d481746c5a733396a92b9fa9ad9" category="list-text"><block ref="7a5d9d481746c5a733396a92b9fa9ad9" category="inline-link-macro-rx"></block></block>
-  <block id="7c15b3f4f4497023a45b26abfbd34fa1" category="paragraph">这需要将新节点加入集群，将卷和 LIF 迁移到新节点，并将要从集群中移除的节点从集群中移除。如果您要升级一个双节点无交换机集群，请在添加新节点之前，使用一对集群交换机将其转换为交换机连接集群。</block>
   <block id="6de3b933715f67f0e1503dadf7be11b5" category="inline-link-macro">使用聚合迁移</block>
   <block id="1326c781e22221bcfee09723f0a2bfc2" category="list-text"><block ref="1326c781e22221bcfee09723f0a2bfc2" category="inline-link-macro-rx"></block></block>
   <block id="af07e0611bc43f9c7f0e394b682e76a9" category="paragraph">ARL 是一种置换手术。您无需随着新节点的加入而扩展和缩减集群，这对于双节点无交换机集群来说是有利的。在移动卷时，通过重新定位聚合来移动数据比跨聚合复制数据要快。</block>
@@ -5311,4 +5294,56 @@
   <block id="b2cf47c2f8de48c91a2658d1bae42ab8" category="admonition">由于机箱已经通电，节点 2 一旦完全就位就会立即启动。为防止节点 2 启动，请在完全插入控制器模块之前连接控制台和管理电缆。</block>
   <block id="914a76ca2b7f6ddaae8d7322d8dfd459" category="paragraph">除非将替换控制器模块安装到机箱中并通电，否则无法检查安装在替换控制器模块启动介质上的ONTAP版本。替换系统启动介质上的ONTAP版本必须与要升级的旧系统上运行的ONTAP版本相同，并且启动介质上的主启动映像和备份启动映像必须匹配。要确认升级所需的最低ONTAP版本，请参阅<block ref="f48bb6f7501a6484670164b41fb968ae" category="inline-link-macro-rx"></block>。</block>
   <block id="fa25f8cd417cf37165c34fcb9720ffe3" category="list-text">[[verify-rcf-step3]]检查集群端口并切换 RCF。</block>
+  <block id="2138fe46f5a4636fa20671bcd5e370b9" category="paragraph">这需要将新节点加入集群，将卷和 LIF 迁移到新节点，并将要从集群中移除的节点从集群中移除。如果您要升级一个双节点无交换机集群，请在添加新节点之前，使用一对集群交换机将其转换为交换机连接集群。</block>
+  <block id="1e7b20b34e3e14bc87b5019115ef6319" category="paragraph">要通过移动卷进行升级，您需要准备好原始节点并将新节点加入集群。您将卷迁移到新节点，配置 LIF，然后从集群中删除原始节点。</block>
+  <block id="febd744aeea49809fb1302b73fa6bd8c" category="inline-link-macro">从集群中移除原始节点。</block>
+  <block id="5f9dcd9884f9526b20b37705a8075dc7" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="de2c8f88da32b208ab4a1bf0c1405c32" category="inline-link-macro-rx"></block></block>
+  <block id="04c0dc0ac08f266118ef312b94f34222" category="paragraph">将卷迁移到新节点后，从集群中删除原始节点。删除节点时，节点的配置将被擦除，所有磁盘将被初始化。</block>
+  <block id="1411918bbf69ad4104cdc56864b603a3" category="paragraph"><block ref="1411918bbf69ad4104cdc56864b603a3" category="inline-link-macro-rx"></block></block>
+  <block id="cbbd4da8364a1dcf2593c3eec92abe27" category="paragraph"><block ref="cbbd4da8364a1dcf2593c3eec92abe27" category="inline-link-macro-rx"></block></block>
+  <block id="cf954e9acfd74a54fe766c2c130222c6" category="paragraph"><block ref="cf954e9acfd74a54fe766c2c130222c6" category="inline-link-macro-rx"></block></block>
+  <block id="638758de43a31bd2903f659581f78fa7" category="paragraph"><block ref="638758de43a31bd2903f659581f78fa7" category="inline-link-macro-rx"></block></block>
+  <block id="d350fa659f98e0153758612c202e6a04" category="summary">将卷迁移到新节点后，从集群中删除原始节点。删除节点时，节点的配置将被擦除，所有磁盘将被初始化。</block>
+  <block id="174d5560f210e4b4b5a29f385b2c8035" category="paragraph">将卷从原始节点移动到新节点并移动或删除数据 LIF 后，从集群中删除原始节点。删除节点时，节点的配置将被擦除，所有磁盘将被初始化。</block>
+  <block id="fcd2352296590a0e2accae2dd13e31d6" category="list-text">[[disable-ha]]禁用原始节点上的高可用性 (HA) 配置：</block>
+  <block id="2c1e3c1177e032883dd8cedb7237369c" category="paragraph"><block ref="cfb56c7a6f1b3b0505ee17fb92209fba" prefix="" category="inline-code"></block></block>
+  <block id="bf80321073982fe86a71c1af9fac0650" category="list-text">[[epsilon-true]]如果某个原始节点持有 epsilon，则将 epsilon 移动到您不会从集群中移除的节点：</block>
+  <block id="4b839279170b4ba0703853fb5c2cb9da" category="list-text">从原始节点中移除 epsilon：</block>
+  <block id="222406298d9a2f2c033dca8a74afd55c" category="paragraph"><block ref="de7321e59bd990ec3ef09ca78116a7b0" prefix="" category="inline-code"></block></block>
+  <block id="7a788eb6946d9ba1aaad7df7bfb5f5b2" category="list-text">将 epsilon 分配给不同的节点：</block>
+  <block id="b0c1e0271345231f93266b65411815c2" category="paragraph"><block ref="45f47d97caec3e0967eb10311176b1bb" prefix="" category="inline-code"></block></block>
+  <block id="14f47a56746d8dd06d7152a27fa22219" category="list-text">确定当前主节点：</block>
+  <block id="e477c0774c6014b5173ffa6810d512ab" category="paragraph"><block ref="484f24f8e4da80a1185aa63fa1d5fc08" prefix="" category="inline-code"></block></block>
+  <block id="f56d76980d50ef81b1a4f2246dbcf0da" category="paragraph">主节点是承载诸如此类进程的节点。<block ref="d724f231a9a7b89757c4394d6622bc47" prefix=" " category="inline-code"></block>，<block ref="7b588256fbdc51b849239cf8988219ff" prefix=" " category="inline-code"></block>，<block ref="4855d47f82dd3929173aadd191f2a0ee" prefix=" " category="inline-code"></block>，<block ref="1ed70af3fcff64fcd6c818d86b6e6150" prefix=" " category="inline-code"></block>， 和<block ref="29fa19e764c47fa898f697bf7bb940db" prefix=" " category="inline-code"></block>。</block>
+  <block id="b799370e99c40124bdcc44e4ed7a5704" category="list-text">如果要移除的节点是当前主节点，则需要启用集群中剩余节点的选举机制，使其能够被选为主节点：</block>
+  <block id="ac13fc86d8d30a4abbb50425385fe453" category="list-text">取消当前主节点参与集群的资格：</block>
+  <block id="7021c105080628669b133405100efc63" category="paragraph"><block ref="f2b8f9d3d7fb27d37deaaf84ee69a072" prefix="" category="inline-code"></block></block>
+  <block id="84023f697c3d7f175eb48d9e7f81fe97" category="paragraph">该节点将被标记为不健康，直到其恢复符合资格为止。当主节点不再符合资格时，集群仲裁将从剩余节点中选举出一个新主节点。</block>
+  <block id="834ca6428bef51142e4d70a6c409829e" category="paragraph">如果您在 HA 对中的第一个节点上执行此步骤，则应仅将该节点标记为不符合条件。请勿修改HA合作伙伴的状态。</block>
+  <block id="c45a4c98c59ca383859dc9ca2d7b3243" category="paragraph">如果选择伙伴节点作为新的主节点，则需要验证它是否持有 epsilon。如果伙伴节点持有 epsilon，则在使其失去资格之前，需要将 epsilon 转移到集群中剩余的另一个节点。当你重复这些步骤来删除伙伴节点时，就会执行此操作。</block>
+  <block id="fa46d2d3d8cfe760c5a42ee99c2bb479" category="list-text">使之前的主节点再次有资格参与集群：</block>
+  <block id="c1f0c4bf4b8a0d924276f97311b2b56c" category="paragraph"><block ref="14dcae85a302a6e4089a3c2a5636ff04" prefix="" category="inline-code"></block></block>
+  <block id="342dbc3880ef101e1ed2b5b78347d7d3" category="list-text">登录到集群中剩余节点的远程节点管理 LIF 或集群管理 LIF，并从集群中删除每个原始节点（高级权限级别）：</block>
+  <block id="eb1f2131641f5195e8a8d9b93f797562" category="paragraph">节点名称：</block>
+  <block id="9900c92f7c4f327f3d129fcdb88c5a95" category="paragraph">节点 IP 地址：</block>
+  <block id="e1b2dd8ee5d4a8767f514f7140d3b5b7" category="paragraph">如果您有一个混合版本集群，并且要移除最后一个版本较低的节点，请使用以下方法：<block ref="980f71817e3a06bee87bd061faeb423d" prefix=" " category="inline-code"></block> 使用这些命令的参数。</block>
+  <block id="76732b147c5a72422d23da150a4c5434" category="paragraph">系统会告知您以下信息：</block>
+  <block id="f80f10147ba45bd1fef6e3c0af2ad9b6" category="list-text">您还必须从集群中删除节点的故障转移伙伴。</block>
+  <block id="f8794e0f00d445cfe92a1a1eeb5fdb7d" category="list-text">节点被移除后，在它重新加入集群之前，必须使用启动菜单选项 *(4) 清除配置并初始化所有磁盘* 或选项 *(9) 配置高级驱动器分区* 来擦除节点的配置并初始化所有磁盘。</block>
+  <block id="4fcbf7b91c2fe0247f60ee2199672575" category="paragraph">如果在删除节点之前必须解决某些条件，则会生成一条错误消息。例如，该消息可能表明该节点具有您必须删除的共享资源，或者该节点处于您必须禁用的集群 HA 配置或存储故障转移配置中。</block>
+  <block id="39e6f8500af6b07f2903990336145751" category="paragraph">如果该节点是仲裁主节点，则集群会短暂失去仲裁，然后恢复仲裁。此次法定人数损失是暂时的，不会影响任何数据操作。</block>
+  <block id="5b04742f17c701ff3b58fe32667cc471" category="list-text">如果错误消息指示存在错误情况，请解决这些情况并重新运行。<block ref="b592ef8b0e17ac31ab55e93e7c1d10e1" prefix=" " category="inline-code"></block> 或者<block ref="5d16191a3b7abaee7967de5fd82cd336" prefix=" " category="inline-code"></block> 命令。</block>
+  <block id="bb73c71d58dba4f68bd9a8e3fa5709b6" category="paragraph">节点从集群中成功移除后，会自动重启。</block>
+  <block id="b16b992bede9cd61adafd05ccfa8b5db" category="list-text">如果要重新利用节点，请清除节点配置并初始化所有磁盘：</block>
+  <block id="f68297d08c23f1c81caf07d193fce59a" category="list-text">在启动过程中，当系统提示时，按 Ctrl-C 显示启动菜单。</block>
+  <block id="5b43d3aa91abf75fd24c44f1341b2f06" category="list-text">选择启动菜单选项 *(4) 清除配置并初始化所有磁盘*。</block>
+  <block id="82049266f76a1c9f2f0a3be4c999f4d2" category="list-text">[[return-admin]]恢复集群中某个新节点的管理员权限级别：</block>
+  <block id="c4ca4238a0b923820dcc509a6f75849b" category="inline-xref">1</block>
+  <block id="d3d9446802a44259755d38e6d163e820" category="inline-xref">10</block>
+  <block id="d189cecc16115f8a1464438558157df4" category="list-text">重复步骤 <block ref="ad03471bc3c3d3a60bb07d8e505cecf8" category="inline-xref-macro-rx"></block> 到 <block ref="0b50026eb51fd5abcc3f6c551ad9a731" category="inline-xref-macro-rx"></block> 从集群中移除故障转移伙伴。</block>
+  <block id="168c92437cbc3465963cce1942e62338" category="paragraph"><block ref="168c92437cbc3465963cce1942e62338" category="inline-link-macro-rx"></block></block>
+  <block id="b442cda004fcb2b77f9a06066859253e" category="paragraph">如果集群位于 SAN 环境中，则必须先从原始节点中删除不再需要的任何 SAN LIF，然后才能将原始节点从集群中移除。</block>
+  <block id="de2c8f88da32b208ab4a1bf0c1405c32" category="paragraph"><block ref="de2c8f88da32b208ab4a1bf0c1405c32" category="inline-link-macro-rx"></block></block>
+  <block id="0187590ed6627836f657d0d4157f4bd9" category="paragraph"><block ref="0187590ed6627836f657d0d4157f4bd9" category="inline-link-macro-rx"></block></block>
+  <block id="9cab58d086b1e90a5b2f49ae6b194edb" category="sidebar">移除原始节点</block>
 </blocks>

@@ -38,3 +38,6 @@ http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=30
 
 |===
 
+
+.下一步是什么？
+link:upgrade_move_linux_iscsi_hosts_to_new_nodes.html["将Linux iSCSI主机移至新节点"]
