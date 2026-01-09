@@ -3,7 +3,6 @@
   <block id="1a02fe8fc6a186319dd3345573fc3717" category="doc">安装并启动节点 4.</block>
   <block id="75586863c552442d574a9bbfc3a0d408" category="paragraph">您必须在机架中安装 node4 ，将 node2 的连接传输到 node4 ，启动 node4 并安装 ONTAP 。然后，您必须重新分配 node2 的任何备用磁盘，属于根卷的任何磁盘以及在此过程前面未重新定位到 node3 的任何非根聚合，如本节所述。</block>
   <block id="550ffaa7219faf74146770514db0d8e8" category="inline-link-macro">准备网络启动</block>
-  <block id="cdb3662e6ecd47991de3008672ab3eb8" category="paragraph">如果 node4 的 ONTAP 9 版本与 node2 上安装的版本不同，则需要对其进行网络启动。安装 node4 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以按照中的说明将正确的文件下载到启动介质设备，以供后续系统启动 <block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block>。</block>
   <block id="89023b09a8e04215547178052eb90222" category="inline-link-macro">在节点 4 上配置 FC 端口</block>
   <block id="113dd8c6d49d13f5871e1cbe53350eb2" category="inline-link-macro">检查并配置 node4 上的 UTA/UTA2 端口</block>
   <block id="6f4a225b29c0975663d0e4b9e1f4547f" category="inline-xref">第 1 步</block>
@@ -96,10 +95,7 @@
   <block id="9b1668278d2d17d21775af5a0c8c14b3" category="list-text">检查聚合重新定位和 NAS 数据 LIF 移动操作的状态：</block>
   <block id="f1e1b94ce2ba7179506b74127da77af2" category="paragraph">`s系统控制器更换 show-details`</block>
   <block id="ff23473696232fd91c1e2dcb460109e4" category="paragraph">如果控制器更换操作步骤已暂停，请检查并更正错误（如果有），然后选择问题描述 `reume` 继续操作。</block>
-  <block id="b5cd09b90221c700e1c2cf9d6253d6a1" category="list-text">如有必要，还原和还原任何已替换的 LIF 。列出所有已替换的 LIF ：</block>
-  <block id="0b66eef739f727e3f877d8fd0e6b8862" category="paragraph">`cluster controller-replacement network placed-interface show`</block>
   <block id="e288d72d848472060faab52648a13f10" category="paragraph">如果已替换任何 LIF ，请将主节点还原回 node4 ：</block>
-  <block id="26490175c6a9bb3f68c33041e7c3bd2e" category="paragraph">`cluster controller-replacement network placed-interface restore-home-node`</block>
   <block id="6def760ec3a422405912b1de335c67db" category="list-text">恢复此操作以提示系统执行所需的后检查：</block>
   <block id="f3bf2563f63e5f2af4793dec3cbb4411" category="paragraph">系统将执行以下后检查：</block>
   <block id="9e9f6a103b5a748cadf8dfd54b8e29ac" category="list-text">聚合重建检查</block>
@@ -359,7 +355,6 @@
   <block id="56fd5e5051297f55fa1e22d93c8d71b8" category="list-text">【 auto_install3_step1]] 请确保为 node3 预留机架空间。</block>
   <block id="2c6541bc32b15b7aae8bab68f0ca5874" category="paragraph">如果 node1 和 node2 位于不同的机箱中，则可以将 node3 与 node1 放在同一机架位置。但是，如果 node1 与 node2 位于同一机箱中，则需要将 node3 置于其自身的机架空间中，最好靠近 node1 的位置。</block>
   <block id="b76de3994341c25067b438fe161926b7" category="list-text">【 auto_install3_step2]] 按照适用于您的节点型号的 _Installation and Setup Instructions_ 在机架中安装 node3 。</block>
-  <block id="e642674ff2b68ba9c6309b786d87c4f9" category="admonition">如果要升级到两个节点位于同一机箱中的系统，请在机箱中安装 node4 以及 node3 。否则，在启动 node3 时，该节点的行为将如同处于双机箱配置中，而在启动 node4 时，节点之间的互连将不会启动。</block>
   <block id="c558275e7d3a61c5ffa4c89d17138a8e" category="list-text">【 auto_install3_step3]] 为节点 3 布线，将连接从节点 1 移动到节点 3 。</block>
   <block id="a237c9d74ab3870e45b318a1071c10f4" category="admonition">您可能不需要将互连卡或集群互连缆线连接从 node1 移至 node3 ，因为大多数平台型号都具有唯一的互连卡型号。对于 MetroCluster 配置，您需要将 FC-VI 缆线连接从 node1 移至 node3 。如果新主机没有 FC-VI 卡，则可能需要移动 FC-VI 卡。</block>
   <block id="a5492c1c64c93543c424918fe38a847e" category="list-text">【 auto_install3_step4]] 打开 node3 的电源，然后在控制台终端按 Ctrl-C 访问启动环境提示符，以中断启动过程。</block>
@@ -2420,7 +2415,6 @@
   <block id="1204caf15b63ea601a42b09bd0feafca" category="paragraph">在此重新定位期间，请勿使用 -nt-controller-upgrade 参数。</block>
   <block id="9840fa5d3c651e50130a98db335d1163" category="list-text">验证 node1 现在是否为聚合的主所有者：</block>
   <block id="445fae138e0209c0bbf33e92c38c82b6" category="paragraph">如果聚合的主所有者不是 node1 ，则可以使用步骤 3 中的相同重新定位命令将其重新定位到 node1 。</block>
-  <block id="6224b74d5b0b8d2ad6d1e4b341f1fa19" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node1 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="0bff73dcb819ba800842aebfbaa1ea03" category="list-text">执行网络可访问性检查：</block>
   <block id="22754bd796837dc212cb05d513ad94cb" category="paragraph">确认所有已连接端口（包括接口组和 VLAN 端口）的状态均显示为 `OK` 。</block>
   <block id="d22abe120efea253d7c808e8381ed917" category="paragraph">执行这些检查后，系统会将 node1 拥有的非根聚合和 NAS 数据 LIF 重新定位到新的 node1 。</block>
@@ -2456,7 +2450,6 @@
   <block id="30c92ab6acc222d81011f6b7ee804f3f" category="paragraph">`volume show -node node1 -state offline`</block>
   <block id="85e5ea53a85c7a28840f38eea6491b3c" category="paragraph">如果 node1 上的任何卷脱机，请在 node1 上使用以下命令将其联机，每个卷一次：</block>
   <block id="6e13fc9d1e75c160461788f1b750083d" category="list-text">使用以下命令并检查输出，以验证 node2 上是否没有剩余数据 LIF ：</block>
-  <block id="ee2ce060961db1c7ec1f363acef87d91" category="paragraph">在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node2 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。</block>
   <block id="b990f6960d7072e815b8e4d805f92035" category="paragraph">如果已替换任何 LIF ，请将主节点还原回 node2 ：</block>
   <block id="51108f40a613018fdc6b3ad89f42122e" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未在其他系统中使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果更换用的控制器硬件先前已用作另一个 ONTAP 集群的一部分或用作独立的单节点系统，则必须联系技术支持。</block>
   <block id="5077f34346404c6e6b1972588ad2c047" category="list-text">在 ONTAP 命令行的高级权限模式下输入以下命令，开始控制器更换过程：</block>
@@ -3782,9 +3775,7 @@
   <block id="fcff81c7528d1100eb58e37ad90535bd" category="admonition">如果正在使用板载密钥管理器进行NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请保留密钥管理器密码短语、以便稍后在操作步骤中完成密钥管理器重新同步。</block>
   <block id="1cb0cfe1b06273ad55b3f7189d138bb6" category="paragraph">此操作步骤提供了自动化操作步骤的步骤、该步骤使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
   <block id="7903419bce057c444e1bce59010158ec" category="paragraph">在交换相应的更换系统模块后、您必须使用netboot node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您需要将ONTAP 9启动映像的副本添加到系统可以访问的Web服务器上。</block>
-  <block id="4524533c84ef78e7e46b023d69fd771f" category="paragraph">在验证node2上的网络配置之后、以及在将聚合从node1重新定位到node2之前、您需要验证node1上当前属于node2的NAS数据生命周期是否已从node1重新定位到node2。此外、还必须验证node2上是否存在SAN SIFs。</block>
   <block id="aeadb581bc234293016c883a2bc49cc9" category="paragraph">要停用node1、您需要恢复自动操作、以便使用node2禁用HA对并正确关闭node1。</block>
-  <block id="374c76f74637c44ca649d6a92a52de14" category="paragraph">在验证node1上的网络配置之后、以及在将聚合从node2重新定位到node1之前、您需要验证node2上当前属于node1的NAS数据生命周期是否已从node2重新定位到node1。此外，还必须验证 node1 上是否存在 SAN LIF 。</block>
   <block id="656030f2bc1d7ad32243a38c007d0770" category="paragraph">使用替代系统模块启动node1后、您需要验证其是否已正确安装。您必须等待node2加入仲裁、然后恢复控制器更换操作。</block>
   <block id="fc654fff4abe048148189ff6fa5e3c9c" category="paragraph">要确认设置是否正确、请验证是否已启用HA对。您还需要验证node1和node2是否可以访问彼此的存储、并且它们都不拥有属于集群中其他节点的数据生命周期。此外、您还需要验证所有数据聚合是否位于其正确的主节点上、以及两个节点的卷是否联机。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改此适配器的使用。</block>
   <block id="37e06fbb743ab1c1935f7d96672ee924" category="paragraph">在交换相应的替换node2系统模块后、您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您会将ONTAP 9启动映像的副本放置到系统可以访问的Web服务器上。</block>
@@ -4124,14 +4115,10 @@
   <block id="1541d30bc97104d196a4b30a48265600" category="paragraph">将ASA A900、AFF A900或FAS9500 NVRAM模块安装到node2的插槽6中。</block>
   <block id="ede80ab611f3725304fd9e964c65b970" category="paragraph">在node2中安装ASA A900、AFF A900或FAS9500控制器模块并为其布线和连接。</block>
   <block id="b9b8de16ec06ff60ede24d2818e0abab" category="list-text">将用于FCP或FC-NVMe数据访问的FCP SAN SIFs重新分配到正确的主端口：</block>
-  <block id="a1e8ba06d77acad7fa970ba8e0f0e467" category="paragraph"><block ref="16135bd5b92713cfb36ebe367a4ca458" prefix="" category="inline-code"></block></block>
   <block id="2de38c1e5aa6aa649940e819b4ebf8dd" category="list-text">对于当前节点为已升级节点1且当前端口报告"status oper"为"-"的AFF (因为端口存在于A800节点上、但不存在于AFF A90节点上)、请先修改当前端口、然后再将其置于联机状态。</block>
   <block id="dc7986d888f3be0cb2a2215b9580886d" category="paragraph">验证是否已与需要移动FC LIF的FC目标端口建立物理连接：</block>
-  <block id="20aae0c682908a321c4cb1ad3ed45571" category="paragraph"><block ref="6c2cad085a4937044f2937a01cb285f3" prefix="" category="inline-code"></block></block>
   <block id="b6257f5e9d4beab0291d2ae4dcfcbbd8" category="list-text">修改LIF的主端口：</block>
-  <block id="d354b1900f4972b1b49a933cfce61941" category="paragraph"><block ref="867b8ae03fe5d96f67794b8aa4dc8589" prefix="" category="inline-code"></block></block>
   <block id="4dbb86eefaa0a209d0215f725cf0c953" category="list-text">将LIF状态设置为up：</block>
-  <block id="461987576b6bc9795673a818ccac3663" category="paragraph"><block ref="c69d259c6c2cd4b5fceaec835bc7e8b1" prefix="" category="inline-code"></block></block>
   <block id="5ed9b0adde6f557c682b59271b680376" category="paragraph">对node1上的主FC SAN LIF重复子步骤a和b。</block>
   <block id="9948b60bcf24c5a577ac51ca46681211" category="list-text">[[resume_rLocation _Step4]]恢复重新定位操作：</block>
   <block id="c8d0afb25c26087738c4c8847b04be0f" category="list-text">等待替代控制器模块上运行的node1启动、并显示启动菜单选项、如下所示：</block>
@@ -4260,13 +4247,7 @@
   <block id="5f6dcf2dc8c9275db98fa671806a2df2" category="list-text">iSCSI LUN会通过可访问的扫描自动查找正确的主端口。FC和NVMe/FC SAN LUN不会自动移动。升级之前、它们仍会显示其所在的主端口。</block>
   <block id="896fb328ef1870ab0c1426f849038173" category="paragraph">检查node3上的SAN Sifs：</block>
   <block id="986b69e60fa399c84378e8d8fdc4169e" category="list-text">修改向新数据端口报告"已关闭"操作状态的任何iSCSI SAN LUN：</block>
-  <block id="d9969d4bf831f15759b98f7f207624b0" category="paragraph"><block ref="10a9afb32a3e32e2f6c74223ba2ea3bf" prefix="" category="inline-code"></block></block>
-  <block id="6f1ad881dbf1eabf2024524fef9e1724" category="paragraph"><block ref="ef02172e95be012def2cc33ea87abf3b" prefix="" category="inline-code"></block></block>
-  <block id="4f79deb8615933038d14dd5ea648ed45" category="paragraph"><block ref="e880cca787f2bb3d426379f39b8412bb" prefix="" category="inline-code"></block></block>
   <block id="d2106fca8a6ec5ee92267756d2ba5ed8" category="list-text">修改新控制器的主端口并向新控制器上的FCP端口报告"已关闭"运行状态的任何FC和NVMe/FC SAN LIFs：</block>
-  <block id="374a3532b059f787794fea3a4eceed27" category="paragraph"><block ref="fd39e72aaaaed002f894920981daeb07" prefix="" category="inline-code"></block></block>
-  <block id="09d339146e9f1aea7c732982453d56de" category="paragraph"><block ref="b60b5b228661943ca32fb9e03105246b" prefix="" category="inline-code"></block></block>
-  <block id="844aa209b69b21c6b4ac8b353001bf6c" category="paragraph"><block ref="340db2fa4901e2bebbaa48beb251cc09" prefix="" category="inline-code"></block></block>
   <block id="5041f3d5ede13a9dd794a52168aacdb3" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、验证node2在node3上的NAS数据LUN是否已从node3重新定位到node4<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="37795240818b6015e8cc10cd9fdd35e1" category="paragraph">检查node4上的SAN Sifs：</block>
   <block id="b13a176ba8c67756fe909d3d869f8300" category="summary">使用命令支持运行ONTAP 9.151或更高版本的控制器升级所需的参考内容和网站<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
@@ -4688,14 +4669,11 @@
   <block id="e891c1eb94e2ca8bb3b7b8dadb898400" category="list-text"><block ref="6bdc44b5c51cc632715ca157799c6ae3" category="inline-link-macro-rx"></block>(英文)</block>
   <block id="4ae096e0267d8683306cc7a7a6a39a64" category="paragraph">参考<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>链接到_ONTAP 9 文档_。</block>
   <block id="e9b64afb92831f1198d95f80d156d793" category="list-text">如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后继续<block ref="a6d322e902b744ff3a11f02b5c6d9496" category="inline-link-macro-rx"></block> ，在集群提示符下输入命令。</block>
-  <block id="5bd058344f8aec8219e043cff27b0f39" category="admonition">如果要升级到两个节点位于同一机箱中的系统，请在机箱中安装 node4 以及 node3 。如果不这样做，当您启动 node3 时，该节点的行为将如同处于双底盘配置中，而当您启动 node4 时，节点之间的互连将不会出现。</block>
   <block id="dce5ed79f31a7baa48db39721ab1ead2" category="inline-link-macro">使用 ARL 升级控制器模型，保留现有的系统机箱和磁盘</block>
   <block id="744c8ae51567237f1e51aca67e4478ec" category="inline-link-macro">了解使用 ARL 支持的系统升级组合，保留现有系统机箱和磁盘</block>
   <block id="8b53acd1242404623585fa614cf7d039" category="paragraph">如果 node3 上没有安装与 node1 上相同版本的 ONTAP 9，则必须通过网络启动 node3。安装 node3 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。然后，您可以将正确的文件下载到启动介质设备，以供后续系统启动。请参阅。 <block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block></block>
   <block id="756d35654041df32f1be206cb5d73d40" category="paragraph">但是，如果 node3 上安装的 ONTAP 9 与 node1 上安装的 ONTAP 9 相同或更高版本，则无需通过网络启动 node3。</block>
   <block id="e9e731a9f4962a1d8b683234f1b71e92" category="list-text">如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后转到<block ref="b874d68563e926f19d0f15015f15f190" category="inline-link-macro-rx"></block>和<block ref="65c0a9634aad86b4a452ae0da56bfb85" category="inline-link-macro-rx"></block> ，在集群提示符下输入命令。</block>
-  <block id="077a3792f816c368d84f9a714136be02" category="paragraph">如果节点 4 上安装的 ONTAP 9 版本与节点 2 上安装的 ONTAP 9 版本不同，则必须安装 node4 后，从 Web 服务器上存储的 ONTAP 9 映像启动它。通过网络启动节点 4。然后，您可以按照<block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block> 。</block>
-  <block id="b4f090990739dcde90138932f4f42a92" category="paragraph">但是，如果 node4 上安装的 ONTAP 9 与 node2 上安装的相同或更高版本，则无需通过网络启动 node4。</block>
   <block id="92909e480346a929ed3538f8fb727042" category="list-text">如果您要升级带有存储磁盘的系统，则必须完成整个部分，然后继续执行下一节<block ref="488c6e462745f03d8c1dfb3ba61f7258" category="inline-link-macro-rx"></block> ，在集群提示符下输入命令。</block>
   <block id="13f6606372b0497bd7d8f495e2c93873" category="paragraph">您将使用目录中的信息<block ref="ab6acaf1648b65fe7eff652317a95a17" category="inline-link-macro-rx"></block> 。</block>
   <block id="ab58313074490a46c5f45119c9303e60" category="paragraph">查看 * 状态管理 /Oper* 列，查看是否有任何 LIF 已关闭。如果任何 LIF 出现故障，请咨询<block ref="103588ef7fbd849a8c4b92e24d1fe01e" category="inline-link-macro-rx"></block>部分。</block>
@@ -5346,4 +5324,30 @@
   <block id="de2c8f88da32b208ab4a1bf0c1405c32" category="paragraph"><block ref="de2c8f88da32b208ab4a1bf0c1405c32" category="inline-link-macro-rx"></block></block>
   <block id="0187590ed6627836f657d0d4157f4bd9" category="paragraph"><block ref="0187590ed6627836f657d0d4157f4bd9" category="inline-link-macro-rx"></block></block>
   <block id="9cab58d086b1e90a5b2f49ae6b194edb" category="sidebar">移除原始节点</block>
+  <block id="ebcb74e1716134fe203a42a8cd428baa" category="paragraph">如果节点 4 上的ONTAP版本与节点 2 上的ONTAP版本不同，则需要对节点 4 进行网络启动。安装 node4 后，从存储在 Web 服务器上的ONTAP 9 映像启动它。然后，您可以按照说明将正确的文件下载到启动介质设备，以便后续系统启动。 <block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block>。</block>
+  <block id="f9e30dbcc8818a264a749f4e39bc4fab" category="admonition">如果要升级到两个节点都在同一个机箱中的系统，请将节点 4 和节点 3 安装到机箱中。如果两个节点没有安装在同一机箱中，启动节点 3 时，它的行为就像是在双机箱配置中一样；而启动节点 4 时，节点之间的互连将无法建立。</block>
+  <block id="37fe0d7aeb22bd42f48b3712743c4b39" category="paragraph">如果节点 4 上的ONTAP版本与节点 2 上的ONTAP版本不同，则必须对节点 4 进行网络启动。安装 node4 后，从存储在 Web 服务器上的ONTAP 9 映像启动它。然后，您可以按照说明将正确的文件下载到启动介质设备，以便后续系统启动。 <block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block></block>
+  <block id="e8b6b737376aeb606702dc2af5d474cd" category="paragraph">但是，如果 node4 上的ONTAP版本与 node2 上的ONTAP版本相同或更高，则无需对 node4 进行网络启动。</block>
+  <block id="abe51e27581a803d580b27106c8fbcc9" category="list-text">如有必要，恢复和还原已移位的 LIF，或者手动迁移和修改未能自动迁移到 node3 的 node1 LIF。</block>
+  <block id="fa9a7ae0c5e4e008996b0538541864c2" category="open-title">恢复和还原移位的 LIF</block>
+  <block id="a576509acad193e321ac9d885bc9528e" category="list-text">列出所有已移位的 LIF：</block>
+  <block id="0ea61c0cbfb23f5c46127b958ce17c92" category="open-title">手动迁移和修改 LIF 文件</block>
+  <block id="8d89c65969f1e32bf8b6c9fb92b19f08" category="list-text">将未能自动迁移到节点3的LIF迁移：</block>
+  <block id="3a062c1f7aa95f546bf6583c39ceb2fd" category="list-text">修改已迁移 LIF 的源节点和源端口：</block>
+  <block id="064dc3dc8b7fdd4f038fd92a236f9b83" category="paragraph">在验证节点 4 上的网络配置后，需要将节点 2 拥有的 NAS 数据 LIF 从节点 3 迁移到节点 4，并确认 SAN LIF 存在于节点 4 上。</block>
+  <block id="ed77334ffc92a501bf542c2f2d717f14" category="paragraph">远程 LIF 在升级过程中处理到 SAN LUN 的流量。升级过程中，迁移 SAN LIF 对集群或服务运行状况并非必要。除非需要将 SAN LIF 映射到新端口，否则不会移动它们。</block>
+  <block id="738a28f5784910fea735841a7a946127" category="paragraph">在节点 4 上线后，您需要验证 LIF 是否健康并位于正确的端口上。</block>
+  <block id="f5ddff38abc8c1b895f6621c588d31b9" category="paragraph">系统在网络可达性检查阶段暂停操作。</block>
+  <block id="3d2471dd6cc645b6dc421dfb8f23f60f" category="list-text">如有必要，恢复和还原已移位的 LIF，或者手动迁移和修改未能自动迁移到 node4 的 node2 LIF。</block>
+  <block id="ca2db2e739635d249ad481bb473976e7" category="list-text">将未能自动迁移到节点 4 的 LIF 迁移：</block>
+  <block id="ba5c068e6cda04378d720403021dfbd4" category="paragraph">如果节点 4 上的ONTAP版本与节点 2 上的ONTAP版本不同，则必须对节点 4 进行网络启动。安装 node4 后，从存储在 Web 服务器上的ONTAP 9 映像启动它。然后，您可以按照说明将正确的文件下载到启动介质设备，以便后续系统启动。 <block ref="4815c2d091d790c1d3bab94177b38eaf" category="inline-link-macro-rx"></block>。</block>
+  <block id="9121a5ed9235664a166062eb989f8200" category="paragraph">在验证节点 2 上的网络配置后，需要将节点 2 拥有的 NAS 数据 LIF 从节点 1 迁移到节点 2，并确认 SAN LIF 存在于节点 2 上。</block>
+  <block id="1055c88411bbfa6c3eba01720acdc22a" category="paragraph">在节点 2 上线后，您需要验证 LIF 是否健康以及是否位于正确的端口上。</block>
+  <block id="acad873850f7dfac35785963df3cc61f" category="paragraph">系统在网络可达性检查的此阶段暂停操作。</block>
+  <block id="781572d7ed485284c30a93586bc8b92a" category="list-text">如有必要，恢复和还原已移位的 LIF，或者手动迁移和修改未能自动迁移到 node2 的 node2 LIF。</block>
+  <block id="f64bf283d31880054e5afd8aaefe6a39" category="list-text">将未能自动迁移到节点2的LIF迁移出去：</block>
+  <block id="ea32bdbc38b1afc744063f63942db19d" category="paragraph">在验证节点 1 上的网络配置后，需要将节点 1 拥有的 NAS 数据 LIF 从节点 2 迁移到节点 1，并确认 SAN LIF 存在于节点 1 上。</block>
+  <block id="e1bbac43e553387c297781314d0b0a41" category="paragraph">在节点 1 上线后，您需要验证 LIF 是否健康以及是否位于正确的端口上。</block>
+  <block id="62a56d2b56c0cc31edabe0668b713cd8" category="list-text">如有必要，恢复和还原已移位的 LIF，或者手动迁移和修改未能自动迁移到 node1 的 node1 LIF。</block>
+  <block id="619e87d98142a98df53ed32236cf583d" category="list-text">将未能自动迁移到节点 1 的 LIF 迁移：</block>
 </blocks>

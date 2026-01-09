@@ -14,16 +14,20 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 
 
 [role="lead"]
-在验证node1上的网络配置之后、以及在将聚合从node2重新定位到node1之前、您需要验证node2上当前属于node1的NAS数据生命周期是否已从node2重新定位到node1。此外，还必须验证 node1 上是否存在 SAN LIF 。
+在验证节点 1 上的网络配置后，需要将节点 1 拥有的 NAS 数据 LIF 从节点 2 迁移到节点 1，并确认 SAN LIF 存在于节点 1 上。
 
 .关于此任务
-在升级操作步骤期间，远程 LIF 处理 SAN LUN 的流量。升级期间，集群或服务运行状况无需移动 SAN LIF 。除非需要将 SAN LIF 映射到新端口，否则不会移动这些 LIF 。使 node1 联机后，您必须验证 LIF 是否运行正常并位于相应的端口上。
+远程 LIF 在升级过程中处理到 SAN LUN 的流量。升级过程中，迁移 SAN LIF 对集群或服务运行状况并非必要。除非需要将 SAN LIF 映射到新端口，否则不会移动它们。
+
+在节点 1 上线后，您需要验证 LIF 是否健康以及是否位于正确的端口上。
 
 .步骤
 . 恢复重新定位操作：
 +
-`s系统控制器更换恢复`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 系统将执行以下任务：
 
@@ -38,12 +42,14 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 
 --
 +
-此操作将在网络可访问性检查的此阶段暂停。
+系统在网络可达性检查的此阶段暂停操作。
 
 . 执行网络可访问性检查：
 +
-`network port reachability show -node node1`
-
+[source, cli]
+----
+network port reachability show -node node1
+----
 +
 确认所有已连接端口（包括接口组和 VLAN 端口）的状态均显示为 `OK` 。
 
@@ -71,8 +77,10 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 +
 .. 将用于FCP或FC-NVMe数据访问的FCP SAN SIFs重新分配到正确的主端口：
 +
-`network interface show -vserver <vserver_hosting_fcp_lifs>`
-
+[source, cli]
+----
+network interface show -vserver <vserver_hosting_fcp_lifs>
+----
 .. 对于当前节点为已升级节点1且当前端口报告"status oper"为"-"的AFF (因为端口存在于A800节点上、但不存在于AFF A90节点上)、请先修改当前端口、然后再将其置于联机状态。
 +
 验证是否已与需要移动FC LIF的FC目标端口建立物理连接：
@@ -81,16 +89,22 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 --
 ... 将 LIF 状态设置为 "down" ：
 +
-`network interface modify -vserver <vserver_name> -lif <lif_name>  -status-admin down`
-
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name>  -status-admin down
+----
 ... 修改LIF的主端口：
 +
-`network interface modify -vserver <vserver_name> -lif <lif_name> - home-node <node1> -home-port <FC_target_port>`
-
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <lif_name> - home-node <node1> -home-port <FC_target_port>
+----
 ... 将LIF状态设置为up：
 +
-`network interface modify -vserver <vserver> -lif <lif_name>  -status-admin up`
-
+[source, cli]
+----
+network interface modify -vserver <vserver> -lif <lif_name>  -status-admin up
+----
 
 
 --
@@ -101,8 +115,10 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 
 . [[resume_rLocation _Step4]]恢复重新定位操作：
 +
-`s系统控制器更换恢复`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 系统将执行以下检查：
 
@@ -121,25 +137,58 @@ summary: 验证在使用ARL升级同一机箱中的控制器型号时、node2上
 
 . 检查聚合重新定位和 NAS 数据 LIF 移动操作的状态：
 +
-`s系统控制器更换 show-details`
-
+[source, cli]
+----
+system controller replace show-details
+----
 +
 如果控制器更换操作步骤已暂停，请检查并更正错误（如果有），然后选择问题描述 `reume` 继续操作。
 
-. 如有必要，还原和还原任何已替换的 LIF 。列出所有已替换的 LIF ：
+. 如有必要，恢复和还原已移位的 LIF，或者手动迁移和修改未能自动迁移到 node1 的 node1 LIF。
 +
-`cluster controller-replacement network placed-interface show`
-
+[role="tabbed-block"]
+====
+.恢复和还原移位的 LIF
+--
+.. 列出所有已移位的 LIF：
 +
-如果已替换任何 LIF ，请将主节点还原回 node1 ：
-
+[source, cli]
+----
+cluster controller-replacement network displaced-interface show
+----
+.. 如果已替换任何 LIF ，请将主节点还原回 node1 ：
 +
-`cluster controller-replacement network placed-interface restore-home-node`
+[source, cli]
+----
+cluster controller-replacement network displaced-interface restore-home-node -node <node1_nodename> -vserver <vserver name> -lif-name <lif_name>
+----
 
+
+--
+.手动迁移和修改 LIF 文件
+--
+.. 将未能自动迁移到节点 1 的 LIF 迁移：
++
+[source, cli]
+----
+network interface migrate -vserver <vserver name> -lif <lif_name> -destination-node <node1_nodename> -destination-port <port_on_node1>
+----
+.. 修改已迁移 LIF 的源节点和源端口：
++
+[source, cli]
+----
+network interface modify -vserver <vserver_name> -lif <data_lif_name> -home-node <node1_nodename> -home-port <home_port>
+----
+
+
+--
+====
 . 恢复此操作以提示系统执行所需的后检查：
 +
-`s系统控制器更换恢复`
-
+[source, cli]
+----
+system controller replace resume
+----
 +
 系统将执行以下后检查：
 
