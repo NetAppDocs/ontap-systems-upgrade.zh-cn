@@ -27,10 +27,10 @@ NOTE: 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁�
 | 问问自己…… | 如果你的答案是肯定的，你可以这样做…… 
 
 
-| 我在原节点和新节点上运行的软件版本是否不同？ | 将原始节点上的ONTAP版本升级到最高支持版本。如果条件允许，新节点必须支持在原始节点上运行的ONTAP版本。如果这不可能，link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["升级ONTAP版本"^]在原始节点上升级到最高支持版本。原节点和新节点之间的版本差不能大于 4。例如，支持ONTAP 9.8 和 9.12.1；但是不支持ONTAP 9.8 和 9.13.1。link:https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["了解有关混合版本ONTAP集群的更多信息"^]。 
+| 我在原节点和新节点上运行的软件版本是否不同？ | 将原始节点上的 ONTAP 版本升级到支持的最高版本。如果可能，新节点必须支持在原始节点上运行的 ONTAP 版本。如果无法执行此操作，link:https://docs.netapp.com/us-en/ontap/upgrade/prepare.html["升级ONTAP版本"^]原始节点上的版本到支持的最高版本。原始节点和新节点之间的版本差异不能超过四个。例如，支持 ONTAP 9.8 和 9.12.1；但不支持 ONTAP 9.8 和 9.13.1。link:https://docs.netapp.com/us-en/ontap/upgrade/concept_mixed_version_requirements.html["了解有关混合版本ONTAP集群的更多信息"^]。 
 
 
-| 我是否要进行一次颠覆性的升级？ | link:upgrade/upgrade-decide-to-use-this-guide.html["通过移动存储进行升级"]。这需要一个全新的系统，配备自己的存储设备和货架，用于存储来自原系统的数据。对于某些升级，可以从控制器机架进行转换。 
+| 我是否要进行一次颠覆性的升级？ | link:upgrade/upgrade-decide-to-use-this-guide.html["通过移动存储进行升级"]。这需要一个具有自己的存储和磁盘架的新系统来存储来自原始系统的数据。对于某些升级，您可以从控制器架进行转换。 
 
 
 | 我是否要执行无中断升级？  a| 
@@ -44,11 +44,15 @@ NOTE: 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁�
 +
 ARL 是一种置换手术。您无需随着新节点的加入而扩展和缩减集群，这对于双节点无交换机集群来说是有利的。在移动卷时，通过重新定位聚合来移动数据比跨聚合复制数据要快。
 
+* link:upgrade/upgrade-decide-to-use-this-guide.html["移动存储"]
++
+您可以通过将原始节点转换为驱动器架，然后将驱动器架连接到替换节点以移动板载存储，从而无中断地从 AFF A250 升级到 AFF A400 或从 FAS2820 升级到替换系统。
 
 
 
 
-| 我的系统是模块化的吗？  *注意*：在模块化系统中，控制器没有任何内部磁盘，所有存储都位于外部连接的存储架中。 | link:upgrade-arl/index.html["使用聚合重新定位进行升级"]。 
+
+| 我是否有模块化系统？*注意*：在模块化系统中，控制器没有内部磁盘；所有存储都在外部连接的货架中。 | link:upgrade-arl/index.html["使用聚合重新定位进行升级"]。 
 
 
 | 我是否拥有一个集成系统，并希望通过迁移卷来升级？ *注*：在集成系统中，控制器具有内部磁盘，存储设备位于控制器机箱内以及外部连接的存储架中。外部搁架用于扩展存储空间，可能并非每个系统配置都包含外部搁架。  a| 
@@ -73,7 +77,7 @@ ARL 是一种置换手术。您无需随着新节点的加入而扩展和缩减�
 
 == 示例： FAS9500升级到 FAS90
 
-本示例展示了FAS9500到 FAS90 控制器升级的可能解决方案。
+本示例为 FAS9500 到 FAS90 控制器升级提供了可能的答案。
 
 [cols="30,70"]
 |===

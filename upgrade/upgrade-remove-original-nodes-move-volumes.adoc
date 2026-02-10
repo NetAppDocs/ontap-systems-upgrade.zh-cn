@@ -16,16 +16,24 @@ summary: 将卷迁移到新节点后，从集群中删除原始节点。删除�
 .步骤
 . [[disable-ha]]禁用原始节点上的高可用性 (HA) 配置：
 +
-`storage failover modify -node <original_node_name> -enabled false`
+[source, cli]
+----
+storage failover modify -node <original_node_name> -enabled false
+----
 
-. 访问高级权限级别：
+
+. 将权限级别更改为 advanced：
 +
-`set -privilege advanced`
-
-. 确定具有 epsilon 的节点：
+[source, cli]
+----
+set -privilege advanced
+----
+. 识别集群中具有 epsilon 的节点：
 +
-`cluster show`
-
+[source, cli]
+----
+cluster show
+----
 +
 在以下示例中， "node0" 当前持有 epsilon ：
 
@@ -40,65 +48,90 @@ node1                true    true         false
 node2                true    true         false
 node3                true    true         false
 ----
-. [[epsilon-true]]如果某个原始节点持有 epsilon，则将 epsilon 移动到您不会从集群中移除的节点：
+. [[epsilon-true]]如果您要删除的节点包含 epsilon：
 +
-.. 从原始节点中移除 epsilon：
+.. 从要删除的节点中移动 epsilon：
 +
-`cluster modify -node <original_node_name> -epsilon false`
-
-.. 将 epsilon 分配给不同的节点：
+[source, cli]
+----
+cluster modify -node <name_of_node_to_be_removed> -epsilon false
+----
+.. 将 epsilon 移至未移除的节点：
 +
-`cluster modify -node <new_node_name> -epsilon true`
-
+[source, cli]
+----
+cluster modify -node <node_name> -epsilon true
+----
 
 
 . 确定当前主节点：
 +
-`cluster ring show`
-
+[source, cli]
+----
+cluster ring show
+----
 +
 主节点是承载诸如此类进程的节点。 `mgmt`， `vldb`， `vifmgr`， `bcomd`， 和 `crs`。
 
-. 如果要移除的节点是当前主节点，则需要启用集群中剩余节点的选举机制，使其能够被选为主节点：
+. 如果您要删除的节点是当前主节点，请启用集群中的另一个节点被选为主节点：
 +
 .. 取消当前主节点参与集群的资格：
 +
-`cluster modify -node <original_node_name> -eligibility false`
-
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility false
+----
 +
-该节点将被标记为不健康，直到其恢复符合资格为止。当主节点不再符合资格时，集群仲裁将从剩余节点中选举出一个新主节点。
+在恢复资格之前，节点被标记为不健康。当主节点变得不合格时，剩余的节点之一由集群仲裁选举为新的主节点。
 
 +
 [NOTE]
 ====
-如果您在 HA 对中的第一个节点上执行此步骤，则应仅将该节点标记为不符合条件。请勿修改HA合作伙伴的状态。
+如果要在 HA 对中的第一个节点上执行此步骤，则应仅将该节点标记为不合格。请勿修改 HA 合作伙伴的状态。
 
-如果选择伙伴节点作为新的主节点，则需要验证它是否持有 epsilon。如果伙伴节点持有 epsilon，则在使其失去资格之前，需要将 epsilon 转移到集群中剩余的另一个节点。当你重复这些步骤来删除伙伴节点时，就会执行此操作。
+如果选择合作伙伴节点作为新的主节点，则需要在使其不合格之前验证它是否保持 epsilon。如果合作伙伴节点持有 epsilon，则需要将 epsilon 移动到保留在集群中的其他节点，然后才能使其不合格。在重复这些步骤以删除合作伙伴节点时，请执行此操作。
 
 ====
 .. 使之前的主节点再次有资格参与集群：
 +
-`cluster modify -node <node_name> -eligibility true`
+[source, cli]
+----
+cluster modify -node <node_name> -eligibility true
+----
 
 
-
-. 登录到集群中剩余节点的远程节点管理 LIF 或集群管理 LIF，并从集群中删除每个原始节点（高级权限级别）：
+. 登录到未从群集中删除的节点上的远程节点管理 LIF 或群集管理 LIF。
+. 从集群中删除节点：
 +
+|===
+| 对于此 ONTAP 版本... | 使用此命令 ... 
+
+
+ a| 
+ONTAP 9.3
+ a| 
+[source, cli]
+----
+cluster unjoin
+----
+
+
+ a| 
+ONTAP 9.4 及更高版本
+ a| 
 节点名称：
 
-+
 [source, cli]
 ----
-cluster remove-node -node <original_node_name>
+cluster remove-node -node <node_name>
 ----
-+
 节点 IP 地址：
 
-+
 [source, cli]
 ----
-cluster remove-node -cluster_ip <original_node_ip>
+cluster remove-node -cluster_ip <node_ip>
 ----
+|===
 +
 如果您有一个混合版本集群，并且要移除最后一个版本较低的节点，请使用以下方法： `-skip-last-low-version-node-check` 使用这些命令的参数。
 
@@ -112,13 +145,13 @@ cluster remove-node -cluster_ip <original_node_ip>
 如果在删除节点之前必须解决某些条件，则会生成一条错误消息。例如，该消息可能表明该节点具有您必须删除的共享资源，或者该节点处于您必须禁用的集群 HA 配置或存储故障转移配置中。
 
 +
-如果该节点是仲裁主节点，则集群会短暂失去仲裁，然后恢复仲裁。此次法定人数损失是暂时的，不会影响任何数据操作。
+如果节点是仲裁主节点，则集群将短暂失去仲裁，然后返回到仲裁。此仲裁丢失是暂时的，不会影响任何数据操作。
 
 
 
 . 如果错误消息指示存在错误情况，请解决这些情况并重新运行。 `cluster remove-node` 或者 `cluster unjoin` 命令。
 +
-节点从集群中成功移除后，会自动重启。
+从集群中成功删除后，节点会自动重新启动。
 
 . 如果要重新利用节点，请清除节点配置并初始化所有磁盘：
 +
@@ -126,17 +159,21 @@ cluster remove-node -cluster_ip <original_node_ip>
 .. 选择启动菜单选项 *(4) 清除配置并初始化所有磁盘*。
 
 
-. [[return-admin]]恢复集群中某个新节点的管理员权限级别：
+. [[return-admin]]返回管理员权限级别：
 +
 [source, cli]
 ----
 set -privilege admin
 ----
+
+
 . 重复步骤 <<disable-ha,1>> 到 <<return-admin,10>> 从集群中移除故障转移伙伴。
 . 如果集群只剩下两个节点，请为双节点集群配置高可用性：
 +
-`cluster ha modify -configured true`
-
+[source, cli]
+----
+cluster ha modify -configured true
+----
 
 
 .下一步是什么？

@@ -11,35 +11,42 @@ summary: 通过将每个节点转换为 DS212C 驱动器架，然后连接到替
 
 
 [role="lead"]
-您可以通过将每个节点转换为 DS212C 驱动器架，然后将其连接到替换节点，对NetApp FAS2820进行无中断升级。
+通过将每个节点转换为 DS212C 驱动器架来执行 NetApp FAS2820 系统的无中断升级。然后，将驱动器架连接到更换节点。这会将 FAS2820 板载存储移动到更换系统。
+
+.开始之前
+查看通过移动卷或存储进行升级的一般升级方案和升级注意事项：
+
+* link:upgrade-decide-to-use-this-guide.html["确定是通过移动卷还是存储进行升级"]
+* link:upgrade-considerations.html["升级控制器硬件的注意事项"]
+
 
 .关于此任务
-在此过程中， FAS2820高可用性 (HA) 对控制器称为节点 1 和节点 2，替换 HA 对控制器称为节点 3 和节点 4。
+FAS2820 高可用性 (HA) 对控制器为 node1 和 node2，替代 HA 对控制器为 node3 和 node4。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]xref:migrate-fas2820-node2-lifs-aggregates.adoc[将node2上的生命周期管理器和数据聚合迁移到node1]
 [role="quick-margin-para"]
-在将FAS2820节点 2 转换为驱动器架之前，您需要将节点 2 上的逻辑接口 (LIF) 和数据聚合迁移到节点 1。
+在将 FAS2820 node2 转换为驱动器架之前，将 node2 上的逻辑接口（LIF）和数据聚合迁移到 node1。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]xref:convert-fas2820-node2-drive-shelf.adoc[将node2转换为驱动器架并连接到node4]
 [role="quick-margin-para"]
-将 FAS8280 节点 2 转换为 DS212C 驱动器架，然后连接到节点 4，再将驱动器从节点 2 重新分配到节点 4。
+将 FAS2820 node2 转换为 DS212C 驱动器架，然后连接到 node4，然后将驱动器从 node2 重新分配给 node4。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]xref:reassign-fas2820-node2-drives.adoc[将驱动器从node2重新分配给node4]
 [role="quick-margin-para"]
-将FAS2820节点 2 转换为 DS212C 驱动器架并连接到节点 4 后，将之前属于节点 2 的驱动器重新分配给节点 4。
+将 FAS2820 node2 转换为 DS212C 驱动器架并连接到 node4 后，将以前属于 node2 的驱动器重新分配给 node4。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]xref:migrate-fas2820-aggregates-epsilon-lifs.adoc[将node1上的数据聚合、eps龙 和生命周期管理迁移到node4]
 [role="quick-margin-para"]
-在将FAS2820节点 1 转换为驱动器架之前，您需要将节点 1 上的数据聚合、epsilon 和 LIF 迁移到节点 4。
+在将 FAS2820 node1 转换为驱动器架之前，将 node1 上的数据聚合、epsilon 和 LIF 迁移到 node4。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"]xref:convert-fas2820-node1-drive-shelf.html[将node1转换为驱动器架并连接到node3]
 [role="quick-margin-para"]
-将FAS2820节点 1 转换为 DS212C 驱动器架并连接到节点 3，然后将驱动器从节点 1 重新分配到节点 3。
+将 FAS2820 node1 转换为 DS212C 驱动器架，并连接到 node3，然后将驱动器从 node1 重新分配给 node3。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"]xref:reassign-fas2820-node1-drives.adoc[将驱动器从node1重新分配给node3]
 [role="quick-margin-para"]
-将FAS2820节点 1 转换为 DS212C 驱动器并连接到节点 3 后，将之前属于节点 1 的驱动器重新分配给节点 3。
+将 FAS2820 node1 转换为 DS212C 驱动器架并连接到 node3 后，将之前属于 node1 的驱动器重新分配给 node3。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]xref:migrate-fas2820-node4-lIfs-aggregates.adoc[将node4上的生命周期管理器和数据聚合迁移到node3]
 [role="quick-margin-para"]
-要完成升级、请将node3连接到node4、然后将node4上的数据生命周期和数据聚合迁移到node3。
+要完成升级，请将 node3 连接到 node4，然后将 node4 上的数据 LIF 和数据聚合迁移到 node3。

@@ -32,11 +32,11 @@ CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并�
 . 准备卸下控制器模块：
 +
 .. 在机箱的前面，用拇指将每个驱动器牢牢推入顶部和底部磁盘托架，直到感觉到完全停止。这可确保驱动器牢固地固定在机箱中板上。
-+
+
+
+
+
 image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在机箱中间板上"]
-
-.. 转至机箱背面。
-
 
 . 从电源拔下node1控制器模块的电源。
 . Release the power cable retainers, and then unplug the cables from the power supplies.
@@ -68,11 +68,7 @@ image:black_circle_two.png["第二"]
 |===
 
 
-
-
-== 安装AFF A90、AFF A70或AFF C80控制器模块
-
-在node1中安装AFF A90、AFF A70或AFF C80控制器模块、并为其布线和连接。
+安装 AFF A90、AFF A70 或 AFF C80 控制器模块 在节点 1 中安装、连接 AFF A90、AFF A70 或 AFF C80 控制器模块。
 
 .步骤
 . Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
