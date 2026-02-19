@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-in-chassis/install-asa150-affa150-fas2820-on-node2.html 
 keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
-summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2上安装替代系统模块。 
+summary: 在同一机箱中控制器型号的 ARL 升级期间，在 node2 中安装更换系统模块。 
 ---
-= 在node2上安装ASA A150、AFF A150或FAS2820控制器模块
+= 在 node2 中安装 ASA A150、AFF A150 或 FAS2820 控制器模块
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2
 
 
 [role="lead"]
-在node2上安装您收到的用于升级的ASA A150、AFF A150或FAS2820控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。
+安装您收到的用于在 node2 中升级的 ASA A150、AFF A150 或 FAS2820 控制器模块。Node2 是控制器 B，从系统后部查看控制器时位于机箱右侧。
 
 .开始之前
 * 如果您尚未接地，请正确接地。

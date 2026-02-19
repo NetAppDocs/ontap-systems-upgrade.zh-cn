@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-in-chassis/replace-node1-affa250-affc250.html
 keywords: aff, asa, fas, replace, node1, system, modules 
 summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A250或AFF C250 node1系统模块。 
 ---
-= 更换AFF A250或AFF C250控制器模块
+= 更换 node1 AFF A250 或 AFF C250 控制器模块
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,6 +14,8 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A250
 
 
 [role="lead"]
+将 node1 AFF A250 或 AFF C250 控制器模块替换为 AFF A30、AFF A50、AFF C30 或 AFF C60 控制器模块。
+
 在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下node1控制器模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。
 
 
@@ -21,9 +23,9 @@ CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并�
 
 
 
-== 卸下AFF A250或AFF C250控制器模块
+== 步骤 1：卸下 AFF A250 或 AFF C250 控制器模块
 
-要卸下node1控制器模块、请先卸下缆线管理设备、解锁锁定闩锁、然后从机箱中卸下控制器模块。
+要卸下 node1 控制器模块，请卸下电缆管理设备并解锁锁定闩锁。然后从机箱中取出控制器模块。
 
 .开始之前
 如果您尚未接地，请正确接地。
@@ -105,10 +107,14 @@ NOTE: 为避免损坏连接器、将控制器模块滑入机箱时不要用力�
 
 . 在 LOADER 提示符 node1 处，设置默认环境变量：
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . 保存默认环境变量设置：
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 

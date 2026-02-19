@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-in-chassis/replace-node1-affa800.html
 keywords: aff, asa, fas, replace, node1, system, modules 
 summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A800或AFF C800 node1系统模块。 
 ---
-= 更换AFF A800或AFF C800控制器模块
+= 更换 node1 AFF A800 或 AFF C800 控制器模块
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,9 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A800
 
 
 [role="lead"]
-在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下node1控制器模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。
+将 node1 AFF A800 或 AFF C800 控制器模块替换为 AFF A90、AFF A70 或 AFF C80 控制器模块。
+
+此时，node1 已关闭，所有数据均由 node2 提供服务。您必须注意仅删除 node1 控制器模块。当从系统后部查看控制器时，控制器是堆叠的，控制器 A 通常在上面。控制器标签位于控制器模块正上方的机箱上。
 
 
 CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并连接到相同的电源。
@@ -24,20 +26,55 @@ CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并�
 
 
 
-== 卸下AFF A800或AFF C800控制器模块
+== 步骤 1：卸下 AFF A800 或 AFF C800 控制器模块
 
-从现有模块中卸下缆线管理设备、然后将控制器稍微移出机箱。
+从现有的 node1 模块中取出电缆管理设备，并将控制器稍微移出机箱。
 
 .步骤
-. 准备卸下控制器模块：
+. 通过使用拇指推动每个驱动器，确保机箱中的所有驱动器都牢固地固定在中间背板上，直到您感觉到正向停止。
 +
-.. 在机箱的前面，用拇指将每个驱动器牢牢推入顶部和底部磁盘托架，直到感觉到完全停止。这可确保驱动器牢固地固定在机箱中板上。
+.视频 - 确认驱动器安装
+video::2c46e4af-2c21-4f12-b065-b38b003d0ea2[panopto]
++
+image:drw_a800_drive_seated_IEOPS-960.svg["安装驱动器"]
+
+. 根据系统状态检查控制器驱动器：
++
+.. 在正常的控制器上，检查是否有任何活动的 RAID 组处于降级状态、失败状态或两者兼而有之：
++
+[source, cli]
+----
+storage aggregate show -raidstatus !*normal*
+----
++
+*** 如果命令返回 `There are no entries matching your query.`，请继续<<Check-missing-drives,转到下一个子步骤以检查缺少的驱动器>>。
+*** 如果命令返回任何其他结果，请从两个控制器收集 AutoSupport 数据并与 NetApp 支持部门联系以获得进一步帮助。
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
+
+
+.. [[Check-missing-drives]]检查文件系统或备用驱动器的驱动器缺失问题：
++
+[source, cli]
+----
+event log show -severity * -node * -message-name *disk.missing*
+----
++
+*** 如果命令返回 `There are no entries matching your query.`，请继续<<remove-power-cables,转至下一步>>。
+*** 如果命令返回任何其他结果，请从两个控制器收集 AutoSupport 数据并与 NetApp 支持部门联系以获得进一步帮助。
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message '<message_name>'
+----
 
 
 
 
-image:drw_a800_drive_seated_IEOPS-960.png["推动驱动器、使其紧紧靠在机箱中间板上"]
-
+. [[remove-power-cables]]取下电源线固定器，然后从电源上拔下电源线。
 . 从电源拔下node1控制器模块的电源。
 . Release the power cable retainers, and then unplug the cables from the power supplies.
 . Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFP and QSFP modules (if needed) from the controller module, keeping track of where the cables were connected.
@@ -68,7 +105,11 @@ image:black_circle_two.png["第二"]
 |===
 
 
-安装 AFF A90、AFF A70 或 AFF C80 控制器模块 在节点 1 中安装、连接 AFF A90、AFF A70 或 AFF C80 控制器模块。
+
+
+== 步骤 2：安装 AFF A90、AFF A70 或 AFF C80 控制器模块
+
+在 node1 中安装、布线和连接 AFF A90、AFF A70 或 AFF C80 控制器模块。
 
 .步骤
 . Align the end of the controller module with the opening in the chassis, and then gently push the controller module halfway into the system.
@@ -82,7 +123,7 @@ image:drw_A70-90_PCM_remove_replace_IEOPS-1365.PNG["安装AFF A90或AFF A70"]
 . 使用缆线将管理和控制台端口连接到 node1 控制器模块。
 +
 
-NOTE: 由于机箱已通电、因此、node1会在插入新控制器模块后立即启动BIOS初始化、然后自动启动。为避免这种自动启动、NetApp建议在插入控制器模块之前先连接串行电缆和控制台电缆。
+NOTE: 当您在下一步中插入 node1 控制器模块时，node1 立即启动 BIOS 初始化，然后是 AUTOBOOT，因为机箱已通电。在插入模块之前，通过连接串行电缆和控制台电缆来避免此 AUTOBOOT。
 
 . 在机箱的前面，用拇指将每个驱动器牢牢推入顶部和底部磁盘托架，直到感觉到完全停止。这可确保驱动器牢固地固定在机箱中板上。
 +
@@ -104,10 +145,14 @@ NOTE: 为避免损坏连接器、将控制器模块滑入机箱时不要用力�
 
 . 在 LOADER 提示符 node1 处，设置默认环境变量：
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . 保存默认环境变量设置：
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 

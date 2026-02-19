@@ -14,6 +14,8 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请更换AFF A700
 
 
 [role="lead"]
+用 ASA A900、AFF A900 或 FAS9500 控制器和 NVRAM 模块替换 node1 AFF A700 或 FAS9000 控制器和 NVRAM 模块。
+
 在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下 node1 控制器模块和 node1 NVRAM 模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。
 
 
@@ -24,9 +26,9 @@ CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并�
 
 
 
-== 卸下AFF A700或FAS9000控制器模块
+== 步骤 1：卸下 AFF A700 或 FAS9000 控制器模块
 
-从node1上断开并卸下AFF A700或FAS9000控制器模块。
+拆卸并移除 node1 AFF A700 或 FAS9000 控制器模块。
 
 .步骤
 . 从node1控制器模块断开控制台电缆(如果有)和管理电缆。
@@ -64,9 +66,9 @@ Make sure that you support the bottom of the controller module as you slide it o
 
 
 
-== 卸下AFF A700或FAS9000 NVRAM模块
+== 步骤 2：卸下 AFF A700 或 FAS9000 NVRAM 模块
 
-解除AFF A700或FAS9000 NVRAM模块的锁定并将其从node1中卸下。
+解锁并卸下 node1 AFF A700 或 FAS9000 NVRAM 模块。
 
 
 NOTE: AFF A700或FAS9000 NVRAM模块位于插槽6中、高度是系统中其他模块的两倍。
@@ -106,26 +108,18 @@ image:black_circle_two.png["第二"]
 
 
 
-== 安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块
+== 步骤 3：安装 ASA A900、AFF A900 或 FAS9500 NVRAM 模块
 
-在node1中安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块并进行布线和连接。
+在 node1 中安装、连接 ASA A900、AFF A900 或 FAS9500 NVRAM 模块。
 
-执行安装时、必须注意以下事项：
-
+[NOTE]
+====
 * 将插槽6-1和6-2中的所有空白填充模块从旧NVRAM模块移至新的NVRAM模块。
 * 请勿将核心转储设备从AFF A700 NVRAM模块移至ASA A900或AFF A900 NVRAM模块。
 * 将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。
 
 
-.开始之前
-如果您尚未接地，请正确接地。
-
-
-
-=== 安装ASA A900、AFF A900或FAS9500 NVRAM模块
-
-将ASA A900、AFF A900或FAS9500 NVRAM模块安装到node1的插槽6中。
-
+====
 .步骤
 . 将 NVRAM 模块与插槽 6 中机箱开口的边缘对齐。
 . 将 NVRAM 模块轻轻滑入插槽，直到带字母和编号的 I/O 凸轮闩锁开始与 I/O 凸轮销啮合，然后将 I/O 凸轮闩锁一直向上推，以将 NVRAM 模块锁定到位。
@@ -150,9 +144,9 @@ image:black_circle_two.png["第二"]
 
 
 
-=== 在node1上安装ASA A900、AFF A900或FAS9500控制器模块。
+== 步骤 4：在节点 1 上安装 ASA A900、AFF A900 或 FAS9500 控制器模块。
 
-使用以下操作步骤在node1中安装ASA A900、AFA A900或FAS9500控制器模块。
+在 node1 中安装、布线和连接 ASA A900、AFF A900 或 FAS9500 控制器模块。
 
 .步骤
 . 将控制器模块的末端与机箱中的开口对齐，然后将控制器模块轻轻推入系统的一半。
@@ -194,10 +188,14 @@ image:black_circle_two.png["第二"]
 . 中断自动启动后、node1将停留在加载程序提示符处。如果未按时中断自动启动、而node1开始启动、请等待提示符、然后按Ctrl-C进入启动菜单。在节点停留在启动菜单处后、使用option `8` 重新启动节点、并在重新启动期间中断自动启动。
 . 在 LOADER 提示符 node1 处，设置默认环境变量：
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . 保存默认环境变量设置：
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 

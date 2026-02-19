@@ -2971,8 +2971,6 @@
   <block id="edbeb952c4054f67ce1836afbda00903" category="cell">FAS8060</block>
   <block id="8ed24dd5fb292ecefe76fe92a5fc3988" category="cell">FAS8080</block>
   <block id="e2060bf680bf4facfccf3befec69ef04" category="cell">9.8P12或更高版本的修补程序</block>
-  <block id="ba579f865c148542656e741f915bc210" category="section-title">卸下AFF A700或FAS9000控制器模块</block>
-  <block id="831816e1924f3edb2d170ec4c291d0f3" category="section-title">卸下AFF A700或FAS9000 NVRAM模块</block>
   <block id="3d748e41fa426d2025ff3eb80b369ede" category="admonition">AFF A700或FAS9000 NVRAM模块位于插槽6中、高度是系统中其他模块的两倍。</block>
   <block id="d0106eeb656b11c6a07a8e45dcf1b214" category="list-text">将FAS9000 NVRAM模块中安装的所有闪存缓存模块移至FAS9500NVRAM模块。</block>
   <block id="4ed758f1326f5379f7dc30fe674ce726" category="inline-link-macro">升级控制器的准则</block>
@@ -3310,7 +3308,6 @@
   <block id="4f0b48e1f65ca4ae15a6720f28d58824" category="cell">9.10.1P3到9.12.1</block>
   <block id="04d01679d16bbccad3f9da82789a187b" category="paragraph">对于上表所示的升级组合：</block>
   <block id="da74cb1ad73d862a786d9f20938d9c7a" category="list-text">升级时、您必须安装具有受支持的ONTAP 版本和修补程序级别的替代控制器。</block>
-  <block id="d9e40d62315bfc8bad4f1329f7f9b867" category="paragraph">执行安装时、必须注意以下事项：</block>
   <block id="342f3ca2519e4e92f56675a89236fce6" category="list-text">将插槽6-1和6-2中的所有空白填充模块从旧NVRAM模块移至新的NVRAM模块。</block>
   <block id="bbe48fb854ea022537208eeeff822f91" category="paragraph-title">关于此任务</block>
   <block id="3468b73fe010ca505a63fcddaa4f3601" category="paragraph-title">此信息中使用的术语</block>
@@ -3706,7 +3703,6 @@
   <block id="3a3f289393d9aae4f5403ed3ce658b92" category="paragraph">在第3阶段、使用升级的系统模块启动node1、并验证升级后的node1安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1非根聚合和NAS数据LIF从node2重新定位到升级后的node1、并验证node1上是否存在SAN LIF。</block>
   <block id="64a849a8de630f1ea4ad68009f78a51d" category="inline-link-macro">使用替代系统模块启动node1</block>
   <block id="1cf4820f0a2cb46c48512331c3f04acd" category="inline-xref">更换AFF A220、AFF A200、AFF C190、FAS2620或FAS2720控制器模块</block>
-  <block id="c5c5d4bed82b3aa15921eef0f13a3aa2" category="section-title">卸下AFF A220、AFF A200、AFF C190、FAS2620或FAS2720控制器模块</block>
   <block id="359b2f64ed46d9bc640532f2fd8810c0" category="list-text">Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFPs (if needed) from the controller module, keeping track of where the cables were connected.</block>
   <block id="73ffa1532dd710d7eb1520cb730fb392" category="paragraph">Leave the cables in the cable management device so that when you reinstall the cable management device, the cables are organized.</block>
   <block id="3e5a02473a086978bae6a6516ad46c5e" category="list-text">Remove and set aside the cable management devices from the left and right sides of the controller module.</block>
@@ -3798,16 +3794,9 @@
   <block id="0e096ce16590ab86950913510752010e" category="cell">ASA A900</block>
   <block id="0d1ed1043a9669e13b81f70da0ae56bb" category="list-text">ASA A150、AFF A150或FAS2820控制器</block>
   <block id="23025a0dc68c759874f99e85d38e7ede" category="section-title">安装ASA A150、AFF A150或FAS2820控制器模块</block>
-  <block id="d7a4c6633fbd09856927cf66880d4940" category="section-title">安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块</block>
   <block id="70b323769da32749c57798f0d8e782e5" category="list-text">请勿将核心转储设备从AFF A700 NVRAM模块移至ASA A900或AFF A900 NVRAM模块。</block>
-  <block id="74cfe385d1c40d7e412430b003bd358b" category="section-title">安装ASA A900、AFF A900或FAS9500 NVRAM模块</block>
-  <block id="ad6cf4baff2cddaf65f868a474f4ace2" category="section-title">在node1上安装ASA A900、AFF A900或FAS9500控制器模块。</block>
-  <block id="1e05d2a5422d862c8080573b0bffa1d7" category="paragraph">使用以下操作步骤在node1中安装ASA A900、AFA A900或FAS9500控制器模块。</block>
-  <block id="400a12b5c5627da96b0587ceaacabfa4" category="inline-xref">在node2上安装ASA A150、AFF A150或FAS2820控制器模块</block>
   <block id="74cae3e1383e831697d2a89099232c43" category="inline-xref">在node2上安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块</block>
-  <block id="78bd224431479d8d5cafd763cca39b7c" category="paragraph">在node2上安装您收到的用于升级的ASA A150、AFF A150或FAS2820控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
   <block id="a2f2586b0e85eb39267cb5c9d9e043d2" category="paragraph">在node2上安装您收到的用于升级的ASA A900、AFF A900或FAS9500 NVRAM和控制器模块。Node2 是从系统背面查看控制器时位于机箱右侧的控制器 B 。</block>
-  <block id="f457531b113b8b894781ad94a1fa19d3" category="section-title">在node2中安装ASA A900、AFF A900或FAS9500控制器模块</block>
   <block id="86e722dcbc94e4ea341e26dd6af9f76a" category="cell">配置为全SAN阵列(ASA)的AFF A220</block>
   <block id="4fdc3efb53d664a8ab709272358f7966" category="cell">9.13.1P1及更高版本</block>
   <block id="6e43ae996b970f40321b42d34dd0b4b8" category="list-text">ASA A900、AFF A900和FAS9500系统仅支持高端电源(200V至240V)。如果您的AFF A700或FAS9000系统使用低端电源(100V到120V)运行、则必须先转换AFF A700或FAS9000输入电源、然后才能使用此操作步骤。</block>
@@ -4098,7 +4087,6 @@
   <block id="1445b140af84df0e7f83e7c1a538e1ae" category="cell">AFF A220、AFF A200、AFF C190、FAS2620或FAS2720</block>
   <block id="86c15a425269c6a2503b9871021e6df8" category="cell">AFF A700或FAS9000</block>
   <block id="7f42c48311ba942f81d7a07c44c47d3b" category="admonition">术语 * 节点 1 * 和 * 节点 2 * 仅用作本文档中节点名称的参考。按照此过程进行操作时、您必须替换节点的实际名称。</block>
-  <block id="a06d68e350c79a17b1b36fae9ee9106c" category="doc">在node2上安装AFF A90或AFF A70模块</block>
   <block id="011359cc38c137752e931fd997e519a7" category="image-alt">安装AFF A90或AFF A70</block>
   <block id="b360374fb1c72b27ec9072588d678096" category="admonition">由于机箱已通电、node1将启动BIOS初始化、并在完全就位后立即自动启动。要中断 node1 启动，在将控制器模块完全插入插槽之前，建议将串行控制台和管理缆线连接到 node1 控制器模块。</block>
   <block id="da7cf8ace467e07feef604bd9a07fa23" category="list-text">中断自动启动后、node1将停留在加载程序提示符处。如果未按时中断自动启动、而node1开始启动、请等待提示符、然后按Ctrl-C进入启动菜单。在节点停留在启动菜单处后、使用option<block ref="c9f0f895fb98ab9159f51fd0297e236d" prefix=" " category="inline-code"></block> 重新启动节点、并在重新启动期间中断自动启动。</block>
@@ -4122,13 +4110,8 @@
   <block id="9d5362e3cd7fb6dab4963fa3402a8946" category="list-text"><block ref="8a376dcd15839d79f652ba0bc6e1b6ce" prefix="" category="inline-code"></block></block>
   <block id="21abd3e611a550d5b10a01fcf5ca52e4" category="list-text"><block ref="d0e63dc99f0f9ab0cd3804cc52f2f14d" prefix="" category="inline-code"></block></block>
   <block id="0366a42f2fc03b6171f842157c923ac3" category="summary">使用ARL升级同一机箱中的控制器型号时、请更换AFF A700或FAS9000 node1系统模块。</block>
-  <block id="e61a8da38f14e94b700a22cac8ae4393" category="paragraph">从node1上断开并卸下AFF A700或FAS9000控制器模块。</block>
   <block id="a9d2e9a8e51c956ec73ca97b2f59618d" category="list-text">从node1控制器模块断开控制台电缆(如果有)和管理电缆。</block>
-  <block id="b7f982c550f1b3edd9e8d8d5b9eb50cd" category="paragraph">解除AFF A700或FAS9000 NVRAM模块的锁定并将其从node1中卸下。</block>
-  <block id="ea1e71ef4fce4fbc966397450b8ecf3b" category="paragraph">在node1中安装ASA A900、AFF A900或FAS9500 NVRAM和控制器模块并进行布线和连接。</block>
-  <block id="b79aee15f2c133859a90a1a37bf3949a" category="paragraph">将ASA A900、AFF A900或FAS9500 NVRAM模块安装到node1的插槽6中。</block>
   <block id="9e0a1039504ca0408797903c8f8ca02d" category="summary">在使用ARL升级同一机箱中的控制器型号时、更换节点1 AFF A220、AFF A200、AFF C190、FAS2620或FAS2720系统模块。</block>
-  <block id="1bea5ea0e73e228055c8e231e1075879" category="paragraph">要拆装控制器内部的组件、请从系统中卸下控制器模块、然后卸下控制器模块的护盖。</block>
   <block id="3b59a6e4feb61a49bd8e07d1dc5ed44d" category="paragraph">在node1中安装ASA A150、AFF A150或FAS2820控制器模块并为其布线和连接。</block>
   <block id="73ee2bd7f33c26664f94c379c6ab36d2" category="image-alt">推动驱动器、使其紧紧靠在机箱中间板上</block>
   <block id="9bedcc9650ba1fe86ed7720eb975429e" category="list-text">转至机箱背面。</block>
@@ -4460,7 +4443,6 @@
   <block id="7be812dd65bbd3f39bbb06fd50caac76" category="list-text"><block ref="7be812dd65bbd3f39bbb06fd50caac76" category="inline-link-macro-rx"></block></block>
   <block id="3a7170fc4a84869f969e046621bc8c18" category="inline-link">NetApp错误在线中的错误ID 1127315</block>
   <block id="7e3f4ab9cf33dd84dd92d4491c7263da" category="list-text"><block ref="7e3f4ab9cf33dd84dd92d4491c7263da" category="inline-link-rx"></block></block>
-  <block id="316abd6cd53d12f8bf03ae8388826d10" category="doc">在node2上安装AFF A30、AFF A50、AFF C30或AFF C60模块</block>
   <block id="bdb39b5926a304a8f387b036b6fd9445" category="list-text">将存储系统置于机柜或电信机架中间的导轨上、然后从底部支撑存储系统并将其滑入到位。</block>
   <block id="b9772390f34f13ee0716466b74abfc71" category="admonition">请勿将控制器模块完全插入机箱中、除非此过程稍后指示您这样做。</block>
   <block id="933b2ea0dc8285d8ab95430d9aa0b8bb" category="admonition">为避免损坏连接器、将控制器模块滑入机箱时不要用力过大。</block>
@@ -4471,9 +4453,6 @@
   <block id="6d25c71e79b9f8280c5a17b473c08b82" category="paragraph">在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下 node1 控制器模块和 node1 NVRAM 模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。</block>
   <block id="accf85406d8f852aec80eff93db683c2" category="paragraph">在此阶段， node1 已关闭，所有数据均由 node2 提供。您必须小心地仅卸下node1控制器模块。通常， node1 是控制器 A ，位于机箱左侧，用于从系统背面查看控制器。控制器标签位于机箱上，控制器模块正上方。</block>
   <block id="1519b2b4ff3e01880d93809dab9f313f" category="summary">使用ARL升级同一机箱中的控制器型号时、请更换AFF A250或AFF C250 node1系统模块。</block>
-  <block id="eab9dfa8a69e88f238fb25a87fa387df" category="doc">更换AFF A250或AFF C250控制器模块</block>
-  <block id="d92bacce0a7f4e74afb2b72f85dfbb19" category="section-title">卸下AFF A250或AFF C250控制器模块</block>
-  <block id="a680c497ac8bfdb387a08dc6d8235544" category="paragraph">要卸下node1控制器模块、请先卸下缆线管理设备、解锁锁定闩锁、然后从机箱中卸下控制器模块。</block>
   <block id="1f9529736c8bd4ae7629be26ea8da34d" category="list-text">Insert your forefinger into the latching mechanism on either side of the controller module, press the lever with your thumb, and gently pull the controller a few inches out of the chassis.</block>
   <block id="edfea1a2881be4e7bcc10dfa9c8b3fc6" category="admonition">如果在卸下控制器模块时遇到困难，请将食指从内部穿过指孔（通过跨越臂）。</block>
   <block id="ae1f698aa370a20f4923c53be3433bb9" category="paragraph"><block ref="ae1f698aa370a20f4923c53be3433bb9" category="inline-image-macro-rx" type="image"></block></block>
@@ -4876,7 +4855,6 @@
   <block id="9385d14007f76e744745739d94bc306a" category="paragraph">退出节点 2 后，确认其已关闭电源并且未连接到网络。将 node2 的旧硬件保持此状态，直到完成 node1 和 node2 的升级。然后，您可以在以下情况下停用 node2<block ref="0f82d37b39d321fc9b25cdd372b37e32" category="inline-link-macro-rx"></block> 。</block>
   <block id="3df2e25dd62a653c7cb81686296e66ad" category="admonition">由于机箱已通电，因此节点 2 在完全就位后立即启动 BIOS 初始化，然后启动 AUTOBOOT。要中断 node2 启动，建议在将控制器模块完全插入插槽之前将串行控制台和管理电缆连接到 node2 控制器模块。</block>
   <block id="0c1a4b73743825276f6a94f00753ae1c" category="list-text">模块就位后立即连接串行控制台并准备中断节点 2 的 AUTOBOOT。</block>
-  <block id="b83800b3bdc2a5eef7a8fe97664b1121" category="paragraph">在节点 2 上安装您收到的用于升级的AFF A90或AFF A70控制器模块。从系统后部看控制器时，节点 2 是位于机箱下部托架的控制器 B。</block>
   <block id="4e0d7c1abfb8de7fd56ae6e56c1b7b4b" category="list-text">在机箱的前面，用拇指将每个驱动器牢牢推入顶部和底部磁盘托架，直到感觉到完全停止。这可确保驱动器牢固地固定在机箱中板上。</block>
   <block id="a3fa441608c8038d19e72ef43c8108bc" category="section-title">恢复系统控制器更换操作</block>
   <block id="20d8255eb490088576c2cdeea2fb6e2a" category="list-text">从源头拔下节点 2 控制器模块电源。</block>
@@ -5353,5 +5331,49 @@
   <block id="5f2bd886a1ddbc0f18d7dda59298b8e8" category="paragraph">将 AFF A250 node2 转换为 NS224 驱动器架并连接到 AFF A400 node4 后，将以前属于 node2 的驱动器重新分配给 node4。</block>
   <block id="39f91ec3fbd4d906c846b0ee83a740e8" category="paragraph">在将 AFF A250 node1 转换为驱动器架之前，将 node1 上的数据聚合、epsilon 和 LIF 迁移到 AFF A400 node4。</block>
   <block id="ce2f3556362c3cfcb43ad4834d6282a4" category="paragraph">将 AFF A250 node1 转换为 NS224 驱动器架并连接到 AFF A400 node3 后，将以前属于 node1 的驱动器重新分配给 node3。</block>
-  <block id="a636e9bc040eb70e113d52373fce20bc" category="paragraph">安装 AFF A90、AFF A70 或 AFF C80 控制器模块 在节点 1 中安装、连接 AFF A90、AFF A70 或 AFF C80 控制器模块。</block>
+  <block id="04e23b210e0430fd6997a9fc1d8fda00" category="doc">在 node2 中安装 AFF A30、AFF A50、AFF C30 或 AFF C60 模块</block>
+  <block id="d9408ab5bc96e9410c367a1693dfa37a" category="summary">在同一机箱中控制器型号的 ARL 升级期间，在 node2 中安装更换系统模块。</block>
+  <block id="a4a2dd9d36b116bef402bcdf710dc709" category="doc">在 node2 中安装 AFF A90 或 AFF A70 模块</block>
+  <block id="e6ae8ed645d47b31d65c89bd281a2134" category="paragraph">安装您在 node2 中收到的用于升级的 AFF A90 或 AFF A70 控制器模块。当从系统后部查看控制器时，node2 是位于机箱下部托架上的控制器 B。</block>
+  <block id="7c44b93e39110a1df5d5b1d5c7b2aa96" category="doc">在 node2 中安装 ASA A150、AFF A150 或 FAS2820 控制器模块</block>
+  <block id="0a5f16db0d2a164e8fb5e89418a84b7c" category="paragraph">安装您收到的用于在 node2 中升级的 ASA A150、AFF A150 或 FAS2820 控制器模块。Node2 是控制器 B，从系统后部查看控制器时位于机箱右侧。</block>
+  <block id="177d9f0d90545dcab9e666b61c7d50f8" category="section-title">步骤 1：安装 ASA A900、AFF A900 或 FAS9500 NVRAM 模块</block>
+  <block id="6e154df7ee1e94fc9a1ca3cdea1b07ce" category="section-title">步骤 2：安装 ASA A900、AFF A900 或 FAS9500 控制器模块</block>
+  <block id="63ec106ef1df9e11add410bfee39c255" category="paragraph">用 ASA A900、AFF A900 或 FAS9500 控制器和 NVRAM 模块替换 node1 AFF A700 或 FAS9000 控制器和 NVRAM 模块。</block>
+  <block id="f068fd46a83c2c7cc89a6914580e1fe8" category="section-title">步骤 1：卸下 AFF A700 或 FAS9000 控制器模块</block>
+  <block id="6ede165fbcdd9ed79328813d3b4841c1" category="paragraph">拆卸并移除 node1 AFF A700 或 FAS9000 控制器模块。</block>
+  <block id="65f3134141aa5c0f8155431d84cb2403" category="section-title">步骤 2：卸下 AFF A700 或 FAS9000 NVRAM 模块</block>
+  <block id="ea74aa661bf9ba2c79c2b33036d932a4" category="paragraph">解锁并卸下 node1 AFF A700 或 FAS9000 NVRAM 模块。</block>
+  <block id="5d14417f8702231142efb65651cceb29" category="section-title">步骤 3：安装 ASA A900、AFF A900 或 FAS9500 NVRAM 模块</block>
+  <block id="03b810b0757f0f71cebb2860f21b9ecc" category="paragraph">在 node1 中安装、连接 ASA A900、AFF A900 或 FAS9500 NVRAM 模块。</block>
+  <block id="72c43a13e28b3b256c59b033aebd13e3" category="section-title">步骤 4：在节点 1 上安装 ASA A900、AFF A900 或 FAS9500 控制器模块。</block>
+  <block id="689243b43cadf776afe30e85949066b8" category="paragraph">在 node1 中安装、布线和连接 ASA A900、AFF A900 或 FAS9500 控制器模块。</block>
+  <block id="99857e10071c8cc3859b61ac27506dc7" category="paragraph">将 node1 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块替换为 ASA A150、AFF A150 或 FAS2820 控制器模块。</block>
+  <block id="fd145079b47a0096f42999dff507ae5f" category="section-title">步骤 1：卸下 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块</block>
+  <block id="aca73c2838bbbb7d9f0c302c344d2f3e" category="paragraph">要访问 node1 控制器内部的组件，请从系统中卸下控制器模块，然后卸下控制器模块上的盖子。</block>
+  <block id="d42c2b83a79bc8106d3e93d7c46a08ea" category="doc">更换 node1 AFF A250 或 AFF C250 控制器模块</block>
+  <block id="cab5820b2e113949ed5605f5691f01eb" category="paragraph">将 node1 AFF A250 或 AFF C250 控制器模块替换为 AFF A30、AFF A50、AFF C30 或 AFF C60 控制器模块。</block>
+  <block id="dc3246454c20434eaed50f263f08775c" category="section-title">步骤 1：卸下 AFF A250 或 AFF C250 控制器模块</block>
+  <block id="121951e57696e257502866d280fc89a1" category="paragraph">要卸下 node1 控制器模块，请卸下电缆管理设备并解锁锁定闩锁。然后从机箱中取出控制器模块。</block>
+  <block id="a431e3799c389bc434ccd297a4270782" category="doc">更换 node1 AFF A800 或 AFF C800 控制器模块</block>
+  <block id="9bf660b6d88b976d50b98515b454303f" category="paragraph">将 node1 AFF A800 或 AFF C800 控制器模块替换为 AFF A90、AFF A70 或 AFF C80 控制器模块。</block>
+  <block id="f5ea8a442f248d14db9a4a73a74e09b9" category="paragraph">此时，node1 已关闭，所有数据均由 node2 提供服务。您必须注意仅删除 node1 控制器模块。当从系统后部查看控制器时，控制器是堆叠的，控制器 A 通常在上面。控制器标签位于控制器模块正上方的机箱上。</block>
+  <block id="44ecd3ac2c3d2517dbce4ace3b8fdaa3" category="section-title">步骤 1：卸下 AFF A800 或 AFF C800 控制器模块</block>
+  <block id="f99730af9be6d0ddfed8360f6fa22c6f" category="paragraph">从现有的 node1 模块中取出电缆管理设备，并将控制器稍微移出机箱。</block>
+  <block id="68a049bced7a424143a07b55f349d548" category="list-text">通过使用拇指推动每个驱动器，确保机箱中的所有驱动器都牢固地固定在中间背板上，直到您感觉到正向停止。</block>
+  <block id="5bbe8c98797b09c1ebb6c43782af51b5" category="video-title">视频 - 确认驱动器安装</block>
+  <block id="5a2582e097121b5d7fd80a0df8885819" category="inline-image-macro">安装驱动器</block>
+  <block id="fc2b32ecd5a5373aca8a37f772fcb524" category="paragraph"><block ref="fc2b32ecd5a5373aca8a37f772fcb524" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="653bb4f5a64f1289bbe50fd8bff75a77" category="list-text">根据系统状态检查控制器驱动器：</block>
+  <block id="b1180089c9de95b9a4df24a2a6f5f314" category="list-text">在正常的控制器上，检查是否有任何活动的 RAID 组处于降级状态、失败状态或两者兼而有之：</block>
+  <block id="d3738177ad832df0e099b0a175ecfd41" category="inline-xref">转到下一个子步骤以检查缺少的驱动器</block>
+  <block id="141c42dce73f2b74854e5e13b953c15d" category="list-text">如果命令返回<block ref="ff552bb89260932a935c259f2e059d29" prefix=" " category="inline-code"></block>，请继续<block ref="7d36e07de3bacab12ecbd7db0b12c345" category="inline-xref-macro-rx"></block>。</block>
+  <block id="0772d56fc2d341eab9a081d1123053df" category="list-text">如果命令返回任何其他结果，请从两个控制器收集 AutoSupport 数据并与 NetApp 支持部门联系以获得进一步帮助。</block>
+  <block id="c84a6dd36530e6693a4e883dea830b49" category="list-text">[[Check-missing-drives]]检查文件系统或备用驱动器的驱动器缺失问题：</block>
+  <block id="1b85bf2d98246a22962246a50e9d1d61" category="inline-xref">转至下一步</block>
+  <block id="295425903ab858c790d5d7e5439268fe" category="list-text">如果命令返回<block ref="ff552bb89260932a935c259f2e059d29" prefix=" " category="inline-code"></block>，请继续<block ref="a60fa4bc4bcb0cbd6997b97ce229ccd8" category="inline-xref-macro-rx"></block>。</block>
+  <block id="8a5368755aa7e797c228749aac78e86f" category="list-text">[[remove-power-cables]]取下电源线固定器，然后从电源上拔下电源线。</block>
+  <block id="061f5aacc4ad4bf1188f94219f3b6e15" category="section-title">步骤 2：安装 AFF A90、AFF A70 或 AFF C80 控制器模块</block>
+  <block id="1c11a10891fa20f98660572f553b2716" category="paragraph">在 node1 中安装、布线和连接 AFF A90、AFF A70 或 AFF C80 控制器模块。</block>
+  <block id="027cb97f7c47a83a65901ff25c4e441c" category="admonition">当您在下一步中插入 node1 控制器模块时，node1 立即启动 BIOS 初始化，然后是 AUTOBOOT，因为机箱已通电。在插入模块之前，通过连接串行电缆和控制台电缆来避免此 AUTOBOOT。</block>
 </blocks>

@@ -4,7 +4,7 @@ permalink: upgrade-arl-auto-in-chassis/install-aff-a30-a50-c30-c50-node2.html
 keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
 summary: 在对同一机箱中的控制器型号进行ARL升级期间、在node2上安装替代系统模块。 
 ---
-= 在node2上安装AFF A30、AFF A50、AFF C30或AFF C60模块
+= 在 node2 中安装 AFF A30、AFF A50、AFF C30 或 AFF C60 模块
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -36,11 +36,15 @@ NOTE: 为避免损坏连接器、将控制器模块滑入机箱时不要用力�
 . 中断自动启动后、node2将停留在加载程序提示符处。如果未按时中断自动启动、而node2开始启动、请等待提示符、然后按Ctrl-C进入启动菜单。在节点停留在启动菜单处后、使用option `8` 重新启动节点、并在重新启动期间中断自动启动。
 . 在node2的loader>提示符处、设置默认环境变量：
 +
-`set-defaults`
-
+[source, cli]
+----
+set-defaults
+----
 . 保存默认环境变量设置：
 +
-`saveenv`
-
+[source, cli]
+----
+saveenv
+----
 . 对于双节点无交换机配置，请确认节点 2 上的插槽 1 中已安装 X60132A 4 端口 10/25 GbE 卡。升级期间，集群互连需要 X60132A 卡。
 
