@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade by moving volumes 
 summary: 如果通过移动卷进行升级，则需要准备原始节点并将新节点加入集群。您可以将卷移动到新节点，配置 LIF，并从集群中删除原始节点。通过移动卷进行升级是一个无中断的过程。 
 ---
-= 通过移动卷工作流程进行升级
+= 了解如何通过移动卷进行升级
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

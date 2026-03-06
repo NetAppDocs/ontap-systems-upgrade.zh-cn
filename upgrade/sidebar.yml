@@ -6,9 +6,9 @@ entries:
   url: "/upgrade/upgrade-decide-to-use-this-guide.html"
 - title: 注意事项
   url: "/upgrade/upgrade-considerations.html"
-- title: 通过移动存储进行升级
+- title: 移动存储
   entries:
-  - title: 工作流
+  - title: 了解通过移动存储进行升级
     url: "/upgrade/upgrade-by-moving-storage-parent.html"
   - title: 准备
     url: "/upgrade/upgrade-prepare-when-moving-storage.html"
@@ -48,9 +48,9 @@ entries:
         url: "/upgrade/upgrade-map-network-ports-ontap-9-7-or-earlier.html"
       - title: 在 ONTAP 9.7 或更早版本中执行最终步骤
         url: "/upgrade/upgrade-final-steps-ontap-9-7-or-earlier-move-storage.html"
-- title: 通过移动卷进行升级
+- title: 成交量
   entries:
-  - title: 工作流
+  - title: 了解如何通过移动卷进行升级
     url: "/upgrade/upgrade-by-moving-volumes-parent.html"
   - title: 准备
     url: "/upgrade/upgrade-prepare-when-moving-volumes.html"
@@ -68,39 +68,41 @@ entries:
     url: "/upgrade/upgrade-remove-original-nodes.html"
   - title: 完成升级
     url: "/upgrade/upgrade-complete-move-volumes.html"
-- title: 将AFF A250升级到AFF A400
+- title: 转换为驱动器架并移动存储
   entries:
-  - title: 了解如何将AFF A250升级到AFF A400
-    url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
-  - title: 将node2上的生命周期管理器和数据聚合迁移到node1
-    url: "/upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html"
-  - title: 将node2转换为驱动器架并连接到node4
-    url: "/upgrade/upgrade_convert_node2_drive_shelf_connect_node4.html"
-  - title: 将驱动器从node2重新分配给node4
-    url: "/upgrade/upgrade_reassign_drives_node2_to_node4.html"
-  - title: 将node1上的数据聚合、eps龙 和生命周期管理迁移到node4
-    url: "/upgrade/upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html"
-  - title: 将node1转换为驱动器架并连接到node3
-    url: "/upgrade/upgrade_convert_node1_drive_shelf_connect_node3.html"
-  - title: 将驱动器从node1重新分配给node3
-    url: "/upgrade/upgrade_reassign_drives_node1_to_node3.html"
-  - title: 将node4上的生命周期管理器和数据聚合迁移到node3
-    url: "/upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html"
-- title: 从FAS2820升级
-  entries:
-  - title: 了解如何从FAS2820升级
-    url: "/upgrade/convert-fas2820-to-drive-shelf.html"
-  - title: 将node2上的生命周期管理器和数据聚合迁移到node1
-    url: "/upgrade/migrate-fas2820-node2-lifs-aggregates.html"
-  - title: 将node2转换为驱动器架并连接到node4
-    url: "/upgrade/convert-fas2820-node2-drive-shelf.html"
-  - title: 将驱动器从node2重新分配给node4
-    url: "/upgrade/reassign-fas2820-node2-drives.html"
-  - title: 将node1上的数据聚合、eps龙 和生命周期管理迁移到node4
-    url: "/upgrade/migrate-fas2820-aggregates-epsilon-lifs.html"
-  - title: 将node1转换为驱动器架并连接到node3
-    url: "/upgrade/convert-fas2820-node1-drive-shelf.html"
-  - title: 将驱动器从node1重新分配给node3
-    url: "/upgrade/reassign-fas2820-node1-drives.html"
-  - title: 将node4上的生命周期管理器和数据聚合迁移到node3
-    url: "/upgrade/migrate-fas2820-node4-lIfs-aggregates.html"
+  - title: 将AFF A250升级到AFF A400
+    entries:
+    - title: 了解如何将AFF A250升级到AFF A400
+      url: "/upgrade/upgrade_aff_a250_to_aff_a400_ndu_upgrade_workflow.html"
+    - title: 将node2上的生命周期管理器和数据聚合迁移到node1
+      url: "/upgrade/upgrade_migrate_lifs_aggregates_node2_to_node1.html"
+    - title: 将node2转换为驱动器架并连接到node4
+      url: "/upgrade/upgrade_convert_node2_drive_shelf_connect_node4.html"
+    - title: 将驱动器从node2重新分配给node4
+      url: "/upgrade/upgrade_reassign_drives_node2_to_node4.html"
+    - title: 将node1上的数据聚合、eps龙 和生命周期管理迁移到node4
+      url: "/upgrade/upgrade_migrate_aggregates_epsilon_lifs_node1_to_node4.html"
+    - title: 将node1转换为驱动器架并连接到node3
+      url: "/upgrade/upgrade_convert_node1_drive_shelf_connect_node3.html"
+    - title: 将驱动器从node1重新分配给node3
+      url: "/upgrade/upgrade_reassign_drives_node1_to_node3.html"
+    - title: 将node4上的生命周期管理器和数据聚合迁移到node3
+      url: "/upgrade/upgrade_migrate_lIFs_aggregates_node4_node3.html"
+  - title: 升级 AFF A150、AFF A220 或 FAS2820
+    entries:
+    - title: 了解如何升级 AFF A150、AFF A220 或 FAS2820
+      url: "/upgrade/convert-to-drive-shelf.html"
+    - title: 将node2上的生命周期管理器和数据聚合迁移到node1
+      url: "/upgrade/migrate-node2-lifs-aggregates.html"
+    - title: 将node2转换为驱动器架并连接到node4
+      url: "/upgrade/convert-node2-to-drive-shelf.html"
+    - title: 将驱动器从node2重新分配给node4
+      url: "/upgrade/reassign-node2-drives.html"
+    - title: 将node1上的数据聚合、eps龙 和生命周期管理迁移到node4
+      url: "/upgrade/migrate-aggregates-epsilon-lifs.html"
+    - title: 将node1转换为驱动器架并连接到node3
+      url: "/upgrade/convert-node1-to-drive-shelf.html"
+    - title: 将驱动器从node1重新分配给node3
+      url: "/upgrade/reassign-node1-drives.html"
+    - title: 将node4上的生命周期管理器和数据聚合迁移到node3
+      url: "/upgrade/migrate-node4-lifs-aggregates.html"

@@ -1,0 +1,29 @@
+---
+permalink: upgrade/convert-node1-to-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: 在将驱动器从 node1 重新分配给 node3 之前，将 node1 转换为驱动器架并连接到 node3。 
+---
+= 将node1转换为驱动器架并连接到node3
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+在将驱动器从 node1 重新分配给 node3 之前，将 node1 转换为驱动器架并连接到 node3。
+
+.步骤
+. 从node1断开所有网络缆线。
+. 从 AFF A150、AFF A220 或 FAS2820 机箱中卸下 node1。
+. 将 IOM12 或 IOM12B 模块插入节点 1 的托架。
+. 将 node3 SAS 端口连接到 IOM12 或 IOM12B 模块上的可用端口。请参阅 link:https://hwu.netapp.com["Hardware Universe"^] 以验证您的系统的 SAS 端口。
+. 通过将 node4 集群端口连接到 node3 上的任何集群端口来创建临时集群连接。
++
+
+NOTE: 如果节点 3 仅支持 10GbE 集群连接，则必须使用 10GbE 电缆来创建临时集群连接。
+
+
+
+.下一步是什么？
+link:reassign-node1-drives.html["将驱动器从node1重新分配给node3"]

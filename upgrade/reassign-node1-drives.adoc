@@ -1,22 +1,21 @@
 ---
-permalink: upgrade/reassign-fas2820-node1-drives.html 
+permalink: upgrade/reassign-node1-drives.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
-summary: 将FAS2820节点 1 转换为 DS212C 驱动器并连接到节点 3 后，将之前属于节点 1 的驱动器重新分配给节点 3。 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
+summary: 将 node1 转换为驱动器架并连接到 node3 后，将以前属于 node1 的驱动器重新分配给 node3。 
 ---
-= 将驱动器从FAS2820节点 1 重新分配给节点 3
+= 将驱动器从node1重新分配给node3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-将先前分配给FAS2820节点 1 的驱动器重新分配给节点 3。
-
-.关于此任务
-在node3上执行以下步骤。
+将先前分配给 node1 的驱动器重新分配给 node3。
 
 .步骤
+在 node3 上执行这些步骤。
+
 . 在加载程序提示符处、将node3启动至维护模式：
 +
 [source, cli]
@@ -75,4 +74,4 @@ halt
 
 
 .下一步是什么？
-link:migrate-fas2820-node4-lIfs-aggregates.html["将node4上的生命周期管理器和数据聚合迁移到node3"]
+link:migrate-node4-lifs-aggregates.html["将node4上的生命周期管理器和数据聚合迁移到node3"]

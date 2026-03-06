@@ -144,7 +144,7 @@ image:black_circle_two.png["第二"]
 
 
 
-== 步骤 4：在节点 1 上安装 ASA A900、AFF A900 或 FAS9500 控制器模块。
+== 步骤 4：在 node1 中安装 ASA A900、AFF A900 或 FAS9500 控制器模块
 
 在 node1 中安装、布线和连接 ASA A900、AFF A900 或 FAS9500 控制器模块。
 

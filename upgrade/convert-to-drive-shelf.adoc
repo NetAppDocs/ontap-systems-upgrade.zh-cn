@@ -1,0 +1,58 @@
+---
+permalink: upgrade/convert-to-drive-shelf.html 
+sidebar: sidebar 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, FAS, systems, entry, level 
+summary: 通过将每个节点转换为驱动器架并将其连接到替换节点来执行无中断升级。 
+---
+= 了解如何将 AFF A150、AFF A220 或 FAS2820 转换为驱动器架并移动存储
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+对 AFF A150、AFF A220 或 FAS2820 系统执行无中断升级。首先，将 AFF A150、AFF A220 或 FAS2820 系统中的每个节点转换为驱动器架。然后，将它们连接到替换节点。这会将板载存储移动到替换系统。
+
+.关于此任务
+此过程支持以下系统转换：
+
+* 将 AFF A150 或 AFF A220 转换为 DS224C 驱动器架
+* 将 FAS2820 转换为 DS212C 驱动器架
+
+
+高可用性 (HA) 对控制器为 node1 和 node2，替代 HA 对控制器为 node3 和 node4。
+
+.开始之前
+查看通过移动卷或存储进行升级的一般升级方案和升级注意事项：
+
+* link:upgrade-decide-to-use-this-guide.html["确定是通过移动卷还是存储进行升级"]
+* link:upgrade-considerations.html["升级控制器硬件的注意事项"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]xref:migrate-node2-lifs-aggregates.adoc[将node2上的生命周期管理器和数据聚合迁移到node1]
+[role="quick-margin-para"]
+在将 node2 转换为驱动器架之前，将 node2 上的逻辑接口（LIF）和数据聚合迁移到 node1。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]xref:convert-node2-to-drive-shelf.adoc[将node2转换为驱动器架并连接到node4]
+[role="quick-margin-para"]
+将 node2 转换为驱动器架，然后连接到 node4，再将驱动器从 node2 重新分配给 node4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三个"]xref:reassign-node2-drives.adoc[将驱动器从node2重新分配给node4]
+[role="quick-margin-para"]
+将 node2 转换为驱动器架并连接到 node4 后，将先前属于 node2 的驱动器重新分配给 node4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]xref:migrate-aggregates-epsilon-lifs.adoc[将node1上的数据聚合、eps龙 和生命周期管理迁移到node4]
+[role="quick-margin-para"]
+在将 node1 转换为驱动器架之前，将 node1 上的数据聚合、epsilon 和 LIF 迁移到 node4。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五个"]xref:convert-node1-to-drive-shelf.adoc[将node1转换为驱动器架并连接到node3]
+[role="quick-margin-para"]
+在将驱动器从 node1 重新分配给 node3 之前，将 node1 转换为驱动器架并连接到 node3。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六个"]xref:reassign-node1-drives.adoc[将驱动器从node1重新分配给node3]
+[role="quick-margin-para"]
+将 node1 转换为驱动器架并连接到 node3 后，将先前属于 node1 的驱动器重新分配给 node3。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["七个"]xref:migrate-node4-lIfs-aggregates.adoc[将node4上的生命周期管理器和数据聚合迁移到node3]
+[role="quick-margin-para"]
+要完成升级，请将 node3 连接到 node4，并将 node4 上的数据 LIF 和数据聚合迁移到 node3。

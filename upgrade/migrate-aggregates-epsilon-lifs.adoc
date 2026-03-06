@@ -1,22 +1,21 @@
 ---
-permalink: upgrade/migrate-fas2820-aggregates-epsilon-lifs.html 
+permalink: upgrade/migrate-aggregates-epsilon-lifs.html 
 sidebar: sidebar 
-keywords: fas2820, ndu, nondisruptive, upgrade, node1, node4, migrate, aggregates, lifs 
+keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node1, node4, migrate, aggregates, lifs 
 summary: '将节点 1 上的数据聚合、epsilon 和逻辑接口 (LIF) 迁移到节点 4。' 
 ---
-= 将FAS2820节点 1 上的数据聚合、epsilon 和 LIF 迁移到节点 4
+= 将node1上的数据聚合、eps龙 和生命周期管理迁移到node4
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-将FAS2820节点 1 上的数据聚合、epsilon 和逻辑接口 (LIF) 迁移到节点 4。
-
-.关于此任务
-在node4上执行以下步骤。
+将节点 1 上的数据聚合、epsilon 和逻辑接口 (LIF) 迁移到节点 4。
 
 .步骤
+在 node4 上执行这些步骤。
+
 . 在 node4 的 LOADER 提示符下，设置合作伙伴系统 ID：
 +
 [source, cli]
@@ -208,4 +207,4 @@ halt -node <node1> -inhibit-takeover true -ignore-quorum-warnings true
 
 
 .下一步是什么？
-link:convert-fas2820-node1-drive-shelf.html["将node1转换为驱动器架并连接到node3"]
+link:convert-node1-to-drive-shelf.html["将node1转换为驱动器架并连接到node3"]

@@ -48,7 +48,7 @@ image:drw_2240_x_opening_cam_latch.png["打开凸轮把手"]
 
 
 
-== 安装ASA A150、AFF A150或FAS2820控制器模块
+== 步骤 2：安装 ASA A150、AFF A150 或 FAS2820 控制器模块
 
 在node1中安装ASA A150、AFF A150或FAS2820控制器模块并为其布线和连接。
 

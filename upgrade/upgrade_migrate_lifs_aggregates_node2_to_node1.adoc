@@ -30,10 +30,9 @@ summary: '将node2上的逻辑接口(Logical Interface、Logical Interface、Log
 * 您已准备好所有适当的布线。
 
 
-.关于此任务
-在AFF A250 node1上执行以下步骤。
-
 .步骤
+在 AFF A250 节点 1 上执行这些步骤。
+
 . 访问高级权限级别：
 +
 `set -privilege advanced`
