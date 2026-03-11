@@ -2,7 +2,7 @@
 permalink: upgrade/reassign-node1-drives.html 
 sidebar: sidebar 
 keywords: fas2820, aff a150, aff a220, ndu, nondisruptive, upgrade, node3, node1, reassign, drives 
-summary: 将 node1 转换为驱动器架并连接到 node3 后，将以前属于 node1 的驱动器重新分配给 node3。 
+summary: 将 AFF A150、AFF A220 或 FAS2820 node1 转换为驱动器架并连接到 node3 后，您需要将之前属于 node1 的驱动器重新分配给 node3。 
 ---
 = 将驱动器从node1重新分配给node3
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 将 node1 转换为驱动器架并连接到 node3 后，将以前属于
 
 
 [role="lead"]
-将先前分配给 node1 的驱动器重新分配给 node3。
+将先前分配给 AFF A150、AFF A220 或 FAS2820 node1 的驱动器重新分配给 node3。
 
 .步骤
 在 node3 上执行这些步骤。

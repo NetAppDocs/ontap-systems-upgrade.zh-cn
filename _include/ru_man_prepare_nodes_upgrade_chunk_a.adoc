@@ -315,7 +315,7 @@ vs0
 `network interface revert -vserver * -lif *`
 
 +
-有关 `network interface revert` 命令的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 命令：手册页参考 _ 。
+有关该 `network interface revert` 命令的详细信息，请参阅link:other_references.html["参考资料"]以链接到 _ONTAP 9 命令参考_。
 
 . 检查 node1 或 node2 是否拥有任何故障磁盘：
 +

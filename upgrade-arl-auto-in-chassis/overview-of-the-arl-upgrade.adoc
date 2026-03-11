@@ -37,7 +37,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 | 阶段 | 步骤 
 
 
-| link:verify_upgrade_hardware.html["第 1 阶段：准备升级"]  a| 
+| link:verify-upgrade-hardware.html["第 1 阶段：准备升级"]  a| 
 在第1阶段、您需要验证是否具有用于升级的正确硬件、并运行预检、如果需要、还需要正确的聚合所有权。如果您要使用板载密钥管理器管理存储加密、并且可以选择将SnapMirror关系静置、则必须记录某些信息。
 
 阶段 1 结束时的聚合所有权：
@@ -48,7 +48,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:relocate_non_root_aggr_and_nas_data_lifs_node1_node2.html["第2阶段：重新定位资源并停用node1"]  a| 
+| link:relocate-non-root-aggr-and-nas-data-lifs-node1-node2.html["第2阶段：重新定位资源并停用node1"]  a| 
 在第2阶段、您需要将node1非根聚合和NAS数据生命周期从node1重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node1。
 
 阶段 2 结束时的聚合所有权：
@@ -70,7 +70,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:relocate_non_root_aggr_nas_lifs_from_node2_to_node1.html["第4阶段：重新定位资源并停用node2"]  a| 
+| link:relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html["第4阶段：重新定位资源并停用node2"]  a| 
 在阶段4中、您将非根聚合和NAS数据LIF从node2重新定位到升级后的node1并停用node2。
 
 第 4 阶段结束时的聚合所有权：
@@ -92,7 +92,7 @@ summary: 了解ARL操作步骤如何升级同一机箱中的控制器型号。
 
 
 
-| link:boot_node2_with_a900_controller_and_nvs.html["第6阶段：使用替代系统模块启动node2"]  a| 
+| link:boot-node2-with-a900-controller-and-nvs.html["第6阶段：使用替代系统模块启动node2"]  a| 
 在第 6 阶段，您使用升级的系统模块启动 node2 并验证升级后的 node2 安装。如果您正在使用 NVE，您可以恢复密钥管理器配置。对于交换机连接集群升级，您需要验证集群交换机参考配置文件 (RCF) 是否支持共享集群/HA 端口。您还将节点 1 的非根聚合和 NAS 数据 LIF 从节点 1 重新定位到升级后的节点 2，并验证 SAN LIF 是否存在于节点 2 上。
 
 

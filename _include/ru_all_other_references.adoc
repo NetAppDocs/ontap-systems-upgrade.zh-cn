@@ -39,37 +39,7 @@
 | link:https://docs.netapp.com/us-en/ontap/network-management/index.html["网络管理"^] | 介绍如何在集群中配置和管理物理和虚拟网络端口（ VLAN 和接口组）， LIF ，路由和主机解析服务；如何通过负载平衡优化网络流量；以及如何使用 SNMP 监控集群。 
 
 
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-900%2Fhome.html["《 ONTAP 9.0 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.0 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-910%2Fhome.html["《 ONTAP 9.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.1 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-920%2Fhome.html["《 ONTAP 9.2 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.2 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-930%2Fhome.html["《 ONTAP 9.3 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.3 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-940%2Fhome.html["《 ONTAP 9.4 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.4 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-950%2Fhome.html["《 ONTAP 9.5 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.5 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-960%2Fhome.html["《 ONTAP 9.6 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.6 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-cmpr-970%2Fhome.html["《 ONTAP 9.7 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.7 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/home.html["《 ONTAP 9.8 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.8 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-991/home.html["《 ONTAP 9.9.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.9.1 命令的语法和用法。 
-
-
-| link:https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-9101/home.html["《 ONTAP 9.10.1 命令：手册页参考》"^] | 介绍支持的 ONTAP 9.10.1 命令的语法和用法。 
+| link:https://docs.netapp.com/us-en/ontap-cli/index.html["ONTAP 9 命令参考"^] | 描述支持的 ONTAP 命令的语法和用法。 
 
 
 | link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行 SAN 管理"^] | 介绍如何使用 iSCSI 和 FC 协议配置和管理 LUN ， igroup 和目标，以及使用 NVMe/FC 协议的命名空间和子系统。 

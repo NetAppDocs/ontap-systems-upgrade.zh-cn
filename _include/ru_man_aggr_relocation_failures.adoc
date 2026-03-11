@@ -26,7 +26,7 @@
 
 
 +
-有关 `storage aggregate relocation start` ， `override-vetoes` 和 `override-destination-checks` 选项的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Microsoft ONTAP 9 命令：手册页参考 _ 。
+有关 `storage aggregate relocation start`、 `override-vetoes`和 `override-destination-checks`选项的详细信息，请参见link:other_references.html["参考资料"]以链接到 _ONTAP 9 Command reference_。
 
 
 

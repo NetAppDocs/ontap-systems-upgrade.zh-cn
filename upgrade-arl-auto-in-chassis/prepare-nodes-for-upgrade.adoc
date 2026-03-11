@@ -99,7 +99,7 @@ Controller replacement operation has been paused for user intervention.
 | 集群仲裁检查 | 检查要更换的节点是否处于仲裁状态。如果节点未处于仲裁状态，则此任务将失败。 
 
 
-| 映像版本检查 | 检查要更换的节点是否运行相同版本的 ONTAP 。如果 ONTAP 映像版本不同，则此任务将失败。新节点上安装的 ONTAP 9.x 版本必须与原始节点上安装的版本相同。如果新节点安装的 ONTAP 版本不同，则在安装新控制器后，需要通过网络启动这些控制器。有关如何升级 ONTAP 的说明，请参见 link:other_references.html["参考资料"] 链接到 _Upgrade ONTAP 。 
+| 映像版本检查 | 检查要替换的节点是否运行相同版本的 ONTAP。如果 ONTAP 映像版本不同，则任务失败。新节点上必须安装与原节点上相同版本的 ONTAP 9.x。如果新节点安装了不同版本的 ONTAP，则需要在安装后对新控制器进行网络引导。有关如何升级 ONTAP 的说明，请参阅 link:other-references.html["参考资料"] 链接到 _Upgrade ONTAP_。 
 
 
 | HA 状态检查 | 检查要更换的两个节点是否采用高可用性（ HA ）对配置。如果未为控制器启用存储故障转移，则任务将失败。 
@@ -108,7 +108,7 @@ Controller replacement operation has been paused for user intervention.
 | 聚合状态检查 | 如果要更换的节点自身的聚合不是主所有者，则此任务将失败。节点不应拥有任何非本地聚合。 
 
 
-| 磁盘状态检查 | 如果要更换的任何节点缺少磁盘或磁盘出现故障，则此任务将失败。如果缺少任何磁盘、请参见link:other_references.html["参考资料"]链接到_Disk and聚合管理(使用命令行界面_)、逻辑存储管理(使用命令行界面_)和_HA对管理_、以便为HA对配置存储。 
+| 磁盘状态检查 | 如果任何被替换的节点缺少磁盘或出现故障，则任务将失败。如果缺少任何磁盘，请参阅 link:other-references.html["参考资料"] _使用 CLI 进行磁盘和聚合管理_、_使用 CLI 进行逻辑存储管理_ 和 _HA 对管理_，为 HA 对配置存储。 
 
 
 | 数据 LIF 状态检查 | 检查要更换的任何节点是否具有非本地数据 LIF 。节点不应包含其不是主所有者的任何数据 LIF 。如果其中一个节点包含非本地数据 LIF ，则任务将失败。 
@@ -230,6 +230,6 @@ aggr4       node1      node1       online
 
 如果您没有NLG、则集群中当前已获得许可的功能可供新控制器使用。但是、在控制器上使用未经许可的功能可能会使您违反许可协议、因此、您应在升级完成后为新控制器安装NLG。
 
-请参见 link:other_references.html["参考资料"] 链接到可获取NetApp 支持站点 的_NLF_。NLFS位于_Software licenses下的_My Support_部分。如果此站点没有所需的NLFS、请联系您的NetApp销售代表。
+请参阅 link:other-references.html["参考资料"] 以链接到 _NetApp Support Site_，您可以在此获取您的 NLF。NLF 可在 _Software licenses_ 下的 _My Support_ 部分获得。如果站点没有您需要的 NLF，请联系您的 NetApp 销售代表。
 
-有关许可的详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
+有关许可的详细信息，请参阅 link:other-references.html["参考资料"] 以链接到 _System Administration Reference_。

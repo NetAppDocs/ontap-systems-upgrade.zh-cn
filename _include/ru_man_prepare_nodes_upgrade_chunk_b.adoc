@@ -260,7 +260,7 @@ node2   0d      fc      initiator -       -         online
 . 确认已配置 SP 网络。
 . 记录 IP 地址和有关 SP 的其他信息。
 +
-您可能希望在新节点上重复使用原始系统中远程管理设备（此处为 SP ）的网络参数。有关 SP 的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。
+您可能希望将远程管理设备（在本例中为 SP）的网络参数从原始系统中重新用于新节点上的 SP。有关 SP 的详细信息，请参阅 link:other_references.html["参考资料"] 链接到 _System Administration Reference_ 和 _ONTAP 9 Command reference_。
 
 +
 .. [[man_prepare_nodes_step29]]如果您希望新节点具有与原始节点相同的许可功能，请输入以下命令查看原始系统上的集群许可证：
@@ -331,7 +331,7 @@ node2            enable    Postmaster    -                 mailhost
 `ssystem node AutoSupport show -node node_name -instance`
 
 +
-有关 AutoSupport 的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _System 管理参考 _ 和 _ONTAP 9 命令：手册页参考 _ 。
+有关 AutoSupport 的详细信息，请参阅 link:other_references.html["参考资料"] 以链接到 _System Administration Reference_ 和 _ONTAP 9 Command reference_。
 
 .. [[man_prepare_nodes_step35 ，步骤 35]] 输入以下命令向 NetApp 发送 node1 的 AutoSupport 消息：
 +

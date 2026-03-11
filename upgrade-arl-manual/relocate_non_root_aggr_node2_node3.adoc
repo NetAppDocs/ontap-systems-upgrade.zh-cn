@@ -179,7 +179,7 @@ NOTE: `event log show`命令可列出已发生的任何错误。
 
 
 
-有关 storage aggregate relocation 命令的详细信息，请转至 link:other_references.html["参考资料"] 要使用 cli_ 和 _disk ONTAP 9 命令链接到 _disk 和聚合管理：手册页参考 _ 。
+有关存储聚合重定位命令的详细信息，请转到 link:other_references.html["参考资料"] 链接到 _使用 CLI 进行磁盘和聚合管理_ 和 _ONTAP 9 命令参考_。
 
 |===
 . 【 man_relocate_2_3_step8]] 验证 node3 上的所有非根聚合是否联机：

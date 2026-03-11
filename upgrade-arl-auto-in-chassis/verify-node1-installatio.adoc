@@ -122,7 +122,7 @@ NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domai
 确认 node1 处于仲裁状态并可与 node2 通信后，请确认 node1 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证所有 node1 网络端口是否均已配置在其正确的广播域中。
 
 .关于此任务
-有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 内容。
+有关创建和重新创建 VLAN 、接口组和广播域的详细信息，请参见 link:other-references.html["参考资料"] 以链接到 _Network Management_ 内容。
 
 .步骤
 . 列出已升级的节点 1 上的所有物理端口：
