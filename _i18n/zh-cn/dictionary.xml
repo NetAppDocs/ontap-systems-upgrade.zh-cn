@@ -3406,7 +3406,6 @@
   <block id="7de07b30845475194f5305d135dd504b" category="paragraph">您可以使用板载密钥管理器(OKM)管理身份验证密钥。如果您已设置OKM、则必须先记录密码短语和备份材料、然后再开始升级。</block>
   <block id="b57235dcd9249f0e9bf6001eecd99ce5" category="list-text">记录集群范围的密码短语。</block>
   <block id="f97bf876165b297d6e8425acab009019" category="paragraph">这是在使用命令行界面或REST API配置或更新OKM时输入的密码短语。</block>
-  <block id="8cada82213a4eb50c1f0cba46389bd44" category="list-text">运行以备份密钥管理器信息<block ref="32ba7af89b7557f6e3e6d80a922080ce" prefix=" " category="inline-code"></block> 命令：</block>
   <block id="219d5a10054a3daaa60cc6dc3881a506" category="paragraph">如果 node1 和 node2 位于不同的机箱中，则可以将 node3 与 node1 放在同一机架位置。但是、如果node1与node2位于同一机箱中、则必须将node3放入其自身的机架空间、最好靠近node1的位置。</block>
   <block id="7abb4d22dfb96ceb2a52ebfc5cef2026" category="admonition">您可能不需要将互连卡或集群互连缆线连接从 node1 移至 node3 ，因为大多数平台型号都具有唯一的互连卡型号。对于MetroCluster 配置、必须将FC-VI缆线连接从node1移至node3。如果新主机没有 FC-VI 卡，则可能需要移动 FC-VI 卡。</block>
   <block id="28fabaf13c83a39f567169d484c2bdb7" category="admonition">如果您之前尚未在操作步骤 中执行此操作、请参见知识库文章<block ref="99bc6507ac71bae6bc6755b2bf68f73a" category="inline-link-rx"></block> 确定正在使用的自加密驱动器的类型。</block>
@@ -5357,4 +5356,9 @@
   <block id="49e4f8e3ed6f9b425b3302443b88af26" category="paragraph">转到 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到 _Network Management_ 或 _ONTAP 9 Command reference_ 获取更多信息。</block>
   <block id="79ed614e57a84cb3ea78a7ec6a71e230" category="paragraph">有关详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> to link to _Network Management_ 或 _ONTAP 9 Command reference_，并转到 _Configuring failover settings on a LIF_。</block>
   <block id="bf4898b462ec44974d0fd35d857406f4" category="paragraph">输入您在此操作步骤前面记录的密码短语和备份信息。请参阅 <block ref="67f80d13cf548292184bc05f4b74227a" category="inline-link-macro-rx"></block>。</block>
+  <block id="160d9607adcb68efced47d6deb7493eb" category="list-text">验证密码短语和密钥管理器操作：</block>
+  <block id="35e13cf28e19f82138f24d5704edb686" category="paragraph">出现提示时，输入上一步中记录的群集范围的 OKM 密码短语。</block>
+  <block id="86e557f58bf6d6ffc84353711ad398d6" category="list-text">通过查看以下命令的输出来验证 cc-mode 是否已启用：</block>
+  <block id="c1c5360be7e00706ec4adf74606262d2" category="paragraph"><block ref="8bb1a67a3cdda2dcc6e451017bb9da4d" prefix="" category="inline-code"></block></block>
+  <block id="66a6e497892fb616eb108dd90d697bfb" category="list-text">备份密钥管理器信息：</block>
 </blocks>

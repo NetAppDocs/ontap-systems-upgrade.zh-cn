@@ -9,5 +9,19 @@
 +
 这是在使用命令行界面或REST API配置或更新OKM时输入的密码短语。
 
-. 运行以备份密钥管理器信息 `security key-manager onboard show-backup` 命令：
+. 验证密码短语和密钥管理器操作：
++
+`sSecurity key-manager 板载同步`
+
++
+出现提示时，输入上一步中记录的群集范围的 OKM 密码短语。
+
+. 通过查看以下命令的输出来验证 cc-mode 是否已启用：
++
+`security key-manager config show`
+
+. 备份密钥管理器信息：
++
+`s安全密钥管理器板载 show-backup`
+
 
