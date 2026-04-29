@@ -13,7 +13,5 @@
 +
 `s系统控制器更换 show-details`
 
+. （可选）升级完成后停用 node1。请参阅 link:decommission_old_system.html["停用旧系统"]。
 
-
-.完成后
-升级完成后，您可以停用 node1 。请参见 link:decommission_old_system.html["停用旧系统"]。

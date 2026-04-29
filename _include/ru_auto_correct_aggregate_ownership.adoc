@@ -1,10 +1,10 @@
-= 如果 ARL 预检失败，请更正聚合所有权
+= 步骤 2：如果 ARL 预检查失败，请更正聚合所有权
 :allow-uri-read: 
 
 
 
 
-== 如果 ARL 预检失败，请更正聚合所有权
+== 步骤 2：如果 ARL 预检查失败，请更正聚合所有权
 
 如果聚合状态检查失败，您必须将配对节点拥有的聚合返回到主所有者节点，然后重新启动预检过程。
 
@@ -33,12 +33,7 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. 重新启动控制器更换过程：
 
-
-
-
-=== 完成后
-
-您必须重新启动控制器更换过程：
 
 `ssystem controller replace start -nodes _node_names_`

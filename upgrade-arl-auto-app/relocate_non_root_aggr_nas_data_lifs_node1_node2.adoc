@@ -84,3 +84,6 @@ aggr_2     825.0GB  825.0GB    0%     online     1  node2  raid_dp,normal
 `network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _nodename_-status-admin up`
 
 
+
+.下一步是什么？
+将 node1 所拥有的非 root 聚合和 NAS 数据 LIF 重新定位到 node2 后，link:relocate-failed-or-vetoed-aggr-node2.html["重新定位失败或被否决的聚合"]。

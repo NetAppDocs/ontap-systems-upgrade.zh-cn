@@ -42,3 +42,6 @@ node2    svm1      ""           00000000000000000200000000000a008a81976 true
                                 2190178f9350e071fbb90f00000000000000000
 ----
 
+
+.下一步是什么？
+在 node2 上恢复 key-manager 配置后，link:verify-rcf-configuration.html["验证集群交换机上的 RCF 配置"]。

@@ -70,3 +70,6 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 如果出现任何问题，请参阅link:aggregate_relocation_failures.html["故障排除"]请参阅本过程末尾的部分，了解更多信息和可能的解决方案。有关可能发生的故障的信息按过程的阶段列出在link:overview_of_the_arl_upgrade.html["ARL 升级序列"] 。
 
 如果您未找到与遇到的问题相关的解决方案 ，请联系技术支持。
+
+.下一步是什么？
+在查看使用 ARL 升级控制器的指南后，link:verify_health_of_metrocluster_config.html["验证 MetroCluster 配置的运行状况"]。

@@ -23,6 +23,12 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请验证node1与
 
 此时，在操作步骤中，控制器升级操作应已暂停，因为 node1 会自动尝试加入仲裁。
 
+
+
+== 步骤 1：验证 node1 是否处于仲裁状态
+
+验证 node1 是否处于仲裁状态。然后，恢复控制器更换操作。
+
 .步骤
 . 验证 node1 是否已加入仲裁：
 +
@@ -112,12 +118,12 @@ To complete the Network Reachability task, the ONTAP network configuration must 
 
 NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domains_section 已重命名为 _Restore node1_ 上的网络配置。
 
-. 在控制器更换处于暂停状态的情况下，继续执行 <<还原 node1 上的网络配置>>。
+. 当控制器更换处于暂停状态时，请继续 <<restore_network_configuration_on_node1,还原 node1 上的网络配置>>。
 
 
 
 
-== 还原 node1 上的网络配置
+== 步骤 2：恢复 node1 上的网络配置
 
 确认 node1 处于仲裁状态并可与 node2 通信后，请确认 node1 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证所有 node1 网络端口是否均已配置在其正确的广播域中。
 
@@ -214,7 +220,7 @@ Warning: Repairing port "node1:e1b" may cause it to move into a different broadc
 `网络端口可访问性显示`
 
 +
-在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口不属于任何现有广播域，则 ONTAP 将为这些端口创建新的广播域。
+在执行可达性修复时，ONTAP 尝试将端口放置在正确的广播域中。但是，如果 ONTAP 无法确定端口的可达性，并且该端口不属于任何现有广播域，则 ONTAP 会为这些端口创建新的广播域。
 
 . 验证端口可访问性：
 +
@@ -248,3 +254,6 @@ Warning: Repairing port "node1:e1b" may cause it to move into a different broadc
 `network interface show -fields home-port ， status-admin`
 
 
+
+.下一步是什么？
+在验证 node1 安装后，link:restore-key-manager-config-upgraded-node1.html["在已升级的 node1 上恢复密钥管理器配置"]。

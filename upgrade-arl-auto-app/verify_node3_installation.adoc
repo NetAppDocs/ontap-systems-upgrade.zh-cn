@@ -14,18 +14,24 @@ summary: '使用升级运行ONTAP 9.8或更高版本的控制器时、验证node
 
 
 [role="lead"]
-您必须验证 node1 中的物理端口是否正确映射到 node3 上的物理端口。这样， node3 便可在升级后与集群中的其他节点以及网络进行通信。
+您必须验证 node1 的物理端口是否正确映射到 node3 上的物理端口。这使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
 
 .关于此任务
 请参见 link:other_references.html["参考资料"] 链接到 _Node_ Hardware Universe 以捕获有关新节点上端口的信息。您将在本节稍后部分使用此信息。
 
-物理端口布局可能因节点型号而异。当新节点启动时， ONTAP 将尝试确定应托管集群 LIF 的端口，以便自动达到仲裁。
+物理端口布局可能会有所不同，具体视节点的型号而定。当新节点启动时，ONTAP 尝试确定哪些端口应托管集群 LIF，以便自动进入仲裁。
 
-如果 node1 上的物理端口未直接映射到 node3 上的物理端口，请执行下一节 <<还原 node3 上的网络配置>> 必须用于修复网络连接。
+如果 node1 上的物理端口没有直接映射到 node3 上的物理端口，则必须使用后续部分 <<restore_network_configuration_on_node3,还原 node3 上的网络配置>> 来修复网络连接。
 
 安装并启动 node3 后，您必须验证是否已正确安装它。您必须等待 node3 加入仲裁，然后恢复重新定位操作。
 
-此时，在操作步骤中，操作将暂停，因为 node3 加入仲裁。
+在此过程中的此时，当 node3 加入仲裁时，操作暂停。
+
+
+
+== 步骤 1：验证 node3 是否处于法定状态
+
+验证 node3 是否处于仲裁状态。然后，恢复控制器更换操作
 
 .步骤
 . 验证 node3 是否已加入仲裁：
@@ -102,7 +108,7 @@ Cluster          NodeB_clus2:7700               TCP/ctlopcp
 +
 `s系统控制器更换恢复`
 
-. 控制器更换将暂停以进行干预，并显示以下消息：
+. 控制器更换暂停以进行干预并显示以下消息：
 +
 ....
 Cluster::*> system controller replace show
@@ -131,7 +137,7 @@ NOTE: 在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains
 
 
 
-== 还原 node3 上的网络配置
+== 步骤 2：在 node3 上恢复网络配置
 
 确认 node3 处于仲裁状态并可与 node2 通信后，请确认 node3 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证是否已在其正确的广播域中配置所有 node3 网络端口。
 
@@ -218,7 +224,7 @@ Warning: Repairing port "node1_node3: e0h" may cause it to move into a different
 `网络端口可访问性显示`
 
 +
-在执行可访问性修复时， ONTAP 会尝试将端口放置在正确的广播域中。但是，如果无法确定某个端口的可访问性，并且该端口不属于任何现有广播域，则 ONTAP 将为这些端口创建新的广播域。
+在执行可达性修复时，ONTAP 尝试将端口放置在正确的广播域中。但是，如果 ONTAP 无法确定端口的可达性，并且它不属于任何现有广播域，则 ONTAP 会为这些端口创建新的广播域。
 
 . 【第 5 步】如果接口组配置与新控制器物理端口布局不匹配，请使用以下步骤进行修改。
 +
@@ -357,3 +363,6 @@ Cluster::*> displaced-vlans restore -node node1_node3 -port e0e -destination-por
 `network interface show -fields home-port、status-admin`
 
 
+
+.下一步是什么？
+在验证 node3 安装后，link:restore_key-manager_configuration_node3.html["在 node3 上恢复 key-manager 配置"]。

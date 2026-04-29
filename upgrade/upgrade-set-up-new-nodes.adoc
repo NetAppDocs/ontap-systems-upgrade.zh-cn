@@ -19,7 +19,7 @@ During the process of upgrading by moving storage, you power on node3 and node4,
 您也可以使用USB启动选项执行网络启动。请参见知识库文章 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_the_boot_recovery_LOADER_command_for_installing_ONTAP_for_initial_setup_of_a_system["如何使用boot_recovery loader命令安装ONTAP 以进行系统初始设置"^]。
 
 .步骤
-. 打开 node3 的电源，然后立即在控制台终端上按 Ctrl-C 以访问 LOADER 提示符。
+. 打开 node3 的电源，然后立即在控制台终端输入 Ctrl-C 进入 LOADER 提示符。
 +
 如果 node3 和 node4 位于同一机箱中，请转至步骤 2 。如果没有，请转至步骤 3 。
 
@@ -79,7 +79,7 @@ NOTE: 如果无法通过网络启动新控制器，请联系技术支持。
 ` http://web_server_ip/path_to_web-accessible_directory/ontap_version_image.tgz`
 
 +
-如果适用，请输入用户名 / 密码，或者按 Enter 继续操作。
+如果适用，请输入用户名/密码，或选择 Enter 以继续。
 
 . 当您看到类似以下内容的提示时，输入 `n` 以跳过备份恢复：
 +

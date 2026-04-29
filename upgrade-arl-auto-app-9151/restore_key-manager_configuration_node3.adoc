@@ -42,3 +42,6 @@ node3    svm1      ""           00000000000000000200000000000a008a81976 true
                                 2190178f9350e071fbb90f00000000000000000
 ----
 
+
+.下一步是什么？
+在 node3 上恢复 key-manager 配置后，link:move_non-root_aggr_and_nas_data_lifs_node1_from_node2_to_node3.html["将 node1 拥有的非根聚合和 NAS 数据 LIF 从 node2 移动到 node3"]。

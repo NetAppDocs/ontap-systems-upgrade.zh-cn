@@ -79,7 +79,7 @@ fg_6210_e0c         Default           node1:e0c, node1:e0d
 `network port vlan show -node _node_name_`
 
 +
-VLAN 通过物理端口进行配置。如果物理端口发生更改，则稍后需要在操作步骤中重新创建 VLAN 。
+VLAN 通过物理端口配置。如果物理端口发生变化，则需要在以后的过程中重新创建 VLAN。
 
 +
 系统将显示节点上配置的 VLAN ，如以下示例所示：
@@ -112,7 +112,7 @@ node1   e1b-70    e1b     70      00:15:17:76:7b:69
 `network interface show -vserver _vserver_name_-data-protocol iscsi_FCP`
 
 +
-如果没有为 SVM 配置 iSCSI 或 FC ，则此命令将显示类似于以下示例的消息：
+如果未为 SVM 配置 iSCSI 或 FC，此命令将显示一条类似于以下示例的消息：
 
 +
 ....
@@ -123,7 +123,7 @@ There are no entries matching your query.
 您可以使用 `network interface show` 命令和 ` -data-protocol nfs|cifs` 参数确认节点位于 NAS 环境中。
 
 +
-如果为 SVM 配置了 iSCSI 或 FC ，则该命令将显示类似于以下示例的消息：
+如果为 SVM 配置了 iSCSI 或 FC，此命令将显示一条类似于以下示例的消息：
 
 +
 ....

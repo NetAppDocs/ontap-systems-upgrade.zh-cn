@@ -42,3 +42,6 @@ node1    svm1      ""           00000000000000000200000000000a008a81976 true
                                 2190178f9350e071fbb90f00000000000000000
 ----
 
+
+.下一步是什么？
+在升级后的 node1 上恢复密钥管理器配置后，link:move-non-root-aggr-nas-lifs-node1-from-node2-to-upgraded-node1.html["将 node1 非根聚合和 NAS 数据 LIF 从 node2 移动到升级后的 node1"]。

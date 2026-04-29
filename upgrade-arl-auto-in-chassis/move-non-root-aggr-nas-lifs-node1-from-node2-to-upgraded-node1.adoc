@@ -203,3 +203,6 @@ system controller replace resume
 
 
 
+
+.下一步是什么？
+将 node1 非根聚合和 NAS 数据 LIF 从 node2 移动到升级后的 node1 后，link:relocate-non-root-aggr-nas-lifs-from-node2-to-node1.html["将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node1"]。

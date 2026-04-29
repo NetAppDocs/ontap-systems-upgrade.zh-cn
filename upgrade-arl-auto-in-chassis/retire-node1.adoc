@@ -29,3 +29,12 @@ summary: 在使用ARL升级同一机箱中的控制器型号时、使用node2禁
 node1 完全暂停后， node1 应出现在 LOADER 提示符处。要查看加载程序提示符，请连接到 node1 的串行控制台。
 
 
+
+.下一步是什么？
+淘汰 node1 后，根据升级配置选择以下控制器更换过程之一：
+
+* link:replace-node1-affa250-affc250.html["更换 node1 AFF A250 或 AFF C250 控制器模块"]
+* link:replace-node1-affa800.html["更换 node1 AFF A800 或 AFF C800 控制器模块"]
+* link:replace-node1-affa220-affa200-affc190-fas2620-fas2720.html["更换 node1 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块"]
+* link:replace-node1-aff700-fas900.html["更换 node1 AFF A700 或 FAS9000 控制器和 NVRAM 模块"]
+

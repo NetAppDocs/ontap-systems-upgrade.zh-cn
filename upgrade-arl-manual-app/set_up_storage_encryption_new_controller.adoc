@@ -60,3 +60,6 @@ summary: 如果需要，请在运行 ONTAP 9.8 或更高版本的控制器上手
 `security key-manager restore -node _new_controller_name_`
 
 
+
+.下一步是什么？
+在新控制器模块上设置存储加密后，link:set_up_netapp_encryption_on_new_controller.html["在新的控制器模块上设置 NetApp 卷或聚合加密"]。

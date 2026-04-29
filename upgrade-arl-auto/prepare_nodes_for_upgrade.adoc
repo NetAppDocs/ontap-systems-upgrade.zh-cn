@@ -43,7 +43,7 @@ Attention: Do not try to clear the NVRAM contents. If there is a need to clear t
 
 Do you want to continue? {y|n}: y
 ....
-. 按 `y` ，您将看到以下输出：
+. 选择 `y`，您将看到以下输出：
 +
 ....
 Controller replacement operation: Prechecks in progress.
@@ -150,7 +150,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
-== 如果 ARL 预检失败，请更正聚合所有权
+== 步骤 2：如果 ARL 预检查失败，请更正聚合所有权
 
 如果聚合状态检查失败，您必须将配对节点拥有的聚合返回到主所有者节点，然后重新启动预检过程。
 
@@ -179,19 +179,14 @@ aggr4       node1      node1       online
 
 4 entries were displayed.
 ----
+. 重新启动控制器更换过程：
 
-
-
-
-=== 完成后
-
-您必须重新启动控制器更换过程：
 
 `ssystem controller replace start -nodes _node_names_`
 
 
 
-== 许可证
+== 了解 ONTAP 许可
 
 某些功能需要许可证、这些许可证以_packages _的形式发布、其中包含一项或多项功能。集群中的每个节点都必须有自己的密钥，才能在集群中使用每个功能。
 
@@ -199,4 +194,4 @@ aggr4       node1      node1       online
 
 请参见 link:other_references.html["参考资料"] 链接到NetApp 支持站点ONTAP _、您可以从中获取新的28个字符的许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，您可以联系您的 NetApp 销售代表。
 
-有关许可的详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
+有关 ONTAP 许可的详细信息，请参阅 link:other_references.html["参考资料"] 以链接到 _System Administration Reference_。

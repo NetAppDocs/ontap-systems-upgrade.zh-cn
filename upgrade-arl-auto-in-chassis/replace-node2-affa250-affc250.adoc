@@ -1,0 +1,118 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/replace-node2-affa250-affc250.html 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
+summary: 在同一机箱中控制器型号的 ARL 升级期间，更换 node2 AFF A250 或 AFF C250 控制器模块。 
+---
+= 更换 node2 AFF A250 或 AFF C250 控制器模块
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+将 node2 AFF A250 或 AFF C250 控制器模块替换为 AFF A30、AFF A50、AFF C30 或 AFF C60 控制器模块。
+
+在此阶段，node2 已关闭，所有数据均由 node1 提供服务。您必须注意仅删除 node2 控制器模块。通常，从系统后部查看控制器时，node2 是位于机箱下半部分的控制器 B。控制器标签位于控制器模块正上方的机箱上。
+
+
+CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并连接到相同的电源。
+
+
+
+== 步骤 1：卸下 AFF A250 或 AFF C250 控制器模块
+
+要卸下 node2 控制器模块，请卸下电缆管理设备并解锁锁闩。然后，从机箱中取出控制器模块。
+
+.开始之前
+如果您尚未接地，请正确接地。
+
+.步骤
+. Insert your forefinger into the latching mechanism on either side of the controller module, press the lever with your thumb, and gently pull the controller a few inches out of the chassis.
++
+
+NOTE: 如果在卸下控制器模块时遇到困难，请将食指从内部穿过指孔（通过跨越臂）。
+
++
+image:drw_a250_pcm_remove_install.png["推动驱动器、使其紧紧靠在机箱中间板上"]
+
++
+[cols="20,80"]
+|===
+
+
+ a| 
+image:black_circle_one.png["第一"]
+| Lever 
+
+
+ a| 
+image:black_circle_two.png["第二"]
+| Latching mechanism 
+|===
+. 转至机箱背面。
+. 从电源拔下 node2 控制器模块电源。
+. 松开电源线固定器，然后从 node2 的电源拔下电源线。
++
+
+CAUTION: node1 和 node2 的电源连接彼此重叠。注意仅拔下 node2 的电缆。拔下 node1 和 node2 的电缆可能会导致 HA 对中的两个节点停电。
+
+. Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFP and QSFP modules (if needed) from the controller module, keeping track of where the cables were connected.
++
+Leave the cables in the cable management device so that when you reinstall the cable management device, the cables are organized.
+
+. Remove the cable management device from the controller module and set it aside.
+. Press down on both of the locking latches, and then rotate both latches downward at the same time.
++
+The controller module moves slightly out of the chassis.
+
+. Using both hands, grasp the controller module sides and gently pull it out of the chassis and set it on a flat, stable surface.
++
+将控制器模块滑出机箱时、请确保支撑好控制器模块的重量。
+
+
+
+
+
+== 步骤 2：安装 AFF A30、AFF A50、AFF C30 或 AFF C60 控制器模块
+
+在 node2 上安装您收到的升级替换控制器模块。
+
+.步骤
+. 将存储系统置于机柜或电信机架中间的导轨上、然后从底部支撑存储系统并将其滑入到位。
++
+
+NOTE: 请勿将控制器模块完全插入机箱中、除非此过程稍后指示您这样做。
+
+. 使用缆线将管理和控制台端口连接到 node2 控制器模块。
++
+
+NOTE: 由于机箱已通电，因此节点 2 在完全就位后立即启动 BIOS 初始化，然后启动 AUTOBOOT。要中断 node2 启动，建议在将控制器模块完全插入插槽之前将串行控制台和管理电缆连接到 node2 控制器模块。
+
+. 在凸轮把手处于打开位置的情况下、用力推入控制器模块、直至其与中板接触并完全就位。控制器模块完全就位后，锁定闩锁会上升。将凸轮把手关闭至锁定位置。
++
+
+NOTE: 为避免损坏连接器、将控制器模块滑入机箱时不要用力过大。
+
+. 模块就位后立即连接串行控制台并准备中断节点 2 的 AUTOBOOT。
+. 中断自动启动后、node2将停留在加载程序提示符处。如果未按时中断自动启动、而node2开始启动、请等待提示符、然后按Ctrl-C进入启动菜单。在节点停留在启动菜单处后、使用option `8` 重新启动节点、并在重新启动期间中断自动启动。
+. 在node2的loader>提示符处、设置默认环境变量：
++
+[source, cli]
+----
+set-defaults
+----
+. 保存默认环境变量设置：
++
+[source, cli]
+----
+saveenv
+----
+. 对于双节点无交换机配置，请确认节点 2 上的插槽 1 中已安装 X60132A 4 端口 10/25 GbE 卡。升级期间，集群互连需要 X60132A 卡。
+
+
+.下一步是什么？
+安装 AFF A30、AFF A50、AFF C30 或 AFF C60 模块后，link:netboot-node2.html["网络引导 node2"]。

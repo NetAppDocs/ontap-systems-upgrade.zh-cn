@@ -108,5 +108,9 @@ Enable Switchless Cluster: false/true
 `set -privilege admin`
 
 . 在任一控制器上输入以下命令以暂停node2：`ssystem node halt -node _node2_`
-. node2 完全关闭后，将其从机箱或机架中卸下。升级完成后，您可以停用 node2 。请参见 link:decommission_old_system.html["停用旧系统"]。
+. 在 node2 完全关闭后，将其从机箱或机架中取出。
+. （可选）升级完成后停用 node2。详见 link:decommission_old_system.html["停用旧系统"]。
 
+
+.下一步是什么？
+淘汰 node2 后，link:install_boot_node4.html["安装并启动 node4"]。

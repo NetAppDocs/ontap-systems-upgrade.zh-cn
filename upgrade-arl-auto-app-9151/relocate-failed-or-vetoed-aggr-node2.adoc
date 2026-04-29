@@ -41,3 +41,6 @@ summary: '使用以下命令升级运行ONTAP 9.15.1 或更高版本的控制器
 `storage aggregate relocation start -node node1 -destination node2 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===
 
+
+.下一步是什么？
+在将失败或被否决的聚合重新定位到 node2 后，link:retire_node1.html["停用 node1"]。

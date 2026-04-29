@@ -37,7 +37,7 @@
 `storage aggregate relocation show -node _node3_`
 
 +
-重新定位聚合后，输出将显示该聚合的 `D1` 。
+重新定位后，输出显示聚合的 `Done`。
 
 +
 

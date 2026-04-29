@@ -12,7 +12,8 @@
 +
 节点会自动暂停。
 
++
+.. （可选）升级完成后停用 node2。详见 link:decommission_old_system.html["停用旧系统"]。
 
 
-.完成后
-升级完成后，您可以停用 node2 。请参见 link:decommission_old_system.html["停用旧系统"]。
+

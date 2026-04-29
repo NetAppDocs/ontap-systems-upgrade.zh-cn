@@ -1,10 +1,10 @@
-= 检查并配置 node3 上的 UTA/UTA2 端口
+= 步骤 2：检查并配置 node3 上的 UTA/UTA2 端口
 :allow-uri-read: 
 
 
 
 
-== 检查并配置 node3 上的 UTA/UTA2 端口
+== 步骤 2：检查并配置 node3 上的 UTA/UTA2 端口
 
 如果 node3 具有板载 UTA/UTA2 端口或 UTA/UTA2 卡，则必须检查这些端口的配置，并可能对其进行重新配置，具体取决于您希望如何使用升级后的系统。
 

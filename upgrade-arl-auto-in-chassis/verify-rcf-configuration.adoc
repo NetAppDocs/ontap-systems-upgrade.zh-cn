@@ -51,5 +51,5 @@ summary: 验证集群交换机 RCF 是否支持用于交换机连接集群升级
 
 
 
-.下一步
-link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["将非根聚合和 NAS 数据 LIF 移回 node2"]
+.下一步是什么？
+验证 RCF 配置后link:move-non-root-aggr-and-nas-data-lifs-back-to-node2.html["将非根聚合和 NAS 数据 LIF 移回 node2"]。

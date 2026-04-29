@@ -210,3 +210,6 @@ NOTE: `event log show`命令可列出已发生的任何错误。
 命令输出不应显示联机非根聚合，因为所有非根联机聚合都已重新定位到 node3 。
 
 
+
+.下一步是什么？
+将非根聚合从 node2 重新定位到 node3 后，link:move_nas_lifs_node2_node3.html["将 node2 拥有的 NAS 数据 LIF 移至 node3"]。

@@ -130,3 +130,6 @@ system controller replace resume
 
 
 
+
+.下一步是什么？
+将 node2 拥有的非 root 聚合和 NAS 数据 LIF 从 node3 移动到 node4 后，link:manage-authentication-using-kmip-servers.html["使用 KMIP 服务器管理身份验证"]。

@@ -77,3 +77,6 @@ aggr_2         825.0GB      825.0GB      0%     online  1      node2  raid_dp  n
 `network interface show -curr-node _node2_-role data`
 
 
+
+.下一步是什么？
+将非根聚合和 NAS 数据 LIF 从 node2 重新定位到 node3 后，link:relocate-failed-or-vetoed-aggr-node3.html["将失败或否决的聚合重新定位到 node3"]。

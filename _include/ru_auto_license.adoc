@@ -1,10 +1,10 @@
-= 许可证
+= 了解 ONTAP 许可
 :allow-uri-read: 
 
 
 
 
-== 许可证
+== 了解 ONTAP 许可
 
 某些功能需要许可证、这些许可证以_packages _的形式发布、其中包含一项或多项功能。集群中的每个节点都必须有自己的密钥，才能在集群中使用每个功能。
 
@@ -12,4 +12,4 @@
 
 请参见 link:other_references.html["参考资料"] 链接到NetApp 支持站点ONTAP _、您可以从中获取新的28个字符的许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，您可以联系您的 NetApp 销售代表。
 
-有关许可的详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
+有关 ONTAP 许可的详细信息，请参阅 link:other_references.html["参考资料"] 以链接到 _System Administration Reference_。

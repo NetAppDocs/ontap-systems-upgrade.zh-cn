@@ -49,3 +49,6 @@ link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide
 
 .相关信息
 参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。
+
+.下一步是什么？
+在决定是否使用此 ARL 过程后，link:arl_upgrade_workflow.html["查看 ARL 升级工作流程"]。

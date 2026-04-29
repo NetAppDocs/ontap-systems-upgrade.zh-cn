@@ -33,3 +33,6 @@ NOTE: 如果状态为`transferring`、则必须中止这些传输：`snapmirror 
 `snapmirror quiesce -destination-vserver *`
 
 
+
+.下一步是什么？
+静止 SnapMirror 关系后，link:prepare_for_netboot.html["准备 netboot"]。

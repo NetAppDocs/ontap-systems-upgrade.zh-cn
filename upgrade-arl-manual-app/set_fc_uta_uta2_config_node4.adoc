@@ -219,3 +219,6 @@ f-a    2b      fc       target    cna      -          online
 
 . 【 man_check_4_Step13]] 连接端口。
 
+
+.下一步是什么？
+在 node4 上设置 FC 或 UTA/UTA2 配置后，link:map_ports_node2_node4.html["将端口从 node2 映射到 node4"]。

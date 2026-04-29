@@ -25,8 +25,8 @@ entries:
   entries:
   - title: 准备要升级的节点
     url: "/upgrade-arl-auto-app/prepare_nodes_for_upgrade.html"
-  - title: 使用板载密钥管理器管理存储加密
-    url: "/upgrade-arl-auto-app/manage_storage_encryption_using_okm.html"
+  - title: 完成升级准备
+    url: "/upgrade-arl-auto-app/complete-preparation-for-upgrade.html"
 - title: 第 2 阶段。重新定位和停用节点 1
   pdf-filename: 第 2 阶段。重新定位并停用node1 (‘s在ONTAP 9.8或更高版本中使用"系统控制器更换"进行升级)
   entries:

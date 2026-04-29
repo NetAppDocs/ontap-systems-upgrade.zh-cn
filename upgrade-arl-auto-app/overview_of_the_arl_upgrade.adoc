@@ -97,3 +97,5 @@ summary: '了解使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8
 在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。
 
 |===
+.下一步是什么？
+了解 ARL 升级顺序后，link:prepare_nodes_for_upgrade.html["准备节点进行升级"]。

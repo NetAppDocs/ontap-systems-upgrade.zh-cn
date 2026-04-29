@@ -41,3 +41,6 @@ summary: 使用 ARL 升级同一机箱中的控制器型号时，将失败或被
 `storage aggregate relocation start -node node1 -destination node2 -aggregate-list <aggregate_list> -ndo-controller-upgrade true -override-vetoes true -override-destination-checks true` 
 |===
 
+
+.下一步是什么？
+在将失败或被否决的聚合重新定位到 node2 后，link:retire-node1.html["停用 node1"]。

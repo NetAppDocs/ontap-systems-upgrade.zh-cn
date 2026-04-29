@@ -140,3 +140,6 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 
 
 NOTE: 如果集群交换机仅支持 10/25 GbE 速度，则必须在替换系统的插槽 1 或插槽 2 中使用 X60130A、4 端口 10/25GbE 卡进行集群互连。
+
+.下一步是什么？
+在为共享集群 HA 和存储的 node1 布线后，link:boot-node1-with-a900-controller-and-nvs.html["使用替换的系统模块启动 node1"]。

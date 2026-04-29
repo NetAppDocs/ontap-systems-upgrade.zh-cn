@@ -139,3 +139,6 @@ Do you want to continue? {y|n}: y
 
 .完成后
 如果在 node1 和 node2 上启用了 Storage Encryption，请完成此部分link:set-up-storage-encryption-new-module.html["在新控制器模块上设置存储加密"]。否则，请完成此部分link:decommission-old-system.html["停用旧系统"]。
+
+.下一步是什么？
+确认新控制器已正确设置后，link:set-up-storage-encryption-new-module.html["在新的控制器模块上设置存储加密"]。

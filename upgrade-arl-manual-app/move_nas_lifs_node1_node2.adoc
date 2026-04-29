@@ -108,3 +108,6 @@ NOTE: 对于 MetroCluster 配置，您可能无法更改端口的广播域，因
 `network interface show -curr-node _node1_-role data`
 
 
+
+.下一步是什么？
+将 node1 拥有的 NAS 数据 LIF 移至 node2 后，link:record_node1_information.html["记录 node1 信息"]。

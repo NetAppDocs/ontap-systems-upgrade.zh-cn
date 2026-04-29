@@ -34,7 +34,7 @@ NOTE: 对于每个Storage Virtual Machine (SVM)、NetApp建议先移动集群中
 `Vserver add-aggregates`
 
 +
-要从中移动卷的新聚合和旧聚合必须位于同一个 SVM 中。
+新聚合和从中移动卷的旧聚合必须位于同一个 SVM 中。
 
 . 验证新聚合现在是否已分配给与原始节点上的聚合相同的 SVM ：
 +

@@ -123,7 +123,7 @@ NOTE: 您的系统可能没有集群间 LIF 。
 ----
 . 记录端口及其广播域。
 +
-稍后，需要在操作步骤中将广播域映射到新控制器上的新端口。
+在以后的过程中，需要将广播域映射到新控制器上的新端口。
 
 . 在 node1 上输入以下命令：
 +
@@ -201,3 +201,6 @@ NOTE: 您的系统可能没有集群间 LIF 。
 ----
 . [[man_record_node1_step12]] 记录要在部分中使用的 NVRAM 系统 ID 编号 link:install_boot_node3.html["安装并启动 node3"]。
 
+
+.下一步是什么？
+记录 node1 信息后，link:retire_node1.html["停用 node1"]。

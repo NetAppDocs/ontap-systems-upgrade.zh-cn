@@ -60,3 +60,6 @@ MetroCluster 操作历史记录显示 -job-id 38`
 `s系统运行状况警报显示`
 
 
+
+.下一步是什么？
+确认 MetroCluster 配置的运行状况后，link:check_for_metrocluster_config_errors.html["检查 MetroCluster 配置错误"]。

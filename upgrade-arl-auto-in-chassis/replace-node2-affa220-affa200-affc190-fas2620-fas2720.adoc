@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: upgrade-arl-auto-in-chassis/replace-node2-affa220-affa200-affc190-fas2620-fas2720.html 
+keywords: aff, fas, asa, install, NVRAM, node2, controller, module, modules, replacement 
+summary: 在同一机箱中控制器型号的 ARL 升级期间，更换 node2 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块。 
+---
+= 更换 node2 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+将 node2 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块替换为 ASA A150、AFF A150 或 FAS2820 控制器模块。
+
+在此阶段，node2 已关闭，所有数据均由 node1 提供服务。您必须注意仅移除 node2 控制器模块。通常，从系统后部查看控制器时，node2 是位于机箱右侧的控制器 B。控制器标签位于控制器模块正上方的机箱上。
+
+
+CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并连接到相同的电源。
+
+.开始之前
+如果您尚未接地，请正确接地。
+
+
+
+== 步骤 1：卸下 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块
+
+要访问 node2 控制器内部的组件，请从系统中卸下控制器模块，然后卸下控制器模块上的盖子。
+
+.步骤
+. Loosen the hook and loop strap binding the cables to the cable management device, and then unplug the system cables and SFPs (if needed) from the controller module, keeping track of where the cables were connected.
++
+Leave the cables in the cable management device so that when you reinstall the cable management device, the cables are organized.
+
+. Remove and set aside the cable management devices from the left and right sides of the controller module.
++
+image:drw_25xx_cable_management_arm.png["卸下缆线管理ARM"]
+
+. Squeeze the latch on the cam handle until it releases, open the cam handle fully to release the controller module from the midplane, and then, using two hands, pull the controller module out of the chassis.
++
+image:drw_2240_x_opening_cam_latch.png["打开凸轮把手"]
+
+. Turn the controller module over and place it on a flat, stable surface.
+
+
+
+
+== 步骤 2：安装 ASA A150、AFF A150 或 FAS2820 控制器模块
+
+安装您收到的用于在 node2 中升级的 ASA A150、AFF A150 或 FAS2820 控制器模块。
+
+.开始之前
+* 如果您尚未接地，请正确接地。
+* 从要卸下的控制器上断开所有缆线、包括控制台、管理、SAS存储和数据网络缆线。
+
+
+.步骤
+. 将控制器模块的末端与机箱中的托架 B 对齐，然后将控制器模块轻轻推入系统的一半。
++
+
+TIP: 托架 B 位于底盘的右侧。
+
++
+
+WARNING: 请勿将控制器模块完全插入机箱中、直到此过程稍后指示您这样做。
+
+. 使用缆线将管理和控制台端口连接到 node2 控制器模块。
++
+
+NOTE: 由于机箱已经通电，节点 2 一旦完全就位就会立即启动。为防止节点 2 启动，请在完全插入控制器模块之前连接控制台和管理电缆。
+
+. Firmly push the controller module into the chassis until it meets the midplane and is fully seated.
++
+控制器模块完全就位后，锁定闩锁会上升。
+
++
+
+NOTE: 为避免损坏连接器、将控制器模块滑入机箱时不要用力过大。
+
+. 模块就位后立即连接串行控制台并准备中断节点 2 的 AUTOBOOT。
+. 中断 AUTOBOOT 后， node2 会在 LOADER 提示符处停止。如果不按时中断 AUTOBOOT 并且 node2 开始启动，请等待提示，然后输入 Ctrl-C 进入启动菜单。节点在启动菜单处停止后，使用选项 `8`重新启动节点，并在重新启动期间中断 AUTOBOOT。
+
+
+.下一步是什么？
+安装 ASA A150、AFF A150 或 FAS2820 控制器模块后，link:netboot-node2.html["网络引导 node2"]。
