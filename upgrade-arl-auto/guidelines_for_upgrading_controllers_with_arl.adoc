@@ -52,7 +52,7 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 +
 请参见 link:other_references.html["参考资料"] 链接到 _disk_ Hardware Universe 以获取磁盘支持信息。
 
-* 具有内部驱动器的入门级控制器，例如： FAS 2500 。
+* 对于具有内部驱动器的入门级控制器，例如：FAS2750。
 +
 如果要使用内部驱动器升级入门级控制器，请参见 link:other_references.html["参考资料"] 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。
 

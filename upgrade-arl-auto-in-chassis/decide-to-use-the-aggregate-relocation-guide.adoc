@@ -68,6 +68,21 @@ CAUTION: 此过程严格适用于以下升级配置。请勿使用此过程在�
 | 现有系统 | 更换系统 | 支持的ONTAP版本 
 
 
+| AFF A70 ^1^ | AFF A90 | 9.18.1 及更高版本 
+
+
+| AFF A30 ^1^ | AFF A50 | 9.18.1 及更高版本 
+
+
+| AFF A20 ^1^ | AFF A30 ^3^, AFF A50 | 9.18.1 及更高版本 
+
+
+| AFF C30 ^1^ | AFF C60 | 9.18.1 及更高版本 
+
+
+| FAS70 ^1^ | FAS90 | 9.18.1 及更高版本 
+
+
 | AFF C250 ^1^ | AFF C30、AFF C60 | 9.16.1 
 
 
@@ -123,16 +138,22 @@ CAUTION: 此过程严格适用于以下升级配置。请勿使用此过程在�
 上表中的最低ONTAP版本为必填项。这些ONTAP版本具有支持在升级期间在机箱内混用不同类型控制器所需的服务处理器或底板管理控制器(BMC)固件版本。
 
 ====
+^3^ 在双节点无交换机集群配置中，AFF A20 到 AFF A30 升级有一定的端口连接要求：
+
+* AFF A20 支持 X60132A（4 端口 10/25GbE CX7）和 X60131A（2 端口 10/25GbE CX6-LX）进行集群互连。
+* AFF A30 仅支持用于集群互连的 X60130A（2 端口 100GbE CX6-DX）。
+* 使用临时 10/25GbE 卡从 AFF A20 临时连接到 AFF A30。4 端口或 2 端口 10/25GbE 卡支持 AFF A20 上的集群。建议在 AFF A20 和 AFF A30 中使用相同的卡。如果您没有新卡，可以使用 AFF A20 中的卡作为临时集群互连。
+* 当 AFF A30 node3 上线时，它将 HA IC 端口放在 100GbE 上，并尝试将集群 LIF 放在 10/25GbE 端口上。ONTAP 检测到这些端口连接到 AFF A20。如果 ONTAP 未自动检测到这些端口，则可以手动修改临时集群端口。然后，如果需要，您可以将集群 LIF 移动到临时集群端口。
+* 升级 AFF A20 node1 后，AFF A20 node2 为准备升级而关闭，此时您需要从临时 10/25GbE 集群端口中删除连接，仅使用 100GbE 共享集群端口。当 AFF A30 node3 和 node4 通过 100GbE 端口连接时，连接将建立，您可以完成升级。
+
+
 
 
 == 选择不同的硬件升级程序
 
 * link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)
-* 如果您更喜欢升级控制器硬件的其他方法，并且愿意执行卷移动，请参阅 link:other-references.html["参考资料"] 链接到_通过移动卷或存储进行升级_。
+* 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
 
 
 .相关信息
-请参阅 link:other-references.html["参考资料"] 以链接到 _ONTAP 9 Documentation_。
-
-.下一步是什么？
-在决定使用此 ARL 过程后，link:required-tools-and-documentation.html["了解所需的工具和文档"]。
+参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。

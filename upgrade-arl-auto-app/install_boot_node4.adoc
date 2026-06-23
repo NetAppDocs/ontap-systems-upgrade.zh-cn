@@ -282,11 +282,10 @@ NOTE: 如果您之前尚未在操作步骤 中执行此操作、请参见知识�
 +
 `boot_ontap 菜单`
 
-+
+
+
 .下一步是什么？
-** 如果您有 FC 或 UTA/UTA2 配置，link:set_fc_or_uta_uta2_config_node4.html["设置并配置节点 4 上的 FC 或 UTA/UTA2 端口"] 。
-** 如果您没有 FC 或 UTA/UTA2 配置，link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["将 node2 磁盘重新分配给 node4，步骤 1"]这样node4就可以识别node2的磁盘。
-** 如果您有MetroCluster配置，link:set_fc_or_uta_uta2_config_node4.html["设置并配置节点 4 上的 FC 或 UTA/UTA2 端口"]检测连接到节点的磁盘。
-
-
+* 如果您有 FC 或 UTA/UTA2 配置，link:set_fc_or_uta_uta2_config_node4.html["设置并配置节点 4 上的 FC 或 UTA/UTA2 端口"] 。
+* 如果您没有 FC 或 UTA/UTA2 配置，link:reassign-node2-disks-to-node4.html#reassign-node2-node4-app-step1["将 node2 磁盘重新分配给 node4，步骤 1"]这样node4就可以识别node2的磁盘。
+* 如果您有MetroCluster配置，link:set_fc_or_uta_uta2_config_node4.html["设置并配置节点 4 上的 FC 或 UTA/UTA2 端口"]检测连接到节点的磁盘。
 
