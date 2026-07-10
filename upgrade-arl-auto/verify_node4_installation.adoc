@@ -44,6 +44,7 @@ CAUTION: 此时，MetroCluster 配置未处于正常状态，您可能需要解�
 
 
 
+[[re-create-vlans-interface-groups-and-broadcast-domains-on-node4]]
 == 在 node4 上重新创建 VLAN ，接口组和广播域
 
 确认 node4 处于仲裁状态并可与 node3 通信后，您必须在 node4 上重新创建 node2 的 VLAN ，接口组和广播域。您还必须将 node3 端口添加到新重新创建的广播域中。
@@ -72,6 +73,7 @@ CAUTION: 此时，MetroCluster 配置未处于正常状态，您可能需要解�
 
 
 
+[[restore-key-manager-configuration-on-node4]]
 == 还原 node4 上的 key-manager 配置
 
 如果要使用 NetApp Aggregate Encryption (NAE) 或 NetApp Volume Encryption (NVE) 来加密要升级的系统上的卷，则必须将加密配置同步到新节点。如果不还原密钥管理器，则当使用 ARL 将 node2 聚合从 node3 重新定位到 node4 时，将使加密卷脱机。

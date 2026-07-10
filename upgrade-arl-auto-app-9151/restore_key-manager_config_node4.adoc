@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/restore_key-manager_config_node4.html 
 keywords: restore key-manager, configuration, node4, nve, arl, volume, encryption 
-summary: '如果需要、在升级运行ONTAP 9.151或更高版本的控制器时、使用命令还原node4上的key-manager配置 `system controller replace` 。' 
+summary: '如果需要，在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用 `system controller replace`命令在 node4 上恢复密钥管理器配置。' 
 ---
 = 还原 node4 上的 key-manager 配置
 :hardbreaks:

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/retire_node1.html 
 keywords: retiring, node 
-summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、使用node2禁用HA对并关闭node1 `system controller replace` 。' 
+summary: '使用 `system controller replace`命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，请禁用与 node2 的 HA 对并关闭 node1。' 
 ---
 = 停用 node1
 :hardbreaks:

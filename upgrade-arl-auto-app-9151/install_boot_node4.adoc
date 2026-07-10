@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/install_boot_node4.html 
 keywords: install, boot, node4, install ONTAP 
-summary: '在使用命令升级运行ONTAP 9.151或更高版本的控制器时、安装和启动node4并安装ONTAP软件 `system controller replace` 。' 
+summary: '升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用 `system controller replace`命令安装和启动 node4 并安装 ONTAP 软件。' 
 ---
 = 安装并启动节点 4.
 :hardbreaks:

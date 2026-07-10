@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/issues_in_multiple_stages_of_procedure.html 
 keywords: issues, arise, multiple, stages, procedure 
-summary: '有关使用命令升级运行ONTAP 9.151或更高版本的控制器时可能发生的问题的信息 `system controller replace` 。' 
+summary: '有关使用 `system controller replace`命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时可能发生的问题的信息。' 
 ---
 = 操作步骤的多个阶段可能会出现的问题
 :hardbreaks:
@@ -18,6 +18,7 @@ summary: '有关使用命令升级运行ONTAP 9.151或更高版本的控制器�
 
 
 
+[[unexpected-storage-failover-show-command-output]]
 == 意外的 "storage failover show" 命令输出
 
 在操作步骤期间，如果托管所有数据聚合的节点发生崩溃或意外重新启动，您可能会在重新启动，崩溃或重新启动前后看到 `storage failover show` 命令的意外输出。

@@ -18,6 +18,7 @@ summary: '对使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 
 
 
+[[check-for-aggregate-relocation-failure]]
 == 检查聚合重新定位失败
 
 在操作步骤期间， ARL 可能会在第 2 阶段，第 3 阶段或第 5 阶段失败。
@@ -44,6 +45,7 @@ summary: '对使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 
 
 
+[[aggregates-originally-on-node1-are-owned-by-node4-after-completion-of-the-upgrade]]
 == 升级完成后， node1 上的聚合属于 node4
 
 升级操作步骤结束时， node3 应为聚合的新主节点，而这些聚合最初将 node1 作为主节点。您可以在升级后重新定位它们。

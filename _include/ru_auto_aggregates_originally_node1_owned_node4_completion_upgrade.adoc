@@ -4,6 +4,7 @@
 
 
 
+[[aggregates-originally-on-node1-are-owned-by-node4-after-completion-of-the-upgrade]]
 == 升级完成后， node1 上的聚合属于 node4
 
 升级操作步骤结束时， node3 应为聚合的新主节点，而这些聚合最初将 node1 作为主节点。您可以在升级后重新定位它们。

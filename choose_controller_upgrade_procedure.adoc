@@ -4,20 +4,21 @@ sidebar: sidebar
 keywords:  
 summary: '通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过移动聚合或卷存储(无中断过程)或移动存储(中断操作步骤)来进行升级。' 
 ---
-= 选择您的控制器硬件升级操作步骤
+= 选择 AFF、ASA 或 FAS 控制器硬件的升级程序
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/
 
 
 [role="lead"]
-通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过重新定位聚合或移动卷(这两个过程均为无中断过程)或移动存储(一个中断操作步骤)来进行升级。如果在原始节点和新节点上运行的ONTAP版本不同、则可能需要先执行软件升级、然后再开始硬件升级。
+一般来说，如何升级 NetApp AFF、ASA 或 FAS 控制器硬件取决于原始节点的平台型号。您可以通过重新定位聚合或移动卷（两者都是无中断过程），或通过移动存储（中断过程）进行升级。如果您在原始节点和新节点上运行不同的 ONTAP 版本，则可能需要在开始硬件升级之前执行软件升级。
 
 
 NOTE: 不支持通过ASA升级到ASA R2替代系统。有关将数据从ASA迁移到ASA R2系统的信息，请参见link:https://docs.netapp.com/us-en/asa-r2/install-setup/set-up-data-access.html["启用从SAN主机到ASA R2存储系统的数据访问"^]。
 
 
 
+[[which-upgrade-procedure-should-i-use]]
 == 我应该使用哪种升级程序？
 
 要选择合适的升级程序，请查看下表中列出的所有问题。
@@ -77,6 +78,7 @@ ARL 是一种置换手术。您无需随着新节点的加入而扩展和缩减�
 |===
 
 
+[[example-fas9500-to-fas90-upgrade]]
 == 示例： FAS9500升级到 FAS90
 
 本示例为 FAS9500 到 FAS90 控制器升级提供了可能的答案。

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/decide_to_use_the_aggregate_relocation_guide.html 
 keywords: deciding, aggregate, relocation, content, storage, controllers, administrators, ontap, ha, high, availability 
-summary: '使用命令确定是否使用ARL升级运行ONTAP 9.151或更高版本的控制器 `system controller replace` 。' 
+summary: '决定是否使用 ARL 通过 `system controller replace`命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器。' 
 ---
 = 决定是否使用此聚合迁移程序
 :hardbreaks:
@@ -14,12 +14,13 @@ summary: '使用命令确定是否使用ARL升级运行ONTAP 9.151或更高版�
 
 
 [role="lead"]
-有几种用于升级控制器硬件的聚合重定位 (ARL) 方法。此 ARL 过程描述了如何在 ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 存储系统中使用新控制器升级 HA 对控制器，同时保留现有磁盘和存储在磁盘上的数据。这是一个复杂的过程，只能由经验丰富的 ONTAP 管理员使用。
+有几种用于升级控制器硬件的聚合重定位（ARL）方法。此 ARL 过程描述了如何将 AFF 和 FAS 存储系统中的 HA 对控制器升级到 ONTAP 9.15.1 或更高版本中引入的控制器，同时保留现有磁盘和存储在磁盘上的数据。这是一个复杂的过程，只能由经验丰富的 ONTAP 管理员使用。
 
 为了帮助您确定此 ARL 程序是否适合您的控制器硬件升级，您应该检查以下所有支持和不支持升级的情况。
 
 
 
+[[supported-upgrades-for-this-arl-procedure]]
 == 此 ARL 程序支持的升级
 
 在以下情况下，您可以使用此 ARL 过程升级一对节点：
@@ -35,6 +36,7 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 
 
+[[upgrades-not-supported-for-this-arl-procedure]]
 == 此 ARL 程序不支持升级
 
 在以下情况下，您不能使用此 ARL 过程来升级一对节点：
@@ -57,13 +59,15 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 | AFF C800 | AFF C80 
 |===
 +
-要执行上表中列出的升级、请参见link:other_references.html["参考资料"]以链接到_use "system controller Replace "命令升级同一机箱中的控制器型号_。
+要执行上表中列出的升级，请参阅 link:other_references.html["参考资料"] 以链接到_使用"system controller replace"命令升级同一机箱中的控制器型号_。
 
 * 您正在升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 link:other_references.html["参考资料"] 以链接到_ MetroCluster升级和扩展文档_。
 
 
 
 
+[[supported-system-upgrade-combinations]]
+[[sys_commands_9151_supported_systems]]
 == 支持的系统升级组合
 
 下表显示了 ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 系统使用 ARL 支持的控制器升级组合。如果您的控制器升级组合未列出，请联系技术支持。
@@ -108,6 +112,7 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == 选择不同的硬件升级程序
 
 * link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)

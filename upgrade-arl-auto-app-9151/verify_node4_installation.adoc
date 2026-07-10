@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/verify_node4_installation.html 
 keywords: verify, node4, installation, physical ports, node2, node, LIF, MetroCluster 
-summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、验证node2的物理端口是否正确映射到node4、并还原node4上的网络配置 `system controller replace` 。' 
+summary: '使用 `system controller replace`命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，验证 node2 的物理端口是否正确映射到 node4 并恢复 node4 上的网络配置。' 
 ---
 = 验证 node4 安装
 :hardbreaks:
@@ -29,6 +29,7 @@ summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、�
 
 
 
+[[step-1-verify-that-node4-is-in-quorum]]
 == 步骤 1：验证 node4 是否处于法定状态
 
 验证 node4 是否处于仲裁状态。然后，恢复控制器更换操作。
@@ -95,6 +96,8 @@ NOTE: 在此操作步骤中， _re-creating VLANs ， ifgrp 和 broadcast domain
 
 
 
+[[step-2-restore-network-configuration-on-node4]]
+[[restore_network_configuration_on_node4_9151]]
 == 步骤 2：恢复 node4 上的网络配置
 
 确认 node4 处于仲裁状态并可与 node3 通信后，请确认 node4 上显示了 node2 的 VLAN ，接口组和广播域。此外，验证所有 node4 网络端口是否均已配置在其正确的广播域中。

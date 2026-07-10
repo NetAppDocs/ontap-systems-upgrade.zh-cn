@@ -19,13 +19,20 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 .步骤
 . 在 ONTAP 命令行中输入以下命令，开始控制器更换过程：
 +
-`ssystem controller replace start -nodes _node_names_`
-
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 +
+[NOTE]
+====
+您只能在高级权限级别执行此命令：
 
-NOTE: 您只能在高级权限级别执行此命令：
-`set -privilege advanced`
-
+[source, cli]
+----
+set -privilege advanced
+----
+====
 +
 您将看到以下输出：
 
@@ -91,7 +98,7 @@ Controller replacement operation has been paused for user intervention.
 | 集群 LIF 状态 | 检查两个节点的集群 LIF 是否均已启动。如果集群 LIF 已关闭，则此任务将失败。 
 
 
-| ASUP 状态检查 | 如果未配置 ASUP 通知，则任务将失败。在开始更换控制器操作步骤之前，必须启用 ASUP 。 
+| AutoSupport 状态检查 | 如果未配置 AutoSupport 通知，则任务将失败。在开始更换控制器操作步骤 之前，必须启用 AutoSupport 。 
 
 
 | CPU 利用率检查 | 检查要更换的任何节点的 CPU 利用率是否超过 50% 。如果 CPU 使用率在相当长的一段时间内超过 50% ，则此任务将失败。 
@@ -108,23 +115,80 @@ Controller replacement operation has been paused for user intervention.
 从连接到每个节点的串行端口中、分别运行并保存以下命令的输出：
 
 +
-** `vserver services name-service dns show`
-** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,clustermgmt, data`
-** `network port show -node _local_ -type physical`
-** `service-processor show -node _local_ -instance`
-** `network fcp adapter show -node _local_`
-** `network port ifgrp show -node _local_`
-** `network port vlan show`
-** `system node show -instance -node _local_`
-** `run -node _local_ sysconfig`
-** `storage aggregate show -node _local_`
-** `volume show -node _local_`
-** `network interface failover-groups show`
-** `storage array config show -switch _switch_name_`
-** `system license show -owner _local_`
-** `s存储加密磁盘 show`
-
-
+[source, cli]
+----
+vserver services name-service dns show
+----
++
+[source, cli]
+----
+network interface show -curr-node <local> -role cluster,intercluster,node-mgmt,clustermgmt, data
+----
++
+[source, cli]
+----
+network port show -node <local> -type physical
+----
++
+[source, cli]
+----
+service-processor show -node <local> -instance
+----
++
+[source, cli]
+----
+network fcp adapter show -node <local>
+----
++
+[source, cli]
+----
+network port ifgrp show -node <local>
+----
++
+[source, cli]
+----
+network port vlan show
+----
++
+[source, cli]
+----
+system node show -instance -node <local>
+----
++
+[source, cli]
+----
+run -node <local> sysconfig
+----
++
+[source, cli]
+----
+storage aggregate show -node <local>
+----
++
+[source, cli]
+----
+volume show -node <local>
+----
++
+[source, cli]
+----
+network interface failover-groups show
+----
++
+[source, cli]
+----
+storage array config show -switch <switch_name>
+----
++
+[source, cli]
+----
+system license show -owner <local>
+----
++
+[source, cli]
+----
+storage encryption disk show
+----
 +
 
 NOTE: 如果正在使用使用板载密钥管理器的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤 中完成密钥管理器重新同步。
@@ -150,6 +214,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
+[[step-2-correct-aggregate-ownership-if-an-arl-precheck-fails]]
 == 步骤 2：如果 ARL 预检查失败，请更正聚合所有权
 
 如果聚合状态检查失败，您必须将配对节点拥有的聚合返回到主所有者节点，然后重新启动预检过程。
@@ -157,12 +222,16 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 .步骤
 . 将配对节点当前拥有的聚合返回到主所有者节点：
 +
-`s存储聚合重新定位start -node _source_node_-destination _destination-node_-aggregate-list *`
-
+[source, cli]
+----
+storage aggregate relocation start -node <source_node> -destination <destination_node> -aggregate-list *
+----
 . 验证 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
-`storage aggregate show -nodes _node_name_-is-home false -fields owner-name、home-name、state`
-
+[source, cli]
+----
+storage aggregate show -nodes <node_name> -is-home false -fields owner-name, home-name, state
+----
 +
 以下示例显示了当节点同时是聚合的当前所有者和主所有者时命令的输出：
 
@@ -180,12 +249,16 @@ aggr4       node1      node1       online
 4 entries were displayed.
 ----
 . 重新启动控制器更换过程：
++
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 
 
-`ssystem controller replace start -nodes _node_names_`
 
 
-
+[[learn-about-ontap-licensing]]
 == 了解 ONTAP 许可
 
 某些功能需要许可证、这些许可证以_packages _的形式发布、其中包含一项或多项功能。集群中的每个节点都必须有自己的密钥，才能在集群中使用每个功能。

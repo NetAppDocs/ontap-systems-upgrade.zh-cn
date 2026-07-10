@@ -20,10 +20,12 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 
 
 
+[[reboots-panics-or-power-cycles-during-the-pre-check-phase]]
 == 在预检查阶段重新启动，崩溃或重新启动
 
 
 
+[[node1-or-node2-crashes-before-the-pre-check-phase-with-ha-pair-still-enabled]]
 === 在 HA 对的预检查阶段仍处于启用状态之前，节点 1 或节点 2 崩溃
 
 如果 node1 或 node2 在预检查阶段之前崩溃，则尚未重新定位任何聚合，并且 HA 对配置仍处于启用状态。
@@ -38,10 +40,12 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 
 
 
+[[reboots-panics-or-power-cycles-during-first-resource-release-phase]]
 == 在第一个资源释放阶段重新启动，崩溃或重新启动
 
 
 
+[[node1-crashes-during-the-first-resource-release-phase-with-ha-pair-still-enabled]]
 === 在 HA 对仍处于启用状态的情况下，节点 1 在第一个资源释放阶段崩溃
 
 部分或所有聚合已从 node1 重新定位到 node2 ，并且 HA 对仍处于启用状态。node2 接管 node1 的根卷以及未重新定位的任何非根聚合。
@@ -58,6 +62,7 @@ summary: '在使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 
 
 
+[[node1-crashes-during-the-first-resource-release-phase-while-ha-pair-is-disabled]]
 === 在禁用 HA 对的情况下， Node1 在第一个资源释放阶段崩溃
 
 Node2 不会接管，但它仍在从所有非根聚合提供数据。
@@ -69,6 +74,7 @@ Node2 不会接管，但它仍在从所有非根聚合提供数据。
 
 
 
+[[node2-fails-during-the-first-resource-release-phase-with-ha-pair-still-enabled]]
 === 在 HA 对仍处于启用状态的情况下，节点 2 在第一个资源释放阶段失败
 
 node1 已将其部分或全部聚合重新定位到 node2 。已启用 HA 对。
@@ -83,6 +89,7 @@ node1 接管 node2 的所有聚合以及它已重新定位到 node2 的任何自
 
 
 
+[[node2-crashes-during-the-first-resource-release-phase-and-after-ha-pair-is-disabled]]
 === 在第一个资源释放阶段以及禁用 HA 对之后， Node2 会崩溃
 
 Node1 不接管。
@@ -97,10 +104,12 @@ Node1 不接管。
 
 
 
+[[reboots-panics-or-power-cycles-during-the-first-verification-phase]]
 == 在第一个验证阶段重新启动，崩溃或重新启动
 
 
 
+[[node2-crashes-during-the-first-verification-phase-with-ha-pair-disabled]]
 === 在禁用 HA 对的情况下，节点 2 在第一个验证阶段崩溃
 
 Node2 崩溃后 Node3 不会接管，因为 HA 对已禁用。
@@ -115,6 +124,7 @@ Node2 崩溃后 Node3 不会接管，因为 HA 对已禁用。
 
 
 
+[[node3-crashes-during-the-first-verification-phase-with-ha-pair-disabled]]
 === 在禁用 HA 对的情况下，节点 3 在第一个验证阶段崩溃
 
 Node2 不会接管，但它仍在从所有非根聚合提供数据。
@@ -126,10 +136,12 @@ Node2 不会接管，但它仍在从所有非根聚合提供数据。
 
 
 
+[[reboots-panics-or-power-cycles-during-first-resource-regain-phase]]
 == 在第一个资源重新获取阶段重新启动，崩溃或重新启动
 
 
 
+[[node2-crashes-during-the-first-resource-regain-phase-during-aggregate-relocation]]
 === 在聚合重新定位期间，节点 2 在第一个资源重新获取阶段崩溃
 
 node2 已将其部分或全部聚合从 node1 重新定位到 node3 。node3 用于从已重新定位的聚合提供数据。HA 对已禁用，因此不存在接管。
@@ -144,6 +156,7 @@ node2 已将其部分或全部聚合从 node1 重新定位到 node3 。node3 用
 
 
 
+[[node3-crashes-during-the-first-resource-regain-phase-during-aggregate-relocation]]
 === 在聚合重新定位期间，节点 3 在第一个资源重新获取阶段崩溃
 
 如果在 node2 将聚合重新定位到 node3 时 node3 崩溃，则在 node3 启动后，此任务将继续执行。
@@ -158,10 +171,12 @@ Node2 将继续为其余聚合提供服务，但已重新定位到 Node3 的聚�
 
 
 
+[[reboots-panics-or-power-cycles-during-post-check-phase]]
 == 在检查后阶段重新启动，崩溃或重新启动
 
 
 
+[[node2-or-node3-crashes-during-the-post-check-phase]]
 === 在后检查阶段，节点 2 或节点 3 崩溃
 
 HA 对已禁用，因此不是接管。重新启动的节点中的聚合发生客户端中断。
@@ -173,10 +188,12 @@ HA 对已禁用，因此不是接管。重新启动的节点中的聚合发生�
 
 
 
+[[reboots-panics-or-power-cycles-during-second-resource-release-phase]]
 == 在第二个资源释放阶段重新启动，崩溃或重新启动
 
 
 
+[[node3-crashes-during-the-second-resource-release-phase]]
 === Node3 在第二个资源释放阶段崩溃
 
 如果 node2 重新定位聚合时 node3 崩溃，则在 node3 启动后，此任务将继续执行。
@@ -191,6 +208,7 @@ Node2 继续为其余聚合提供服务，但已重新定位到 Node3 和 Node3 
 
 
 
+[[node2-crashes-during-the-second-resource-release-phase]]
 === Node2 在第二个资源释放阶段崩溃
 
 如果节点 2 在聚合重新定位期间崩溃，则不会接管节点 2 。
@@ -205,10 +223,12 @@ node3 将继续为已重新定位的聚合提供服务，但 node2 拥有的聚�
 
 
 
+[[reboots-panics-or-power-cycles-during-the-second-verification-phase]]
 == 在第二个验证阶段重新启动，崩溃或重新启动
 
 
 
+[[node3-crashes-during-the-second-verification-phase]]
 === Node3 在第二个验证阶段崩溃
 
 如果节点 3 在此阶段崩溃，则不会发生接管，因为 HA 对已禁用。
@@ -223,6 +243,7 @@ node3 将继续为已重新定位的聚合提供服务，但 node2 拥有的聚�
 
 
 
+[[node4-crashes-during-the-second-verification-phase]]
 === Node4 在第二个验证阶段崩溃
 
 如果节点 4 在此阶段崩溃，则不会发生接管。node3 从聚合提供数据。

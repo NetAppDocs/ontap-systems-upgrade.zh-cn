@@ -18,6 +18,7 @@ summary: 在使用ARL升级同一机箱中的控制器型号时、请准备节�
 
 
 
+[[step-1-prepare-the-nodes]]
 == 步骤 1：准备节点
 
 启动控制器更换过程并运行预检查。如果需要，请确定正在使用的自加密驱动器的类型。
@@ -25,8 +26,10 @@ summary: 在使用ARL升级同一机箱中的控制器型号时、请准备节�
 .步骤
 . 列出在旧控制器上运行的服务处理器(SP)或底板管理控制器(BMC)固件版本：
 +
-`service-processor show`
-
+[source, cli]
+----
+service-processor show
+----
 +
 验证是否具有受支持的SP或BMC固件版本：
 
@@ -55,11 +58,15 @@ summary: 在使用ARL升级同一机箱中的控制器型号时、请准备节�
 |===
 . 在 ONTAP 命令行的高级权限模式下输入以下命令，开始控制器更换过程：
 +
-`set -privilege advanced`
-
+[source, cli]
+----
+set -privilege advanced
+----
 +
-`ssystem controller replace start -nodes _node_names_`
-
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 +
 此时将显示类似于以下示例的输出。此输出将显示群集上运行的 ONTAP 版本：
 
@@ -123,7 +130,7 @@ Controller replacement operation has been paused for user intervention.
 | 集群 LIF 状态 | 检查两个节点的集群 LIF 是否均已启动。如果集群 LIF 已关闭，则此任务将失败。 
 
 
-| ASUP 状态检查 | 如果未配置 AutoSupport 通知，则任务将失败。在开始更换控制器操作步骤 之前，必须启用 AutoSupport 。 
+| AutoSupport 状态检查 | 如果未配置 AutoSupport 通知，则任务将失败。在开始更换控制器操作步骤 之前，必须启用 AutoSupport 。 
 
 
 | CPU 利用率检查 | 检查要更换的任何节点的 CPU 利用率是否超过 50% 。如果 CPU 使用率在相当长的一段时间内超过 50% ，则此任务将失败。 
@@ -140,33 +147,118 @@ Controller replacement operation has been paused for user intervention.
 从连接到每个节点的串行端口运行命令、分别运行并保存命令的输出：
 
 +
-** `vserver services name-service dns show`
-** `network interface show -curr-node _local_ -role cluster,intercluster,node-mgmt,cluster-mgmt,data`
-** `network port show -node _local_ -type physical`
-** `service-processor show -node _local_ -instance`
-** `network fcp adapter show -node _local_`
-** `network port ifgrp show -node _local_`
-** `system node show -instance -node _local_`
-** `run -node _local_ sysconfig`
-** `run -node local sysconfig -ac`
-** `run -node local aggr status -r`
-** `vol show -fields type`
-** `run local aggr options _data_aggregate_name_`
-** `vol show -fields type , space-guarantee`
-** `storage aggregate show -node _local_`
-** `volume show -node _local_`
-** `storage array config show -switch _switch_name_`
-** `system license show -owner _local_`
-** `s存储加密磁盘 show`
-** `s安全密钥管理器板载 show-backup`
-** `security key-manager external show`
-** `s安全密钥管理器外部 show-status`
-** `network port reachability show -detail -node _local_`
+[source, cli]
+----
+vserver services name-service dns show
+----
++
+[source, cli]
+----
+network interface show -curr-node <local> -role cluster,intercluster,node-mgmt,cluster-mgmt,data
+----
++
+[source, cli]
+----
+network port show -node <local> -type physical
+----
++
+[source, cli]
+----
+service-processor show -node <local> -instance
+----
++
+[source, cli]
+----
+network fcp adapter show -node <local>
+----
++
+[source, cli]
+----
+network port ifgrp show -node <local>
+----
++
+[source, cli]
+----
+system node show -instance -node <local>
+----
++
+[source, cli]
+----
+run -node <local> sysconfig
+----
++
+[source, cli]
+----
+run -node local sysconfig -ac
+----
++
+[source, cli]
+----
+run -node local aggr status -r
+----
++
+[source, cli]
+----
+vol show -fields type
+----
++
+[source, cli]
+----
+run local aggr options <data_aggregate_name>
+----
++
+[source, cli]
+----
+vol show -fields type , space-guarantee
+----
++
+[source, cli]
+----
+storage aggregate show -node <local>
+----
++
+[source, cli]
+----
+volume show -node <local>
+----
++
+[source, cli]
+----
+storage array config show -switch <switch_name>
+----
++
+[source, cli]
+----
+system license show -owner <local>
+----
++
+[source, cli]
+----
+storage encryption disk show
+----
++
+[source, cli]
+----
+security key-manager onboard show-backup
+----
++
+[source, cli]
+----
+security key-manager external show
+----
++
+[source, cli]
+----
+security key-manager external show-status
+----
++
+[source, cli]
+----
+network port reachability show -detail -node <local>
+----
 +
 
 NOTE: 如果正在使用板载密钥管理器进行NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请保留密钥管理器密码短语、以便稍后在操作步骤中完成密钥管理器重新同步。
-
-
 
 . 如果您的系统使用自加密驱动器、请参见知识库文章 https://kb.netapp.com/onprem/ontap/Hardware/How_to_tell_if_a_drive_is_FIPS_certified["如何判断驱动器是否已通过FIPS认证"^] 确定要升级的HA对上使用的自加密驱动器的类型。ONTAP 软件支持两种类型的自加密驱动器：
 +
@@ -189,6 +281,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
+[[step-2-correct-aggregate-ownership-if-an-arl-precheck-fails]]
 == 步骤 2：如果 ARL 预检查失败，请更正聚合所有权
 
 如果聚合状态检查失败，您必须将配对节点拥有的聚合返回到主所有者节点，然后重新启动预检过程。
@@ -196,12 +289,16 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 .步骤
 . 将配对节点当前拥有的聚合返回到主所有者节点：
 +
-`s存储聚合重新定位start -node _source_node_-destination _destination-node_-aggregate-list *`
-
+[source, cli]
+----
+storage aggregate relocation start -node <source_node> -destination <destination_node> -aggregate-list *
+----
 . 验证 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
-`storage aggregate show -nodes _node_name_-is-home false -fields owner-name、home-name、state`
-
+[source, cli]
+----
+storage aggregate show -nodes <node_name> -is-home false -fields owner-name, home-name, state
+----
 +
 以下示例显示了当节点同时是聚合的当前所有者和主所有者时命令的输出：
 
@@ -219,9 +316,12 @@ aggr4       node1      node1       online
 4 entries were displayed.
 ----
 . 重新启动控制器更换过程：
++
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 
-
-`ssystem controller replace start -nodes _node_names_`
 
 .下一步是什么？
 准备好节点后，link:complete-preparation-for-upgrade.html["完成升级准备"]。

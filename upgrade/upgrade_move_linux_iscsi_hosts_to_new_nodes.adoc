@@ -22,6 +22,7 @@ summary: 通过创建新的iSCSI连接并将iSCSI路径重新扫描到新节点�
 
 
 
+[[step-1-set-up-new-iscsi-connections]]
 == 第1步：设置新的iSCSI连接
 
 要移动iSCSI连接、请设置与新节点的新iSCSI连接。
@@ -185,6 +186,7 @@ size=2.0G features='4 queue_if_no_path pg_init_retries 50 retain_attached_hw_han
 ----
 
 
+[[step-2-add-the-new-nodes-as-reporting-nodes]]
 == 第2步：将新节点添加为报告节点
 
 设置与新节点的连接后、您可以将新节点添加为报告节点。
@@ -374,6 +376,7 @@ up        secondary  sdah    host5        iscsi_lf__n3_p1_
 
 
 
+[[step-3-remove-reporting-nodes-and-rescan-paths]]
 == 第3步：删除报告节点并重新扫描路径
 
 您必须删除报告节点并重新扫描路径。

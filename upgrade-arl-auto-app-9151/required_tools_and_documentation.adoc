@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/required_tools_and_documentation.html 
 keywords: required, tools, documentation, install, worksheet, ontap 
-summary: '要使用命令升级运行ONTAP 9.15.1或更高版本的控制器、您必须准备好某些工具和文档 `system controller replace` 。' 
+summary: '要使用 `system controller replace`命令升级 ONTAP 9.15.1 或更高版本中引入的控制器，您必须具备某些工具和文档。' 
 ---
 = 所需的工具和文档
 :hardbreaks:

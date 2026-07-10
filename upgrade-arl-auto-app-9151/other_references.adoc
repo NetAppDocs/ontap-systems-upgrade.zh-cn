@@ -18,6 +18,7 @@ summary: '使用命令支持运行ONTAP 9.151或更高版本的控制器升级�
 
 
 
+[[reference-content]]
 == 参考内容
 
 下表列出了此升级的特定内容。
@@ -73,6 +74,7 @@ summary: '使用命令支持运行ONTAP 9.151或更高版本的控制器升级�
 |===
 
 
+[[reference-sites]]
 == 参考站点
 
 。 link:https://mysupport.netapp.com["NetApp 支持站点"^] 此外，还包含有关网络接口卡（ NIC ）以及可能与系统结合使用的其他硬件的文档。它还包含 link:https://hwu.netapp.com["Hardware Universe"^]，提供有关新系统支持的硬件的信息。

@@ -18,6 +18,7 @@ summary: '了解是否可以使用 `ssystem controller replace` 命令将运行 
 
 
 
+[[supported-upgrades-for-arl]]
 == 支持 ARL 升级
 
 在使用适用于 ONTAP 9.5 的 ARL 操作步骤将一对节点升级到 ONTAP 9.7 时，您必须验证是否可以对原始控制器和替代控制器执行 ARL 。
@@ -38,12 +39,14 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 
 
 
+[[two-node-switchless-clusters]]
 == 双节点无交换机集群
 
 如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为交换集群。
 
 
 
+[[upgrades-not-supported-for-arl]]
 == ARL 不支持升级
 
 您不能执行以下升级：
@@ -60,12 +63,14 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 
 
 
+[[metrocluster-fc-configuration]]
 == MetroCluster FC 配置
 
 在MetroCluster FC配置中、您必须尽快更换灾难恢复/故障转移站点节点。MetroCluster 配置中的控制器型号不匹配不受支持，因为控制器型号不匹配可能会导致灾难恢复镜像脱机。使用 `-skip-metrocluster-check true`命令可在您替换第二个站点上的节点时绕过 MetroCluster 检查。
 
 
 
+[[troubleshoot]]
 == 故障排除
 
 升级节点对时可能会遇到故障。节点可能会崩溃，聚合可能无法重新定位或 LIF 可能无法迁移。故障的发生原因及其解决方案取决于升级操作步骤期间发生故障的时间。

@@ -19,7 +19,7 @@ entries:
   - title: 准备重新配置交换机布局
     url: "/upgrade-arl-manual/reconfig_index.html"
   - title: 在重新配置交换机之前发送自定义 AutoSupport 消息
-    url: "/upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html"
+    url: "/upgrade-arl-manual/send_custom_autosupport_message_prior_reconfig_switches.html"
   - title: 验证 MetroCluster 配置的运行状况。
     url: "/upgrade-arl-manual/verify_health_mcc_config.html"
   - title: 检查 MetroCluster 配置错误

@@ -4,6 +4,7 @@
 
 
 
+[[connect-to-a-switch-attached-cluster]]
 == 连接到交换机连接的集群
 
 对于交换机连接的集群、请检查AFF A30、AFF A50、AFF A70、AFF A90、AFF C30、AFF C60或AFF C80 (替代)节点是否满足以下要求：

@@ -4,6 +4,7 @@
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == 选择不同的硬件升级程序
 
 * link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)

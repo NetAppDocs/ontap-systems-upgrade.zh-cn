@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: upgrade-arl/index.html 
 keywords: aggregate, relocation, moving, manual, upgrade, relocate, hardware 
-summary: 使用聚合重新定位升级控制器硬件 
+summary: 了解如何使用聚合重新定位升级 AFF、ASA 或 FAS 控制器硬件。 
 ---
-= 从此处开始：选择ARL升级过程
+= 从这里开始：为 AFF、ASA 或 FAS 控制器硬件选择 ARL 升级过程
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 使用聚合重新定位升级控制器硬件
 
 
 [role="lead"]
-您可以使用聚合重新定位(ARL)升级控制器硬件、而不会造成中断。有关升级控制器硬件的其他方法，请参阅link:../upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"]。
+通过使用聚合重定位 (ARL)，可以在不中断的情况下升级 AFF、ASA 或 FAS 控制器硬件。有关升级控制器硬件的其他方法，请参见 link:../upgrade/upgrade-decide-to-use-this-guide.html["通过移动卷或存储进行升级"]。
 
 您可以使用ARL将非根聚合从原始节点迁移到同一集群中的新节点、从而无中断升级一对运行ONTAP的节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。
 
@@ -24,9 +24,10 @@ summary: 使用聚合重新定位升级控制器硬件
 
 
 
-== 对ONTAP 9．15．1或更高版本使用system controller Replace命令
+[[upgrade-to-systems-introduced-in-ontap-9-15-1-or-later]]
+== 升级到 ONTAP 9.15.1 或更高版本中引入的系统
 
-如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级9.15.1 9.151及更高版本中引入的控制器硬件"]开始升级过程。
+如果您的升级方案列在以下受支持的系统矩阵中，请转至 link:../upgrade-arl-auto-app-9151/index.html["使用"system controller replace"命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器硬件"] 以开始升级过程。
 
 .显示支持的系统
 [%collapsible]
@@ -64,6 +65,7 @@ summary: 使用聚合重新定位升级控制器硬件
 ====
 
 
+[[upgrade-controller-models-in-the-same-chassis]]
 == 升级同一机箱中的控制器型号
 
 如果您的升级方案列在以下受支持系统矩阵中，请转到link:../upgrade-arl-auto-in-chassis/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"]开始升级过程。
@@ -142,6 +144,7 @@ summary: 使用聚合重新定位升级控制器硬件
 ====
 
 
+[[use-system-controller-replace-commands-with-ontap-9-8-or-later]]
 == 对ONTAP 9 8或更高版本使用“system controller Replace”命令
 
 如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto-app/index.html["使用 system controller replace 命令升级运行 ONTAP 9.8 或更高版本的控制器硬件"]开始升级过程。
@@ -182,6 +185,7 @@ summary: 使用聚合重新定位升级控制器硬件
 ====
 
 
+[[use-system-controller-replace-commands-with-ontap-9-5-to-9-7]]
 == 将“system controller Replace”命令与ONTAP 9 5至9.7结合使用
 
 如果您的升级情形在以下受支持的系统列表中列出、请转到link:../upgrade-arl-auto/index.html["使用 system controller replace 命令将运行 ONTAP 9.5 的控制器硬件升级到 9.7"]开始升级过程。
@@ -208,6 +212,7 @@ summary: 使用聚合重新定位升级控制器硬件
 ====
 
 
+[[use-manual-arl-commands]]
 == 使用手动ARL命令
 
 如果您的升级情形不支持使用"系统命令"、则可以使用手动命令执行ARL升级。

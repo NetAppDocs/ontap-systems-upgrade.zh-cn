@@ -23,6 +23,7 @@ CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并�
 
 
 
+[[step-1-remove-the-aff-a250-or-aff-c250-controller-module]]
 == 步骤 1：卸下 AFF A250 或 AFF C250 控制器模块
 
 要卸下 node1 控制器模块，请卸下电缆管理设备并解锁锁闩。然后，从机箱中取出控制器模块。
@@ -77,6 +78,7 @@ The controller module moves slightly out of the chassis.
 
 
 
+[[step-2-install-the-aff-a30-aff-a50-aff-c30-or-aff-c60-controller-module]]
 == 步骤 2：安装 AFF A30、AFF A50、AFF C30 或 AFF C60 控制器模块
 
 在node1中安装替代模块并进行布线和连接。

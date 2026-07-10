@@ -26,6 +26,7 @@ CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并�
 
 
 
+[[step-1-remove-the-aff-a800-or-aff-c800-controller-module]]
 == 步骤 1：卸下 AFF A800 或 AFF C800 控制器模块
 
 从现有的 node2 模块中取出电缆管理设备，并将控制器稍微移出机箱。
@@ -107,6 +108,7 @@ image:black_circle_two.png["第二"]
 
 
 
+[[step-2-install-the-aff-a90-aff-a70-or-aff-c80-controller-module]]
 == 步骤 2：安装 AFF A90、AFF A70 或 AFF C80 控制器模块
 
 安装您在 node2 中收到的用于升级的 AFF A90 或 AFF A70 控制器模块。

@@ -4,6 +4,7 @@
 
 
 
+[[check-for-aggregate-relocation-failure]]
 == 检查聚合重新定位失败
 
 在操作步骤期间， ARL 可能会在第 2 阶段，第 3 阶段或第 5 阶段失败。

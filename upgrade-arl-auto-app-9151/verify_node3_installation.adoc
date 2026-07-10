@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/verify_node3_installation.html 
 keywords: verifying, verify, node, install, installation 
-summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、验证node1物理端口是否正确映射到node3并还原node3上的网络配置 `system controller replace` 。' 
+summary: '使用 `system controller replace` 命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，验证 node1 物理端口是否正确映射到 node3 并恢复 node3 上的网络配置。' 
 ---
 = 验证 node3 安装
 :hardbreaks:
@@ -29,6 +29,7 @@ summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、�
 
 
 
+[[step-1-verify-that-node3-is-in-quorum]]
 == 步骤 1：验证 node3 是否处于法定状态
 
 验证 node3 是否处于仲裁状态。然后，恢复控制器更换操作
@@ -89,6 +90,8 @@ NOTE: 在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains
 
 
 
+[[step-2-restore-network-configuration-on-node3]]
+[[restore_network_configuration_on_node3_9151]]
 == 步骤 2：在 node3 上恢复网络配置
 
 确认 node3 处于仲裁状态并可与 node2 通信后，请确认 node3 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证是否已在其正确的广播域中配置所有 node3 网络端口。

@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-manual/send_custom_asup_message_prior_reconfig_switches.html 
+permalink: upgrade-arl-manual/send_custom_autosupport_message_prior_reconfig_switches.html 
 keywords: autosupport, reconfigure, send message, maintenance, netapp support 
 summary: 通知 NetApp 技术支持，正在对运行 ONTAP 9.7 或更早版本的控制器进行手动 ARL 升级期间进行维护。 
 ---

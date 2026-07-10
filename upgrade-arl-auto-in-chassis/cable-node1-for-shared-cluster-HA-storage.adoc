@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-in-chassis/cable-node1-for-shared-cluster-HA-storage.html 
 keywords: cluster, ha, aff, a800, shared, storage, data, management 
-summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接连接连接到新安装的AFF A90或AFF A70节点1 
+summary: 将以前连接到 AFF A800 node1 的集群、HA、存储和数据连接连接到新安装的 AFF A90 或 AFF A70 node1。 
 ---
 = 为共享集群HA和存储连接node1
 :hardbreaks:
@@ -34,6 +34,7 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 |===
 
 
+[[connect-the-e0m-and-bmc-ports]]
 == 连接e0M和BMC端口
 
 如果现有系统具有管理端口(e0M)和BMC端口、则e0M和BMC端口会组合在一起、并通过替代系统上的"扳手"端口进行访问。在连接到替代系统之前、必须确保e0M和BMC端口已连接到现有系统上的同一交换机和子网。
@@ -54,6 +55,7 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 |===
 
 
+[[connect-to-a-two-node-switchless-cluster]]
 == 连接到双节点无交换机集群
 
 下表显示了双节点无交换机集群配置中的交换机端口使用情况。
@@ -99,6 +101,8 @@ summary: 将先前连接到AFF A800节点1的集群、HA、存储和数据连接
 |===
 
 
+[[connect-to-a-switch-attached-cluster]]
+[[connect-switch-attached-cluster]]
 == 连接到交换机连接的集群
 
 对于交换机连接的集群、请检查AFF A30、AFF A50、AFF A70、AFF A90、AFF C30、AFF C60或AFF C80 (替代)节点是否满足以下要求：

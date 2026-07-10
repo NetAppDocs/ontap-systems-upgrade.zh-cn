@@ -25,6 +25,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请验证node1与
 
 
 
+[[step-1-verify-that-node1-is-in-quorum]]
 == 步骤 1：验证 node1 是否处于仲裁状态
 
 验证 node1 是否处于仲裁状态。然后，恢复控制器更换操作。
@@ -123,6 +124,8 @@ NOTE: 在此操作步骤 中， _re-creating VLANs ， ifgrp 和 broadcast domai
 
 
 
+[[step-2-restore-network-configuration-on-node1]]
+[[restore_network_configuration_on_node1]]
 == 步骤 2：恢复 node1 上的网络配置
 
 确认 node1 处于仲裁状态并可与 node2 通信后，请确认 node1 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证所有 node1 网络端口是否均已配置在其正确的广播域中。

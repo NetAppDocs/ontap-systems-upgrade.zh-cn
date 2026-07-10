@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/prepare_nodes_for_upgrade.html 
 keywords: preparing, nodes, upgrade 
-summary: '使用命令对节点进行准备、并在升级运行ONTAP 9.151或更高版本的控制器时运行一系列预检 `system controller replace` 。' 
+summary: '使用 `system controller replace`命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，准备节点并运行一系列预检查。' 
 ---
 = 准备要升级的节点
 :hardbreaks:
@@ -18,19 +18,28 @@ summary: '使用命令对节点进行准备、并在升级运行ONTAP 9.151或�
 
 
 
-== 步骤 1：准备节点
+[[step-1-prepare-node1-and-node2]]
+== 步骤 1：准备 node1 和 node2
 
-启动控制器更换过程并运行预检查。如果需要，请确定正在使用的自加密驱动器的类型。
+启动控制器更换流程，对 node1 和 node2 运行预检查。如果需要，请确定正在使用的自加密驱动器的类型。
 
 .步骤
 . 在 ONTAP 命令行中输入以下命令，开始控制器更换过程：
 +
-`system controller replace start -nodes <node_names>`
-
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 +
+[NOTE]
+====
+您只能在高级权限级别执行 `system controller replace start`命令：
 
-NOTE: 您只能在高级权限级别执行system controller Replace start命令： `set -privilege advanced`
-
+[source, cli]
+----
+set -privilege advanced
+----
+====
 +
 此时将显示类似于以下示例的输出。此输出将显示群集上运行的 ONTAP 版本：
 
@@ -92,7 +101,7 @@ Controller replacement operation has been paused for user intervention.
 | 集群 LIF 状态 | 检查两个节点的集群 LIF 是否均已启动。如果集群 LIF 已关闭，则此任务将失败。 
 
 
-| ASUP 状态检查 | 如果未配置 ASUP 通知，则任务将失败。在开始更换控制器操作步骤之前，必须启用 ASUP 。 
+| AutoSupport 状态检查 | 如果未配置 AutoSupport 通知，则任务将失败。在开始更换控制器操作步骤 之前，必须启用 AutoSupport 。 
 
 
 | CPU 利用率检查 | 检查要更换的任何节点的 CPU 利用率是否超过 50% 。如果 CPU 使用率在相当长的一段时间内超过 50% ，则此任务将失败。 
@@ -123,25 +132,90 @@ Controller replacement operation has been paused for user intervention.
 从连接到每个节点的串行端口中、分别运行并保存以下命令的输出：
 
 +
-** `vserver services name-service dns show`
-** `network interface show -curr-node <local> -role <cluster,intercluster,node-mgmt,cluster-mgmt,data>`
-** `network port show -node <local> -type physical`
-** `service-processor show -node <local> -instance`
-** `network fcp adapter show -node <local>`
-** `network port ifgrp show -node <local>`
-** `system node show -instance -node <local>`
-** `run -node <local> sysconfig`
-** `storage aggregate show -r`
-** `storage aggregate show -node <local>`
-** `volume show -node <local>`
-** `system license show -owner <local>`
-** `s存储加密磁盘 show`
-** `s安全密钥管理器板载 show-backup`
-** `security key-manager external show`
-** `s安全密钥管理器外部 show-status`
-** `network port reachability show -detail -node <local>`
-
-
+[source, cli]
+----
+vserver services name-service dns show
+----
++
+[source, cli]
+----
+network interface show -curr-node <local> -role cluster,intercluster,node-mgmt,cluster-mgmt,data
+----
++
+[source, cli]
+----
+network port show -node <local> -type physical
+----
++
+[source, cli]
+----
+service-processor show -node <local> -instance
+----
++
+[source, cli]
+----
+network fcp adapter show -node <local>
+----
++
+[source, cli]
+----
+network port ifgrp show -node <local>
+----
++
+[source, cli]
+----
+system node show -instance -node <local>
+----
++
+[source, cli]
+----
+run -node <local> sysconfig
+----
++
+[source, cli]
+----
+storage aggregate show -r
+----
++
+[source, cli]
+----
+storage aggregate show -node <local>
+----
++
+[source, cli]
+----
+volume show -node <local>
+----
++
+[source, cli]
+----
+system license show -owner <local>
+----
++
+[source, cli]
+----
+storage encryption disk show
+----
++
+[source, cli]
+----
+security key-manager onboard show-backup
+----
++
+[source, cli]
+----
+security key-manager external show
+----
++
+[source, cli]
+----
+security key-manager external show-status
+----
++
+[source, cli]
+----
+network port reachability show -detail -node <local>
+----
 +
 
 NOTE: 如果正在使用使用板载密钥管理器(OKM)的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤中完成密钥管理器重新同步。
@@ -160,6 +234,7 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 
 
 
+[[step-2-correct-aggregate-ownership-if-an-arl-precheck-fails]]
 == 步骤 2：如果 ARL 预检查失败，请更正聚合所有权
 
 如果聚合状态检查失败，您必须将配对节点拥有的聚合返回到主所有者节点，然后重新启动预检过程。
@@ -167,12 +242,16 @@ https://docs.netapp.com/us-en/ontap/encryption-at-rest/support-storage-encryptio
 .步骤
 . 将配对节点当前拥有的聚合返回到主所有者节点：
 +
-`s存储聚合重新定位start -node _source_node_-destination _destination-node_-aggregate-list *`
-
+[source, cli]
+----
+storage aggregate relocation start -node <source_node> -destination <destination_node> -aggregate-list *
+----
 . 验证 node1 和 node2 均不拥有其当前所有者（而不是主所有者）的聚合：
 +
-`storage aggregate show -nodes _node_name_-is-home false -fields owner-name、home-name、state`
-
+[source, cli]
+----
+storage aggregate show -nodes <node_name> -is-home false -fields owner-name, home-name, state
+----
 +
 以下示例显示了当节点同时是聚合的当前所有者和主所有者时命令的输出：
 
@@ -190,9 +269,61 @@ aggr4       node1      node1       online
 4 entries were displayed.
 ----
 . 重新启动控制器更换过程：
++
+[source, cli]
+----
+system controller replace start -nodes <node_names>
+----
 
 
-`ssystem controller replace start -nodes _node_names_`
+
+
+[[step-3-prepare-node3-and-node4]]
+== 步骤 3：准备 node3 和 node4
+
+检查 node3 和 node4 上的构建是否为 NODAR（无静态数据加密）映像。如果构建是 NODAR 映像，则需要安装 DARE（静态数据加密）映像。
+
+.关于此任务
+请在 node3 和 node4 上执行以下步骤。
+
+.步骤
+. 将节点启动至启动菜单：
++
+[source, cli]
+----
+LOADER> boot_ontap menu
+----
+. 输入 systemshell：
++
+[source, cli]
+----
+systemshell
+----
+. [[check-build]]检查构建是否为 NODAR 映像：
++
+[source, cli]
+----
+cat /BUILD
+----
++
+在命令输出中，检查 `build-type`是否为 NODAR 映像，例如 `DEBUG SIM NODAR`。
+
++
+
+NOTE: 如果 `build-type`不是 NODAR 映像，则构建为 DARE 映像。
+
+. 如果构建是 NODAR 映像，请安装 DARE 映像。
++
+.. 退出 systemshell 和启动菜单：
++
+[source, cli]
+----
+halt
+----
+.. 安装 DARE 映像。有关详细信息，请参见知识库文章 link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/Netbooting_a_FAS_and_AFF_Controller_in_ONTAP_9["在 ONTAP 9 中网络引导 FAS 和 AFF 控制器"^]。
+
+
+
 
 .下一步是什么？
 准备好节点后，link:complete-preparation-for-upgrade.html["完成升级准备"]。

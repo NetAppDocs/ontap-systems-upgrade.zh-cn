@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/relocate-failed-or-vetoed-aggr-node2.html 
 keywords: relocating, failed, vetoed, aggregates, relocation, operation 
-summary: '使用以下命令升级运行ONTAP 9.15.1 或更高版本的控制器时，手动将失败或被否决的聚合重新定位到节点 2 `system controller replace`命令。' 
+summary: '升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用 `system controller replace`命令将失败或被否决的聚合手动重新定位到 node2。' 
 ---
 = 将失败或被否决的聚合重新定位到节点 2
 :hardbreaks:

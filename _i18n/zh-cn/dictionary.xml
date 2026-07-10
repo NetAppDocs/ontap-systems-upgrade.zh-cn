@@ -154,8 +154,6 @@
   <block id="9433521f789681a1a8fd76815674c438" category="cell">检查要更换的任何节点是否具有非本地数据 LIF 。节点不应包含其不是主所有者的任何数据 LIF 。如果其中一个节点包含非本地数据 LIF ，则任务将失败。</block>
   <block id="eb694fc97d0bfef2c84584a29b318d85" category="cell">集群 LIF 状态</block>
   <block id="ce7612b7485886dbb77994528256ffe5" category="cell">检查两个节点的集群 LIF 是否均已启动。如果集群 LIF 已关闭，则此任务将失败。</block>
-  <block id="35a80eab14772418cca0ff3317910419" category="cell">ASUP 状态检查</block>
-  <block id="166dc880ac0c6c0bb26663235da7e471" category="cell">如果未配置 ASUP 通知，则任务将失败。在开始更换控制器操作步骤之前，必须启用 ASUP 。</block>
   <block id="d39a17fff59bba71c24822f913f16591" category="cell">CPU 利用率检查</block>
   <block id="3478400e352864eaa33992de6e976ca8" category="cell">检查要更换的任何节点的 CPU 利用率是否超过 50% 。如果 CPU 使用率在相当长的一段时间内超过 50% ，则此任务将失败。</block>
   <block id="1a0a7ab1ebbc5d1d73b48be5c234810d" category="cell">聚合重建检查</block>
@@ -380,7 +378,6 @@
   <block id="01e6682dee79033af96ab718c5ec6c11" category="list-text">如果要在新节点上设置无交换机集群，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 要链接到 _NetApp 支持站点 _ 并按照 _switchover to a two-node switchless cluster_ 中的说明进行操作。</block>
   <block id="27af4227ca8acc558df96e2723ec9b37" category="inline-link-macro">在新控制器模块上设置存储加密</block>
   <block id="a1e79be82a0d3f4b4c3568d0f3e32af4" category="paragraph">如果在 node3 和 node4 上启用了存储加密，请完成此部分 <block ref="18c90c300c0b71334b8b427eaf4f38a3" category="inline-link-macro-rx"></block>。否则，请完成部分 <block ref="6e48b929ca0767f00c15eeb6d7e78755" category="inline-link-macro-rx"></block>。</block>
-  <block id="8fb4b518ce39a0704f920c9d4f2f7b77" category="doc">使用聚合重新定位升级控制器硬件</block>
   <block id="bc0c3600d83329affdb0d85df2aeac56" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未使用。使用 `wipeconfig` 命令准备已用控制器所需的步骤不在此操作步骤中。如果先前使用的是替代控制器硬件，则必须联系技术支持，尤其是在控制器以 7- 模式运行 Data ONTAP 时。</block>
   <block id="8d7b68591c9cb3f00554e8b1dd0cc34a" category="list-text">您可以使用 ARL 无中断地将控制器升级到运行的 ONTAP 版本高于要升级的集群上运行的版本的新控制器。新旧控制器的 ONTAP 版本组合取决于 ONTAP 软件版本 NDU 的节奏模型。例如，如果您的控制器运行的是 ONTAP 9.8 ，而该控制器最后支持的版本是 ONTAP 9.8 ，则可以升级到运行 ONTAP 9.8 之后版本的新控制器。</block>
   <block id="3f765691a1037f4fcf966c679a3f3a4a" category="doc">第 3 阶段。安装并启动 node3</block>
@@ -1232,7 +1229,6 @@
   <block id="f0307b0ba42c934e076f749d65448b21" category="paragraph">`network interface modify -vserver node1 -lif data1 -failover-policy broadcast-domain-wide -failover-group fg1`</block>
   <block id="baec9716e3c721b8360a740bf6d657ec" category="list-text">显示 node3 和 node4 的网络端口属性：</block>
   <block id="286fbbe010dacee8143fe129c976e8b1" category="paragraph">`network port show -node node1`</block>
-  <block id="161c64322f806c6fa66fcfcc4f963ca2" category="list-text">将节点启动至启动菜单：</block>
   <block id="d4041bfba261eda3180ae9fbf6285d95" category="list-text">当您看到类似以下内容的提示时，输入 `yes` ：</block>
   <block id="72992cc1c16f1dbbbcb7cc77a55977d9" category="list-text">访问高级权限级别：</block>
   <block id="9f964a34bab4b3112781e0b28258f5bb" category="paragraph">在以下示例中， "node0" 当前持有 epsilon ：</block>
@@ -1698,7 +1694,6 @@
   <block id="19c0b52227bc66456bf8c55fcff3eb89" category="paragraph">如果您的现有 FC 交换机布局是在 ONTAP 9.1 之前配置的，并且您要升级到 ONTAP 9.1 或更高版本支持的平台型号，则必须执行此任务。如果要从为 ONTAP 9.1 或更高版本配置的现有交换机布局进行升级，则需要 _not_ 。</block>
   <block id="27370eebc219409a38405d3941b09a1a" category="paragraph">此操作步骤不会造成系统中断，在磁盘置零后，大约需要 4 小时才能完成（不包括机架和堆栈）。</block>
   <block id="51c3ff1ea95b633c723b087fbf10b31f" category="inline-link-macro">在重新配置交换机之前发送自定义 AutoSupport 消息</block>
-  <block id="cd7f6b17ef2ed204c4c6382062e38468" category="list-text"><block ref="cd7f6b17ef2ed204c4c6382062e38468" category="inline-link-macro-rx"></block></block>
   <block id="ef6f40d3ce7e7a9983b40931e61073f2" category="list-text"><block ref="ef6f40d3ce7e7a9983b40931e61073f2" category="inline-link-macro-rx"></block></block>
   <block id="3ff5cf5ad1c2c9c9e30693bbeb4d8306" category="list-text"><block ref="3ff5cf5ad1c2c9c9e30693bbeb4d8306" category="inline-link-macro-rx"></block></block>
   <block id="21a86fa1fb645db8452b527892434bd3" category="inline-link-macro">持久禁用交换机</block>
@@ -3026,8 +3021,6 @@
   <block id="2d5c970ee87c5df0e21b3a8b9ed88ccb" category="paragraph">`security key-manager external add-servers -key-servers _key_management_server_ip_address_`</block>
   <block id="cf1e3ade592584c451b16fefa9ffaf61" category="paragraph">`storage failover show -fields local-missing-disks、partner-missing-disks`</block>
   <block id="0a06fcfc5f0fe34a7f9397c4cfc05b2a" category="paragraph">`set diag；systemshell -node _node_name_-command sudo kenv -u -p kmip.init.maxwait`</block>
-  <block id="3bc434e6b7496efb94a7be3c795bee4a" category="paragraph">`s存储聚合重新定位start -node _source_node_-destination _destination-node_-aggregate-list *`</block>
-  <block id="8723a951ee1fe15da772afbecba7e9cc" category="paragraph">`ssystem controller replace start -nodes _node_names_`</block>
   <block id="bf0cc0f414d71ae261bebb6ad521c510" category="list-text">启动 node1 后， node1 的所有非根聚合均已移回 node1 。您必须手动将聚合从node1重新定位到node2：`storage aggregate relocation start -node node1 -destination node2 -aggregate -list *-ndocontroller-upgrade true`</block>
   <block id="63f803a39905918dce04f857b0dfb805" category="paragraph">`sSecurity key-manager external restore -node _new_controller_name_`</block>
   <block id="b23b4170fdfdcbdd9354becf14343de7" category="paragraph">`ucadmin modify -m fc -t initiator -f _adapter name_`</block>
@@ -3049,7 +3042,6 @@
   <block id="957ef9e5e93b1b4ab14a06ef6a857f43" category="paragraph">`network port ifgrp create -node _node4_-ifgrp _port_ifgrp_names_-cluster-func`</block>
   <block id="d1d818ce8442975a7100e165e1af4ea6" category="paragraph">`network port broadcast-domain create -ipspace default -broadcast-domain _broadcast_domain_name_-mtu _mtu _size_-ports _node_name：port_name、node_name：port_name_`</block>
   <block id="c477da37744df78aa79c382b8da95f88" category="paragraph">`network port broadcast-domain add-ports -broadcast-domain _broadcast_domain_name_-ports _node_name：port_name、node_name：port_name_`</block>
-  <block id="bb5832fe766e996d6a388078ef1764f0" category="list-text">`storage array config show -switch _switch_name_`</block>
   <block id="11f09c937d4460ab0e473a33da9b1ab8" category="paragraph">`network interface show -curr-node _node2_-role data`</block>
   <block id="5dad8f32e66b8ee8eadc502efd8b13f1" category="paragraph">`network port ifgrp show -node _node2_-ifgrp _ifgrp_name_-instance`</block>
   <block id="9b7d57d0483912f37373984d2377cd38" category="paragraph">`network interface modify -vserver _vserver_name_-lif _LIF_name_-home-node _nodename_-status-admin up`</block>
@@ -3093,7 +3085,6 @@
   <block id="eb501d5e939bfe542e8831a0cddd0387" category="paragraph">`network interface migrate -vserver cluster -lif _lif_name_-source-node node4 - destination-node node4 -destination-port _port_name_`</block>
   <block id="bbda3f92dd82ccfb448ae4052e43524e" category="list-text">调整所有LIF故障转移组：`network interface modify -failover-group _failover_group_-failover-policy _failover_policy_`</block>
   <block id="231ba3135a6e31caf6b3923af4c55beb" category="paragraph">`network interface show -curr-node _node3_`</block>
-  <block id="d54e143bd4cd39e7a6a6ee443fa760e8" category="paragraph">`ssystem controller replace start -nodes _node_names_-NSO false`</block>
   <block id="26d089c59661373f7adc82d935ee66ec" category="paragraph">`network port broadcast-domain remove-ports -broadcast-domain _broadcast_domain_name_-ports _node_name：port_name_`</block>
   <block id="c32905979b8d558b27cabd72b7947590" category="paragraph">`network port ifgrp add-port -node _node_name_-ifgrp _ifgrp_-port _port_name_`</block>
   <block id="1373295f01b75104fa472c0bcef10ac5" category="paragraph">`network port reachability show -node _node_name_-port _ifgrp_`</block>
@@ -3251,14 +3242,6 @@
   <block id="e392c977e2489d972197bd428e99f557" category="paragraph">对于node3、<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须为node2的。</block>
   <block id="0a8738306c7333e07688aef17b4e295e" category="list-text">【auto_install3_step21]]验证<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 对于node3：</block>
   <block id="7841bf38e658f68c682cee2c9eb5472d" category="paragraph">从连接到每个节点的串行端口中、分别运行并保存以下命令的输出：</block>
-  <block id="80b1a5ab2f169155be3a834be566f4c2" category="list-text"><block ref="ce640e5cc43dcc2ce28d153a849057d9" prefix="" category="inline-code"></block></block>
-  <block id="b31ac11fef9a8af6fa05c2d96463d3e6" category="list-text"><block ref="453aed737e4541e2ea60f38a6b9e5777" prefix="" category="inline-code"></block></block>
-  <block id="12ab637b90c6ff7edcbf6b37e16e4e1e" category="list-text"><block ref="28093ee1f500cbf8b88317f983cf2994" prefix="" category="inline-code"></block></block>
-  <block id="010377b1df1c147be7660d077da57d34" category="list-text"><block ref="f28132e6412c52c2df71902bccd9fe5d" prefix="" category="inline-code"></block></block>
-  <block id="87754b6c588a162a924659bdf775cf20" category="list-text"><block ref="110550f63d97b49878bbbd584e2c3ab1" prefix="" category="inline-code"></block></block>
-  <block id="284796671ad84e43740ae2f599a3a216" category="list-text"><block ref="092016153e5cdfe0f74d15d20e03a91e" prefix="" category="inline-code"></block></block>
-  <block id="a0a0ad5020eac42dba5b447fc44dc48b" category="list-text"><block ref="2232629a6b33efd635768e5e55bd1038" prefix="" category="inline-code"></block></block>
-  <block id="2da2426897b8d2d9deb39f8f8f957e06" category="list-text"><block ref="555e951feb1c7a290a146a3083826385" prefix="" category="inline-code"></block></block>
   <block id="e6070f78dc11f71748bff1b9003fccd0" category="paragraph"><block ref="854a4be4b1fce65bf3a90ee74692188e" prefix="" category="inline-code"></block> 是存储系统的IP地址(必填)。<block ref="220b0a4790e2c047ae96a881e506e1fe" prefix=" " category="inline-code"></block> 是存储系统的网络掩码(必需)。<block ref="14fb245f7140583707d1cda241eeeff2" prefix=" " category="inline-code"></block> 是存储系统的网关(必需)。<block ref="573c932508ccab841c5c117fb2cd2186" prefix=" " category="inline-code"></block> 是网络上名称服务器的IP地址(可选)。<block ref="79e5a69f76d034adaafbb5cb6cb8fc45" prefix=" " category="inline-code"></block> 是DNS域名(可选)。</block>
   <block id="5e2c0dc3398b3e8f5619e371fec2269b" category="list-text">在启动加载程序中、设置node4上的配对系统ID：</block>
   <block id="4e01f43abaf0b878dabe329f87d4cee7" category="paragraph">对于node4、<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须为node3的。</block>
@@ -3273,7 +3256,6 @@
   <block id="b47a9665bbb1dd8efdca2913841ff966" category="paragraph">*在运行ONTAP 9.5*的控制器上配置NVE或NAE</block>
   <block id="c18d56cb4d8dbb7a967cae5068abbca7" category="summary">使用将运行ONTAP 9.5的控制器升级到9.7时、将node2上的node1 NAS数据LIF从node2移动到node3<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令</block>
   <block id="77abfc209665b592c54221e409c486f8" category="paragraph"><block ref="854a4be4b1fce65bf3a90ee74692188e" prefix="" category="inline-code"></block> 是存储系统的IP地址(必填)。<block ref="220b0a4790e2c047ae96a881e506e1fe" prefix=" " category="inline-code"></block> 是存储系统的网络掩码(必需)。<block ref="14fb245f7140583707d1cda241eeeff2" prefix=" " category="inline-code"></block> 是存储系统的网关。(必填)。<block ref="573c932508ccab841c5c117fb2cd2186" prefix=" " category="inline-code"></block> 是网络上名称服务器的IP地址(可选)。<block ref="79e5a69f76d034adaafbb5cb6cb8fc45" prefix=" " category="inline-code"></block> 是域名服务(Domain Name Service、DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。</block>
-  <block id="e0811ea9d9786cc8989d3ab88a4e3b4a" category="list-text"><block ref="9bd6a9f244c9332034b49ce1f74878c5" prefix="" category="inline-code"></block></block>
   <block id="5d1a6cb4c47b2c7d79ac9fd6d12f0523" category="admonition">如果正在使用使用板载密钥管理器的NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请准备好密钥管理器密码短语、以便稍后在操作步骤 中完成密钥管理器重新同步。</block>
   <block id="c8b61356b51e595d8d4b085138397f2a" category="paragraph">您必须在机架中安装node4、将node2连接传输到node4、启动node4并安装ONTAP。然后、您必须重新分配node2上的任何备用磁盘、属于根卷的任何磁盘以及在此过程前面未重新定位到node3的任何非根聚合、如本节所述。</block>
   <block id="c0577dde04914d4e86fcd22fc6ad5c48" category="paragraph">重新定位操作在此阶段开始时暂停。此过程大部分是自动完成的；此操作将暂停以使您能够检查其状态。您必须手动恢复此操作。此外、您还必须验证NAS数据LIF是否已成功移至node4。</block>
@@ -3281,7 +3263,6 @@
 <block ref="854a4be4b1fce65bf3a90ee74692188e" prefix=" " category="inline-code"></block> 是存储系统的IP地址(必填)。<block ref="220b0a4790e2c047ae96a881e506e1fe" prefix=" " category="inline-code"></block> 是存储系统的网络掩码(必需)。<block ref="14fb245f7140583707d1cda241eeeff2" prefix=" " category="inline-code"></block> 是存储系统的网关(必需)。<block ref="573c932508ccab841c5c117fb2cd2186" prefix=" " category="inline-code"></block> 是网络上名称服务器的IP地址(可选)。<block ref="79e5a69f76d034adaafbb5cb6cb8fc45" prefix=" " category="inline-code"></block> 是域名服务(Domain Name Service、DNS)域名。如果使用此可选参数，则无需在网络启动服务器 URL 中使用完全限定域名；您只需要服务器的主机名。注意：您的接口可能需要其他参数。输入 ...<block ref="0c6877a83224f87093205d2971ef3953" prefix=" " category="inline-code"></block> 有关详细信息、请参见固件提示符。</block>
   <block id="7abfecdf5ad8a80ea0bc5db9607dc350" category="paragraph">在阶段4中、您将非根聚合和NAS数据LIF从node2重新定位到升级后的node1并停用node2。</block>
   <block id="fb13f8b167e25a81b898b43d42165d58" category="paragraph">在第7阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。</block>
-  <block id="d3cd60bb710f7c46488c2fdcff53e760" category="list-text"><block ref="a322323758cef88dbedb5f26cac8c538" prefix="" category="inline-code"></block></block>
   <block id="41107aca0599fc501e6800f801aa72b4" category="paragraph">本说明将适用场景无中断 ONTAP 软件升级，而不是控制器升级。</block>
   <block id="3a8b3757d8c142f770f9d76513eff9ee" category="paragraph">对于node1、为<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须为node2的。您可以从获取node2系统ID<block ref="5b70738f9bc21f7783bca30ce6275d06" prefix=" " category="inline-code"></block> node2上的命令输出。</block>
   <block id="80995018ae45f8a93e75a901e9a9749b" category="list-text">在node2上设置配对系统ID：</block>
@@ -3493,9 +3474,6 @@
   <block id="b2e9444b2e3d3f6bcd5b8053418d9f98" category="paragraph"><block ref="b04273b4623b1fb5400a1445280a00fc" prefix="" category="inline-code"></block></block>
   <block id="9eaa084ea5e1fc23b5bd8f4e4b31ae16" category="list-text">启用存储故障转移自动交还：</block>
   <block id="452b3b4e54b69d07570137489de879c0" category="paragraph"><block ref="06113f79bc639d145a6e40cfdd6b4211" prefix="" category="inline-code"></block></block>
-  <block id="a48dffce96c7d2cee50452bbbe3c3149" category="list-text"><block ref="f1c84a71e0779351e0f5be10141fff81" prefix="" category="inline-code"></block></block>
-  <block id="1b0afd0b9e1ef791af87236c19a70f16" category="list-text"><block ref="7f5b95324bf0335821a8f979872431c9" prefix="" category="inline-code"></block></block>
-  <block id="6dcc62df7a079d79f6374d9c17d2120e" category="list-text"><block ref="169aa9029e0b9363f74914feb183b562" prefix="" category="inline-code"></block></block>
   <block id="7345831b6bc224c8333a4460721cb07f" category="summary">有关使用ARL升级同一机箱中的控制器型号时可能出现的问题的信息。</block>
   <block id="d66193c9edc97e7077c88870d9d9ad6c" category="summary">如果需要、请在使用ARL升级同一机箱中的控制器型号时还原node2上的key-manager配置。</block>
   <block id="9707fefafa207e02950a3cdf70cdbd1b" category="summary">使用ARL升级同一机箱中的控制器型号时、使用替代控制器模块启动node2。</block>
@@ -3581,7 +3559,6 @@
   <block id="267d546f79d9773e5dcd8c8c02f5f0dc" category="list-text">升级后的node1是node1聚合的主所有者和当前所有者</block>
   <block id="663c963d479132d6dd08963c3d3fa6bc" category="inline-link-macro">第4阶段：重新定位资源并停用node2</block>
   <block id="74b38fc0176f87b24ddc1621aaae7baa" category="inline-link-macro">第6阶段：使用替代系统模块启动node2</block>
-  <block id="826466190f8ccac159cbf60cf120c8fd" category="summary">在使用ARL升级同一机箱中的控制器型号时、在交换相应的替代node2系统模块后、您可能需要对其进行网络启动。</block>
   <block id="4900049201a6af77c5ee289d1d927b7f" category="list-text">等待替代控制器模块上正在运行的node2启动、并显示启动菜单选项、如以下输出所示：</block>
   <block id="794cda372e4a8688a690d92ff5d37486" category="list-text">在node1上、检查系统日期、时间和时区：</block>
   <block id="a4bac589c9731b4d185716354e684665" category="paragraph">对于node2、为<block ref="d18fd3db938a26ebbd3f74de41f0b73f" prefix=" " category="inline-code"></block> 必须是要升级的节点1的节点。</block>
@@ -3607,7 +3584,6 @@
   <block id="f0ab0f3ccd59172557357748401a0cb3" category="paragraph">在操作步骤中物理装入 node3 和 node4 后，您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您会将ONTAP 9启动映像的副本放置到系统可以访问的Web服务器上。</block>
   <block id="8017af71edcef2a167a50b03ad9de6f1" category="paragraph">要停用 node1 ，您需要恢复自动操作，以便使用 node2 禁用 HA 对并正确关闭 node1 。稍后在操作步骤中、您将node1从机架或机箱中卸下。</block>
   <block id="fea14900850d7c1ff75c44846767e25e" category="paragraph">在将node2替换为node4之前、您需要将node2所拥有的非根聚合和NAS数据生命周期重新定位到node3。</block>
-  <block id="e9a5b26de7b20b8cdefb00d91a94616b" category="paragraph"><block ref="7679804b715af0ea0e56302f79c4f9b8" prefix="" category="inline-code"></block></block>
   <block id="fcff81c7528d1100eb58e37ad90535bd" category="admonition">如果正在使用板载密钥管理器进行NetApp卷加密(NVE)或NetApp聚合加密(NAE)、请保留密钥管理器密码短语、以便稍后在操作步骤中完成密钥管理器重新同步。</block>
   <block id="1cb0cfe1b06273ad55b3f7189d138bb6" category="paragraph">此操作步骤提供了自动化操作步骤的步骤、该步骤使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
   <block id="7903419bce057c444e1bce59010158ec" category="paragraph">在交换相应的更换系统模块后、您必须使用netboot node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您需要将ONTAP 9启动映像的副本添加到系统可以访问的Web服务器上。</block>
@@ -3761,7 +3737,6 @@
   <block id="64de845f98c675a9519d741f73b067d9" category="list-text"><block ref="64de845f98c675a9519d741f73b067d9" category="inline-link-macro-rx"></block></block>
   <block id="0c3ddb60effd6213b641983514a7b646" category="summary">通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过移动聚合或卷存储(无中断过程)或移动存储(中断操作步骤)来进行升级。</block>
   <block id="81cf1b6821a9509701aa3ffa438696e8" category="doc">选择您的控制器硬件升级操作步骤</block>
-  <block id="730782d87341664d3c754f5ff1a5e235" category="paragraph">通常，控制器硬件的升级方式取决于原始节点的平台型号。您可以通过重新定位聚合或移动卷(这两个过程均为无中断过程)或移动存储(一个中断操作步骤)来进行升级。如果在原始节点和新节点上运行的ONTAP版本不同、则可能需要先执行软件升级、然后再开始硬件升级。</block>
   <block id="c9996a1b1fe92047dfbcfbef9989c233" category="list-text">AFF C400</block>
   <block id="1f43d36a6bcfed2f5249ca5ba8e671ba" category="inline-link-macro">使用聚合重新定位进行升级</block>
   <block id="ef69680bc1ee7b1fd5e0950d56699d33" category="list-text">此操作步骤适用场景 MetroCluster 四节点和八节点配置运行 ONTAP 9.5 及更早版本。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到_使用system controller Replace命令将运行ONTAP 9.5的控制器硬件升级到ONTAP 9.7_。</block>
@@ -3938,11 +3913,6 @@
   <block id="c8d0afb25c26087738c4c8847b04be0f" category="list-text">等待替代控制器模块上运行的node1启动、并显示启动菜单选项、如下所示：</block>
   <block id="604b621863a9a67dada3210a46ac0585" category="cell">10.9</block>
   <block id="3907a30ce94bbdb9a45c1eb9ed6f9c2f" category="paragraph">从连接到每个节点的串行端口运行命令、分别运行并保存命令的输出：</block>
-  <block id="b47faa02412cc89f2b0f103844279e9f" category="list-text"><block ref="2a0ee6f2d3fcee518356895f7e962392" prefix="" category="inline-code"></block></block>
-  <block id="c42b01075c29ecf2009d164958ca98f5" category="list-text"><block ref="35b6841ae0a9776250da7cef0c9b1713" prefix="" category="inline-code"></block></block>
-  <block id="eb7ead4ebc1b8fb1973480e7ff4df23a" category="list-text"><block ref="dcb54aa5c6e1195dc43cf43c7130da89" prefix="" category="inline-code"></block></block>
-  <block id="9d5362e3cd7fb6dab4963fa3402a8946" category="list-text"><block ref="8a376dcd15839d79f652ba0bc6e1b6ce" prefix="" category="inline-code"></block></block>
-  <block id="21abd3e611a550d5b10a01fcf5ca52e4" category="list-text"><block ref="d0e63dc99f0f9ab0cd3804cc52f2f14d" prefix="" category="inline-code"></block></block>
   <block id="0366a42f2fc03b6171f842157c923ac3" category="summary">使用ARL升级同一机箱中的控制器型号时、请更换AFF A700或FAS9000 node1系统模块。</block>
   <block id="a9d2e9a8e51c956ec73ca97b2f59618d" category="list-text">从node1控制器模块断开控制台电缆(如果有)和管理电缆。</block>
   <block id="9e0a1039504ca0408797903c8f8ca02d" category="summary">在使用ARL升级同一机箱中的控制器型号时、更换节点1 AFF A220、AFF A200、AFF C190、FAS2620或FAS2720系统模块。</block>
@@ -3969,11 +3939,7 @@
   <block id="74e674d644580e69dff298a1089f2ae8" category="cell">两个控制器模块、两个NVRAM和新的IO模块</block>
   <block id="b8499c64cd399582a56bd38ef2f0b689" category="paragraph">如果要更换的集群节点使用根卷加密、则ONTAP无法从磁盘中读取卷信息。还原根卷的密钥。</block>
   <block id="4671cfb012ae240f7ddc8f7aaa369dbf" category="admonition">只有当根卷使用NetApp卷加密时、此操作才适用。</block>
-  <block id="1868f9f2297be03938f9d37234c57a9d" category="summary">对在使用命令升级运行ONTAP 9.15.1或更高版本的控制器时可能发生的聚合重新定位失败进行故障排除<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="274d42025e97a78743f8d189528d662b" category="summary">使用命令确定是否使用ARL升级运行ONTAP 9.151或更高版本的控制器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="82a01e528bf5bf2b1b7172eddc250977" category="cell">现有控制器</block>
-  <block id="4de11ced25f5990c0cc8fa95f739e66c" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器后、告知NetApp旧系统不再运行<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="05182f39754b99e12a705e61572b4051" category="summary">在升级运行ONTAP 9.15.1或更高版本的控制器后、使用命令启用HA对、验证node3和node4存储访问并确认聚合所有权<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="570743d2305de7bd0a4e44c426b2db21" category="paragraph"><block ref="49166cc15e848fc049881c3de5e1d1f8" prefix="" category="inline-code"></block></block>
   <block id="75cf0b763a8b4981f23b004d1b96a715" category="paragraph"><block ref="6d203e2c19155492a108b65377909131" prefix="" category="inline-code"></block></block>
   <block id="498a7d30e002a0545e05d9bfce9c6fd7" category="paragraph"><block ref="365695b1d723adf070447422d9e8d907" prefix="" category="inline-code"></block></block>
@@ -3987,8 +3953,6 @@
   <block id="371bc655ee75c24461bd0840658f6e81" category="list-text">[[unset_maxwait_system_commands]]如果在配置中使用自加密驱动器，并且您已将变量设置<block ref="fd93f52ab7757855a2e3e5cbb717ab40" prefix=" " category="inline-code"></block> 为<block ref="3262d48df5d75e3452f0f16b313b7808" prefix=" " category="inline-code"></block> (例如中的 <block ref="bf7b37b3882ceac8551e83dc1b0a8a55" category="inline-link-macro-rx"></block>)，则必须取消设置变量：</block>
   <block id="7ae7b85041346021fa869537081fa931" category="paragraph"><block ref="56c408bf8e8c75b155f67bfe9777b54e" prefix="" category="inline-code"></block></block>
   <block id="dde01ffa3dbac07014347a80fbf42f2f" category="paragraph"><block ref="8560f41cfd3e5e6f662c16e0b3e08550" prefix="" category="inline-code"></block></block>
-  <block id="cf6dcc5bb2ee8722c621b409153f09e6" category="summary">了解是否可以使用命令升级运行ONTAP 9.151或更高版本的控制器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="87e1a0313bed9d5fc988072dbc391f72" category="paragraph">要了解是否可以使用ARL升级一对运行ONTAP 9.151或更高版本的控制器、具体取决于原始控制器和替代控制器的平台和配置。</block>
   <block id="e24cdbe8900a873d4a4ae11498411dbb" category="paragraph">在使用此ARL过程升级一对节点之前、请查看以下要求以确保您的配置受支持：</block>
   <block id="118741e5081d0dbbcf22bf7a4070d75d" category="list-text">验证是否可以对原始控制器和更换用的控制器执行ARL。</block>
   <block id="8f74efa09ac6cceb3303dcfa2174ecad" category="list-text">检查所有已定义聚合的大小以及原始系统支持的磁盘数。然后、将聚合大小和支持的磁盘数与新系统支持的聚合大小和磁盘数进行比较。请参阅 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接至可提供此信息的_ Hardware Universe _。新系统支持的聚合大小和磁盘数必须等于或大于原始系统支持的聚合大小和磁盘数。</block>
@@ -4006,7 +3970,6 @@
   <block id="b9bdcf5de1c3f4a6551456e5f23faeca" category="paragraph">在此信息中，原始节点称为 "node1" 和 "node2" ，新节点称为 "node3" 和 "node4" 。在所述的操作步骤期间， node1 将替换为 node3 ， node2 将替换为 node4 。</block>
   <block id="eb107f95b8d7a04b228970d7c1bb0280" category="paragraph">术语 "node1" ， "node2" ， "node3" 和 "node4" 仅用于区分原始节点和新节点。在操作步骤之后，必须替换原始节点和新节点的实际名称。但是，实际上，节点名称不会更改：在升级控制器硬件后， node3 的名称为 node1 ， node4 的名称为 node2 。</block>
   <block id="33f171f425d31134499dbdc4558c3dc5" category="list-text">此操作步骤假定更换用的控制器硬件是新的，尚未使用。此过程不包括使用命令准备使用过的控制器所需的步骤<block ref="b433b76417b4f08166eb90cef3aa2a31" prefix=" " category="inline-code"></block> 。如果之前使用了替代控制器硬件、则必须联系技术支持。</block>
-  <block id="a59ed9adc69cdbf7878c995b225e9ba9" category="summary">在使用命令升级运行ONTAP 9.151或更高版本的控制器时、安装和启动node3并安装ONTAP软件<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="55ca78d77b2ed8c2abb447723f0a84f5" category="paragraph">您可以在机架中安装node3、将node1的连接传输到node3、启动node3并安装ONTAP。然后、如本节所述、重新分配node1的任何备用磁盘、属于根卷的任何磁盘以及此过程之前未重新定位到node2的任何非根聚合。</block>
   <block id="d06063b7ad97f050e53bf25e873e27a1" category="paragraph">重新定位操作在此阶段开始时暂停。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。此外、您还必须验证SAN LIFs是否已成功联机并分配给node3上的正确FC物理端口。</block>
   <block id="2e19dadb770c8039f72729d7610ae70b" category="paragraph">新节点的空间和高度要求可能与现有节点不同。规划升级场景的空间要求。</block>
@@ -4035,59 +3998,25 @@
   <block id="3f5fca71654403bc4eb39336d9167c1b" category="list-text">[[auto_check3_STEP32]]在加载程序提示符处、启动：</block>
   <block id="01f408e94bd0887ce8a9faec6429d20d" category="inline-xref">步骤32.</block>
   <block id="1b99f4c2deddbc39013ffcf98d84cc42" category="admonition">您可能会在此阶段遇到错误。如果出现错误、请重复中的子步骤、 <block ref="971923e94dc2d6df8020555aa8d21366" category="inline-xref-macro-rx"></block> 直到系统正常启动为止。</block>
-  <block id="81ebb40678602d118beb4dc72537bcac" category="summary">在使用命令升级运行ONTAP 9.151或更高版本的控制器时、安装和启动node4并安装ONTAP软件<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="9f3b5fde6efe97f3316b9fdf630f5307" category="paragraph">您可以在机架中安装node4、将node2的连接传输到node4、启动node4并安装ONTAP。然后、如本节所述、重新分配node2的任何备用磁盘、属于根卷的任何磁盘以及此过程之前未重新定位到node3的任何非根聚合。</block>
   <block id="eb91daa92a7cd6e3d0f28a92df381e46" category="paragraph"><block ref="0771d944db92b398d28d841edda85128" prefix="" category="inline-code"></block></block>
   <block id="b7b6eb575f44421125712f552d3c6514" category="list-text">[[auto_install4_step24]]如果您安装了NetApp存储加密(NSE)驱动器、请执行以下步骤。</block>
   <block id="9fd0ed44498deb7ffb633dc1298bafef" category="paragraph">如果根卷已加密、请恢复板载密钥管理密钥、以便系统可以找到根卷。</block>
   <block id="0df0b8c9a45c8c96a58c4a6a9c14d3ab" category="inline-xref">第27步</block>
   <block id="a48904f34036044cc49f6c59e8c6e89d" category="admonition">您可能会在此阶段遇到错误。如果出现错误、请重复中的子步骤、 <block ref="0bc751c788418356c58952313677a63b" category="inline-xref-macro-rx"></block> 直到系统正常启动为止。</block>
-  <block id="c23b8b78e98fecb522ab190805d122ac" category="summary">有关使用命令升级运行ONTAP 9.151或更高版本的控制器时可能发生的问题的信息<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="b315405a73e9a516e55db0bae4a2f30d" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器后、在阶段2、阶段3或阶段5中迁移后、LUN未联机<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="3a883fa93ec857e5f51025a9f02707b2" category="summary">在升级运行ONTAP 9.151或更高版本的控制器时、使用命令配置和管理存储加密、管理身份验证密钥并将SnapMirror关系静置<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="78da491495094c46d3b88b817558b72f" category="paragraph">您可以使用密钥管理互操作性协议（ Key Management Interoperability Protocol ， KMIP ）服务器管理身份验证密钥。</block>
-  <block id="b8e0013cf4290f6c61761b7136a77620" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、验证node2上的node1 NAS数据LUN是否已从node2重新定位到node3<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="5f6dcf2dc8c9275db98fa671806a2df2" category="list-text">iSCSI LUN会通过可访问的扫描自动查找正确的主端口。FC和NVMe/FC SAN LUN不会自动移动。升级之前、它们仍会显示其所在的主端口。</block>
   <block id="896fb328ef1870ab0c1426f849038173" category="paragraph">检查node3上的SAN Sifs：</block>
   <block id="986b69e60fa399c84378e8d8fdc4169e" category="list-text">修改向新数据端口报告"已关闭"操作状态的任何iSCSI SAN LUN：</block>
   <block id="d2106fca8a6ec5ee92267756d2ba5ed8" category="list-text">修改新控制器的主端口并向新控制器上的FCP端口报告"已关闭"运行状态的任何FC和NVMe/FC SAN LIFs：</block>
-  <block id="5041f3d5ede13a9dd794a52168aacdb3" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、验证node2在node3上的NAS数据LUN是否已从node3重新定位到node4<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="37795240818b6015e8cc10cd9fdd35e1" category="paragraph">检查node4上的SAN Sifs：</block>
   <block id="b13a176ba8c67756fe909d3d869f8300" category="summary">使用命令支持运行ONTAP 9.151或更高版本的控制器升级所需的参考内容和网站<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="5d1d09cdf9fe1ec2d0f41b2ba3b70572" category="summary">了解使用命令升级运行ONTAP 9.151或更高版本的控制器的过程<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 的工作原理。</block>
   <block id="1af790a1d1ba950a7e1da8d38c51c5be" category="paragraph">在第 3 阶段，您安装并启动 node3 ，检查 node1 中的集群和节点管理端口是否在 node3 上联机，并验证 node3 安装。如果您使用的是NetApp卷加密(NVE)、则需要还原密钥管理器配置。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。</block>
   <block id="49eaab9bcc3c0260e65bdd90701c7a34" category="paragraph">在第 5 阶段，您安装并启动 node4 ，检查 node2 中的集群和节点管理端口是否在 node4 上联机，并验证 node4 安装。如果您使用的是NVE、则需要还原密钥管理器配置。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。</block>
-  <block id="7f442cbfd762c75e0b1d1cfb8504c338" category="summary">使用命令对节点进行准备、并在升级运行ONTAP 9.151或更高版本的控制器时运行一系列预检<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="f65104a2552945130cb62829d56eac5e" category="paragraph"><block ref="42b6de3b1be21fa350d49af2e7daebb3" prefix="" category="inline-code"></block></block>
-  <block id="a782445fd2b20e4f7d28893401b7d2c1" category="admonition">您只能在高级权限级别执行system controller Replace start命令：<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block></block>
   <block id="9c0690c534d875fea406da924eb5155b" category="paragraph">如果您的系统(例如700)具有以下配置、则在开始升级之前、您可以将集群AFF迁移并将其重新归位到每个节点的两个集群端口：</block>
-  <block id="6475503c68c31e1b289728d5569f2154" category="list-text"><block ref="11626abfda40f40ee6d3e1b442aa8511" prefix="" category="inline-code"></block></block>
-  <block id="2ced80bebf7ea6acfc08de4ca669ad2c" category="list-text"><block ref="40b1530b36a13c1a14a32a23fe0ab5ea" prefix="" category="inline-code"></block></block>
-  <block id="2ca00583a1a36030737f63a3db12dc87" category="list-text"><block ref="e69f23b34f9bbe2a8339bac8fbc82cfc" prefix="" category="inline-code"></block></block>
-  <block id="aefd98482c53fa515e9d81991d72db96" category="list-text"><block ref="c51247ee7029a949bd1ee0b4eeb47115" prefix="" category="inline-code"></block></block>
-  <block id="bf0c52d65d5a9ce3a08a397b60f1ddfd" category="list-text"><block ref="18ec280866dbd6dea641c63869c4c1a2" prefix="" category="inline-code"></block></block>
-  <block id="483dba34417e9c3560c820a1c0ee5bda" category="list-text"><block ref="0eed0f4f603153cbeb3b1aba17179b0c" prefix="" category="inline-code"></block></block>
-  <block id="5d4d44b5f8928f1ead7d43fe2fab5feb" category="list-text"><block ref="80d0e28fb8e87cfdd0776bb5c325ff76" prefix="" category="inline-code"></block></block>
-  <block id="2f88d1e1249a0a016ccd79e3fd132c7a" category="list-text"><block ref="fc6bc78b4358040ec8297961bbde4459" prefix="" category="inline-code"></block></block>
-  <block id="cf2dd36e190836a4292a3ec01e91082d" category="list-text"><block ref="f6aa46ffe6facdfe93a6a2092c83252c" prefix="" category="inline-code"></block></block>
-  <block id="eced7fae9400585a99160d012aa1dc1d" category="list-text"><block ref="a3e9c82d2513815e45d4cfafb2baf4b5" prefix="" category="inline-code"></block></block>
-  <block id="e9fb1ccbd68c25a664d6da30131d2b39" category="list-text"><block ref="98d3eee791202c85ed8b5ed0f7b3e0b1" prefix="" category="inline-code"></block></block>
-  <block id="051a5ac106e7a944f99af2c8da45b42b" category="list-text"><block ref="52f89fbf0b3eec3638d853b4f3001f3d" prefix="" category="inline-code"></block></block>
   <block id="a708619095926aab755444a042471757" category="inline-link">许可证管理</block>
   <block id="a00358ba81263d0981cb0be275b2de59" category="paragraph">有关ONTAP许可的详细信息，请参见<block ref="c4c2447b404ea8605b7733ab11ccf24b" category="inline-link-rx"></block>。</block>
   <block id="301cf3a06efdb459dfe6498f9ad64dfa" category="admonition">在控制器上使用未经许可的功能可能会使您无法遵守许可协议。</block>
-  <block id="e2d09f92ab6c7ffd6073273d5ac9f24e" category="summary">在使用命令升级运行ONTAP 9.151或更高版本的控制器时、系统可能会在不同阶段崩溃(重新启动、崩溃或重新启动)<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="4a3168a934fbe49f2401eb2cd5d5d214" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、将非根聚合和NAS数据LUN从node1移动到node2、并将node1的资源移动到node3<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="b3d6aec1ce754e8455c1b6b3cc346008" category="summary">在升级运行ONTAP 9.15.1或更高版本的控制器时、使用命令将node2的非根聚合重新定位到node3<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="41d784112ab245c3a5a3845c5d0ddf06" category="summary">要使用命令升级运行ONTAP 9.15.1或更高版本的控制器、您必须准备好某些工具和文档<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="c46a03cfad2adbb52f35934a739008ad" category="summary">如果需要、在升级运行ONTAP 9.151或更高版本的控制器时、使用命令还原node4上的key-manager配置<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="ef1be506d6bbac4510402025ceb5fae4" category="summary">如果需要、在升级运行ONTAP 9.151或更高版本的控制器时、使用命令还原node3上的key-manager配置<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="82d5f28230d6cee1c8a5d3efc636c2c5" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、恢复SnapMirror传输和关系<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="e7cda9fa69f0a09140a07fdb502443e8" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、使用node2禁用HA对并关闭node1<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="ec0cce33fff0705777a61817d3c04c51" category="summary">在升级运行ONTAP 9.151或更高版本的控制器时、使用命令关闭node2并将其从机架或机箱中移除<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="0cac54c28fe0956468e2dcfaf1cbf3df" category="summary">如果需要、在升级运行ONTAP 9.151或更高版本的控制器时、使用命令为NVE或NAE配置新控制器模块<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="67501e10cb3fb2e8cf9b91e3c64f24e8" category="summary">如果需要、在升级运行ONTAP 9.15.1或更高版本的控制器时、使用命令配置存储加密、安装SSL证书并设置密钥管理服务器<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
-  <block id="9281ac90e9eaac4071b2c4565de73862" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、验证node1物理端口是否正确映射到node3并还原node3上的网络配置<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="629c0519c8cad55ffc8d1dd07eed1872" category="list-text">列出已升级的 node1 （称为 node3 ）上的所有物理端口：</block>
   <block id="0fbd6a074ce1ade089d8430823937324" category="list-text">列出node3上所有端口的网络端口可访问情况：</block>
   <block id="d8c7ef2c85a7a25537cac9242cffa1bd" category="paragraph"><block ref="db449c984bbf1e9facfe9fd1a8343fe9" prefix="" category="inline-code"></block></block>
@@ -4100,7 +4029,6 @@
   <block id="2599561b277274943f3683cd23e2e672" category="paragraph">以下是将端口 "e9a" 上的已替换 VLAN 还原到 e9d 的示例：</block>
   <block id="e200840cce3d89cb39fd811ba82a77d5" category="paragraph"><block ref="2a5af291ef24386c853e6cf746e464c3" prefix="" category="inline-code"></block></block>
   <block id="dbab01f6e6b7bb76410506a5096b105b" category="paragraph"><block ref="48a6c73f1a549e44599ad131ac8a7586" prefix="" category="inline-code"></block></block>
-  <block id="d93f66fe51534a40f0833d1677d324bf" category="summary">使用命令升级运行ONTAP 9.151或更高版本的控制器时、验证node2的物理端口是否正确映射到node4、并还原node4上的网络配置<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 。</block>
   <block id="d8f20787d5ec4fcacf599bd56be2bbd1" category="paragraph"><block ref="c322534c44813d5ec8b7bde6b1e135b5" prefix="" category="inline-code"></block></block>
   <block id="e047fa40e589357c94de5b0e63b1c469" category="paragraph">以下是将端口 "e10a" 上的已替换 VLAN 还原到 "e10b" 的示例：</block>
   <block id="d652f04b0c47ec3200904bc82c8d5ff7" category="paragraph"><block ref="0f64f457d55e8e27ee821e9df0561d32" prefix="" category="inline-code"></block></block>
@@ -4115,7 +4043,6 @@
   <block id="e53c96ea4b74db1471d45fc6c84eef75" category="sidebar">第5阶段。安装并启动node4 (在ONTAP 9.15.1或更高版本中使用"更换系统控制器"进行升级)</block>
   <block id="fe9158ff831e80fc9361c4a06ba512f1" category="sidebar">第6阶段。完成升级(在ONTAP 9.15.1或更高版本中使用"系统控制器更换"进行升级)</block>
   <block id="1d2cec084b14c2bb8b27b81dee7eff45" category="sidebar">故障排除(在ONTAP 9.15.1或更高版本中使用"系统控制器更换"进行升级)</block>
-  <block id="d7548e4333d6055e4cfe02fb476e8bb3" category="summary">将先前连接到AFF A800节点1的集群、HA、存储和数据连接连接连接到新安装的AFF A90或AFF A70节点1</block>
   <block id="e41a57de6846f0486a2837efec0a7735" category="section-title">连接e0M和BMC端口</block>
   <block id="71f7c95fc9a5b8a1a847fc0baf3f04a0" category="cell">如果...</block>
   <block id="31a1d0c3f4eee8e89c1e85f3c2f53402" category="cell">e0M和BMC IP地址位于同一IP子网上</block>
@@ -4140,12 +4067,9 @@
   <block id="75b20a9dfdabc84f9f91512eb8cfbda8" category="list-text">对于FAS70和FAS90系统、ONTAP仅转换在升级之前已启用存储效率的现有精简配置卷的存储效率。</block>
   <block id="062789e6044bfae1e66a58c85ebf5281" category="paragraph"><block ref="062789e6044bfae1e66a58c85ebf5281" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f52cbea23351114ee0b3b28c1c53db00" category="paragraph"><block ref="f52cbea23351114ee0b3b28c1c53db00" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fb53938953a64ed1298a3856f8bb8679" category="doc">从此处开始：选择ARL升级过程</block>
-  <block id="d42c7018dcc284c2db31a4a24d2b3b3c" category="paragraph">您可以使用聚合重新定位(ARL)升级控制器硬件、而不会造成中断。有关升级控制器硬件的其他方法，请参阅<block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>。</block>
   <block id="52c65abc1d4cdef95969c778420220da" category="paragraph">您可以使用ARL将非根聚合从原始节点迁移到同一集群中的新节点、从而无中断升级一对运行ONTAP的节点上的控制器硬件。升级期间，可以访问要升级的节点上托管的数据。</block>
   <block id="dc32b0faeda54116d50282dbfa24dda7" category="paragraph">如果非根聚合在同一集群中共享存储、则ARL可以利用HA配置将这些聚合的所有权从一个节点移动到另一个节点。</block>
   <block id="72e1bba43ca452b38bc94d7f96d04f68" category="paragraph">升级控制器硬件有多种ARL方法。要选择适当的过程、请查看以下信息、了解每个ARL升级选项支持的系统和ONTAP版本。</block>
-  <block id="cd9547b52fda0ee4b09ec2df334b7b51" category="section-title">对ONTAP 9．15．1或更高版本使用system controller Replace命令</block>
   <block id="83606cabd222d0d058cfae8874f35382" category="example-title">显示支持的系统</block>
   <block id="37b7186b6ae7b3227f80bbe1da693be7" category="section-title">升级同一机箱中的控制器型号</block>
   <block id="3fe507461c708cfe67db6ed39b069266" category="cell">旧系统</block>
@@ -4211,7 +4135,6 @@
   <block id="9903e8198da89233d9c0b5d62c39d3f4" category="list-text">升级到9.15.1 9.151或更高版本中推出的系统时、ONTAP会转换现有卷的存储效率、并应用新的存储效率功能来利用硬件卸载功能。这是一个自动后台进程、不会对系统性能造成明显影响。</block>
   <block id="8563635251febb88efccfa4dc597ac2c" category="list-text">对于AFF A20、AFF A30、AFF A50、AFF A70、AFF A90、AFF A1K、AFF C30、AFF C60和AFF C80、ONTAP转换所有现有精简配置卷的存储效率、包括未使用存储效率的卷。</block>
   <block id="18d67a42853f70b2875eaf5e8cb56d86" category="inline-link-macro">使用system controller Replace命令升级9.15.1 9.151及更高版本中引入的控制器硬件</block>
-  <block id="39f06ee87f2f74931caba4810a649a87" category="paragraph">如果您的升级情形在以下受支持的系统列表中列出、请转到<block ref="a5b8bd3c7ebe976730c3700b6361239f" category="inline-link-macro-rx"></block>开始升级过程。</block>
   <block id="cc6089132b9a5e4af29a76834480cc1a" category="cell">AFF A50</block>
   <block id="0bd0e673df4c14cae45a11fac30c530b" category="cell">9.16.1</block>
   <block id="dfd7c6c39ae43772af17ea2f340d12f1" category="cell">AFF A220、AFF A150</block>
@@ -4294,14 +4217,11 @@
   <block id="2102d82fe428d3bed4a9ceb68e9e0f82" category="paragraph">^1^要升级到AFF A20、必须先将AFF A150或AFF A220转换为DS224C磁盘架、方法是将控制器模块更换为IOM12模块。请参阅。 <block ref="171f0c02e855777efc31bfbf778d3eb2" category="inline-link-macro-rx"></block></block>
   <block id="db5b0d637083aecc613ebcf8c6de30c8" category="paragraph">^2^ AFF A20、AFF A50、AFF A70和AFF A90是集成系统、在HA配置中具有两个控制器、在一个机箱中具有板载磁盘：</block>
   <block id="378260d1609d9b96d53d9fcd976221f0" category="list-text">您正在执行以下升级之一：</block>
-  <block id="73d4d3fa3405d52da3ec862673be2659" category="paragraph">要执行上表中列出的升级、请参见<block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block>以链接到_use "system controller Replace "命令升级同一机箱中的控制器型号_。</block>
   <block id="967121583f4d2a0229d569d3b7b97f41" category="list-text">对于AFF A20、AFF A30、AFF A50、AFF A70、AFF A90、AFF A1K、AFF C30、AFF C60和AFF C80系统、ONTAP可转换所有现有精简配置卷的存储效率、包括未使用存储效率的卷。</block>
   <block id="fcc98da30f9fe94aaa635e6381b72554" category="list-text">AFF A20、AFF A50、AFF A70、AFF A90、AFF A1K、FAS70和FAS90系统为集群和HA连接共享100GbE网络端口。这些系统可以支持与传统集群交换机建立10GbE或25GbE集群连接；但是、当不再需要10GbE和25GbE交换机时、NetApp建议更新到100GbE集群速度。有关详细信息，请参见以下知识库文章：</block>
   <block id="d403eb5d1a3dd37e397850942a0e2aa1" category="paragraph">对于集群和HA连接、AFF 2020系统会共享10GbE和25GbE网络端口。这些是AFF A20系统支持的唯一网络端口集群连接。</block>
   <block id="1e08e52a85eb1ffb2284468e3498db1d" category="sidebar">更换AFF A250或AFF C250</block>
   <block id="5b69734effb16f16b86998a01f8978c5" category="sidebar">为共享集群HA存储连接node1</block>
-  <block id="ec31fc0bcc9399c68ce1eaa960489026" category="cell"><block ref="ec31fc0bcc9399c68ce1eaa960489026" category="inline-link-macro-rx"></block></block>
-  <block id="b107ac189af2e98fbe02dd9c5a1028e3" category="cell">介绍使用system controller Replace命令在9.15.1 9.15.1及更高版本中推出的无中断升级控制器所需的聚合重新定位过程。</block>
   <block id="f95e2ee7384d545a3847f594109d4a3a" category="paragraph">如果现有系统具有管理端口(e0M)和BMC端口、则e0M和BMC端口会组合在一起、并通过替代系统上的"扳手"端口进行访问。在连接到替代系统之前、必须确保e0M和BMC端口已连接到现有系统上的同一交换机和子网。</block>
   <block id="dcf5631a58d49795e852d9f64f9e3b18" category="list-text">两个AFF A90、AFF A70或AFF C80控制器以及所有I/O模块。所需的100GbE缆线长度。</block>
   <block id="cf0d162b5d3ef31459631a2f0f0e0c2b" category="list-text">两个AFF A50、AFF A30、AFF C30或AFF C60控制器和I/O模块以及所需缆线</block>
@@ -4349,7 +4269,6 @@
   <block id="395e67264cbfd126e7e619c2e945ea24" category="inline-link-macro">将node2磁盘重新分配给node4、步骤1</block>
   <block id="1b32b5e4ec6b1b018326446e0609b810" category="paragraph">在第3阶段、您需要安装和启动node3、将集群和节点管理端口从node1映射到node3、将node1磁盘重新分配给node3、并验证node3安装。如果需要、可以在node3上设置FC或UTA/UTA2配置、并确认node3已加入仲裁。您还可以将node1 NAS数据LIF和非根聚合从node2重新定位到node3、并验证node3上是否存在SAN LIF。</block>
   <block id="712f0ba3d50de0cb380baae0e79744aa" category="paragraph">在第5阶段、您需要安装和启动node4、将集群和节点管理端口从node2映射到node4、将node2磁盘重新分配给node4、并验证node4安装。如果需要、可以在node4上设置FC或UTA/UTA2配置、并确认node4已加入仲裁。您还可以将node2 NAS数据LIF和非根聚合从node3重新定位到node4、并验证node4上是否存在SAN LIF。</block>
-  <block id="9ca791f14c256e2e8b46018369acf7a1" category="admonition">您只能在高级权限级别执行此命令：<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block></block>
   <block id="0c4d3b58ff2e613100823069268c0d16" category="doc">将node1磁盘重新分配给node3</block>
   <block id="e03dae441cceacc5aeefb788c4310182" category="paragraph">在验证node3安装之前、您需要将属于node1的磁盘重新分配给node3。</block>
   <block id="bbc6b5765d60422b3f276543c9a46e50" category="list-text">[[auto_check3_STEP3]]在自动启动期间按Ctrl-C在Loader提示符处停止节点。</block>
@@ -4497,7 +4416,6 @@
   <block id="05078edefd215e2eb6ebd175b2f619a9" category="cell">e1b（使用 e1b 进行临时集群互连）</block>
   <block id="6fd5e95dc0bce8329da87e1152677b48" category="cell">不需要</block>
   <block id="d3ab066fd6dc766600e9c7be61f26156" category="cell">node1 升级不需要 HA 端口</block>
-  <block id="fea7d5b64eaa4336e0720fa830fc0ce8" category="summary">将之前连接到 AFF A800 节点 2 的集群、HA、存储和数据连接连接到新安装的 AFF A90 或 AFF A70 节点 1</block>
   <block id="fc28977213fbec1681078ec6c11f3bfc" category="doc">为共享集群HA和存储连接node2</block>
   <block id="67a013279b092cbafa1aec1f973529bd" category="paragraph">如果您正在执行以下升级之一，则需要将先前连接到现有系统上的 node2 的集群、HA、存储、数据和管理连接连接到替换系统上新安装的 node2。</block>
   <block id="294af22433d3e8d53b01a6e239ede148" category="cell">AFF A30、AFF C60</block>
@@ -4665,7 +4583,6 @@
   <block id="925fdd27e6c272d3e20a76ac000b55e6" category="list-text">当节点在启动菜单处停止时，通过在 node1 上运行以下命令将旧的 node1 磁盘重新分配给替换 node1：</block>
   <block id="3e116b6b6becaa5d613ea62aac34daa1" category="list-text">当节点在启动菜单处停止时，通过在 node2 上运行以下命令将旧的 node2 磁盘重新分配给替换 node2：</block>
   <block id="4b918c9d048f1e7cccba5045af08906f" category="paragraph">在第 6 阶段，您使用升级的系统模块启动 node2 并验证升级后的 node2 安装。如果您正在使用 NVE，您可以恢复密钥管理器配置。对于交换机连接集群升级，您需要验证集群交换机参考配置文件 (RCF) 是否支持共享集群/HA 端口。您还将节点 1 的非根聚合和 NAS 数据 LIF 从节点 1 重新定位到升级后的节点 2，并验证 SAN LIF 是否存在于节点 2 上。</block>
-  <block id="c0bcc09c60945f6339a1913adf9e706f" category="summary">使用以下命令升级运行ONTAP 9.15.1 或更高版本的控制器时，手动将失败或被否决的聚合重新定位到节点 1<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令。</block>
   <block id="abf895e50524754359302c9598336b90" category="doc">将失败或被否决的聚合重新定位到节点 1</block>
   <block id="25badd8e4c783995863fb7fe9b690c73" category="paragraph">如果任何聚合无法重新定位或被否决，则需要手动将聚合重新定位到节点 1，或者如有必要，覆盖否决或目标检查。</block>
   <block id="55fc253f57e13795f000be8434340bcc" category="paragraph"><block ref="f0b8ecf91bc7772176817aae0a0e4ebf" prefix="" category="inline-code"></block></block>
@@ -4686,8 +4603,6 @@
   <block id="e4a34fcd3be9d1c97af701d3702dc629" category="doc">将失败或被否决的聚合重新定位到节点 3</block>
   <block id="ede36164b17cdfd91404d9be823e00b6" category="list-text">当 node3 停止在启动菜单时，通过在 node3 上运行以下命令将 node1 磁盘重新分配给 node3：</block>
   <block id="41982d264a2a2a5af9a67f777e02916a" category="list-text">[[auto_check_4_step11]]当 node4 停止在启动菜单时，通过在 node4 上运行以下命令将 node2 磁盘重新分配给 node4：</block>
-  <block id="1e1ddf24bfeddc76d571c4800f2d82ad" category="summary">使用以下命令升级运行ONTAP 9.15.1 或更高版本的控制器时，手动将失败或被否决的聚合重新定位到节点 2<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令。</block>
-  <block id="3129d56ef5cc88b17f6e15c1da3476f1" category="summary">使用以下命令升级运行ONTAP 9.15.1 或更高版本的控制器时，手动将失败或被否决的聚合重新定位到节点 3<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令。</block>
   <block id="a315276c33006971edc828b2d5f48c91" category="list-text">将 IOM12 或 IOM12B 模块插入节点 1 的托架。</block>
   <block id="9aa378ddd116d4c0628d0af695d9cc17" category="list-text">通过将 node4 集群端口连接到 node3 上的任何集群端口来创建临时集群连接。</block>
   <block id="3936d65ca4d32956127070b6e56b2e64" category="admonition">如果节点 3 仅支持 10GbE 集群连接，则必须使用 10GbE 电缆来创建临时集群连接。</block>
@@ -4877,9 +4792,7 @@
   <block id="bacbfc77fc4e2d757322081c15c52a00" category="list-text">如果您有 FC 或 UTA/UTA2 配置，<block ref="ad45ffc801f32cf9fa6b670aff5c067c" category="inline-link-macro-rx"></block> 。</block>
   <block id="c52fd43175a81b4010edafc888294155" category="list-text">如果您没有 FC 或 UTA/UTA2 配置，<block ref="e4d2a56d6aa2b01471a43eefb927dea7" category="inline-link-macro-rx"></block>这样node4就可以识别node2的磁盘。</block>
   <block id="625f5185360b3cd291dbecb432926ddf" category="list-text">如果您有MetroCluster配置，<block ref="ad45ffc801f32cf9fa6b670aff5c067c" category="inline-link-macro-rx"></block>检测连接到节点的磁盘。</block>
-  <block id="e82b74d07826c2bc6650aa170acd2745" category="paragraph">如果 node4 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，从ONTAP 9.15.1 开始引入的AFF和FAS系统），并且您正在升级带有存储磁盘的系统，则可以跳至<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
   <block id="20f32956fc865957eac4865ba888e9ba" category="list-text">如果 node4 没有 UTA/UTA2 卡或 UTA/UTA2 板载端口，请跳过“检查并配置 node4 上的 UTA/UTA2 端口”并转到<block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
-  <block id="e5330a3f067b20c0bc653c95754f0003" category="paragraph">如果节点 3 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，从ONTAP 9.15.1 开始引入的AFF和FAS系统），并且您正在升级带有存储磁盘的系统，则可以跳至<block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
   <block id="5ec3ea1c092d9baccac3f18b114cbb19" category="cell">如果节点 3...</block>
   <block id="43b887bce260431997df1d009b1f86d3" category="cell">具有 UTA/UTA2 卡或 UTA/UTA2 板载端口</block>
   <block id="c1d0c27818786bcecaad04b77cee8c31" category="cell">没有 UTA/UTA2 卡或 UTA/UTA2 板载端口</block>
@@ -4967,10 +4880,6 @@
   <block id="d350fa659f98e0153758612c202e6a04" category="summary">将卷迁移到新节点后，从集群中删除原始节点。删除节点时，节点的配置将被擦除，所有磁盘将被初始化。</block>
   <block id="174d5560f210e4b4b5a29f385b2c8035" category="paragraph">将卷从原始节点移动到新节点并移动或删除数据 LIF 后，从集群中删除原始节点。删除节点时，节点的配置将被擦除，所有磁盘将被初始化。</block>
   <block id="fcd2352296590a0e2accae2dd13e31d6" category="list-text">[[disable-ha]]禁用原始节点上的高可用性 (HA) 配置：</block>
-  <block id="14f47a56746d8dd06d7152a27fa22219" category="list-text">确定当前主节点：</block>
-  <block id="f56d76980d50ef81b1a4f2246dbcf0da" category="paragraph">主节点是承载诸如此类进程的节点。<block ref="d724f231a9a7b89757c4394d6622bc47" prefix=" " category="inline-code"></block>，<block ref="7b588256fbdc51b849239cf8988219ff" prefix=" " category="inline-code"></block>，<block ref="4855d47f82dd3929173aadd191f2a0ee" prefix=" " category="inline-code"></block>，<block ref="1ed70af3fcff64fcd6c818d86b6e6150" prefix=" " category="inline-code"></block>， 和<block ref="29fa19e764c47fa898f697bf7bb940db" prefix=" " category="inline-code"></block>。</block>
-  <block id="ac13fc86d8d30a4abbb50425385fe453" category="list-text">取消当前主节点参与集群的资格：</block>
-  <block id="fa46d2d3d8cfe760c5a42ee99c2bb479" category="list-text">使之前的主节点再次有资格参与集群：</block>
   <block id="eb1f2131641f5195e8a8d9b93f797562" category="paragraph">节点名称：</block>
   <block id="9900c92f7c4f327f3d129fcdb88c5a95" category="paragraph">节点 IP 地址：</block>
   <block id="e1b2dd8ee5d4a8767f514f7140d3b5b7" category="paragraph">如果您有一个混合版本集群，并且要移除最后一个版本较低的节点，请使用以下方法：<block ref="980f71817e3a06bee87bd061faeb423d" prefix=" " category="inline-code"></block> 使用这些命令的参数。</block>
@@ -5024,16 +4933,12 @@
   <block id="ac11b00437102d46834c44f688bb816b" category="list-text">[[epsilon-true]]如果您要删除的节点包含 epsilon：</block>
   <block id="da3029d4f58fca3ccf4049fbe3f8d5a9" category="list-text">从要删除的节点中移动 epsilon：</block>
   <block id="fe432e6a2040f760b86fdb6fb2475ea2" category="list-text">将 epsilon 移至未移除的节点：</block>
-  <block id="535d3fb6510351991395e311dafd715a" category="list-text">如果您要删除的节点是当前主节点，请启用集群中的另一个节点被选为主节点：</block>
-  <block id="9a1fed4d7eb734f9652172206c2b6c97" category="paragraph">在恢复资格之前，节点被标记为不健康。当主节点变得不合格时，剩余的节点之一由集群仲裁选举为新的主节点。</block>
   <block id="0dea226ebb02761023dc688056ea4997" category="paragraph">如果要在 HA 对中的第一个节点上执行此步骤，则应仅将该节点标记为不合格。请勿修改 HA 合作伙伴的状态。</block>
-  <block id="5b2f9fa3a4d06ceb986a95a26f1bfbeb" category="paragraph">如果选择合作伙伴节点作为新的主节点，则需要在使其不合格之前验证它是否保持 epsilon。如果合作伙伴节点持有 epsilon，则需要将 epsilon 移动到保留在集群中的其他节点，然后才能使其不合格。在重复这些步骤以删除合作伙伴节点时，请执行此操作。</block>
   <block id="2c3337f10b57ece73ad05be4f4418e0d" category="list-text">登录到未从群集中删除的节点上的远程节点管理 LIF 或群集管理 LIF。</block>
   <block id="6006a3969e4a49af5bcf372d6a4b6f76" category="list-text">从集群中删除节点：</block>
   <block id="1a59e73da663791d8cc1a4162cc79daa" category="cell">对于此 ONTAP 版本...</block>
   <block id="5380cb1d86fac77428bc4816a9400818" category="paragraph">ONTAP 9.3</block>
   <block id="673c94a242aa517fb75dfb1350772ecc" category="paragraph">ONTAP 9.4 及更高版本</block>
-  <block id="758c1d632758dd4e740d6be764f6eefd" category="paragraph">如果节点是仲裁主节点，则集群将短暂失去仲裁，然后返回到仲裁。此仲裁丢失是暂时的，不会影响任何数据操作。</block>
   <block id="ee3943d184071eb8b00fa718413c59da" category="paragraph">从集群中成功删除后，节点会自动重新启动。</block>
   <block id="72e4185215c581a01dbad2e58ec475eb" category="list-text">[[return-admin]]返回管理员权限级别：</block>
   <block id="f9db51ad5ae75a45a96e719689af7351" category="paragraph">AFF A250 高可用性 (HA) 对控制器为 node1 和 node2，替代 AFF A400 HA 对控制器为 node3 和 node4。</block>
@@ -5184,7 +5089,6 @@
   <block id="37fa36d94f192487e210e3f3acf76c25" category="paragraph">有关 SP 的信息，请参阅 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 链接到_系统管理参考_，有关 system<block ref="2a8e2b100f5ea655a56702ca475f0d42" prefix=" " category="inline-code"></block> 命令的详细信息，请参阅 _ONTAP 9 命令参考_。</block>
   <block id="83d213cb232676aa1a2116b78316fc82" category="paragraph">有关详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到 _Network Management_ 或 _ONTAP 9 Command reference_。</block>
   <block id="0dd70df5fdfa99812bfb16ad796f3243" category="paragraph">有关详细信息，请参见 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到 _Network Management_ 或 _ONTAP 9 Command reference_，并参见 _Configuring failover settings on a LIF_。</block>
-  <block id="d2fb72c1e41e70be33be5a2db34ad912" category="paragraph">有几种用于升级控制器硬件的聚合重定位 (ARL) 方法。此 ARL 过程描述了如何在 ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 存储系统中使用新控制器升级 HA 对控制器，同时保留现有磁盘和存储在磁盘上的数据。这是一个复杂的过程，只能由经验丰富的 ONTAP 管理员使用。</block>
   <block id="03ea74f1c6366fb37761962a003062de" category="paragraph">有几种用于升级控制器硬件的聚合重定位（ARL）方法。此 ARL 过程描述了如何在 ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 存储系统中使用新控制器升级 HA 对控制器，同时保留现有磁盘和存储在磁盘上的数据。</block>
   <block id="63e3bdeda7914c0e52d8bfc6de1859ea" category="cell">描述支持的 ONTAP 9 命令的语法和用法。</block>
   <block id="17f799304c6d34011331c99f291bf697" category="paragraph">有关<block ref="d8a8a1780214c33b958eab7dee095b3b" prefix=" " category="inline-code"></block>、<block ref="1ca2ae7c41ce5825ae800de30d135bce" prefix=" " category="inline-code"></block>和<block ref="df1f92332c08f156b192fdc1f1ad10ef" prefix=" " category="inline-code"></block>选项的详细信息，请参见<block ref="9cc9f7a6e6a82728cff1f7183d2d4d15" category="inline-link-macro-rx"></block>以链接到 _ONTAP 9 Command reference_。</block>
@@ -5611,4 +5515,77 @@
   <block id="eb0245b89d287738a56a5047aeb3152b" category="list-text">使用临时 10/25GbE 卡从 AFF A20 临时连接到 AFF A30。4 端口或 2 端口 10/25GbE 卡支持 AFF A20 上的集群。建议在 AFF A20 和 AFF A30 中使用相同的卡。如果您没有新卡，可以使用 AFF A20 中的卡作为临时集群互连。</block>
   <block id="f3cccb510b48124791f68ef8a99fca3a" category="list-text">当 AFF A30 node3 上线时，它将 HA IC 端口放在 100GbE 上，并尝试将集群 LIF 放在 10/25GbE 端口上。ONTAP 检测到这些端口连接到 AFF A20。如果 ONTAP 未自动检测到这些端口，则可以手动修改临时集群端口。然后，如果需要，您可以将集群 LIF 移动到临时集群端口。</block>
   <block id="9aa79fb991cdc044a96dc2dbd05e3bd6" category="list-text">升级 AFF A20 node1 后，AFF A20 node2 为准备升级而关闭，此时您需要从临时 10/25GbE 集群端口中删除连接，仅使用 100GbE 共享集群端口。当 AFF A30 node3 和 node4 通过 100GbE 端口连接时，连接将建立，您可以完成升级。</block>
+  <block id="aeb61728a53109db0ac8d67055cfbb08" category="inline-link-macro">使用"system controller replace"命令升级到 ONTAP 9.15.1 及更高版本中引入的控制器硬件</block>
+  <block id="79ed46a888a05f13ba48420bff6f33ae" category="cell"><block ref="79ed46a888a05f13ba48420bff6f33ae" category="inline-link-macro-rx"></block></block>
+  <block id="9e3c6f96153bc91c883873aa4a8a3da1" category="cell">描述了通过使用"system controller replace"命令无中断地升级到 ONTAP 9.15.1 及更高版本中引入的控制器所需的聚合重新定位过程。</block>
+  <block id="a3ee26afe34b552a328a1984dac13821" category="doc">选择 AFF、ASA 或 FAS 控制器硬件的升级程序</block>
+  <block id="8d3c60de6b2c6c6346dde3885743b73e" category="paragraph">一般来说，如何升级 NetApp AFF、ASA 或 FAS 控制器硬件取决于原始节点的平台型号。您可以通过重新定位聚合或移动卷（两者都是无中断过程），或通过移动存储（中断过程）进行升级。如果您在原始节点和新节点上运行不同的 ONTAP 版本，则可能需要在开始硬件升级之前执行软件升级。</block>
+  <block id="49e8d819c7a12b23ca983a3bc99e1bdf" category="list-text">识别当前主节点：</block>
+  <block id="42feace4f0e10b023315c8387dbbe58f" category="paragraph">主节点是包含<block ref="d724f231a9a7b89757c4394d6622bc47" prefix=" " category="inline-code"></block>、<block ref="7b588256fbdc51b849239cf8988219ff" prefix=" " category="inline-code"></block>、<block ref="4855d47f82dd3929173aadd191f2a0ee" prefix=" " category="inline-code"></block>、<block ref="1ed70af3fcff64fcd6c818d86b6e6150" prefix=" " category="inline-code"></block>和<block ref="29fa19e764c47fa898f697bf7bb940db" prefix=" " category="inline-code"></block>等进程的节点。</block>
+  <block id="49345356b70eeea9fa4b2348e666f80a" category="list-text">如果您要删除的节点是当前主节点，请启用集群中的另一个节点作为主节点：</block>
+  <block id="1f915321f7e8155e5ee88f538eca12b5" category="list-text">使当前主节点不符合参与集群的资格：</block>
+  <block id="782080b727fe513df4fbe730298ac5c1" category="paragraph">在恢复资格之前，节点将被标记为运行状况不良。当主节点变得不符合条件时，集群仲裁将从其余节点中选出一个新的主节点。</block>
+  <block id="e0cc0bd8c5cc17d9a19a0d007934747c" category="paragraph">如果选择配对节点作为新的主节点，则需要在使其不符合条件之前验证它是否持有 epsilon。如果配对节点持有 epsilon，则需要在使其不符合条件之前，将 epsilon 移动到集群中保留的其他节点。在重复这些步骤以删除配对节点时，请执行此操作。</block>
+  <block id="bbbdda94513cf5e245680f89dc7113d5" category="list-text">使上一个主节点有资格再次参与集群：</block>
+  <block id="5224d9067fbe3ce068cb43cf66064688" category="paragraph">如果节点是仲裁主节点，则集群将短暂失去仲裁，然后恢复仲裁。此仲裁损失是暂时的，不会影响任何数据操作。</block>
+  <block id="0600d10baee675d1a8f911c166c73b16" category="summary">了解如何使用聚合重新定位升级 AFF、ASA 或 FAS 控制器硬件。</block>
+  <block id="0a899dd7820c281e3d1beafb5268760a" category="doc">从这里开始：为 AFF、ASA 或 FAS 控制器硬件选择 ARL 升级过程</block>
+  <block id="33f17b7ac7e8e53ad1ac50a2db103c45" category="paragraph">通过使用聚合重定位 (ARL)，可以在不中断的情况下升级 AFF、ASA 或 FAS 控制器硬件。有关升级控制器硬件的其他方法，请参见 <block ref="9f3bef3f6be14e6a346fc21a2929c802" category="inline-link-macro-rx"></block>。</block>
+  <block id="0195e89107e6d9af3b0d79627f4eece1" category="section-title">升级到 ONTAP 9.15.1 或更高版本中引入的系统</block>
+  <block id="cadc29f4e9afb5830bf4f1af38287af4" category="inline-link-macro">使用"system controller replace"命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器硬件</block>
+  <block id="d218519064c2073b96db969b06728dd6" category="paragraph">如果您的升级方案列在以下受支持的系统矩阵中，请转至 <block ref="08fcbbf2e4441a4e1306f5f75381940c" category="inline-link-macro-rx"></block> 以开始升级过程。</block>
+  <block id="28b18315e0f950f963b539ec1271536e" category="paragraph">您只能在高级权限级别执行此命令：</block>
+  <block id="497d23d19b62c129e5ad4e87e9166393" category="cell">AutoSupport 状态检查</block>
+  <block id="bd2311fe1a015edd5cb116b4b52369d6" category="paragraph">如果 node4 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 系统），并且您正在升级具有存储磁盘的系统，则可以跳至 <block ref="eaad59cad2124997123e3f040ef5cb96" category="inline-link-macro-rx"></block>。</block>
+  <block id="120c75f9caab141c649db8b221f6a428" category="paragraph">如果 node3 没有板载 FC 端口、板载 UTA/UTA2 端口或 UTA/UTA2 卡（例如，ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 系统），并且您正在升级具有存储磁盘的系统，则可以跳至 <block ref="ac081fdc0801ea4a4f23475143090cfa" category="inline-link-macro-rx"></block>。</block>
+  <block id="ba35a859e5afe65c20ee458b6e353876" category="summary">排除在使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时可能发生的聚合重新定位故障。</block>
+  <block id="77a7b2a831549d7cebce009364d7c13f" category="summary">在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令配置和管理 Storage Encryption、管理身份验证密钥，并暂停 SnapMirror 关系。</block>
+  <block id="ba34d9340e915cb6ccffade5b19c2351" category="summary">决定是否使用 ARL 通过<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器。</block>
+  <block id="8c6daafb85b04907fb3c128e0d1bc899" category="paragraph">有几种用于升级控制器硬件的聚合重定位（ARL）方法。此 ARL 过程描述了如何将 AFF 和 FAS 存储系统中的 HA 对控制器升级到 ONTAP 9.15.1 或更高版本中引入的控制器，同时保留现有磁盘和存储在磁盘上的数据。这是一个复杂的过程，只能由经验丰富的 ONTAP 管理员使用。</block>
+  <block id="1ad19bfc17eda05f8e5280a1668addb5" category="paragraph">要执行上表中列出的升级，请参阅 <block ref="3352feee8874655040be7cccb077b0f9" category="inline-link-macro-rx"></block> 以链接到_使用"system controller replace"命令升级同一机箱中的控制器型号_。</block>
+  <block id="a0ceea229ef9519691e998311ff4012c" category="summary">升级到 ONTAP 9.15.1 或更高版本中引入的控制器后，请使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令告知 NetApp 旧系统已不再运行。</block>
+  <block id="9639a2685b7f6fc547b1957bb1fe8c3b" category="summary">启用 HA 对，验证 node3 和 node4 存储访问权限，并在使用 <block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器后确认聚合所有权。</block>
+  <block id="2b4cb384fc4f30edf89397456ea67e13" category="summary">了解是否可以使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器。</block>
+  <block id="dc8a85ce0abbf05dc7a5e1604b574690" category="paragraph">要了解是否可以使用 ARL 升级到 ONTAP 9.15.1 或更高版本中引入的一对控制器，取决于平台以及原始控制器和替换控制器的配置。</block>
+  <block id="c6f40c5ef3a4919922c0dcf8568977de" category="summary">升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令安装和启动 node3 并安装 ONTAP 软件。</block>
+  <block id="4cc2d41ef2ce9b836d858a64901a5fe9" category="summary">升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令安装和启动 node4 并安装 ONTAP 软件。</block>
+  <block id="15c1229febc0dea758da2e71ae16e0e4" category="summary">有关使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时可能发生的问题的信息。</block>
+  <block id="9387d99fbf44125aa3ef3adb373e988a" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，LIF 在阶段 2、阶段 3 或阶段 5 迁移后未联机。</block>
+  <block id="c488afe4f71438f767dbcc8623b36d6f" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，验证 node2 上的 node1 NAS 数据 LIF 是否已从 node2 重新定位到 node3。</block>
+  <block id="f759cbe40d7667e53c7ba3cfa75d7e69" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，验证 node3 上的 node2 NAS 数据 LIF 是否已从 node3 重新定位到 node4。</block>
+  <block id="6a67f432f4f3fb4b74e6859a15cf879e" category="summary">了解如何使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级在 ONTAP 9.15.1 或更高版本中引入的控制器的过程。</block>
+  <block id="bd2db7f9e67294481eb69613efaf9417" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，准备节点并运行一系列预检查。</block>
+  <block id="a5f0ba8807d350dc6d2823d50ddd5703" category="section-title">步骤 1：准备 node1 和 node2</block>
+  <block id="645233556da33a5db3171b6cf5d74a45" category="paragraph">启动控制器更换流程，对 node1 和 node2 运行预检查。如果需要，请确定正在使用的自加密驱动器的类型。</block>
+  <block id="f02d29b92bd65d4299c062a0a8c94e32" category="section-title">步骤 3：准备 node3 和 node4</block>
+  <block id="74731ace55eeccac30318041fcabbdde" category="paragraph">检查 node3 和 node4 上的构建是否为 NODAR（无静态数据加密）映像。如果构建是 NODAR 映像，则需要安装 DARE（静态数据加密）映像。</block>
+  <block id="8d2489842a04af42848bc3b8005a06b1" category="paragraph">请在 node3 和 node4 上执行以下步骤。</block>
+  <block id="e24eccd63f175b28d7e7bea47db35592" category="list-text">输入 systemshell：</block>
+  <block id="7f12184af5e84912b5710cf7e948cfe2" category="list-text">[[check-build]]检查构建是否为 NODAR 映像：</block>
+  <block id="6e134e8ba4981222a21661cfab119ceb" category="paragraph">在命令输出中，检查<block ref="50d5ffb0624437f5808ad11762379e94" prefix=" " category="inline-code"></block>是否为 NODAR 映像，例如<block ref="6e0249a78a2fdc9a54e9fc36474e4067" prefix=" " category="inline-code"></block>。</block>
+  <block id="3c7cc0c6d453e9b0af32f99cdca132c4" category="admonition">如果<block ref="50d5ffb0624437f5808ad11762379e94" prefix=" " category="inline-code"></block>不是 NODAR 映像，则构建为 DARE 映像。</block>
+  <block id="4e301b6c1a20195c9845c7d3ccd81418" category="list-text">如果构建是 NODAR 映像，请安装 DARE 映像。</block>
+  <block id="189555444be53ab9f4e795483e2bb407" category="list-text">退出 systemshell 和启动菜单：</block>
+  <block id="a5119b2d92553c747498a5548618fbdf" category="inline-link-macro">在 ONTAP 9 中网络引导 FAS 和 AFF 控制器</block>
+  <block id="2b54faf5e34c00992d94efaa23e106fb" category="list-text">安装 DARE 映像。有关详细信息，请参见知识库文章 <block ref="08ea4c6a8c1970a711c9fe61ce9c2108" category="inline-link-macro-rx"></block>。</block>
+  <block id="40ff3cc832e751d13a4cecd5de915d82" category="summary">在使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，系统可能会在不同阶段崩溃（重新启动、死机或经历电源循环）。</block>
+  <block id="9a321f1d35ed2143883fcf388e419227" category="summary">升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令将失败或被否决的聚合手动重新定位到 node2。</block>
+  <block id="b23af5bd61dc81d01dc1fa55fdeb981e" category="summary">升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令将失败或被否决的聚合手动重新定位到 node3。</block>
+  <block id="5553133ef60d36d247ddb14e654572a7" category="summary">在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令将非根聚合和 NAS 数据 LIF 从 node1 移动到 node2，并将 node1 的资源移动到 node3。</block>
+  <block id="87411ac02af2ba498cacbc9420ed007f" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，将 node2 的非根聚合重新定位到 node3。</block>
+  <block id="04807c220a1c74c1472f56a3057a4e43" category="summary">要使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级 ONTAP 9.15.1 或更高版本中引入的控制器，您必须具备某些工具和文档。</block>
+  <block id="068bb379e913cad5e591c796de4ee305" category="summary">如果需要，在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令在 node4 上恢复密钥管理器配置。</block>
+  <block id="74b9b01b17dedfdf819ea3e09316088c" category="summary">如果需要，在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令在 node3 上恢复密钥管理器配置。</block>
+  <block id="bf0dfffe65429a4753170a18486155c7" category="summary">升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令恢复 SnapMirror 传输和关系。</block>
+  <block id="a0874d6a3ca782689cf64d479e77342a" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，请禁用与 node2 的 HA 对并关闭 node1。</block>
+  <block id="96e1d2d97787d6612550bdae97d43ce4" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，请关闭 node2 并将其从机架或机箱中移除。</block>
+  <block id="71c9cc7a95a46005e00f6a1497e42d7f" category="summary">如果需要，在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令为新控制器模块配置 NVE 或 NAE。</block>
+  <block id="1f7375e0736d1cb8eff67087ffb8aec9" category="summary">如果需要，在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，请使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令配置 Storage Encryption、安装 SSL 证书并设置密钥管理服务器。</block>
+  <block id="033a0430e4d2bd3fc5f8c2917b3aaf89" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block> 命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，验证 node1 物理端口是否正确映射到 node3 并恢复 node3 上的网络配置。</block>
+  <block id="555212dbf7895915cea5374a2e8a1d48" category="summary">使用<block ref="616743bfa4fd61d558c556fe614cb2e9" prefix=" " category="inline-code"></block>命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，验证 node2 的物理端口是否正确映射到 node4 并恢复 node4 上的网络配置。</block>
+  <block id="789f912fdbd2123ed37120365fdc3a25" category="summary">将以前连接到 AFF A800 node1 的集群、HA、存储和数据连接连接到新安装的 AFF A90 或 AFF A70 node1。</block>
+  <block id="e49390854e29362d766efe87b2cd180d" category="summary">将以前连接到 AFF A800 node2 的集群、HA、存储和数据连接连接到新安装的 AFF A90 或 AFF A70 node2。</block>
+  <block id="296dded36176a3c0cddf588327506ee0" category="summary">当使用 ARL 升级同一机箱中的控制器型号时，您必须在交换相应的替换系统模块后对 node2 执行 netboot。</block>
+  <block id="f22b666a8f2e5bcdb8fb87b0f8aa7d19" category="summary">使用 ARL 升级同一机箱中的控制器型号时，将失败或否决的聚合手动重新定位到 node1。</block>
+  <block id="579119c4e708317159df0e8381e43324" category="list-text"><block ref="579119c4e708317159df0e8381e43324" category="inline-link-macro-rx"></block></block>
 </blocks>

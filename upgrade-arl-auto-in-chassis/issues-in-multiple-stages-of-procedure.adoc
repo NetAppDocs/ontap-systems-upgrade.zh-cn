@@ -18,6 +18,7 @@ summary: 有关使用ARL升级同一机箱中的控制器型号时可能出现�
 
 
 
+[[unexpected-storage-failover-show-command-output]]
 == 意外的 "storage failover show" 命令输出
 
 在操作步骤期间，如果托管所有数据聚合的节点发生崩溃或意外重新启动，您可能会在重新启动，崩溃或重新启动前后看到 `storage failover show` 命令的意外输出。

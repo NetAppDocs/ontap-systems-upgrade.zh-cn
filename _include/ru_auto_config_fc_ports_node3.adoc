@@ -4,6 +4,8 @@
 
 
 
+[[step-1-configure-fc-ports-on-node3]]
+[[configure-fc-ports-on-node3]]
 == 步骤 1：在 node3 上配置 FC 端口
 
 如果节点 3 具有 FC 端口（无论是板载的还是附加 FC 适配器上的），则必须在节点投入使用之前设置其端口配置，因为系统出厂时未预先配置端口。如果您不配置端口，则可能会遇到服务中断。

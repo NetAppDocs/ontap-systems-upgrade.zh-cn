@@ -39,6 +39,8 @@ link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide
 ====
 
 
+[[supported-system-upgrade-combinations]]
+[[sys_commands_98_supported_systems]]
 == 支持的系统升级组合
 
 下表显示了使用此 ARL 程序执行控制器升级所支持的系统矩阵。
@@ -132,6 +134,7 @@ NOTE: 如果您的控制器升级型号组合不在上表中、请联系技术�
 ====
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == 选择不同的硬件升级程序
 
 * link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)

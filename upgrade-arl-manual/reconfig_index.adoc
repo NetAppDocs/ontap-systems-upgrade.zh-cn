@@ -27,7 +27,7 @@ summary: 对于 ONTAP 9.1 或更高版本，请在运行 ONTAP 9.7 或更早版�
 此操作步骤不会造成系统中断，在磁盘置零后，大约需要 4 小时才能完成（不包括机架和堆栈）。
 
 .步骤
-. link:send_custom_asup_message_prior_reconfig_switches.html["在重新配置交换机之前发送自定义 AutoSupport 消息"]
+. link:send_custom_autosupport_message_prior_reconfig_switches.html["在重新配置交换机之前发送自定义 AutoSupport 消息"]
 . link:verify_health_mcc_config.html["验证 MetroCluster 配置的运行状况。"]
 . link:check_mcc_config_errors.html["检查 MetroCluster 配置错误"]
 . link:persist_disable_switches.html["持久禁用交换机"]

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/set_up_netapp_volume_encryption_new_module.html 
 keywords: set up, netapp volume encryption, controller, module, nve, node 
-summary: '如果需要、在升级运行ONTAP 9.151或更高版本的控制器时、使用命令为NVE或NAE配置新控制器模块 `system controller replace` 。' 
+summary: '如果需要，在升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用 `system controller replace`命令为新控制器模块配置 NVE 或 NAE。' 
 ---
 = 在新控制器模块上设置NetApp卷或聚合加密
 :hardbreaks:

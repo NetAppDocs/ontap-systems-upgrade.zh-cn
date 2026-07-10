@@ -18,6 +18,7 @@ summary: '使用 `ssystem controller replace` 命令支持将运行 ONTAP 9.5 �
 
 
 
+[[reference-content]]
 == 参考内容
 
 下表列出了此升级的特定内容。
@@ -66,7 +67,7 @@ summary: '使用 `ssystem controller replace` 命令支持将运行 ONTAP 9.5 �
 | link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["升级 ONTAP"^] | 包含有关下载和升级 ONTAP 的说明。 
 
 
-| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["使用system controller Replace命令升级9.15.1 9.151及更高版本中引入的控制器硬件"^] | 介绍使用system controller Replace命令在9.15.1 9.15.1及更高版本中推出的无中断升级控制器所需的聚合重新定位过程。 
+| link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-app-9151/index.html["使用"system controller replace"命令升级到 ONTAP 9.15.1 及更高版本中引入的控制器硬件"^] | 描述了通过使用"system controller replace"命令无中断地升级到 ONTAP 9.15.1 及更高版本中引入的控制器所需的聚合重新定位过程。 
 
 
 | link:https://docs.netapp.com/us-en/ontap-systems-upgrade/upgrade-arl-auto-in-chassis/index.html["使用system controller Replace命令升级同一机箱中的控制器型号"^] | 介绍无中断升级系统(保留旧系统机箱和磁盘)所需的聚合重新定位过程。 
@@ -85,6 +86,7 @@ summary: '使用 `ssystem controller replace` 命令支持将运行 ONTAP 9.5 �
 |===
 
 
+[[reference-sites]]
 == 参考站点
 
 。 link:https://mysupport.netapp.com["NetApp 支持站点"^] 此外，还包含有关网络接口卡（ NIC ）以及可能与系统结合使用的其他硬件的文档。它还包含 link:https://hwu.netapp.com["Hardware Universe"^]，提供有关新系统支持的硬件的信息。

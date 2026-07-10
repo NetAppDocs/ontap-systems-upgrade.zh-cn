@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/resume_snapmirror_operations.html 
 keywords: resuming, snapmirror, operations, transfer, relationship, updates, schedule, complete 
-summary: '使用命令升级运行ONTAP 9.151或更高版本的控制器时、恢复SnapMirror传输和关系 `system controller replace` 。' 
+summary: '升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使用 `system controller replace`命令恢复 SnapMirror 传输和关系。' 
 ---
 = 恢复 SnapMirror 操作
 :hardbreaks:

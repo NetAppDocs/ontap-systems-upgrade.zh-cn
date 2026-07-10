@@ -43,6 +43,7 @@ NOTE: 术语 *node1* 和 *node2* 仅用作本文档中节点名称的引用。�
 
 
 
+[[requirements-and-limitations]]
 == 要求和限制
 
 在开始升级之前，您需要考虑重要因素。
@@ -77,6 +78,7 @@ NOTE: 您必须查看以下所有重要信息。
 
 
 
+[[automated-controller-upgrade-process]]
 == 自动控制器升级过程
 
 此操作步骤提供了自动化操作步骤的步骤、该步骤使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。

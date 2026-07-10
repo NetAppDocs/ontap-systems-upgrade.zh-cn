@@ -18,12 +18,14 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上执行手动 ARL 升�
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-2]]
 == 在阶段 2 期间重新启动，崩溃或重新启动
 
 崩溃可能发生在阶段 2 之前，期间或之后，在此阶段中，您可以将聚合从 node1 重新定位到 node2 ，将 node1 拥有的数据 LIF 和 SAN LIF 移动到 node2 ，记录 node1 信息并停用 node1 。
 
 
 
+[[node1-or-node2-crashes-before-stage-2-with-ha-still-enabled]]
 === 在启用 HA 的情况下，节点 1 或节点 2 在第 2 阶段之前崩溃
 
 如果 node1 或 node2 在第 2 阶段之前崩溃，则尚未重新定位任何聚合，并且 HA 配置仍处于启用状态。
@@ -38,6 +40,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上执行手动 ARL 升�
 
 
 
+[[node1-crashes-during-or-just-after-stage-2-with-ha-still-enabled]]
 === 在 HA 仍处于启用状态的情况下，节点 1 在第 2 阶段期间或之后崩溃
 
 部分或全部聚合已从 node1 重新定位到 node2，HA 仍处于启用状态。Node2 接管 node1 的根卷和任何未重新定位的非根聚合。
@@ -52,6 +55,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上执行手动 ARL 升�
 
 
 
+[[node1-crashes-after-stage-2-while-ha-is-disabled]]
 === 禁用 HA 后， Node1 会在第 2 阶段后崩溃
 
 Node2 不会接管，但它仍在从所有非根聚合提供数据。
@@ -66,6 +70,7 @@ Node2 不会接管，但它仍在从所有非根聚合提供数据。
 
 
 
+[[node2-fails-during-or-after-stage-2-with-ha-still-enabled]]
 === Node2 在阶段 2 期间或之后出现故障，同时 HA 仍处于启用状态
 
 node1 已将其部分或全部聚合重新定位到 node2 。已启用 HA 。
@@ -80,6 +85,7 @@ Node1 接管 node2 的所有聚合以及它自己已重新定位到 node2 的任
 
 
 
+[[node2-crashes-after-stage-2-and-after-ha-is-disabled]]
 === 在第 2 阶段之后以及禁用 HA 后， Node2 会崩溃
 
 Node1 不接管。
@@ -94,12 +100,14 @@ Node1 不接管。
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-3]]
 == 在第 3 阶段重新启动，崩溃或重新启动
 
 在第 3 阶段期间或之后立即发生故障，在此阶段中，您可以安装并启动 node3 ，将端口从 node1 映射到 node3 ，将属于 node1 和 node2 的数据 LIF 和 SAN LIF 移动到 node3 ，并将所有聚合从 node2 重新定位到 node3 。
 
 
 
+[[node2-crash-during-stage-3-with-ha-disabled-and-before-relocating-any-aggregates]]
 === 在禁用 HA 的情况下的第 3 阶段以及重新定位任何聚合之前， Node2 发生崩溃
 
 Node3 不会在 node2 崩溃后接管，因为 HA 已被禁用。
@@ -114,6 +122,7 @@ Node3 不会在 node2 崩溃后接管，因为 HA 已被禁用。
 
 
 
+[[node2-crashes-during-stage-3-after-relocating-some-or-all-aggregates]]
 === 在重新定位部分或全部聚合后，节点 2 在第 3 阶段崩溃
 
 Node2 已将其部分或全部聚合重新定位到 node3，后者提供来自已重新定位的聚合的数据。已禁用 HA。
@@ -129,6 +138,7 @@ Node2 已将其部分或全部聚合重新定位到 node3，后者提供来自�
 
 
 
+[[node3-crashes-during-stage-3-and-before-node2-has-relocated-any-aggregates]]
 === 在阶段 3 以及 node2 重新定位任何聚合之前， node3 崩溃
 
 Node2 不会接管，但它仍在从所有非根聚合提供数据。
@@ -140,6 +150,7 @@ Node2 不会接管，但它仍在从所有非根聚合提供数据。
 
 
 
+[[node3-crashes-during-stage-3-during-aggregate-relocation]]
 === 节点 3 在聚合重新定位期间的阶段 3 崩溃
 
 如果 node3 在 node2 将聚合重新定位到 node3 时崩溃，node2 中止任何剩余聚合的重新定位。
@@ -155,6 +166,7 @@ Node2 将继续为其余聚合提供服务，但已重新定位到 Node3 的聚�
 
 
 
+[[node3-fails-to-boot-after-crashing-in-stage-3]]
 === Node3 在第 3 阶段崩溃后无法启动
 
 由于发生灾难性故障，在第 3 阶段发生崩溃后无法启动 node3 。
@@ -165,6 +177,7 @@ Node2 将继续为其余聚合提供服务，但已重新定位到 Node3 的聚�
 
 
 
+[[node2-crashes-after-stage-3-but-before-stage-5]]
 === Node2 在第 3 阶段之后但在第 5 阶段之前崩溃
 
 Node3 将继续为所有聚合提供数据。已禁用 HA 对。
@@ -176,6 +189,7 @@ Node3 将继续为所有聚合提供数据。已禁用 HA 对。
 
 
 
+[[node3-crashes-after-stage-3-but-before-stage-5]]
 === Node3 在第 3 阶段之后但在第 5 阶段之前崩溃
 
 Node3 在第 3 阶段之后但在第 5 阶段之前崩溃。已禁用 HA 对。
@@ -190,12 +204,14 @@ Node3 在第 3 阶段之后但在第 5 阶段之前崩溃。已禁用 HA 对。
 
 
 
+[[reboots-panics-or-power-cycles-during-stage-5]]
 == 在第 5 阶段重新启动，崩溃或重新启动
 
 在第 5 阶段，即安装和启动 node4 ，将端口从 node2 映射到 node4 ，将属于 node2 的数据 LIF 和 SAN LIF 从 node3 移动到 node4 以及将 node2 的所有聚合从 node3 重新定位到 node4 的阶段，可能会发生崩溃。
 
 
 
+[[node3-crashes-during-stage-5]]
 === Node3 在第 5 阶段崩溃
 
 node3 已将 node2 的部分或全部聚合重新定位到 node4 。Node4 不会接管，但会继续为 Node3 已重新定位的非根聚合提供服务。已禁用 HA 对。
@@ -211,6 +227,7 @@ node3 已将 node2 的部分或全部聚合重新定位到 node4 。Node4 不会
 
 
 
+[[node4-crashes-during-stage-5]]
 === Node4 在第 5 阶段崩溃
 
 node3 已将 node2 的部分或全部聚合重新定位到 node4 。node3 不会接管，但会继续为 node3 拥有的以及未重新定位的非根聚合提供服务。HA 已禁用。

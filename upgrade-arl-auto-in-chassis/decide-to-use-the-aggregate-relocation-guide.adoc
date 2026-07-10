@@ -20,6 +20,7 @@ summary: 决定是否使用 ARL 过程来升级相同机箱、磁盘和磁盘上
 
 
 
+[[supported-for-this-arl-upgrade]]
 == 支持此 ARL 升级
 
 您可以在以下情况下使用此 ARL 程序：
@@ -43,6 +44,7 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 
 
+[[not-supported-for-this-arl-upgrade]]
 == 不支持此 ARL 升级
 
 您不能在以下情况下使用此 ARL 程序：
@@ -56,6 +58,8 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 
 
+[[supported-system-upgrade-combinations]]
+[[supported-systems]]
 == 支持的系统升级组合
 
 下表显示了通过将现有系统转换为替换系统、保留现有系统机箱、磁盘及其上存储的数据来执行控制器升级的支持系统矩阵。
@@ -63,6 +67,7 @@ NOTE: 您可以对此操作步骤 使用NetApp存储加密(NSE)、NetApp卷加�
 
 CAUTION: 此过程严格适用于以下升级配置。请勿使用此过程在任何其他系统组合之间执行升级。对于所有其他控制器型号，请参阅 link:other-references.html["参考资料"] 以链接到_使用"system controller replace"命令升级运行 ONTAP 9.8 或更高版本的控制器硬件_和_使用聚合重定位手动升级运行 ONTAP 9.8 或更高版本的控制器硬件_。
 
+[[supported-systems-in-chassis]]
 [cols="20,20,40"]
 |===
 | 现有系统 | 更换系统 | 支持的ONTAP版本 
@@ -149,6 +154,7 @@ CAUTION: 此过程严格适用于以下升级配置。请勿使用此过程在�
 
 
 
+[[choose-a-different-hardware-upgrade-procedure]]
 == 选择不同的硬件升级程序
 
 * link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)

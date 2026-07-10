@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: upgrade-arl-auto-app-9151/guidelines_for_upgrading_controllers_with_arl.html 
 keywords: guidelines, upgrading, controllers, ARL 
-summary: '了解是否可以使用命令升级运行ONTAP 9.151或更高版本的控制器 `system controller replace` 。' 
+summary: '了解是否可以使用 `system controller replace`命令升级到 ONTAP 9.15.1 或更高版本中引入的控制器。' 
 ---
 = 使用 ARL 升级控制器的准则
 :hardbreaks:
@@ -14,10 +14,11 @@ summary: '了解是否可以使用命令升级运行ONTAP 9.151或更高版本�
 
 
 [role="lead"]
-要了解是否可以使用ARL升级一对运行ONTAP 9.151或更高版本的控制器、具体取决于原始控制器和替代控制器的平台和配置。
+要了解是否可以使用 ARL 升级到 ONTAP 9.15.1 或更高版本中引入的一对控制器，取决于平台以及原始控制器和替换控制器的配置。
 
 
 
+[[supported-upgrades-for-arl]]
 == 支持 ARL 升级
 
 在使用此ARL过程升级一对节点之前、请查看以下要求以确保您的配置受支持：
@@ -41,12 +42,14 @@ NOTE: 如果执行控制器升级时每个节点的集群端口数超过两个�
 
 
 
+[[two-node-switchless-clusters]]
 == 双节点无交换机集群
 
 如果要升级双节点无交换机集群中的节点，则可以在执行升级时将这些节点保留在无交换机集群中。您无需将其转换为交换集群。
 
 
 
+[[upgrades-not-supported-for-arl]]
 == ARL 不支持升级
 
 您不能升级不支持连接到原始控制器的磁盘架的替代控制器。
@@ -57,6 +60,7 @@ NOTE: 如果执行控制器升级时每个节点的集群端口数超过两个�
 
 
 
+[[troubleshoot]]
 == 故障排除
 
 如果在升级控制器过程中出现任何问题，请参阅link:aggregate_relocation_failures.html["故障排除"]了解更多信息和可能的解决方案。

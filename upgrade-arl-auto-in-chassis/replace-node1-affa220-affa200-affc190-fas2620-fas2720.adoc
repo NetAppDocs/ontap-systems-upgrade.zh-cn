@@ -26,6 +26,7 @@ CAUTION: 请勿关闭机箱电源、因为node1和node2位于同一机箱中并�
 
 
 
+[[step-1-remove-the-aff-a220-aff-a200-aff-c190-fas2620-or-fas2720-controller-module]]
 == 步骤 1：卸下 AFF A220、AFF A200、AFF C190、FAS2620 或 FAS2720 控制器模块
 
 要访问 node1 控制器内部的组件，请从系统中卸下控制器模块，然后卸下控制器模块上的盖子。
@@ -48,6 +49,7 @@ image:drw_2240_x_opening_cam_latch.png["打开凸轮把手"]
 
 
 
+[[step-2-install-the-asa-a150-aff-a150-or-fas2820-controller-module]]
 == 步骤 2：安装 ASA A150、AFF A150 或 FAS2820 控制器模块
 
 在node1中安装ASA A150、AFF A150或FAS2820控制器模块并为其布线和连接。

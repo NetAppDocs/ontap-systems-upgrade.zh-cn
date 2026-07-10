@@ -15,6 +15,7 @@ summary: 要规划升级，您应熟悉一般升级注意事项。如有必要�
 
 
 
+[[requirements-and-limitations]]
 == 要求和限制
 
 根据您的环境，您需要在开始升级之前考虑某些因素。首先查看下表、了解需要考虑的要求和限制。
@@ -79,6 +80,7 @@ NOTE: 您可以通过将数据移动到新存储(移动卷)或将现有集成系
 
 
 
+[[systems-with-internal-storage]]
 == 具有内部存储的系统
 
 以下系统具有内部存储：
@@ -108,6 +110,7 @@ NOTE: 不能将AFF A700s、AFF A800、AFF C800或ASA A800系统转换为驱动�
 
 
 
+[[situations-where-you-might-need-additional-steps]]
 == 可能需要执行其他步骤的情况
 
 * 如果新系统的插槽数少于原始系统，或者端口类型更少或不同，则可能需要向新系统添加适配器。请参见 https://hwu.netapp.com["NetApp Hardware Universe"^]。
