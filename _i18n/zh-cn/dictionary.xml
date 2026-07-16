@@ -3220,10 +3220,7 @@
   <block id="c5dc6358f70b9b01e402df306b4756e6" category="summary">如果需要、请在运行ONTAP 9.8或更高版本的控制器上手动升级ARL期间为NVE或NAE配置新控制器模块。</block>
   <block id="f0a0eea61e7c18706f2be0d0b664df19" category="doc">在新控制器模块上设置NetApp卷或聚合加密</block>
   <block id="9c5b8b5e0f9e3862ddb4d7aea590526d" category="paragraph">在第2阶段、您可以将非根聚合从node1重新定位到node2、并将node1拥有的非SAN数据LIF移动到node2、包括发生故障或被否决的聚合。此外、您还需要记录必要的node1信息、以便稍后在操作步骤 中使用、并停用node1。</block>
-  <block id="b1d2d80254a37ea644bb2f1ced221235" category="paragraph">在第3阶段、您将安装并启动node3、将集群和节点管理端口从node1映射到node3、并将属于node1的数据LIF和SAN LIF从node2移动到node3。您还可以将所有聚合从 node2 重新定位到 node3 ，并将 node2 拥有的数据 LIF 和 SAN LIF 移动到 node3 。</block>
   <block id="14404b4da2811fbc2d79f7bd9ba708f3" category="paragraph">在第4阶段、您需要记录必要的node2信息、以便稍后在操作步骤 中使用、然后停用node2。聚合所有权不会发生任何更改。</block>
-  <block id="7e21a9c9d8227ac88401921ab1292b41" category="paragraph">在第5阶段、您将安装并启动node4、将集群和节点管理端口从node2映射到node4、并将属于node2的数据LIF和SAN LIF从node3移动到node4。您还可以将node2聚合从node3重新定位到node4、并将node2拥有的数据LIF和SAN LIF移动到node3。</block>
-  <block id="3bd7ed4f2ac8c8bee0e26402197de3f8" category="paragraph">在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则还需要设置存储加密或NetApp卷加密。您还应停用旧节点以恢复SnapMirror操作。</block>
   <block id="a6b2bef9fee39460e6de895c83a49b09" category="paragraph">在阶段2中、您会将node1非根聚合和NAS数据LIF重新定位到node2。此过程大部分是自动完成的；操作将暂停，以便您可以检查其状态。您必须手动恢复此操作。如果需要、您可以重新定位失败或被否决的聚合。在停用node1之前、您需要记录node1信息以供稍后在操作步骤 中使用。您也可以稍后在操作步骤 中准备网络启动node3和node4。</block>
   <block id="b782fb0a43ba5a997562172fe5afc493" category="paragraph">在阶段4中、您会将非根聚合和NAS数据LIF从node2重新定位到node3。您还可以记录node2信息、以便在停用node2之前在操作步骤 中稍后使用。</block>
   <block id="ee70b93b550a5730542d0185fb89b3ce" category="paragraph">在第6阶段、您需要确认新节点设置正确、如果新节点启用了加密、则需要配置和设置存储加密或NVE。您还应停用旧节点并恢复SnapMirror操作。</block>
@@ -5588,4 +5585,14 @@
   <block id="296dded36176a3c0cddf588327506ee0" category="summary">当使用 ARL 升级同一机箱中的控制器型号时，您必须在交换相应的替换系统模块后对 node2 执行 netboot。</block>
   <block id="f22b666a8f2e5bcdb8fb87b0f8aa7d19" category="summary">使用 ARL 升级同一机箱中的控制器型号时，将失败或否决的聚合手动重新定位到 node1。</block>
   <block id="579119c4e708317159df0e8381e43324" category="list-text"><block ref="579119c4e708317159df0e8381e43324" category="inline-link-macro-rx"></block></block>
+  <block id="599b54171a77643ce7931a9986ea7c42" category="paragraph">要升级节点对，请准备好原始节点，并在原始节点和新节点上执行升级步骤。然后，停用原始节点。</block>
+  <block id="d3f5a62906fe227e98435313989c588d" category="paragraph">使用替换控制器硬件升级原始控制器硬件，一次升级一个控制器，利用 HA 对配置重新定位非根聚合的所有权。必须将所有非根聚合重新定位两次，才能到达正确的升级节点。</block>
+  <block id="017f0198cb149e001e7d1fbdbfeff2ab" category="paragraph">下表描述了每个阶段的高级别任务以及阶段结束时的聚合所有权状态。详细步骤将在后面的过程中提供：</block>
+  <block id="926cb196a2b3f1a08efba3993217d3e0" category="paragraph">在第 1 阶段中，如有必要，请确认内部磁盘驱动器不包含根聚合或数据聚合，为升级准备节点，并运行预检查。如有必要，请对 Storage Encryption 的磁盘重新设置密钥，并准备通过网络引导新控制器。</block>
+  <block id="49ddc20064f4f29a69131c6812872ce2" category="paragraph">在第 3 阶段，安装和引导 node3，并将集群和节点管理端口从 node1 映射到 node3。如果使用 NetApp 卷加密 (NVE)，则还原密钥管理器配置。然后，将属于 node1 的数据 LIF 和 SAN LIF 从 node2 移动到 node3，将所有聚合从 node2 重新定位到 node3，并将 node2 拥有的数据 LIF 和 SAN LIF 移动到 node3。</block>
+  <block id="af49fa765409efddf18e8edd7d047f69" category="paragraph">在第 5 阶段，安装和启动 node4，并将集群和节点管理端口从 node2 映射到 node4。如果使用 NetApp 卷加密 (NVE)，则还原密钥管理器配置。然后，将属于 node2 的数据 LIF 和 SAN LIF 从 node3 移动到 node4，将 node2 聚合从 node3 重新定位到 node4，并将 node2 拥有的数据 LIF 和 SAN LIF 移动到 node3。</block>
+  <block id="12177ec5bd50eaf788179fbe2ab3d1ff" category="summary">如果需要，在运行 ONTAP 9.8 或更高版本的控制器上进行手动 ARL 升级期间，在 node4 上恢复密钥管理器配置。</block>
+  <block id="74b1deeae7ed2c75aa8ad4c2ddea9d93" category="summary">如果需要，在运行 ONTAP 9.8 或更高版本的控制器上进行手动 ARL 升级期间，在 node3 上恢复密钥管理器配置。</block>
+  <block id="8ad3199cfb5e6cb3fc2da5bb1354e4c8" category="sidebar">在 node3 上还原密钥管理器配置</block>
+  <block id="2cd0e87e95581377b5e99bb14328f296" category="sidebar">在 node4 上还原密钥管理器配置</block>
 </blocks>
