@@ -20,6 +20,8 @@ summary: 将卷迁移到新节点后，从集群中删除原始节点。删除�
 ----
 storage failover modify -node <original_node_name> -enabled false
 ----
+
+
 . 将权限级别更改为 advanced：
 +
 [source, cli]
@@ -165,6 +167,7 @@ set -privilege admin
 ----
 
 
+[[return-admin]]
 . 重复步骤 <<disable-ha,2>> 到 <<return-admin,11>> 以从集群中删除故障转移合作伙伴。
 . 如果集群只剩下两个节点，请为双节点集群配置高可用性：
 +
@@ -175,4 +178,4 @@ cluster ha modify -configured true
 
 
 .下一步是什么？
-link:upgrade-complete-move-volumes.html["完成移动卷升级"]
+删除原始节点后，link:upgrade-complete-move-volumes.html["完成移动卷升级"]。

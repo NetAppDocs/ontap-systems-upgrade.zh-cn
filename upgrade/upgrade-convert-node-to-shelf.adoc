@@ -37,3 +37,6 @@ https://hwu.netapp.com["NetApp Hardware Universe"^]
 . 打开转换后的驱动器架以及连接到新节点的任何其他驱动器架的电源。
 . 打开新节点的电源，然后按 Ctrl-C 访问启动环境提示符，以中断每个节点上的启动过程。
 
+
+.下一步是什么？
+将原始节点转换为驱动器架后，link:upgrade-attach-shelves-reassign-disks.html["连接存储架并重新分配磁盘所有权"]。

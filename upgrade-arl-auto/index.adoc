@@ -29,5 +29,5 @@ summary: '您可以使用 `ssystem controller replace` 命令将运行 ONTAP 9.5
 * 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个 HA 对单独执行操作步骤。
 * 此程序适用于FAS系统和AFF系统。
 * 从ONTAP 9.6开始、此 操作步骤 适用场景 系统运行的是4节点MetroCluster 配置或更高版本。由于 MetroCluster 配置站点可能位于两个物理位置不同的位置，因此对于 HA 对，必须在每个 MetroCluster 站点上单独执行控制器自动升级。
-* 如果要从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。如果您愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+* 如果您从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。如果您愿意执行卷移动，请参阅 link:other-references.html["参考资料"] 以链接到_通过移动卷或存储进行升级_。
 

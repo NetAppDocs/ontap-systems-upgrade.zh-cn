@@ -39,7 +39,7 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 使用 node4 平台的《安装和设置说明》、相应的磁盘架文档和《HA 对管理》文档连接以下连接。
 
 +
-参考link:other_references.html["参考资料"]链接到_HA 对管理_。
+请参见link:other-references.html["参考资料"]以链接到 _HA 对管理_。
 
 +
 ** 控制台（远程管理端口）

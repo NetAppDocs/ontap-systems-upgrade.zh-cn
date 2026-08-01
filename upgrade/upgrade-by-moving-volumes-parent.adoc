@@ -50,3 +50,6 @@ summary: 如果通过移动卷进行升级，则需要准备原始节点并将�
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["八个"]link:upgrade-complete-move-volumes.html["完成升级"]
 [role="quick-margin-para"]
 要通过移动卷完成升级操作步骤、请配置服务处理器(Service Processor、SP)、安装新许可证并设置AutoSupport。您可能还需要设置存储或卷加密并配置FC或NCA端口。
+
+.下一步是什么？
+了解通过移动卷进行升级后，link:upgrade-prepare-when-moving-volumes.html["为升级做准备"]。

@@ -17,7 +17,7 @@ summary: '使用升级运行ONTAP 9.8或更高版本的控制器时、验证node
 您必须验证 node1 的物理端口是否正确映射到 node3 上的物理端口。这使 node3 能够在升级后与集群中的其他节点以及网络进行通信。
 
 .关于此任务
-请参见 link:other_references.html["参考资料"] 链接到 _Node_ Hardware Universe 以捕获有关新节点上端口的信息。您将在本节稍后部分使用此信息。
+请参阅 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_，从而获取有关新节点上端口的信息。您将在本节后面使用这些信息。
 
 物理端口布局可能会有所不同，具体视节点的型号而定。当新节点启动时，ONTAP 尝试确定哪些端口应托管集群 LIF，以便自动进入仲裁。
 
@@ -145,7 +145,7 @@ NOTE: 在此操作步骤中， _re-creating VLAN ， ifgrp 和 broadcast domains
 确认 node3 处于仲裁状态并可与 node2 通信后，请确认 node3 上显示了 node1 的 VLAN ，接口组和广播域。此外，验证是否已在其正确的广播域中配置所有 node3 网络端口。
 
 .关于此任务
-有关创建和重新创建 VLAN ，接口组和广播域的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Network Management_ 。
+有关创建和重新创建 VLAN、接口组和广播域的更多信息，请参见 link:other-references.html["参考资料"] 以链接到 _Network Management_。
 
 
 NOTE: 如果要更改AFF A800或AFF C800系统上e0a和e1a集群端口的端口速度、则可能会在速度转换后看到接收到格式错误的数据包。请参见 https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["NetApp错误在线中的错误ID 1570339"^] 和知识库文章 https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["从40GbE转换到100GbE后、在调整端口配置为36的端口上出现CRC错误"^] 以获得指导。

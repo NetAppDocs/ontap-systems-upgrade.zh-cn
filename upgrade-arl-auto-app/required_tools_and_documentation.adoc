@@ -22,7 +22,7 @@ summary: '要使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 �
 * 2 号十字螺丝刀
 
 
-转至 link:other_references.html["参考资料"] 第节以访问此升级所需的参考文档和参考站点列表
+转到 link:other-references.html["参考资料"] 部分以访问此升级所需的参考文档和参考站点列表
 
 .下一步是什么？
 查看所需的工具和文档后，了解 link:guidelines_for_upgrading_controllers_with_arl.html["使用 ARL 升级控制器的指南"]。

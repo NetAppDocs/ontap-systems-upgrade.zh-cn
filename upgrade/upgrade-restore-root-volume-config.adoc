@@ -56,3 +56,6 @@ Override system id? {y|n} [n] y
 
 
 如果控制器升级失败并报告`rlib_port_ipspace_assign`错误消息、则必须还原升级并删除原始系统上用作替代系统上HA端口的网络端口上的LIF。有关详细信息，请参见 link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/FAS_Systems/PANIC_%3A_rlib_port_ipspace_assign%3A_port_e0a_could_not_be_moved_to_HA_ipspace["此知识库文章"^]。
+
+.下一步是什么？
+恢复根卷配置后，link:upgrade-complete.html["完成移动存储升级工作流程"]。

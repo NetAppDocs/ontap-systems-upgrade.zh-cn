@@ -17,7 +17,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动进行 ARL 升�
 您必须确保 node2 上的物理端口正确映射到 node4 上的物理端口。这使 node4 能够在升级后与集群中的其他节点以及与网络进行通信。
 
 .开始之前
-您必须已了解有关新节点上端口的信息，要访问此信息，请参见 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。您可以使用本节后面的信息。
+您必须已经拥有有关新节点上端口的信息，要访问此信息，请参阅 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_。您将在本节后面使用此信息。
 
 node4 的软件配置必须与 node4 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。
 

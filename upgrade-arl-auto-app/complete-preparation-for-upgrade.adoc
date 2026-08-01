@@ -25,9 +25,9 @@ summary: '使用 `ssystem controller replace` 命令升级运行 ONTAP 9.8 或�
 
 如果没有新的许可证密钥，则新控制器可以使用集群中当前已获得许可的功能。但是，在控制器上使用未经许可的功能可能会使您不符合您的许可协议，因此，您应在升级完成后为新控制器安装新的许可证密钥。
 
-请参见 link:other_references.html["参考资料"] 链接到NetApp 支持站点ONTAP _、您可以从中获取新的28个字符的许可证密钥。这些密钥位于 _Software licenses_ 下的 _My Support_ 部分中。如果此站点没有所需的许可证密钥，您可以联系您的 NetApp 销售代表。
+请参阅 link:other-references.html["参考资料"] 以链接到 _NetApp 支持站点_，您可以在其中获取 ONTAP 的新 28 字符许可证密钥。密钥位于 _My Support_ 部分的 _Software licenses_ 下。如果该站点没有您所需的许可证密钥，您可以联系您的 NetApp 销售代表。
 
-有关 ONTAP 许可的详细信息，请参阅 link:other_references.html["参考资料"] 以链接到 _System Administration Reference_。
+有关 ONTAP 许可的详细信息，请参阅 link:other-references.html["参考资料"] 链接到 _System Administration Reference_。
 
 
 

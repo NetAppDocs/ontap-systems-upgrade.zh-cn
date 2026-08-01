@@ -39,7 +39,7 @@ summary: '使用 `ssystem controller replace` 命令对将运行 ONTAP 9.5 的�
 
 
 +
-有关 `storage aggregate relocation start`、 `override-vetoes`和 `override-destination-checks`选项的详细信息，请参见link:other_references.html["参考资料"]以链接到 _ONTAP 9 Command reference_。
+有关 `storage aggregate relocation start`、 `override-vetoes`和 `override-destination-checks`选项的详细信息，请参见link:other-references.html["参考资料"]以链接到 _ONTAP 9 Command reference_。
 
 
 

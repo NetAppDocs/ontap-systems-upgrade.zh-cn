@@ -168,3 +168,6 @@ NOTE: 您不需要提取 `ontap_version_image.tgz` 文件的内容。
 
 
 您将使用目录中的信息 link:upgrade-set-up-new-nodes.html["设置新节点"]。
+
+.下一步是什么？
+准备升级后，link:upgrade-shutdown-remove-original-nodes.html["关闭原始节点"]。

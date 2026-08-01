@@ -127,7 +127,7 @@ High Availability Configured: false
 `cluster show`
 
 +
-由于集群中的节点数可能为偶数，因此一个节点的表决权重会增加一个百分比，称为 epsilon 。请参见 link:other_references.html["参考资料"] 可链接到系统管理参考 _ 以了解详细信息。
+由于在具有偶数个节点的集群中存在平局的可能性，因此一个节点具有称为 epsilon 的额外分数投票权。有关详细信息，请参见 link:other-references.html["参考资料"] 以链接到《系统管理参考》。
 
 +
 [NOTE]

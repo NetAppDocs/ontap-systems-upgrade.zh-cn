@@ -34,7 +34,7 @@ summary: '您可以使用 `ssystem controller replace` 命令重新定位非根�
 * 此程序适用于FAS系统和AFF系统。
 * 此操作步骤适用场景系统运行 4 节点 NetApp MetroCluster 配置或更高版本。由于 MetroCluster 配置站点可以位于两个物理上不同的位置，因此对于 HA 对，必须在每个 MetroCluster 站点上单独执行控制器自动升级。
 * 对于非 MetroCluster 系统，例如 HA 集群， ARL 升级是唯一受支持的操作步骤。
-* 如果要从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+* 如果您从 AFF A320 系统升级，您可以使用卷移动升级控制器硬件或联系技术支持。请参阅 link:other-references.html["参考资料"] 以链接到_通过移动卷或存储进行升级_。
 
 
 .自动执行控制器升级过程

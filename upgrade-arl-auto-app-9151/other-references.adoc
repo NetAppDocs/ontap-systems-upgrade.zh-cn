@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto-app-9151/other_references.html 
+permalink: upgrade-arl-auto-app-9151/other-references.html 
 keywords: other references, documentation, hardware universe, content, documentation center, information 
 summary: '使用命令支持运行ONTAP 9.151或更高版本的控制器升级所需的参考内容和网站 `system controller replace` 。' 
 ---

@@ -55,8 +55,8 @@ NOTE: 在本文档中，原有节点称为_node1_和_node2_，新节点称为_no
 
 * 除了非 MetroCluster 配置之外，这种运行 ONTAP 9.8 及更高版本的操作步骤适用场景光纤 MetroCluster 四节点和八节点配置。
 +
-** 对于运行 ONTAP 9.7 及更早版本的 MetroCluster 配置，请转至 link:other_references.html["参考资料"] 链接到 _ 使用聚合重新定位手动升级运行 ONTAP 9.7 或更早版本的控制器硬件 _ 。
-** 有关 MetroCluster IP 配置以及适用于 Fabric MetroCluster 配置的其他升级选项，请转至 link:other_references.html["参考资料"] 链接到 _RAID MetroCluster 升级和扩展 _ 内容。
+** 对于运行 ONTAP 9.7 及更早版本的 MetroCluster 配置，请转至 link:other-references.html["参考资料"] 以链接至 _Using Aggregate Relocation to Manually Upgrade Controller Hardware Running ONTAP 9.7 or Earlier_。
+** 对于 MetroCluster IP 配置和 Fabric MetroCluster 配置的其他升级选项，请转至 link:other-references.html["参考资料"] 以链接到 _MetroCluster Upgrade and Expansion_ 内容。
 
 
 

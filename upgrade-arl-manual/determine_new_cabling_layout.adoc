@@ -22,7 +22,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动升级 ARL 期�
 .步骤
 使用 _Fabric-Attached MetroCluster 安装和配置 _ 内容，使用八节点 MetroCluster 配置的端口使用情况确定您的交换机类型的布线布局。FC 交换机端口使用情况必须与内容中所述的使用情况匹配，才能使用参考配置文件（ Reference Configuration Files ， RCF ）。
 
-转至 link:other_references.html["参考资料"] 链接到 _Fabric-Attached MetroCluster 安装和配置 _ 内容。
+转至 link:other-references.html["参考资料"] 以链接到 _Fabric-attached MetroCluster Installation and Configuration_ 内容。
 
 
 NOTE: 如果您的环境无法使用 RCF 进行布线，请联系技术支持。如果布线无法使用操作步骤，请勿使用此 RCF 。

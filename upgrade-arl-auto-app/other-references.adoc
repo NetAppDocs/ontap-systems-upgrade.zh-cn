@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-auto/other_references.html 
+permalink: upgrade-arl-auto-app/other-references.html 
 keywords: other references, documentation, hardware universe, content, documentation center, information 
-summary: '使用 `ssystem controller replace` 命令支持将运行 ONTAP 9.5 的控制器升级到 9.7 所需的参考内容和网站。' 
+summary: '使用 `ssystem controller replace` 命令支持运行 ONTAP 9.8 或更高版本的控制器升级所需的参考内容和网站。' 
 ---
 = 参考资料
 :hardbreaks:

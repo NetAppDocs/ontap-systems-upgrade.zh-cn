@@ -35,9 +35,9 @@ link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide
 
 
 ====
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+如果您更喜欢升级控制器硬件的其他方法，并且愿意执行卷移动，请参阅 link:other-references.html["参考资料"] 链接到_通过移动卷或存储进行升级_。
 
-请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。
+请参阅 link:other-references.html["参考资料"] 以链接到 _ONTAP 9 文档中心_，您可以在其中访问 ONTAP 9 产品文档。
 
 
 
@@ -45,11 +45,11 @@ link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide
 == 选择不同的硬件升级程序
 
 * link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)
-* 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+* 如果您更喜欢升级控制器硬件的其他方法，并且愿意执行卷移动，请参阅 link:other-references.html["参考资料"] 链接到_通过移动卷或存储进行升级_。
 
 
 .相关信息
-参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。
+请参阅 link:other-references.html["参考资料"] 以链接到 _ONTAP 9 Documentation_。
 
 .下一步是什么？
 在决定是否使用此 ARL 过程后，link:arl_upgrade_workflow.html["查看 ARL 升级工作流程"]。

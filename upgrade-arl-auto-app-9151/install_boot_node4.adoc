@@ -32,7 +32,7 @@ summary: '升级到 ONTAP 9.15.1 或更高版本中引入的控制器时，使�
 按照 node4 平台的《安装和设置说明》、相应的磁盘架文档和《HA 对管理》中的说明，连接以下连接线。
 
 +
-参考link:other_references.html["参考资料"]链接到_HA 对管理_。
+请参见link:other-references.html["参考资料"]以链接到 _HA 对管理_。
 
 +
 ** 控制台（远程管理端口）

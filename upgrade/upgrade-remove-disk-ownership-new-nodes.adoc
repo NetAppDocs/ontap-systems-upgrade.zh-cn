@@ -100,3 +100,6 @@ This is a disruptive operation and will result in the
 `halt`
 
 
+
+.下一步是什么？
+删除连接到新节点的磁盘的所有权后，link:upgrade-reset-default-configuration-node3-and-node4.html["在新节点上重置默认配置"]。

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
-permalink: upgrade-arl-manual-app/other_references.html 
+permalink: upgrade-arl-manual/other-references.html 
 keywords: other references, documentation, hardware universe, content, documentation center, information 
-summary: 在运行 ONTAP 9.8 或更高版本的控制器上支持手动 ARL 升级所需的参考内容和网站。 
+summary: 在运行 ONTAP 9.7 或更早版本的控制器上支持手动 ARL 升级所需的参考内容和网站。 
 ---
 = 参考资料
 :hardbreaks:

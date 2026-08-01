@@ -59,7 +59,7 @@ NOTE: 等待 node1 拥有的所有非根聚合重新定位到 node2 ，然后再
 
 
 
-有关存储聚合重定位命令的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _Disk and aggregate management with the CLI_ 内容和 _ONTAP 9 Command reference_。
+有关存储聚合重定位命令的详细信息，请参见 link:other-references.html["参考资料"] 链接到 _Disk and aggregate management with the CLI_ 内容和 _ONTAP 9 Command reference_。
 
 |===
 . [[man_relocate_1_2_step4]] 验证所有非根聚合是否均已联机及其在节点 2 上的状态：

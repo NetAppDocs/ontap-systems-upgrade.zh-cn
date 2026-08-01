@@ -139,7 +139,7 @@ node> aggr status -v
 继续执行此操作步骤。
 
 
-NOTE: 在继续之前、您必须将聚合置于脱机状态、然后销毁内部磁盘驱动器上的聚合。请参见 link:other_references.html["参考资料"] 使用 cli_ 内容链接到 _Disk 和聚合管理，以了解有关管理聚合的信息。
+NOTE: 在继续之前，必须将聚合脱机，然后销毁内部磁盘驱动器上的聚合。请参阅 link:other-references.html["参考资料"] 以链接到 _Disk and aggregate management with the CLI_ 内容，了解有关管理聚合的信息。
 
 
 
@@ -147,14 +147,14 @@ NOTE: 在继续之前、您必须将聚合置于脱机状态、然后销毁内�
 继续执行此操作步骤。
 
 
-NOTE: 在继续之前、您必须将卷移动到外部磁盘架、使聚合脱机、然后销毁内部磁盘驱动器上的聚合。请参见 link:other_references.html["参考资料"] 使用 cli_ 内容链接到 _Disk 和聚合管理，以获取有关移动卷的信息。
+NOTE: 在继续之前，必须将卷移动到外部磁盘架，将聚合脱机，然后销毁内部磁盘驱动器上的聚合。有关移动卷的信息，请参阅 link:other-references.html["参考资料"] 以链接到 _Disk and aggregate management with the CLI_ 内容。
 
 
 
-| 包含内部驱动器上的根卷 | 请勿继续使用此操作步骤。您可以参考来升级控制器 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 并使用操作步骤 _ 通过移动卷 _ 在运行集群模式 Data ONTAP 的一对节点上升级控制器硬件。 
+| 包含内部驱动器上的根卷 | 请勿继续此过程。您可以通过参考 link:other-references.html["参考资料"] 链接到 _NetApp 支持站点_，并使用过程_通过移动卷升级运行集群模式 Data ONTAP 的节点对上的控制器硬件_来升级控制器。 
 
 
-| 在内部驱动器上包含非根卷，您不能将这些卷移动到外部存储 | 请勿继续使用此操作步骤。您可以使用操作步骤升级运行集群模式 Data ONTAP 的一对节点上的控制器硬件并移动 volumes_ 来升级控制器。请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ ，您可以在其中访问此操作步骤。 
+| 在内部驱动器上包含非根卷，您不能将这些卷移动到外部存储 | 请勿继续此过程。您可以使用以下过程升级控制器：_Upgrading the controller hardware on a pair of nodes running 集群模式 Data ONTAP by moving volumes_。请参阅 link:other-references.html["参考资料"] 以链接到 _NetApp 支持站点_，您可以在其中访问此过程。 
 |===
 
 

@@ -48,7 +48,7 @@ summary: 在运行 ONTAP 9.8 或更高版本的控制器上手动升级 ARL 期�
 . 按照节点型号的 _Installation and Setup Instructions_中 的说明，在机架中安装 node4 。
 . 【 man_install4_Step4]] 为节点 4 布线，将连接从节点 2 移动到节点 4 。
 +
-以下参考资料可帮助您正确进行缆线连接。转至 link:other_references.html["参考资料"] 以链接到它们。
+以下参考资料可帮助您正确连接电缆。转到link:other-references.html["参考资料"]以链接到这些资料。
 
 +
 ** node4 平台的_安装和设置说明_

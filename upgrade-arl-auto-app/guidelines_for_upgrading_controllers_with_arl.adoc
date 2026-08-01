@@ -23,12 +23,12 @@ summary: '了解是否可以使用 `ssystem controller replace` 命令升级运�
 
 在使用适用于 ONTAP 9.8 或更高版本的 ARL 操作步骤升级一对节点时，您必须验证是否可以对原始控制器和替代控制器执行 ARL 。
 
-您必须检查所有已定义聚合的大小以及原始系统支持的磁盘数。然后，您必须将支持的聚合大小和磁盘数量与新系统支持的聚合大小和磁盘数量进行比较。请参见 link:other_references.html["参考资料"] 链接到可 Hardware Universe 提供此信息的 _SIL_ 。新系统支持的聚合大小和磁盘数必须等于或大于原始系统支持的聚合大小和磁盘数。
+您必须检查原始系统支持的所有已定义聚合的大小和磁盘数量。然后，必须将聚合大小和支持的磁盘数量与新系统支持的聚合大小和磁盘数量进行比较。请参阅 link:other-references.html["参考资料"] 以链接到提供此信息的 _Hardware Universe_。新系统支持的聚合大小和磁盘数量必须大于或等于原始系统支持的聚合大小和磁盘数量。
 
-您必须在集群混用规则中验证在更换原始控制器后，新节点是否可以加入现有节点的集群。有关集群混合规则的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。
+必须在集群混合规则中验证在替换原始控制器时，新节点是否可以成为现有节点集群的一部分。有关集群混合规则的详细信息，请参见 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_。
 
 
-NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A250 ），但没有内部驱动器，请参见 link:other_references.html["参考资料"] 并使用 _aggregate relocation 中的操作步骤手动升级适用于您的 ONTAP 版本的控制器 Hardware_ 内容。
+NOTE: 如果您正在升级支持内部驱动器（例如，FAS2700 或 AFF A250）但没有内部驱动器的系统，请参阅link:other-references.html["参考资料"]并使用 _Aggregate Relocation to Manually Upgrade Controller Hardware_ 内容中适用于您的 ONTAP 版本的过程。
 
 如果您的系统每个节点具有两个以上的集群端口，例如 FAS8080 或 AFF8080 系统，则在开始升级之前，您必须将集群 LIF 迁移并重新设置为每个节点的两个集群端口。如果在每个节点上执行控制器升级时使用两个以上的集群端口，则在升级后，新控制器上可能会缺少集群 LIF 。
 
@@ -50,11 +50,11 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 
 * 更换不支持与原始控制器相连的磁盘架的控制器
 +
-请参见 link:other_references.html["参考资料"] 链接到 _disk_ Hardware Universe 以获取磁盘支持信息。
+请参阅 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_ 获取磁盘支持信息。
 
 * 对于具有内部驱动器的入门级控制器，例如：FAS2750。
 +
-如果要使用内部驱动器升级入门级控制器，请参见 link:other_references.html["参考资料"] 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。
+如果要升级带有内部驱动器的入门级控制器，请参阅 link:other-references.html["参考资料"] 以链接到 _Upgrade by moving volumes or storage_，然后转到操作步骤 _Upgrading a pair of nodes running 集群模式 Data ONTAP by moving volumes_。
 
 
 

@@ -54,3 +54,6 @@ Rebooting to finish wipeconfig request.
 
 . 在启动菜单中输入 8 重新启动节点，在 AUTOBOOT 过程中输入 Ctrl-C，在 LOADER 提示符处停止节点。
 
+
+.下一步是什么？
+在新节点上重置默认配置后，link:upgrade-install-new-nodes.html["安装新节点"]。

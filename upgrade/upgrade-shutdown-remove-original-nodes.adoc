@@ -125,3 +125,6 @@ Use "storage failover modify -node <nodename> -onreboot false" to turn it OFF.
 . 标记并拔下节点 1 和节点 2 上的所有缆线。
 . 卸下包含 node1 和 node2 的机箱。
 
+
+.下一步是什么？
+关闭原始节点后，link:upgrade-remove-disk-ownership-new-nodes.html["移除连接到新节点的磁盘的所有权"]。

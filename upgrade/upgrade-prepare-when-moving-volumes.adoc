@@ -51,4 +51,4 @@ https://library.netapp.com/ecm/ecm_download_file/ECMP1140535["迁移到使用 Ne
 
 
 .下一步是什么？
-link:upgrade-install-and-join-new-nodes-move-vols.html["安装新节点并将其加入集群"]
+准备升级后，link:upgrade-install-and-join-new-nodes-move-vols.html["安装新节点并将它们加入到集群中"]。

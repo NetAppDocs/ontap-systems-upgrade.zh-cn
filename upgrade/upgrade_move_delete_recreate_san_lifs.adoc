@@ -96,4 +96,4 @@ js11      ps0          mixed    LIF1,                   igroup1
 根据集群环境要求，您可以决定创建新的 SAN LIF 或重新创建先前在此操作步骤中删除的 SAN LIF 。您可以使用创建或重新创建 SAN LIF https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/task_creating_network_interfaces.html["创建网络接口"^] 使用 OnCommand ® System Manager_ 文档进行集群管理中的操作步骤。
 
 .下一步是什么？
-link:upgrade-remove-original-nodes.html["从集群中移除原始节点。"]
+移动、删除或创建 SAN LIF 后，link:upgrade-remove-original-nodes.html["从集群中删除原始节点"]。

@@ -24,8 +24,8 @@ summary: '了解是否可以使用 `system controller replace`命令升级到 ON
 在使用此ARL过程升级一对节点之前、请查看以下要求以确保您的配置受支持：
 
 * 验证是否可以对原始控制器和更换用的控制器执行ARL。
-* 检查所有已定义聚合的大小以及原始系统支持的磁盘数。然后、将聚合大小和支持的磁盘数与新系统支持的聚合大小和磁盘数进行比较。请参阅 link:other_references.html["参考资料"] 以链接至可提供此信息的_ Hardware Universe _。新系统支持的聚合大小和磁盘数必须等于或大于原始系统支持的聚合大小和磁盘数。
-* 在集群混用规则中验证更换原始控制器后、新节点是否可以与现有节点一起加入集群。有关集群混用规则的详细信息、请参见 link:other_references.html["参考资料"] 链接到_Data Hardware Universe _。
+* 检查原始系统支持的所有已定义聚合的大小和磁盘数量。然后将聚合大小和支持的磁盘数量与新系统支持的聚合大小和磁盘数量进行比较。请参阅 link:other-references.html["参考资料"] 以链接到提供此信息的 _Hardware Universe_。新系统支持的聚合大小和磁盘数量必须大于或等于原始系统支持的聚合大小和磁盘数量。
+* 在集群混合规则中验证在替换原始控制器时，新节点是否可以与现有节点一起成为集群的一部分。有关集群混合规则的详细信息，请参见 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_。
 * 如果您的系统(例如AFF 700)具有以下配置、请将集群LUN迁移并重新归位到每个节点的两个集群端口：
 * 每个节点两个以上的集群端口
 * 以分支模式在插槽4中创建集群互连卡、用于创建端口e4a、e4b、e4c和e4D以及端口e4e、 e4f、e4g和e4h
@@ -54,9 +54,9 @@ NOTE: 如果执行控制器升级时每个节点的集群端口数超过两个�
 
 您不能升级不支持连接到原始控制器的磁盘架的替代控制器。
 
-请参见 link:other_references.html["参考资料"] 链接到 _disk_ Hardware Universe 以获取磁盘支持信息。
+请参阅 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_ 获取磁盘支持信息。
 
-如果要升级具有内部驱动器的入门级控制器、请参见 link:other_references.html["参考资料"] 链接到_Upgrade by Moving volumes_、然后转到过程_Upgrading a pair of running集群模式Data ONTAP by Moving volumes_。
+如果要升级带有内部驱动器的入门级控制器，请参阅 link:other-references.html["参考资料"] 以链接到 _Upgrade by moving volumes or storage_，然后转到操作步骤 _Upgrading a pair of nodes running clustered Data ONTAP by moving volumes_。
 
 
 

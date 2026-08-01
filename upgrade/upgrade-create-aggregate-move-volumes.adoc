@@ -114,4 +114,4 @@ NOTE: 如果您的存储配置包含已启用加密的卷、请按照中的步�
 
 
 .下一步是什么？
-link:upgrade-move-lifs-to-new-nodes.html["将非SAN数据LUN和集群管理LUN移动到新节点"]
+创建聚合并将卷移动到新节点后，link:upgrade-move-lifs-to-new-nodes.html["将非 SAN 数据 LIF 和集群管理 LIF 移动到新节点"]。

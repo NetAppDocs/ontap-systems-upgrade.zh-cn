@@ -167,7 +167,7 @@ NOTE: `event log show`命令可列出已发生的任何错误。
 
 
 
-有关存储聚合重定位命令的详细信息，请转到 link:other_references.html["参考资料"] 链接到 _使用 CLI 进行磁盘和聚合管理_ 和 _ONTAP 9 命令参考_。
+有关存储聚合重定位命令的详细信息，请转到 link:other-references.html["参考资料"] 链接到 _使用 CLI 进行磁盘和聚合管理_ 和 _ONTAP 9 命令参考_。
 
 |===
 . 【 man_relocate_2_3_step8]] 验证 node3 上的所有非根聚合是否联机：

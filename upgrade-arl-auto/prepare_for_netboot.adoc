@@ -18,7 +18,7 @@ summary: '使用 `ssystem controller replace` 命令将运行 ONTAP 9.5 的控�
 
 .开始之前
 * 确认您可以使用系统访问 HTTP 服务器。
-* 请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 并下载适用于您的平台和正确版本的 ONTAP 的必要系统文件。
+* 请参阅 link:other-references.html["参考资料"] 以链接到 _NetApp 支持站点_，并下载适用于您的平台和正确版本的 ONTAP 所需的系统文件。
 
 
 .关于此任务

@@ -23,15 +23,15 @@ summary: '了解是否可以使用 `ssystem controller replace` 命令将运行 
 
 在使用适用于 ONTAP 9.5 的 ARL 操作步骤将一对节点升级到 ONTAP 9.7 时，您必须验证是否可以对原始控制器和替代控制器执行 ARL 。
 
-您应检查所有已定义聚合的大小以及原始系统支持的磁盘数。然后，您必须将支持的聚合大小和磁盘数量与新系统支持的聚合大小和磁盘数量进行比较。请参见 link:other_references.html["参考资料"] 链接到可 Hardware Universe 提供此信息的 _SIL_ 。新系统支持的聚合大小和磁盘数必须等于或大于原始系统支持的聚合大小和磁盘数。
+应检查原始系统支持的所有已定义聚合的大小和磁盘数量。然后，必须将聚合大小和支持的磁盘数量与新系统支持的聚合大小和磁盘数量进行比较。请参阅 link:other-references.html["参考资料"] 以链接到提供此信息的 _Hardware Universe_。新系统支持的聚合大小和磁盘数量必须大于或等于原始系统支持的聚合大小和磁盘数量。
 
-您应在集群混用规则中验证在更换原始控制器后，新节点是否可以成为现有节点集群的一部分。有关集群混合规则的详细信息，请参见 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。
+在更换原控制器时，应在集群混合规则中验证新节点是否可以成为现有节点集群的一部分。有关集群混合规则的详细信息，请参见 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_。
 
 
 NOTE: 在执行 AFF 系统升级之前，您必须将 ONTAP 升级到版本 9.5P1 或更高版本。要成功升级，需要这些版本级别。
 
 
-NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A250 ），但没有内部驱动器，请参见 link:other_references.html["参考资料"] 并使用 _aggregate relocation 中的操作步骤手动升级适用于您的 ONTAP 版本的控制器 Hardware_ 内容。
+NOTE: 如果您正在升级支持内部驱动器（例如，FAS2700 或 AFF A250）但没有内部驱动器的系统，请参阅link:other-references.html["参考资料"]并使用 _Aggregate Relocation to Manually Upgrade Controller Hardware_ 内容中适用于您的 ONTAP 版本的过程。
 
 如果您使用的是 ONTAP 9.6P11 ， 9.7P8 或更高版本，建议启用连接，实时性和可用性监控（ ，简称 " 状态监控 " ）接管，以便在发生某些节点故障时将集群恢复为仲裁状态。`kernel-service` 命令需要高级权限级别访问。有关详细信息，请参见 https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU436["NetApp 知识库文章 SU436 ： CLAMK takeover default configuration changed"^]。
 
@@ -53,11 +53,11 @@ NOTE: 如果要升级的系统支持内部驱动器（例如 FAS2700 或 AFF A25
 
 * 更换不支持与原始控制器相连的磁盘架的控制器
 +
-请参见 link:other_references.html["参考资料"] 链接到 _disk_ Hardware Universe 以获取磁盘支持信息。
+请参阅 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_ 获取磁盘支持信息。
 
 * 对于具有内部驱动器的入门级控制器，例如：FAS2750。
 +
-如果要使用内部驱动器升级入门级控制器，请参见 link:other_references.html["参考资料"] 要链接到 _Upgrade by moving volumes or storage_ 并转到操作步骤 _upgrading a pair of nodes running candlused_by Data ONTAP moving volumes_ 。
+如果要升级带有内部驱动器的入门级控制器，请参阅 link:other-references.html["参考资料"] 以链接到 _Upgrade by moving volumes or storage_，然后转到操作步骤 _Upgrading a pair of nodes running 集群模式 Data ONTAP by moving volumes_。
 
 
 

@@ -22,7 +22,7 @@ summary: 要对运行 ONTAP 9.8 或更高版本的控制器执行手动 ARL 升�
 * 2 号十字螺丝刀
 
 
-转至 link:other_references.html["参考资料"] 部分，以访问此升级所需的参考文档列表。
+转到 link:other-references.html["参考资料"] 部分以访问此升级所需的参考文档列表。
 
 .下一步是什么？
 在查看所需的工具和文档后，link:worksheet_information_before_during_upgrade.html["记录原始节点信息以供升级期间使用"]。

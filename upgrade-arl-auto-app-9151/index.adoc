@@ -17,7 +17,7 @@ summary: '您可以使用命令升级运行ONTAP 9.151或更高版本的控制�
 有几种用于升级控制器硬件的聚合重定位（ARL）方法。此 ARL 过程描述了如何在 ONTAP 9.15.1 或更高版本中引入的 AFF 和 FAS 存储系统中使用新控制器升级 HA 对控制器，同时保留现有磁盘和存储在磁盘上的数据。
 
 
-NOTE: 您不能使用此过程升级MetroCluster FC或IP配置。要升级MetroCluster配置、请参见 link:other_references.html["参考资料"] 以链接到_ MetroCluster升级和扩展文档_。
+NOTE: 您不能使用此过程升级 MetroCluster FC 或 IP 配置。要升级 MetroCluster 配置，请参阅 link:other-references.html["参考资料"] 以链接到 _MetroCluster Upgrade and Expansion documentation_。
 
 在操作步骤期间，您可以使用替代控制器硬件升级原始控制器硬件，从而重新定位非根聚合的所有权。您可以在节点之间多次迁移聚合，以确认在整个升级操作步骤 中至少有一个节点正在从聚合提供数据。您还可以迁移数据逻辑接口（ LIF ），并在继续操作时将新控制器上的网络端口分配给接口组。
 

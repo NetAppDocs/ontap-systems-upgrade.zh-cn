@@ -12,6 +12,6 @@ link:../upgrade-arl-auto-in-chassis/decide-to-use-the-aggregate-relocation-guide
 
 
 ====
-如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+如果您更喜欢升级控制器硬件的其他方法，并且愿意执行卷移动，请参阅 link:other-references.html["参考资料"] 链接到_通过移动卷或存储进行升级_。
 
-请参见 link:other_references.html["参考资料"] 可链接到 _ONTAP 9 文档中心 _ ，在此可以访问 ONTAP 9 产品文档。
+请参阅 link:other-references.html["参考资料"] 以链接到 _ONTAP 9 文档中心_，您可以在其中访问 ONTAP 9 产品文档。

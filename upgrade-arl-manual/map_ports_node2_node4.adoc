@@ -17,7 +17,7 @@ summary: 在运行 ONTAP 9.7 或更早版本的控制器上手动进行 ARL 升�
 node2 上的物理端口必须正确映射到 node4 上的物理端口。这允许 node4 在升级后与集群中的其他节点以及网络进行通信。
 
 .开始之前
-您必须已了解有关新节点上端口的信息，要访问此信息，请参见 link:other_references.html["参考资料"] 链接到 _SIL_ Hardware Universe 。您可以使用本节后面的信息。
+您必须已经拥有有关新节点上端口的信息，要访问此信息，请参阅 link:other-references.html["参考资料"] 以链接到 _Hardware Universe_。您将在本节后面使用此信息。
 
 node4 的软件配置必须与 node4 的物理连接匹配，并且必须先还原 IP 连接，然后才能继续升级。
 
@@ -216,7 +216,7 @@ command failed: This operation is not permitted on a Vserver that is configured 
 `network interface modify -vserver node4 -lif data1 failover-policy broadcast-domain-wide -failover-group fg1`
 
 +
-有关详细信息，请参见 link:other_references.html["参考资料"] to link to _Network Management_ 或 _ONTAP 9 Command reference_，并转到 _Configuring failover settings on a LIF_。
+有关详细信息，请参见 link:other-references.html["参考资料"] to link to _Network Management_ 或 _ONTAP 9 Command reference_，并转到 _Configuring failover settings on a LIF_。
 
 . 验证 node4 上的更改：
 +

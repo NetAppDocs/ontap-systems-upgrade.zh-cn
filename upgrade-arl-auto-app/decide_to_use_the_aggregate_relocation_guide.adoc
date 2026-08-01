@@ -23,7 +23,7 @@ summary: '使用 `ssystem controller replace` 命令确定是否使用 ARL 升�
 * 您在管理ONTAP方面经验丰富、并且可以承受在诊断权限模式下工作的风险。
 * 如果要升级MetroCluster配置、则该配置为四节点或更高FC配置、并且所有节点都运行ONTAP 9.8或更高版本。
 +
-有关升级MetroCluster IP配置的信息、请参阅link:other_references.html["参考资料"]链接至_ MetroCluster升级和扩展_。
+有关升级 MetroCluster IP 配置，请参见 link:other-references.html["参考资料"] 以链接到 _MetroCluster Upgrade and Expansion_。
 
 
 
@@ -138,11 +138,11 @@ NOTE: 如果您的控制器升级型号组合不在上表中、请联系技术�
 == 选择不同的硬件升级程序
 
 * link:../upgrade-arl/index.html["查看可用于升级控制器硬件的替代 ARL 方法"](英文)
-* 如果您希望使用其他方法升级控制器硬件并愿意执行卷移动，请参见 link:other_references.html["参考资料"] 通过移动卷或存储链接到 _Upgrade 。
+* 如果您更喜欢升级控制器硬件的其他方法，并且愿意执行卷移动，请参阅 link:other-references.html["参考资料"] 链接到_通过移动卷或存储进行升级_。
 
 
 .相关信息
-参考link:other_references.html["参考资料"]链接到_ONTAP 9 文档_。
+请参阅 link:other-references.html["参考资料"] 以链接到 _ONTAP 9 Documentation_。
 
 .下一步是什么？
 在决定是否使用此 ARL 程序之后，了解 link:required_tools_and_documentation.html["所需的工具和文档"]。

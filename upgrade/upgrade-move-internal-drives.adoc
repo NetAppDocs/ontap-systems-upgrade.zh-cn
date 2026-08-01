@@ -51,3 +51,6 @@ NOTE: 插入托架时，请用双手。
 
 . 重复 <<move_int_drive_2,第 2 步>> 到 <<move_int_drive_5,第 5 步>> 要移至新系统的所有驱动器。
 
+
+.下一步是什么？
+从原始节点移动内部驱动器后，link:upgrade-attach-shelves-reassign-disks.html["连接存储架并重新分配磁盘所有权"]。

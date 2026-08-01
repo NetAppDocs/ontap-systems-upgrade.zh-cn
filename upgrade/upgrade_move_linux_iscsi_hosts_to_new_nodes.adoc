@@ -498,4 +498,4 @@ multipath -ll -d
 
 
 .下一步是什么？
-link:upgrade-create-aggregate-move-volumes.html["创建聚合并将卷移动到新节点"]
+将 Linux iSCSI 主机移动到新节点后，link:upgrade-create-aggregate-move-volumes.html["创建聚合并将卷移动到新节点"]。

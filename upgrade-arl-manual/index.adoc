@@ -33,5 +33,5 @@ NOTE: 在本文档中，原有节点称为_node1_和_node2_，新节点称为_no
 * 您可以使用此操作步骤升级具有两个以上节点的集群中的控制器硬件；但是，您需要为集群中的每个高可用性（ HA ）对单独执行操作步骤。
 
 
-* 此操作步骤适用场景 MetroCluster 四节点和八节点配置运行 ONTAP 9.5 及更早版本。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 link:other_references.html["参考资料"] 链接到_使用system controller Replace命令将运行ONTAP 9.5的控制器硬件升级到ONTAP 9.7_。
+* 此过程适用于运行 ONTAP 9.5 及更低版本的 MetroCluster 四节点和八节点配置。对于运行 ONTAP 9.6 及更高版本的 MetroCluster 配置，请转至 link:other-references.html["参考资料"] 以链接到 _Using "system controller replace" Commands to Upgrade Controller Hardware Running ONTAP 9.5 to ONTAP 9.7_。
 

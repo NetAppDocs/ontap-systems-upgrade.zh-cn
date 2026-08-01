@@ -121,3 +121,6 @@ link:https://docs.netapp.com/us-en/ontap/san-admin/index.html["使用 CLI 进行
 系统将停留在 LOADER 提示符处。
 
 
+
+.下一步是什么？
+设置新节点后，可选择link:upgrade-move-internal-drives.html["从原始节点移动内部驱动器"]或link:upgrade-convert-node-to-shelf.html["将原始节点转换为驱动器架"]。然后，link:upgrade-attach-shelves-reassign-disks.html["连接存储架并重新分配磁盘所有权"]。

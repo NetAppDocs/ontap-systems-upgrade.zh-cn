@@ -26,3 +26,6 @@ summary: 通过移动存储进行升级时，首先要安装 node3 和 node4 ，
 这包括不用于连接存储架的光纤通道和以太网缆线。
 
 
+
+.下一步是什么？
+安装新节点后，link:upgrade-set-up-new-nodes.html["设置新节点"]。

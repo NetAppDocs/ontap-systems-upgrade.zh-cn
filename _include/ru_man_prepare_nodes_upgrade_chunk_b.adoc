@@ -170,7 +170,7 @@ node1         node1         in-quorum     true          operational
 2 entries were displayed.
 ....
 +
-如果大多数节点运行状况良好，并且可以彼此通信，则集群中的节点将处于仲裁状态。有关详细信息，请参见 link:other_references.html["参考资料"] 链接到系统管理参考。
+当大多数节点处于正常状态且能够相互通信时，集群中的节点处于仲裁状态。有关详细信息，请参阅 link:other-references.html["参考资料"] 以链接到 _System Administration Reference_。
 
 . 返回到管理权限级别：
 +
@@ -260,7 +260,7 @@ node2   0d      fc      initiator -       -         online
 . 确认已配置 SP 网络。
 . 记录 IP 地址和有关 SP 的其他信息。
 +
-您可能希望将远程管理设备（在本例中为 SP）的网络参数从原始系统中重新用于新节点上的 SP。有关 SP 的详细信息，请参阅 link:other_references.html["参考资料"] 链接到 _System Administration Reference_ 和 _ONTAP 9 Command reference_。
+您可能希望将远程管理设备（在本例中为 SP）的网络参数从原始系统中重新用于新节点上的 SP。有关 SP 的详细信息，请参阅 link:other-references.html["参考资料"] 链接到 _System Administration Reference_ 和 _ONTAP 9 Command reference_。
 
 +
 .. [[man_prepare_nodes_step29]]如果您希望新节点具有与原始节点相同的许可功能，请输入以下命令查看原始系统上的集群许可证：
@@ -286,7 +286,7 @@ FlexClone         site    FlexClone License     -
 SnapVault         site    SnapVault License     -
 6 entries were displayed.
 ....
-.. 在 _NetApp 支持站点 _ 为新节点获取新许可证密钥。请参见 link:other_references.html["参考资料"] 链接到 _NetApp 支持站点 _ 。
+.. 在 NetApp 支持站点获取新节点的新许可证密钥。请参阅 link:other-references.html["参考资料"] 以链接到 NetApp 支持站点。
 +
 如果此站点没有所需的许可证密钥，请联系您的 NetApp 销售代表。
 
@@ -321,7 +321,7 @@ node2            enable    Postmaster    -                 mailhost
 
 
 | 未启用 AutoSupport ...  a| 
-按照 _System 管理参考 _ 中的说明启用 AutoSupport 。请参见 link:other_references.html["参考资料"] 链接到系统管理参考。）
+按照_系统管理参考_中的说明启用 AutoSupport。（请参阅 link:other-references.html["参考资料"] 以链接到_系统管理参考_。）
 
 * 注意： * 首次配置存储系统时，默认情况下会启用 AutoSupport 。尽管您可以随时禁用 AutoSupport ，但应保持启用状态。启用 AutoSupport 可以显著帮助您确定问题，并在存储系统出现问题时提供解决方案。
 
@@ -331,7 +331,7 @@ node2            enable    Postmaster    -                 mailhost
 `ssystem node AutoSupport show -node node_name -instance`
 
 +
-有关 AutoSupport 的详细信息，请参阅 link:other_references.html["参考资料"] 以链接到 _System Administration Reference_ 和 _ONTAP 9 Command reference_。
+有关 AutoSupport 的详细信息，请参阅 link:other-references.html["参考资料"] 以链接到 _System Administration Reference_ 和 _ONTAP 9 Command reference_。
 
 .. [[man_prepare_nodes_step35 ，步骤 35]] 输入以下命令向 NetApp 发送 node1 的 AutoSupport 消息：
 +
