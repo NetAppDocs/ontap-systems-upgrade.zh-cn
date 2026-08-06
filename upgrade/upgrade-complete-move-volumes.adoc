@@ -2,7 +2,7 @@
 permalink: upgrade/upgrade-complete-move-volumes.html 
 sidebar: sidebar 
 keywords: complete, procedure, upgrading, upgrade, move, moving, volume, configure, service, processor, sp, license, autosupport, storage, encryption, fc, nca, port, complete the upgrade 
-summary: 要通过移动卷完成操作步骤升级，您需要配置服务处理器 \ （ SP\ ），安装新许可证并设置 AutoSupport 。您可能还需要设置存储或卷加密并配置 FC 或 NCA 端口。 
+summary: '要通过移动卷完成升级过程，需要配置服务处理器 (SP)、安装新许可证并设置 AutoSupport。您可能还需要设置存储或卷加密并配置 FC 或 NCA 端口。' 
 ---
 = 完成移动卷升级
 :allow-uri-read: 

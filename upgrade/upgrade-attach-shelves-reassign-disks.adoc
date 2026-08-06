@@ -47,10 +47,7 @@ Local System ID: 101268854
 +
 记录 node3 的系统 ID，以便在 <<reassign-disks-and-aggregates,第 5 步>> 中使用。
 
-
-
-[[reassign-disks-and-aggregates]]
-. 重新分配磁盘和数据聚合：
+. [[reassign-disks-and-aggregates]]重新分配磁盘和数据聚合：
 +
 [role="tabbed-block"]
 ====
