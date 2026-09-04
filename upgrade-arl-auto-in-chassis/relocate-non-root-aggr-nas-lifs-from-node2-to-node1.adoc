@@ -35,7 +35,7 @@ summary: 使用ARL升级同一机箱中的控制器型号时、将node2的非根
 +
 [listing]
 ----
-cluster::> storage aggregate show -node node1 state online -root false
+cluster::> storage aggregate show -node node1 -state online -root false
 
 Aggregate     Size        Available   Used%   State	  #Vols	 Nodes	 RAID	  Status
 ----------    ---------   ---------   ------  -----   -----  ------  -------  ------

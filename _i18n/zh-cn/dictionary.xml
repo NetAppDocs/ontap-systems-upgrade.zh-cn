@@ -3482,7 +3482,6 @@
   <block id="1cb0cfe1b06273ad55b3f7189d138bb6" category="paragraph">此操作步骤提供了自动化操作步骤的步骤、该步骤使用自动磁盘分配和网络端口可访问性检查来简化控制器升级体验。</block>
   <block id="7903419bce057c444e1bce59010158ec" category="paragraph">在交换相应的更换系统模块后、您必须使用netboot node1。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您需要将ONTAP 9启动映像的副本添加到系统可以访问的Web服务器上。</block>
   <block id="aeadb581bc234293016c883a2bc49cc9" category="paragraph">要停用node1、您需要恢复自动操作、以便使用node2禁用HA对并正确关闭node1。</block>
-  <block id="656030f2bc1d7ad32243a38c007d0770" category="paragraph">使用替代系统模块启动node1后、您需要验证其是否已正确安装。您必须等待node2加入仲裁、然后恢复控制器更换操作。</block>
   <block id="fc654fff4abe048148189ff6fa5e3c9c" category="paragraph">要确认设置是否正确、请验证是否已启用HA对。您还需要验证node1和node2是否可以访问彼此的存储、并且它们都不拥有属于集群中其他节点的数据生命周期。此外、您还需要验证所有数据聚合是否位于其正确的主节点上、以及两个节点的卷是否联机。如果其中一个新节点具有统一目标适配器，则必须还原任何端口配置，并且可能需要更改此适配器的使用。</block>
   <block id="37e06fbb743ab1c1935f7d96672ee924" category="paragraph">在交换相应的替换node2系统模块后、您可能需要通过网络启动它们。术语 netboot 表示从远程服务器上存储的 ONTAP 映像启动。准备网络启动时、您会将ONTAP 9启动映像的副本放置到系统可以访问的Web服务器上。</block>
   <block id="c6c7619b1c0744976ce686ab06900424" category="paragraph">在第1阶段、您需要验证是否具有用于升级的正确硬件、并运行预检、如果需要、还需要正确的聚合所有权。如果您要使用板载密钥管理器管理存储加密、并且可以选择将SnapMirror关系静置、则必须记录某些信息。</block>
@@ -5591,4 +5590,5 @@
   <block id="298812a1d89c69933bb37fd82a6a5814" category="summary">在运行 ONTAP 9.7 或更早版本的控制器上进行手动 ARL 升级期间，配置 node4 板载 FC 端口、UTA 和 UTA2 端口或 UTA 和 UTA2 卡。</block>
   <block id="db5d818f482843c95ffb191e7d48c35e" category="summary">在运行 ONTAP 9.8 或更高版本的控制器上进行手动 ARL 升级期间，配置 node4 板载 FC 端口、UTA 和 UTA2 端口或 UTA 和 UTA2 卡。</block>
   <block id="1d1d3bd3fe7acd738c89cf279d744e1b" category="sidebar">替换 node1 系统模块</block>
+  <block id="61a8342f8a44813141884475de4e2a3c" category="paragraph">使用更换系统模块启动 node2 后，请验证其安装是否正确。您必须等待 node2 加入仲裁，然后恢复控制器更换操作。</block>
 </blocks>
