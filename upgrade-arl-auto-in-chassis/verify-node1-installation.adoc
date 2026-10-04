@@ -48,19 +48,19 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请验证node1与
 --
 如果 node1 没有自动加入仲裁：
 
-.. 检查端口 e1a 和 e1b 的 IP 空间：
+.. link:https://docs.netapp.com/us-en/ontap-systems/index.html["验证 node1 集群端口"^]，然后检查 node1 集群端口的 IPspace：
 +
 `network port show`
 
-.. 如果 IP 空间不是“集群”，请在 e1a 和 e1b 上将 IP 空间更改为“集群”：
+.. 如果 IPspace 不是“Cluster”，则在 node1 集群端口上将 IPspace 更改为“Cluster”：
 +
 `network port modify -node <node_name> -port <port> -ipspace Cluster`
 
-.. 验证端口 e1a 和 e1b 的 IP 空间是否为“集群”：
+.. 验证 node1 集群端口的 IPspace 是否为“Cluster”：
 +
 `network port show`
 
-.. 将节点 1 集群 LIF 迁移到 e1a 和 e1b：
+.. 将 node1 集群 LIF 迁移到 node1 集群端口：
 +
 `network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node1_name> -destination-port <port_name>`
 

@@ -46,21 +46,21 @@ summary: 使用ARL升级同一机箱中的控制器型号时、请使用更换�
 --
 如果 node2 没有自动加入仲裁：
 
-.. 检查端口 e1a 和 e1b 的 IP 空间：
+.. link:https://docs.netapp.com/us-en/ontap-systems/index.html["验证 node2 集群端口"^]，然后检查 node2 集群端口的 IP 空间：
 +
 `network port show`
 
-.. 如果 IP 空间不是“集群”，请在 e1a 和 e1b 上将 IP 空间更改为“集群”：
+.. 如果 IPspace 不是“Cluster”，则在 node2 集群端口上将 IPspace 更改为“Cluster”：
 +
 `network port modify -node <node_name> -port <port> -ipspace Cluster`
 
-.. 验证端口 e1a 和 e1b 的 IP 空间是否为“集群”：
+.. 验证 node2 集群端口的 IP 空间是否为“Cluster”：
 +
 `network port show`
 
-.. 将节点 2 集群 LIF 迁移到 e1a 和 e1b：
+.. 将 node2 集群 LIF 迁移到 node2 集群端口：
 +
-`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node2_name> -destination-port <port_name`
+`network interface migrate -vserver Cluster -lif <cluster_lif1> -destination-node <node2_name> -destination-port <port_name>`
 
 
 
@@ -107,7 +107,7 @@ AFF A50、AFF A30、AFF C30 和 AFF C60 系统共享集群和 HA 端口。您可
 
 .. 验证只有集群端口 e4a、e2a 或 e4a、e4b 位于“集群”广播域中
 +
-`broadcast domain show`
+`network port broadcast-domain show`
 
 .. 移除 e1a 节点 1 和 e1a 节点 2 以及 e1b 节点 1 和 e1b 节点 2 之间的电缆连接，以确保仅使用有效的集群 HA 连接并且没有冗余连接。
 
